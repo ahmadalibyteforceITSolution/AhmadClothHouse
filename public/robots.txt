@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /favorites
+Disallow: /admin/
+Disallow: /reset-password/
+
+Sitemap: https://shop.bytely.ai/sitemap.xml

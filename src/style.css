@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@theme {
+  --color-primary-gold: #B8860B;
+  --color-deep-burgundy: #4A0E0E;
+  --color-luxury-cream: #FDFBF7;
+  --color-luxury-black: #1A1A1A;
+  --color-amber-400: #B8860B;
+  --color-amber-500: #8B6508;
+  --color-amber-600: #735307;
+}
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-gold: #B8860B; /* Muted Luxurious Gold (Maria B) */
+  --deep-burgundy: #4A0E0E; /* Deep Royal Maroon */
+  --luxury-cream: #FDFBF7; /* Elegant Off-White */
+  --luxury-black: #1A1A1A; /* Soft Black for text */
+  --accent-maroon: #2D0808;
+  --bg-light: #FFFFFF;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.body {
+  background-color: var(--bg-light);
+  color: var(--luxury-black);
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.dark .body {
+  background-color: #0A0A0A;
+  color: #F5F5F5;
+}
+
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Maria B & Warda Inspired Patterns */
+.bg-damask {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.03'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .bg-damask {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.05'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Global Typography Refinement */
+h1, h2, h3, h4, .font-luxury {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  @apply text-3xl md:text-5xl font-light text-center mb-12 uppercase tracking-[0.2em];
+  color: var(--luxury-black);
+}
+
+.dark .section-title {
+  color: #F5F5F5;
+}
+
+.btn-premium {
+  @apply px-8 py-3 bg-[var(--deep-burgundy)] text-white uppercase tracking-[0.2em] text-xs font-bold transition-all duration-500 hover:bg-[var(--accent-maroon)] hover:shadow-xl active:scale-95 disabled:opacity-50;
+}
+
+.btn-outline-gold {
+  @apply px-8 py-3 border border-[var(--primary-gold)] text-[var(--primary-gold)] uppercase tracking-[0.2em] text-xs font-bold transition-all duration-500 hover:bg-[var(--primary-gold)] hover:text-white;
+}
+
+/* Luxury Input */
+.input-premium {
+  @apply w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[var(--primary-gold)] transition-colors duration-300;
+}
+
+.dark .input-premium {
+  @apply bg-black/40 border-white/10 text-white;
+}
+
+/* Luxury Card Shadow */
+.luxury-shadow {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+}
+
+.dark .luxury-shadow {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+}
+
+.luxury-banner {
+  background: var(--deep-burgundy);
+  color: white;
+}
+
+.dark .luxury-banner {
+  background: #1A0000;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+  font-size: 10px !important; /* Slightly smaller for better fit */
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  display: flex !important;
+  align-items: center !important;
+  color: #d4af37 !important; /* Premium gold color */
+  cursor: pointer !important;
+  height: 100% !important;
+  padding: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.goog-te-gadget-simple span {
+  color: #d4af37 !important; /* Force color on all spans inside */
+}
+
+.goog-te-gadget-simple img {
+  display: none !important;
+}
+
+.goog-te-menu-value {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.goog-te-menu-value span:first-child {
+  color: #fff !important; /* Selected language text white */
+  font-weight: 900 !important;
+}
+
+.goog-te-menu-value span:nth-child(2) {
+  display: none !important; /* Hide the vertical separator */
+}
+
+.goog-te-menu-value span:nth-child(3) {
+  display: none !important; /* Hide "Select Language" text */
+}
+
+.goog-te-menu-value span:nth-child(4) {
+  display: none !important; /* Hide the arrow if it's there */
+}
+
+/* Custom Dropdown Arrow */
+.goog-te-menu-value::after {
+  content: '\f0d7';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 10px;
+  color: #d4af37;
+  margin-left: 4px;
+}
+
+#google_translate_element:hover .goog-te-menu-value::after {
+  color: #fff;
+  transform: translateY(1px);
+}
+
+/* Dropdown Menu Styling */
+.goog-te-menu-frame,
+iframe.goog-te-menu-frame,
+.goog-te-menu2-container,
+.goog-te-menu-frame.skiptranslate,
+[id^=":0.targetLanguage"],
+[id^=":1.targetLanguage"],
+[id^=":2.targetLanguage"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  background: #0a0a0a !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}
+
+.goog-te-menu2 {
+  background-color: #0a0a0a !important;
+  border: none !important;
+  padding: 10px !important;
+  border-radius: 12px !important;
+  overflow: visible !important;
+}
+
+.goog-te-menu2-item div, 
+.goog-te-menu2-item:link div, 
+.goog-te-menu2-item:visited div, 
+.goog-te-menu2-item:active div {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: transparent !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.goog-te-menu2-item:hover div {
+  color: #000 !important;
+  background-color: #d4af37 !important;
+  font-weight: 700 !important;
+}
+
+.goog-te-menu2-item-selected div {
+  color: #000 !important;
+  background-color: #d4af37 !important;
+  font-weight: 700 !important;
+}
+
+/* Hide Google Translate Banner & Floating Widgets */
+.goog-te-banner-frame.skiptranslate, 
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-gadget-icon,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  #google_translate_element {
+    min-width: 100px !important;
+    margin-right: 4px;
+  }
+}
