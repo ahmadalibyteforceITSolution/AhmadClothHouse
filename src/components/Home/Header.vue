@@ -66,34 +66,39 @@
             <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
           </button>
 
-          <!-- User (Desktop Dropdown) -->
-          <div v-if="auth.isAuthenticated" class="relative group hidden lg:block">
-            <button class="icon-btn">
-              <font-awesome-icon icon="fa-solid fa-user" />
-            </button>
-            <div class="dropdown-menu right-0 w-64">
-              <div class="px-5 py-4 border-b border-black/5">
-                <p class="text-[9px] uppercase tracking-widest opacity-50 mb-1">Signed in as</p>
-                <p class="text-xs font-semibold truncate text-[var(--luxury-black)]">{{ auth.user?.email }}</p>
-              </div>
-              <div class="p-2">
-                <router-link v-if="auth.isAdmin" to="/admin/dashboard" class="dropdown-item">
-                  Admin Dashboard
-                </router-link>
-                <router-link v-else to="/dashboard" class="dropdown-item">
-                  My Account
-                </router-link>
-                <button @click="handleLogout" class="dropdown-item text-rose-600">
-                  Sign Out
-                </button>
+          <!-- User Account Actions -->
+          <template v-if="auth.isAuthenticated">
+            <!-- User (Desktop Dropdown) -->
+            <div class="relative group hidden lg:block">
+              <button class="icon-btn">
+                <font-awesome-icon icon="fa-solid fa-user" />
+              </button>
+              <div class="dropdown-menu right-0 w-64">
+                <div class="px-5 py-4 border-b border-black/5">
+                  <p class="text-[9px] uppercase tracking-widest opacity-50 mb-1">Signed in as</p>
+                  <p class="text-xs font-semibold truncate text-[var(--luxury-black)]">{{ auth.user?.email }}</p>
+                </div>
+                <div class="p-2">
+                  <router-link v-if="auth.isAdmin" to="/admin/dashboard" class="dropdown-item">
+                    Admin Dashboard
+                  </router-link>
+                  <router-link v-else to="/dashboard" class="dropdown-item">
+                    My Account
+                  </router-link>
+                  <button @click="handleLogout" class="dropdown-item text-rose-600">
+                    Sign Out
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- User Icon (Mobile - opens drawer) -->
-          <button v-if="auth.isAuthenticated" @click="isMenuOpen = true" class="icon-btn lg:hidden" aria-label="Account">
-            <font-awesome-icon icon="fa-solid fa-user" />
-          </button>
+            <!-- User Icon (Mobile - opens drawer) -->
+            <div class="lg:hidden">
+              <button @click="isMenuOpen = true" class="icon-btn" aria-label="Account">
+                <font-awesome-icon icon="fa-solid fa-user" />
+              </button>
+            </div>
+          </template>
 
           <router-link v-else to="/login" class="icon-btn">
             <font-awesome-icon icon="fa-solid fa-user" />
