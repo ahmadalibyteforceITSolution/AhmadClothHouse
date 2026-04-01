@@ -13,17 +13,22 @@ export const useProductsStore = defineStore('products', {
   getters: {
     products: (state) => {
       // Get base URL (stripping /api if it exists)
-      const apiURL = import.meta.env.MODE === 'development' 
-        ? 'http://localhost:5000' 
-        : '' // On Vercel, it's relative to the same domain
+      const isDev = import.meta.env.MODE === 'development';
+      const apiURL = isDev ? 'http://localhost:5000' : 'https://ahmad-cloths.vercel.app';
 
       // Use dynamic products if they exist, otherwise fallback to local constants
       const items = state.dynamicProducts.length > 0 ? state.dynamicProducts : localProducts;
       return items.map(p => {
         let img = p.image || p.imageUrl || ''
-        // If image is a relative path like /uploads/..., prepend the API URL
-        if (img && img.startsWith('/uploads')) {
-          img = `${apiURL}${img}`
+        
+        // Dynamically Handle browser live link: replace any old hardcoded localhost URLs for production
+        if (img && img.includes('localhost:5000')) {
+          if (!isDev) {
+            img = img.replace('http://localhost:5000', 'https://ahmad-cloths.vercel.app');
+          }
+        } else if (img && img.startsWith('/uploads')) {
+          // If the old image is a relative path like /uploads/...
+          img = `${apiURL}${img}`;
         }
         
         return {
