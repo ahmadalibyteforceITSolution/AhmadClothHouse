@@ -45,7 +45,7 @@
         <!-- Branding Bottom Bar -->
         <div class="panel-bottom-bar cursor-pointer" @click="closeAhmadMenu">
           <h1
-            class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] animate-float uppercase">
+            class="text-3xl font-playfair tracking-[0.3em] font-light text-yellow-500 animate-float uppercase">
             AHMADCLOTHS HOUSE</h1>
         </div>
       </div>
@@ -161,8 +161,6 @@ const handleScroll = () => {
   if (route.name === 'home') {
     if (isPanelOpen.value && scrollY.value > 20) {
       closeAhmadMenu()
-    } else if (!isPanelOpen.value && scrollY.value <= 5) {
-      openAhmadMenu()
     }
   }
 }
