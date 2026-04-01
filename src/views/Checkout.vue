@@ -369,6 +369,16 @@ const processPayment = async () => {
          productStore.recordSale(item.id || item._id, item.quantity)
       })
 
+      // Track Meta Purchase Event
+      if (typeof window !== 'undefined' && window.fbq) {
+         window.fbq('track', 'Purchase', {
+            value: orderData.totalAmount,
+            currency: 'PKR',
+            content_ids: cart.items.map(i => i.id || i._id),
+            content_type: 'product'
+         })
+      }
+
       success.value = true
       cart.clearCart()
 
@@ -398,6 +408,15 @@ onMounted(() => {
    if (route.query.success === 'true') {
       success.value = true
       cart.clearCart()
+   } else {
+      // Track Meta InitiateCheckout Event
+      if (typeof window !== 'undefined' && window.fbq && cart.items.length > 0) {
+         window.fbq('track', 'InitiateCheckout', {
+            value: cart.totalPrice,
+            currency: 'PKR',
+            num_items: cart.items.reduce((sum, item) => sum + item.quantity, 0)
+         })
+      }
    }
 })
 </script>

@@ -48,14 +48,14 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    // Initialize with ID if provided, otherwise skip to avoid "Invalid PixelID: null" error
-    const PIXEL_ID = null; // Replace with your actual Pixel ID or use an environment variable
-    if (PIXEL_ID) {
+    // Initialize with ID from environment variables
+    const PIXEL_ID = '%VITE_META_PIXEL_ID%';
+    // Vite replaces this string during build. If it's missing or unset, it remains the literal string or empty.
+    if (PIXEL_ID && PIXEL_ID !== '%VITE_META_PIXEL_ID%' && PIXEL_ID !== 'undefined') {
       fbq('init', PIXEL_ID);
       fbq('track', 'PageView');
     }
     </script>
-
     <!-- End Meta Pixel Code -->
 
     <!-- Google Translate Script -->

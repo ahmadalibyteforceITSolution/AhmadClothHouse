@@ -28,10 +28,10 @@ export const useCartStore = defineStore('cart', {
       if (typeof window !== 'undefined' && window.fbq) {
         window.fbq('track', 'AddToCart', {
           content_name: product.name,
-          content_ids: [product.id],
+          content_ids: [product.id || product._id],
           content_type: 'product',
           value: product.price,
-          currency: 'USD'
+          currency: 'PKR'
         })
       }
     },

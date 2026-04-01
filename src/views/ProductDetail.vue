@@ -207,6 +207,16 @@ onMounted(async () => {
     }
     if (product.value?.id || product.value?._id) {
        productStore.incrementView(product.value.id || product.value._id)
+       // Track Meta ViewContent Event
+       if (typeof window !== 'undefined' && window.fbq) {
+         window.fbq('track', 'ViewContent', {
+           content_name: product.value.name,
+           content_ids: [product.value.id || product.value._id],
+           content_type: 'product',
+           value: product.value.price,
+           currency: 'PKR'
+         })
+       }
     }
   }
 })
@@ -317,7 +327,19 @@ watch(() => route.params.id, (newId) => {
   if (newId) {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     const pid = product.value?.id || product.value?._id
-    if (pid) productStore.incrementView(pid)
+    if (pid) {
+      productStore.incrementView(pid)
+      // Track Meta ViewContent Event on route change
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'ViewContent', {
+          content_name: product.value.name,
+          content_ids: [pid],
+          content_type: 'product',
+          value: product.value.price,
+          currency: 'PKR'
+        })
+      }
+    }
   }
 })
 
