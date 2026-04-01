@@ -424,11 +424,23 @@ const submitProduct = async () => {
     }
 
     if (productForm.value.filterImage) {
-      const uploadedUrl = await productStore.uploadImage(productForm.value.filterImage)
-      if (uploadedUrl) {
-        payload.imageUrl = uploadedUrl
-        payload.filterImageUrl = uploadedUrl
+      if (productForm.value.filterImage instanceof File) {
+        const uploadedUrl = await productStore.uploadImage(productForm.value.filterImage)
+        if (uploadedUrl) {
+          payload.imageUrl = uploadedUrl
+          payload.filterImageUrl = uploadedUrl
+        }
+      } else if (typeof productForm.value.filterImage === 'string' && productForm.value.filterImage.startsWith('blob:')) {
+        // Blobs are not allowed, force re-upload or error
+        productStore.error = "Images must be fully uploaded. Please re-select the image."
+        return
       }
+    }
+
+    // Safety check: Don't allow blob URLs to leak into payload
+    if (payload.imageUrl?.startsWith('blob:')) {
+        productStore.error = "Image upload failed or is still processing. Please wait."
+        return
     }
 
     for (const v of productForm.value.variants) {

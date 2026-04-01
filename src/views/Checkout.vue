@@ -175,10 +175,10 @@
                                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--primary-gold)]">Account Details</p>
                                <div class="space-y-2">
                                   <p class="text-2xl font-playfair italic text-[var(--luxury-black)] dark:text-white">
-                                     {{ paymentMethod === 'easypaisa' ? (import.meta.env.VITE_EASYPAISA_NUMBER || '03xxxxxxxxx') : (import.meta.env.VITE_JAZZCASH_NUMBER || '03xxxxxxxxx') }}
+                                     {{ paymentMethod === 'easypaisa' ? easypaisaNumber : jazzcashNumber }}
                                   </p>
                                   <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400">
-                                     Account Name: {{ paymentMethod === 'easypaisa' ? (import.meta.env.VITE_EASYPAISA_NAME || 'STORE NAME') : (import.meta.env.VITE_JAZZCASH_NAME || 'STORE NAME') }}
+                                     Account Name: {{ paymentMethod === 'easypaisa' ? easypaisaName : jazzcashName }}
                                   </p>
                                </div>
                                <p class="text-[8px] text-stone-400 uppercase tracking-widest leading-loose">
@@ -296,6 +296,12 @@ const success = ref(false)
 const isProcessing = ref(false)
 const paymentMethod = ref('easypaisa')
 const transactionId = ref('')
+
+// Expose Env Variables safely for Template
+const easypaisaNumber = import.meta.env.VITE_EASYPAISA_NUMBER || '03xxxxxxxxx'
+const easypaisaName = import.meta.env.VITE_EASYPAISA_NAME || 'STORE NAME'
+const jazzcashNumber = import.meta.env.VITE_JAZZCASH_NUMBER || '03xxxxxxxxx'
+const jazzcashName = import.meta.env.VITE_JAZZCASH_NAME || 'STORE NAME'
 
 const customer = reactive({
    name: auth.user?.name || '',

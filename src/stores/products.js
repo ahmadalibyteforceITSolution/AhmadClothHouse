@@ -12,14 +12,27 @@ export const useProductsStore = defineStore('products', {
   }),
   getters: {
     products: (state) => {
+      // Get base URL (stripping /api if it exists)
+      const apiURL = import.meta.env.MODE === 'development' 
+        ? 'http://localhost:5000' 
+        : '' // On Vercel, it's relative to the same domain
+
       // Use dynamic products if they exist, otherwise fallback to local constants
       const items = state.dynamicProducts.length > 0 ? state.dynamicProducts : localProducts;
-      return items.map(p => ({
-        ...p,
-        id: p._id || p.id,
-        name: p.name || p.title,
-        image: p.image || p.imageUrl
-      }));
+      return items.map(p => {
+        let img = p.image || p.imageUrl || ''
+        // If image is a relative path like /uploads/..., prepend the API URL
+        if (img && img.startsWith('/uploads')) {
+          img = `${apiURL}${img}`
+        }
+        
+        return {
+          ...p,
+          id: p._id || p.id,
+          name: p.name || p.title,
+          image: img
+        }
+      });
     },
     categories(state) {
       const cats = new Set()
