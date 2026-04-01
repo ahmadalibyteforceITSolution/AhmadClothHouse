@@ -18,6 +18,7 @@ app.use(
     origin: [
       "https://shop.bytely.ai",
       "http://localhost:5173",
+      "http://localhost:5174",
       "https://ahmadclotheshouse.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
