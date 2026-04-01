@@ -33,12 +33,12 @@
         </div>
 
         <!-- CENTER: Logo -->
-        <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-4" @click="goToHome">
+        <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-2 sm:px-4" @click="goToHome">
           <h1
-            class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase">
+            class="text-base sm:text-2xl lg:text-3xl font-playfair tracking-[0.15em] sm:tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase leading-tight">
             AHMADCLOTHS HOUSE</h1>
           <div
-            class="logo-tagline font-playfair tracking-[0.4em] mt-1 text-[8px] opacity-60 uppercase text-[var(--primary-gold)]">
+            class="logo-tagline font-playfair tracking-[0.4em] mt-1 text-[7px] opacity-60 uppercase text-[var(--primary-gold)] hidden sm:block">
             The House of Couture</div>
         </div>
 
@@ -61,12 +61,12 @@
 
           <!-- Cart -->
           <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-            @click="router.push('/dashboard')" aria-label="Cart">
+            @click="router.push('/cart')" aria-label="Cart">
             <font-awesome-icon icon="fa-solid fa-bag-shopping" />
             <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
           </button>
 
-          <!-- User -->
+          <!-- User (Desktop Dropdown) -->
           <div v-if="auth.isAuthenticated" class="relative group hidden lg:block">
             <button class="icon-btn">
               <font-awesome-icon icon="fa-solid fa-user" />
@@ -90,7 +90,12 @@
             </div>
           </div>
 
-          <router-link v-else to="/login" class="icon-btn hidden lg:flex">
+          <!-- User Icon (Mobile - opens drawer) -->
+          <button v-if="auth.isAuthenticated" @click="isMenuOpen = true" class="icon-btn lg:hidden" aria-label="Account">
+            <font-awesome-icon icon="fa-solid fa-user" />
+          </button>
+
+          <router-link v-else to="/login" class="icon-btn">
             <font-awesome-icon icon="fa-solid fa-user" />
           </router-link>
 
