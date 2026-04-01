@@ -44,27 +44,30 @@
 
         <!-- RIGHT: Actions -->
         <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
-          <!-- Theme Toggle -->
-          <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
-            <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
-          </button>
+          <!-- Desktop/Tablet Only Group -->
+          <div class="hidden sm:flex items-center gap-2 sm:gap-5">
+            <!-- Theme Toggle -->
+            <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
+              <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
+            </button>
+
+            <!-- Favorites -->
+            <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
+              @click="router.push('/dashboard')" aria-label="Favorites">
+              <font-awesome-icon icon="fa-regular fa-heart" />
+              <span v-if="favorites.totalFavorites > 0" class="badge">{{ favorites.totalFavorites }}</span>
+            </button>
+
+            <!-- Cart -->
+            <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
+              @click="router.push('/cart')" aria-label="Cart">
+              <font-awesome-icon icon="fa-solid fa-bag-shopping" />
+              <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
+            </button>
+          </div>
 
           <!-- Google Translate -->
           <div id="google_translate_element" class="hidden sm:flex items-center"></div>
-
-          <!-- Favorites -->
-          <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-            @click="router.push('/dashboard')" aria-label="Favorites">
-            <font-awesome-icon icon="fa-regular fa-heart" />
-            <span v-if="favorites.totalFavorites > 0" class="badge">{{ favorites.totalFavorites }}</span>
-          </button>
-
-          <!-- Cart -->
-          <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-            @click="router.push('/cart')" aria-label="Cart">
-            <font-awesome-icon icon="fa-solid fa-bag-shopping" />
-            <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
-          </button>
 
           <!-- User Account Actions -->
           <template v-if="auth.isAuthenticated">
@@ -105,6 +108,28 @@
           </router-link>
 
         </div>
+      </div>
+
+      <!-- Mobile Actions Row (Theme, Favorites, Cart) - Below Logo -->
+      <div class="flex sm:hidden w-full items-center justify-center gap-6 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
+        <!-- Theme Toggle -->
+        <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
+          <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
+        </button>
+
+        <!-- Favorites -->
+        <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
+          @click="router.push('/dashboard')" aria-label="Favorites">
+          <font-awesome-icon icon="fa-regular fa-heart" />
+          <span v-if="favorites.totalFavorites > 0" class="badge">{{ favorites.totalFavorites }}</span>
+        </button>
+
+        <!-- Cart -->
+        <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
+          @click="router.push('/cart')" aria-label="Cart">
+          <font-awesome-icon icon="fa-solid fa-bag-shopping" />
+          <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
+        </button>
       </div>
 
       <!-- Bottom Row: Navigation (Desktop Only) -->
