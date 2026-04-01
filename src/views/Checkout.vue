@@ -189,7 +189,7 @@
 
                             <div class="max-w-md mx-auto relative group">
                                <label class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Transaction ID (TID)</label>
-                               <input v-model="transactionId" type="text" placeholder="12-DIGIT TRANSACTION ID" class="mariab-input w-full text-center tracking-[0.5em]">
+                               <input v-model="transactionId" type="text" placeholder="e.g. TID12345678 (from your Easypaisa/JazzCash SMS)" class="mariab-input w-full text-center tracking-[0.3em]">
                                <font-awesome-icon icon="fa-solid fa-money-bill-1-wave" class="absolute right-0 bottom-6 text-[var(--primary-gold)] opacity-0 group-focus-within:opacity-100 transition-all" />
                             </div>
                          </div>
@@ -298,10 +298,10 @@ const paymentMethod = ref('easypaisa')
 const transactionId = ref('')
 
 // Expose Env Variables safely for Template
-const easypaisaNumber = import.meta.env.VITE_EASYPAISA_NUMBER || '03xxxxxxxxx'
-const easypaisaName = import.meta.env.VITE_EASYPAISA_NAME || 'STORE NAME'
-const jazzcashNumber = import.meta.env.VITE_JAZZCASH_NUMBER || '03xxxxxxxxx'
-const jazzcashName = import.meta.env.VITE_JAZZCASH_NAME || 'STORE NAME'
+const easypaisaNumber = import.meta.env.VITE_EASYPAISA_NUMBER || '03416887454'
+const easypaisaName = import.meta.env.VITE_EASYPAISA_NAME || 'Ahmad Ali'
+const jazzcashNumber = import.meta.env.VITE_JAZZCASH_NUMBER || '03416887454'
+const jazzcashName = import.meta.env.VITE_JAZZCASH_NAME || 'Ahmad Ali'
 
 const customer = reactive({
    name: auth.user?.name || '',

@@ -21,7 +21,7 @@ import {
   faCookie, faIceCream, faBreadSlice, faCreditCard, faHandHoldingDollar,
   faTruck, faTruckFast, faShirt, faLocationDot, faImage,
   faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList,
-  faMobileRetro, faWallet, faMoneyBill1Wave
+  faMobileRetro, faWallet, faMoneyBill1Wave, faMoneyBillTransfer
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { 
@@ -44,7 +44,7 @@ library.add(
   faCookie, faIceCream, faBreadSlice, faCreditCard, faHandHoldingDollar,
   faTruck, faTruckFast, faShirt, faLocationDot, faImage,
   faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList,
-  faMobileRetro, faWallet, faMoneyBill1Wave,
+  faMobileRetro, faWallet, faMoneyBill1Wave, faMoneyBillTransfer,
   farHeart, farStar,
   faInstagram, faFacebookF, faCcVisa, faCcMastercard, faCcApplePay, 
   faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle
