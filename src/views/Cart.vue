@@ -50,25 +50,25 @@
                       </button>
                    </div>
                    
-                   <div class="flex items-center gap-12 mb-10">
+                   <div class="flex flex-wrap items-center justify-between gap-6 sm:gap-12 mb-10">
                       <div class="space-y-3">
                          <label class="text-[9px] block text-stone-400 font-bold uppercase tracking-widest">Quantity</label>
-                         <div class="flex items-center gap-6 bg-[#fafaf8] dark:bg-black/50 px-5 py-3 border border-[var(--primary-gold)]/10 rounded-sm">
+                         <div class="flex items-center gap-3 sm:gap-6 bg-[#fafaf8] dark:bg-black/50 px-3 py-2 sm:px-5 sm:py-3 border border-[var(--primary-gold)]/10 rounded-sm">
                             <button @click="cart.updateQuantity(item.cartId || item.id, item.quantity - 1)" class="w-6 h-6 flex items-center justify-center font-bold text-stone-400 hover:text-[var(--primary-gold)]">-</button>
                             <span class="w-6 text-center text-sm font-bold dark:text-white">{{ item.quantity }}</span>
                             <button @click="cart.updateQuantity(item.cartId || item.id, item.quantity + 1)" class="w-6 h-6 flex items-center justify-center font-bold text-stone-400 hover:text-[var(--primary-gold)]">+</button>
                          </div>
                       </div>
-                      <div class="text-right ml-auto space-y-1">
+                      <div class="text-right space-y-1">
                         <label class="text-[9px] block text-stone-400 font-bold uppercase tracking-widest">Unit Price</label>
-                        <p class="text-xl font-bold text-gray-900 dark:text-white leading-none">Rs. {{ item.price.toLocaleString() }}</p>
+                        <p class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-none whitespace-nowrap">Rs. {{ item.price.toLocaleString() }}</p>
                       </div>
                    </div>
                 </div>
 
-                <div class="flex justify-between items-center text-[var(--primary-gold)] font-bold text-2xl border-t border-[var(--primary-gold)]/10 pt-8">
+                <div class="flex justify-between items-center text-[var(--primary-gold)] font-bold text-2xl border-t border-[var(--primary-gold)]/10 pt-8 mt-2 sm:mt-0">
                    <p class="text-stone-400 uppercase text-[9px] font-bold tracking-[0.4em]">Item Subtotal</p>
-                   <p class="font-bold font-playfair italic">Rs. {{ (item.price * item.quantity).toLocaleString() }}</p>
+                   <p class="font-bold font-playfair italic whitespace-nowrap">Rs. {{ (item.price * item.quantity).toLocaleString() }}</p>
                 </div>
              </div>
           </div>
