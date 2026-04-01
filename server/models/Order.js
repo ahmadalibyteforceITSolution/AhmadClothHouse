@@ -27,6 +27,15 @@ const OrderSchema = new mongoose.Schema({
     enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'], 
     default: 'Pending' 
   },
+  paymentMethod: {
+    type: String,
+    enum: ['cod', 'easypaisa', 'jazzcash'],
+    required: true
+  },
+  transactionId: {
+    type: String,
+    default: ''
+  },
   tracking: {
     carrier: { type: String, default: '' },
     trackingNumber: { type: String, default: '' },

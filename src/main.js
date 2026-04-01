@@ -20,12 +20,13 @@ import {
   faBuildingColumns, faBox, faArrowTrendUp, faArrowTrendDown,
   faCookie, faIceCream, faBreadSlice, faCreditCard, faHandHoldingDollar,
   faTruck, faTruckFast, faShirt, faLocationDot, faImage,
-  faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList
+  faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList,
+  faMobileRetro, faWallet, faMoneyBill1Wave
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { 
   faInstagram, faFacebookF, faCcVisa, faCcMastercard, faCcApplePay, 
-  faCcAmex, faApplePay, faStripe, faStripeS, faXTwitter, faLinkedinIn, faGoogle
+  faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -43,9 +44,10 @@ library.add(
   faCookie, faIceCream, faBreadSlice, faCreditCard, faHandHoldingDollar,
   faTruck, faTruckFast, faShirt, faLocationDot, faImage,
   faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList,
+  faMobileRetro, faWallet, faMoneyBill1Wave,
   farHeart, farStar,
   faInstagram, faFacebookF, faCcVisa, faCcMastercard, faCcApplePay, 
-  faCcAmex, faApplePay, faStripe, faStripeS, faXTwitter, faLinkedinIn, faGoogle
+  faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle
 )
 
 const app = createApp(App)

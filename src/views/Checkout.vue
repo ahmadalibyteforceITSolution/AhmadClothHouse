@@ -125,51 +125,75 @@
                   </div>
 
                   <div class="space-y-6">
-                     <!-- Payment Options Container -->
-                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div @click="paymentMethod = 'stripe'" :class="['payment-card group',
-                           paymentMethod === 'stripe' ? 'active' : 'inactive']">
-                           <div class="flex justify-between items-center mb-6">
-                              <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
-                                 :class="paymentMethod === 'stripe' ? 'text-black dark:text-white' : 'text-stone-400'">Credit/Debit
-                                 Card</span>
-                              <font-awesome-icon icon="fa-solid fa-credit-card"
-                                 class="text-lg transition-colors group-hover:text-[var(--primary-gold)]"
-                                 :class="paymentMethod === 'stripe' ? 'text-[var(--primary-gold)]' : 'text-stone-300'" />
-                           </div>
-                           <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Encrypted
-                              global checkout via Stripe Gateway.</p>
-                        </div>
+                      <!-- Payment Options Container -->
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                         <div @click="paymentMethod = 'easypaisa'" :class="['payment-card group',
+                            paymentMethod === 'easypaisa' ? 'active' : 'inactive']">
+                            <div class="flex justify-between items-center mb-6">
+                               <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
+                                  :class="paymentMethod === 'easypaisa' ? 'text-black dark:text-white' : 'text-stone-400'">Easypaisa</span>
+                               <font-awesome-icon icon="fa-solid fa-mobile-retro"
+                                  class="text-lg transition-colors group-hover:text-[#37a844]"
+                                  :class="paymentMethod === 'easypaisa' ? 'text-[#37a844]' : 'text-stone-300'" />
+                            </div>
+                            <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Direct transfer to our EasyPaisa account.</p>
+                         </div>
 
-                        <div @click="paymentMethod = 'cod'" :class="['payment-card group',
-                           paymentMethod === 'cod' ? 'active' : 'inactive']">
-                           <div class="flex justify-between items-center mb-6">
-                              <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
-                                 :class="paymentMethod === 'cod' ? 'text-black dark:text-white' : 'text-stone-400'">Cash
-                                 On Delivery</span>
-                              <font-awesome-icon icon="fa-solid fa-money-bill-transfer"
-                                 class="text-lg transition-colors group-hover:text-[var(--primary-gold)]"
-                                 :class="paymentMethod === 'cod' ? 'text-[var(--primary-gold)]' : 'text-stone-300'" />
-                           </div>
-                           <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Payment on
-                              delivery. RS. 200 service charge applies.</p>
-                        </div>
-                     </div>
+                         <div @click="paymentMethod = 'jazzcash'" :class="['payment-card group',
+                            paymentMethod === 'jazzcash' ? 'active' : 'inactive']">
+                            <div class="flex justify-between items-center mb-6">
+                               <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
+                                  :class="paymentMethod === 'jazzcash' ? 'text-black dark:text-white' : 'text-stone-400'">JazzCash</span>
+                               <font-awesome-icon icon="fa-solid fa-wallet"
+                                  class="text-lg transition-colors group-hover:text-[#ed1c24]"
+                                  :class="paymentMethod === 'jazzcash' ? 'text-[#ed1c24]' : 'text-stone-300'" />
+                            </div>
+                            <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Direct transfer to our JazzCash account.</p>
+                         </div>
 
-                     <!-- Payment Detail Panel -->
-                     <transition name="slide-up">
-                        <div v-if="paymentMethod === 'stripe'"
-                           class="mt-8 p-10 border border-stone-100 dark:border-stone-900 bg-stone-50/50 dark:bg-stone-900/20 text-center space-y-6">
-                           <div class="flex justify-center gap-6 text-stone-300 dark:text-stone-700 text-3xl">
-                              <font-awesome-icon icon="fa-brands fa-cc-visa" />
-                              <font-awesome-icon icon="fa-brands fa-cc-mastercard" />
-                              <font-awesome-icon icon="fa-brands fa-cc-amex" />
-                           </div>
-                           <p
-                              class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 font-playfair italic">
-                              Secure AES-256 Encrypted Connection</p>
-                        </div>
-                     </transition>
+                         <div @click="paymentMethod = 'cod'" :class="['payment-card group',
+                            paymentMethod === 'cod' ? 'active' : 'inactive']">
+                            <div class="flex justify-between items-center mb-6">
+                               <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
+                                  :class="paymentMethod === 'cod' ? 'text-black dark:text-white' : 'text-stone-400'">Cash
+                                  On Delivery</span>
+                               <font-awesome-icon icon="fa-solid fa-money-bill-transfer"
+                                  class="text-lg transition-colors group-hover:text-[var(--primary-gold)]"
+                                  :class="paymentMethod === 'cod' ? 'text-[var(--primary-gold)]' : 'text-stone-300'" />
+                            </div>
+                            <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Payment on
+                               delivery. RS. 200 service charge applies.</p>
+                         </div>
+                      </div>
+
+                      <!-- Payment Detail Panel -->
+                      <transition name="slide-up">
+                         <div v-if="paymentMethod === 'easypaisa' || paymentMethod === 'jazzcash'"
+                            class="mt-8 p-10 border border-stone-100 dark:border-stone-900 bg-stone-50/50 dark:bg-stone-900/20 space-y-8">
+                            
+                            <div class="text-center space-y-4">
+                               <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--primary-gold)]">Account Details</p>
+                               <div class="space-y-2">
+                                  <p class="text-2xl font-playfair italic text-[var(--luxury-black)] dark:text-white">
+                                     {{ paymentMethod === 'easypaisa' ? '03123456789' : '03987654321' }}
+                                  </p>
+                                  <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400">
+                                     Account Name: {{ paymentMethod === 'easypaisa' ? 'Ahmad Ali' : 'Ahmad Ali' }}
+                                  </p>
+                               </div>
+                               <p class="text-[8px] text-stone-400 uppercase tracking-widest leading-loose">
+                                  Please send exactly <span class="text-[var(--primary-gold)] font-bold">Rs. {{ (cart.totalPrice).toLocaleString() }}</span> to the above account <br>
+                                  and enter your Transaction ID (TID) below to finalize your order.
+                               </p>
+                            </div>
+
+                            <div class="max-w-md mx-auto relative group">
+                               <label class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Transaction ID (TID)</label>
+                               <input v-model="transactionId" type="text" placeholder="12-DIGIT TRANSACTION ID" class="mariab-input w-full text-center tracking-[0.5em]">
+                               <font-awesome-icon icon="fa-solid fa-money-bill-1-wave" class="absolute right-0 bottom-6 text-[var(--primary-gold)] opacity-0 group-focus-within:opacity-100 transition-all" />
+                            </div>
+                         </div>
+                      </transition>
                   </div>
                </section>
 
@@ -270,7 +294,8 @@ const route = useRoute()
 
 const success = ref(false)
 const isProcessing = ref(false)
-const paymentMethod = ref('stripe')
+const paymentMethod = ref('easypaisa')
+const transactionId = ref('')
 
 const customer = reactive({
    name: auth.user?.name || '',
@@ -295,44 +320,60 @@ const processPayment = async () => {
 
    try {
       const orderData = {
+         user: auth.user?._id || auth.user?.id,
          items: cart.items.map(item => ({
             product: item.id || item._id,
+            name: item.name,
+            price: item.price,
             quantity: item.quantity,
-            price: item.price
+            variant: item.variant || {}
          })),
          totalAmount: cart.totalPrice + (paymentMethod.value === 'cod' ? 200 : 0),
-         shippingAddress: `${customer.address}, ${customer.city}, ${customer.zip}`,
+         shippingAddress: {
+            fullName: customer.name,
+            address: customer.address,
+            city: customer.city,
+            zipCode: customer.zip,
+            phone: '', // Can be added later
+            country: 'Pakistan'
+         },
          paymentMethod: paymentMethod.value,
          customerEmail: customer.email,
          customerName: customer.name
       }
 
-      if (paymentMethod.value === 'stripe') {
-         const response = await api.post('/payment/create-checkout-session', {
-            items: cart.items,
-            customer_email: customer.email,
-            orderData: orderData
-         })
-         window.location.href = response.data.url
-      } else {
-         // Cash on Delivery
-         await orderStore.createOrder(orderData)
-
-         // Record sales
-         cart.items.forEach(item => {
-            productStore.recordSale(item.id || item._id, item.quantity)
-         })
-
-         success.value = true
-         cart.clearCart()
-
+      if ((paymentMethod.value === 'easypaisa' || paymentMethod.value === 'jazzcash') && !transactionId.value) {
          Swal.fire({
-            icon: 'success',
-            confirmButtonColor: '#d4af37',
-            title: 'AhmadClothes House - ACQUISITION COMPLETE',
-            text: 'Your luxury pieces are now being prepared for shipment.'
+            icon: 'warning',
+            title: 'AhmadClothes House - PAYMENT VERIFICATION REQUIRED',
+            text: 'Please provide the Transaction ID (TID) from your mobile transfer receipt.',
+            confirmButtonColor: '#d4af37'
          })
+         isProcessing.value = false
+         return
       }
+
+      orderData.transactionId = transactionId.value
+
+      // Create order directly for all methods
+      await orderStore.createOrder(orderData)
+
+      // Record sales
+      cart.items.forEach(item => {
+         productStore.recordSale(item.id || item._id, item.quantity)
+      })
+
+      success.value = true
+      cart.clearCart()
+
+      Swal.fire({
+         icon: 'success',
+         confirmButtonColor: '#d4af37',
+         title: 'AhmadClothes House - ACQUISITION COMPLETE',
+         text: paymentMethod.value === 'cod' 
+            ? 'Your luxury pieces are now being prepared for shipment.'
+            : 'Your payment is under verification. Your luxury pieces will be prepared shortly.'
+      })
    } catch (error) {
       console.error('Payment Error:', error)
       Swal.fire({
