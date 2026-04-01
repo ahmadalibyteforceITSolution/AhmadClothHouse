@@ -218,7 +218,7 @@
                   <div class="space-y-8 max-h-[400px] overflow-y-auto pr-4 mb-10 luxury-scroll">
                      <div v-for="item in cart.items" :key="item.id" class="flex gap-6 items-center">
                         <div class="w-20 h-24 bg-stone-50 overflow-hidden shrink-0 border border-stone-50">
-                           <img :src="item.image"
+                           <img :src="item.cartImage || item.image"
                               class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                               alt="Product" />
                         </div>
