@@ -35,8 +35,9 @@ exports.uploadImage = async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ success: false, error: 'Please upload an image' });
     }
-    const url = `/uploads/${req.file.filename}`;
-    res.status(200).json({ success: true, url });
+    // Encode image buffer to base64 Data URL (can be sent back and saved in MongoDB)
+    const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
+    res.status(200).json({ success: true, url: base64Image });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
