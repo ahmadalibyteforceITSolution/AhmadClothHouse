@@ -76,7 +76,7 @@
 
           <!-- Recaptcha Verification -->
           <div class="px-4 flex justify-center mt-4 mb-2">
-            <div class="g-recaptcha" data-sitekey="6LcBXaUsAAAAAADVHDOh2qE_LjQU8iteWexHmL7Wd"></div>
+            <div class="g-recaptcha" data-sitekey="6LfBYqUsAAAAAGrCYHXGLDyfXBRj01HNOdgtePUv"></div>
           </div>
 
           <transition name="fade">

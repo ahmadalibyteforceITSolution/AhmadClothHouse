@@ -19,7 +19,7 @@ exports.register = async (req, res) => {
       return res.status(400).json({ success: false, error: "ReCAPTCHA verification missing." });
     }
 
-    const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY || "6LcBXaUsAAAAALzanYciofaQW5W9sPp8i6eBHABy";
+    const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY || "6LfBYqUsAAAAAHa-VX5FjMGBj0UO2fr54C4yUlbI";
     const axios = require("axios");
     const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${recaptchaToken}`;
     
