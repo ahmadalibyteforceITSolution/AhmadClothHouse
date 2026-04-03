@@ -16,8 +16,8 @@ export const useProductsStore = defineStore('products', {
       const isDev = import.meta.env.MODE === 'development';
       const apiURL = isDev ? 'http://localhost:5000' : window.location.origin;
 
-      // Use dynamic products if they exist, otherwise fallback to local constants
-      const items = state.dynamicProducts.length > 0 ? state.dynamicProducts : localProducts;
+      // ONLY use dynamic products from the MongoDB API so we don't flash fake local data during loading!
+      const items = state.dynamicProducts;
       return items.map(p => {
         let img = p.image || p.imageUrl || ''
         

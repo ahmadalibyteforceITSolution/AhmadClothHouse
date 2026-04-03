@@ -19,12 +19,18 @@ exports.register = async (req, res) => {
       return res.status(400).json({ success: false, error: "ReCAPTCHA verification missing." });
     }
 
-    const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY || "6LfBYqUsAAAAAHa-VX5FjMGBj0UO2fr54C4yUlbI";
+    const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY || "6LfBYqUsAAAAAHa-VX5FjMGBj0UO2fr54C4yUIbl";
     const axios = require("axios");
-    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${recaptchaToken}`;
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify`;
+    const params = new URLSearchParams();
+    params.append('secret', RECAPTCHA_SECRET);
+    params.append('response', recaptchaToken);
     
     try {
-      const captchaRes = await axios.post(verifyUrl);
+      const captchaRes = await axios.post(verifyUrl, params, {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      });
+      console.log('RECAPTCHA DEBUG:', captchaRes.data);
       if (!captchaRes.data.success) {
          return res.status(400).json({ success: false, error: "ReCAPTCHA validation failed. Please try again." });
       }
