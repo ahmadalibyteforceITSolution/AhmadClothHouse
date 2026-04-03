@@ -1,33 +1,25 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 /**
- * Send an email notification using Nodemailer / Gmail SMTP
+ * Send an email notification using Resend API
  * @param {Object} options - email options {email, subject, message}
  */
 const sendEmail = async (options) => {
-  // Use Vercel Environment variables or fallback to local ones for instant Vercel support
-  const smtpEmail = process.env.SMTP_EMAIL || 'ahmadalihafeez24@gmail.com';
-  const smtpPassword = process.env.SMTP_PASSWORD || 'rfsmuthssmtqjysw';
-
-  if (!smtpEmail || !smtpPassword) {
-    console.error('AHMADCLOTHS MAIL ERROR: SMTP credentials missing.');
-    throw new Error('Email service not configured. Please set SMTP_EMAIL and SMTP_PASSWORD.');
+  const apiKey = process.env.RESEND_API_KEY;
+  
+  if (!apiKey) {
+    console.error('AHMADCLOTHS MAIL ERROR: RESEND_API_KEY is not set in .env');
+    throw new Error('Email service not configured. Please set RESEND_API_KEY.');
   }
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: smtpEmail,
-      pass: smtpPassword,
-    },
-  });
+  const resend = new Resend(apiKey);
 
   try {
-    console.log('AHMADCLOTHS MAIL: Sending via Gmail SMTP to %s', options.email);
+    console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
 
-    const info = await transporter.sendMail({
-      from: `"Ahmad Cloth House" <${smtpEmail}>`,
-      to: options.email,
+    const { data, error } = await resend.emails.send({
+      from: 'Ahmad Cloth House <onboarding@resend.dev>',
+      to: [options.email],
       subject: options.subject,
       html: `
         <div style="font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; padding: 40px; border-radius: 20px; max-width: 600px; margin: auto; border: 1px solid #d4af3733;">
@@ -43,8 +35,13 @@ const sendEmail = async (options) => {
       text: options.message,
     });
 
-    console.log('AHMADCLOTHS MAIL SUCCESS: Email sent! Message ID: %s', info.messageId);
-    return info;
+    if (error) {
+      console.error('AHMADCLOTHS MAIL ERROR:', error);
+      throw new Error(error.message);
+    }
+
+    console.log('AHMADCLOTHS MAIL SUCCESS: Email sent! ID: %s', data?.id);
+    return data;
   } catch (error) {
     console.error('AHMADCLOTHS MAIL ERROR:', error.message);
     throw error;
