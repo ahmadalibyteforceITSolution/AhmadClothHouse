@@ -70,8 +70,13 @@
               TYPE</label>
             <select v-model="form.role" class="luxury-select">
               <option value="user">GUEST_ACCESS</option>
-              <option value="admin">BOUTIQUE_ADMIN</option>
+              <option v-if="isDev" value="admin">BOUTIQUE_ADMIN</option>
             </select>
+          </div>
+
+          <!-- Recaptcha Verification -->
+          <div class="px-4 flex justify-center mt-4 mb-2">
+            <div class="g-recaptcha" data-sitekey="6LcBXaUsAAAAAADVHDOh2qE_LjQU8iteWexHmL7Wd"></div>
           </div>
 
           <transition name="fade">
@@ -132,22 +137,33 @@
 </template>
 
 <script setup>
-import { reactive, onMounted } from 'vue'
+import { reactive, onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { googleTokenLogin, decodeCredential } from 'vue3-google-login'
 import Fugible1 from '../assets/ladies3.jpg'
 
+const isDev = import.meta.env.DEV
 const auth = useAuthStore()
 const router = useRouter()
 const route = useRoute()
 const form = reactive({ name: '', email: '', password: '', role: 'user' })
 
 const handleSignup = async () => {
-  const success = await auth.signup(form)
+  const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
+  if (!recaptchaResponse) {
+    auth.error = 'Please complete the reCAPTCHA verification to proceed.';
+    return;
+  }
+  
+  const payload = { ...form, recaptchaToken: recaptchaResponse };
+  const success = await auth.signup(payload)
+  
   if (success) {
     const redirectPath = route.query.redirect || '/'
     router.push(redirectPath)
+  } else {
+    if (window.grecaptcha) window.grecaptcha.reset();
   }
 }
 
@@ -172,6 +188,24 @@ const triggerGoogleLogin = () => {
 
 onMounted(() => {
   window.scrollTo(0, 0)
+  
+  if (!document.getElementById('recaptcha-script')) {
+    const script = document.createElement('script');
+    script.id = 'recaptcha-script';
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  } else if (window.grecaptcha && window.grecaptcha.render) {
+    // If returning to the page, reset recaptcha if it's already rendered
+    const els = document.querySelectorAll('.g-recaptcha');
+    els.forEach(el => {
+      if (el.innerHTML !== '') {
+        el.innerHTML = '';
+        window.grecaptcha.render(el);
+      }
+    });
+  }
 })
 </script>
 

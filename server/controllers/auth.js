@@ -13,10 +13,48 @@ const generateToken = (id) => {
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
-    const user = await User.create({ name, email, password, role });
+    const { name, email, password, role, recaptchaToken } = req.body;
+
+    if (!recaptchaToken) {
+      return res.status(400).json({ success: false, error: "ReCAPTCHA verification missing." });
+    }
+
+    const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY || "6LcBXaUsAAAAALzanYciofaQW5W9sPp8i6eBHABy";
+    const axios = require("axios");
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${recaptchaToken}`;
+    
+    try {
+      const captchaRes = await axios.post(verifyUrl);
+      if (!captchaRes.data.success) {
+         return res.status(400).json({ success: false, error: "ReCAPTCHA validation failed. Please try again." });
+      }
+    } catch(err) {
+      return res.status(500).json({ success: false, error: "Error validating ReCAPTCHA." });
+    }
+
+    let finalRole = role || "user";
+    if (process.env.NODE_ENV !== "development" && finalRole === "admin") {
+      finalRole = "user";
+    }
+
+    const user = await User.create({ name, email, password, role: finalRole });
 
     const token = generateToken(user._id);
+
+    try {
+      const dateString = new Date().toLocaleString();
+      await sendEmail({
+        email: user.email,
+        subject: "Welcome to Ahmad Cloths House",
+        message: `Hello ${user.name},\n\nWelcome to the luxurious world of Ahmad Cloths House.\n\nYou successfully signed up using: ${user.email}\nDate: ${dateString}\n\nWe are delighted to have you.\n\nWarm Regards,\nAhmad Cloths House Team`,
+      });
+    } catch (mailErr) {
+      console.error(
+        "AHMADCLOTHS MAIL ERROR: Transmission failed for signup notification.",
+        mailErr.message,
+      );
+    }
+
     res.status(201).json({
       success: true,
       token,
@@ -31,7 +69,7 @@ exports.register = async (req, res) => {
     let message = err.message;
     if (err.code === 11000) {
       message =
-        "This identity (email) already exists in the Fudgeables community.";
+        "This identity (email) already exists in the Ahmadcloths community.";
     }
     res.status(400).json({ success: false, error: message });
   }
@@ -54,12 +92,12 @@ exports.login = async (req, res) => {
       const loginTime = new Date().toLocaleString();
       await sendEmail({
         email: user.email,
-        subject: "Fudgeables Security: Login Authentication",
-        message: `Hello ${user.name},\n\nSomeone recently authenticated your Fudgeables Bakery account.\n\nDate: ${loginTime}\nLocation: Milano, IT (Approximate)\n\nIf this wasn't you, please reset your Secure Password immediately.`,
+        subject: "Ahmadcloths Security: Login Authentication",
+        message: `Hello ${user.name},\n\nSomeone recently authenticated your Ahmadcloths House account.\n\nDate: ${loginTime}\nLocation: Lahore, PK (Approximate)\n\nIf this wasn't you, please reset your Secure Password immediately.`,
       });
     } catch (mailErr) {
       console.error(
-        "FUDGEABLES MAIL ERROR: Transmission failed for login notification.",
+        "AHMADCLOTHS MAIL ERROR: Transmission failed for login notification.",
         mailErr.message,
       );
     }
@@ -101,7 +139,7 @@ exports.forgotPassword = async (req, res) => {
     try {
       await sendEmail({
         email: user.email,
-        subject: "Fudgeables Security: Password Recovery Protocol",
+        subject: "Ahmadcloths Security: Password Recovery Protocol",
         message: `Hello ${user.name},\n\nYou requested a Password Recovery Protocol.\n\nPlease follow this secure link to establish a new Secure Password:\n\n${resetUrl}\n\nThis transmission expires in 10 minutes.`,
       });
 
@@ -110,7 +148,7 @@ exports.forgotPassword = async (req, res) => {
         .json({ success: true, data: "Password Recovery Transmission Sent." });
     } catch (mailErr) {
       console.error(
-        "FUDGEABLES MAIL ERROR: Transmission failed for forgot password.",
+        "AHMADCLOTHS MAIL ERROR: Transmission failed for forgot password.",
         mailErr.message,
       );
       user.resetPasswordToken = undefined;
