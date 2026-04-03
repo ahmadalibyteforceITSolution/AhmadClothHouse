@@ -66,8 +66,8 @@
             </button>
           </div>
 
-          <!-- Google Translate (Always Show) -->
-          <div id="google_translate_element" class="flex items-center min-w-[30px] sm:min-w-[150px] scale-[0.7] sm:scale-100 mx-1 overflow-hidden transition-all duration-500"></div>
+          <!-- Google Translate (Always Show) - Bulletproof Container -->
+          <div id="google_translate_element" class="flex items-center min-w-[30px] sm:min-w-[160px] min-h-[30px] scale-[0.7] sm:scale-90 mx-1 transition-all duration-500"></div>
 
           <!-- User Account Actions -->
           <template v-if="auth.isAuthenticated">
@@ -357,9 +357,7 @@ const checkMobile = () => {
 const initGoogleTranslate = (retryCount = 0) => {
   if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
     const el = document.getElementById('google_translate_element')
-    if (el) {
-      // Clear before re-init to ensure a fresh widget
-      el.innerHTML = ''
+    if (el && !el.innerHTML.trim()) {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
@@ -368,17 +366,27 @@ const initGoogleTranslate = (retryCount = 0) => {
       return true;
     }
   }
-  
-  // Retry polling for up to 5 seconds
-  if (retryCount < 10) {
-    setTimeout(() => initGoogleTranslate(retryCount + 1), 500);
+
+  if (retryCount < 15) {
+    setTimeout(() => initGoogleTranslate(retryCount + 1), 800);
   }
-  return false;
 }
 
-// Re-init when auth state changes to protect against SPA DOM patches
+const loadTranslateScript = () => {
+  if (!document.querySelector('script[src*="translate.google.com"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+  
+  // Set global callback as a fallback
+  window.googleTranslateElementInit = () => initGoogleTranslate(0);
+}
+
+// Re-init when auth state changes
 watch(() => auth.isAuthenticated, () => {
-  setTimeout(() => initGoogleTranslate(0), 500)
+  setTimeout(() => initGoogleTranslate(0), 1000);
 })
 
 onMounted(() => {
@@ -386,7 +394,8 @@ onMounted(() => {
   window.addEventListener('resize', checkMobile)
   checkMobile()
 
-  // Initial init with a few attempts
+  // Load and Init
+  loadTranslateScript();
   initGoogleTranslate(0);
 })
 
