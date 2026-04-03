@@ -46,7 +46,7 @@
         <div class="panel-bottom-bar cursor-pointer" @click="closeAhmadMenu">
           <h1
             class="text-3xl font-playfair tracking-[0.3em] font-light text-yellow-500 animate-float uppercase">
-            AHMADCLOTHS HOUSE</h1>
+            AHMADCLOTHSHOUSE</h1>
         </div>
       </div>
     </div>

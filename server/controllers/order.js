@@ -1,4 +1,5 @@
 const Order = require('../models/Order');
+const sendEmail = require('../utils/sendEmail');
 
 // @desc    Get all orders (admin)
 exports.getOrders = async (req, res) => {
@@ -28,8 +29,52 @@ exports.getUserOrders = async (req, res) => {
 
 // @desc    Create an order
 exports.createOrder = async (req, res) => {
+  console.log('AHMADCLOTHS: Received Order Request');
   try {
     const order = await Order.create(req.body);
+
+    // Send notification email to admin
+    try {
+      const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
+      const shipping = order.shippingAddress;
+      
+      const emailMessage = `
+        🚀 NEW ORDER RECEIVED!
+        
+        Order Details:
+        -------------------------
+        Order ID/Tracking: ${order._id}
+        Total Amount: RS ${order.totalAmount}
+        Payment Method: ${order.paymentMethod.toUpperCase()}
+        
+        Customer Information:
+        -------------------------
+        Name: ${shipping.fullName}
+        Email: ${req.body.customerEmail || 'N/A'}
+        Phone: ${shipping.phone}
+        
+        Shipping Address:
+        -------------------------
+        Address: ${shipping.address}
+        City: ${shipping.city}
+        Zip Code: ${shipping.zipCode}
+        Country: ${shipping.country}
+        
+        Please check your admin dashboard for more details.
+      `;
+
+      await sendEmail({
+        email: adminEmail,
+        subject: `[NEW ORDER] #${order._id} - ${shipping.fullName}`,
+        message: emailMessage
+      });
+      
+      console.log('AHMADCLOTHS: Admin notified for order %s', order._id);
+    } catch (mailErr) {
+      console.error('AHMADCLOTHS_MAIL_ERROR:', mailErr.message);
+      // Don't fail the order creation if email fails, but log it
+    }
+
     res.status(201).json({ success: true, data: order });
   } catch (err) {
     console.error('ORDER_ERROR [Create]:', err.message);
@@ -68,6 +113,22 @@ exports.deleteOrder = async (req, res) => {
     await order.deleteOne();
     res.status(200).json({ success: true, data: {} });
   } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+};
+
+// @desc    Test email configuration
+exports.testEmail = async (req, res) => {
+  try {
+    const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
+    await sendEmail({
+      email: adminEmail,
+      subject: 'Ahmad Cloth House - SMTP Test Connection',
+      message: 'If you receive this, your email notification system is working correctly!'
+    });
+    res.status(200).json({ success: true, message: 'Test email sent successfully' });
+  } catch (err) {
+    console.error('AHMADCLOTHS_MAIL_ERROR [Test]:', err.message);
     res.status(500).json({ success: false, error: err.message });
   }
 };

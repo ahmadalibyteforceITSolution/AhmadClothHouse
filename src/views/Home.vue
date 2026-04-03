@@ -281,9 +281,7 @@
             <div class="relative overflow-hidden aspect-[3/4] mb-8 bg-gray-100">
               <img :src="item.image" :alt="item.title"
                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
-              <div class="absolute top-6 left-6 text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-60">
-                0{{ i + 1 }}
-              </div>
+             
             </div>
             <h3
               class="text-xl font-playfair italic text-[var(--luxury-black)] dark:text-white mb-4 uppercase tracking-wider">

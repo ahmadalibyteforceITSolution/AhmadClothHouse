@@ -111,6 +111,12 @@
                            (City)</label>
                         <input v-model="customer.city" type="text" placeholder="CITY NAME" class="mariab-input w-full">
                      </div>
+                     <div class="relative group">
+                        <label
+                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Contact
+                           Number</label>
+                        <input v-model="customer.phone" type="tel" placeholder="03XX-XXXXXXX" class="mariab-input w-full">
+                     </div>
                   </div>
                </section>
 
@@ -308,11 +314,12 @@ const customer = reactive({
    email: auth.user?.email || '',
    address: '',
    city: '',
-   zip: ''
+   zip: '',
+   phone: ''
 })
 
 const processPayment = async () => {
-   if (!customer.name || !customer.email || !customer.address || !customer.city) {
+   if (!customer.name || !customer.email || !customer.address || !customer.city || !customer.phone) {
       Swal.fire({
          icon: 'warning',
          title: 'AhmadClothes House - INCOMPLETE PROTOCOL',
@@ -340,7 +347,7 @@ const processPayment = async () => {
             address: customer.address,
             city: customer.city,
             zipCode: customer.zip,
-            phone: '', // Can be added later
+            phone: customer.phone,
             country: 'Pakistan'
          },
          paymentMethod: paymentMethod.value,

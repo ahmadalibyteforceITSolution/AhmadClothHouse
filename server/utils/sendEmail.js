@@ -1,56 +1,51 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
+/**
+ * Send an email notification using Resend API
+ * @param {Object} options - email options {email, subject, message}
+ */
 const sendEmail = async (options) => {
-  let transporterConfig;
-
-  // Use OAuth2 if client ID, client secret, and refresh token are provided
-  if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.GOOGLE_REFRESH_TOKEN) {
-    transporterConfig = {
-      service: 'gmail',
-      auth: {
-        type: 'OAuth2',
-        user: process.env.SMTP_EMAIL,
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-      },
-    };
-  } else {
-    // Fallback to standard SMTP (e.g., for App Passwords)
-    transporterConfig = {
-      service: process.env.SMTP_SERVICE || 'gmail',
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: process.env.SMTP_PORT || 587,
-      auth: {
-        user: process.env.SMTP_EMAIL || 'your-email@gmail.com',
-        pass: process.env.SMTP_PASSWORD || 'your-app-password',
-      },
-    };
+  const apiKey = process.env.RESEND_API_KEY;
+  
+  if (!apiKey) {
+    console.error('AHMADCLOTHS MAIL ERROR: RESEND_API_KEY is not set in .env');
+    throw new Error('Email service not configured. Please set RESEND_API_KEY.');
   }
 
-  const transporter = nodemailer.createTransport(transporterConfig);
+  const resend = new Resend(apiKey);
 
-  const message = {
-    from: `${process.env.FROM_NAME || 'Ahmadcloths Security'} <${process.env.FROM_EMAIL || 'security@ahmadclothshouse.com'}>`,
-    to: options.email,
-    subject: options.subject,
-    text: options.message,
-    html: `
-      <div style="font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; padding: 40px; border-radius: 20px; max-width: 600px; margin: auto; border: 1px solid #d4af3733;">
-        <h1 style="color: #d4af37; text-transform: uppercase; letter-spacing: 0.2em; font-size: 24px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">Ahmadcloths Security Protocol</h1>
-        <p style="font-size: 14px; line-height: 1.6; color: #d1d5db; margin-top: 20px;">
-          ${options.message.replace(/\n/g, '<br>')}
-        </p>
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #d4af3711; font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">
-          © 2026 AHMADCLOTHS HOUSE. ALL RIGHTS RESERVED. THIS IS AN AUTOMATED SECURITY TRANSMISSION.
+  try {
+    console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
+
+    const { data, error } = await resend.emails.send({
+      from: 'Ahmad Cloth House <onboarding@resend.dev>',
+      to: [options.email],
+      subject: options.subject,
+      html: `
+        <div style="font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; padding: 40px; border-radius: 20px; max-width: 600px; margin: auto; border: 1px solid #d4af3733;">
+          <h1 style="color: #d4af37; text-transform: uppercase; letter-spacing: 0.2em; font-size: 24px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">Ahmad Cloth House</h1>
+          <p style="font-size: 14px; line-height: 1.6; color: #d1d5db; margin-top: 20px;">
+            ${options.message.replace(/\n/g, '<br>')}
+          </p>
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #d4af3711; font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">
+            &copy; 2026 AHMAD CLOTH HOUSE. ALL RIGHTS RESERVED.
+          </div>
         </div>
-      </div>
-    `
-  };
+      `,
+      text: options.message,
+    });
 
-  const info = await transporter.sendMail(message);
+    if (error) {
+      console.error('AHMADCLOTHS MAIL ERROR:', error);
+      throw new Error(error.message);
+    }
 
-  console.log('AHMADCLOTHS MAIL PROTOCOL: Message Transmitted - ID: %s', info.messageId);
+    console.log('AHMADCLOTHS MAIL SUCCESS: Email sent! ID: %s', data?.id);
+    return data;
+  } catch (error) {
+    console.error('AHMADCLOTHS MAIL ERROR:', error.message);
+    throw error;
+  }
 };
 
 module.exports = sendEmail;
