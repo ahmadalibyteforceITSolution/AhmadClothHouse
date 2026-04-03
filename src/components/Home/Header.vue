@@ -44,7 +44,7 @@
 
         <!-- RIGHT: Actions -->
         <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
-          <!-- Desktop/Tablet Only Group -->
+          <!-- Theme & Auth Actions (Desktop Only Group) -->
           <div class="hidden sm:flex items-center gap-2 sm:gap-5">
             <!-- Theme Toggle -->
             <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
@@ -66,15 +66,16 @@
             </button>
           </div>
 
-          <!-- Google Translate -->
-          <div id="google_translate_element" class="hidden sm:flex items-center"></div>
+          <!-- Google Translate (Always Show) -->
+          <div id="google_translate_element" class="flex items-center min-w-[30px] sm:min-w-[150px] scale-[0.7] sm:scale-100 mx-1 overflow-hidden transition-all duration-500"></div>
 
           <!-- User Account Actions -->
           <template v-if="auth.isAuthenticated">
             <!-- User (Desktop Dropdown) -->
             <div class="relative group hidden lg:block">
-              <button class="icon-btn">
-                <font-awesome-icon icon="fa-solid fa-user" />
+              <button class="luxury-action-btn flex items-center gap-3">
+                <font-awesome-icon icon="fa-solid fa-user" class="text-[10px]" />
+                <span class="text-[10px] font-black uppercase tracking-widest">ACCOUNT</span>
               </button>
               <div class="dropdown-menu right-0 w-64">
                 <div class="px-5 py-4 border-b border-black/5">
@@ -95,7 +96,7 @@
               </div>
             </div>
 
-            <!-- User Icon (Mobile - opens drawer) -->
+            <!-- User Icon (Mobile) -->
             <div class="lg:hidden">
               <button @click="isMenuOpen = true" class="icon-btn" aria-label="Account">
                 <font-awesome-icon icon="fa-solid fa-user" />
@@ -103,19 +104,45 @@
             </div>
           </template>
 
-          <router-link v-else to="/login" class="icon-btn">
-            <font-awesome-icon icon="fa-solid fa-user" />
-          </router-link>
+          <div v-else class="hidden lg:flex items-center gap-3">
+            <router-link to="/login" class="luxury-action-btn flex items-center gap-3 group">
+              <font-awesome-icon icon="fa-solid fa-user" class="text-[10px] group-hover:text-amber-500 transition-colors" />
+              <span class="text-[10px] font-black uppercase tracking-widest">LOGIN</span>
+            </router-link>
+            <router-link to="/signup" class="luxury-action-btn border-amber-500/20 hover:border-amber-500">
+              <span class="text-[10px] font-black uppercase tracking-widest text-[#d4af37]">JOIN HOUSE</span>
+            </router-link>
+          </div>
 
         </div>
       </div>
 
-      <!-- Mobile Actions Row (Theme, Favorites, Cart) - Below Logo -->
-      <div class="flex sm:hidden w-full items-center justify-center gap-6 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
+      <!-- Mobile Actions Row (Theme, Favorites, Cart, Login) - Below Logo -->
+      <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
         <!-- Theme Toggle -->
         <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
           <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
         </button>
+
+        <!-- Auth Action for Mobile (When not logged in) -->
+        <template v-if="!auth.isAuthenticated">
+          <router-link to="/login" class="luxury-action-btn py-2 px-6">
+            <span class="text-[9px] font-black tracking-widest">LOGIN</span>
+          </router-link>
+          <router-link to="/signup" class="luxury-action-btn py-2 px-6 border-amber-500/20">
+            <span class="text-[9px] font-black tracking-widest text-[#d4af37]">JOIN</span>
+          </router-link>
+        </template>
+
+        <!-- Auth Action for Mobile (When LOGGED IN) -->
+        <template v-else>
+          <router-link :to="auth.isAdmin ? '/admin/dashboard' : '/dashboard'" class="luxury-action-btn py-2 px-6">
+            <span class="text-[9px] font-black tracking-widest text-amber-500">ACCOUNT</span>
+          </router-link>
+          <button @click="handleLogout" class="luxury-action-btn py-2 px-6 border-rose-500/20">
+            <span class="text-[9px] font-black tracking-widest text-rose-500">LOGOUT</span>
+          </button>
+        </template>
 
         <!-- Favorites -->
         <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
@@ -327,27 +354,33 @@ const checkMobile = () => {
   isMobile.value = window.innerWidth < 1024
 }
 
+const initGoogleTranslate = () => {
+  if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
+    const el = document.getElementById('google_translate_element')
+    if (el) {
+      // Clear before re-init to ensure a fresh widget
+      el.innerHTML = ''
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  }
+}
+
+// Re-init when auth state changes to protect against SPA DOM patches
+watch(() => auth.isAuthenticated, () => {
+  setTimeout(initGoogleTranslate, 500)
+})
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', checkMobile)
   checkMobile()
 
-  // Re-initialize Google Translate with a slight delay for SPA stability
-  setTimeout(() => {
-    if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
-      const el = document.getElementById('google_translate_element')
-      if (el) {
-        // Clear and re-init ONLY if it hasn't been initialized already
-        if (!el.innerHTML.trim()) {
-          new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-          }, 'google_translate_element');
-        }
-      }
-    }
-  }, 1000);
+  // Initial init with delay
+  setTimeout(initGoogleTranslate, 1000);
 })
 
 onUnmounted(() => {
@@ -506,6 +539,24 @@ const goToHome = () => router.push('/')
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.luxury-action-btn {
+  padding: 10px 24px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 100px;
+  color: #d4af37;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  text-decoration: none;
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.luxury-action-btn:hover {
+  background: #d4af37;
+  color: black;
+  border-color: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .dark .icon-btn {

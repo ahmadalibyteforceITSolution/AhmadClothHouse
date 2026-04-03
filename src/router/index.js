@@ -14,7 +14,7 @@ const routes = [
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Ahmadcloths house",
-        "url": "https://shop.bytely.ai"
+        "url": "https://ahmad-cloths.vercel.app"
       }
     }
   },
@@ -35,15 +35,15 @@ const routes = [
     component: () => import('../views/Shop.vue'),
     props: true,
     meta: {
-      title: 'Shop Luxury Fashion & Couture | Ahmadcloths house Premium Fashion',
-      description: 'Explore our exclusive collection of unstitched fabrics, pret wear, and handcrafted couture. Each piece is designed with premium luxury fabrics.',
+      title: 'Shop Pakistani Designer Suits | Unstitched, Pret & Bridal Collection',
+      description: 'Discover the latest unstitched suites, luxury pret, and bridal wear for women. Browse our premium collections including chiffon, lawn, and festive fabrics at Ahmadcloths House.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Shop Luxury Fashion & Couture - Ahmadcloths house",
+        "name": "Shop Luxury Pakistani Designer Suits - Ahmadcloths House",
         "description": "Browse our exclusive catalog of unstitched, pret, and luxury bridal couture.",
-        "url": "https://shop.bytely.ai/shop"
+        "url": "https://ahmad-cloths.vercel.app/shop"
       }
     }
   },
@@ -90,7 +90,7 @@ const routes = [
         "@type": "AboutPage",
         "name": "Our Story - Ahmadcloths house",
         "description": "Learn about Ahmadcloths house mission to bridge artisanal craftsmanship and luxury fashion.",
-        "url": "https://shop.bytely.ai/about"
+        "url": "https://ahmad-cloths.vercel.app/about"
       }
     }
   },
@@ -99,8 +99,8 @@ const routes = [
     name: 'contact',
     component: () => import('../views/Contact.vue'),
     meta: {
-      title: 'Contact Our Artisan Fashion House | AhmadClothes House Support',
-      description: 'Get in touch with AhmadClothes House for custom cake orders, event catering, and gourmet gift inquiries. We are here to help you celebrate.',
+      title: 'Contact Us | Ahmadcloths House Premium Fashion Support',
+      description: 'Get in touch with Ahmadcloths House for orders, wholesale inquiries, and customer support. Experience the finest Pakistani luxury wear.',
       robots: 'index, follow'
     }
   },
@@ -290,7 +290,7 @@ router.afterEach((to) => {
 
   // Update Canonical Tag
   let canonicalElement = document.querySelector('link[rel="canonical"]')
-  const canonicalUrl = `https://shop.bytely.ai${to.path}`
+  const canonicalUrl = `https://ahmad-cloths.vercel.app${to.path}`
   if (canonicalElement) {
     canonicalElement.setAttribute('href', canonicalUrl)
   } else {

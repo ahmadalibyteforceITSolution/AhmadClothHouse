@@ -139,7 +139,7 @@ exports.forgotPassword = async (req, res) => {
     user.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
     await user.save();
 
-    const resetUrl = `https://shop.bytely.ai/reset-password/${resetToken}`;
+    const resetUrl = `https://ahmad-cloths.vercel.app/reset-password/${resetToken}`;
 
     // Send Reset Email
     try {

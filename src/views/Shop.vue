@@ -16,12 +16,12 @@
       <div class="max-w-7xl mx-auto w-full relative z-10">
         <div class="flex items-center gap-4 mb-6 animate-reveal">
           <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-          <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.5em] block">THE AHMADCLOTHS CATALOG</span>
+          <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.5em] block">PAKISTANI DESIGNER SUITS</span>
         </div>
         
         <h1 class="text-5xl md:text-8xl font-light uppercase tracking-tighter leading-none mb-8 text-white transition-all font-playfair italic">
           {{ displayTitleParts.main }}<br>
-          <span class="text-[var(--primary-gold)] font-sans tracking-widest font-light ml-2 uppercase">{{ displayTitleParts.accent }}</span>
+          <span class="text-[var(--primary-gold)] font-sans tracking-widest font-light ml-2 uppercase">LUXURY UNSTITCHED</span>
         </h1>
         
         <p class="text-[9px] font-black tracking-[0.4em] text-white/40 uppercase max-w-xs leading-relaxed animate-reveal-delay">

@@ -5,5 +5,6 @@ Disallow: /checkout
 Disallow: /favorites
 Disallow: /admin/
 Disallow: /reset-password/
+Disallow: /dashboard
 
-Sitemap: https://shop.bytely.ai/sitemap.xml
+Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml

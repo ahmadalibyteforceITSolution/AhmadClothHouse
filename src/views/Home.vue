@@ -5,19 +5,21 @@
          SEO CONTENT (VISUALLY HIDDEN)
     ═══════════════════════════════════════════ -->
     <section class="sr-only">
-      <h1>Ahmadcloths house | Premium Luxury Fashion & Couture</h1>
+      <h1>Ahmadcloths House | Best Unstitched Ladies Suits & Luxury Pret in Pakistan</h1>
       <p>Discover the finest selection of handcrafted unstitched fabrics, luxury pret, and bridal couture at Ahmadcloths
-        house. Our premium boutique offers designer lawn, festive collections, and signature bridal wear. Inspired by
-        the heritage of Maria B and Warda, we ensure the highest quality fabrics in every stitch.</p>
+        House. Our premium boutique offers designer embroidered lawn, chiffon collections, and signature bridal wear. 
+        Top-ranked Pakistani designer suits inspired by Maria B, Warda, and Sana Safinaz. Experience premium fashion in Lahore with worldwide shipping.</p>
       <ul>
-        <li>Premium Unstitched Fabrics</li>
-        <li>Designer Pret and Ready-to-Wear</li>
-        <li>Luxury Bridal Couture</li>
-        <li>Festive and Eid Collections</li>
+        <li>Premium Unstitched Ladies Suits</li>
+        <li>Luxury Pret Pakistan - Ready to Wear</li>
+        <li>Bridal Couture & Wedding Wear</li>
+        <li>Embroidered Lawn & Chiffon Collections</li>
+        <li>Pakistani Designer Suits Online</li>
+        <li>Festive Wear & Eid Collections</li>
         <li>Exclusive Silk and Velvet Designs</li>
         <li>Hand-embroidered Masterpieces</li>
-        <li>Custom Bridal Consultations</li>
-        <li>Seasonal Fashion Catalog</li>
+        <li>Custom Bridal Consultations Lahore</li>
+        <li>Luxury Apparel & Fashion Catalog</li>
       </ul>
     </section>
 
@@ -165,10 +167,10 @@
       <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <!-- Text Content -->
         <div class="lg:col-span-5 space-y-8">
-          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE ATELIER</div>
+          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">LUXURY PRET PAKISTAN</div>
           <h2
             class="text-5xl md:text-6xl font-playfair italic text-[var(--luxury-black)] dark:text-white leading-tight">
-            BEHIND THE<br><span class="text-[var(--deep-burgundy)]">STITCH</span></h2>
+            UNSTITCHED<br><span class="text-[var(--deep-burgundy)]">LADIES SUITS</span></h2>
           <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
             True elegance resides in the selection of fabrics. Every garment in the Ahmadcloths house atelier is crafted
             with precision — premium silk, luxury lawn, and the finest hand embroidery.
@@ -239,11 +241,10 @@
           </div>
         </div>
         <div class="space-y-10 order-1 lg:order-2">
-          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE SEASONAL EDIT
-          </div>
+          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">PAKISTANI DESIGNER SUITS</div>
           <h2
             class="text-5xl md:text-7xl font-playfair italic text-[var(--luxury-black)] dark:text-white leading-tight">
-            SYMPHONY OF<br><span class="text-[var(--deep-burgundy)]">FABRIC & DESIGN</span></h2>
+            SIGNATURE<br><span class="text-[var(--deep-burgundy)]">BRIDAL COUTURE</span></h2>
           <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light italic">
             Our latest collection explores the delicate balance of textures—from the intricate patterns of hand-woven
             fabrics to the luxury feel of our signature unstitched collections.
@@ -463,7 +464,6 @@
             We believe the finest fabrics tell their own story. AHMADCLOTHS HOUSE represents the commitment to quality
             and the joy of elegance through artisanal craftsmanship.
           </p>
-
           <div class="flex items-center gap-10">
             <div v-for="stat in brandStats" :key="stat.label">
               <div class="text-3xl font-black text-amber-400 mb-1">{{ stat.value }}</div>
