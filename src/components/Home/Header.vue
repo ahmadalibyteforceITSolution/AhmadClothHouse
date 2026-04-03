@@ -354,7 +354,7 @@ const checkMobile = () => {
   isMobile.value = window.innerWidth < 1024
 }
 
-const initGoogleTranslate = () => {
+const initGoogleTranslate = (retryCount = 0) => {
   if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
     const el = document.getElementById('google_translate_element')
     if (el) {
@@ -365,13 +365,20 @@ const initGoogleTranslate = () => {
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');
+      return true;
     }
   }
+  
+  // Retry polling for up to 5 seconds
+  if (retryCount < 10) {
+    setTimeout(() => initGoogleTranslate(retryCount + 1), 500);
+  }
+  return false;
 }
 
 // Re-init when auth state changes to protect against SPA DOM patches
 watch(() => auth.isAuthenticated, () => {
-  setTimeout(initGoogleTranslate, 500)
+  setTimeout(() => initGoogleTranslate(0), 500)
 })
 
 onMounted(() => {
@@ -379,8 +386,8 @@ onMounted(() => {
   window.addEventListener('resize', checkMobile)
   checkMobile()
 
-  // Initial init with delay
-  setTimeout(initGoogleTranslate, 1000);
+  // Initial init with a few attempts
+  initGoogleTranslate(0);
 })
 
 onUnmounted(() => {

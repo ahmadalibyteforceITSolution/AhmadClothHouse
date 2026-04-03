@@ -7,13 +7,13 @@ const routes = [
     name: 'home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: 'Ahmadcloths house | Premium Luxury Fashion & Couture',
-      description: 'Experience the art of luxury fashion at Ahmadcloths house. Discover our premium selection of handcrafted unstitched fabrics, pret wear, and bridal couture inspired by Maria B and Warda.',
+      title: 'Ahmadcloths House | Best Unstitched Ladies Suits & Luxury Pret Pakistan',
+      description: 'Discover premium unstitched ladies suits, luxury pret, and bridal couture at Ahmadcloths House. Handcrafted Pakistani designer wear inspired by Maria B & Warda.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Ahmadcloths house",
+        "name": "Ahmadcloths House",
         "url": "https://ahmad-cloths.vercel.app"
       }
     }
@@ -36,7 +36,7 @@ const routes = [
     props: true,
     meta: {
       title: 'Shop Pakistani Designer Suits | Unstitched, Pret & Bridal Collection',
-      description: 'Discover the latest unstitched suites, luxury pret, and bridal wear for women. Browse our premium collections including chiffon, lawn, and festive fabrics at Ahmadcloths House.',
+      description: 'Browse the latest unstitched suits, luxury pret, and wedding wear for women. Designer embroidery and premium fabrics including lawn & chiffon at Ahmadcloths.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
@@ -62,8 +62,8 @@ const routes = [
     name: 'favorites',
     component: () => import('../views/Favorites.vue'),
     meta: {
-      title: 'Saved Designs - Ahmadcloths house',
-      description: 'Your saved favorite fashion designs and luxury pieces.',
+      title: 'My Saved Couture - Ahmadcloths House',
+      description: 'Your curated selection of favorite unstitched suites and luxury fashion pieces from Ahmadcloths House.',
       robots: 'noindex, nofollow'
     }
   },
@@ -72,8 +72,8 @@ const routes = [
     name: 'checkout',
     component: () => import('../views/Checkout.vue'),
     meta: {
-      title: 'Secure Checkout - Ahmadcloths house',
-      description: 'Complete your purchase securely through the Ahmadcloths house encrypted gateway.',
+      title: 'Secure Checkout | Ahmadcloths House Premium Fashion',
+      description: 'Complete your purchase securely through our encrypted checkout. Get your luxury unstitched suits and couture delivered safely.',
       robots: 'noindex, nofollow'
     }
   },
@@ -82,14 +82,14 @@ const routes = [
     name: 'about',
     component: () => import('../views/About.vue'),
     meta: {
-      title: 'Our Fashion Heritage & Design Philosophy | Ahmadcloths house',
-      description: 'Discover the story of Ahmadcloths house, where traditional craftsmanship meets modern luxury. Learn about our commitment to premium fabrics and sustainable practices.',
+      title: 'Our Heritage & Design Philosophy | Ahmadcloths House',
+      description: 'Discover the story of Ahmadcloths House. Traditional craftsmanship meets modern luxury in our premium unstitched and bridal collections.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "name": "Our Story - Ahmadcloths house",
-        "description": "Learn about Ahmadcloths house mission to bridge artisanal craftsmanship and luxury fashion.",
+        "name": "Our Story - Ahmadcloths House",
+        "description": "Learn about Ahmadcloths House mission to bridge artisanal craftsmanship and luxury fashion.",
         "url": "https://ahmad-cloths.vercel.app/about"
       }
     }
@@ -109,8 +109,8 @@ const routes = [
     name: 'privacy',
     component: () => import('../views/Privacy.vue'),
     meta: {
-      title: 'Privacy Protocol - AhmadClothes House',
-      description: 'AhmadClothes House privacy policy and data security commitments.',
+      title: 'Privacy Protocol | Ahmadcloths House Data Security',
+      description: 'Review the Ahmadcloths House privacy policy and our commitment to protecting your personal data and fashion journey.',
       robots: 'index, follow'
     }
   },
@@ -119,8 +119,8 @@ const routes = [
     name: 'terms',
     component: () => import('../views/Terms.vue'),
     meta: {
-      title: 'Terms of Service - AhmadClothes House',
-      description: 'Terms and conditions for AhmadClothes House bakery operations.',
+      title: 'Terms of Service | Ahmadcloths House Legal',
+      description: 'Read the terms and conditions for orders, shipping, and returns at Ahmadcloths House.',
       robots: 'index, follow'
     }
   },
@@ -129,8 +129,8 @@ const routes = [
     name: 'cookies',
     component: () => import('../views/Cookies.vue'),
     meta: {
-      title: 'Cookie Consent - AhmadClothes House',
-      description: 'Details on how AhmadClothes House utilizes digital footprints and cookies to enhance your experience.',
+      title: 'Cookie Consent | Ahmadcloths House Digital Experience',
+      description: 'Details on how Ahmadcloths House utilizes cookies to enhance your luxury shopping experience.',
       robots: 'index, follow'
     }
   },
@@ -139,8 +139,8 @@ const routes = [
     name: 'login',
     component: () => import('../views/Login.vue'),
     meta: {
-      title: 'Fashion House Login - AhmadClothes House',
-      description: 'Access your AhmadClothes House bakery account or admin console.',
+      title: 'Enter the House | Ahmadcloths House Login',
+      description: 'Access your Ahmadcloths House member account to view orders and saved couture.',
       robots: 'index, follow'
     }
   },
@@ -149,8 +149,8 @@ const routes = [
     name: 'signup',
     component: () => import('../views/Signup.vue'),
     meta: {
-      title: 'Join the Circle - AhmadClothes House',
-      description: 'Register a new account within the AhmadClothes House sweet community.',
+      title: 'Join the Inner Circle | Ahmadcloths House Signup',
+      description: 'Create your Ahmadcloths House account for early access to lawn launches and exclusive bridal previews.',
       robots: 'index, follow'
     }
   },
@@ -159,8 +159,8 @@ const routes = [
     name: 'forgot-password',
     component: () => import('../views/ForgotPassword.vue'),
     meta: {
-      title: 'Recover Account - AhmadClothes House',
-      description: 'Recover your lost password to regain access to AhmadClothes House.',
+      title: 'Recover Account Access | Ahmadcloths House',
+      description: 'Regain access to your Ahmadcloths House account and your fashion history.',
       robots: 'index, follow'
     }
   },
@@ -169,8 +169,8 @@ const routes = [
     name: 'reset-password',
     component: () => import('../views/ResetPassword.vue'),
     meta: {
-      title: 'Reset Password - AhmadClothes House',
-      description: 'Reset your AhmadClothes House security password.',
+      title: 'Reset Security Code | Ahmadcloths House',
+      description: 'Set a new password for your Ahmadcloths House secure profile.',
       robots: 'noindex, nofollow'
     }
   },
@@ -180,8 +180,8 @@ const routes = [
     component: () => import('../components/Admin/AdminDashboard.vue'),
     meta: { 
       requiresAdmin: true,
-      title: 'Fashion House Management - AhmadClothes House',
-      description: 'AhmadClothes House administrative management portal.',
+      title: 'Couture Management | Ahmadcloths House Admin',
+      description: 'Ahmadcloths House administrative portal for collection management.',
       robots: 'noindex, nofollow'
     }
   },
@@ -191,8 +191,8 @@ const routes = [
     component: () => import('../views/UserDashboard.vue'),
     meta: { 
       requiresAuth: true,
-      title: 'My Fashion House Account - AhmadClothes House',
-      description: 'Personal bakery dashboard for AhmadClothes House members.',
+      title: 'My Fashion Profile | Ahmadcloths House Dashboard',
+      description: 'Personalized couture dashboard for Ahmadcloths House members to manage orders and saved items.',
       robots: 'noindex, nofollow'
     }
   },
@@ -201,8 +201,8 @@ const routes = [
     name: 'notfound',
     component: () => import('../views/NotFound.vue'),
     meta: {
-      title: 'Void - AhmadClothes House',
-      description: 'The requested delight could not be located.',
+      title: 'Undiscovered Design | Ahmadcloths House',
+      description: 'The requested fashion page could not be located in our House of Couture.',
       robots: 'noindex, nofollow'
     }
   }
