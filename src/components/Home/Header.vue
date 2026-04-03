@@ -239,8 +239,7 @@
           <nav class="flex-1 overflow-y-auto p-6 space-y-1">
             <router-link v-for="(item, i) in navItems" :key="item.name" :to="item.path" @click="isMenuOpen = false"
               class="mobile-nav-link group">
-              <span class="text-[10px] text-[var(--primary-gold)]/60 font-mono">{{ String(i + 1).padStart(2, '0')
-                }}</span>
+          
               <span class="flex-1 text-xs uppercase tracking-widest font-semibold">{{ item.name }}</span>
               <font-awesome-icon icon="fa-solid fa-arrow-right"
                 class="text-[10px] opacity-0 group-hover:opacity-60 translate-x-0 group-hover:translate-x-1 transition-all duration-300" />
