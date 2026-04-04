@@ -59,6 +59,16 @@
        </div>
     </div>
 
+    <!-- Advanced Earning Metrics -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+       <div v-for="item in advancedMetrics" :key="item.l" class="bg-[#fdfdfb] dark:bg-[#0a0a0a] rounded-2xl p-8 border border-[#d4af3711] shadow-lg group relative overflow-hidden">
+          <div class="absolute -right-4 -bottom-4 w-12 h-12 bg-[var(--primary-gold)]/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+          <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-stone-400 mb-2 relative z-10">{{ item.l }}</p>
+          <h5 class="text-2xl font-light italic font-playfair dark:text-white relative z-10">Rs. {{ item.v }}</h5>
+          <p class="text-[7px] font-bold text-[var(--primary-gold)] mt-2 uppercase tracking-widest relative z-10">{{ item.tip }}</p>
+       </div>
+    </div>
+
     <!-- Execution Stream - Recent Activity -->
     <div class="bg-white dark:bg-[#080808] rounded-2xl p-12 border border-[#d4af3711] shadow-3xl relative overflow-hidden group">
        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-10">
@@ -111,6 +121,7 @@ const props = defineProps({
   stats: Object,
   transactions: Array,
   activeUsers: Number,
+  monetization: Object,
   growthRate: {
     type: Number,
     default: 12.5
@@ -141,10 +152,16 @@ const downloadReport = () => {
 }
 
 const pulseItems = computed(() => [
-  { l: 'BOUTIQUE TRAFFIC', v: (props.activeUsers * 12).toLocaleString(), i: 'fa-solid fa-chart-line' },
-  { l: 'ACTIVE CLIENTS', v: props.activeUsers.toString(), i: 'fa-solid fa-user-tie' },
-  { l: 'PRODUCT VIEWS', v: props.stats.clicks, i: 'fa-solid fa-eye' },
-  { l: 'LUXURY INDEX', v: '99.9%', i: 'fa-solid fa-gem' }
+  { l: 'TRAFFIC VALUE', v: `Rs. ${props.monetization?.visitorValue || 0}`, i: 'fa-solid fa-sack-dollar' },
+  { l: 'CONVERSION RATIO', v: `${props.monetization?.conversionRate || 0}%`, i: 'fa-solid fa-arrows-to-dot' },
+  { l: 'AVG TRANSACTION', v: `Rs. ${props.monetization?.avgTransaction || 0}`, i: 'fa-solid fa-gem' },
+  { l: 'REVENUE PROJECTION', v: `Rs. ${(props.monetization?.revenueProjection || 0).toLocaleString()}`, i: 'fa-solid fa-chart-line' }
+])
+
+const advancedMetrics = computed(() => [
+  { l: 'ABANDONED VALUE', v: (props.monetization?.abandonedValue || 0).toLocaleString(), tip: 'CAPTURE WITH UPSELLS' },
+  { l: 'POTENTIAL YIELD', v: Math.max(0, (props.monetization?.revenueProjection || 0) - (props.stats?.revenue || 0)).toLocaleString(), tip: 'GROWTH POTENTIAL' },
+  { l: 'VISITOR EQUITY', v: ((props.monetization?.visitorValue || 0) * 1.5).toFixed(0), tip: 'LIFETIME POTENTIAL' }
 ])
 </script>
 

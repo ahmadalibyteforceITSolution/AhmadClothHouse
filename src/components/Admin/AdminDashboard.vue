@@ -256,7 +256,7 @@ const currentTabComponent = computed(() => {
 // Dynamic Props
 const currentTabProps = computed(() => {
   if (currentTab.value === 'overview') {
-    return { stats: dynamicStats.value, transactions: transactions.value, activeUsers: activeUsers.value }
+    return { stats: dynamicStats.value, transactions: transactions.value, activeUsers: activeUsers.value, monetization: monetizationStats.value }
   }
   if (currentTab.value === 'sales') {
      return { 
@@ -385,6 +385,23 @@ const dynamicStats = computed(() => {
     profit: totalProfit || 0,
     clicks: totalClicks || 0,
     sales: totalSales || 0
+  }
+})
+
+const monetizationStats = computed(() => {
+  const stats = dynamicStats.value
+  const conversionRate = stats.clicks > 0 ? (stats.sales / stats.clicks) * 100 : 0
+  const visitorValue = stats.clicks > 0 ? (stats.revenue / stats.clicks) : 0
+  const avgTransaction = stats.sales > 0 ? (stats.revenue / stats.sales) : 0
+  const abandonedValue = Math.max(0, (stats.clicks * 2500) - stats.revenue) // 2500 as baseline avg price
+  const revenueProjection = stats.revenue * 1.2 // 20% growth projection
+  
+  return {
+    conversionRate: parseFloat(conversionRate.toFixed(1)),
+    visitorValue: Math.round(visitorValue),
+    avgTransaction: Math.round(avgTransaction),
+    abandonedValue: Math.round(abandonedValue),
+    revenueProjection: Math.round(revenueProjection)
   }
 })
 
