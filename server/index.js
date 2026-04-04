@@ -53,6 +53,23 @@ app.use("/api/orders", require("./routes/order"));
 app.use("/api/traffic", require("./routes/traffic"));
 app.use("/api/monetization", require("./routes/monetization"));
 
+// Dynamic ads.txt for Google AdSense
+app.get("/ads.txt", async (req, res) => {
+  try {
+    const Monetization = require("./models/Monetization");
+    const settings = await Monetization.findOne();
+    if (settings && settings.publisherId) {
+      const pubId = settings.publisherId.replace("ca-", ""); // Ensure clean ID
+      res.type("text/plain");
+      res.send(`google.com, ${pubId}, DIRECT, f08c47fec0942fa0`);
+    } else {
+      res.status(404).send("AdSense not configured yet.");
+    }
+  } catch (err) {
+    res.status(500).send("Error generating ads.txt");
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => console.log(`🚀 Ahmadcloths Server on Port ${PORT}`));
