@@ -248,15 +248,15 @@
                      </div>
                      <div
                         class="flex justify-between text-[10px] font-bold text-stone-400 uppercase tracking-widest italic leading-relaxed">
-                        <span>Delivery (Standard)</span>
-                        <span>{{ paymentMethod === 'cod' ? 'Rs. 200' : 'FREE' }}</span>
+                        <span>Delivery ({{ customer.city || 'Standard' }})</span>
+                        <span>{{ deliveryCharge === 0 ? 'FREE' : 'Rs. ' + deliveryCharge }}</span>
                      </div>
                      <div class="h-[1px] bg-stone-100 dark:bg-stone-900 my-4"></div>
                      <div
                         class="flex justify-between text-lg font-playfair italic text-[var(--luxury-black)] dark:text-white">
                         <span>Grand Total</span>
                         <span class="text-[var(--primary-gold)] font-sans not-italic font-black">Rs. {{ (cart.totalPrice
-                           + (paymentMethod === 'cod' ? 200 : 0)).toLocaleString() }}</span>
+                           + deliveryCharge).toLocaleString() }}</span>
                      </div>
                   </div>
 
@@ -282,7 +282,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import api from '../api'
 import Swal from 'sweetalert2'
@@ -302,6 +302,19 @@ const success = ref(false)
 const isProcessing = ref(false)
 const paymentMethod = ref('easypaisa')
 const transactionId = ref('')
+
+// Dynamic Delivery Charge Logic
+const deliveryCharge = computed(() => {
+   if (cart.totalPrice >= 5000 && paymentMethod.value !== 'cod') return 0
+   
+   const city = customer.city.toLowerCase().trim()
+   if (!city) return 200 // Default if empty
+   
+   if (city === 'lahore') return 150
+   if (['karachi', 'islamabad', 'rawalpindi', 'faisalabad', 'multan'].includes(city)) return 250
+   if (['peshawar', 'quetta', 'gujranwala', 'sialkot'].includes(city)) return 350
+   return 300 // Nationwide for other cities
+})
 
 // Expose Env Variables safely for Template
 const easypaisaNumber = import.meta.env.VITE_EASYPAISA_NUMBER || '03416887454'
@@ -341,7 +354,9 @@ const processPayment = async () => {
             quantity: item.quantity,
             variant: item.variant || {}
          })),
-         totalAmount: cart.totalPrice + (paymentMethod.value === 'cod' ? 200 : 0),
+         subtotal: cart.totalPrice,
+         deliveryCharge: deliveryCharge.value,
+         totalAmount: cart.totalPrice + deliveryCharge.value,
          shippingAddress: {
             fullName: customer.name,
             address: customer.address,

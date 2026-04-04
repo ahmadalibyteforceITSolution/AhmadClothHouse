@@ -171,14 +171,30 @@
                         </div>
                       </div>
 
-                      <div v-if="order.status === 'Shipped'"
-                        class="mt-10 p-6 bg-[var(--primary-gold)]/5 border border-[var(--primary-gold)]/20">
-                        <p
-                          class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.2em] leading-relaxed">
-                          DESIGNER'S NOTE: Your package is currently in transit with {{ order.carrier ||
-                          'BoutiqueCourier' }}. Arrival expected within 3-5 business days.
-                        </p>
-                      </div>
+                        <div v-if="order.status === 'Shipped'"
+                          class="mt-10 p-6 bg-[var(--primary-gold)]/5 border border-[var(--primary-gold)]/20">
+                          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                            <p class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.2em] leading-relaxed max-w-lg">
+                              DESIGNER'S NOTE: Your package is currently in transit with {{ order.carrier || 'BoutiqueCourier' }}. Arrival expected within 3-5 business days.
+                            </p>
+                            <button @click="order.showMap = !order.showMap" 
+                              class="text-[8px] font-black uppercase tracking-[0.4em] px-6 py-3 border border-[var(--primary-gold)] text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-black transition-all">
+                              {{ order.showMap ? 'Hide Logistic Map' : 'View Logistic Map' }}
+                            </button>
+                          </div>
+
+                          <transition name="fade">
+                            <div v-if="order.showMap" class="mt-8 h-64 w-full border border-[var(--primary-gold)]/20 grayscale hover:grayscale-0 transition-all duration-1000">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                frameborder="0" style="border:0"
+                                :src="getGoogleMapUrl(order.city)"
+                                allowfullscreen>
+                              </iframe>
+                            </div>
+                          </transition>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -228,9 +244,16 @@ const orders = computed(() => {
     status: o.status || 'Pending',
     amount: o.totalAmount || 0,
     trackingNumber: o.tracking?.trackingNumber || '',
-    carrier: o.tracking?.carrier || ''
+    carrier: o.tracking?.carrier || '',
+    city: o.shippingAddress?.city || 'Lahore',
+    showMap: false
   }))
 })
+
+const getGoogleMapUrl = (city) => {
+  const query = `${city}, Pakistan`
+  return `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ''}&q=${encodeURIComponent(query)}&zoom=12`
+}
 
 onMounted(() => {
   if (auth.user?.id || auth.user?._id) {

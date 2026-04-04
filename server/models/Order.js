@@ -13,6 +13,8 @@ const OrderSchema = new mongoose.Schema({
       image: String
     }
   }],
+  subtotal: { type: Number, required: true },
+  deliveryCharge: { type: Number, default: 0 },
   totalAmount: { type: Number, required: true },
   shippingAddress: {
     fullName: String,

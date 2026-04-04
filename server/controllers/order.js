@@ -15,6 +15,21 @@ exports.getOrders = async (req, res) => {
   }
 };
 
+// @desc    Get order by ID (public tracking)
+exports.getOrderById = async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.id)
+      .lean();
+    if (!order) {
+      return res.status(404).json({ success: false, error: 'Order dispatch not found' });
+    }
+    res.status(200).json({ success: true, data: order });
+  } catch (err) {
+    console.error('ORDER_ERROR [FetchByID]:', err.message);
+    res.status(500).json({ success: false, error: 'Order identification failed' });
+  }
+};
+
 // @desc    Get orders for a specific user
 exports.getUserOrders = async (req, res) => {
   try {
@@ -44,6 +59,8 @@ exports.createOrder = async (req, res) => {
         Order Details:
         -------------------------
         Order ID/Tracking: ${order._id}
+        Subtotal: RS ${order.subtotal || 0}
+        Delivery Charges: RS ${order.deliveryCharge || 0}
         Total Amount: RS ${order.totalAmount}
         Payment Method: ${order.paymentMethod.toUpperCase()}
         

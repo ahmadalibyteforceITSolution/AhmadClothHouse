@@ -160,10 +160,39 @@
       </div>
 
       <!-- Bottom Row: Navigation (Desktop Only) -->
-      <nav class="hidden lg:flex items-center gap-8 mt-6 w-full justify-center border-t border-black/5 pt-4">
-        <router-link v-for="item in navItems" :key="item.name" :to="item.path" class="nav-link-premium">
-          {{ item.name }}
-        </router-link>
+      <nav class="hidden lg:flex items-center gap-12 mt-6 w-full justify-center border-t border-black/5 pt-4">
+        <div v-for="item in navItems" :key="item.name" class="relative group/nav">
+          <router-link :to="item.path" class="nav-link-premium">
+            {{ item.name }}
+          </router-link>
+          
+          <!-- Category Dropdown (Mega Menu) -->
+          <div v-if="item.products && item.products.length > 0" 
+            class="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white dark:bg-[#0A0A0A] border border-black/5 dark:border-white/5 shadow-2xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-500 z-[110] p-8 grid grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h3 class="text-[9px] font-black text-[var(--primary-gold)] uppercase tracking-[0.4em] mb-6">Signature Pieces</h3>
+              <div v-for="p in item.products.slice(0, 4)" :key="p.id" 
+                @click="goToLiveProduct(p)"
+                class="flex items-center gap-4 p-3 hover:bg-stone-50 dark:hover:bg-white/5 cursor-pointer transition-all group/item">
+                <div class="w-12 h-14 bg-stone-100 dark:bg-stone-900 border border-black/5 shrink-0 overflow-hidden">
+                  <img :src="p.image" class="w-full h-full object-cover grayscale group-hover/item:grayscale-0 transition-all duration-700" />
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white line-clamp-1">{{ p.name }}</p>
+                  <p class="text-[9px] font-medium text-[var(--primary-gold)]">Rs. {{ p.price.toLocaleString() }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-stone-50 dark:bg-stone-900/40 p-6 flex flex-col justify-center text-center space-y-4">
+              <p class="text-[8px] font-black text-stone-400 uppercase tracking-[0.4em]">The {{ item.name }} Collection</p>
+              <h4 class="text-xl font-playfair italic text-[var(--luxury-black)] dark:text-white">Curated Luxury</h4>
+              <p class="text-[10px] text-stone-500 italic leading-relaxed">Discover our most sought-after pieces from the signature {{ item.name }} archives.</p>
+              <button @click="router.push(item.path)" class="mx-auto mt-4 px-8 py-3 bg-[var(--luxury-black)] dark:bg-white text-white dark:text-black text-[9px] font-bold uppercase tracking-widest hover:bg-[var(--primary-gold)] transition-colors">
+                View All
+              </button>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
 
@@ -405,28 +434,44 @@ onUnmounted(() => {
 })
 
 const navItems = computed(() => {
-  const items = [{ name: 'Home', path: '/' }]
+  const items = [{ name: 'Home', path: '/', products: [] }]
   const categories = productStore.products.reduce((acc, p) => {
     if (p.parentCategory) acc.add(p.parentCategory)
     else if (p.category) acc.add(p.category)
     return acc
   }, new Set())
 
+  // Create products by category map for dropdowns
+  const productsByCategory = productStore.products.reduce((acc, p) => {
+    const cat = p.parentCategory || p.category
+    if (!acc[cat]) acc[cat] = []
+    acc[cat].push(p)
+    return acc
+  }, {})
+
   // Luxury Fashion Categories
   const order = ['Unstitched', 'Pret', 'Bridal', 'M.Print']
   order.forEach(catName => {
     if (categories.has(catName)) {
-      items.push({ name: catName, path: `/shop/${catName}` })
+      items.push({ 
+        name: catName, 
+        path: `/shop/${catName}`,
+        products: productsByCategory[catName] || []
+      })
       categories.delete(catName)
     }
   })
   categories.forEach(catName => {
     if (!['Standard', 'Premium', 'Limited Edition'].includes(catName)) {
-      items.push({ name: catName, path: `/shop/${catName}` })
+      items.push({ 
+        name: catName, 
+        path: `/shop/${catName}`,
+        products: productsByCategory[catName] || []
+      })
     }
   })
-  items.push({ name: 'About Us', path: '/about' })
-  items.push({ name: 'Contact Us', path: '/contact' })
+  items.push({ name: 'About Us', path: '/about', products: [] })
+  items.push({ name: 'Contact Us', path: '/contact', products: [] })
   return items
 })
 

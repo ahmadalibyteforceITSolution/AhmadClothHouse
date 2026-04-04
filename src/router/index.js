@@ -186,6 +186,16 @@ const routes = [
     }
   },
   {
+    path: '/track-order',
+    name: 'track-order',
+    component: () => import('../views/TrackOrder.vue'),
+    meta: {
+      title: 'Track Your Couture | Ahmadcloths House Order Tracking',
+      description: 'Track your Ahmadcloths House order in real-time. View shipping status and estimated delivery for your luxury unstitched and pret pieces.',
+      robots: 'noindex, nofollow'
+    }
+  },
+  {
     path: '/dashboard',
     name: 'user-dashboard',
     component: () => import('../views/UserDashboard.vue'),
