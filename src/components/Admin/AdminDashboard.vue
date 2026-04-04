@@ -99,8 +99,8 @@
           <div v-if="currentTab === 'overview'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <StatCard label="GROSS REVENUE" :value="`Rs. ${dynamicStats.revenue.toLocaleString()}`"
               icon="fa-solid fa-gem" :trend="14" />
-            <StatCard label="NET PROFITS" :value="`Rs. ${dynamicStats.profit.toLocaleString()}`"
-              icon="fa-solid fa-building-columns" :trend="8" color-class="bg-emerald-500/10 text-emerald-500" />
+            <StatCard label="LIVE VISITORS" :value="activeUsers"
+              icon="fa-solid fa-users" color-class="bg-blue-500/10 text-blue-500" :trend="5" />
             <StatCard label="PRODUCT VIEWS" :value="dynamicStats.clicks" icon="fa-solid fa-eye" :trend="22"
               color-class="bg-[var(--primary-gold)]/10 text-[var(--primary-gold)]" />
             <StatCard label="TOTAL SALES" :value="dynamicStats.sales" icon="fa-solid fa-bag-shopping" :trend="-2"
@@ -147,12 +147,13 @@
 </template>
 
 <script setup>
-import { ref, computed, markRaw, onMounted, watch } from 'vue'
+import { ref, computed, markRaw, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 import { useProductsStore } from '../../stores/products'
 import { useOrdersStore } from '../../stores/orders'
+import api from '../../api'
 
 // Sub-components
 import StatCard from './StatCard.vue'
@@ -170,6 +171,17 @@ const orderStore = useOrdersStore()
 
 const currentTab = ref('overview')
 const isMobileMenuOpen = ref(false)
+const activeUsers = ref(0)
+const trafficInterval = ref(null)
+
+const fetchTrafficStats = async () => {
+  try {
+    const { data } = await api.get('/traffic/stats')
+    activeUsers.value = data.activeUsers
+  } catch (err) {
+    console.error('Failed to fetch traffic stats', err)
+  }
+}
 
 watch(isMobileMenuOpen, (val) => {
   if (val) {
@@ -244,7 +256,7 @@ const currentTabComponent = computed(() => {
 // Dynamic Props
 const currentTabProps = computed(() => {
   if (currentTab.value === 'overview') {
-    return { stats: dynamicStats.value, transactions: transactions.value }
+    return { stats: dynamicStats.value, transactions: transactions.value, activeUsers: activeUsers.value }
   }
   if (currentTab.value === 'sales') {
      return { 
@@ -296,6 +308,16 @@ const currentTabProps = computed(() => {
 
 // Dynamic Events
 const currentTabEvents = computed(() => {
+  if (currentTab.value === 'overview') {
+    return {
+      'switch-tab': (tab) => currentTab.value = tab,
+      'refresh': () => {
+        orderStore.fetchAllOrders()
+        productStore.fetchProducts()
+        fetchTrafficStats()
+      }
+    }
+  }
   if (currentTab.value === 'security') {
     return {
       revoke: async (id) => {
@@ -540,6 +562,13 @@ onMounted(() => {
   if (auth.users.length === 0) auth.fetchUsers() 
   orderStore.fetchAllOrders()
   productStore.fetchProducts()
+  
+  fetchTrafficStats()
+  trafficInterval.value = setInterval(fetchTrafficStats, 10000) // Refresh every 10s
+})
+
+onUnmounted(() => {
+  if (trafficInterval.value) clearInterval(trafficInterval.value)
 })
 watch(userSearchQuery, () => userCurrentPage.value = 1)
 </script>

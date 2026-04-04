@@ -37,7 +37,7 @@
                 <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-white/30 mb-2">Net Boutique Yield</p>
                 <p class="text-3xl font-light italic text-[var(--primary-gold)] font-playfair">+{{ growthRate }}% <span class="text-[10px] not-italic text-stone-600 ml-2 uppercase tracking-[0.2em]">GROWTH</span></p>
              </div>
-             <button class="bg-white text-black px-10 py-5 rounded-none text-[10px] font-bold uppercase tracking-[0.4em] shadow-2xl hover:bg-[var(--primary-gold)] hover:text-white transition-all transform hover:-translate-y-1">DOWNLOAD REPORT</button>
+             <button @click="downloadReport" class="bg-white text-black px-10 py-5 rounded-none text-[10px] font-bold uppercase tracking-[0.4em] shadow-2xl hover:bg-[var(--primary-gold)] hover:text-white transition-all transform hover:-translate-y-1">DOWNLOAD REPORT</button>
           </div>
        </div>
 
@@ -67,8 +67,8 @@
              <p class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">Monitoring all incoming customer orders and boutique activities.</p>
           </div>
           <div class="flex gap-6">
-             <button class="px-8 py-5 border border-[#d4af3711] bg-white dark:bg-transparent rounded-none text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[var(--primary-gold)]/5 transition-all dark:text-white/60">System Logs</button>
-             <button class="px-8 py-5 bg-black dark:bg-[var(--primary-gold)] text-white rounded-none text-[9px] font-bold uppercase tracking-[0.3em] shadow-xl hover:bg-[var(--primary-gold)] transition-all">View Dashboard</button>
+             <button @click="$emit('switch-tab', 'security')" class="px-8 py-5 border border-[#d4af3711] bg-white dark:bg-transparent rounded-none text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[var(--primary-gold)]/5 transition-all dark:text-white/60">System Logs</button>
+             <button @click="$emit('refresh')" class="px-8 py-5 bg-black dark:bg-[var(--primary-gold)] text-white rounded-none text-[9px] font-bold uppercase tracking-[0.3em] shadow-xl hover:bg-[var(--primary-gold)] transition-all">Refresh Data</button>
           </div>
        </div>
 
@@ -110,6 +110,7 @@ import { computed } from 'vue'
 const props = defineProps({
   stats: Object,
   transactions: Array,
+  activeUsers: Number,
   growthRate: {
     type: Number,
     default: 12.5
@@ -120,10 +121,28 @@ const breakEvenPercent = computed(() => {
   const goal = 100000 
   return Math.min(100, Math.round((props.stats.revenue / goal) * 100))
 })
+const emit = defineEmits(['switch-tab', 'refresh'])
+
+const downloadReport = () => {
+  const data = [
+    ['Label', 'Value'],
+    ['Revenue', props.stats.revenue],
+    ['Clicks', props.stats.clicks],
+    ['Sales', props.stats.sales],
+    ['Active Users', props.activeUsers]
+  ]
+  const csvContent = "data:text/csv;charset=utf-8," + data.map(e => e.join(",")).join("\n")
+  const encodedUri = encodeURI(csvContent)
+  const link = document.createElement("a")
+  link.setAttribute("href", encodedUri)
+  link.setAttribute("download", `Boutique_Report_${new Date().toISOString().slice(0,10)}.csv`)
+  document.body.appendChild(link)
+  link.click()
+}
 
 const pulseItems = computed(() => [
-  { l: 'BOUTIQUE TRAFFIC', v: '12.4K', i: 'fa-solid fa-chart-line' },
-  { l: 'ACTIVE CLIENTS', v: '842', i: 'fa-solid fa-user-tie' },
+  { l: 'BOUTIQUE TRAFFIC', v: (props.activeUsers * 12).toLocaleString(), i: 'fa-solid fa-chart-line' },
+  { l: 'ACTIVE CLIENTS', v: props.activeUsers.toString(), i: 'fa-solid fa-user-tie' },
   { l: 'PRODUCT VIEWS', v: props.stats.clicks, i: 'fa-solid fa-eye' },
   { l: 'LUXURY INDEX', v: '99.9%', i: 'fa-solid fa-gem' }
 ])

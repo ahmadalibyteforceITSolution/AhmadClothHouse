@@ -133,6 +133,7 @@ import Footer from './components/Footer.vue'
 import { useAuthStore } from './stores/auth'
 import { useProductsStore } from './stores/products'
 import { useLoadingStore } from './stores/loading'
+import api from './api'
 
 
 const auth = useAuthStore()
@@ -283,15 +284,36 @@ const scrollToTop = () => {
   })
 }
 
+// Traffic Heartbeat
+const trackTraffic = async () => {
+  try {
+    let sessionId = localStorage.getItem('traffic_session_id')
+    if (!sessionId) {
+      sessionId = 'sess_' + Math.random().toString(36).substring(2, 15)
+      localStorage.setItem('traffic_session_id', sessionId)
+    }
+
+    await api.post('/traffic/ping', { sessionId })
+  } catch (err) {
+    // Silently fail traffic tracking
+  }
+}
+
+let trafficInterval = null
 
 onMounted(() => {
   auth.initializeTheme()
   productStore.fetchProducts()
   window.addEventListener('scroll', handleScroll, { passive: true })
+  
+  // Start traffic tracking
+  trackTraffic()
+  trafficInterval = setInterval(trackTraffic, 30000) // Ping every 30s
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  if (trafficInterval) clearInterval(trafficInterval)
 })
 </script>
 
