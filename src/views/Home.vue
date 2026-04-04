@@ -161,6 +161,78 @@
         </div>
       </div>
     </section>
+ <section id="discovery" class="filter-section py-20 bg-white dark:bg-[#080808]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8 border-b border-black/5 pb-8">
+          <div class="space-y-2">
+            <p class="text-[10px] font-bold tracking-[0.3em] text-[var(--primary-gold)] uppercase">THE COLLECTIONS</p>
+            <h2 class="text-4xl font-playfair italic text-[var(--luxury-black)] dark:text-white">
+              {{ selectedCategory === 'all' ? 'All Designs' : selectedCategory }}
+            </h2>
+          </div>
+          <div class="flex items-center gap-4 text-gray-400 text-[10px] font-bold tracking-widest uppercase">
+            <span class="text-[var(--deep-burgundy)]">{{ filteredProducts.length }}</span> ITEMS FOUND
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Filters (Simplified) -->
+          <div class="filter-group">
+            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Category</label>
+            <select v-model="selectedCategory"
+              class="w-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 px-4 py-3 text-[10px] font-bold tracking-widest uppercase outline-none focus:border-[var(--primary-gold)]">
+              <option value="all">All Categories</option>
+              <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Type</label>
+            <select v-model="selectedNature"
+              class="w-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 px-4 py-3 text-[10px] font-bold tracking-widest uppercase outline-none focus:border-[var(--primary-gold)]">
+              <option value="all">All Types</option>
+              <option value="standard">Ready to Wear</option>
+              <option value="premium">Luxury Collection</option>
+              <option value="limited">Limited Edition</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Max Price: Rs. {{
+              maxPrice }}</label>
+            <input type="range" min="0" max="50000" step="1000" v-model="maxPrice"
+              class="w-full accent-[var(--deep-burgundy)]">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PRODUCT GRID
+    ═══════════════════════════════════════════ -->
+    <section class="products-section pb-32 bg-white dark:bg-[#080808]">
+      <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
+        <ProductCard v-for="product in displayedProducts" :key="product.id" :product="product"
+          @click-product="goToDetail" />
+
+        <!-- Loading State for API -->
+        <div v-if="productStore.loading" class="col-span-full py-20 flex flex-col items-center justify-center space-y-6">
+          <div class="w-16 h-16 border-4 border-gray-100 dark:border-white/5 border-t-[var(--primary-gold)] rounded-full animate-spin"></div>
+          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--primary-gold)] animate-pulse">Syncing with Couture House...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div v-else-if="displayedProducts.length === 0" class="col-span-full py-32 text-center">
+          <font-awesome-icon icon="fa-solid fa-shirt" class="text-4xl mb-6 text-gray-200" />
+          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">No designs found</p>
+        </div>
+      </div>
+
+      <div v-if="hasMore" class="mt-20 flex justify-center">
+        <button @click="loadMore"
+          class="border border-black dark:border-white px-12 py-4 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+          LOAD MORE DESIGNS
+        </button>
+      </div>
+    </section>
 
     <!-- Atelier Section -->
     <section class="atelier-section bg-[var(--luxury-cream)] dark:bg-[#080808] py-32 transition-colors duration-500">
@@ -359,79 +431,7 @@
 
 
 
-    <section id="discovery" class="filter-section py-20 bg-white dark:bg-[#080808]">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8 border-b border-black/5 pb-8">
-          <div class="space-y-2">
-            <p class="text-[10px] font-bold tracking-[0.3em] text-[var(--primary-gold)] uppercase">THE COLLECTIONS</p>
-            <h2 class="text-4xl font-playfair italic text-[var(--luxury-black)] dark:text-white">
-              {{ selectedCategory === 'all' ? 'All Designs' : selectedCategory }}
-            </h2>
-          </div>
-          <div class="flex items-center gap-4 text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-            <span class="text-[var(--deep-burgundy)]">{{ filteredProducts.length }}</span> ITEMS FOUND
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Filters (Simplified) -->
-          <div class="filter-group">
-            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Category</label>
-            <select v-model="selectedCategory"
-              class="w-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 px-4 py-3 text-[10px] font-bold tracking-widest uppercase outline-none focus:border-[var(--primary-gold)]">
-              <option value="all">All Categories</option>
-              <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Type</label>
-            <select v-model="selectedNature"
-              class="w-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 px-4 py-3 text-[10px] font-bold tracking-widest uppercase outline-none focus:border-[var(--primary-gold)]">
-              <option value="all">All Types</option>
-              <option value="standard">Ready to Wear</option>
-              <option value="premium">Luxury Collection</option>
-              <option value="limited">Limited Edition</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Max Price: Rs. {{
-              maxPrice }}</label>
-            <input type="range" min="0" max="50000" step="1000" v-model="maxPrice"
-              class="w-full accent-[var(--deep-burgundy)]">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         PRODUCT GRID
-    ═══════════════════════════════════════════ -->
-    <section class="products-section pb-32 bg-white dark:bg-[#080808]">
-      <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
-        <ProductCard v-for="product in displayedProducts" :key="product.id" :product="product"
-          @click-product="goToDetail" />
-
-        <!-- Loading State for API -->
-        <div v-if="productStore.loading" class="col-span-full py-20 flex flex-col items-center justify-center space-y-6">
-          <div class="w-16 h-16 border-4 border-gray-100 dark:border-white/5 border-t-[var(--primary-gold)] rounded-full animate-spin"></div>
-          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--primary-gold)] animate-pulse">Syncing with Couture House...</p>
-        </div>
-
-        <!-- Empty State -->
-        <div v-else-if="displayedProducts.length === 0" class="col-span-full py-32 text-center">
-          <font-awesome-icon icon="fa-solid fa-shirt" class="text-4xl mb-6 text-gray-200" />
-          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">No designs found</p>
-        </div>
-      </div>
-
-      <div v-if="hasMore" class="mt-20 flex justify-center">
-        <button @click="loadMore"
-          class="border border-black dark:border-white px-12 py-4 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-          LOAD MORE DESIGNS
-        </button>
-      </div>
-    </section>
-
+   
     <section class="heritage-banner relative py-40 overflow-hidden bg-black text-white">
 
       <!-- Background Images -->
