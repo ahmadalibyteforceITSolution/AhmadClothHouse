@@ -51,6 +51,7 @@ app.use("/api/newsletter", require("./routes/newsletter"));
 app.use("/api/products", require("./routes/product"));
 app.use("/api/orders", require("./routes/order"));
 app.use("/api/traffic", require("./routes/traffic"));
+app.use("/api/monetization", require("./routes/monetization"));
 
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== "production") {

@@ -163,6 +163,7 @@ import SecuritySystem from './SecuritySystem.vue'
 import ProductForm from './ProductForm.vue'
 import CategoryBrowser from './CategoryBrowser.vue'
 import IdentityTable from './IdentityTable.vue'
+import MonetizationCenter from './MonetizationCenter.vue'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -224,6 +225,7 @@ const navLinks = [
   { id: 'products', name: 'CREATE DESIGN', icon: ['fas', 'scissors'] },
   { id: 'catalog', name: 'FASHION CATALOG', icon: ['fas', 'shop'] },
   { id: 'customers', name: 'CLIENT REGISTRY', icon: ['fas', 'user-tie'] },
+  { id: 'monetization', name: 'REVENUE CORE', icon: ['fas', 'sack-dollar'] },
   { id: 'security', name: 'SYSTEM SECURITY', icon: ['fas', 'shield-halved'] }
 ]
 
@@ -248,7 +250,8 @@ const currentTabComponent = computed(() => {
     security: markRaw(SecuritySystem),
     products: markRaw(ProductForm),
     catalog: markRaw(CategoryBrowser),
-    customers: markRaw(IdentityTable)
+    customers: markRaw(IdentityTable),
+    monetization: markRaw(MonetizationCenter)
   }
   return map[currentTab.value]
 })
@@ -301,6 +304,12 @@ const currentTabProps = computed(() => {
       totalPages: totalUserPages.value,
       currentUserId: auth.user?.id,
       searchQuery: userSearchQuery.value
+    }
+  }
+  if (currentTab.value === 'monetization') {
+    return { 
+      activeUsers: activeUsers.value, 
+      monetization: monetizationStats.value 
     }
   }
   return {}

@@ -299,6 +299,34 @@ const trackTraffic = async () => {
   }
 }
 
+const initMonetization = async () => {
+  try {
+    const { data } = await api.get('/monetization')
+    if (data && data.isActive && data.adSnippet) {
+      // Create a temporary container to parse the snippet
+      const div = document.createElement('div')
+      div.innerHTML = data.adSnippet
+      
+      // Extract scripts
+      const scripts = div.querySelectorAll('script')
+      scripts.forEach(oldScript => {
+        const newScript = document.createElement('script')
+        Array.from(oldScript.attributes).forEach(attr => {
+          newScript.setAttribute(attr.name, attr.value)
+        })
+        if (oldScript.innerHTML) {
+          newScript.innerHTML = oldScript.innerHTML
+        }
+        document.head.appendChild(newScript)
+      })
+      
+      console.log("💎 Monetization Engine: Scripts Injected Successfully")
+    }
+  } catch (err) {
+    console.error("Monetization Engine: Failed to initialize", err)
+  }
+}
+
 let trafficInterval = null
 
 onMounted(() => {
@@ -309,6 +337,9 @@ onMounted(() => {
   // Start traffic tracking
   trackTraffic()
   trafficInterval = setInterval(trackTraffic, 30000) // Ping every 30s
+
+  // Initialize Monetization Engine
+  initMonetization()
 })
 
 onUnmounted(() => {

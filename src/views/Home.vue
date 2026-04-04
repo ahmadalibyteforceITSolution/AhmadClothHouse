@@ -234,6 +234,13 @@
       </div>
     </section>
 
+    <!-- Monetization Slot: Sponsored Ad -->
+    <SponsoredAd 
+      title="Bridal Jewelry Couture" 
+      description="Elevate your Ahmadcloths ensemble with our curated partner jewelry collections. Hand-crafted elegance for the modern bride." 
+      button-text="SHOP JEWELRY"
+    />
+
     <!-- Atelier Section -->
     <section class="atelier-section bg-[var(--luxury-cream)] dark:bg-[#080808] py-32 transition-colors duration-500">
       <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -518,6 +525,7 @@ import Fugibles4 from "../assets/ladies1.jpg"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
+import SponsoredAd from '../components/Home/SponsoredAd.vue'
 
 const isExpanded = ref(false)
 const isExiting = ref(false)

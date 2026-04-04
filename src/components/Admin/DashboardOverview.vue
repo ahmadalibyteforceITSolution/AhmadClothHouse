@@ -56,6 +56,22 @@
                 </div>
              </div>
           </div>
+
+          <!-- Quick Monetization Card -->
+          <div @click="$emit('switch-tab', 'monetization')" class="bg-black rounded-2xl p-10 border border-emerald-500/20 shadow-2xl group transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/40 cursor-pointer overflow-hidden relative">
+             <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full"></div>
+             <div class="w-16 h-16 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 flex items-center justify-center text-3xl mb-10 group-hover:rotate-12 transition-transform shadow-inner relative z-10">
+                <font-awesome-icon icon="fa-solid fa-sack-dollar" />
+             </div>
+             <div class="relative z-10">
+                <p class="text-[9px] font-bold uppercase tracking-[0.5em] text-emerald-200/40 mb-3">TRAFFIC YIELD</p>
+                <h4 class="text-4xl font-light tracking-tighter text-white leading-none font-playfair italic mb-4">Rs. {{ (activeUsers * 45 * 85.50).toFixed(0).toLocaleString() }}</h4>
+                <div class="flex items-center gap-3">
+                   <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                   <span class="text-[8px] font-bold text-emerald-500 uppercase tracking-widest">EST. EXTERNAL REVENUE</span>
+                </div>
+             </div>
+          </div>
        </div>
     </div>
 
