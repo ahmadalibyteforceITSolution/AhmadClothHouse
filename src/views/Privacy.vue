@@ -67,6 +67,19 @@
                </p>
             </div>
          </div>
+
+         <!-- Social Connectivity -->
+         <div class="mt-20 pt-16 border-t border-[#d4af3711] text-center animate-reveal delay-300">
+            <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 mb-6">Stay Connected</p>
+            <div class="flex justify-center gap-6">
+               <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-12 h-12 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1">
+                  <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg" />
+               </a>
+               <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-12 h-12 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1">
+                  <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-lg" />
+               </a>
+            </div>
+         </div>
       </main>
    </div>
 </template>

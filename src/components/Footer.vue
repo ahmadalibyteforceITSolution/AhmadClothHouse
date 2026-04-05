@@ -49,10 +49,10 @@
             Crafting the finest artisanal apparel and luxury couture with passion and heritage.
           </p>
           <div class="flex gap-4">
-            <a href="#" class="w-8 h-8 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--deep-burgundy)] hover:border-[var(--deep-burgundy)] transition-all">
+            <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-8 h-8 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--deep-burgundy)] hover:border-[var(--deep-burgundy)] transition-all">
               <font-awesome-icon :icon="['fab', 'instagram']" />
             </a>
-            <a href="#" class="w-8 h-8 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--deep-burgundy)] hover:border-[var(--deep-burgundy)] transition-all">
+            <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-8 h-8 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--deep-burgundy)] hover:border-[var(--deep-burgundy)] transition-all">
               <font-awesome-icon :icon="['fab', 'facebook-f']" />
             </a>
           </div>

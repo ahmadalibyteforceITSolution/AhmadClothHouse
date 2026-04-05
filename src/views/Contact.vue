@@ -71,14 +71,14 @@
             </div>
 
             <div class="flex items-center gap-6 pt-10 border-t border-[#d4af3711]">
-               <div v-for="s in [
-                  { n: 'IG', i: 'fa-brands fa-instagram' },
-                  { n: 'TW', i: 'fa-brands fa-x-twitter' },
-                  { n: 'IN', i: 'fa-brands fa-linkedin-in' }
-               ]" :key="s.n"
+               <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank"
                   class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2">
-                  <font-awesome-icon :icon="s.i" class="text-lg" />
-               </div>
+                  <font-awesome-icon icon="fa-brands fa-instagram" class="text-lg" />
+               </a>
+               <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank"
+                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2">
+                  <font-awesome-icon icon="fa-brands fa-facebook-f" class="text-lg" />
+               </a>
             </div>
          </div>
 

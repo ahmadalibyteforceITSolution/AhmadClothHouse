@@ -313,6 +313,15 @@
 
           <!-- Footer -->
           <div class="p-6 border-t border-white/5">
+            <div class="flex items-center justify-center gap-6 mb-8">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all">
+                <font-awesome-icon :icon="['fab', 'instagram']" />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" />
+              </a>
+            </div>
+
             <div v-if="auth.isAuthenticated" class="space-y-3">
               <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                 <div class="avatar">{{ auth.user?.name?.substring(0, 2).toUpperCase() || 'AH' }}</div>
