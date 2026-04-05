@@ -121,6 +121,26 @@
         </div>
       </div>
     </transition>
+
+    <!-- Floating WhatsApp Left Side -->
+    <div class="fixed bottom-5 left-5 sm:left-10 z-[9999] flex flex-col-reverse items-start gap-4">
+      <button @click="toggleWhatsapp" class="whatsapp-main-btn shadow-2xl" aria-label="WhatsApp Contact">
+        <font-awesome-icon :icon="isWhatsappOpen ? 'fa-solid fa-times' : 'fa-brands fa-whatsapp'" />
+      </button>
+
+      <transition-group name="whatsapp-pop">
+        <div v-if="isWhatsappOpen" key="menu" class="flex flex-col gap-3 mb-2">
+          <a href="https://wa.me/923416887454" target="_blank" class="whatsapp-sub-btn">
+            <font-awesome-icon icon="fa-brands fa-whatsapp" class="mr-3" />
+            <span class="text-[10px] font-bold tracking-widest uppercase">Contact Line 1</span>
+          </a>
+          <a href="https://wa.me/923244902607" target="_blank" class="whatsapp-sub-btn">
+            <font-awesome-icon icon="fa-brands fa-whatsapp" class="mr-3" />
+            <span class="text-[10px] font-bold tracking-widest uppercase">Contact Line 2</span>
+          </a>
+        </div>
+      </transition-group>
+    </div>
   </div>
 
 </template>
@@ -142,6 +162,8 @@ const loading = useLoadingStore()
 const route = useRoute()
 const router = useRouter()
 const scrollY = ref(0)
+const isWhatsappOpen = ref(false)
+const toggleWhatsapp = () => isWhatsappOpen.value = !isWhatsappOpen.value
 
 // Fudgeable Panel State
 const isPanelOpen = ref(false)
@@ -718,5 +740,58 @@ onUnmounted(() => {
 .fade-scale-leave-to {
   opacity: 0;
   transform: translateY(40px) scale(0.7);
+}
+
+/* WhatsApp Left FAB Styling */
+.whatsapp-main-btn {
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-main-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: #20BA5A;
+}
+
+.whatsapp-sub-btn {
+  background: rgba(37, 211, 102, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: #25D366;
+  padding: 12px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+.whatsapp-sub-btn:hover {
+  background: #25D366;
+  color: white;
+  transform: translateX(10px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-pop-enter-active,
+.whatsapp-pop-leave-active {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-pop-enter-from,
+.whatsapp-pop-leave-to {
+  opacity: 0;
+  transform: scale(0.5) translateY(20px);
 }
 </style>
