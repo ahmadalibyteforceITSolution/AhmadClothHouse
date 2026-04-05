@@ -239,6 +239,7 @@
       title="Bridal Jewelry Couture" 
       description="Elevate your Ahmadcloths ensemble with our curated partner jewelry collections. Hand-crafted elegance for the modern bride." 
       button-text="SHOP JEWELRY"
+      :image="JewelrySponsored"
     />
 
     <!-- Atelier Section -->
@@ -526,6 +527,7 @@ import Fugibles4 from "../assets/ladies1.jpg"
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import SponsoredAd from '../components/Home/SponsoredAd.vue'
+import JewelrySponsored from '../assets/jewelry_sponsored.png'
 
 const isExpanded = ref(false)
 const isExiting = ref(false)

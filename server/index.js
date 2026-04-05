@@ -39,10 +39,48 @@ app.use(
   }),
 );
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ Ahmadcloths MongoDB Connected"))
-  .catch((err) => console.log("❌ DB Error:", err));
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+async function connectDB() {
+  if (cached.conn) {
+    return cached.conn;
+  }
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+
+    cached.promise = mongoose.connect(process.env.MONGO_URI, opts).then((mongoose) => {
+      console.log("✅ Ahmadcloths MongoDB Connected (Serverless Cached)");
+      return mongoose;
+    });
+  }
+  
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    console.log("❌ DB Error:", e);
+    throw e;
+  }
+  
+  return cached.conn;
+}
+
+// Middleware to ensure DB connection is active before processing requests
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ success: false, error: "Database connection timeout or failed" });
+  }
+});
 
 app.get("/", (req, res) => res.send("Ahmadcloths Backend v1.0 running..."));
 app.use("/api/auth", require("./routes/auth"));
