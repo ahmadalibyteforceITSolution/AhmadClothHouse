@@ -547,7 +547,7 @@ const productStore = useProductsStore()
 const limit = ref(12)
 const selectedCategory = ref('all')
 const selectedNature = ref('all')
-const maxPrice = ref(10000)
+const maxPrice = ref(500000)
 const isCatOpen = ref(false)
 const isNatureOpen = ref(false)
 
