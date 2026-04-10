@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" class="sponsored-container py-16 px-6 md:px-20 bg-stone-50 dark:bg-black/20 border-y border-[#d4af3711] overflow-hidden relative group">
-    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#d4af3711_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
     
     <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
       <div class="flex-1 text-center md:text-left">

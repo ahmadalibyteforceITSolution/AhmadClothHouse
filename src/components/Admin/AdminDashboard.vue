@@ -153,6 +153,7 @@ import { useAuthStore } from '../../stores/auth'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 import { useProductsStore } from '../../stores/products'
 import { useOrdersStore } from '../../stores/orders'
+import { useReviewsStore } from '../../stores/reviews'
 import api from '../../api'
 
 // Sub-components
@@ -171,6 +172,7 @@ const router = useRouter()
 const auth = useAuthStore()
 const productStore = useProductsStore()
 const orderStore = useOrdersStore()
+const reviewsStore = useReviewsStore()
 
 const currentTab = ref('overview')
 const isMobileMenuOpen = ref(false)
@@ -750,7 +752,7 @@ onMounted(() => {
   trafficInterval.value = setInterval(() => {
     fetchTrafficStats()
     orderStore.fetchAllOrders()
-    store.fetchAllReviews() // Real-time review refresh
+    reviewsStore.fetchAllReviews() // Corrected variable name
   }, 10000) // Refresh every 10s
 })
 
