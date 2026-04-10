@@ -7,7 +7,7 @@
          class="w-full py-12 px-8 border-b border-stone-200 dark:border-stone-800 flex flex-col items-center gap-2 mb-16 transition-colors bg-white dark:bg-[#0A0A0A] sticky top-0 z-[100] backdrop-blur-xl bg-opacity-90">
          <div class="flex items-center gap-6 mb-2">
             <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
-            <h1 class="text-3xl font-playfair tracking-[0.4em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
+            <h1 class="text-xl md:text-3xl font-playfair tracking-[0.2em] md:tracking-[0.4em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
                @click="router.push('/')">AHMADCLOTHS HOUSE</h1>
             <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
          </div>
@@ -30,7 +30,7 @@
 
             <div class="space-y-6 max-w-2xl px-6">
                <h2
-                  class="text-6xl md:text-8xl font-light uppercase tracking-tighter font-playfair italic text-[var(--luxury-black)] dark:text-white">
+                  class="text-4xl md:text-8xl font-light uppercase tracking-tighter font-playfair italic text-[var(--luxury-black)] dark:text-white">
                   AhmadClothes House</h2>
                <div class="w-24 h-[1px] bg-[var(--primary-gold)] mx-auto opacity-40"></div>
                <p
@@ -69,7 +69,7 @@
 
                <!-- Section 1: Identity & Delivery -->
                <section
-                  class="bg-white dark:bg-[#0A0A0A] p-10 md:p-16 border border-stone-100 dark:border-stone-900 shadow-sm space-y-16">
+                  class="bg-white dark:bg-[#0A0A0A] p-6 md:p-16 border border-stone-100 dark:border-stone-900 shadow-sm space-y-16">
                   <div
                      class="flex items-center gap-6 mb-8 text-[9px] font-bold tracking-[0.4em] text-[var(--primary-gold)] uppercase">
                      <span>01</span>
@@ -77,7 +77,7 @@
                      <span>DELIVERY PROTOCOL</span>
                   </div>
 
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                  <div class="flex flex-col md:grid md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-16">
                      <div class="col-span-2 relative group">
                         <label
                            class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Full
@@ -122,7 +122,7 @@
 
                <!-- Section 2: Financial Selection -->
                <section
-                  class="bg-white dark:bg-[#0A0A0A] p-10 md:p-16 border border-stone-100 dark:border-stone-900 shadow-sm space-y-16">
+                  class="bg-white dark:bg-[#0A0A0A] p-6 md:p-16 border border-stone-100 dark:border-stone-900 shadow-sm space-y-16">
                   <div
                      class="flex items-center gap-6 mb-8 text-[9px] font-bold tracking-[0.4em] text-[var(--primary-gold)] uppercase">
                      <span>02</span>
@@ -132,7 +132,7 @@
 
                   <div class="space-y-6">
                       <!-- Payment Options Container -->
-                      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div class="flex flex-col md:grid md:grid-cols-3 gap-6">
                          <div @click="paymentMethod = 'easypaisa'" :class="['payment-card group',
                             paymentMethod === 'easypaisa' ? 'active' : 'inactive']">
                             <div class="flex justify-between items-center mb-6">
@@ -175,7 +175,7 @@
                       <!-- Payment Detail Panel -->
                       <transition name="slide-up">
                          <div v-if="paymentMethod === 'easypaisa' || paymentMethod === 'jazzcash'"
-                            class="mt-8 p-10 border border-stone-100 dark:border-stone-900 bg-stone-50/50 dark:bg-stone-900/20 space-y-8">
+                            class="mt-8 p-6 md:p-10 border border-stone-100 dark:border-stone-900 bg-stone-50/50 dark:bg-stone-900/20 space-y-8">
                             
                             <div class="text-center space-y-4">
                                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--primary-gold)]">Account Details</p>
