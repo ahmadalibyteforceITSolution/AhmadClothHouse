@@ -44,6 +44,8 @@ const OrderSchema = new mongoose.Schema({
     estimatedDelivery: { type: Date }
   },
   paymentStatus: { type: String, default: 'Pending' },
+  customerEmail: { type: String },
+  customerName: { type: String },
   createdAt: { type: Date, default: Date.now }
 });
 

@@ -90,6 +90,7 @@ app.use("/api/products", require("./routes/product"));
 app.use("/api/orders", require("./routes/order"));
 app.use("/api/traffic", require("./routes/traffic"));
 app.use("/api/monetization", require("./routes/monetization"));
+app.use("/api/reviews", require("./routes/review"));
 
 // Dynamic ads.txt for Google AdSense
 app.get("/ads.txt", async (req, res) => {

@@ -117,6 +117,46 @@ exports.updateOrderStatus = async (req, res) => {
     ).populate('user', 'name email');
 
     if (!order) return res.status(404).json({ success: false, error: 'Order not found' });
+
+    // Send notification email to CUSTOMER if status changed to Shipped
+    if (status === 'Shipped' && order.customerEmail) {
+      try {
+        const shipping = order.shippingAddress;
+        
+        // Construct Google Maps Live Tracking URL
+        const query = encodeURIComponent(`${shipping.address}, ${shipping.city}, Pakistan`);
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+
+        const emailMessage = `
+          DEAR ${order.customerName || 'VALUED CLIENT'},
+          
+          ENCHANTED NEWS FROM AHMAD CLOTH HOUSE! 🌟
+          
+          YOUR EXQUISITE ORDER #${order._id} HAS OFFICIALLY COMMENCED ITS JOURNEY FROM OUR BOUTIQUE TO YOUR DOORSTEP.
+          
+          ORDER STATUS: SHIPPED 📦
+          DESTINATION: ${shipping.address}, ${shipping.city}
+          
+          TRACK YOUR DELIVERY LIVE ON GOOGLE MAPS:
+          ${mapsUrl}
+          
+          PLEASE ALLOW 24-48 HOURS FOR OUR COURIER PARTNERS TO COMPLETE THE FINAL STAGES OF LOGISTICS.
+          
+          THANK YOU FOR CHOOSING AHMAD CLOTH HOUSE. FOR ANY ASSISTANCE, OUR CONCIERGE TEAM IS AT YOUR SERVICE.
+        `;
+
+        await sendEmail({
+          email: order.customerEmail,
+          subject: `[SHIPPED] YOUR BOUTIQUE SELECTION IS EN ROUTE - #${order._id}`,
+          message: emailMessage
+        });
+        
+        console.log('AHMADCLOTHS: Customer notified for shipping %s', order._id);
+      } catch (mailErr) {
+        console.error('AHMADCLOTHS_CUSTOMER_MAIL_ERROR:', mailErr.message);
+      }
+    }
+
     res.status(200).json({ success: true, data: order });
   } catch (err) {
     console.error('ORDER_ERROR [Update]:', err.message);

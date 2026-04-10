@@ -155,6 +155,11 @@
        </div>
     </div>
     
+    <!-- Guest Reviews Section -->
+    <div class="max-w-7xl mx-auto px-8">
+       <ReviewSection :product-id="product?.id || product?._id" />
+    </div>
+    
     <!-- Horizon Section -->
     <div class="max-w-7xl mx-auto mt-64 animate-reveal">
        <div class="flex items-center gap-6 mb-20 px-8">
@@ -182,6 +187,7 @@ import { useCartStore } from '../stores/cart'
 import { useFavoritesStore } from '../stores/favorites'
 import { useAuthStore } from '../stores/auth'
 import ProductCard from '../components/ProductCard.vue'
+import ReviewSection from '../components/ReviewSection.vue'
 
 const props = defineProps(['id'])
 const route = useRoute()

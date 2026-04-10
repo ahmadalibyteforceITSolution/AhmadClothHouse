@@ -77,7 +77,7 @@
              </div>
              <div class="relative z-10">
                 <p class="text-[9px] font-bold uppercase tracking-[0.5em] text-emerald-200/40 mb-3">TRAFFIC YIELD</p>
-                <h4 class="text-4xl font-light tracking-tighter text-white leading-none font-playfair italic mb-4">Rs. {{ (activeUsers * 45 * 85.50).toFixed(0).toLocaleString() }}</h4>
+                <h4 class="text-4xl font-light tracking-tighter text-white leading-none font-playfair italic mb-4">Rs. {{ ((totalVisitors || activeUsers) * 45 * 85.50).toFixed(0).toLocaleString() }}</h4>
                 <div class="flex items-center gap-3">
                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                    <span class="text-[8px] font-bold text-emerald-500 uppercase tracking-widest">EST. EXTERNAL REVENUE</span>
@@ -189,6 +189,7 @@ const props = defineProps({
   stats: Object,
   transactions: Array,
   activeUsers: Number,
+  totalVisitors: Number,
   monetization: Object,
   selectedOrder: {
     type: Object,

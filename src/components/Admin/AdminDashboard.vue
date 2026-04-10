@@ -165,6 +165,7 @@ import CategoryBrowser from './CategoryBrowser.vue'
 import IdentityTable from './IdentityTable.vue'
 import MonetizationCenter from './MonetizationCenter.vue'
 import OrderDetailPanel from './OrderDetailPanel.vue'
+import ReviewManager from './ReviewManager.vue'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -174,6 +175,7 @@ const orderStore = useOrdersStore()
 const currentTab = ref('overview')
 const isMobileMenuOpen = ref(false)
 const activeUsers = ref(0)
+const totalVisitorsToday = ref(0)
 const trafficInterval = ref(null)
 const selectedOrder = ref(null)
 
@@ -181,6 +183,7 @@ const fetchTrafficStats = async () => {
   try {
     const { data } = await api.get('/traffic/stats')
     activeUsers.value = data.activeUsers
+    totalVisitorsToday.value = data.totalToday
   } catch (err) {
     console.error('Failed to fetch traffic stats', err)
   }
@@ -222,13 +225,14 @@ const editForm = ref({ name: '', email: '', role: 'user' })
 const editingUser = ref(null)
 
 const navLinks = [
-  { id: 'overview', name: 'BOUTIQUE ANALYTICS', icon: ['fas', 'chart-line'] },
-  { id: 'sales', name: 'ORDER LOGS', icon: ['fas', 'clipboard-list'] },
-  { id: 'products', name: 'CREATE DESIGN', icon: ['fas', 'scissors'] },
-  { id: 'catalog', name: 'FASHION CATALOG', icon: ['fas', 'shop'] },
-  { id: 'customers', name: 'CLIENT REGISTRY', icon: ['fas', 'user-tie'] },
-  { id: 'monetization', name: 'REVENUE CORE', icon: ['fas', 'sack-dollar'] },
-  { id: 'security', name: 'SYSTEM SECURITY', icon: ['fas', 'shield-halved'] }
+  { id: 'overview', name: 'BOUTIQUE ANALYTICS', icon: 'fa-solid fa-chart-line' },
+  { id: 'sales', name: 'ORDER LOGS', icon: 'fa-solid fa-clipboard-list' },
+  { id: 'products', name: 'CREATE DESIGN', icon: 'fa-solid fa-scissors' },
+  { id: 'catalog', name: 'FASHION CATALOG', icon: 'fa-solid fa-shop' },
+  { id: 'customers', name: 'CLIENT REGISTRY', icon: 'fa-solid fa-user-tie' },
+  { id: 'monetization', name: 'REVENUE CORE', icon: 'fa-solid fa-sack-dollar' },
+  { id: 'reviews', name: 'GUEST REVIEWS', icon: 'fa-solid fa-star' },
+  { id: 'security', name: 'SYSTEM SECURITY', icon: 'fa-solid fa-shield-halved' }
 ]
 
 const currentTabTitle = computed(() => {
@@ -253,7 +257,8 @@ const currentTabComponent = computed(() => {
     products: markRaw(ProductForm),
     catalog: markRaw(CategoryBrowser),
     customers: markRaw(IdentityTable),
-    monetization: markRaw(MonetizationCenter)
+    monetization: markRaw(MonetizationCenter),
+    reviews: markRaw(ReviewManager)
   }
   return map[currentTab.value]
 })
@@ -261,7 +266,14 @@ const currentTabComponent = computed(() => {
 // Dynamic Props
 const currentTabProps = computed(() => {
   if (currentTab.value === 'overview') {
-    return { stats: dynamicStats.value, transactions: transactions.value, activeUsers: activeUsers.value, monetization: monetizationStats.value, selectedOrder: selectedOrder.value }
+    return { 
+      stats: dynamicStats.value, 
+      transactions: transactions.value, 
+      activeUsers: activeUsers.value, 
+      totalVisitors: totalVisitorsToday.value,
+      monetization: monetizationStats.value, 
+      selectedOrder: selectedOrder.value 
+    }
   }
   if (currentTab.value === 'sales') {
      return { 
