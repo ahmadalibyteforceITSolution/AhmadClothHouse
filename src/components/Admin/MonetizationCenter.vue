@@ -21,7 +21,7 @@
              <div class="grid grid-cols-2 gap-8 mt-12">
                 <div>
                    <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-white/30 mb-2">Impressions</p>
-                   <p class="text-2xl font-light italic text-[var(--primary-gold)] font-playfair">{{ (activeUsers * 150).toLocaleString() }} <span class="text-[9px] not-italic text-stone-600 ml-2 uppercase tracking-[0.2em]">LIVE</span></p>
+                   <p class="text-2xl font-light italic text-[var(--primary-gold)] font-playfair">{{ totalProductViews.toLocaleString() }} <span class="text-[9px] not-italic text-stone-600 ml-2 uppercase tracking-[0.2em]">TOTAL VIEWS</span></p>
                 </div>
                 <div>
                    <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-white/30 mb-2">eCPM Yield</p>
@@ -85,39 +85,43 @@
        </div>
     </div>
 
-    <!-- Affiliate Partner Registry -->
+    <!-- Revenue by Category -->
     <div class="bg-white dark:bg-[#080808] rounded-2xl p-12 border border-[#d4af3711] shadow-3xl">
        <div class="flex justify-between items-center mb-16">
           <div>
-             <h3 class="text-2xl font-light uppercase tracking-tight text-gray-900 dark:text-white mb-2 italic font-playfair">Affiliate Network</h3>
-             <p class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">Manage external brand partnerships and referral links.</p>
+             <h3 class="text-2xl font-light uppercase tracking-tight text-gray-900 dark:text-white mb-2 italic font-playfair">Revenue by Category</h3>
+             <p class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">Real-time category performance from {{ orderStore.orders.length }} total orders.</p>
           </div>
-          <button class="bg-black dark:bg-white dark:text-black text-white px-8 py-4 text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[var(--primary-gold)] transition-all">ADD PARTNER</button>
+          <div class="bg-[var(--primary-gold)]/5 text-[var(--primary-gold)] px-6 py-3 rounded-none text-[9px] font-bold uppercase tracking-[0.3em] border border-[var(--primary-gold)]/10">LIVE DATA</div>
        </div>
 
-       <div class="space-y-6">
+       <div v-if="partners.length > 0" class="space-y-6">
           <div v-for="partner in partners" :key="partner.name" class="flex items-center p-8 rounded-xl bg-[#fafaf8] dark:bg-white/5 border border-transparent hover:border-[#d4af3722] transition-all group">
              <div class="w-12 h-12 rounded-full bg-white dark:bg-black border border-[#d4af3711] flex items-center justify-center text-xl text-[var(--primary-gold)] shadow-lg group-hover:scale-110 transition-transform italic font-playfair">
                 {{ partner.name[0] }}
              </div>
              <div class="ml-10 flex-grow grid grid-cols-4 items-center gap-10">
                 <div>
-                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 tracking-[0.2em]">PARTNER</p>
+                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 tracking-[0.2em]">CATEGORY</p>
                    <p class="text-[11px] font-bold dark:text-white tracking-widest">{{ partner.name }}</p>
                 </div>
                 <div>
-                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 tracking-[0.2em]">COMISSION</p>
+                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 tracking-[0.2em]">REVENUE SHARE</p>
                    <p class="text-[11px] font-bold text-emerald-500 tracking-widest">{{ partner.commission }}%</p>
                 </div>
                 <div>
-                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 tracking-[0.2em]">CONVERSIONS</p>
+                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 tracking-[0.2em]">ITEMS SOLD</p>
                    <p class="text-[11px] font-bold dark:text-white">{{ partner.conversions }}</p>
                 </div>
                 <div class="text-right">
-                   <span class="px-6 py-3 border border-[#d4af3722] text-[8px] font-bold uppercase tracking-[0.3em] dark:text-white/60">ACTIVE</span>
+                   <span class="px-6 py-3 border border-emerald-500/20 text-[8px] font-bold uppercase tracking-[0.3em] text-emerald-500 bg-emerald-500/5">TRACKED</span>
                 </div>
              </div>
           </div>
+       </div>
+       <div v-else class="h-[200px] flex flex-col items-center justify-center opacity-30">
+          <font-awesome-icon icon="fa-solid fa-chart-line" class="text-4xl mb-6" />
+          <p class="text-[10px] font-bold uppercase tracking-[0.4em] italic">No order data yet — revenue breakdown will appear here</p>
        </div>
     </div>
   </div>
@@ -126,11 +130,21 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import api from '../../api'
+import { useProductsStore } from '../../stores/products'
+import { useOrdersStore } from '../../stores/orders'
 
 const props = defineProps({
   activeUsers: Number,
   monetization: Object
 })
+
+const productStore = useProductsStore()
+const orderStore = useOrdersStore()
+
+// Real total impressions from all product views (not dummy)
+const totalProductViews = computed(() => 
+  productStore.products.reduce((sum, p) => sum + (p.views || 0), 0)
+)
 
 const monetizationSettings = ref({
   publisherId: '',
@@ -152,21 +166,59 @@ const fetchSettings = async () => {
 }
 
 const projectedEarnings = computed(() => {
-  // Logic: Active Users * Potential Visits * CPM / 1000
   return Math.round((props.activeUsers || 0) * 45 * 85.50)
 })
 
-const revenueMethods = [
-  { l: 'IN-SITE ADS (ADSENSE)', status: 'ENABLED', action: 'CONFIGURE SLOTS', color: 'bg-amber-500/10' },
-  { l: 'AFFILIATE LINKS', status: 'ACTIVE', action: 'MANAGE LINKS', color: 'bg-indigo-500/10' },
-  { l: 'SPONSORED COLLECTIONS', status: 'LOCKED', action: 'UPGRADE PLAN', color: 'bg-rose-500/10' }
-]
+// Dynamic revenue methods based on settings state
+const revenueMethods = computed(() => [
+  { 
+    l: 'IN-SITE ADS (ADSENSE)', 
+    status: monetizationSettings.value.publisherId ? 'ENABLED' : 'NOT CONFIGURED', 
+    action: monetizationSettings.value.publisherId ? 'RECONFIGURE' : 'CONFIGURE SLOTS', 
+    color: 'bg-amber-500/10' 
+  },
+  { 
+    l: 'CASH ON DELIVERY', 
+    status: `${orderStore.orders.filter(o => o.paymentMethod === 'cod').length} ORDERS`, 
+    action: 'VIEW DETAILS', 
+    color: 'bg-indigo-500/10' 
+  },
+  { 
+    l: 'DIGITAL PAYMENTS', 
+    status: `${orderStore.orders.filter(o => o.paymentMethod === 'easypaisa' || o.paymentMethod === 'jazzcash').length} ORDERS`, 
+    action: 'VIEW DETAILS', 
+    color: 'bg-rose-500/10' 
+  }
+])
 
-const partners = [
-  { name: 'Bridal Jewelry Co', commission: 15, conversions: 124 },
-  { name: 'Silk Traders', commission: 10, conversions: 89 },
-  { name: 'Luxury Footwear', commission: 12, conversions: 45 }
-]
+// Dynamic partners from top-selling product categories
+const partners = computed(() => {
+  const orders = orderStore.orders
+  if (!orders || orders.length === 0) return []
+  
+  const categoryStats = {}
+  orders.forEach(o => {
+    if (o.status === 'Cancelled') return
+    ;(o.items || []).forEach(item => {
+      const prod = productStore.products.find(p => (p._id || p.id) === item.product)
+      const catName = prod?.parentCategory || prod?.category || 'General'
+      if (!categoryStats[catName]) {
+        categoryStats[catName] = { revenue: 0, orders: 0 }
+      }
+      categoryStats[catName].revenue += (item.price || 0) * (item.quantity || 1)
+      categoryStats[catName].orders += 1
+    })
+  })
+  
+  return Object.entries(categoryStats)
+    .map(([name, stats]) => ({
+      name,
+      commission: stats.revenue > 0 ? Math.round((stats.revenue / orders.reduce((s, o) => s + (o.totalAmount || 0), 0)) * 100) : 0,
+      conversions: stats.orders
+    }))
+    .sort((a, b) => b.conversions - a.conversions)
+    .slice(0, 5)
+})
 
 const saveSettings = async () => {
     try {

@@ -74,6 +74,19 @@
             <p class="text-xs font-bold dark:text-stone-400 tracking-tighter italic font-serif opacity-60 text-stone-500 group-hover:opacity-100 transition-opacity">Rs. {{ p.price?.toLocaleString() }}</p>
             <p v-if="p.originalPrice && p.originalPrice > p.price" class="text-[9px] font-bold text-stone-300 line-through font-serif italic tracking-tighter opacity-40">Rs. {{ p.originalPrice.toLocaleString() }}</p>
           </div>
+          <!-- Real views & sales stats -->
+          <div class="flex items-center gap-4 mt-3 pt-3 border-t border-[#d4af3708]">
+            <div class="flex items-center gap-1.5">
+              <font-awesome-icon icon="fa-solid fa-eye" class="text-[8px] text-blue-400/60" />
+              <span class="text-[9px] font-bold text-blue-400">{{ p.views || 0 }}</span>
+              <span class="text-[7px] font-bold text-stone-400 uppercase tracking-widest">views</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-[8px] text-emerald-400/60" />
+              <span class="text-[9px] font-bold text-emerald-400">{{ p.sales || 0 }}</span>
+              <span class="text-[7px] font-bold text-stone-400 uppercase tracking-widest">sold</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

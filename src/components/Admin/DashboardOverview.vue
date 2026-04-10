@@ -10,14 +10,26 @@
           <div class="absolute left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
           
           <div class="relative z-10">
-             <div class="flex justify-between items-start mb-16">
+             <div class="flex justify-between items-start mb-16 px-2">
                 <div>
                    <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-[var(--primary-gold)] mb-4 leading-none">BOUTIQUE REVENUE STATUS</p>
-                   <h3 class="text-6xl md:text-7xl font-light italic tracking-tighter leading-none font-playfair">Rs. {{ stats.revenue.toLocaleString() }}</h3>
+                   <h3 class="text-5xl md:text-7xl font-light italic tracking-tighter leading-none font-playfair">Rs. {{ stats.revenue.toLocaleString() }}</h3>
+                   <p class="text-[8px] font-bold text-white/30 mt-4 uppercase tracking-[0.5em]">Gross Inflow (Incl. Delivery)</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-3xl px-6 py-3 rounded-none border border-white/10 text-[9px] font-bold uppercase tracking-widest text-white/50">LIVE BOUTIQUE CONSOLE V.3</div>
+                <div class="hidden sm:block bg-white/5 backdrop-blur-3xl px-6 py-3 rounded-none border border-white/10 text-[9px] font-bold uppercase tracking-widest text-white/50">LIVE BOUTIQUE CONSOLE</div>
              </div>
              
+             <div class="grid grid-cols-2 gap-8 mb-12">
+                <div class="p-6 bg-white/5 border border-white/10 rounded-xl">
+                   <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-white/40 mb-2">Product Sales</p>
+                   <p class="text-xl font-light italic text-[var(--primary-gold)] font-playfair">Rs. {{ (stats.productRevenue || 0).toLocaleString() }}</p>
+                </div>
+                <div class="p-6 bg-white/5 border border-white/10 rounded-xl">
+                   <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-white/40 mb-2">Delivery Fees</p>
+                   <p class="text-xl font-light italic text-emerald-400 font-playfair">Rs. {{ (stats.deliveryFees || 0).toLocaleString() }}</p>
+                </div>
+             </div>
+
              <div class="space-y-12">
                 <div>
                    <div class="flex justify-between text-[11px] font-bold uppercase tracking-[0.3em] mb-4 text-white/80">
@@ -98,32 +110,71 @@
           </div>
        </div>
 
-       <div class="space-y-6">
-          <div v-for="t in transactions" :key="t.id" class="flex flex-col md:flex-row items-center p-8 rounded-xl bg-[#fafaf8] dark:bg-white/5 border border-transparent hover:border-[#d4af3722] transition-all duration-500 group cursor-pointer hover:shadow-xl">
-             <div class="w-16 h-16 rounded-full bg-white dark:bg-black border border-[#d4af3711] shadow-2xl flex items-center justify-center text-3xl group-hover:rotate-12 transition-transform shrink-0">
-                <font-awesome-icon :icon="t.icon || 'fa-solid fa-shirt'" class="text-[var(--primary-gold)]/60" />
-             </div>
-             
-             <div class="mt-8 md:mt-0 md:ml-12 flex-grow grid grid-cols-2 md:grid-cols-4 items-center gap-10 w-full">
-                <div>
-                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 leading-none tracking-[0.3em]">CUSTOMER NAME</p>
-                   <p class="text-[11px] font-bold dark:text-white tracking-widest">{{ t.user }}</p>
-                </div>
-                <div class="hidden md:block">
-                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 leading-none tracking-[0.3em]">ORDER ID</p>
-                   <p class="text-[11px] font-bold text-[var(--primary-gold)] font-mono tracking-tighter italic">{{ t.id }}</p>
-                </div>
-                <div>
-                   <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 leading-none tracking-[0.3em]">TOTAL PRICE</p>
-                   <p class="text-[11px] font-bold dark:text-white font-playfair italic text-lg tracking-tighter">Rs. {{ t.amount.toLocaleString() }}</p>
-                </div>
-                <div class="text-right flex justify-end">
-                   <span :class="t.status === 'Delivered' || t.status === 'Completed' ? 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5' : 'text-[var(--primary-gold)] border-[var(--primary-gold)]/20 bg-[var(--primary-gold)]/5'" 
-                     class="px-6 py-3 rounded-none text-[9px] font-bold uppercase tracking-[0.4em] border shadow-sm transition-all duration-500">
-                     {{ t.status }}
-                   </span>
-                </div>
-             </div>
+       <div class="space-y-4">
+          <div v-for="t in transactions" :key="t.id">
+            <div @click="$emit('select-order', t)"
+              class="flex flex-col md:flex-row items-start p-8 rounded-xl border transition-all duration-500 cursor-pointer hover:shadow-xl relative overflow-hidden"
+              :class="selectedOrder?.id === t.id 
+                ? 'bg-[var(--primary-gold)]/[0.03] border-[var(--primary-gold)]/30 shadow-[0_0_20px_rgba(184,134,11,0.05)]' 
+                : 'bg-[#fafaf8] dark:bg-white/5 border-transparent hover:border-[#d4af3722]'">
+              
+              <!-- Click indicator -->
+              <div class="absolute left-0 top-0 bottom-0 w-[3px] transition-all duration-500"
+                :class="selectedOrder?.id === t.id ? 'bg-[var(--primary-gold)]' : 'bg-transparent'"></div>
+
+               <div class="w-16 h-16 rounded-full bg-white dark:bg-black border border-[#d4af3711] shadow-2xl flex items-center justify-center text-3xl group-hover:rotate-12 transition-transform shrink-0">
+                  <font-awesome-icon :icon="t.icon || 'fa-solid fa-shirt'" class="text-[var(--primary-gold)]/60" />
+               </div>
+               
+               <div class="mt-6 md:mt-0 md:ml-10 flex-grow w-full">
+                  <!-- Main row info -->
+                  <div class="grid grid-cols-2 md:grid-cols-4 items-center gap-6 w-full">
+                    <div>
+                       <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 leading-none tracking-[0.3em]">CUSTOMER NAME</p>
+                       <p class="text-[11px] font-bold dark:text-white tracking-widest">{{ t.user }}</p>
+                    </div>
+                    <div class="hidden md:block">
+                       <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 leading-none tracking-[0.3em]">ORDER ID</p>
+                       <p class="text-[11px] font-bold text-[var(--primary-gold)] font-mono tracking-tighter italic">{{ t.id }}</p>
+                    </div>
+                    <div>
+                       <p class="text-[8px] font-bold text-stone-400 uppercase mb-2 leading-none tracking-[0.3em]">TOTAL PRICE</p>
+                       <p class="text-[11px] font-bold dark:text-white font-playfair italic text-lg tracking-tighter">Rs. {{ t.amount.toLocaleString() }}</p>
+                    </div>
+                    <div class="text-right flex justify-end">
+                       <span :class="t.status === 'Delivered' || t.status === 'Completed' ? 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5' : t.status === 'Cancelled' ? 'text-red-500 border-red-500/20 bg-red-500/5' : 'text-[var(--primary-gold)] border-[var(--primary-gold)]/20 bg-[var(--primary-gold)]/5'" 
+                         class="px-6 py-3 rounded-none text-[9px] font-bold uppercase tracking-[0.4em] border shadow-sm transition-all duration-500">
+                         {{ t.status }}
+                       </span>
+                    </div>
+                  </div>
+
+                  <!-- Product Names Row -->
+                  <div class="mt-4 pt-4 border-t border-[#d4af3708]">
+                    <p class="text-[7px] font-bold text-stone-400 uppercase tracking-[0.3em] mb-2">PRODUCTS ORDERED</p>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span v-for="(item, idx) in t.items" :key="idx"
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[var(--primary-gold)]/5 border border-[var(--primary-gold)]/10 text-[8px] font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wide rounded-sm">
+                        <font-awesome-icon icon="fa-solid fa-shirt" class="text-[6px] text-[var(--primary-gold)]/40" />
+                        {{ item.name }}
+                        <span class="text-[7px] text-stone-400 ml-0.5">×{{ item.quantity }}</span>
+                        <!-- Real views/clicks badge -->
+                        <span v-if="item.views > 0" class="ml-1 text-[6px] text-blue-400 flex items-center gap-0.5">
+                          <font-awesome-icon icon="fa-solid fa-eye" class="text-[5px]" />{{ item.views }}
+                        </span>
+                      </span>
+                      <span v-if="!t.items || t.items.length === 0" class="text-[8px] text-stone-400 italic">No products</span>
+                    </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Expandable Order Detail -->
+            <OrderDetailPanel 
+              v-if="selectedOrder?.id === t.id" 
+              :order="t" 
+              @close="$emit('close-order')" 
+            />
           </div>
        </div>
     </div>
@@ -132,12 +183,17 @@
 
 <script setup>
 import { computed } from 'vue'
+import OrderDetailPanel from './OrderDetailPanel.vue'
 
 const props = defineProps({
   stats: Object,
   transactions: Array,
   activeUsers: Number,
   monetization: Object,
+  selectedOrder: {
+    type: Object,
+    default: null
+  },
   growthRate: {
     type: Number,
     default: 12.5
@@ -148,7 +204,7 @@ const breakEvenPercent = computed(() => {
   const goal = 100000 
   return Math.min(100, Math.round((props.stats.revenue / goal) * 100))
 })
-const emit = defineEmits(['switch-tab', 'refresh'])
+const emit = defineEmits(['switch-tab', 'refresh', 'select-order', 'close-order'])
 
 const downloadReport = () => {
   const data = [
@@ -168,9 +224,9 @@ const downloadReport = () => {
 }
 
 const pulseItems = computed(() => [
-  { l: 'TRAFFIC VALUE', v: `Rs. ${props.monetization?.visitorValue || 0}`, i: 'fa-solid fa-sack-dollar' },
+  { l: 'TOTAL IMPRESSIONS', v: `${props.stats?.clicks || 0}`, i: 'fa-solid fa-eye' },
   { l: 'CONVERSION RATIO', v: `${props.monetization?.conversionRate || 0}%`, i: 'fa-solid fa-arrows-to-dot' },
-  { l: 'AVG TRANSACTION', v: `Rs. ${props.monetization?.avgTransaction || 0}`, i: 'fa-solid fa-gem' },
+  { l: 'AVG PRODUCT VALUE', v: `Rs. ${props.monetization?.avgTransaction || 0}`, i: 'fa-solid fa-gem' },
   { l: 'REVENUE PROJECTION', v: `Rs. ${(props.monetization?.revenueProjection || 0).toLocaleString()}`, i: 'fa-solid fa-chart-line' }
 ])
 
