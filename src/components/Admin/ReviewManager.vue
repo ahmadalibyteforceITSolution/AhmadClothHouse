@@ -40,6 +40,7 @@
               <th class="px-10 py-8">Reviewer</th>
               <th class="px-10 py-8">Design Piece</th>
               <th class="px-10 py-8">Rating</th>
+              <th class="px-10 py-8">Status</th>
               <th class="px-10 py-8">Communiqué</th>
               <th class="px-10 py-8 text-right">Actions</th>
             </tr>
@@ -68,14 +69,29 @@
                 </div>
               </td>
               <td class="px-10 py-8">
+                <span :class="{
+                  'bg-amber-500/10 text-amber-600': r.status === 'pending',
+                  'bg-emerald-500/10 text-emerald-600': r.status === 'approved',
+                  'bg-rose-500/10 text-rose-600': r.status === 'rejected'
+                }" class="px-3 py-1 rounded-full text-[8px] font-bold tracking-widest uppercase">
+                  {{ r.status }}
+                </span>
+              </td>
+              <td class="px-10 py-8">
                 <p class="text-[10px] font-light italic text-stone-500 max-w-[300px] truncate group-hover:overflow-visible group-hover:whitespace-normal transition-all duration-700">
                   "{{ r.comment }}"
                 </p>
               </td>
-              <td class="px-10 py-8 text-right">
-                <button @click="deleteReview(r._id)" class="text-red-800/20 hover:text-red-600 transition-all group/btn">
-                  <font-awesome-icon icon="fa-solid fa-trash-can" class="text-[10px] group-hover/btn:scale-110" />
-                  <span class="ml-2 text-[9px] opacity-0 group-hover/btn:opacity-100 transition-opacity">DELETE</span>
+              <td class="px-10 py-8 text-right flex gap-2 justify-end">
+                <button v-if="r.status !== 'approved'" @click="updateStatus(r._id, 'approved')" class="text-emerald-500 hover:text-emerald-700 transition-all p-2 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg">
+                  <font-awesome-icon icon="fa-solid fa-check" class="text-[10px]" />
+                </button>
+                <button v-if="r.status !== 'rejected'" @click="updateStatus(r._id, 'rejected')" class="text-rose-500 hover:text-rose-700 transition-all p-2 bg-rose-50 dark:bg-rose-950/20 rounded-lg">
+                  <font-awesome-icon icon="fa-solid fa-xmark" class="text-[10px]" />
+                </button>
+                <div class="w-[1px] h-6 bg-stone-100 mx-1"></div>
+                <button @click="deleteReview(r._id)" class="text-red-800/20 hover:text-red-600 transition-all p-2">
+                  <font-awesome-icon icon="fa-solid fa-trash-can" class="text-[10px]" />
                 </button>
               </td>
             </tr>
@@ -134,4 +150,26 @@ const deleteReview = async (id) => {
     }
   }
 }
+
+const updateStatus = async (id, status) => {
+  const res = await store.updateReviewStatus(id, status)
+  if (res.success) {
+    // Update local state for immediate feedback
+    const review = reviews.value.find(r => r._id === id)
+    if (review) review.status = status
+    
+    Toast.fire({
+      icon: 'success',
+      title: `Review ${status.toUpperCase()}`
+    })
+  }
+}
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true
+})
 </script>

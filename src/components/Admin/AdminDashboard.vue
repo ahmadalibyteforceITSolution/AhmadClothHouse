@@ -747,7 +747,11 @@ onMounted(() => {
   productStore.fetchProducts()
   
   fetchTrafficStats()
-  trafficInterval.value = setInterval(fetchTrafficStats, 10000) // Refresh every 10s
+  trafficInterval.value = setInterval(() => {
+    fetchTrafficStats()
+    orderStore.fetchAllOrders()
+    store.fetchAllReviews() // Real-time review refresh
+  }, 10000) // Refresh every 10s
 })
 
 onUnmounted(() => {

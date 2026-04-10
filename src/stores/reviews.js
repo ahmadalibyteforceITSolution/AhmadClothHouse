@@ -49,6 +49,17 @@ export const useReviewsStore = defineStore('reviews', {
       } catch (err) {
         return { success: false, error: err.response?.data?.error || 'Failed to delete review' }
       }
+    },
+    async updateReviewStatus(id, status) {
+      try {
+        const { data } = await api.patch(`/reviews/${id}/status`, { status })
+        // Update both lists to reflect the status change
+        this.allReviews = this.allReviews.map(r => r._id === id ? data.data : r)
+        this.productReviews = this.productReviews.map(r => r._id === id ? data.data : r)
+        return { success: true }
+      } catch (err) {
+        return { success: false, error: err.response?.data?.error || 'Failed to update status' }
+      }
     }
   }
 })

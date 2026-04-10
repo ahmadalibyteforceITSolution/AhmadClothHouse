@@ -141,7 +141,7 @@ const handleSubmit = async () => {
     Swal.fire({
       icon: 'success',
       title: 'SENTIMENT RECORDED',
-      text: 'Thank you for contributing to the Ahmadcloths community.',
+      text: 'Thank you for your feedback. It will be visible in the boutique after a brief moderation period.',
       confirmButtonColor: '#d4af37'
     })
   } else {
