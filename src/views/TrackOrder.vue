@@ -76,7 +76,7 @@
             </div>
 
             <!-- Google Map Integration -->
-            <div class="h-full min-h-[300px] border border-stone-100 dark:border-stone-900 relative group overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
+            <div class="h-full min-h-[300px] border border-stone-100 dark:border-stone-900 relative group overflow-hidden transition-all duration-1000">
               <iframe
                 width="100%"
                 height="100%"

@@ -20,7 +20,7 @@
         <div class="aspect-[16/9] bg-stone-200 dark:bg-stone-900 border border-[#d4af3711] overflow-hidden shadow-3xl group-hover:border-[#d4af3733] transition-all">
           <img :src="image || 'https://images.unsplash.com/photo-1515562141207-7a88bb7ce338?q=80&w=2070&auto=format&fit=crop'" 
                alt="Sponsored Content" 
-               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" />
+               class="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100" />
         </div>
         <div class="absolute -bottom-6 -right-6 w-32 h-32 border border-[var(--primary-gold)]/20 pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
       </div>

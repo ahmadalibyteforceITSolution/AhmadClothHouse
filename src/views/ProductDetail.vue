@@ -34,7 +34,7 @@
              class="w-20 h-28 flex-shrink-0 border transition-all duration-700 relative overflow-hidden group"
              :class="currentDisplayImage === img ? 'border-[var(--primary-gold)] shadow-xl scale-110' : 'border-[#d4af3711] opacity-40 hover:opacity-100'"
            >
-             <img :src="img" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+             <img :src="img" class="w-full h-full object-cover transition-all duration-700">
              <div v-if="currentDisplayImage === img" class="absolute bottom-0 left-0 right-0 h-1 bg-[var(--primary-gold)]"></div>
            </button>
          </div>

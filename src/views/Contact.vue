@@ -147,7 +147,7 @@
 
                <div v-for="loc in boutiques" :key="loc.city" class="space-y-8 group">
                   <div class="relative overflow-hidden aspect-video mb-8">
-                     <img :src="loc.image" :alt="loc.city" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110" />
+                     <img :src="loc.image" :alt="loc.city" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" />
                      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
                      <div class="absolute bottom-6 left-6 text-white font-black text-xs tracking-[0.4em] uppercase">{{ loc.city }}</div>
                   </div>
@@ -186,7 +186,7 @@
                
                <div class="relative aspect-square">
                   <div class="absolute inset-0 border border-amber-500/10 m-12 z-10 pointer-events-none"></div>
-                  <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Luxury Fashion Design" />
+                  <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Luxury Fashion Design" />
                   <div class="absolute -bottom-10 -right-10 bg-black p-12 hidden lg:block">
                      <p class="text-amber-500 font-playfair italic text-4xl mb-4">"Pure Art"</p>
                      <p class="text-white font-black text-[9px] uppercase tracking-[0.4em]">The Ahmadcloths Ethos</p>

@@ -184,7 +184,7 @@
                           </div>
 
                           <transition name="fade">
-                            <div v-if="order.showMap" class="mt-8 h-64 w-full border border-[var(--primary-gold)]/20 grayscale hover:grayscale-0 transition-all duration-1000">
+                            <div v-if="order.showMap" class="mt-8 h-64 w-full border border-[var(--primary-gold)]/20 transition-all duration-1000">
                               <iframe
                                 width="100%"
                                 height="100%"

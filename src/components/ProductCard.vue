@@ -4,8 +4,7 @@
     <div class="card-image-wrap">
       <img :src="product.image" :alt="product.name + ' - ' + product.category + ' | Ahmadcloths house Premium Fashion'" class="card-img" loading="lazy" />
       
-      <!-- Overlays -->
-      <div class="card-overlay"></div>
+
       
       <!-- Badges -->
       <div class="card-badges">
@@ -107,16 +106,7 @@ const auth = useAuthStore()
   transform: scale(1.08);
 }
 
-.card-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.02);
-  transition: background 0.5s ease;
-}
 
-.luxury-card:hover .card-overlay {
-  background: rgba(0, 0, 0, 0.05);
-}
 
 .card-badges {
   position: absolute;

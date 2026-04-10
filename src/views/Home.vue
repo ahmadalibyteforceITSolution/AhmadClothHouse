@@ -125,7 +125,7 @@
           <div
             class="w-48 h-48 bg-white/5 backdrop-blur-3xl rounded-full border border-white/10 p-2 overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-1000">
             <img :src="featuredDiscountProduct.image"
-              class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+              class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-1000">
             <!-- Content Overlay -->
             <div
               class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-black/60 group-hover:bg-black/30 transition-colors">
@@ -312,7 +312,7 @@
       <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="relative order-2 lg:order-1">
           <div class="look-image-frame bg-gray-50 p-4">
-            <img :src="Fugibles" class="look-img grayscale hover:grayscale-0 transition-all duration-1000"
+            <img :src="Fugibles" class="look-img transition-all duration-1000"
               alt="Seasonal Collection" loading="lazy" />
             <div
               class="absolute top-8 left-0 bg-[var(--deep-burgundy)] text-white px-6 py-2 text-[10px] font-bold tracking-[0.3em] -rotate-90 origin-top-left">
@@ -361,7 +361,7 @@
           <div v-for="(item, i) in craftItems" :key="i" class="craft-card group">
             <div class="relative overflow-hidden aspect-[3/4] mb-8 bg-gray-100">
               <img :src="item.image" :alt="item.title"
-                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
              
             </div>
             <h3
@@ -392,7 +392,7 @@
               "{{ patron.quote }}"
             </p>
             <div class="flex items-center gap-6 pt-8 border-t border-black/5 dark:border-white/5">
-              <div class="w-12 h-12 rounded-full overflow-hidden grayscale">
+              <div class="w-12 h-12 rounded-full overflow-hidden">
                 <img :src="patron.avatar" :alt="patron.name" class="w-full h-full object-cover" />
               </div>
               <div>

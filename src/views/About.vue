@@ -20,7 +20,7 @@
          <!-- Dynamic Background Artifact -->
          <div class="absolute inset-0 opacity-40 scale-105 animate-slow-zoom">
             <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1800&auto=format&fit=crop"
-               class="w-full h-full object-cover grayscale brightness-50" alt="Ahmadcloths house Fashion Heritage - Artisan Weaving Tradition" />
+               class="w-full h-full object-cover brightness-50" alt="Ahmadcloths house Fashion Heritage - Artisan Weaving Tradition" />
          </div>
          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/60 pointer-events-none">
          </div>
@@ -96,7 +96,7 @@
                class="absolute inset-0 border border-white/10 group-hover:border-[var(--primary-gold)]/20 transition-colors duration-700 z-20 pointer-events-none m-8">
             </div>
             <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&auto=format&fit=crop"
-               class="w-full h-full object-cover grayscale transition-transform duration-[3s] group-hover:scale-110"
+               class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                alt="Artisan Tailoring at Ahmadcloths house Studio">
             <div class="absolute bottom-12 left-12 z-20">
                <span
@@ -182,7 +182,7 @@
            GLOBAL SOURCING (NEW)
       ═══════════════════════════════════════════ -->
       <section class="relative py-40 bg-black overflow-hidden">
-         <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1800&auto=format&fit=crop')] bg-cover bg-center grayscale"></div>
+         <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1800&auto=format&fit=crop')] bg-cover bg-center"></div>
          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
          
          <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">

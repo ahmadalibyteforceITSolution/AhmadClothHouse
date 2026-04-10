@@ -175,7 +175,7 @@
                 @click="goToLiveProduct(p)"
                 class="flex items-center gap-4 p-3 hover:bg-stone-50 dark:hover:bg-white/5 cursor-pointer transition-all group/item">
                 <div class="w-12 h-14 bg-stone-100 dark:bg-stone-900 border border-black/5 shrink-0 overflow-hidden">
-                  <img :src="p.image" class="w-full h-full object-cover grayscale group-hover/item:grayscale-0 transition-all duration-700" />
+                  <img :src="p.image" class="w-full h-full object-cover transition-all duration-700" />
                 </div>
                 <div>
                   <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white line-clamp-1">{{ p.name }}</p>
@@ -224,7 +224,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div v-for="p in liveResults" :key="p.id" @click="goToLiveProduct(p)"
                 class="flex items-center gap-4 p-4 border border-black/[0.03] dark:border-white/[0.03] hover:border-[var(--primary-gold)]/30 cursor-pointer transition-all bg-stone-50 dark:bg-white/[0.02] group">
-                <img :src="p.image" class="w-12 h-12 object-cover grayscale group-hover:grayscale-0 transition-all" />
+                <img :src="p.image" class="w-12 h-12 object-cover transition-all" />
                 <div class="flex-grow">
                   <p class="text-[10px] font-black uppercase tracking-tighter dark:text-white line-clamp-1">{{ p.name }}
                   </p>
