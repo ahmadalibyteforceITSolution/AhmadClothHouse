@@ -2,7 +2,7 @@
   <header class="w-full" :class="{ 'header-scrolled': isScrolled }">
     <!-- Main Header -->
     <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
-      :class="isScrolled ? 'py-2 shadow-lg' : 'py-6'">
+      :class="isScrolled ? 'py-2 shadow-lg' : 'py-1'">
       <!-- Top Row: Actions Left, Logo Center, Actions Right -->
       <div class="w-full flex items-center justify-between">
         <!-- LEFT: Hamburger (mobile) + Search (desktop) -->
