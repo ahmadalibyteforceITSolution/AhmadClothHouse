@@ -75,7 +75,7 @@
                 </div>
               </button>
 
-              <button
+              <button @click="router.push('/about')"
                 class="group px-12 py-5 border border-white/30 text-white text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-500">
                 OUR HERITAGE
               </button>
@@ -182,6 +182,9 @@
             </p>
             <p>
               Our commitment to excellence extends beyond the garment. We support a network of master artisans in Lahore, ensuring that the legacy of handcrafted couture continues to thrive in a world of fast fashion. When you choose Ahmadcloths, you are choosing more than just an outfit; you are choosing a piece of heritage.
+            </p>
+            <p>
+              Whether you are looking for an elegant unstitched lawn suit for the summer heat or a signature bridal ensemble that captures the essence of tradition, Ahmadcloths House provides an experience that is as unique as the women who wear our designs. Explore our collections and discover the artistry that defines us.
             </p>
           </div>
           <div class="flex items-center gap-12 pt-8 border-t border-[#d4af3711]">
@@ -350,9 +353,11 @@
       description="Elevate your Ahmadcloths ensemble with our curated partner jewelry collections. Hand-crafted elegance for the modern bride." 
       button-text="SHOP JEWELRY"
       :image="JewelrySponsored"
+      link="/shop"
     />
 
     <!-- Google AdSense: Home Page — Slot A (unique to this page) -->
+    <!-- Replace slot="1111111111" with your actual AdSense Slot ID to enable ads -->
     <div class="max-w-5xl mx-auto px-6">
       <AdSenseUnit slot="1111111111" format="auto" :full-width-responsive="true" wrapper-class="my-10" />
     </div>
@@ -368,7 +373,13 @@
             UNSTITCHED<br><span class="text-[var(--deep-burgundy)]">LADIES SUITS</span></h2>
           <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
             True elegance resides in the selection of fabrics. Every garment in the Ahmadcloths house atelier is crafted
-            with precision — premium silk, luxury lawn, and the finest hand embroidery.
+            with precision — premium silk, luxury lawn, and the finest hand embroidery. Our artisans spend hundreds of 
+            hours on each piece to ensure it meets our rigorous standards of quality and beauty.
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+            From the initial sketch to the final stitch, our process is a labor of love. We take pride in our ability to 
+            revive forgotten techniques and present them in a way that resonates with the modern woman. Discover our 
+            Luxury Pret and Bridal Couture collections today.
           </p>
           <div class="grid grid-cols-2 gap-8 py-6 border-y border-black/5 dark:border-white/5">
             <div v-for="stat in ['Master Artisans', 'Premium Fabrics']" :key="stat" class="flex items-center gap-3">
@@ -378,7 +389,7 @@
                   stat }}</span>
             </div>
           </div>
-          <button class="btn-outline-gold">Our Legacy</button>
+          <button class="btn-outline-gold" @click="router.push('/about')">Our Legacy</button>
         </div>
         <!-- Split Grid Images -->
         <div class="lg:col-span-7 grid grid-cols-2 gap-6 relative">
@@ -446,7 +457,7 @@
           </p>
           <button
             class="bg-[var(--deep-burgundy)] text-white px-10 py-4 text-xs font-bold tracking-widest uppercase hover:bg-[var(--luxury-black)] transition-all"
-            @click="scrollToDiscovery">
+            @click="router.push('/shop')">
             VIEW COLLECTION
           </button>
         </div>
@@ -555,6 +566,25 @@
 
 
    
+    <!-- ═══════════════════════════════════════════
+         FAQ SECTION (Content Boost)
+    ═══════════════════════════════════════════ -->
+    <section class="faq-section py-32 bg-[#fafaf8] dark:bg-[#050505]">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16 space-y-4">
+          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">FREQUENTLY ASKED</h3>
+          <h2 class="text-4xl font-playfair italic text-gray-900 dark:text-white">Questions & Answers</h2>
+        </div>
+        
+        <div class="space-y-8">
+          <div v-for="(faq, i) in faqs" :key="i" class="border-b border-black/5 dark:border-white/5 pb-8">
+            <h4 class="text-lg font-playfair text-gray-900 dark:text-white mb-4">{{ faq.q }}</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="heritage-banner relative py-40 overflow-hidden bg-black text-white">
 
       <!-- Background Images -->
@@ -585,7 +615,13 @@
 
           <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-lg font-light">
             We believe the finest fabrics tell their own story. AHMADCLOTHS HOUSE represents the commitment to quality
-            and the joy of elegance through artisanal craftsmanship.
+            and the joy of elegance through artisanal craftsmanship. Our collections are designed to make every woman 
+            feel confident and beautiful, blending the rich heritage of Pakistan with modern fashion sensibilities.
+          </p>
+          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-sm font-light">
+            Each season, we bring you new designs that push the boundaries of luxury. From our signature unstitched 
+            collections to our bespoke bridal wear, we are dedicated to providing the highest level of service and 
+            craftsmanship. Join us on this journey of elegance and style.
           </p>
           <div class="flex items-center gap-10">
             <div v-for="stat in brandStats" :key="stat.label">
@@ -709,6 +745,25 @@ const patronStories = [
     name: "Julianna Ross",
     role: "Event Designer",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop"
+  }
+]
+
+const faqs = [
+  {
+    q: 'What types of fabrics do you use?',
+    a: 'We use the highest quality fabrics including premium Egyptian cotton, hand-loomed silk, luxury lawn, and delicate chiffons. Each piece is selected for its durability and luxurious feel.'
+  },
+  {
+    q: 'Do you offer international shipping?',
+    a: 'Yes, Ahmadcloths House provides secure worldwide shipping. Delivery times and costs vary depending on the destination. You can track your order in real-time through our order tracking portal.'
+  },
+  {
+    q: 'How can I care for my luxury garments?',
+    a: 'We recommend professional dry cleaning for all our embroidered and luxury pret pieces. For unstitched lawn, gentle hand washing with mild detergent is recommended to maintain the fabric\'s integrity and color.'
+  },
+  {
+    q: 'Can I customize a bridal outfit?',
+    a: 'Yes, we offer custom bridal consultations in Lahore. Our team of master artisans and designers will work with you to create a signature bridal ensemble that reflects your personal style.'
   }
 ]
 
