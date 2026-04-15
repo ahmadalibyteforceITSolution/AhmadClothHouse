@@ -44,7 +44,7 @@ const generatePrice = (category) => {
     'Unstitched Lawn': [3000, 12000],
     'Unstitched Silk': [8000, 25000],
     'Unstitched Chiffon': [12000, 45000],
-    'Unstitched Bridal': [25000, 150000],
+    'Unstitched Bridal': [25000, 500000],
     'Unstitched Khaddar': [3500, 10000],
     'Unstitched Velvet': [10000, 35000]
   };

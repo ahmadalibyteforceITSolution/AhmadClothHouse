@@ -30,6 +30,7 @@
       </div>
     </transition>
 
+    <DailySEOAds v-if="showHeaderFooter" />
     <Header v-if="showHeaderFooter" />
 
     <!-- Global Ahmadcloths Panel & Overlay -->
@@ -149,6 +150,7 @@
 import { ref, onMounted, onUnmounted, computed, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Header from './components/Home/Header.vue'
+import DailySEOAds from './components/DailySEOAds.vue'
 import Footer from './components/Footer.vue'
 import { useAuthStore } from './stores/auth'
 import { useProductsStore } from './stores/products'

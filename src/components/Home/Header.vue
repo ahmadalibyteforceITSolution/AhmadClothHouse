@@ -1,15 +1,5 @@
 <template>
   <header class="w-full" :class="{ 'header-scrolled': isScrolled }">
-
-    <!-- Top Banner -->
-    <div
-      class="luxury-banner text-center text-[8px] sm:text-[10px] py-2 tracking-[0.2em] sm:tracking-[0.4em] px-4 font-medium uppercase overflow-hidden border-b border-white/5">
-      <div class="inline-block animate-marquee sm:animate-none">
-        ✦ FREE NATIONWIDE SHIPPING ON ORDERS OVER RS. 5000 ✦
-        <span class="text-white/80 mx-2">LUXURY UNSTITCHED & PRET</span> ✦
-      </div>
-    </div>
-
     <!-- Main Header -->
     <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
       :class="isScrolled ? 'py-2 shadow-lg' : 'py-6'">
@@ -118,7 +108,7 @@
       </div>
 
       <!-- Mobile Actions Row (Theme, Favorites, Cart, Login) - Below Logo -->
-      <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
+      <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 4t-2 2der-t border-black/5 dark:border-white/5">
         <!-- Theme Toggle -->
         <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
           <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
