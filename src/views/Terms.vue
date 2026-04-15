@@ -9,7 +9,7 @@
             </div>
          </div>
          <div class="max-w-7xl mx-auto text-center relative z-10 animate-reveal">
-            <h1 class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHS HOUSE</h1>
+            <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHS HOUSE</div>
             <div class="flex items-center justify-center gap-6 mb-12">
                <div class="h-[1px] w-16 bg-[var(--primary-gold)]/30"></div>
                <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">GOVERNANCE &

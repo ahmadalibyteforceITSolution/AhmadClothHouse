@@ -272,6 +272,51 @@ watch(product, (p) => {
   selectedColor.value = null
   selectedSize.value = null
   manuallySelectedImage.value = null
+
+  if (p) {
+    // Update Document Title
+    document.title = `${p.name} | Ahmadcloths House - Premium Pakistani Couture`
+
+    // Update Meta Description
+    const metaDescription = document.querySelector('meta[name="description"]')
+    if (metaDescription) {
+      metaDescription.setAttribute('content', `Shop ${p.name} at Ahmadcloths House. ${p.description || 'Premium luxury fashion piece handcrafted with the finest fabrics.'} Best prices for Pakistani designer suits.`)
+    }
+
+    // Add Product Schema
+    if (typeof document !== 'undefined') {
+      const scriptId = 'product-schema-json-ld'
+      let script = document.getElementById(scriptId)
+      if (!script) {
+        script = document.createElement('script')
+        script.id = scriptId
+        script.type = 'application/ld+json'
+        document.head.appendChild(script)
+      }
+
+      const schema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": p.name,
+        "image": [p.image],
+        "description": p.description || `${p.name} - Luxury Pakistani Designer Suit from Ahmadcloths House.`,
+        "sku": p.sku || p.id || p._id,
+        "brand": {
+          "@type": "Brand",
+          "name": "Ahmadcloths House"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": window.location.href,
+          "priceCurrency": "PKR",
+          "price": p.price,
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+      script.text = JSON.stringify(schema)
+    }
+  }
 }, { immediate: true })
 
 const selectImage = (img) => {

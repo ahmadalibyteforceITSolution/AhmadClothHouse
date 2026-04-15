@@ -190,13 +190,18 @@ const maxPrice = ref(2000)
 const isCatOpen = ref(false)
 const isNameOpen = ref(false)
 
-watch(() => route.params.category, () => {
-  currentPage.value = 1
-  selectedCategory.value = ''
-  selectedProductName.value = ''
-})
-
 const category = computed(() => route.params.category)
+
+watch([selectedCategory, category], ([newCat, routeCat]) => {
+  currentPage.value = 1
+  const activeCat = newCat || routeCat || 'All Collections'
+  document.title = `${activeCat} | Shop Pakistani Designer Suits - Ahmadcloths House`
+  
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', `Browse our ${activeCat} collection at Ahmadcloths House. Premium unstitched suits, luxury pret, and bridal wear. Best quality Pakistani designer fashion online.`)
+  }
+}, { immediate: true })
 
 const displayTitleParts = computed(() => {
   let title = 'All Categories'

@@ -1,13 +1,17 @@
 <template>
   <div
     class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] flex transition-colors duration-700 font-sans relative overflow-x-hidden">
+    
+    <!-- SEO Heading (Visually Hidden) -->
+    <h1 class="sr-only">Ahmadcloths House | User Dashboard - My Couture Profile</h1>
+
     <!-- Sidebar -->
     <aside :class="isMobileMenuOpen ? 'translate-x-0 shadow-2xl shadow-black/50' : '-translate-x-full lg:translate-x-0'"
       class="fixed left-0 top-0 h-screen w-72 bg-white dark:bg-[#080808] border-r border-[#d4af371a] p-6 sm:p-10 flex flex-col z-[150] transition-transform duration-500 ease-in-out overflow-y-auto scrollbar-none">
       <div class="mb-16 flex items-center justify-between">
-        <h1
+        <div
           class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
-          @click="router.push('/')">AHMADCLOTHS</h1>
+          @click="router.push('/')">AHMADCLOTHS</div>
         <button @click="isMobileMenuOpen = false" class="lg:hidden p-2 text-stone-400">
           <font-awesome-icon icon="fa-solid fa-xmark" />
         </button>

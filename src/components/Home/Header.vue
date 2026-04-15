@@ -34,9 +34,9 @@
 
         <!-- CENTER: Logo -->
         <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-2 sm:px-4" @click="goToHome">
-          <h1
+          <div
             class="text-base sm:text-2xl lg:text-3xl font-playfair tracking-[0.15em] sm:tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase leading-tight">
-            AHMADCLOTHS HOUSE</h1>
+            AHMADCLOTHS HOUSE</div>
           <div
             class="logo-tagline font-playfair tracking-[0.4em] mt-1 text-[7px] opacity-60 uppercase text-[var(--primary-gold)] hidden sm:block">
             The House of Couture</div>

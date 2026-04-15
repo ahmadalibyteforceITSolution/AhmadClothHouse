@@ -27,7 +27,7 @@
 
          <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
             <div class="flex flex-col items-center gap-6 mb-8 animate-reveal">
-               <h1 class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">AHMADCLOTHS HOUSE</h1>
+               <div class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">AHMADCLOTHS HOUSE</div>
                <div class="h-[1px] w-16 bg-[var(--primary-gold)]"></div>
                <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">ESTABLISHED
                   MMXXVI</span>

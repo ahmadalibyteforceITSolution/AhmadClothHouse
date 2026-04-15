@@ -50,7 +50,7 @@
               <span class="h-[1px] w-12 bg-[var(--primary-gold)]"></span>
             </div>
 
-            <h1 class="hero-main-title font-playfair text-white leading-tight">
+            <h2 class="hero-main-title font-playfair text-white leading-tight">
               <span class="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl italic font-light">
                 {{ heroSlides[currentHeroIndex].title1 }}
               </span>
@@ -58,7 +58,7 @@
                 class="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold -mt-4 sm:-mt-8 tracking-tighter">
                 {{ heroSlides[currentHeroIndex].titleHighlight }}
               </span>
-            </h1>
+            </h2>
 
             <p
               class="hero-description text-white/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light tracking-wide leading-relaxed animate-fade-in-delayed">

@@ -20,7 +20,7 @@
 
          <div class="flex flex-col md:flex-row justify-between items-end gap-16 relative z-10">
             <div class="max-w-2xl animate-reveal-left">
-               <h1 class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">AHMADCLOTHS HOUSE</h1>
+               <div class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">AHMADCLOTHS HOUSE</div>
                <div class="flex items-center gap-3 mb-6">
                   <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
                   <span

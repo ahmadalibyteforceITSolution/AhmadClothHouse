@@ -35,9 +35,9 @@
 
       <div class="max-w-md w-full relative z-10 animate-reveal">
         <div class="text-center lg:text-left mb-16 px-4">
-          <h1
+          <div
             class="text-2xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-2">
-            AHMADCLOTHS HOUSE</h1>
+            AHMADCLOTHS HOUSE</div>
           <p class="text-[8px] tracking-[0.4em] font-bold text-[var(--primary-gold)] uppercase mb-12">The House of
             Couture</p>
           <h1
