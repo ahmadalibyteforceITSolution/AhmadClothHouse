@@ -102,7 +102,7 @@
 
     <!-- Google AdSense: Shop Page — Slot B (unique to this page) -->
     <div class="max-w-7xl mx-auto px-6 mb-12">
-      <AdSenseUnit slot="2222222222" format="auto" :full-width-responsive="true" />
+      <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" />
     </div>
 
     <!-- Product Collection Grid -->

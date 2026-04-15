@@ -359,7 +359,7 @@
     <!-- Google AdSense: Home Page — Slot A (unique to this page) -->
     <!-- Replace slot="1111111111" with your actual AdSense Slot ID to enable ads -->
     <div class="max-w-5xl mx-auto px-6">
-      <AdSenseUnit slot="1111111111" format="auto" :full-width-responsive="true" wrapper-class="my-10" />
+      <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" wrapper-class="my-10" />
     </div>
 
     <!-- Atelier Section -->

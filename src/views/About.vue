@@ -247,11 +247,17 @@
          </div>
       </section>
 
+      <!-- Google AdSense: About Page — Slot C (unique to this page) -->
+      <div class="max-w-7xl mx-auto px-8 py-20">
+         <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" />
+      </div>
+
    </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
+import AdSenseUnit from '../components/AdSenseUnit.vue'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const philosophy = [

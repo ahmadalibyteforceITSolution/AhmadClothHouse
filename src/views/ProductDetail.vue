@@ -159,6 +159,11 @@
     <div class="max-w-7xl mx-auto px-8">
        <ReviewSection :product-id="product?.id || product?._id" />
     </div>
+
+    <!-- Google AdSense: Product Detail Page — Slot D (unique to this page) -->
+    <div class="max-w-7xl mx-auto px-8 py-20">
+       <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" />
+    </div>
     
     <!-- Horizon Section -->
     <div class="max-w-7xl mx-auto mt-64 animate-reveal">
