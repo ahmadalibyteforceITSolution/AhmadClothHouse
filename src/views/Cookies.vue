@@ -75,15 +75,27 @@ const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 const cookieSections = [
    {
       title: "What are Cookies?",
-      content: "Cookies are small text files that are stored on your device when you visit our website. They help us remember your preferences, keep your shopping bag updated, and provide a more personalized experience."
+      content: "Cookies are small text files that are stored on your device when you visit our website. They help us remember your preferences, keep your shopping bag updated, and provide a more personalized experience. We use both first-party and third-party cookies on our site."
    },
    {
-      title: "Essential Cookies",
-      content: "These cookies are necessary for the website to function correctly, such as managing your login sessions and your shopping bag. Without these, our boutique services cannot be provided efficiently."
+      title: "Essential & Functional Cookies",
+      content: "These cookies are necessary for the website to function correctly, such as managing your login sessions and your shopping bag. Without these, our boutique services cannot be provided efficiently. Functional cookies allow us to remember your choices (such as your user name or region) and provide enhanced features."
    },
    {
-      title: "Performance & Analytics",
-      content: "We use cookies to understand how our guests interact with our website, which helps us improve our designs and collections. This data is collected anonymously and helps us create a better experience for everyone."
+      title: "Performance & Analytics Cookies",
+      content: "We use cookies to understand how our guests interact with our website, which helps us improve our designs and collections. This data is collected anonymously and helps us create a better experience for everyone. We use tools like Google Analytics to track site traffic and performance."
+   },
+   {
+      title: "Advertising & Targeting Cookies",
+      content: "These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement as well as help measure the effectiveness of the advertising campaign. They are usually placed by advertising networks with the website operator's permission."
+   },
+   {
+      title: "Google AdSense & DoubleClick Cookies",
+      content: "As part of our partnership with Google AdSense, we use the DoubleClick cookie. This cookie enables Google and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet. You may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting Google's Ad Settings."
+   },
+   {
+      title: "How to Manage Cookies",
+      content: "Most web browsers allow you to control cookies through their settings. You can set your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service."
    }
 ]
 

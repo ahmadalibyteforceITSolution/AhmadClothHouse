@@ -66,7 +66,10 @@
                   class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light transition-all first-letter:text-5xl first-letter:font-playfair first-letter:text-[var(--primary-gold)] first-letter:mr-3 first-letter:float-left">
                   Founded in 2026, Ahmadcloths house was materialized to bridge the void between mass-produced apparel and the
                   artisanal soul of traditional craftsmanship. We believe every moment deserves an ensemble that
-                  mirrors your unique style and elegance.
+                  mirrors your unique style and elegance. Our journey began with a single vision: to revive the intricate weaving and embroidery techniques that have defined our cultural heritage for generations.
+               </p>
+               <p class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light mt-8">
+                  At Ahmadcloths house, we don't just create clothes; we weave stories. Each piece in our collection is a testament to the dedication of our master artisans who spend hundreds of hours perfecting every stitch. From the selection of the finest silks and cottons to the final hand-finished detail, our commitment to quality is unwavering.
                </p>
             </div>
 
@@ -98,11 +101,54 @@
             <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&auto=format&fit=crop"
                class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                alt="Artisan Tailoring at Ahmadcloths house Studio">
-            <div class="absolute bottom-12 left-12 z-20">
-               <span
-                  class="text-[9px] font-bold text-white px-6 py-3 border border-white/20 backdrop-blur-3xl uppercase tracking-[0.5em] block transition-all hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] pointer-events-auto cursor-default">VIEW
-                  EDITORIAL</span>
+         </div>
+      </section>
+
+      <!-- Mission & Values Section -->
+      <section class="bg-white dark:bg-[#0a0a0a] py-40 px-8 transition-colors duration-700">
+         <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
+               <div class="space-y-8 animate-reveal">
+                  <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR MISSION</h3>
+                  <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Empowering Elegance</h4>
+                  <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+                     Our mission is to empower individuals through fashion that speaks of heritage and modern elegance. We strive to provide accessible luxury without compromising on the artisanal quality that makes each garment unique.
+                  </p>
+               </div>
+               <div class="space-y-8 animate-reveal" style="animation-delay: 0.2s">
+                  <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR VISION</h3>
+                  <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Global Heritage</h4>
+                  <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+                     We envision Ahmadcloths house as a global symbol of Pakistani craftsmanship, bringing the beauty of our traditional textiles to the international stage while fostering a sustainable and ethical fashion ecosystem.
+                  </p>
+               </div>
+               <div class="space-y-8 animate-reveal" style="animation-delay: 0.4s">
+                  <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR VALUES</h3>
+                  <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Ethical Mastery</h4>
+                  <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+                     Integrity, craftsmanship, and sustainability are at the core of everything we do. We ensure fair wages for our artisans and prioritize eco-friendly practices in our production line to protect the heritage we cherish.
+                  </p>
+               </div>
             </div>
+         </div>
+      </section>
+
+      <!-- Artisan Spotlight -->
+      <section class="py-40 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+         <div class="order-2 lg:order-1 relative aspect-square group overflow-hidden animate-reveal-left">
+            <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1200&auto=format&fit=crop"
+               class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+               alt="Artisan Craftsmanship">
+         </div>
+         <div class="order-1 lg:order-2 space-y-12 animate-reveal-right">
+            <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">THE CRAFT</h3>
+            <h2 class="text-5xl font-playfair italic text-gray-900 dark:text-white leading-tight">Mastery in Every Thread</h2>
+            <p class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
+               Our artisans are the heart of Ahmadcloths house. With decades of experience passed down through generations, they possess an intuitive understanding of fabric and form. Every embroidery pattern is meticulously planned and executed, ensuring that the final garment is not just a piece of clothing, but a work of art.
+            </p>
+            <router-link to="/shop" class="inline-block border-b border-[var(--primary-gold)] pb-2 text-[10px] font-bold tracking-[0.5em] text-gray-900 dark:text-white hover:text-[var(--primary-gold)] transition-colors">
+               EXPLORE THE COLLECTIONS
+            </router-link>
          </div>
       </section>
 

@@ -100,6 +100,11 @@
       </div>
     </div>
 
+    <!-- Google AdSense: Shop Page — Slot B (unique to this page) -->
+    <div class="max-w-7xl mx-auto px-6 mb-12">
+      <AdSenseUnit slot="2222222222" format="auto" :full-width-responsive="true" />
+    </div>
+
     <!-- Product Collection Grid -->
     <div class="max-w-7xl mx-auto px-6">
       <div v-if="filteredProducts.length > 0">
@@ -165,6 +170,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
+import AdSenseUnit from '../components/AdSenseUnit.vue'
 
 const route = useRoute()
 const router = useRouter()

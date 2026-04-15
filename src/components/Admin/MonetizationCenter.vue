@@ -61,7 +61,7 @@
                    <textarea 
                      v-model="monetizationSettings.adSnippet"
                      rows="4"
-                     placeholder="Paste your <script> here..."
+                     placeholder="Paste your script snippet here..."
                      class="w-full bg-[#fafaf8] dark:bg-black/40 border border-[#d4af3711] p-6 text-[10px] font-mono leading-relaxed tracking-wider focus:border-[var(--primary-gold)] transition-all outline-none dark:text-white resize-none"
                    ></textarea>
                 </div>

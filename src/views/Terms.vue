@@ -67,16 +67,32 @@ const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const termSections = [
    {
-      title: "The Ahmadcloths Experience",
-      content: "By navigating our website, you agree to use our services for personal, non-commercial use. Any unauthorized use of our platform or interference with our services is strictly prohibited."
+      title: "Agreement to Terms",
+      content: "By accessing and using Ahmadcloths house (ahmad-cloths.vercel.app), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
    },
    {
-      title: "Intellectual Property",
-      content: "All content, images, patterns, and designs associated with Ahmadcloths house are the exclusive property of Ahmadcloths house. Reproduction or distribution of any materials without written consent is prohibited."
+      title: "Intellectual Property Rights",
+      content: "The content, original features, and functionality of this website, including but not limited to designs, text, graphics, logos, and images, are the exclusive property of Ahmadcloths house and are protected by international copyright, trademark, patent, and other intellectual property laws."
    },
    {
-      title: "Orders & Shipping",
-      content: "We strive to deliver your luxury apparel as quickly as possible. Ahmadcloths house is not responsible for delays caused by external shipping providers or inaccuracies in delivery addresses provided by the customer."
+      title: "User Conduct & Restrictions",
+      content: "Users are prohibited from using the site for any unlawful purpose, soliciting others to perform unlawful acts, or violating any international, federal, or state regulations. You may not reproduce, duplicate, copy, sell, or exploit any portion of our service without express written permission."
+   },
+   {
+      title: "Products & Accuracy of Information",
+      content: "We make every effort to display as accurately as possible the colors and images of our products. However, we cannot guarantee that your computer monitor's display of any color will be accurate. We reserve the right to limit the sales of our products to any person or geographic region."
+   },
+   {
+      title: "Billing & Account Integrity",
+      content: "You agree to provide current, complete, and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers, so that we can complete your transactions."
+   },
+   {
+      title: "Third-Party Links & Ads",
+      content: "Our website may contain links to third-party websites or services that are not owned or controlled by Ahmadcloths house. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that Ahmadcloths house shall not be responsible or liable, directly or indirectly, for any damage or loss caused by your use of such third-party content."
+   },
+   {
+      title: "Governing Law",
+      content: "These terms and conditions are governed by and construed in accordance with the laws of Pakistan. You irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
    }
 ]
 

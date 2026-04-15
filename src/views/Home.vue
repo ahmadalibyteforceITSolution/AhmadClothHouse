@@ -161,7 +161,117 @@
         </div>
       </div>
     </section>
- <section id="discovery" class="filter-section py-20 bg-white dark:bg-[#080808]">
+
+    <!-- ═══════════════════════════════════════════
+         HERITAGE & CRAFTSMANSHIP (AdSense Content Boost)
+    ═══════════════════════════════════════════ -->
+    <section class="heritage-narrative py-32 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div class="space-y-12 animate-reveal-left">
+          <div class="relative">
+            <div class="absolute -left-12 -top-12 text-[var(--primary-gold)]/5 text-9xl font-playfair italic -z-10 select-none">H</div>
+            <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase mb-6">OUR HERITAGE</h3>
+            <h2 class="text-4xl md:text-6xl font-playfair italic text-gray-900 dark:text-white leading-tight">Reviving the Soul of <br>Traditional Textiles</h2>
+          </div>
+          <div class="space-y-6 text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
+            <p>
+              At Ahmadcloths House, we believe that fashion is a bridge between the past and the future. Our boutique is dedicated to the preservation and innovation of traditional Pakistani craftsmanship, offering a curated selection of unstitched ladies' suits, luxury pret, and bespoke bridal wear.
+            </p>
+            <p>
+              Since our establishment in 2026, we have focused on sourcing the highest quality fabrics—from the finest Egyptian cotton to hand-loomed silks and intricate chiffons. Each collection is a masterpiece of design, blending contemporary silhouettes with age-old embroidery techniques like Zardozi, Resham, and Tilla work.
+            </p>
+            <p>
+              Our commitment to excellence extends beyond the garment. We support a network of master artisans in Lahore, ensuring that the legacy of handcrafted couture continues to thrive in a world of fast fashion. When you choose Ahmadcloths, you are choosing more than just an outfit; you are choosing a piece of heritage.
+            </p>
+          </div>
+          <div class="flex items-center gap-12 pt-8 border-t border-[#d4af3711]">
+            <div class="text-center">
+              <span class="block text-3xl font-playfair italic text-[var(--primary-gold)]">100%</span>
+              <span class="text-[8px] font-bold uppercase tracking-widest text-stone-400">Authentic Fabrics</span>
+            </div>
+            <div class="text-center">
+              <span class="block text-3xl font-playfair italic text-[var(--primary-gold)]">Hand</span>
+              <span class="text-[8px] font-bold uppercase tracking-widest text-stone-400">Embroidered</span>
+            </div>
+            <div class="text-center">
+              <span class="block text-3xl font-playfair italic text-[var(--primary-gold)]">Ethical</span>
+              <span class="text-[8px] font-bold uppercase tracking-widest text-stone-400">Sourcing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative animate-reveal-right">
+          <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-[var(--primary-gold)]/5 blur-[100px] rounded-full pointer-events-none"></div>
+          <div class="grid grid-cols-2 gap-6 relative z-10">
+            <div class="space-y-6 pt-12">
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=800&auto=format&fit=crop" class="w-full h-[350px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Artisan Weaving">
+              <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=800&auto=format&fit=crop" class="w-full h-[250px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Luxury Fabric Detail">
+            </div>
+            <div class="space-y-6">
+              <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=800&auto=format&fit=crop" class="w-full h-[250px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Embroidery Craft">
+              <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&auto=format&fit=crop" class="w-full h-[350px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Boutique Studio">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         WHY CHOOSE AHMADCLOTHS (SEO & Value Boost)
+    ═══════════════════════════════════════════ -->
+    <section class="why-choose-us py-32 bg-white dark:bg-[#080808] border-t border-black/5 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-24 space-y-6">
+          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.6em] uppercase">THE AHMADCLOTHS ADVANTAGE</h3>
+          <h2 class="text-4xl md:text-6xl font-playfair italic text-gray-900 dark:text-white">Excellence in Every Detail</h2>
+          <div class="h-[1px] w-24 bg-[var(--primary-gold)] mx-auto mt-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-gem" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Premium Quality</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              We source only the finest fabrics from globally recognized textile mills, ensuring that every unstitched suit and ready-to-wear piece meets the highest standards of luxury and durability.
+            </p>
+          </div>
+
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-palette" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Unique Designs</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              Our design team draws inspiration from both traditional Pakistani heritage and modern international fashion trends, creating unique patterns and silhouettes that you won't find anywhere else.
+            </p>
+          </div>
+
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-leaf" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Ethical Production</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              We are committed to fair labor practices and sustainable sourcing. By supporting Ahmadcloths, you are supporting a community of master artisans and promoting responsible fashion.
+            </p>
+          </div>
+
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-earth-americas" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Global Reach</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              With our secure worldwide shipping, the elegance of Pakistani couture is just a click away. We ensure that your luxury apparel reaches you safely and promptly, no matter where you are in the world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="discovery" class="filter-section py-20 bg-white dark:bg-[#080808]">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8 border-b border-black/5 pb-8">
           <div class="space-y-2">
@@ -241,6 +351,11 @@
       button-text="SHOP JEWELRY"
       :image="JewelrySponsored"
     />
+
+    <!-- Google AdSense: Home Page — Slot A (unique to this page) -->
+    <div class="max-w-5xl mx-auto px-6">
+      <AdSenseUnit slot="1111111111" format="auto" :full-width-responsive="true" wrapper-class="my-10" />
+    </div>
 
     <!-- Atelier Section -->
     <section class="atelier-section bg-[var(--luxury-cream)] dark:bg-[#080808] py-32 transition-colors duration-500">
@@ -527,6 +642,7 @@ import Fugibles4 from "../assets/ladies1.jpg"
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import SponsoredAd from '../components/Home/SponsoredAd.vue'
+import AdSenseUnit from '../components/AdSenseUnit.vue'
 import JewelrySponsored from '../assets/jewelry_sponsored.png'
 
 const isExpanded = ref(false)

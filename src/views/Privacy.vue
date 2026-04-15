@@ -90,16 +90,32 @@ const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const privacySections = [
    {
-      title: "Information We Collect",
-      content: "Ahmadcloths house (collectively referred to as 'we', 'us', or 'our') acts as the controller of your personal data. We collect your name, email address, and order history to provide you with the best boutique experience possible."
+      title: "Data Stewardship",
+      content: "Ahmadcloths house, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
    },
    {
-      title: "How We Use Your Data",
-      content: "We use your identifiers to process orders, manage your account, and with your consent, send you updates about our latest fashion collections and seasonal specials. Your data is never sold to third parties."
+      title: "Monetization & Third-Party Advertising",
+      content: "We partner with Google AdSense to serve advertisements on our platform. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet."
    },
    {
-      title: "Data Retention & Rights",
-      content: "Your data is kept only as long as necessary for order fulfillment and legal requirements. You have the right to request access, correction, or deletion of your personal data at any time."
+      title: "The DoubleClick DART Cookie",
+      content: "Google uses the DART cookie to enable it to serve ads to our users based on their visit to our site and other sites on the Internet. You may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy. We also work with other third-party ad networks that may use cookies, web beacons, and similar technologies to collect information."
+   },
+   {
+      title: "GDPR & CCPA Compliance",
+      content: "If you are a resident of the European Economic Area (EEA) or California, you have specific data protection rights. This includes the right to access, rectify, or erase your personal data, as well as the right to object to processing. We ensure all data handling aligns with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA)."
+   },
+   {
+      title: "Cookie Governance",
+      content: "We employ cookies to analyze site traffic, remember your preferences, and optimize ad performance. You can choose to accept or decline cookies through your browser settings. However, declining cookies may prevent you from taking full advantage of the Ahmadcloths experience."
+   },
+   {
+      title: "Information Security & Retention",
+      content: "Your data is encrypted and stored securely. We retain your information only for as long as necessary to provide you with our services, comply with legal obligations, and resolve disputes. We never sell, trade, or otherwise transfer your personally identifiable information to outside parties without your explicit consent."
+   },
+   {
+      title: "Contact Our Data Officer",
+      content: "For any inquiries regarding your privacy rights or our data practices, please reach out to our dedicated support team at ahmadalihafeez24@gmail.com. We respond to all data-related requests within 30 days."
    }
 ]
 

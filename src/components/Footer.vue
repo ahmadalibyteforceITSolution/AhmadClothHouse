@@ -108,7 +108,8 @@ const footerLinks = {
     { name: 'Our Story', path: '/about' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Shipping Policy', path: '/terms' },
-    { name: 'Privacy Policy', path: '/privacy' }
+    { name: 'Privacy Policy', path: '/privacy' },
+    { name: 'Cookies Policy', path: '/cookies' }
   ],
   'SUPPORT': [
     { name: 'Order Tracking', path: '/dashboard' },
