@@ -14,8 +14,16 @@
   ],
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
       "source": "/ads.txt",
-      "destination": "/api/index.js"
+      "destination": "/ads.txt"
     },
     {
       "source": "/api/(.*)",

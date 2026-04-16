@@ -53,6 +53,41 @@
     </div>
 
     <router-view />
+
+    <!-- Trust Promotion Bar -->
+    <section v-if="showHeaderFooter" class="py-16 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+        <div class="space-y-4 group">
+          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+            <font-awesome-icon icon="fa-solid fa-earth-americas" />
+          </div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Worldwide Shipping</h4>
+          <p class="text-[8px] text-stone-500 uppercase tracking-widest">Global Couture Delivered</p>
+        </div>
+        <div class="space-y-4 group">
+          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+            <font-awesome-icon icon="fa-solid fa-gem" />
+          </div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Premium Quality</h4>
+          <p class="text-[8px] text-stone-500 uppercase tracking-widest">Finest Artisanal Fabrics</p>
+        </div>
+        <div class="space-y-4 group">
+          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+            <font-awesome-icon icon="fa-solid fa-hand-holding-heart" />
+          </div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Handcrafted</h4>
+          <p class="text-[8px] text-stone-500 uppercase tracking-widest"> Lahore's Master Artisans</p>
+        </div>
+        <div class="space-y-4 group">
+          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+            <font-awesome-icon icon="fa-solid fa-shield-halved" />
+          </div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Secure Checkout</h4>
+          <p class="text-[8px] text-stone-500 uppercase tracking-widest">Protected Transactions</p>
+        </div>
+      </div>
+    </section>
+
     <Footer v-if="showHeaderFooter" />
 
     <!-- Back to Top -->
@@ -343,6 +378,8 @@ onUnmounted(() => {
 </script>
 
 <style>
+@reference "./style.css";
+
 /* === DIM OVERLAY === */
 
 

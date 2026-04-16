@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
       
        <!-- Revenue Milestone -->
-       <div class="bg-black dark:bg-[#080808] rounded-2xl p-12 text-white shadow-3xl relative overflow-hidden group min-h-[450px] flex flex-col justify-between border border-[#d4af371a] hover:border-[#d4af3733] transition-all duration-700">
+       <div class="bg-black dark:bg-[#080808] rounded-2xl p-6 md:p-12 text-white shadow-3xl relative overflow-hidden group min-h-[450px] flex flex-col justify-between border border-[#d4af371a] hover:border-[#d4af3733] transition-all duration-700">
           <div class="absolute -right-20 -top-20 w-80 h-80 bg-[var(--primary-gold)]/10 blur-[130px] rounded-full group-hover:scale-150 transition-transform duration-1000"></div>
           <div class="absolute left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
           

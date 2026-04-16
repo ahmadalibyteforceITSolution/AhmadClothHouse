@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-10 animate-in transition-all">
     <!-- Header Card -->
-    <div class="bg-white dark:bg-[#080808] p-10 border border-[#d4af3711] shadow-2xl relative overflow-hidden group">
+    <div class="bg-white dark:bg-[#080808] p-6 md:p-10 border border-[#d4af3711] shadow-2xl relative overflow-hidden group">
       <div class="absolute -top-20 -left-20 w-80 h-80 bg-[var(--primary-gold)]/5 blur-[100px] rounded-full pointer-events-none group-hover:scale-110 transition-transform duration-1000"></div>
       
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 relative z-10">
@@ -37,28 +37,28 @@
         <table class="w-full text-left">
           <thead>
             <tr class="text-[8px] font-bold uppercase tracking-[0.4em] text-stone-400 border-b border-[#d4af3711]">
-              <th class="px-10 py-8">Customer Name</th>
-              <th class="px-10 py-8">Email Address</th>
-              <th class="px-10 py-8">Account Role</th>
-              <th class="px-10 py-8">Security Info</th>
-              <th class="px-10 py-8 text-right">Actions</th>
+              <th class="px-4 py-6 md:px-10 md:py-8">Customer Name</th>
+              <th class="px-4 py-6 md:px-10 md:py-8">Email Address</th>
+              <th class="px-4 py-6 md:px-10 md:py-8">Account Role</th>
+              <th class="px-4 py-6 md:px-10 md:py-8">Security Info</th>
+              <th class="px-4 py-6 md:px-10 md:py-8 text-right">Actions</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-[#d4af3711]">
             <tr v-for="u in items" :key="u._id" class="text-[11px] font-bold uppercase tracking-tight hover:bg-[var(--primary-gold)]/[0.02] transition-colors group">
-              <td class="px-10 py-8">
+              <td class="px-4 py-6 md:px-10 md:py-8">
                 <div v-if="editingUser === u._id">
                   <input v-model="editForm.name" class="bg-white dark:bg-black px-4 py-2 border border-[var(--primary-gold)]/30 text-[11px] font-bold w-40 outline-none focus:border-[var(--primary-gold)]">
                 </div>
                 <span v-else class="dark:text-white font-sans">{{ u.name }}</span>
               </td>
-              <td class="px-10 py-8">
+              <td class="px-4 py-6 md:px-10 md:py-8">
                 <div v-if="editingUser === u._id">
                   <input v-model="editForm.email" class="bg-white dark:bg-black px-4 py-2 border border-[var(--primary-gold)]/30 text-[11px] font-bold w-56 outline-none focus:border-[var(--primary-gold)] lowercase">
                 </div>
                 <span v-else class="text-stone-400 truncate max-w-[200px] block leading-none font-sans lowercase">{{ u.email }}</span>
               </td>
-              <td class="px-10 py-8">
+              <td class="px-4 py-6 md:px-10 md:py-8">
                 <div v-if="editingUser === u._id">
                   <select v-model="editForm.role" class="bg-white dark:bg-black px-4 py-2 border border-[var(--primary-gold)]/30 text-[10px] font-bold uppercase outline-none focus:border-[var(--primary-gold)] cursor-pointer">
                     <option value="user">GUEST ACCESS</option>
@@ -70,7 +70,7 @@
                    <span :class="u.role === 'admin' ? 'text-[var(--primary-gold)]' : 'text-stone-500'">{{ u.role.toUpperCase() }}</span>
                 </div>
               </td>
-              <td class="px-10 py-8">
+              <td class="px-4 py-6 md:px-10 md:py-8">
                 <div class="flex items-center gap-4">
                   <span class="font-mono text-[10px] tracking-widest text-stone-300 dark:text-stone-700 max-w-[150px] truncate leading-none">
                     {{ u.showPass ? u.password : '••••••••••••' }}
@@ -80,7 +80,7 @@
                   </button>
                 </div>
               </td>
-              <td class="px-10 py-8 text-right">
+              <td class="px-4 py-6 md:px-10 md:py-8 text-right">
                 <div class="flex justify-end gap-6 transition-all transform translate-x-0">
                   <template v-if="editingUser === u._id">
                     <button @click="$emit('save', u._id)" class="flex items-center gap-2 text-emerald-600 font-bold hover:text-emerald-500 transition-all group/save">

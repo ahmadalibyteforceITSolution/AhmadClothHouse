@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
       
       <!-- Sales Revenue Chart -->
-      <div class="lg:col-span-2 bg-white dark:bg-[#080808] p-6 sm:p-12 border border-[#d4af3711] shadow-3xl relative overflow-hidden group">
+      <div class="lg:col-span-2 bg-white dark:bg-[#080808] p-5 sm:p-12 border border-[#d4af3711] shadow-3xl relative overflow-hidden group">
          <div class="absolute -right-16 -top-16 w-64 h-64 bg-[var(--primary-gold)]/5 blur-[100px] rounded-full group-hover:scale-110 transition-transform duration-1000"></div>
          
          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 relative z-10 gap-6">
@@ -27,7 +27,7 @@
       </div>
 
       <!-- Sales Channels -->
-      <div class="bg-black text-white p-12 shadow-3xl relative overflow-hidden flex flex-col justify-between border border-[#d4af371a] group">
+      <div class="bg-black text-white p-8 md:p-12 shadow-3xl relative overflow-hidden flex flex-col justify-between border border-[#d4af371a] group">
          <div class="absolute -top-20 -right-20 w-64 h-64 bg-[var(--primary-gold)]/10 blur-[120px] rounded-full group-hover:scale-125 transition-transform duration-1000"></div>
          <div>
             <h3 class="text-[10px] font-bold uppercase tracking-[0.5em] text-[var(--primary-gold)] mb-12">SALES CHANNELS</h3>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Recent Sales Ledger -->
-    <div class="bg-white dark:bg-[#080808] border border-[#d4af3711] shadow-3xl overflow-hidden p-6 sm:p-12 mb-10 group">
+    <div class="bg-white dark:bg-[#080808] border border-[#d4af3711] shadow-3xl overflow-hidden p-5 sm:p-12 mb-10 group">
        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 px-2 gap-8">
           <div>
             <div class="flex items-center gap-3 mb-4">
@@ -66,7 +66,7 @@
         <div class="space-y-4">
           <div v-for="t in transactions" :key="t.id">
             <div @click="$emit('select-order', t)" 
-              class="flex flex-col p-8 rounded-none bg-[#fafaf8] dark:bg-white/5 border transition-all duration-700 group cursor-pointer relative overflow-hidden"
+              class="flex flex-col p-5 md:p-8 rounded-none bg-[#fafaf8] dark:bg-white/5 border transition-all duration-700 group cursor-pointer relative overflow-hidden"
               :class="selectedOrder?.id === t.id ? 'border-[var(--primary-gold)]/40 shadow-[0_0_30px_rgba(184,134,11,0.1)]' : 'border-transparent hover:border-[#d4af3722] hover:shadow-2xl'">
                <!-- Decorative side accent -->
                <div class="absolute left-0 top-0 bottom-0 w-[4px] bg-[var(--primary-gold)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>

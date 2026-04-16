@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white dark:bg-[#080808] p-8 md:p-10 border border-[#d4af3711] shadow-sm transition-all hover:shadow-2xl hover:border-[#d4af3744] group relative overflow-hidden group">
+  <div class="bg-white dark:bg-[#080808] p-5 md:p-10 border border-[#d4af3711] shadow-sm transition-all hover:shadow-2xl hover:border-[#d4af3744] group relative overflow-hidden group">
     
     <!-- Subtle Gradient Background -->
     <div class="absolute -right-8 -top-8 w-32 h-32 bg-[var(--primary-gold)]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>

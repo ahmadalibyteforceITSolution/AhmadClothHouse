@@ -71,7 +71,7 @@
       </header>
 
       <!-- Scrollable Main Content -->
-      <main class="flex-grow overflow-y-auto p-6 md:p-12 lg:p-20 scroll-smooth relative">
+      <main class="flex-grow overflow-y-auto px-4 py-8 md:px-12 md:py-12 lg:p-20 scroll-smooth relative">
         <div class="max-w-7xl mx-auto">
           <header class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
             <div>

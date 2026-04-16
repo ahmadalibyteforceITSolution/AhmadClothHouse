@@ -1,5 +1,32 @@
 <template>
   <header class="w-full" :class="{ 'header-scrolled': isScrolled }">
+    <!-- Promotional Announcement Bar -->
+    <div class="bg-[var(--deep-burgundy)] text-white py-2 px-4 text-center overflow-hidden relative group">
+      <div class="animate-marquee whitespace-nowrap inline-block">
+        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
+          AHMADCLOTHS HOUSE: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+        </span>
+        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
+          FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
+        </span>
+        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
+          NEW SEASONAL ARRIVALS NOW LIVE ✦ 
+        </span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="animate-marquee whitespace-nowrap inline-block absolute top-2 left-full">
+        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
+          AHMADCLOTHS HOUSE: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+        </span>
+        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
+          FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
+        </span>
+        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
+          NEW SEASONAL ARRIVALS NOW LIVE ✦ 
+        </span>
+      </div>
+    </div>
+
     <!-- Main Header -->
     <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
       :class="isScrolled ? 'py-2 shadow-lg' : 'py-1'">
@@ -808,18 +835,16 @@ const goToHome = () => router.push('/')
 
 /* Transitions */
 @keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 .animate-marquee {
-  display: inline-block;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
+}
+
+.main-header {
+  @apply bg-white dark:bg-[#080808];
 }
 
 .search-drop-enter-active,
