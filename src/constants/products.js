@@ -1,3 +1,9 @@
+import img1 from '../assets/ladies.jpg';
+import img2 from '../assets/ladies1.jpg';
+import img3 from '../assets/ladies2.jpg';
+import img4 from '../assets/ladies3.jpg';
+
+const localImages = [img1, img2, img3, img4];
 
 const categoriesData = [
   { name: 'Unstitched Lawn', parent: 'Ladies Wear', kw: 'lawn,unstitched,pakistani' },
@@ -73,7 +79,7 @@ const generateUnifiedRegistry = () => {
         discount: i % 5 === 0 ? 30 : 0,
         category: cat.name,
         parentCategory: cat.parent,
-        image: `https://loremflickr.com/400/500/unstitched,ladies,fashion?lock=${currentId}`,
+        image: localImages[currentId % localImages.length],
         description: `Experience the finest ${cat.name} ladies wear from ${brand}. Handcrafted using premium unstitched fabrics for an unforgettable look.`,
         details: [
           "Premium Quality Unstitched Fabric",

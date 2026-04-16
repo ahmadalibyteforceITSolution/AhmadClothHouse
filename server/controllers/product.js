@@ -10,6 +10,7 @@ exports.getProducts = async (req, res) => {
     const products = await Product.find()
       .select('-variants -description -details')
       .sort({ createdAt: -1 })
+      .limit(100)
       .lean();
     res.status(200).json({ success: true, count: products.length, data: products });
   } catch (err) {

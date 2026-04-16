@@ -43,24 +43,35 @@ const props = defineProps({
 })
 
 onMounted(() => {
-  try {
-    // Push to adsbygoogle queue to initialize this unit
-    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-  } catch (e) {
-    // AdSense not loaded yet or blocked by ad blocker — fail silently
-    console.warn('[AdSense] Could not initialize ad unit for slot:', props.slot, e)
+  // Prevent AdSense 400 errors during local development
+  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    console.log('[AdSense] Skipped initialization on localhost to prevent 400 errors.');
+    return;
   }
+
+  // Use timeout to ensure DOM is fully laid out and width is > 0
+  setTimeout(() => {
+    try {
+      // Push to adsbygoogle queue to initialize this unit
+      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    } catch (e) {
+      // AdSense not loaded yet or blocked by ad blocker — fail silently
+      console.warn('[AdSense] Could not initialize ad unit for slot:', props.slot, e)
+    }
+  }, 100)
 })
 </script>
 
 <style scoped>
 .adsense-wrapper {
   width: 100%;
+  min-width: 250px;
   overflow: hidden;
   text-align: center;
 }
 /* Prevent layout shift when ad hasn't loaded */
 .adsbygoogle {
   min-height: 90px;
+  min-width: 250px;
 }
 </style>

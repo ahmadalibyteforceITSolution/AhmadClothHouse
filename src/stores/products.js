@@ -16,9 +16,11 @@ export const useProductsStore = defineStore('products', {
       const isDev = import.meta.env.MODE === 'development';
       const apiURL = isDev ? 'http://localhost:5000' : window.location.origin;
 
-      // ONLY use dynamic products from the MongoDB API so we don't flash fake local data during loading!
-      const items = state.dynamicProducts;
-      return items.map(p => {
+      // Fallback to local products if dynamic products haven't loaded or are empty
+      const items = (state.dynamicProducts && state.dynamicProducts.length > 0) ? state.dynamicProducts : localProducts;
+      if (!Array.isArray(items)) return [];
+      
+      return items.filter(p => !!p).map(p => {
         let img = p.image || p.imageUrl || ''
         
         // Dynamically Handle browser live link: auto-adapt old hardcoded localhost URLs to ANY domain
@@ -51,13 +53,18 @@ export const useProductsStore = defineStore('products', {
   actions: {
     async fetchProducts() {
       this.loading = true
+      console.log("AHMADCLOTHS: Starting product fetch...");
       try {
         const res = await api.get('/products')
-        if (res.data.success) {
+        console.log("AHMADCLOTHS API RESPONSE:", res.status, res.data);
+        if (res.data && res.data.success) {
           this.dynamicProducts = res.data.data;
+          console.log(`AHMADCLOTHS: Loaded ${this.dynamicProducts.length} dynamic products.`);
+        } else {
+          console.warn("AHMADCLOTHS API returned success:false or malformed data", res.data);
         }
       } catch (err) {
-        console.error("AHMADCLOTHS SYNC ERROR:", err);
+        console.error("AHMADCLOTHS SYNC ERROR:", err.message, err.response?.data || err);
         this.error = 'Failed to sync with Ahmadcloths database'
       } finally {
         this.loading = false

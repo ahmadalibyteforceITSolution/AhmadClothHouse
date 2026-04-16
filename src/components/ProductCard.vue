@@ -44,10 +44,10 @@
         <div class="p-price-wrap flex flex-col">
           <div class="flex items-center">
             <span class="p-currency text-[10px] text-gray-500 mr-1 uppercase">Rs.</span>
-            <span class="p-price text-[var(--luxury-black)] dark:text-white font-bold text-lg font-serif">{{ product.price.toLocaleString() }}</span>
+            <span class="p-price text-[var(--luxury-black)] dark:text-white font-bold text-lg font-serif">{{ (product.price || 0).toLocaleString() }}</span>
           </div>
           <p v-if="product.originalPrice && product.originalPrice > product.price" class="text-[9px] text-gray-400 line-through font-serif italic tracking-wider">
-            Rs. {{ product.originalPrice.toLocaleString() }}
+            Rs. {{ (product.originalPrice || 0).toLocaleString() }}
           </p>
         </div>
         <div class="p-shop-tag text-[9px] font-bold tracking-widest text-gray-400 group-hover:text-[var(--primary-gold)] transition-all duration-500">
