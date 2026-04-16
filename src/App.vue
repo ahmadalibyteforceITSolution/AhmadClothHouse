@@ -40,7 +40,71 @@
 
       <!-- Ahmadcloths Panel -->
       <div class="fudge-panel" :class="{ open: isPanelOpen }" @click.stop>
-        <div class="panel-content">
+        <div class="panel-content w-full max-w-6xl px-6 sm:px-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left: Brand Story -->
+            <div class="space-y-8 animate-reveal">
+              <div class="space-y-4">
+                <span class="text-[10px] font-black text-[var(--primary-gold)] uppercase tracking-[0.5em]">The Legacy</span>
+                <h2 class="text-4xl sm:text-6xl font-playfair text-white leading-tight">Couture for the Modern Era</h2>
+                <div class="w-20 h-[1px] bg-[var(--primary-gold)]"></div>
+              </div>
+              <p class="text-sm text-stone-400 font-light leading-relaxed max-w-md">
+                Ahmad Cloth House stands as a beacon of luxury in Pakistan's fashion landscape. 
+                Our artisanal unstitched fabrics and bridal couture celebrate centuries of heritage 
+                reimagined for the contemporary woman.
+              </p>
+              <div class="flex items-center gap-8 pt-4">
+                <div class="text-center">
+                  <p class="text-2xl font-playfair text-white">20+</p>
+                  <p class="text-[8px] text-stone-500 uppercase tracking-widest mt-1">Years Heritage</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-2xl font-playfair text-white">100%</p>
+                  <p class="text-[8px] text-stone-500 uppercase tracking-widest mt-1">Handcrafted</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-2xl font-playfair text-white">Global</p>
+                  <p class="text-[8px] text-stone-500 uppercase tracking-widest mt-1">Shipping</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Navigation Grid -->
+            <div class="grid grid-cols-2 gap-x-12 gap-y-10 animate-reveal" style="animation-delay: 0.2s;">
+              <div class="space-y-6">
+                <h4 class="text-[11px] font-black text-white uppercase tracking-[0.3em] border-b border-white/10 pb-4">Collections</h4>
+                <ul class="space-y-4">
+                  <li><router-link to="/shop/Unstitched" @click="closeAhmadMenu" class="menu-item-link block">Unstitched</router-link></li>
+                  <li><router-link to="/shop/Pret" @click="closeAhmadMenu" class="menu-item-link block">Ready to Wear</router-link></li>
+                  <li><router-link to="/shop/Bridal" @click="closeAhmadMenu" class="menu-item-link block">Bridal Couture</router-link></li>
+                  <li><router-link to="/shop/M.Print" @click="closeAhmadMenu" class="menu-item-link block">Seasonal Prints</router-link></li>
+                </ul>
+              </div>
+              <div class="space-y-6">
+                <h4 class="text-[11px] font-black text-white uppercase tracking-[0.3em] border-b border-white/10 pb-4">The House</h4>
+                <ul class="space-y-4">
+                  <li><router-link to="/about" @click="closeAhmadMenu" class="menu-item-link block">Our Story</router-link></li>
+                  <li><router-link to="/contact" @click="closeAhmadMenu" class="menu-item-link block">Contact Concierge</router-link></li>
+                  <li><router-link to="/terms" @click="closeAhmadMenu" class="menu-item-link block">Care Instructions</router-link></li>
+                  <li><router-link to="/privacy" @click="closeAhmadMenu" class="menu-item-link block">Privacy Policy</router-link></li>
+                </ul>
+              </div>
+              <div class="col-span-2 space-y-6">
+                <h4 class="text-[11px] font-black text-white uppercase tracking-[0.3em] border-b border-white/10 pb-4">Connect With Us</h4>
+                <div class="flex gap-6">
+                  <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="social-link-panel">
+                    <font-awesome-icon :icon="['fab', 'instagram']" />
+                    <span class="text-[9px] uppercase tracking-widest ml-2">Instagram</span>
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="social-link-panel">
+                    <font-awesome-icon :icon="['fab', 'facebook-f']" />
+                    <span class="text-[9px] uppercase tracking-widest ml-2">Facebook</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Branding Bottom Bar -->
@@ -232,7 +296,7 @@ const isTyping = ref(false)
 const isListening = ref(false)
 const messageContainer = ref(null)
 const chatMessages = ref([
-  { role: 'bot', text: 'Hello! How can I assist you today?' }
+  { role: 'bot', text: 'Welcome to Ahmad Cloth House! I am your luxury fashion assistant. How can I help you explore our collections, find a boutique, or arrange a bespoke consultation today?' }
 ])
 
 const toggleChatbot = () => {
@@ -256,26 +320,124 @@ const sendMessage = async () => {
 
   isTyping.value = true
 
-  try {
-    // n8n Webhook Integration
-    const response = await fetch('https://your-n8n-webhook-url.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userMsg })
-    })
-
-    const data = await response.json()
-    const botReply = data.output || "I'm sorry, I couldn't process that request."
-
+  // AI Logic - Local Implementation
+  setTimeout(() => {
+    const botReply = getAIResponse(userMsg)
     chatMessages.value.push({ role: 'bot', text: botReply })
-    speakText(botReply) // Automatically speak the response
-  } catch (error) {
-    console.error('Chat error:', error)
-    chatMessages.value.push({ role: 'bot', text: "Service is temporarily unavailable. Please try again later." })
-  } finally {
     isTyping.value = false
     scrollToBottom()
+    speakText(botReply)
+  }, 1000)
+}
+
+const getAIResponse = (message) => {
+  const msg = message.toLowerCase()
+  
+  // ═══════════════════════════════════════════
+  // BRAND KNOWLEDGE BASE (COMPREHENSIVE)
+  // ═══════════════════════════════════════════
+  const brand = {
+    name: "Ahmad Cloth House",
+    established: "2026",
+    location: "Wapda Town, Ameer Chowk, Lahore, Pakistan",
+    contact: "0341 6887454",
+    whatsapp: "+92 341 6887454",
+    email: "ahmadalihafeez24@gmail.com",
+    specialization: "Artisanal unstitched fabrics, luxury apparel, and bridal couture.",
+    shipping: "Worldwide shipping available (USA, UK, Canada, UAE, Australia, etc.).",
+    stats: "5,000+ exclusive designs and 100,000+ loyal patrons.",
+    boutiques: [
+      { city: "London", address: "24 Savile Row, Mayfair" },
+      { city: "Paris", address: "12 Rue Royale, 8th Arr." }
+    ],
+    services: [
+      "Bespoke Bridal: Tailored couture for high-end weddings.",
+      "Private Consultations: Personalized design sessions.",
+      "Global Delivery: Premium care shipping worldwide."
+    ]
   }
+
+  const socialLinks = {
+    instagram: "https://www.instagram.com/ahmadclothfabrics_aroma/",
+    facebook: "https://www.facebook.com/profile.php?id=61573629329844"
+  }
+
+  // 1. Greetings & Identity
+  if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('assalam') || msg.includes('who are you')) {
+    return `Hello! I am the AI Assistant for ${brand.name}. Since ${brand.established}, we have been crafting luxury unstitched couture and bridal pieces from our studio in ${brand.location}. How may I guide you through our collections today?`
+  }
+
+  // 2. Product Search & Categories
+  const allProducts = productStore.products || []
+  const categories = ['lawn', 'silk', 'chiffon', 'bridal', 'khaddar', 'velvet', 'unstitched', 'pret', 'm.print', 'seasonal']
+  const foundCategory = categories.find(cat => msg.includes(cat))
+  
+  if (foundCategory || msg.includes('product') || msg.includes('shop') || msg.includes('collection')) {
+    const categoryName = foundCategory || 'luxury'
+    const filtered = allProducts.filter(p => 
+      p.category?.toLowerCase().includes(categoryName) || 
+      p.parentCategory?.toLowerCase().includes(categoryName) ||
+      p.name?.toLowerCase().includes(categoryName)
+    ).slice(0, 3)
+
+    if (filtered.length > 0) {
+      let response = `Our ${categoryName} collection features some of our finest work. Highlights include: `
+      response += filtered.map(p => `${p.name} (Rs. ${p.price})`).join(', ')
+      response += ". You can explore the full range in our Shop. Is there a specific fabric or style you prefer?"
+      return response
+    }
+    return "We offer a diverse range of collections including Unstitched, Ready to Wear (Pret), and Bridal Couture. You can browse them all in our 'Shop' section!"
+  }
+
+  // 3. About, History & Vision
+  if (msg.includes('about') || msg.includes('history') || msg.includes('story') || msg.includes('mission') || msg.includes('vision')) {
+    return `${brand.name} was founded to bridge the gap between mass-produced apparel and the artisanal soul of traditional craftsmanship. We specialize in ${brand.specialization} and are proud to have over ${brand.stats} worldwide.`
+  }
+
+  // 4. Boutique Locations
+  if (msg.includes('location') || msg.includes('where') || msg.includes('address') || msg.includes('shop') || msg.includes('store') || msg.includes('boutique')) {
+    let locResponse = `Our Flagship Studio is located at ${brand.location}. `
+    locResponse += `We also have international sanctuaries in: `
+    locResponse += brand.boutiques.map(b => `${b.city} (${b.address})`).join(', ')
+    locResponse += ". Would you like our contact details for a visit?"
+    return locResponse
+  }
+
+  // 5. Contact & Support
+  if (msg.includes('contact') || msg.includes('number') || msg.includes('phone') || msg.includes('whatsapp') || msg.includes('email') || msg.includes('help') || msg.includes('support')) {
+    return `You can reach our Concierge Team via WhatsApp at ${brand.whatsapp}, call us at ${brand.contact}, or email ${brand.email}. We're here to assist with any inquiries!`
+  }
+
+  // 6. Shipping & Delivery
+  if (msg.includes('delivery') || msg.includes('shipping') || msg.includes('order') || msg.includes('track') || msg.includes('international')) {
+    return `${brand.shipping} Domestic delivery in Pakistan takes 3-5 working days. We also offer FREE worldwide shipping on all bridal couture orders!`
+  }
+
+  // 7. Pricing & Sales
+  if (msg.includes('price') || msg.includes('cost') || msg.includes('discount') || msg.includes('sale') || msg.includes('how much')) {
+    return "Our unstitched pieces start from approximately Rs. 3,000. We frequently offer seasonal promotions with up to 30% off. You can find all current pricing and active offers in our Shop section."
+  }
+
+  // 8. Services & Custom Orders
+  if (msg.includes('service') || msg.includes('custom') || msg.includes('bridal') || msg.includes('bespoke') || msg.includes('consultation')) {
+    let serviceResp = "We offer several exclusive services: "
+    serviceResp += brand.services.join(' ')
+    serviceResp += " Would you like to book a private consultation?"
+    return serviceResp
+  }
+
+  // 9. Social Media
+  if (msg.includes('social') || msg.includes('instagram') || msg.includes('facebook')) {
+    return `Follow us for the latest arrivals and behind-the-scenes: Instagram: ${socialLinks.instagram} | Facebook: ${socialLinks.facebook}`
+  }
+
+  // 10. Quality & Care
+  if (msg.includes('quality') || msg.includes('fabric') || msg.includes('material') || msg.includes('care') || msg.includes('wash')) {
+    return "We use only ultra-premium fabrics, including Swiss Lawn Cotton, Chinese Pure Silk, and Italian Velvet. To maintain the beauty of your couture pieces, we recommend professional dry cleaning and avoiding direct sunlight for extended periods. Detailed care instructions are also available in our 'Care' section."
+  }
+
+  // 11. Fallback
+  return `I'm sorry, I don't have specific details on that. However, our human experts can help you immediately! Please message us on WhatsApp at ${brand.whatsapp} or call ${brand.contact}. How else can I assist you today?`
 }
 
 // Text to Speech (TTS)
@@ -445,19 +607,45 @@ onUnmounted(() => {
 }
 
 .menu-item-link {
-  font-size: 11px;
-  font-weight: 900;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  text-decoration: none;
 }
 
 .menu-item-link:hover {
   color: #d4af37;
-  transform: translateY(-2px);
+  transform: translateX(10px);
+}
+
+.social-link-panel {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link-panel:hover {
+  color: #d4af37;
+}
+
+.animate-reveal {
+  animation: reveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fudge-desc {
@@ -577,28 +765,34 @@ onUnmounted(() => {
   width: 310px;
   height: 450px;
   background: #0a0a0a;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.1);
   z-index: 10005;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @media (min-width: 640px) {
   .chatbot-window {
     right: 40px;
-    width: 350px;
-    height: 500px;
+    width: 380px;
+    height: 550px;
   }
 }
 
 .chatbot-header {
-  padding: 15px 20px;
-  background: rgba(212, 175, 55, 0.05);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  padding: 20px 25px;
+  background: linear-gradient(to right, rgba(212, 175, 55, 0.15), rgba(0, 0, 0, 0.4));
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -606,77 +800,66 @@ onUnmounted(() => {
 
 .chatbot-messages {
   flex: 1;
-  padding: 20px;
+  padding: 25px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-/* Custom Scrollbar */
-.chatbot-messages::-webkit-scrollbar {
-  width: 4px;
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.2);
-  border-radius: 2px;
+  gap: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.03'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .message {
-  max-width: 80%;
-  padding: 10px 15px;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  max-width: 85%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  line-height: 1.5;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .user-message {
   align-self: flex-end;
-  background: #d4af37;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
   color: black;
-  border-bottom-right-radius: 2px;
+  font-weight: 600;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .bot-message {
   align-self: flex-start;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f1f1;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom-left-radius: 2px;
-}
-
-.tts-btn {
-  position: absolute;
-  right: -25px;
-  bottom: 5px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 0.8rem;
-  transition: color 0.3s;
-}
-
-.tts-btn:hover {
-  color: #d4af37;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .chatbot-input {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
 }
 
 .input-wrapper {
   flex: 1;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 25px;
-  padding: 5px 15px;
+  border-radius: 30px;
+  padding: 6px 18px;
   display: flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: #d4af37;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
 }
 
 .chat-input {
@@ -684,7 +867,7 @@ onUnmounted(() => {
   background: transparent;
   border: none;
   color: white;
-  padding: 8px 0;
+  padding: 10px 0;
   font-size: 0.9rem;
   outline: none;
 }

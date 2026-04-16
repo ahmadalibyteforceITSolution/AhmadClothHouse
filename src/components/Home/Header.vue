@@ -113,7 +113,7 @@
           </div>
 
           <!-- Google Translate (Always Show) - Bulletproof Container -->
-          <div id="google_translate_element" class="flex items-center min-w-[30px] sm:min-w-[160px] min-h-[30px] scale-[0.7] sm:scale-90 mx-1 transition-all duration-500"></div>
+          <div id="google_translate_element" class="flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
 
           <!-- User Account Actions -->
           <template v-if="auth.isAuthenticated">

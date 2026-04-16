@@ -104,23 +104,32 @@ h1, h2, h3, h4, .font-luxury {
 }
 
 .goog-te-gadget-simple {
-  background-color: transparent !important;
-  border: none !important;
-  font-size: 10px !important; /* Slightly smaller for better fit */
-  font-weight: 800 !important;
+  background-color: #000 !important;
+  border: 1.5px solid #d4af37 !important;
+  border-radius: 50px !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
   letter-spacing: 0.15em !important;
   text-transform: uppercase !important;
   display: flex !important;
   align-items: center !important;
-  color: #d4af37 !important; /* Premium gold color */
+  color: #d4af37 !important;
   cursor: pointer !important;
-  height: 100% !important;
-  padding: 0 !important;
-  font-family: 'Inter', sans-serif !important;
+  height: 32px !important;
+  padding: 0 15px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.goog-te-gadget-simple:hover {
+  background-color: #111 !important;
+  border-color: #fff !important;
+  transform: translateY(-1px);
 }
 
 .goog-te-gadget-simple span {
-  color: #d4af37 !important; /* Force color on all spans inside */
+  color: #d4af37 !important;
 }
 
 .goog-te-gadget-simple img {
@@ -131,39 +140,50 @@ h1, h2, h3, h4, .font-luxury {
   margin: 0 !important;
   display: flex !important;
   align-items: center !important;
-  gap: 6px !important;
+  gap: 8px !important;
 }
 
 .goog-te-menu-value span:first-child {
-  color: #fff !important; /* Selected language text white */
+  color: #d4af37 !important;
   font-weight: 900 !important;
+  text-transform: uppercase !important;
 }
 
 .goog-te-menu-value span:nth-child(2) {
-  display: none !important; /* Hide the vertical separator */
+  display: none !important;
 }
 
 .goog-te-menu-value span:nth-child(3) {
-  display: none !important; /* Hide "Select Language" text */
+  display: none !important;
 }
 
 .goog-te-menu-value span:nth-child(4) {
-  display: none !important; /* Hide the arrow if it's there */
+  display: none !important;
+}
+
+/* Force "SELECT LANGUAGE" text if span:first-child is empty or not as expected */
+.goog-te-gadget-simple::before {
+  content: 'SELECT LANGUAGE';
+  margin-right: 5px;
+  font-size: 9px;
+}
+
+/* If span:first-child is visible, it might show the current language (e.g., "English") */
+/* If you only want "SELECT LANGUAGE" always, we can hide the first child */
+.goog-te-menu-value span:first-child {
+  display: none !important;
 }
 
 /* Custom Dropdown Arrow */
 .goog-te-menu-value::after {
-  content: '\f0d7';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  font-size: 10px;
+  content: '▼';
+  font-size: 8px;
   color: #d4af37;
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 #google_translate_element:hover .goog-te-menu-value::after {
   color: #fff;
-  transform: translateY(1px);
 }
 
 /* Dropdown Menu Styling */
