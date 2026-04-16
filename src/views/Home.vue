@@ -346,13 +346,19 @@
       </div>
     </section>
 
-    <!-- Monetization Slot: Sponsored Ad -->
+    <!-- Collaboration Slot: Sponsored Brands -->
     <SponsoredAd 
-      title="Bridal Jewelry Couture" 
-      description="Elevate your Ahmadcloths ensemble with our curated partner jewelry collections. Hand-crafted elegance for the modern bride." 
-      button-text="SHOP JEWELRY"
-      :image="JewelrySponsored"
+      title="Elite Designer Collaborations" 
+      description="Exclusive partnership with Sana Safinaz, Aneela's Collection, Maria B, and Nishat Brand. Experience the pinnacle of Pakistani fashion with an exclusive 30% discount on all collaboration pieces." 
+      button-text="VIEW COLLABORATIONS"
+      :image="Fugibles3"
       link="/shop"
+      :brands="[
+        { name: 'Sana Safinaz', link: 'https://www.sanasafinaz.com/' },
+        { name: 'Aneelas Collection', link: 'https://www.facebook.com/aneelascollection/' },
+        { name: 'Maria B', link: 'https://www.mariab.pk/' },
+        { name: 'Nishat Brand', link: 'https://nishatlinen.com/' }
+      ]"
     />
 
     <!-- Google AdSense: Home Page — Slot A (unique to this page) -->
@@ -425,7 +431,7 @@
       <div class="marquee-track flex items-center whitespace-nowrap">
         <span v-for="n in 12" :key="n"
           class="marquee-item text-[10px] font-bold tracking-[0.6em] text-white/40 dark:text-amber-400/20 px-8 uppercase">
-          LUXURY LAWN ✦ BRIDAL COUTURE ✦ READY TO WEAR ✦ M.PRINT ✦
+          SANA SAFINAZ ✦ ANEELAS COLLECTION ✦ MARIA B ✦ NISHAT BRAND ✦
         </span>
       </div>
     </div>
