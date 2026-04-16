@@ -5,20 +5,21 @@
          SEO CONTENT (VISUALLY HIDDEN)
     ═══════════════════════════════════════════ -->
     <section class="sr-only">
-      <h1>AhmadClothesFabrics | Best Unstitched Ladies Suits & Luxury Pret in Pakistan</h1>
-      <p>Discover the finest selection of handcrafted unstitched fabrics, luxury pret, and bridal couture at AhmadClothesFabrics. Our premium boutique offers designer embroidered lawn, chiffon collections, and signature bridal wear. 
-        Top-ranked Pakistani designer suits inspired by Maria B, Warda, and Sana Safinaz. Experience premium fashion in Lahore with worldwide shipping.</p>
+      <h1>Ahmad Cloth House | AhmadClothesFabrics | Premium Unstitched Ladies Suits & Luxury Pret | Worldwide Shipping</h1>
+      <p>Ahmad Cloth House (AhmadClothesFabrics) is your premier destination for high-quality Pakistani designer suits. Discover the finest selection of handcrafted unstitched fabrics, luxury pret, and bridal couture. Our premium boutique offers designer embroidered lawn, chiffon collections, and signature bridal wear. 
+        Top-ranked Pakistani designer suits for our customers in Pakistan, USA, UK, Canada, UAE, and Australia. Experience premium fashion in Lahore with express worldwide shipping.</p>
       <ul>
-        <li>Premium Unstitched Ladies Suits</li>
-        <li>Luxury Pret Pakistan - Ready to Wear</li>
-        <li>Bridal Couture & Wedding Wear</li>
-        <li>Embroidered Lawn & Chiffon Collections</li>
-        <li>Pakistani Designer Suits Online</li>
-        <li>Festive Wear & Eid Collections</li>
-        <li>Exclusive Silk and Velvet Designs</li>
-        <li>Hand-embroidered Masterpieces</li>
-        <li>Custom Bridal Consultations Lahore</li>
-        <li>Luxury Apparel & Fashion Catalog</li>
+        <li>Ahmad Cloth House Pakistani Suits Online</li>
+        <li>Premium Unstitched Ladies Suits Pakistan</li>
+        <li>Luxury Pret Pakistan - Ready to Wear Online</li>
+        <li>Bridal Couture & Wedding Wear Lahore</li>
+        <li>Pakistani Designer Suits Online USA, UK & Canada</li>
+        <li>Embroidered Lawn & Chiffon Collections 2026</li>
+        <li>Buy Unstitched Pakistani Suits Online Australia</li>
+        <li>Festive Wear & Eid Collections Shipping Worldwide</li>
+        <li>Exclusive Silk and Velvet Designs by Ahmad Cloth House</li>
+        <li>Hand-embroidered Masterpieces for Overseas Pakistanis</li>
+        <li>Luxury Apparel & Fashion Catalog AhmadClothesFabrics</li>
       </ul>
     </section>
 
@@ -170,11 +171,11 @@
           <div class="relative">
             <div class="absolute -left-12 -top-12 text-[var(--primary-gold)]/5 text-9xl font-playfair italic -z-10 select-none">H</div>
             <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase mb-6">OUR HERITAGE</h3>
-            <h2 class="text-4xl md:text-6xl font-playfair italic text-gray-900 dark:text-white leading-tight">Reviving the Soul of <br>Traditional Textiles</h2>
+            <h2 class="text-4xl md:text-6xl font-playfair italic text-gray-900 dark:text-white leading-tight">Reviving the Soul of <br>Traditional Textiles at Ahmad Cloth House</h2>
           </div>
           <div class="space-y-6 text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
             <p>
-              At AHMADCLOTHESFABRICS, we believe that fashion is a bridge between the past and the future. Our boutique is dedicated to the preservation and innovation of traditional Pakistani craftsmanship, offering a curated selection of unstitched ladies' suits, luxury pret, and bespoke bridal wear.
+              At Ahmad Cloth House (AHMADCLOTHESFABRICS), we believe that fashion is a bridge between the past and the future. Our boutique is dedicated to the preservation and innovation of traditional Pakistani craftsmanship, offering a curated selection of unstitched ladies' suits, luxury pret, and bespoke bridal wear.
             </p>
             <p>
               Since our establishment in 2026, we have focused on sourcing the highest quality fabrics—from the finest Egyptian cotton to hand-loomed silks and intricate chiffons. Each collection is a masterpiece of design, blending contemporary silhouettes with age-old embroidery techniques like Zardozi, Resham, and Tilla work.

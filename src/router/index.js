@@ -7,8 +7,8 @@ const routes = [
     name: 'home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: 'AhmadClothesFabrics | Best Unstitched Ladies Suits & Luxury Pret Pakistan',
-      description: 'Discover premium unstitched ladies suits, luxury pret, and bridal couture at AhmadClothesFabrics. Handcrafted Pakistani designer wear inspired by Maria B & Warda.',
+      title: 'AhmadClothesFabrics | Premium Unstitched Ladies Suits & Luxury Pret | Worldwide Shipping',
+      description: 'Shop premium unstitched ladies suits, luxury pret, and bridal couture at AhmadClothesFabrics. Handcrafted Pakistani designer wear with worldwide shipping to USA, UK, Canada & UAE.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
@@ -24,8 +24,8 @@ const routes = [
     component: () => import('../views/ProductDetail.vue'),
     props: true,
     meta: {
-      title: 'Product Detail - AhmadClothesFabrics',
-      description: 'Explore our selected premium fashion pieces crafted with passion and the finest fabrics.',
+      title: 'Premium Pakistani Couture | Product Detail | AhmadClothesFabrics',
+      description: 'Explore our selected premium fashion pieces crafted with passion. Order handcrafted Pakistani dresses with express shipping to USA, UK, and Europe.',
       robots: 'index, follow'
     }
   },
@@ -35,14 +35,14 @@ const routes = [
     component: () => import('../views/Shop.vue'),
     props: true,
     meta: {
-      title: 'Shop Pakistani Designer Suits | Unstitched, Pret & Bridal Collection',
-      description: 'Browse the latest unstitched suits, luxury pret, and wedding wear for women. Designer embroidery and premium fabrics including lawn & chiffon at AhmadClothesFabrics.',
+      title: 'Shop Pakistani Designer Suits Online | Unstitched & Luxury Pret | Ship to USA, UK, UAE',
+      description: 'Browse latest unstitched suits, luxury pret, and wedding wear. Designer embroidery and premium fabrics including lawn & chiffon. Express delivery to USA, UK, Canada & UAE.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Shop Luxury Pakistani Designer Suits - AhmadClothesFabrics",
-        "description": "Browse our exclusive catalog of unstitched, pret, and luxury bridal couture.",
+        "description": "Browse our exclusive catalog of unstitched, pret, and luxury bridal couture with international delivery.",
         "url": "https://ahmad-cloths.vercel.app/shop"
       }
     }
@@ -52,8 +52,8 @@ const routes = [
     name: 'cart',
     component: () => import('../views/Cart.vue'),
     meta: {
-      title: 'My Bag - AhmadClothesFabrics',
-      description: 'Review your selected fashion pieces in the AhmadClothesFabrics bag.',
+      title: 'My Bag | AhmadClothesFabrics | Secure Global Checkout',
+      description: 'Review your selected fashion pieces. We offer secure payments and worldwide shipping for all Pakistani luxury couture.',
       robots: 'noindex, nofollow'
     }
   },
@@ -62,7 +62,7 @@ const routes = [
     name: 'favorites',
     component: () => import('../views/Favorites.vue'),
     meta: {
-      title: 'My Saved Couture - AhmadClothesFabrics',
+      title: 'My Saved Couture | AhmadClothesFabrics Favorites',
       description: 'Your curated selection of favorite unstitched suites and luxury fashion pieces from AhmadClothesFabrics.',
       robots: 'noindex, nofollow'
     }
@@ -72,8 +72,8 @@ const routes = [
     name: 'checkout',
     component: () => import('../views/Checkout.vue'),
     meta: {
-      title: 'Secure Checkout | AhmadClothesFabrics Premium Fashion',
-      description: 'Complete your purchase securely through our encrypted checkout. Get your luxury unstitched suits and couture delivered safely.',
+      title: 'Secure Global Checkout | AhmadClothesFabrics Premium Fashion',
+      description: 'Complete your purchase securely. We ship our handcrafted Pakistani suits and bridal wear to USA, UK, Canada, UAE and more.',
       robots: 'noindex, nofollow'
     }
   },
@@ -82,14 +82,14 @@ const routes = [
     name: 'about',
     component: () => import('../views/About.vue'),
     meta: {
-      title: 'Our Heritage & Design Philosophy | AhmadClothesFabrics',
-      description: 'Discover the story of AhmadClothesFabrics. Traditional craftsmanship meets modern luxury in our premium unstitched and bridal collections.',
+      title: 'Our Heritage & Design Philosophy | AhmadClothesFabrics | Global Pakistani Fashion',
+      description: 'Discover the story of AhmadClothesFabrics. Traditional Lahore craftsmanship meets modern luxury. Delivering authentic Pakistani fashion to women worldwide.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "name": "Our Story - AhmadClothesFabrics",
-        "description": "Learn about AhmadClothesFabrics mission to bridge artisanal craftsmanship and luxury fashion.",
+        "description": "Learn about AhmadClothesFabrics mission to bridge artisanal craftsmanship and luxury fashion globally.",
         "url": "https://ahmad-cloths.vercel.app/about"
       }
     }
@@ -99,8 +99,8 @@ const routes = [
     name: 'contact',
     component: () => import('../views/Contact.vue'),
     meta: {
-      title: 'Contact Us | AhmadClothesFabrics Boutique Lahore',
-      description: 'Get in touch with AhmadClothesFabrics for inquiries, bridal consultations, and order support. Visit our luxury boutique in Lahore or shop online.',
+      title: 'Contact Our Boutique | AhmadClothesFabrics Lahore | Global Support',
+      description: 'Get in touch for inquiries, bridal consultations, and international order support. Visit our luxury boutique in Lahore or contact our global team.',
       robots: 'index, follow'
     }
   },

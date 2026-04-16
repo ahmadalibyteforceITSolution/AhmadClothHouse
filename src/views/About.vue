@@ -4,14 +4,17 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>About AhmadClothesFabrics | Our Fashion Heritage</h2>
-         <p>Learn about our commitment to artisanal mastery, ethical fashion, and design innovation. Since 2026, AhmadClothesFabrics has been dedicated to using premium fabrics for our handcrafted luxury apparel and bridal couture.</p>
+         <h2>About Ahmad Cloth House | AhmadClothesFabrics | Our Fashion Heritage & Global Vision</h2>
+         <p>Learn about Ahmad Cloth House and our commitment to artisanal mastery, ethical fashion, and design innovation. Since 2026, AhmadClothesFabrics has been dedicated to using premium fabrics for our handcrafted luxury apparel and bridal couture. We proudly ship our authentic Pakistani designer suits to the USA, UK, Canada, UAE, Australia, and beyond.</p>
          <ul>
-            <li>Artisan Fashion Heritage</li>
-            <li>Master Designers</li>
-            <li>Premium Luxury Fabrics</li>
-            <li>Sustainable Fashion Practices</li>
-            <li>Handcrafted Couture Excellence</li>
+            <li>Ahmad Cloth House Heritage Lahore</li>
+            <li>Artisan Fashion Heritage Pakistan</li>
+            <li>Master Designers of Pakistani Couture</li>
+            <li>Premium Luxury Fabrics for Worldwide Shipping</li>
+            <li>Sustainable Fashion Practices in Pakistan</li>
+            <li>Handcrafted Couture Excellence for Overseas Pakistanis</li>
+            <li>Pakistani Designer Suits Online USA, UK & UAE</li>
+            <li>Best Cloth House in Lahore for Unstitched Suits</li>
          </ul>
       </section>
 
@@ -27,7 +30,7 @@
 
          <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
             <div class="flex flex-col items-center gap-6 mb-8 animate-reveal">
-               <div class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">AHMADCLOTHESFABRICS</div>
+               <div class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">Ahmad Cloth House</div>
                <div class="h-[1px] w-16 bg-[var(--primary-gold)]"></div>
                <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">ESTABLISHED
                   MMXXVI</span>
@@ -37,7 +40,7 @@
                class="text-6xl md:text-9xl font-light uppercase tracking-tighter leading-[0.9] text-white transition-all font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px] mb-12">
                The Heritage <br>
                <span class="text-[var(--primary-gold)] font-sans tracking-[0.2em] font-light ml-4 uppercase not-italic">of
-                  AhmadClothesFabrics</span>
+                  Ahmad Cloth House</span>
             </h1>
 
             <p

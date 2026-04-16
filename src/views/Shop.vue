@@ -1,6 +1,21 @@
 <template>
   <div class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 pb-32">
 
+    <!-- SEO CONTENT (VISUALLY HIDDEN) -->
+    <section class="sr-only">
+      <h1>Shop Luxury Pakistani Designer Suits Online at Ahmad Cloth House | International Delivery</h1>
+      <p>Explore Ahmad Cloth House's exclusive collection of unstitched ladies suits, luxury pret, and bridal couture. We offer the finest embroidered lawn, chiffon, and velvet collections with express shipping to USA, UK, Canada, UAE, Australia, and Europe. Buy authentic Pakistani dresses online from Ahmad Cloth House (AhmadClothesFabrics).</p>
+      <ul>
+        <li>Ahmad Cloth House Unstitched Pakistani Suits Online USA</li>
+        <li>Luxury Pret Collection UK AhmadClothesFabrics</li>
+        <li>Bridal Couture Shipping to Canada from Pakistan</li>
+        <li>Designer Embroidered Lawn 2026 UAE</li>
+        <li>Authentic Pakistani Fashion Brands Online Lahore</li>
+        <li>Chiffon & Silk Collections Worldwide Shipping</li>
+        <li>Best Pakistani Suits for Eid and Weddings</li>
+      </ul>
+    </section>
+
     <!-- Cinematic Category Header -->
     <div class="relative h-[60vh] min-h-[450px] overflow-hidden bg-black flex items-center px-6">
       <div class="absolute inset-0 opacity-40">
