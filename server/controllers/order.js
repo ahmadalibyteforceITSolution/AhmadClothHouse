@@ -50,6 +50,19 @@ exports.createOrder = async (req, res) => {
   try {
     const order = await Order.create(req.body);
 
+    // Send notification email to customer
+    if (order.user && order.user.email) {
+      try {
+        await sendEmail({
+          email: order.user.email,
+          subject: 'Order Confirmation - AhmadClothesHouse',
+          message: `Hello ${order.user.name || 'Valued Customer'},\n\nThank you for your order at AhmadClothesHouse.\n\nOrder ID: ${order._id}\nTotal: Rs. ${order.totalAmount}\n\nWe are processing your order and will notify you when it ships.\n\nBest regards,\nAhmadClothesHouse Team`
+        });
+      } catch (custMailErr) {
+        console.error('AHMADCLOTHS_CUSTOMER_CONFIRMATION_MAIL_ERROR:', custMailErr.message);
+      }
+    }
+
     // Send notification email to admin
     try {
       const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
@@ -130,7 +143,7 @@ exports.updateOrderStatus = async (req, res) => {
         const emailMessage = `
           DEAR ${order.customerName || 'VALUED CLIENT'},
           
-          ENCHANTED NEWS FROM AHMAD CLOTH HOUSE! 🌟
+          ENCHANTED NEWS FROM AHMADCLOTHESHOUSE! 🌟
           
           YOUR EXQUISITE ORDER #${order._id} HAS OFFICIALLY COMMENCED ITS JOURNEY FROM OUR BOUTIQUE TO YOUR DOORSTEP.
           
@@ -142,7 +155,7 @@ exports.updateOrderStatus = async (req, res) => {
           
           PLEASE ALLOW 24-48 HOURS FOR OUR COURIER PARTNERS TO COMPLETE THE FINAL STAGES OF LOGISTICS.
           
-          THANK YOU FOR CHOOSING AHMAD CLOTH HOUSE. FOR ANY ASSISTANCE, OUR CONCIERGE TEAM IS AT YOUR SERVICE.
+          THANK YOU FOR CHOOSING AHMADCLOTHESHOUSE. FOR ANY ASSISTANCE, OUR CONCIERGE TEAM IS AT YOUR SERVICE.
         `;
 
         await sendEmail({
@@ -182,8 +195,8 @@ exports.testEmail = async (req, res) => {
     const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
     await sendEmail({
       email: adminEmail,
-      subject: 'Ahmad Cloth House - SMTP Test Connection',
-      message: 'If you receive this, your email notification system is working correctly!'
+      subject: 'AhmadClothesHouse - SMTP Test Connection',
+      message: 'If you receive this, your email notification system for AhmadClothesHouse is working correctly!'
     });
     res.status(200).json({ success: true, message: 'Test email sent successfully' });
   } catch (err) {

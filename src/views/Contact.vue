@@ -3,10 +3,10 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>Contact Ahmad Cloth House | AhmadClothesFabrics | Global Customer Support & Consultations</h2>
-         <p>Get in touch with Ahmad Cloth House (AhmadClothesFabrics) for custom bridal orders, fashion consultations, or international order support. We ship our handcrafted luxury apparel to USA, UK, Canada, UAE, Australia, and more. Our team is available for global consultations and design support.</p>
+         <h2>Contact AhmadClothesHouse | Global Customer Support & Consultations</h2>
+         <p>Get in touch with AhmadClothesHouse for custom bridal orders, fashion consultations, or international order support. We ship our handcrafted luxury apparel to USA, UK, Canada, UAE, Australia, and more. Our team is available for global consultations and design support.</p>
          <ul>
-            <li>Ahmad Cloth House Custom Bridal Inquiries</li>
+            <li>AhmadClothesHouse Custom Bridal Inquiries</li>
             <li>International Order Support for Pakistani Suits</li>
             <li>Fashion Consultations for Overseas Pakistanis</li>
             <li>Luxury Gift Orders Global Delivery</li>
@@ -21,7 +21,7 @@
 
          <div class="flex flex-col md:flex-row justify-between items-end gap-16 relative z-10">
             <div class="max-w-2xl animate-reveal-left">
-               <div class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">Ahmad Cloth House</div>
+               <div class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">AhmadClothesHouse</div>
                <div class="flex items-center gap-3 mb-6">
                   <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
                   <span
@@ -32,7 +32,7 @@
                   class="text-6xl md:text-9xl font-light uppercase tracking-tighter leading-[0.85] text-gray-900 dark:text-white font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px]">
                   Collaborate <br>
                   <span class="text-[var(--primary-gold)] font-sans tracking-[0.2em] font-light ml-4 uppercase not-italic">with
-                     Ahmad Cloth House</span>
+                     AhmadClothesHouse</span>
                </h1>
             </div>
             <div class="max-w-xs text-right animate-reveal-right">

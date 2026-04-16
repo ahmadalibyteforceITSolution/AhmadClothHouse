@@ -18,17 +18,18 @@ const sendEmail = async (options) => {
     console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
 
     const { data, error } = await resend.emails.send({
-      from: 'Ahmad Cloth House <onboarding@resend.dev>',
+      from: 'AhmadClothesHouse Support <onboarding@resend.dev>',
       to: [options.email],
       subject: options.subject,
       html: `
-        <div style="font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; padding: 40px; border-radius: 20px; max-width: 600px; margin: auto; border: 1px solid #d4af3733;">
-          <h1 style="color: #d4af37; text-transform: uppercase; letter-spacing: 0.2em; font-size: 24px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">Ahmad Cloth House</h1>
-          <p style="font-size: 14px; line-height: 1.6; color: #d1d5db; margin-top: 20px;">
+        <div style="font-family: 'Playfair Display', serif; padding: 40px; background: #fafaf8; border: 1px solid #d4af3722;">
+          <h1 style="color: #000; text-align: center; font-style: italic;">AhmadClothesHouse</h1>
+          <div style="height: 1px; background: #d4af3744; width: 100px; margin: 20px auto;"></div>
+          <div style="color: #444; line-height: 1.8; font-size: 14px;">
             ${options.message.replace(/\n/g, '<br>')}
-          </p>
-          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #d4af3711; font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">
-            &copy; 2026 AHMAD CLOTH HOUSE. ALL RIGHTS RESERVED.
+          </div>
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 10px; color: #999; letter-spacing: 2px;">
+            © 2026 AHMADCLOTHESHOUSE LUXURY COUTURE
           </div>
         </div>
       `,

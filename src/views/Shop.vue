@@ -3,11 +3,11 @@
 
     <!-- SEO CONTENT (VISUALLY HIDDEN) -->
     <section class="sr-only">
-      <h1>Shop Luxury Pakistani Designer Suits Online at Ahmad Cloth House | International Delivery</h1>
-      <p>Explore Ahmad Cloth House's exclusive collection of unstitched ladies suits, luxury pret, and bridal couture. We offer the finest embroidered lawn, chiffon, and velvet collections with express shipping to USA, UK, Canada, UAE, Australia, and Europe. Buy authentic Pakistani dresses online from Ahmad Cloth House (AhmadClothesFabrics).</p>
+      <h1>Shop Luxury Pakistani Designer Suits Online at AhmadClothesHouse | International Delivery</h1>
+      <p>Explore AhmadClothesHouse's exclusive collection of unstitched ladies suits, luxury pret, and bridal couture. We offer the finest embroidered lawn, chiffon, and velvet collections with express shipping to USA, UK, Canada, UAE, Australia, and Europe. Buy authentic Pakistani dresses online from AhmadClothesHouse (formerly AhmadClothesFabrics).</p>
       <ul>
-        <li>Ahmad Cloth House Unstitched Pakistani Suits Online USA</li>
-        <li>Luxury Pret Collection UK AhmadClothesFabrics</li>
+        <li>AhmadClothesHouse Unstitched Pakistani Suits Online USA</li>
+        <li>Luxury Pret Collection UK AhmadClothesHouse</li>
         <li>Bridal Couture Shipping to Canada from Pakistan</li>
         <li>Designer Embroidered Lawn 2026 UAE</li>
         <li>Authentic Pakistani Fashion Brands Online Lahore</li>

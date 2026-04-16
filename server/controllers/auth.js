@@ -48,11 +48,10 @@ exports.register = async (req, res) => {
     const token = generateToken(user._id);
 
     try {
-      const dateString = new Date().toLocaleString();
       await sendEmail({
         email: user.email,
-        subject: "Welcome to Ahmad Cloths House",
-        message: `Hello ${user.name},\n\nWelcome to the luxurious world of Ahmad Cloths House.\n\nYou successfully signed up using: ${user.email}\nDate: ${dateString}\n\nWe are delighted to have you.\n\nWarm Regards,\nAhmad Cloths House Team`,
+        subject: "Welcome to AhmadClothesHouse",
+        message: `Welcome to AhmadClothesHouse, ${user.name}! Your account has been successfully created. Explore our luxury collections now.`,
       });
     } catch (mailErr) {
       console.error(

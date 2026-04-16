@@ -111,7 +111,10 @@ app.get("/ads.txt", async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => console.log(`🚀 Ahmadcloths Server on Port ${PORT}`));
+  app.listen(PORT, () => {
+    console.log(`🚀 Ahmadcloths Server on Port ${PORT}`);
+    console.log(`Welcome to AhmadClothesHouse API`);
+  });
 }
 
 module.exports = app;

@@ -42,7 +42,7 @@
         <!-- Brand Info -->
         <div class="space-y-6">
           <div class="flex flex-col">
-            <h2 class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase">AHMADCLOTHESFABRICS</h2>
+            <h2 class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase">AHMADCLOTHESHOUSE</h2>
             <span class="text-[8px] tracking-[0.4em] font-bold text-[var(--primary-gold)] uppercase mt-1">The House of Couture</span>
           </div>
           <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">
@@ -74,7 +74,7 @@
       <!-- Bottom Bar -->
       <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <p class="text-[10px] text-gray-400 tracking-widest uppercase">
-          © 2026 AHMAD CLOTHS HOUSE. ALL RIGHTS RESERVED.
+          © 2026 AHMADCLOTHESHOUSE. ALL RIGHTS RESERVED.
         </p>
         <div class="flex gap-6">
           <font-awesome-icon :icon="['fab', 'cc-visa']" class="text-gray-300 text-xl" />

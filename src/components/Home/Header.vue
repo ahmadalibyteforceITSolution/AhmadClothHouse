@@ -82,7 +82,7 @@
         <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-2 sm:px-4" @click="goToHome">
           <div
             class="text-base sm:text-2xl lg:text-3xl font-playfair tracking-[0.15em] sm:tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase leading-tight">
-            AHMADCLOTHESFABRICS</div>
+            AHMADCLOTHESHOUSE</div>
           <div
             class="logo-tagline font-playfair tracking-[0.4em] mt-1 text-[7px] opacity-60 uppercase text-[var(--primary-gold)] hidden sm:block">
             The House of Couture</div>
@@ -164,7 +164,7 @@
       </div>
 
       <!-- Mobile Actions Row (Theme, Favorites, Cart, Login) - Below Logo -->
-      <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 4t-2 2der-t border-black/5 dark:border-white/5">
+      <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
         <!-- Theme Toggle -->
         <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
           <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
