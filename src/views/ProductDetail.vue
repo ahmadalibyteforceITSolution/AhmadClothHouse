@@ -275,12 +275,12 @@ watch(product, (p) => {
 
   if (p) {
     // Update Document Title
-    document.title = `${p.name} | Ahmadcloths House - Premium Pakistani Couture`
+    document.title = `${p.name} | AHMADCLOTHESFABRICS - Premium Pakistani Couture`
 
     // Update Meta Description
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {
-      metaDescription.setAttribute('content', `Shop ${p.name} at Ahmadcloths House. ${p.description || 'Premium luxury fashion piece handcrafted with the finest fabrics.'} Best prices for Pakistani designer suits.`)
+      metaDescription.setAttribute('content', `Shop ${p.name} at AHMADCLOTHESFABRICS. ${p.description || 'Premium luxury fashion piece handcrafted with the finest fabrics.'} Best prices for Pakistani designer suits.`)
     }
 
     // Add Product Schema
@@ -299,11 +299,11 @@ watch(product, (p) => {
         "@type": "Product",
         "name": p.name,
         "image": [p.image],
-        "description": p.description || `${p.name} - Luxury Pakistani Designer Suit from Ahmadcloths House.`,
+        "description": p.description || `${p.name} - Luxury Pakistani Designer Suit from AHMADCLOTHESFABRICS.`,
         "sku": p.sku || p.id || p._id,
         "brand": {
           "@type": "Brand",
-          "name": "Ahmadcloths House"
+          "name": "AHMADCLOTHESFABRICS"
         },
         "offers": {
           "@type": "Offer",

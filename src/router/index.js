@@ -139,8 +139,8 @@ const routes = [
     name: 'login',
     component: () => import('../views/Login.vue'),
     meta: {
-      title: 'Enter the House | Ahmadcloths House Login',
-      description: 'Access your Ahmadcloths House member account to view orders and saved couture.',
+      title: 'Enter the House | AHMADCLOTHESFABRICS Login',
+      description: 'Access your AHMADCLOTHESFABRICS member account to view orders and saved couture.',
       robots: 'index, follow'
     }
   },
@@ -149,8 +149,8 @@ const routes = [
     name: 'signup',
     component: () => import('../views/Signup.vue'),
     meta: {
-      title: 'Join the Inner Circle | Ahmadcloths House Signup',
-      description: 'Create your Ahmadcloths House account for early access to lawn launches and exclusive bridal previews.',
+      title: 'Join the Inner Circle | AHMADCLOTHESFABRICS Signup',
+      description: 'Create your AHMADCLOTHESFABRICS account for early access to lawn launches and exclusive bridal previews.',
       robots: 'index, follow'
     }
   },
@@ -180,8 +180,8 @@ const routes = [
     component: () => import('../components/Admin/AdminDashboard.vue'),
     meta: { 
       requiresAdmin: true,
-      title: 'Couture Management | Ahmadcloths House Admin',
-      description: 'Ahmadcloths House administrative portal for collection management.',
+      title: 'Couture Management | AHMADCLOTHESFABRICS Admin',
+      description: 'AHMADCLOTHESFABRICS administrative portal for collection management.',
       robots: 'noindex, nofollow'
     }
   },
@@ -211,7 +211,7 @@ const routes = [
     name: 'notfound',
     component: () => import('../views/NotFound.vue'),
     meta: {
-      title: 'Undiscovered Design | Ahmadcloths House',
+      title: 'Undiscovered Design | AHMADCLOTHESFABRICS',
       description: 'The requested fashion page could not be located in our House of Couture.',
       robots: 'noindex, nofollow'
     }

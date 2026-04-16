@@ -13,7 +13,7 @@
         <h2 class="text-6xl font-black text-white uppercase tracking-tighter font-playfair italic leading-[0.9]">Join
           the<br>House</h2>
         <p class="text-white/50 text-[10px] font-black uppercase tracking-[0.5em] max-w-xs ml-auto">BEGIN YOUR JOURNEY
-          WITHIN THE LUXURY REALMS OF AHMADCLOTHS HOUSE.</p>
+          WITHIN THE LUXURY REALMS OF AHMADCLOTHESFABRICS.</p>
       </div>
       <!-- Signature Floating Text -->
       <div class="absolute top-12 right-12 z-20 flex flex-col items-end">
@@ -37,7 +37,7 @@
         <div class="text-center lg:text-left mb-16 px-4">
           <div
             class="text-2xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-2">
-            AHMADCLOTHS HOUSE</div>
+            AHMADCLOTHESFABRICS</div>
           <p class="text-[8px] tracking-[0.4em] font-bold text-[var(--primary-gold)] uppercase mb-12">The House of
             Couture</p>
           <h1

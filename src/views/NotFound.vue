@@ -21,7 +21,7 @@
 
      <!-- Footer Signature -->
      <div class="absolute bottom-16 left-0 right-0 text-center opacity-20">
-        <span class="text-[7px] font-bold uppercase tracking-[1em] dark:text-white">AHMADCLOTHS HOUSE LUXURY FASHION</span>
+        <span class="text-[7px] font-bold uppercase tracking-[1em] dark:text-white">AHMADCLOTHESFABRICS LUXURY FASHION</span>
      </div>
   </div>
 </template>

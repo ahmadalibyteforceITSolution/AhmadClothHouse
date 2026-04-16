@@ -46,7 +46,7 @@ import AdSenseUnit from './AdSenseUnit.vue'
 const trendingKeywords = ref([
   'Luxury Bridal Couture upto 500,000',
   'Best Unstitched Suits Pakistan',
-  'Ahmadcloths House Top Rated',
+  'AHMADCLOTHESFABRICS Top Rated',
   'Maria B New Arrivals 2026',
   'Premium Chiffon Collection',
   'Designer Suits Lahore Online',

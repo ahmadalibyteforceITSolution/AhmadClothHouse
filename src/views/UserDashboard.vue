@@ -3,7 +3,7 @@
     class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] flex transition-colors duration-700 font-sans relative overflow-x-hidden">
     
     <!-- SEO Heading (Visually Hidden) -->
-    <h1 class="sr-only">Ahmadcloths House | User Dashboard - My Couture Profile</h1>
+    <h1 class="sr-only">AHMADCLOTHESFABRICS | User Dashboard - My Couture Profile</h1>
 
     <!-- Sidebar -->
     <aside :class="isMobileMenuOpen ? 'translate-x-0 shadow-2xl shadow-black/50' : '-translate-x-full lg:translate-x-0'"

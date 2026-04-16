@@ -20,7 +20,7 @@
          <!-- Dynamic Background Artifact -->
          <div class="absolute inset-0 opacity-40 scale-105 animate-slow-zoom">
             <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1800&auto=format&fit=crop"
-               class="w-full h-full object-cover brightness-50" alt="Ahmadcloths house Fashion Heritage - Artisan Weaving Tradition" />
+               class="w-full h-full object-cover brightness-50" alt="AHMADCLOTHESFABRICS Fashion Heritage - Artisan Weaving Tradition" />
          </div>
          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/60 pointer-events-none">
          </div>
@@ -100,7 +100,7 @@
             </div>
             <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&auto=format&fit=crop"
                class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
-               alt="Artisan Tailoring at Ahmadcloths house Studio">
+               alt="Artisan Tailoring at AHMADCLOTHESFABRICS Studio">
          </div>
       </section>
 
@@ -119,7 +119,7 @@
                   <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR VISION</h3>
                   <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Global Heritage</h4>
                   <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-                     We envision Ahmadcloths house as a global symbol of Pakistani craftsmanship, bringing the beauty of our traditional textiles to the international stage while fostering a sustainable and ethical fashion ecosystem.
+                     We envision AHMADCLOTHESFABRICS as a global symbol of Pakistani craftsmanship, bringing the beauty of our traditional textiles to the international stage while fostering a sustainable and ethical fashion ecosystem.
                   </p>
                </div>
                <div class="space-y-8 animate-reveal" style="animation-delay: 0.4s">
@@ -144,7 +144,7 @@
             <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">THE CRAFT</h3>
             <h2 class="text-5xl font-playfair italic text-gray-900 dark:text-white leading-tight">Mastery in Every Thread</h2>
             <p class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
-               Our artisans are the heart of Ahmadcloths house. With decades of experience passed down through generations, they possess an intuitive understanding of fabric and form. Every embroidery pattern is meticulously planned and executed, ensuring that the final garment is not just a piece of clothing, but a work of art.
+               Our artisans are the heart of AHMADCLOTHESFABRICS. With decades of experience passed down through generations, they possess an intuitive understanding of fabric and form. Every embroidery pattern is meticulously planned and executed, ensuring that the final garment is not just a piece of clothing, but a work of art.
             </p>
             <router-link to="/shop" class="inline-block border-b border-[var(--primary-gold)] pb-2 text-[10px] font-bold tracking-[0.5em] text-gray-900 dark:text-white hover:text-[var(--primary-gold)] transition-colors">
                EXPLORE THE COLLECTIONS
@@ -171,7 +171,7 @@
                ensuring your look is as elegant as your occasion."
             </p>
             <div class="mt-20">
-               <span class="text-[var(--primary-gold)] font-serif italic text-2xl">— Lead Designer of Ahmadcloths house</span>
+               <span class="text-[var(--primary-gold)] font-serif italic text-2xl">— Lead Designer of AHMADCLOTHESFABRICS</span>
             </div>
          </div>
       </section>

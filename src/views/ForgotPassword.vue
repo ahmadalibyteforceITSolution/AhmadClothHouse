@@ -7,7 +7,7 @@
        <img 
           :src="Fugible3" 
           class="w-full h-full object-cover scale-110 animate-slow-zoom"
-          alt="Ahmadcloths House"
+          alt="AHMADCLOTHESFABRICS"
        >
     </div>
 

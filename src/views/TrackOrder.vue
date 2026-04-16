@@ -5,14 +5,14 @@
     <header class="w-full py-12 px-8 border-b border-stone-200 dark:border-stone-800 flex flex-col items-center gap-2 mb-16 transition-colors bg-white dark:bg-[#0A0A0A] sticky top-0 z-[100] backdrop-blur-xl bg-opacity-90">
        <div class="flex items-center gap-6 mb-2">
           <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
-          <div class="text-3xl font-playfair tracking-[0.4em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer" @click="router.push('/')">AHMADCLOTHS HOUSE</div>
+          <div class="text-3xl font-playfair tracking-[0.4em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer" @click="router.push('/')">AHMADCLOTHESFABRICS</div>
           <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
        </div>
        <span class="text-[8px] tracking-[0.6em] text-[var(--primary-gold)] uppercase font-bold opacity-80 italic">Order Tracking & Logistics</span>
     </header>
 
     <!-- SEO Heading (Visually Hidden) -->
-    <h1 class="sr-only">Ahmadcloths House | Track Your Order - Luxury Couture Logistics</h1>
+    <h1 class="sr-only">AHMADCLOTHESFABRICS | Track Your Order - Luxury Couture Logistics</h1>
 
     <div class="max-w-4xl mx-auto px-6">
       <!-- Search Section -->

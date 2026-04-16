@@ -99,7 +99,7 @@ exports.login = async (req, res) => {
       await sendEmail({
         email: user.email,
         subject: "Ahmadcloths Security: Login Authentication",
-        message: `Hello ${user.name},\n\nSomeone recently authenticated your Ahmadcloths House account.\n\nDate: ${loginTime}\nLocation: Lahore, PK (Approximate)\n\nIf this wasn't you, please reset your Secure Password immediately.`,
+        message: `Hello ${user.name},\n\nSomeone recently authenticated your AHMADCLOTHESFABRICS account.\n\nDate: ${loginTime}\nLocation: Lahore, PK (Approximate)\n\nIf this wasn't you, please reset your Secure Password immediately.`,
       });
     } catch (mailErr) {
       console.error(
@@ -302,7 +302,7 @@ exports.googleLogin = async (req, res) => {
       await sendEmail({
         email: user.email,
         subject: "Ahmadcloths Security: Google Account Authentication",
-        message: `Hello ${user.name},\n\nYou successfully authenticated your Ahmadcloths House account via Google.\n\nDate: ${new Date().toLocaleString()}\nLocation: Lahore, PK\n\nEnjoy your shopping.`,
+        message: `Hello ${user.name},\n\nYou successfully authenticated your AHMADCLOTHESFABRICS account via Google.\n\nDate: ${new Date().toLocaleString()}\nLocation: Lahore, PK\n\nEnjoy your shopping.`,
       });
     } catch (mErr) {
       console.error("Email failed during Google Login:", mErr.message);

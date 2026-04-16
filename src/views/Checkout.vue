@@ -8,7 +8,7 @@
          <div class="flex items-center gap-6 mb-2">
             <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
             <h1 class="text-xl md:text-3xl font-playfair tracking-[0.2em] md:tracking-[0.4em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
-               @click="router.push('/')">AHMADCLOTHS HOUSE</h1>
+               @click="router.push('/')">AHMADCLOTHESFABRICS</h1>
             <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
          </div>
          <span class="text-[8px] tracking-[0.6em] text-[var(--primary-gold)] uppercase font-bold opacity-80 italic">The

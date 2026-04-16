@@ -5,7 +5,7 @@
     <!-- Ultra Cinematic Background -->
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-black/60 z-10"></div>
-      <img :src="Fugible3" class="w-full h-full object-cover scale-110 animate-slow-zoom" alt="Ahmadcloths House">
+      <img :src="Fugible3" class="w-full h-full object-cover scale-110 animate-slow-zoom" alt="AHMADCLOTHESFABRICS">
     </div>
 
     <!-- Centered Reset Card (Glass) -->

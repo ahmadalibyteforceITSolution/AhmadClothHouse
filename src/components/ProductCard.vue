@@ -2,7 +2,7 @@
   <div class="luxury-card group" @click="$emit('click-product', product)">
     <!-- Image Area -->
     <div class="card-image-wrap">
-      <img :src="product.image" :alt="product.name + ' - ' + product.category + ' | Ahmadcloths house Premium Fashion'" class="card-img" loading="lazy" />
+      <img :src="product.image" :alt="product.name + ' - ' + product.category + ' | AHMADCLOTHESFABRICS Premium Fashion'" class="card-img" loading="lazy" />
       
 
       

@@ -3,8 +3,8 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>Contact Ahmadcloths house | Luxury Fashion Inquiries</h2>
-         <p>Get in touch with Ahmadcloths house for custom bridal orders, fashion consultations, or any questions about our luxury apparel. We are here to help make your style moments extraordinary.</p>
+         <h2>Contact AHMADCLOTHESFABRICS | Luxury Fashion Inquiries</h2>
+         <p>Get in touch with AHMADCLOTHESFABRICS for custom bridal orders, fashion consultations, or any questions about our luxury apparel. We are here to help make your style moments extraordinary.</p>
          <ul>
             <li>Custom Bridal Inquiries</li>
             <li>Fashion Consultations</li>
@@ -20,7 +20,7 @@
 
          <div class="flex flex-col md:flex-row justify-between items-end gap-16 relative z-10">
             <div class="max-w-2xl animate-reveal-left">
-               <div class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">AHMADCLOTHS HOUSE</div>
+               <div class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">AHMADCLOTHESFABRICS</div>
                <div class="flex items-center gap-3 mb-6">
                   <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
                   <span

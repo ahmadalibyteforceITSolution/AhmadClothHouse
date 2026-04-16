@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-[#fafaf8] transition-colors duration-700 dark:bg-[#050505] pb-32">
     
     <!-- SEO Heading (Visually Hidden) -->
-    <h1 class="sr-only">Ahmadcloths House | Your Saved Couture - Favorite Luxury Designs</h1>
+    <h1 class="sr-only">AHMADCLOTHESFABRICS | Your Saved Couture - Favorite Luxury Designs</h1>
 
     <div class="max-w-7xl mx-auto px-6 py-20">
       <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">

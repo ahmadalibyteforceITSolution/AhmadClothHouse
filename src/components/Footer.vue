@@ -42,7 +42,7 @@
         <!-- Brand Info -->
         <div class="space-y-6">
           <div class="flex flex-col">
-            <h2 class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase">AHMADCLOTHS HOUSE</h2>
+            <h2 class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase">AHMADCLOTHESFABRICS</h2>
             <span class="text-[8px] tracking-[0.4em] font-bold text-[var(--primary-gold)] uppercase mt-1">The House of Couture</span>
           </div>
           <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">

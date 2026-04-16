@@ -174,7 +174,7 @@
           </div>
           <div class="space-y-6 text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
             <p>
-              At Ahmadcloths House, we believe that fashion is a bridge between the past and the future. Our boutique is dedicated to the preservation and innovation of traditional Pakistani craftsmanship, offering a curated selection of unstitched ladies' suits, luxury pret, and bespoke bridal wear.
+              At AHMADCLOTHESFABRICS, we believe that fashion is a bridge between the past and the future. Our boutique is dedicated to the preservation and innovation of traditional Pakistani craftsmanship, offering a curated selection of unstitched ladies' suits, luxury pret, and bespoke bridal wear.
             </p>
             <p>
               Since our establishment in 2026, we have focused on sourcing the highest quality fabrics—from the finest Egyptian cotton to hand-loomed silks and intricate chiffons. Each collection is a masterpiece of design, blending contemporary silhouettes with age-old embroidery techniques like Zardozi, Resham, and Tilla work.
@@ -183,7 +183,7 @@
               Our commitment to excellence extends beyond the garment. We support a network of master artisans in Lahore, ensuring that the legacy of handcrafted couture continues to thrive in a world of fast fashion. When you choose Ahmadcloths, you are choosing more than just an outfit; you are choosing a piece of heritage.
             </p>
             <p>
-              Whether you are looking for an elegant unstitched lawn suit for the summer heat or a signature bridal ensemble that captures the essence of tradition, Ahmadcloths House provides an experience that is as unique as the women who wear our designs. Explore our collections and discover the artistry that defines us.
+              Whether you are looking for an elegant unstitched lawn suit for the summer heat or a signature bridal ensemble that captures the essence of tradition, AHMADCLOTHESFABRICS provides an experience that is as unique as the women who wear our designs. Explore our collections and discover the artistry that defines us.
             </p>
           </div>
           <div class="flex items-center gap-12 pt-8 border-t border-[#d4af3711]">
@@ -371,7 +371,7 @@
             class="text-5xl md:text-6xl font-playfair italic text-[var(--luxury-black)] dark:text-white leading-tight">
             UNSTITCHED<br><span class="text-[var(--deep-burgundy)]">LADIES SUITS</span></h2>
           <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
-            True elegance resides in the selection of fabrics. Every garment in the Ahmadcloths house atelier is crafted
+            True elegance resides in the selection of fabrics. Every garment in the AHMADCLOTHESFABRICS atelier is crafted
             with precision — premium silk, luxury lawn, and the finest hand embroidery. Our artisans spend hundreds of 
             hours on each piece to ensure it meets our rigorous standards of quality and beauty.
           </p>
@@ -613,7 +613,7 @@
           </h2>
 
           <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-lg font-light">
-            We believe the finest fabrics tell their own story. AHMADCLOTHS HOUSE represents the commitment to quality
+            We believe the finest fabrics tell their own story. AHMADCLOTHESFABRICS represents the commitment to quality
             and the joy of elegance through artisanal craftsmanship. Our collections are designed to make every woman 
             feel confident and beautiful, blending the rich heritage of Pakistan with modern fashion sensibilities.
           </p>
@@ -728,7 +728,7 @@ const craftItems = [
 
 const patronStories = [
   {
-    quote: "The attention to detail at Ahmadcloths house is simply unparalleled. Their bridal couture is a masterclass in elegance.",
+    quote: "The attention to detail at AHMADCLOTHESFABRICS is simply unparalleled. Their bridal couture is a masterclass in elegance.",
     name: "Eleanor Vance",
     role: "Fashion Curator",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop"
@@ -740,7 +740,7 @@ const patronStories = [
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop"
   },
   {
-    quote: "Ahmadcloths house has become our go-to for all celebrations. Their festive collections are as much a work of art as they are beautiful.",
+    quote: "AHMADCLOTHESFABRICS has become our go-to for all celebrations. Their festive collections are as much a work of art as they are beautiful.",
     name: "Julianna Ross",
     role: "Event Designer",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop"
@@ -754,7 +754,7 @@ const faqs = [
   },
   {
     q: 'Do you offer international shipping?',
-    a: 'Yes, Ahmadcloths House provides secure worldwide shipping. Delivery times and costs vary depending on the destination. You can track your order in real-time through our order tracking portal.'
+    a: 'Yes, AHMADCLOTHESFABRICS provides secure worldwide shipping. Delivery times and costs vary depending on the destination. You can track your order in real-time through our order tracking portal.'
   },
   {
     q: 'How can I care for my luxury garments?',

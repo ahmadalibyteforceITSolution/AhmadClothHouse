@@ -9,7 +9,7 @@
             </div>
          </div>
          <div class="max-w-7xl mx-auto text-center relative z-10 animate-reveal">
-            <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHS HOUSE</div>
+            <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHESFABRICS</div>
             <div class="flex items-center justify-center gap-6 mb-12">
                <div class="h-[1px] w-16 bg-[var(--primary-gold)]/30"></div>
                <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">CHOICE &
@@ -23,7 +23,7 @@
             </h1>
             <p
                class="text-[11px] font-bold text-white/30 uppercase tracking-[0.5em] mt-16 max-w-2xl mx-auto leading-loose italic">
-               How we use cookies to enhance your journey through Ahmadcloths house.
+               How we use cookies to enhance your journey through AHMADCLOTHESFABRICS.
             </p>
          </div>
       </header>

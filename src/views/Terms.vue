@@ -9,7 +9,7 @@
             </div>
          </div>
          <div class="max-w-7xl mx-auto text-center relative z-10 animate-reveal">
-            <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHS HOUSE</div>
+            <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHESFABRICS</div>
             <div class="flex items-center justify-center gap-6 mb-12">
                <div class="h-[1px] w-16 bg-[var(--primary-gold)]/30"></div>
                <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">GOVERNANCE &
@@ -68,11 +68,11 @@ const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 const termSections = [
    {
       title: "Agreement to Terms",
-      content: "By accessing and using Ahmadcloths house (ahmad-cloths.vercel.app), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
+      content: "By accessing and using AHMADCLOTHESFABRICS (ahmad-cloths.vercel.app), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
    },
    {
       title: "Intellectual Property Rights",
-      content: "The content, original features, and functionality of this website, including but not limited to designs, text, graphics, logos, and images, are the exclusive property of Ahmadcloths house and are protected by international copyright, trademark, patent, and other intellectual property laws."
+      content: "The content, original features, and functionality of this website, including but not limited to designs, text, graphics, logos, and images, are the exclusive property of AHMADCLOTHESFABRICS and are protected by international copyright, trademark, patent, and other intellectual property laws."
    },
    {
       title: "User Conduct & Restrictions",
@@ -88,7 +88,7 @@ const termSections = [
    },
    {
       title: "Third-Party Links & Ads",
-      content: "Our website may contain links to third-party websites or services that are not owned or controlled by Ahmadcloths house. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that Ahmadcloths house shall not be responsible or liable, directly or indirectly, for any damage or loss caused by your use of such third-party content."
+      content: "Our website may contain links to third-party websites or services that are not owned or controlled by AHMADCLOTHESFABRICS. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that AHMADCLOTHESFABRICS shall not be responsible or liable, directly or indirectly, for any damage or loss caused by your use of such third-party content."
    },
    {
       title: "Governing Law",

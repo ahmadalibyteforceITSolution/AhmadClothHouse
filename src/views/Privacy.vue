@@ -10,7 +10,7 @@
          </div>
          <div class="flex flex-col md:flex-row justify-between items-end gap-16 relative z-10">
             <div class="max-w-2xl animate-reveal-left">
-               <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHS HOUSE</div>
+               <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHESFABRICS</div>
                <div class="flex items-center gap-3 mb-6">
                   <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
                   <span
@@ -62,7 +62,7 @@
                </div>
                <p
                   class="text-[10px] font-bold uppercase tracking-[0.5em] text-stone-400 max-w-sm leading-loose opacity-60">
-                  Ahmadcloths house is the sole controller of your data. We are committed to protecting your personal
+                  AHMADCLOTHESFABRICS is the sole controller of your data. We are committed to protecting your personal
                   information through industry-standard security measures.
                </p>
             </div>
@@ -91,7 +91,7 @@ const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 const privacySections = [
    {
       title: "Data Stewardship",
-      content: "Ahmadcloths house, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
+      content: "AHMADCLOTHESFABRICS, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
    },
    {
       title: "Monetization & Advertising Ecosystem",
