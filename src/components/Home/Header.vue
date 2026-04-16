@@ -47,6 +47,35 @@
           <button @click="searchOpen = !searchOpen" class="icon-btn flex" aria-label="Search">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
           </button>
+
+          <!-- Support Dropdown -->
+          <div class="relative group hidden md:block ml-2">
+            <button class="flex items-center gap-2 text-[9px] font-black tracking-[0.15em] text-[var(--luxury-black)] dark:text-white/70 hover:text-[var(--primary-gold)] transition-all duration-300">
+              <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
+              <span class="uppercase">SUPPORT</span>
+            </button>
+            <div class="dropdown-menu left-0 w-48 mt-2">
+              <div class="p-2">
+                <a href="tel:+923416887454" class="dropdown-item !py-3 flex items-center gap-3 hover:bg-[var(--luxury-cream)] dark:hover:bg-white/5 transition-colors">
+                  <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
+                  <span>0341 6887454</span>
+                </a>
+                <a href="tel:03334247601" class="dropdown-item !py-3 flex items-center gap-3 hover:bg-[var(--luxury-cream)] dark:hover:bg-white/5 transition-colors">
+                  <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
+                  <span>0333 4247601</span>
+                </a>
+                <a href="tel:03244902607" class="dropdown-item !py-3 flex items-center gap-3 hover:bg-[var(--luxury-cream)] dark:hover:bg-white/5 transition-colors">
+                  <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
+                  <span>0324 4902607</span>
+                </a>
+                <div class="border-t border-black/5 dark:border-white/5 mt-2 pt-2">
+                  <button @click="isQueryModalOpen = true" class="w-full py-3 bg-[var(--primary-gold)] text-black font-black text-[9px] uppercase tracking-widest hover:bg-black hover:text-white transition-all">
+                    Send Query
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- CENTER: Logo -->
@@ -330,6 +359,35 @@
 
           <!-- Footer -->
           <div class="p-6 border-t border-white/5">
+            <!-- Quick Contact -->
+            <div class="mb-8">
+              <p class="text-[8px] text-white/30 uppercase tracking-[0.3em] text-center mb-4">Official Concierge</p>
+              <div class="space-y-2">
+                <a href="tel:+923416887454"
+                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
+                  <font-awesome-icon icon="fa-solid fa-phone"
+                    class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
+                  <span class="text-[10px] font-black uppercase tracking-[0.2em]">0341 6887454</span>
+                </a>
+                <a href="tel:03334247601"
+                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
+                  <font-awesome-icon icon="fa-solid fa-phone"
+                    class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
+                  <span class="text-[10px] font-black uppercase tracking-[0.2em]">0333 4247601</span>
+                </a>
+                <a href="tel:03244902607"
+                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
+                  <font-awesome-icon icon="fa-solid fa-phone"
+                    class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
+                  <span class="text-[10px] font-black uppercase tracking-[0.2em]">0324 4902607</span>
+                </a>
+                <button @click="isQueryModalOpen = true; isMenuOpen = false"
+                  class="w-full py-4 mt-4 bg-white/5 border border-[var(--primary-gold)]/30 text-[var(--primary-gold)] font-black text-[10px] uppercase tracking-[0.3em] rounded-xl hover:bg-[var(--primary-gold)] hover:text-black transition-all">
+                  Send Quick Query
+                </button>
+              </div>
+            </div>
+
             <div class="flex items-center justify-center gap-6 mb-8">
               <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all">
                 <font-awesome-icon :icon="['fab', 'instagram']" />
@@ -367,17 +425,64 @@
         </div>
       </div>
     </transition>
+
+    <!-- Quick Query Modal -->
+    <transition name="search-drop">
+      <div v-if="isQueryModalOpen" class="fixed inset-0 z-[20000] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="isQueryModalOpen = false"></div>
+        <div class="relative w-full max-w-lg bg-white dark:bg-[#0A0A0A] border border-[var(--primary-gold)]/20 shadow-2xl animate-reveal overflow-hidden rounded-lg">
+          <!-- Modal Header -->
+          <div class="flex items-center justify-between p-6 border-b border-black/5 dark:border-white/5 bg-stone-50/50 dark:bg-white/5">
+            <div class="flex flex-col">
+              <h3 class="text-xl font-playfair italic text-gray-900 dark:text-white uppercase tracking-wider">Send Quick Query</h3>
+              <p class="text-[8px] font-black tracking-[0.3em] text-[var(--primary-gold)] mt-1">THE HOUSE CONCIERGE</p>
+            </div>
+            <button @click="isQueryModalOpen = false" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-amber-500 hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+              <font-awesome-icon icon="fa-solid fa-xmark" class="text-xl" />
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <form @submit.prevent="submitQuery" class="p-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-3">
+                <label class="block text-[10px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-[0.2em]">Full Name</label>
+                <input v-model="queryForm.name" type="text" placeholder="E.G. JULIAN VANCE" class="luxury-input-mini" required />
+              </div>
+              <div class="flex flex-col gap-3">
+                <label class="block text-[10px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-[0.2em]">Email Address</label>
+                <input v-model="queryForm.email" type="email" placeholder="HELLO@AHMADCLOTHS.COM" class="luxury-input-mini" required />
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+              <label class="block text-[10px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-[0.2em]">Your Message</label>
+              <textarea v-model="queryForm.message" rows="4" placeholder="HOW CAN WE ASSIST YOU WITH YOUR COUTURE NEEDS?" class="luxury-input-mini !h-32 resize-none" required></textarea>
+            </div>
+
+            <button type="submit" :disabled="queryStatus.loading"
+              class="w-full py-5 bg-black dark:bg-[var(--primary-gold)] text-white dark:text-black font-black text-[10px] uppercase tracking-[0.4em] hover:bg-[var(--deep-burgundy)] dark:hover:bg-white transition-all disabled:opacity-50 shadow-xl flex items-center justify-center gap-4 group">
+              <span>{{ queryStatus.loading ? 'SENDING...' : 'TRANSMIT QUERY' }}</span>
+              <font-awesome-icon icon="fa-solid fa-paper-plane" class="text-[8px] group-hover:translate-x-1 transition-transform" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </transition>
   </header>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useCartStore } from '../../stores/cart'
 import { useFavoritesStore } from '../../stores/favorites'
 import { useAuthStore } from '../../stores/auth'
 import { useProductsStore } from '../../stores/products'
 import { useThemeStore } from '../../stores/theme'
 import { useRouter } from 'vue-router'
+import api from '../../api'
+import Swal from 'sweetalert2'
+
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 const cart = useCartStore()
 const favorites = useFavoritesStore()
@@ -392,6 +497,58 @@ const searchQuery = ref('')
 const isScrolled = ref(false)
 const isMobile = ref(false)
 const searchInput = ref(null)
+
+// Query Modal State
+const isQueryModalOpen = ref(false)
+const queryForm = reactive({
+  name: '',
+  email: '',
+  subject: 'Quick Header Query',
+  message: ''
+})
+const queryStatus = reactive({
+  loading: false
+})
+
+const submitQuery = async () => {
+  if (!queryForm.name || !queryForm.email || !queryForm.message) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Missing Information',
+      text: 'Please fill in all required fields.',
+      confirmButtonColor: '#d4af37'
+    })
+    return
+  }
+
+  queryStatus.loading = true
+  try {
+    const res = await api.post('/contact', queryForm)
+    if (res.data.success) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Query Sent',
+        text: 'Your message has been received. We will get back to you soon.',
+        confirmButtonColor: '#d4af37',
+        background: themeStore.isDark ? '#1a1a1a' : '#fff',
+        color: themeStore.isDark ? '#fff' : '#000'
+      })
+      isQueryModalOpen.value = false
+      queryForm.name = ''
+      queryForm.email = ''
+      queryForm.message = ''
+    }
+  } catch (err) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Submission Failed',
+      text: err.response?.data?.error || 'Something went wrong. Please try again.',
+      confirmButtonColor: '#d4af37'
+    })
+  } finally {
+    queryStatus.loading = false
+  }
+}
 
 watch(searchOpen, (isOpen) => {
   if (isOpen) {
@@ -754,6 +911,45 @@ const goToHome = () => router.push('/')
 
 .dark .search-input {
   color: white;
+}
+
+/* Luxury Input Mini */
+.luxury-input-mini {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  outline: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1a1a1a;
+  border-radius: 4px;
+}
+
+.dark .luxury-input-mini {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.luxury-input-mini:focus {
+  border-color: var(--primary-gold);
+  background: transparent;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.05);
+}
+
+.luxury-input-mini::placeholder {
+  color: #999;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+}
+
+.dark .luxury-input-mini::placeholder {
+  color: #666;
 }
 
 /* Mobile Drawer */

@@ -167,6 +167,7 @@ import IdentityTable from './IdentityTable.vue'
 import MonetizationCenter from './MonetizationCenter.vue'
 import OrderDetailPanel from './OrderDetailPanel.vue'
 import ReviewManager from './ReviewManager.vue'
+import QueryManager from './QueryManager.vue'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -234,6 +235,7 @@ const navLinks = [
   { id: 'customers', name: 'CLIENT REGISTRY', icon: 'fa-solid fa-user-tie' },
   { id: 'monetization', name: 'REVENUE CORE', icon: 'fa-solid fa-sack-dollar' },
   { id: 'reviews', name: 'GUEST REVIEWS', icon: 'fa-solid fa-star' },
+  { id: 'queries', name: 'CUSTOMER QUERIES', icon: 'fa-solid fa-envelope-open-text' },
   { id: 'security', name: 'SYSTEM SECURITY', icon: 'fa-solid fa-shield-halved' }
 ]
 
@@ -260,7 +262,8 @@ const currentTabComponent = computed(() => {
     catalog: markRaw(CategoryBrowser),
     customers: markRaw(IdentityTable),
     monetization: markRaw(MonetizationCenter),
-    reviews: markRaw(ReviewManager)
+    reviews: markRaw(ReviewManager),
+    queries: markRaw(QueryManager)
   }
   return map[currentTab.value]
 })

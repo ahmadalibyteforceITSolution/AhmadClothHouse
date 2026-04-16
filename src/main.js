@@ -19,7 +19,7 @@ import {
   faCartShopping, faWandMagicSparkles, faBookOpen, faUsers, 
   faBuildingColumns, faBox, faArrowTrendUp, faArrowTrendDown,
   faCookie, faIceCream, faBreadSlice, faCreditCard, faHandHoldingDollar,
-  faTruck, faTruckFast, faShirt, faLocationDot, faImage,
+  faTruck, faTruckFast, faShirt, faLocationDot, faImage, faPhone,
   faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList,
   faMobileRetro, faWallet, faMoneyBill1Wave, faMoneyBillTransfer,
   faSackDollar, faArrowsToDot, faUsersGear, faStarHalfStroke, faEarthAmericas
@@ -43,7 +43,7 @@ library.add(
   faCartShopping, faWandMagicSparkles, faBookOpen, faUsers, 
   faBuildingColumns, faBox, faArrowTrendUp, faArrowTrendDown,
   faCookie, faIceCream, faBreadSlice, faCreditCard, faHandHoldingDollar,
-  faTruck, faTruckFast, faShirt, faLocationDot, faImage,
+  faTruck, faTruckFast, faShirt, faLocationDot, faImage, faPhone,
   faScissors, faPalette, faTags, faShop, faVest, faUserTie, faClipboardList,
   faMobileRetro, faWallet, faMoneyBill1Wave, faMoneyBillTransfer,
   faSackDollar, faArrowsToDot, faUsersGear, faStarHalfStroke, faEarthAmericas,
