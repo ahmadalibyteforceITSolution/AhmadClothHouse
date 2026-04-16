@@ -14,7 +14,7 @@
 
             <h1
               class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] animate-float uppercase">
-              AHMADCLOTHSHOUSE</h1>
+              AHMADCLOTHESFABRICS</h1>
           </div>
 
           <!-- Text -->
@@ -47,7 +47,7 @@
         <div class="panel-bottom-bar cursor-pointer" @click="closeAhmadMenu">
           <h1
             class="text-3xl font-playfair tracking-[0.3em] font-light text-yellow-500 animate-float uppercase">
-            AHMADCLOTHSHOUSE</h1>
+            AHMADCLOTHESFABRICS</h1>
         </div>
       </div>
     </div>

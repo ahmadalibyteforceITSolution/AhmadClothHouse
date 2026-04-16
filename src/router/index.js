@@ -7,13 +7,13 @@ const routes = [
     name: 'home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: 'Ahmadcloths House | Best Unstitched Ladies Suits & Luxury Pret Pakistan',
-      description: 'Discover premium unstitched ladies suits, luxury pret, and bridal couture at Ahmadcloths House. Handcrafted Pakistani designer wear inspired by Maria B & Warda.',
+      title: 'AhmadClothesFabrics | Best Unstitched Ladies Suits & Luxury Pret Pakistan',
+      description: 'Discover premium unstitched ladies suits, luxury pret, and bridal couture at AhmadClothesFabrics. Handcrafted Pakistani designer wear inspired by Maria B & Warda.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Ahmadcloths House",
+        "name": "AhmadClothesFabrics",
         "url": "https://ahmad-cloths.vercel.app"
       }
     }
@@ -24,7 +24,7 @@ const routes = [
     component: () => import('../views/ProductDetail.vue'),
     props: true,
     meta: {
-      title: 'Product Detail - Ahmadcloths house',
+      title: 'Product Detail - AhmadClothesFabrics',
       description: 'Explore our selected premium fashion pieces crafted with passion and the finest fabrics.',
       robots: 'index, follow'
     }
@@ -36,12 +36,12 @@ const routes = [
     props: true,
     meta: {
       title: 'Shop Pakistani Designer Suits | Unstitched, Pret & Bridal Collection',
-      description: 'Browse the latest unstitched suits, luxury pret, and wedding wear for women. Designer embroidery and premium fabrics including lawn & chiffon at Ahmadcloths.',
+      description: 'Browse the latest unstitched suits, luxury pret, and wedding wear for women. Designer embroidery and premium fabrics including lawn & chiffon at AhmadClothesFabrics.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Shop Luxury Pakistani Designer Suits - Ahmadcloths House",
+        "name": "Shop Luxury Pakistani Designer Suits - AhmadClothesFabrics",
         "description": "Browse our exclusive catalog of unstitched, pret, and luxury bridal couture.",
         "url": "https://ahmad-cloths.vercel.app/shop"
       }
@@ -52,8 +52,8 @@ const routes = [
     name: 'cart',
     component: () => import('../views/Cart.vue'),
     meta: {
-      title: 'My Bag - Ahmadcloths house',
-      description: 'Review your selected fashion pieces in the Ahmadcloths house bag.',
+      title: 'My Bag - AhmadClothesFabrics',
+      description: 'Review your selected fashion pieces in the AhmadClothesFabrics bag.',
       robots: 'noindex, nofollow'
     }
   },
@@ -62,8 +62,8 @@ const routes = [
     name: 'favorites',
     component: () => import('../views/Favorites.vue'),
     meta: {
-      title: 'My Saved Couture - Ahmadcloths House',
-      description: 'Your curated selection of favorite unstitched suites and luxury fashion pieces from Ahmadcloths House.',
+      title: 'My Saved Couture - AhmadClothesFabrics',
+      description: 'Your curated selection of favorite unstitched suites and luxury fashion pieces from AhmadClothesFabrics.',
       robots: 'noindex, nofollow'
     }
   },
@@ -72,7 +72,7 @@ const routes = [
     name: 'checkout',
     component: () => import('../views/Checkout.vue'),
     meta: {
-      title: 'Secure Checkout | Ahmadcloths House Premium Fashion',
+      title: 'Secure Checkout | AhmadClothesFabrics Premium Fashion',
       description: 'Complete your purchase securely through our encrypted checkout. Get your luxury unstitched suits and couture delivered safely.',
       robots: 'noindex, nofollow'
     }
@@ -82,14 +82,14 @@ const routes = [
     name: 'about',
     component: () => import('../views/About.vue'),
     meta: {
-      title: 'Our Heritage & Design Philosophy | Ahmadcloths House',
-      description: 'Discover the story of Ahmadcloths House. Traditional craftsmanship meets modern luxury in our premium unstitched and bridal collections.',
+      title: 'Our Heritage & Design Philosophy | AhmadClothesFabrics',
+      description: 'Discover the story of AhmadClothesFabrics. Traditional craftsmanship meets modern luxury in our premium unstitched and bridal collections.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "name": "Our Story - Ahmadcloths House",
-        "description": "Learn about Ahmadcloths House mission to bridge artisanal craftsmanship and luxury fashion.",
+        "name": "Our Story - AhmadClothesFabrics",
+        "description": "Learn about AhmadClothesFabrics mission to bridge artisanal craftsmanship and luxury fashion.",
         "url": "https://ahmad-cloths.vercel.app/about"
       }
     }
@@ -99,8 +99,8 @@ const routes = [
     name: 'contact',
     component: () => import('../views/Contact.vue'),
     meta: {
-      title: 'Contact Us | Ahmadcloths House Premium Fashion Support',
-      description: 'Get in touch with Ahmadcloths House for orders, wholesale inquiries, and customer support. Experience the finest Pakistani luxury wear.',
+      title: 'Contact Us | AhmadClothesFabrics Boutique Lahore',
+      description: 'Get in touch with AhmadClothesFabrics for inquiries, bridal consultations, and order support. Visit our luxury boutique in Lahore or shop online.',
       robots: 'index, follow'
     }
   },
@@ -109,8 +109,8 @@ const routes = [
     name: 'privacy',
     component: () => import('../views/Privacy.vue'),
     meta: {
-      title: 'Privacy Protocol | Ahmadcloths House Data Security',
-      description: 'Review the Ahmadcloths House privacy policy and our commitment to protecting your personal data and fashion journey.',
+      title: 'Privacy Policy | AhmadClothesFabrics Data Protection',
+      description: 'Learn how AhmadClothesFabrics House protects your personal information and ensures a secure luxury shopping experience.',
       robots: 'index, follow'
     }
   },
@@ -119,8 +119,8 @@ const routes = [
     name: 'terms',
     component: () => import('../views/Terms.vue'),
     meta: {
-      title: 'Terms of Service | Ahmadcloths House Legal',
-      description: 'Read the terms and conditions for orders, shipping, and returns at Ahmadcloths House.',
+      title: 'Terms of Service | AhmadClothesFabrics Client Agreement',
+      description: 'Read the terms and conditions for shopping at AhmadClothesFabrics House, Pakistans leading luxury fashion boutique.',
       robots: 'index, follow'
     }
   },
@@ -129,8 +129,8 @@ const routes = [
     name: 'cookies',
     component: () => import('../views/Cookies.vue'),
     meta: {
-      title: 'Cookie Consent | Ahmadcloths House Digital Experience',
-      description: 'Details on how Ahmadcloths House utilizes cookies to enhance your luxury shopping experience.',
+      title: 'Cookie Policy | AhmadClothesFabrics Digital Experience',
+      description: 'Information about how AhmadClothesFabrics House uses cookies to enhance your luxury online shopping experience.',
       robots: 'index, follow'
     }
   },
@@ -159,9 +159,9 @@ const routes = [
     name: 'forgot-password',
     component: () => import('../views/ForgotPassword.vue'),
     meta: {
-      title: 'Recover Account Access | Ahmadcloths House',
-      description: 'Regain access to your Ahmadcloths House account and your fashion history.',
-      robots: 'index, follow'
+      title: 'Reset Access | AhmadClothesFabrics',
+      description: 'Recover your AhmadClothesFabrics account access safely.',
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -169,8 +169,8 @@ const routes = [
     name: 'reset-password',
     component: () => import('../views/ResetPassword.vue'),
     meta: {
-      title: 'Reset Security Code | Ahmadcloths House',
-      description: 'Set a new password for your Ahmadcloths House secure profile.',
+      title: 'Update Password | AhmadClothesFabrics',
+      description: 'Set a new secure password for your AhmadClothesFabrics boutique account.',
       robots: 'noindex, nofollow'
     }
   },
@@ -190,20 +190,20 @@ const routes = [
     name: 'track-order',
     component: () => import('../views/TrackOrder.vue'),
     meta: {
-      title: 'Track Your Couture | Ahmadcloths House Order Tracking',
-      description: 'Track your Ahmadcloths House order in real-time. View shipping status and estimated delivery for your luxury unstitched and pret pieces.',
+      title: 'Track Your Couture | AhmadClothesFabrics Real-time Tracking',
+      description: 'Track the delivery status of your luxury apparel from AhmadClothesFabrics House in real-time.',
       robots: 'noindex, nofollow'
     }
   },
   {
     path: '/dashboard',
-    name: 'user-dashboard',
+    name: 'dashboard',
     component: () => import('../views/UserDashboard.vue'),
-    meta: { 
-      requiresAuth: true,
-      title: 'My Fashion Profile | Ahmadcloths House Dashboard',
-      description: 'Personalized couture dashboard for Ahmadcloths House members to manage orders and saved items.',
-      robots: 'noindex, nofollow'
+    meta: {
+      title: 'Client Dashboard - AhmadClothesFabrics',
+      description: 'Manage your luxury orders and preferences at AhmadClothesFabrics.',
+      robots: 'noindex, nofollow',
+      requiresAuth: true
     }
   },
   {

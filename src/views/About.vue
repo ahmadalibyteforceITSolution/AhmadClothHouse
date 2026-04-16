@@ -4,8 +4,8 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>About Ahmadcloths house | Our Fashion Heritage</h2>
-         <p>Learn about our commitment to artisanal mastery, ethical fashion, and design innovation. Since 2026, Ahmadcloths house has been dedicated to using premium fabrics for our handcrafted luxury apparel and bridal couture.</p>
+         <h2>About AhmadClothesFabrics | Our Fashion Heritage</h2>
+         <p>Learn about our commitment to artisanal mastery, ethical fashion, and design innovation. Since 2026, AhmadClothesFabrics has been dedicated to using premium fabrics for our handcrafted luxury apparel and bridal couture.</p>
          <ul>
             <li>Artisan Fashion Heritage</li>
             <li>Master Designers</li>
@@ -27,7 +27,7 @@
 
          <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
             <div class="flex flex-col items-center gap-6 mb-8 animate-reveal">
-               <div class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">AHMADCLOTHS HOUSE</div>
+               <div class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">AHMADCLOTHESFABRICS</div>
                <div class="h-[1px] w-16 bg-[var(--primary-gold)]"></div>
                <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">ESTABLISHED
                   MMXXVI</span>
@@ -37,7 +37,7 @@
                class="text-6xl md:text-9xl font-light uppercase tracking-tighter leading-[0.9] text-white transition-all font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px] mb-12">
                The Heritage <br>
                <span class="text-[var(--primary-gold)] font-sans tracking-[0.2em] font-light ml-4 uppercase not-italic">of
-                  Ahmadcloths</span>
+                  AhmadClothesFabrics</span>
             </h1>
 
             <p
@@ -64,12 +64,12 @@
                   Born from Passion</h2>
                <p
                   class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light transition-all first-letter:text-5xl first-letter:font-playfair first-letter:text-[var(--primary-gold)] first-letter:mr-3 first-letter:float-left">
-                  Founded in 2026, Ahmadcloths house was materialized to bridge the void between mass-produced apparel and the
+                  Founded in 2026, AhmadClothesFabrics was materialized to bridge the void between mass-produced apparel and the
                   artisanal soul of traditional craftsmanship. We believe every moment deserves an ensemble that
                   mirrors your unique style and elegance. Our journey began with a single vision: to revive the intricate weaving and embroidery techniques that have defined our cultural heritage for generations.
                </p>
                <p class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light mt-8">
-                  At Ahmadcloths house, we don't just create clothes; we weave stories. Each piece in our collection is a testament to the dedication of our master artisans who spend hundreds of hours perfecting every stitch. From the selection of the finest silks and cottons to the final hand-finished detail, our commitment to quality is unwavering.
+                  At AhmadClothesFabrics, we don't just create clothes; we weave stories. Each piece in our collection is a testament to the dedication of our master artisans who spend hundreds of hours perfecting every stitch. From the selection of the finest silks and cottons to the final hand-finished detail, our commitment to quality is unwavering.
                </p>
             </div>
 

@@ -4,7 +4,7 @@
     <div class="bg-[var(--deep-burgundy)] text-white py-2 px-4 text-center overflow-hidden relative group">
       <div class="animate-marquee whitespace-nowrap inline-block">
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          AHMADCLOTHS HOUSE: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+          AHMADCLOTHESFABRICS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
         </span>
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
           FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
@@ -16,7 +16,7 @@
       <!-- Duplicate for seamless loop -->
       <div class="animate-marquee whitespace-nowrap inline-block absolute top-2 left-full">
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          AHMADCLOTHS HOUSE: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+          AHMADCLOTHESFABRICS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
         </span>
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
           FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
@@ -53,7 +53,7 @@
         <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-2 sm:px-4" @click="goToHome">
           <div
             class="text-base sm:text-2xl lg:text-3xl font-playfair tracking-[0.15em] sm:tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase leading-tight">
-            AHMADCLOTHS HOUSE</div>
+            AHMADCLOTHESFABRICS</div>
           <div
             class="logo-tagline font-playfair tracking-[0.4em] mt-1 text-[7px] opacity-60 uppercase text-[var(--primary-gold)] hidden sm:block">
             The House of Couture</div>
@@ -541,6 +541,7 @@ const goToHome = () => router.push('/')
 </script>
 
 <style scoped>
+@reference "tailwindcss";
 /* Banner */
 .luxury-banner {
   background: var(--deep-burgundy);

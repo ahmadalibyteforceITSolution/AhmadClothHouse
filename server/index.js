@@ -56,7 +56,7 @@ async function connectDB() {
     };
 
     cached.promise = mongoose.connect(process.env.MONGO_URI, opts).then((mongoose) => {
-      console.log("✅ Ahmadcloths MongoDB Connected (Serverless Cached)");
+      console.log("✅ AhmadClothesFabrics MongoDB Connected (Serverless Cached)");
       return mongoose;
     });
   }
@@ -82,7 +82,7 @@ app.use(async (req, res, next) => {
   }
 });
 
-app.get("/", (req, res) => res.send("Ahmadcloths Backend v1.0 running..."));
+app.get("/", (req, res) => res.send("AhmadClothesFabrics Backend v1.0 running..."));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/contact", require("./routes/contact"));
 app.use("/api/newsletter", require("./routes/newsletter"));

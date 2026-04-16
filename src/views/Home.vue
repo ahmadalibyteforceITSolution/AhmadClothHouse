@@ -5,9 +5,8 @@
          SEO CONTENT (VISUALLY HIDDEN)
     ═══════════════════════════════════════════ -->
     <section class="sr-only">
-      <h1>Ahmadcloths House | Best Unstitched Ladies Suits & Luxury Pret in Pakistan</h1>
-      <p>Discover the finest selection of handcrafted unstitched fabrics, luxury pret, and bridal couture at Ahmadcloths
-        House. Our premium boutique offers designer embroidered lawn, chiffon collections, and signature bridal wear. 
+      <h1>AhmadClothesFabrics | Best Unstitched Ladies Suits & Luxury Pret in Pakistan</h1>
+      <p>Discover the finest selection of handcrafted unstitched fabrics, luxury pret, and bridal couture at AhmadClothesFabrics. Our premium boutique offers designer embroidered lawn, chiffon collections, and signature bridal wear. 
         Top-ranked Pakistani designer suits inspired by Maria B, Warda, and Sana Safinaz. Experience premium fashion in Lahore with worldwide shipping.</p>
       <ul>
         <li>Premium Unstitched Ladies Suits</li>
