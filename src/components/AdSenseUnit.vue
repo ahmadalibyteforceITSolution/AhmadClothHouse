@@ -71,7 +71,6 @@ onMounted(() => {
 }
 /* Prevent layout shift when ad hasn't loaded */
 .adsbygoogle {
-  min-height: 90px;
   min-width: 250px;
 }
 </style>

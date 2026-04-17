@@ -41,9 +41,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
         <!-- Brand Info -->
         <div class="space-y-6">
-          <div class="flex flex-col">
-            <h2 class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase">AHMADCLOTHESHOUSE</h2>
-            <span class="text-[8px] tracking-[0.4em] font-bold text-[var(--primary-gold)] uppercase mt-1">The House of Couture</span>
+          <div class="flex flex-col cursor-pointer" @click="$router.push('/')">
+            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-32 h-32 object-contain -ml-4" />
           </div>
           <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">
             Crafting the finest artisanal apparel and luxury couture with passion and heritage.
@@ -88,6 +87,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import ahmadlogo from '../assets/fugibles.png'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const email = ref('')

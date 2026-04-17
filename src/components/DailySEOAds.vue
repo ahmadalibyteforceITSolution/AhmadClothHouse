@@ -1,36 +1,25 @@
 <template>
-  <div class="daily-seo-ads bg-black/95 border-b border-white/10 relative z-[1000]">
-    <!-- Top Announcement Bar (SEO Boost) -->
-    <div class="bg-[var(--primary-gold)]/10 text-center py-1.5 border-b border-white/5">
-      <p class="text-[8px] sm:text-[10px] font-bold text-amber-500 uppercase tracking-[0.4em] animate-pulse">
-        ✦ Premium Luxury Couture - Worldwide Shipping Available ✦
-      </p>
-    </div>
+  <div class="daily-seo-ads bg-black/95 border-b border-white/10 relative z-[1000] py-2 overflow-hidden">
+    <!-- Combined Announcement and Trending Bar -->
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-[8px] sm:text-[9px] font-black text-amber-500 uppercase tracking-[0.4em] animate-pulse whitespace-nowrap">
+          ✦ Premium Luxury Couture - Worldwide Shipping Available ✦
+        </span>
+      </div>
 
-    <!-- Top Ad Slot (Google AdSense) -->
-    <div class="max-w-7xl mx-auto px-4 py-1">
-      <AdSenseUnit 
-        slot="5432109876" 
-        format="horizontal" 
-        :full-width-responsive="true" 
-        wrapper-class="my-0 h-[10px] overflow-hidden flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity"
-      />
-    </div>
-
-    <!-- Daily Trending SEO Keywords Bar -->
-    <div class="trending-bar py-2 border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 flex items-center gap-4 overflow-hidden">
-        <span class="text-[9px] font-black text-amber-500 uppercase tracking-widest whitespace-nowrap border-r border-white/10 pr-4">
+      <div class="flex items-center gap-4 overflow-hidden flex-1 sm:justify-end">
+        <span class="text-[8px] font-black text-amber-500/60 uppercase tracking-widest whitespace-nowrap border-l border-white/10 pl-4 hidden md:block">
           Daily Trends:
         </span>
         <div class="keywords-marquee flex items-center gap-8 animate-marquee whitespace-nowrap">
           <a v-for="keyword in trendingKeywords" :key="keyword" :href="'/shop?search=' + keyword" 
-             class="text-[8px] sm:text-[10px] text-white/60 hover:text-amber-400 uppercase tracking-[0.2em] font-medium transition-colors">
+             class="text-[8px] sm:text-[9px] text-white/50 hover:text-amber-400 uppercase tracking-[0.2em] font-medium transition-colors">
             #{{ keyword }}
           </a>
           <!-- Duplicate for seamless loop -->
           <a v-for="keyword in trendingKeywords" :key="keyword + '-copy'" :href="'/shop?search=' + keyword" 
-             class="text-[8px] sm:text-[10px] text-white/60 hover:text-amber-400 uppercase tracking-[0.2em] font-medium transition-colors">
+             class="text-[8px] sm:text-[9px] text-white/50 hover:text-amber-400 uppercase tracking-[0.2em] font-medium transition-colors">
             #{{ keyword }}
           </a>
         </div>
@@ -41,7 +30,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import AdSenseUnit from './AdSenseUnit.vue'
 
 const trendingKeywords = ref([
   'Luxury Bridal Couture upto 500,000',
