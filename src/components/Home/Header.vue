@@ -80,12 +80,9 @@
 
         <!-- CENTER: Logo -->
         <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-2 sm:px-4" @click="goToHome">
-          <div
-            class="text-base sm:text-2xl lg:text-3xl font-playfair tracking-[0.15em] sm:tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase leading-tight">
-            AHMADCLOTHESHOUSE</div>
-          <div
-            class="logo-tagline font-playfair tracking-[0.4em] mt-1 text-[7px] opacity-60 uppercase text-[var(--primary-gold)] hidden sm:block">
-            The House of Couture</div>
+         
+          <img :src="ahmadlogo" alt="" class="w-24 h-24">
+            
         </div>
 
         <!-- RIGHT: Actions -->
@@ -483,7 +480,7 @@ import { useThemeStore } from '../../stores/theme'
 import { useRouter } from 'vue-router'
 import api from '../../api'
 import Swal from 'sweetalert2'
-
+import ahmadlogo from '../../assets/fugibles.png'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 const cart = useCartStore()
 const favorites = useFavoritesStore()
