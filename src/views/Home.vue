@@ -219,61 +219,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         WHY CHOOSE AHMADCLOTHS (SEO & Value Boost)
-    ═══════════════════════════════════════════ -->
-    <section class="why-choose-us py-32 bg-white dark:bg-[#080808] border-t border-black/5 dark:border-white/5">
-      <div class="max-w-7xl mx-auto px-8">
-        <div class="text-center mb-24 space-y-6">
-          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.6em] uppercase">THE AHMADCLOTHS ADVANTAGE</h3>
-          <h2 class="text-4xl md:text-6xl font-playfair italic text-gray-900 dark:text-white">Excellence in Every Detail</h2>
-          <div class="h-[1px] w-24 bg-[var(--primary-gold)] mx-auto mt-8"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-          <div class="space-y-6 group">
-            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
-              <font-awesome-icon icon="fa-solid fa-gem" class="text-xl" />
-            </div>
-            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Premium Quality</h4>
-            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-              We source only the finest fabrics from globally recognized textile mills, ensuring that every unstitched suit and ready-to-wear piece meets the highest standards of luxury and durability.
-            </p>
-          </div>
-
-          <div class="space-y-6 group">
-            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
-              <font-awesome-icon icon="fa-solid fa-palette" class="text-xl" />
-            </div>
-            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Unique Designs</h4>
-            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-              Our design team draws inspiration from both traditional Pakistani heritage and modern international fashion trends, creating unique patterns and silhouettes that you won't find anywhere else.
-            </p>
-          </div>
-
-          <div class="space-y-6 group">
-            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
-              <font-awesome-icon icon="fa-solid fa-leaf" class="text-xl" />
-            </div>
-            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Ethical Production</h4>
-            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-              We are committed to fair labor practices and sustainable sourcing. By supporting Ahmadcloths, you are supporting a community of master artisans and promoting responsible fashion.
-            </p>
-          </div>
-
-          <div class="space-y-6 group">
-            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
-              <font-awesome-icon icon="fa-solid fa-earth-americas" class="text-xl" />
-            </div>
-            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Global Reach</h4>
-            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-              With our secure worldwide shipping, the elegance of Pakistani couture is just a click away. We ensure that your luxury apparel reaches you safely and promptly, no matter where you are in the world.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="discovery" class="filter-section py-20 bg-white dark:bg-[#080808]">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8 border-b border-black/5 pb-8">
@@ -346,6 +291,61 @@
         </button>
       </div>
     </section>
+    <!-- ═══════════════════════════════════════════
+         WHY CHOOSE AHMADCLOTHS (SEO & Value Boost)
+    ═══════════════════════════════════════════ -->
+    <section class="why-choose-us py-32 bg-white dark:bg-[#080808] border-t border-black/5 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-24 space-y-6">
+          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.6em] uppercase">THE AHMADCLOTHS ADVANTAGE</h3>
+          <h2 class="text-4xl md:text-6xl font-playfair italic text-gray-900 dark:text-white">Excellence in Every Detail</h2>
+          <div class="h-[1px] w-24 bg-[var(--primary-gold)] mx-auto mt-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-gem" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Premium Quality</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              We source only the finest fabrics from globally recognized textile mills, ensuring that every unstitched suit and ready-to-wear piece meets the highest standards of luxury and durability.
+            </p>
+          </div>
+
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-palette" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Unique Designs</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              Our design team draws inspiration from both traditional Pakistani heritage and modern international fashion trends, creating unique patterns and silhouettes that you won't find anywhere else.
+            </p>
+          </div>
+
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-leaf" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Ethical Production</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              We are committed to fair labor practices and sustainable sourcing. By supporting Ahmadcloths, you are supporting a community of master artisans and promoting responsible fashion.
+            </p>
+          </div>
+
+          <div class="space-y-6 group">
+            <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center text-[var(--primary-gold)] group-hover:bg-[var(--primary-gold)] group-hover:text-white transition-all duration-700">
+              <font-awesome-icon icon="fa-solid fa-earth-americas" class="text-xl" />
+            </div>
+            <h4 class="text-lg font-playfair italic text-gray-900 dark:text-white">Global Reach</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              With our secure worldwide shipping, the elegance of Pakistani couture is just a click away. We ensure that your luxury apparel reaches you safely and promptly, no matter where you are in the world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Collaboration Slot: Sponsored Brands -->
     <SponsoredAd 
@@ -473,7 +473,7 @@
     <!-- ═══════════════════════════════════════════
          THE ESSENCE OF CRAFT
     ═══════════════════════════════════════════ -->
-    <section class="craft-essence-section py-40 bg-[var(--luxury-cream)] dark:bg-[#050505] overflow-hidden">
+    <!-- <section class="craft-essence-section py-40 bg-[var(--luxury-cream)] dark:bg-[#050505] overflow-hidden">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
           <div class="max-w-2xl space-y-6">
@@ -505,7 +505,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
     <section class="patron-stories py-40 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5">
