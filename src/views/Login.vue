@@ -52,7 +52,8 @@
             <label class="text-[8px] font-black uppercase text-stone-400 tracking-[0.4em] block pl-1">EMAIL
               ADDRESS</label>
             <input v-model="form.email" type="email" placeholder="HELLO@AHMADCLOTHS.COM" class="luxury-input lowercase"
-              required>
+              :class="{ 'border-red-500/60': errors.email }">
+            <p v-if="errors.email" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.email }}</p>
           </div>
 
           <div class="space-y-4 px-4">
@@ -61,7 +62,9 @@
               <router-link to="/forgot-password"
                 class="text-[8px] text-amber-600 font-black uppercase tracking-[0.3em] hover:text-amber-500 transition-colors">FORGOT?</router-link>
             </div>
-            <input v-model="form.password" type="password" placeholder="••••••••" class="luxury-input" required>
+            <input v-model="form.password" type="password" placeholder="••••••••" class="luxury-input"
+              :class="{ 'border-red-500/60': errors.password }">
+            <p v-if="errors.password" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.password }}</p>
           </div>
 
           <transition name="fade">
@@ -142,13 +145,30 @@ import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { googleTokenLogin, decodeCredential } from 'vue3-google-login'
 import Fugible1 from '../assets/ladies3.jpg'
+import * as yup from 'yup'
 
 const auth = useAuthStore()
 const router = useRouter()
 const route = useRoute()
 const form = reactive({ email: '', password: '' })
+const errors = reactive({ email: '', password: '' })
+
+const loginSchema = yup.object({
+  email: yup.string().email('INVALID EMAIL ADDRESS').required('EMAIL IS REQUIRED'),
+  password: yup.string().min(6, 'PASSWORD MUST BE AT LEAST 6 CHARACTERS').required('PASSWORD IS REQUIRED'),
+})
 
 const handleLogin = async () => {
+  errors.email = ''
+  errors.password = ''
+  try {
+    await loginSchema.validate(form, { abortEarly: false })
+  } catch (validationError) {
+    validationError.inner.forEach(err => {
+      errors[err.path] = err.message
+    })
+    return
+  }
   const success = await auth.login(form)
   if (success) {
     const redirectPath = route.query.redirect || '/'

@@ -44,8 +44,9 @@
             type="email" 
             placeholder="HELLO@AHMADCLOTHS.COM" 
             class="luxury-input-glass lowercase"
-            required
+            :class="{ 'border-red-500/60': emailError }"
           >
+          <p v-if="emailError" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ emailError }}</p>
         </div>
 
         <transition name="fade">
@@ -73,16 +74,29 @@ import { ref, onMounted } from 'vue'
 import api from '../api'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
+import * as yup from 'yup'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 const Fugible3 = "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1600&auto=format&fit=crop"
 
 const auth = useAuthStore()
 const email = ref('')
+const emailError = ref('')
 const loading = ref(false)
 const error = ref(null)
 const successMsg = ref(null)
 
+const forgotSchema = yup.object({
+  email: yup.string().email('INVALID EMAIL ADDRESS').required('EMAIL IS REQUIRED'),
+})
+
 const handleSubmit = async () => {
+  emailError.value = ''
+  try {
+    await forgotSchema.validate({ email: email.value })
+  } catch (validationError) {
+    emailError.value = validationError.message
+    return
+  }
   loading.value = true
   error.value = null
   try {

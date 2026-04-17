@@ -93,22 +93,27 @@
                class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 relative z-10">
                <div class="space-y-4">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">YOUR NAME</label>
-                  <input v-model="form.name" type="text" placeholder="E.G. JULIAN VANCE" class="luxury-input" required>
+                  <input v-model="form.name" type="text" placeholder="E.G. JULIAN VANCE" class="luxury-input"
+                    :class="{ 'border-red-500/60': errors.name }">
+                  <p v-if="errors.name" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.name }}</p>
                </div>
                <div class="space-y-4">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">EMAIL ADDRESS</label>
                   <input v-model="form.email" type="email" placeholder="HELLO@AHMADCLOTHS.COM"
-                     class="luxury-input lowercase" required>
+                     class="luxury-input lowercase" :class="{ 'border-red-500/60': errors.email }">
+                  <p v-if="errors.email" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.email }}</p>
                </div>
                <div class="col-span-1 md:col-span-2 space-y-4">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">SUBJECT</label>
                   <input v-model="form.subject" type="text" placeholder="BRIDAL / COUTURE / COLLECTION INQUIRY"
-                     class="luxury-input" required>
+                     class="luxury-input" :class="{ 'border-red-500/60': errors.subject }">
+                  <p v-if="errors.subject" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.subject }}</p>
                </div>
                <div class="col-span-1 md:col-span-2 space-y-4">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">YOUR STORY (MESSAGE)</label>
                   <textarea v-model="form.message" rows="6" placeholder="TELL US ABOUT YOUR STYLE REQUIREMENTS..."
-                     class="luxury-input min-h-[150px] resize-none" required></textarea>
+                     class="luxury-input min-h-[150px] resize-none" :class="{ 'border-red-500/60': errors.message }"></textarea>
+                  <p v-if="errors.message" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.message }}</p>
                </div>
 
                <div class="col-span-1 md:col-span-2 flex flex-col items-center md:items-start pt-10">
@@ -205,6 +210,7 @@ import { reactive, onMounted } from 'vue'
 import api from '../api'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
+import * as yup from 'yup'
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const auth = useAuthStore()
@@ -215,10 +221,19 @@ const form = reactive({
    message: ''
 })
 
+const errors = reactive({ name: '', email: '', subject: '', message: '' })
+
 const status = reactive({
    loading: false,
    success: false,
    message: ''
+})
+
+const contactSchema = yup.object({
+  name: yup.string().min(2, 'NAME MUST BE AT LEAST 2 CHARACTERS').required('NAME IS REQUIRED'),
+  email: yup.string().email('INVALID EMAIL ADDRESS').required('EMAIL IS REQUIRED'),
+  subject: yup.string().min(3, 'SUBJECT MUST BE AT LEAST 3 CHARACTERS').required('SUBJECT IS REQUIRED'),
+  message: yup.string().min(10, 'MESSAGE MUST BE AT LEAST 10 CHARACTERS').required('MESSAGE IS REQUIRED'),
 })
 
 const boutiques = [
@@ -255,6 +270,18 @@ const services = [
 ]
 
 const transmitIntent = async () => {
+   errors.name = ''
+   errors.email = ''
+   errors.subject = ''
+   errors.message = ''
+   try {
+     await contactSchema.validate(form, { abortEarly: false })
+   } catch (validationError) {
+     validationError.inner.forEach(err => {
+       errors[err.path] = err.message
+     })
+     return
+   }
    status.loading = true
    status.message = ''
 

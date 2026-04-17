@@ -50,19 +50,24 @@
         <form @submit.prevent="handleSignup" class="space-y-8">
           <div class="space-y-4 px-4">
             <label class="text-[8px] font-black uppercase text-stone-400 tracking-[0.4em] block pl-1">FULL NAME</label>
-            <input v-model="form.name" type="text" placeholder="YOUR NAME" class="luxury-input" required>
+            <input v-model="form.name" type="text" placeholder="YOUR NAME" class="luxury-input"
+              :class="{ 'border-red-500/60': errors.name }">
+            <p v-if="errors.name" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.name }}</p>
           </div>
 
           <div class="space-y-4 px-4">
             <label class="text-[8px] font-black uppercase text-stone-400 tracking-[0.4em] block pl-1">EMAIL
               ADDRESS</label>
             <input v-model="form.email" type="email" placeholder="HELLO@AHMADCLOTHS.COM" class="luxury-input lowercase"
-              required>
+              :class="{ 'border-red-500/60': errors.email }">
+            <p v-if="errors.email" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.email }}</p>
           </div>
 
           <div class="space-y-4 px-4">
             <label class="text-[8px] font-black uppercase text-stone-400 tracking-[0.4em] block pl-1">PASSWORD</label>
-            <input v-model="form.password" type="password" placeholder="••••••••" class="luxury-input" required>
+            <input v-model="form.password" type="password" placeholder="••••••••" class="luxury-input"
+              :class="{ 'border-red-500/60': errors.password }">
+            <p v-if="errors.password" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.password }}</p>
           </div>
 
           <div class="space-y-4 px-4">
@@ -142,23 +147,40 @@ import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { googleTokenLogin, decodeCredential } from 'vue3-google-login'
 import Fugible1 from '../assets/ladies3.jpg'
+import * as yup from 'yup'
 
 const isDev = import.meta.env.DEV
 const auth = useAuthStore()
 const router = useRouter()
 const route = useRoute()
 const form = reactive({ name: '', email: '', password: '', role: 'user' })
+const errors = reactive({ name: '', email: '', password: '' })
+
+const signupSchema = yup.object({
+  name: yup.string().min(2, 'NAME MUST BE AT LEAST 2 CHARACTERS').required('FULL NAME IS REQUIRED'),
+  email: yup.string().email('INVALID EMAIL ADDRESS').required('EMAIL IS REQUIRED'),
+  password: yup.string().min(8, 'PASSWORD MUST BE AT LEAST 8 CHARACTERS').required('PASSWORD IS REQUIRED'),
+})
 
 const handleSignup = async () => {
+  errors.name = ''
+  errors.email = ''
+  errors.password = ''
+  try {
+    await signupSchema.validate(form, { abortEarly: false })
+  } catch (validationError) {
+    validationError.inner.forEach(err => {
+      errors[err.path] = err.message
+    })
+    return
+  }
   const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
   if (!recaptchaResponse) {
     auth.error = 'Please complete the reCAPTCHA verification to proceed.';
     return;
   }
-  
   const payload = { ...form, recaptchaToken: recaptchaResponse };
   const success = await auth.signup(payload)
-  
   if (success) {
     const redirectPath = route.query.redirect || '/'
     router.push(redirectPath)

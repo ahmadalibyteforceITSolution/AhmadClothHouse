@@ -28,7 +28,9 @@
       <form @submit.prevent="handleSubmit" class="space-y-12">
         <div class="space-y-4">
           <label class="text-[8px] font-black uppercase text-stone-500 tracking-[0.4em] block pl-1">NEW PASSWORD</label>
-          <input v-model="password" type="password" placeholder="••••••••" class="luxury-input-glass" required>
+          <input v-model="password" type="password" placeholder="••••••••" class="luxury-input-glass"
+            :class="{ 'border-red-500/60': passwordError }">
+          <p v-if="passwordError" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ passwordError }}</p>
         </div>
 
         <transition name="fade">
@@ -55,15 +57,28 @@ import { useAuthStore } from '../stores/auth'
 import Fugible3 from '../assets/ladies3.jpg'
 import Fugible from '../assets/ladies.jpg'
 import Swal from 'sweetalert2'
+import * as yup from 'yup'
 
 const auth = useAuthStore()
 const router = useRouter()
 const route = useRoute()
 const password = ref('')
+const passwordError = ref('')
 const loading = ref(false)
 const error = ref(null)
 
+const resetSchema = yup.object({
+  password: yup.string().min(8, 'PASSWORD MUST BE AT LEAST 8 CHARACTERS').required('NEW PASSWORD IS REQUIRED'),
+})
+
 const handleSubmit = async () => {
+  passwordError.value = ''
+  try {
+    await resetSchema.validate({ password: password.value })
+  } catch (validationError) {
+    passwordError.value = validationError.message
+    return
+  }
   loading.value = true
   error.value = null
   try {
