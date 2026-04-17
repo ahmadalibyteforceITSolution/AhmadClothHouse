@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="sponsored-container py-10 px-6 md:px-20 bg-stone-50 dark:bg-[#050505] border-y border-[#d4af3711] overflow-hidden relative group">
+  <div v-if="visible" class="sponsored-container py-2 px-6 md:px-20 bg-stone-50 dark:bg-[#050505] border-y border-[#d4af3711] overflow-hidden relative group">
     <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#d4af3711_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
     
     <div class="max-w-7xl mx-auto relative z-10">

@@ -29,7 +29,7 @@
 
     <!-- Main Header -->
     <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
-      :class="isScrolled ? 'py-2 shadow-lg' : 'py-1'">
+      :class="isScrolled ? 'py-1 shadow-lg' : 'py-1'">
       <!-- Top Row: Actions Left, Logo Center, Actions Right -->
       <div class="w-full flex items-center justify-between">
         <!-- LEFT: Hamburger (mobile) + Search (desktop) -->
@@ -109,8 +109,8 @@
             </button>
           </div>
 
-          <!-- Google Translate (Always Show) - Bulletproof Container -->
-          <div id="google_translate_element" class="flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
+          <!-- Google Translate (Desktop) - Bulletproof Container -->
+          <div v-if="!isSmallMobile" id="google_translate_element" class="hidden sm:flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
 
           <!-- User Account Actions -->
           <template v-if="auth.isAuthenticated">
@@ -162,6 +162,9 @@
 
       <!-- Mobile Actions Row (Theme, Favorites, Cart, Login) - Below Logo -->
       <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
+        <!-- Google Translate (Mobile) -->
+        <div v-if="isSmallMobile" id="google_translate_element" class="flex items-center justify-center scale-90 transition-all duration-500"></div>
+
         <!-- Theme Toggle -->
         <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
           <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
@@ -564,16 +567,25 @@ const checkMobile = () => {
   isMobile.value = window.innerWidth < 1024
 }
 
+const isSmallMobile = ref(false)
+const checkSmallMobile = () => {
+  isSmallMobile.value = window.innerWidth < 640
+}
+
 const initGoogleTranslate = (retryCount = 0) => {
   if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
     const el = document.getElementById('google_translate_element')
     if (el && !el.innerHTML.trim()) {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-      return true;
+      try {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+        return true;
+      } catch (e) {
+        console.error('Error initializing Google Translate:', e);
+      }
     }
   }
 
@@ -581,6 +593,10 @@ const initGoogleTranslate = (retryCount = 0) => {
     setTimeout(() => initGoogleTranslate(retryCount + 1), 800);
   }
 }
+
+watch(isSmallMobile, () => {
+  setTimeout(() => initGoogleTranslate(0), 500);
+})
 
 const loadTranslateScript = () => {
   if (!document.querySelector('script[src*="translate.google.com"]')) {
@@ -602,7 +618,9 @@ watch(() => auth.isAuthenticated, () => {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', checkMobile)
+  window.addEventListener('resize', checkSmallMobile)
   checkMobile()
+  checkSmallMobile()
 
   // Load and Init
   loadTranslateScript();
@@ -612,6 +630,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', checkMobile)
+  window.removeEventListener('resize', checkSmallMobile)
 })
 
 const navItems = computed(() => {
