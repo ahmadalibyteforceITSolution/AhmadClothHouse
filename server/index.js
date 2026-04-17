@@ -17,15 +17,25 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
+const ALLOWED_ORIGINS = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://shop.bytely.ai",
+  "https://ahmadclotheshouse.vercel.app",
+  "https://ahmad-cloths.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "https://shop.bytely.ai",
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "https://ahmadclotheshouse.vercel.app",
-      "https://ahmad-cloths.vercel.app",
-    ],
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, Postman)
+      if (!origin) return callback(null, true);
+      // Allow any *.vercel.app domain (preview deployments + production)
+      if (ALLOWED_ORIGINS.includes(origin) || /\.vercel\.app$/.test(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: [
       "Content-Type",
