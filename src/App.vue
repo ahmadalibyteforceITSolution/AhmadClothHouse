@@ -494,7 +494,7 @@ const toggleListening = () => {
 }
 
 const showHeaderFooter = computed(() => {
-  const hideOn = ['login', 'signup', 'forgot-password', 'reset-password', 'admin-dashboard', 'user-dashboard', 'checkout']
+  const hideOn = ['login', 'signup', 'forgot-password', 'reset-password', 'admin-dashboard', 'dashboard', 'user-dashboard', 'checkout']
   return !hideOn.includes(route.name)
 })
 
