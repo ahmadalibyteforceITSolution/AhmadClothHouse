@@ -241,6 +241,7 @@
         </div>
       </nav>
     </div>
+    
 
     <!-- Search Bar Dropdown -->
     <transition name="search-drop">
