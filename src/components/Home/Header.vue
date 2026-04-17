@@ -48,29 +48,46 @@
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
           </button>
 
-          <!-- Support Dropdown -->
-          <div class="relative group hidden md:block ml-2">
-            <button class="flex items-center gap-2 text-[9px] font-black tracking-[0.15em] text-[var(--luxury-black)] dark:text-white/70 hover:text-[var(--primary-gold)] transition-all duration-300">
-              <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
-              <span class="uppercase">SUPPORT</span>
+          <!-- Luxury Concierge (Support) -->
+          <div class="relative group ml-1 sm:ml-4">
+            <button class="concierge-btn flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn">
+              <div class="relative">
+                <font-awesome-icon icon="fa-solid fa-headset" class="text-[10px] text-amber-500 animate-pulse-slow" />
+                <span class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-green-500 rounded-full border border-black animate-ping"></span>
+              </div>
+              <span class="text-[8px] sm:text-[10px] font-black tracking-[0.2em] text-amber-600 dark:text-amber-500 uppercase flex items-center gap-1">
+                Concierge
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] opacity-40 group-hover/btn:rotate-180 transition-transform duration-500" />
+              </span>
             </button>
-            <div class="dropdown-menu left-0 w-48 mt-2">
-              <div class="p-2">
-                <a href="tel:+923416887454" class="dropdown-item !py-3 flex items-center gap-3 hover:bg-[var(--luxury-cream)] dark:hover:bg-white/5 transition-colors">
-                  <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
-                  <span>0341 6887454</span>
-                </a>
-                <a href="tel:03334247601" class="dropdown-item !py-3 flex items-center gap-3 hover:bg-[var(--luxury-cream)] dark:hover:bg-white/5 transition-colors">
-                  <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
-                  <span>0333 4247601</span>
-                </a>
-                <a href="tel:03244902607" class="dropdown-item !py-3 flex items-center gap-3 hover:bg-[var(--luxury-cream)] dark:hover:bg-white/5 transition-colors">
-                  <font-awesome-icon icon="fa-solid fa-phone" class="text-[8px] text-[var(--primary-gold)]" />
-                  <span>0324 4902607</span>
-                </a>
-                <div class="border-t border-black/5 dark:border-white/5 mt-2 pt-2">
-                  <button @click="isQueryModalOpen = true" class="w-full py-3 bg-[var(--primary-gold)] text-black font-black text-[9px] uppercase tracking-widest hover:bg-black hover:text-white transition-all">
-                    Send Query
+            <div class="dropdown-menu left-0 w-64 mt-3 rounded-none border-amber-500/10 shadow-[0_20px_50px_rgba(212,175,55,0.15)] overflow-hidden">
+              <div class="bg-gradient-to-b from-amber-50/50 to-white dark:from-amber-950/20 dark:to-[#0A0A0A] p-5">
+                <p class="text-[8px] font-black text-amber-600/50 uppercase tracking-[0.4em] mb-4">Personal Styling & Help</p>
+                <div class="space-y-1">
+                  <a href="https://wa.me/923416887454" target="_blank" class="flex items-center justify-between p-3 bg-white dark:bg-white/5 border border-amber-500/10 hover:border-amber-500/40 transition-all group/wa">
+                    <div class="flex items-center gap-3">
+                      <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-green-500 text-sm" />
+                      <div>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-[#111] dark:text-white">WhatsApp Live</p>
+                        <p class="text-[8px] text-stone-400">Response in < 5 mins</p>
+                      </div>
+                    </div>
+                    <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[8px] text-amber-500 -translate-x-2 opacity-0 group-hover/wa:translate-x-0 group-hover/wa:opacity-100 transition-all" />
+                  </a>
+                  
+                  <a href="tel:+923416887454" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
+                    <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
+                    <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0341 6887454</span>
+                  </a>
+                  <a href="tel:03334247601" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
+                    <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
+                    <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0333 4247601</span>
+                  </a>
+                </div>
+                
+                <div class="mt-4 pt-4 border-t border-amber-500/10">
+                  <button @click="isQueryModalOpen = true" class="w-full py-3 bg-[#111] dark:bg-amber-500 text-white dark:text-black font-black text-[9px] uppercase tracking-[0.3em] hover:bg-amber-600 transition-all">
+                    Leave a Message
                   </button>
                 </div>
               </div>
@@ -1056,6 +1073,26 @@ const goToHome = () => router.push('/')
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.concierge-btn {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.concierge-btn:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-1px);
 }
 
 .main-header {
