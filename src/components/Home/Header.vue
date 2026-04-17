@@ -671,6 +671,7 @@ const navItems = computed(() => {
     }
   })
   items.push({ name: 'About Us', path: '/about', products: [] })
+  items.push({ name: 'Blog', path: '/blog', products: [] })
   items.push({ name: 'Contact Us', path: '/contact', products: [] })
   return items
 })

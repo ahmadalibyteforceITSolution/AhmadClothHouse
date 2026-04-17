@@ -207,6 +207,27 @@ const routes = [
     }
   },
   {
+    path: '/blog',
+    name: 'blog-list',
+    component: () => import('../views/BlogList.vue'),
+    meta: {
+      title: 'Fashion Blog | Pakistani Designer Trends & Style Guides | AhmadClothesHouse',
+      description: 'Read the latest about Pakistani fashion, bridal trends, lawn collection guides, and luxury couture styling at the AhmadClothesHouse blog.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/blog/:slug',
+    name: 'blog-detail',
+    component: () => import('../views/BlogDetail.vue'),
+    props: true,
+    meta: {
+      title: 'Luxury Fashion Insights | AhmadClothesHouse Blog',
+      description: 'Deep dive into the world of Pakistani craftsmanship, high-end design, and luxury fashion storytelling.',
+      robots: 'index, follow'
+    }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'notfound',
     component: () => import('../views/NotFound.vue'),
