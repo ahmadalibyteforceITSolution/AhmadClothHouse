@@ -22,7 +22,7 @@
       <section class="relative h-[80vh] min-h-[650px] overflow-hidden bg-black flex items-center px-6">
          <!-- Dynamic Background Artifact -->
          <div class="absolute inset-0 opacity-40 scale-105 animate-slow-zoom">
-            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1800&auto=format&fit=crop"
+            <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png"
                class="w-full h-full object-cover brightness-50" alt="AHMADCLOTHESFABRICS Fashion Heritage - Artisan Weaving Tradition" />
          </div>
          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/60 pointer-events-none">
@@ -101,7 +101,7 @@
             <div
                class="absolute inset-0 border border-white/10 group-hover:border-[var(--primary-gold)]/20 transition-colors duration-700 z-20 pointer-events-none m-8">
             </div>
-            <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&auto=format&fit=crop"
+            <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
                class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                alt="Artisan Tailoring at AHMADCLOTHESFABRICS Studio">
          </div>
@@ -139,7 +139,7 @@
       <!-- Artisan Spotlight -->
       <section class="py-40 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
          <div class="order-2 lg:order-1 relative aspect-square group overflow-hidden animate-reveal-left">
-            <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1200&auto=format&fit=crop"
+            <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                alt="Artisan Craftsmanship">
          </div>
@@ -231,7 +231,7 @@
            GLOBAL SOURCING (NEW)
       ═══════════════════════════════════════════ -->
       <section class="relative py-40 bg-black overflow-hidden">
-         <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1800&auto=format&fit=crop')] bg-cover bg-center"></div>
+         <div class="absolute inset-0 opacity-20 bg-[url('C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png')] bg-cover bg-center"></div>
          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
          
          <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">

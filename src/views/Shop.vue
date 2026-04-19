@@ -232,14 +232,12 @@ const displayTitleParts = computed(() => {
 
 const headerImage = computed(() => {
   const mapping = {
-    'unstitched lawn': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=1600&auto=format&fit=crop',
-    'unstitched silk': 'https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=1600&auto=format&fit=crop',
-    'unstitched chiffon': 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1600&auto=format&fit=crop',
-    'unstitched bridal': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=1600&auto=format&fit=crop',
-    'unstitched khaddar': 'https://images.unsplash.com/photo-1445205170230-053b830c6050?w=1600&auto=format&fit=crop',
-    'unstitched velvet': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=1600&auto=format&fit=crop'
+    'unstitched-lawn': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png',
+    'pret': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png',
+    'bridal': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png',
+    'm.print': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png'
   }
-  return mapping[category.value?.toLowerCase()] || 'https://images.unsplash.com/photo-1521335629791-ce4aec67dd53?w=1600&auto=format&fit=crop'
+  return mapping[category.value?.toLowerCase()] || 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png'
 })
 
 const uniqueCategories = computed(() => {

@@ -24,140 +24,195 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
-         CINEMATIC HERO SECTION
+         GSAP LUXURY HERO SECTION
     ═══════════════════════════════════════════ -->
-    <section class="hero-cinematic h-screen relative overflow-hidden bg-black" aria-label="Hero">
-      <!-- Image Slider -->
-      <div class="absolute inset-0">
-        <transition-group name="fade-scale">
-          <div v-for="(slide, i) in heroSlides" :key="i" v-show="currentHeroIndex === i"
-            class="absolute inset-0 w-full h-full">
-            <div class="absolute inset-0 bg-black/40 z-10"></div>
-            <img :src="slide.image" :alt="slide.title1" class="w-full h-full object-cover animate-ken-burns" />
-          </div>
-        </transition-group>
-      </div>
 
-      <!-- Content Overlay -->
-      <div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-6">
-        <transition name="slide-up" mode="out-in">
-          <div :key="currentHeroIndex" class="space-y-6 max-w-4xl">
-            <div class="hero-label-wrap flex items-center justify-center gap-4 animate-fade-in">
-              <span class="h-[1px] w-12 bg-[var(--primary-gold)]"></span>
-              <span class="text-[10px] sm:text-xs font-bold tracking-[0.5em] text-[var(--primary-gold)] uppercase">
-                {{ heroSlides[currentHeroIndex].subtitle }}
-              </span>
-              <span class="h-[1px] w-12 bg-[var(--primary-gold)]"></span>
+    <!-- Custom Magnetic Cursor -->
+    <div ref="cursorOuter" class="gsap-cursor-outer" aria-hidden="true"></div>
+    <div ref="cursorInner" class="gsap-cursor-inner" aria-hidden="true"></div>
+
+    <section
+      ref="heroSection"
+      class="gsap-hero min-h-screen relative flex items-center justify-center overflow-hidden"
+      aria-label="Hero"
+      @mousemove="onHeroMouseMove"
+      :style="{ backgroundImage: `url(${ShopInterior})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+    >
+      <!-- Premium Dark Overlay for readability -->
+      <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-[1]"></div>
+      
+      <!-- Ambient Glow Background -->
+      <div class="hero-ambient-bg z-[2]"></div>
+
+      <!-- Floating Particles Canvas -->
+      <canvas ref="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-[1]"></canvas>
+
+      <!-- Mouse Spotlight -->
+      <div ref="spotlight" class="hero-spotlight pointer-events-none z-[2]"></div>
+
+      <!-- Golden Grain Overlay -->
+      <div class="hero-grain-overlay pointer-events-none z-[3]"></div>
+
+      <!-- Main Grid -->
+      <div class="max-w-[1700px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+
+        <!-- Collage Column -->
+        <div ref="collageCol" class="lg:col-span-7 order-2 lg:order-1 relative">
+          <div class="hero-orb-behind"></div>
+
+          <div class="collage-grid grid grid-cols-2 gap-4 lg:gap-6 relative z-10">
+            <!-- Left Column -->
+            <div class="space-y-4 lg:space-y-6">
+              <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage1" alt="Luxury Pakistani Suit"
+                  class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <div class="collage-gold-border"></div>
+              </div>
+              <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.8] cursor-zoom-in">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage3" alt="Intricate Embroidery"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <div class="collage-gold-border"></div>
+              </div>
             </div>
-
-            <h2 class="hero-main-title font-playfair text-white leading-tight">
-              <span class="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl italic font-light">
-                {{ heroSlides[currentHeroIndex].title1 }}
-              </span>
-              <span
-                class="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold -mt-4 sm:-mt-8 tracking-tighter">
-                {{ heroSlides[currentHeroIndex].titleHighlight }}
-              </span>
-            </h2>
-
-            <p
-              class="hero-description text-white/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light tracking-wide leading-relaxed animate-fade-in-delayed">
-              {{ heroSlides[currentHeroIndex].description }}
-            </p>
-
-            <div
-              class="hero-cta-wrap flex flex-col sm:flex-row items-center justify-center gap-6 pt-10 animate-fade-in-delayed">
-              <button @click="scrollToDiscovery"
-                class="group relative px-12 py-5 bg-white text-black text-[10px] font-bold tracking-[0.3em] uppercase overflow-hidden transition-all duration-500 hover:text-white">
-                <span class="relative z-10">EXPLORE COLLECTION</span>
-                <div
-                  class="absolute inset-0 bg-[var(--deep-burgundy)] translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                </div>
-              </button>
-
-              <button @click="router.push('/about')"
-                class="group px-12 py-5 border border-white/30 text-white text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-500">
-                OUR HERITAGE
-              </button>
+            <!-- Right Column -->
+            <div class="space-y-4 lg:space-y-6 pt-12 lg:pt-20">
+              <div ref="colImg1" @click="openZoom(HeroCollage2)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1.2/1] cursor-zoom-in">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage2" alt="Modern Luxury Collection"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <div class="collage-gold-border"></div>
+              </div>
+              <div ref="colImg3" @click="openZoom(HeroCollage4)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage4" alt="Premium Fabrics"
+                  class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <div class="collage-gold-border"></div>
+              </div>
             </div>
           </div>
-        </transition>
-      </div>
 
-      <!-- Navigation Controls -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex items-center gap-8">
-        <button @click="prevHero" class="text-white/40 hover:text-[var(--primary-gold)] transition-colors p-2">
-          <font-awesome-icon icon="fa-solid fa-chevron-left" class="text-sm" />
-        </button>
-
-        <div class="flex gap-3">
-          <div v-for="(_, i) in heroSlides" :key="i" @click="goToSlide(i)"
-            class="h-1 transition-all duration-500 cursor-pointer"
-            :class="currentHeroIndex === i ? 'w-12 bg-[var(--primary-gold)]' : 'w-6 bg-white/20'"></div>
+          <!-- Floating badge -->
+          <div ref="floatingBadge" class="hero-floating-badge hidden lg:flex">
+            <div class="hero-badge-ring"></div>
+            <div class="hero-badge-content">
+              <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-widest uppercase">EST.</span>
+              <span class="text-white text-lg font-playfair font-bold leading-none">2026</span>
+              <span class="text-gray-400 text-[7px] font-bold tracking-widest uppercase">LAHORE</span>
+            </div>
+          </div>
         </div>
 
-        <button @click="nextHero" class="text-white/40 hover:text-[var(--primary-gold)] transition-colors p-2">
-          <font-awesome-icon icon="fa-solid fa-chevron-right" class="text-sm" />
-        </button>
+        <!-- Text Column -->
+        <div ref="textCol" class="lg:col-span-5 space-y-8 order-1 lg:order-2 text-center lg:text-left z-10">
+
+          <!-- Label -->
+          <div ref="heroLabel" class="flex items-center justify-center lg:justify-start gap-4">
+            <span class="h-[1px] w-8 bg-[var(--primary-gold)] hero-line-left"></span>
+            <span class="text-[10px] font-bold tracking-[0.6em] text-[var(--primary-gold)] uppercase hero-eyebrow">
+              AhmadCloths Luxe
+            </span>
+            <span class="h-[1px] w-8 bg-[var(--primary-gold)] hero-line-right"></span>
+          </div>
+
+          <!-- Split Title -->
+          <h1 ref="heroTitle" class="hero-main-title font-playfair text-white dark:text-white leading-[0.9] overflow-hidden drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+            <span class="hero-char-line block">
+              <span
+                v-for="(ch, i) in titleLine1"
+                :key="'t'+i"
+                class="hero-char inline-block"
+                :style="ch === ' ' ? 'margin-right:0.5rem; font-size:clamp(3rem,8vw,7rem); font-style:italic; font-weight:300;' : 'font-size:clamp(3rem,8vw,7rem); font-style:italic; font-weight:300;'"
+              >{{ ch === ' ' ? '\u00a0' : ch }}</span>
+            </span>
+            <span class="hero-char-line block -mt-2">
+              <span
+                v-for="(ch, i) in titleLine2"
+                :key="'c'+i"
+                class="hero-char inline-block"
+                :style="'font-size:clamp(3.5rem,10vw,9rem); font-weight:900; letter-spacing:-0.04em; color:var(--primary-gold); text-shadow: 0 0 40px rgba(212,175,55,0.3);'"
+              >{{ ch === ' ' ? '\u00a0' : ch }}</span>
+            </span>
+          </h1>
+
+          <!-- Ornament -->
+          <div ref="heroOrnament" class="flex items-center justify-center lg:justify-start gap-3">
+            <span class="w-8 h-[1px] bg-[var(--primary-gold)]/40"></span>
+            <span class="text-[var(--primary-gold)]/60 text-lg">✦</span>
+            <span class="w-8 h-[1px] bg-[var(--primary-gold)]/40"></span>
+          </div>
+
+          <!-- Description -->
+          <p ref="heroDesc" class="hero-description text-white dark:text-white text-sm sm:text-base max-w-md mx-auto lg:mx-0 font-medium tracking-wide leading-relaxed drop-shadow-md">
+            A masterpiece of hand-embroidered artisanal couture. Discover the soul of traditional Pakistani textiles revived for the modern woman.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div ref="heroCta" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-4">
+            <button
+              ref="ctaPrimary"
+              @click="scrollToDiscovery"
+              class="gsap-btn-primary group relative overflow-hidden"
+            >
+              <span class="gsap-btn-fill"></span>
+              <span class="relative z-10 flex items-center gap-3">
+                EXPLORE COLLECTION
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </span>
+            </button>
+
+            <button
+              ref="ctaSecondary"
+              @click="router.push('/about')"
+              class="gsap-btn-secondary group relative"
+            >
+              <span class="gsap-btn-ring"></span>
+              OUR HERITAGE
+            </button>
+          </div>
+
+          <!-- Social Proof -->
+          <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-8 border-t border-black/5 dark:border-white/5">
+            <div class="flex -space-x-2.5">
+              <img v-for="i in 3" :key="i"
+                :src="`https://i.pravatar.cc/100?u=ahmad${i}`"
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
+            </div>
+            <div>
+              <div class="flex gap-0.5 mb-0.5">
+                <span v-for="s in 5" :key="s" class="text-[var(--primary-gold)] text-[10px]">★</span>
+              </div>
+              <span class="text-[9px] font-bold tracking-widest uppercase text-gray-400">Trusted by 10k+ Patrons</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="absolute right-12 bottom-12 z-30 hidden lg:flex flex-col items-center gap-6">
-        <span class="text-[8px] font-bold tracking-[0.5em] text-white/30 uppercase vertical-text">SCROLL TO
-          EXPLORE</span>
-        <div class="w-[1px] h-20 bg-white/10 relative overflow-hidden">
+      <div ref="scrollIndicator" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-3">
+        <span class="text-[8px] font-bold tracking-[0.4em] uppercase text-gray-400">SCROLL</span>
+        <div class="w-[1px] h-14 bg-black/10 dark:bg-white/10 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1/2 bg-[var(--primary-gold)] animate-scroll-line"></div>
         </div>
       </div>
 
-      <!-- Floating Offer Tooltip Ad (Right Side) -->
+      <!-- Floating Discount Badge -->
       <div v-if="featuredDiscountProduct"
-        class="absolute right-16 top-[45%] -translate-y-1/2 z-[100] hidden xl:block animate-fade-in-delayed">
-        <div class="relative group cursor-pointer" @click="goToDetail(featuredDiscountProduct)">
-          <!-- Decorative Frame -->
-          <div
-            class="absolute -inset-8 border border-[var(--primary-gold)]/20 rounded-full animate-spin-slow pointer-events-none">
-          </div>
-          <div
-            class="absolute -inset-4 border border-[var(--primary-gold)]/10 rounded-full animate-spin-slow-reverse pointer-events-none">
-          </div>
-
-          <div
-            class="w-48 h-48 bg-white/5 backdrop-blur-3xl rounded-full border border-white/10 p-2 overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-1000">
-            <img :src="featuredDiscountProduct.image"
-              class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-1000">
-            <!-- Content Overlay -->
-            <div
-              class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-black/60 group-hover:bg-black/30 transition-colors">
-              <span
-                class="text-[var(--primary-gold)] text-[9px] font-black tracking-[0.4em] uppercase mb-1 drop-shadow-lg">LIMITED
-                OFFER</span>
-              <h3
-                class="text-white text-[10px] font-bold uppercase tracking-[0.2em] line-clamp-2 leading-tight px-3 drop-shadow-md group-hover:scale-110 transition-transform">
-                {{ featuredDiscountProduct.name }}</h3>
-              <div
-                class="mt-3 bg-[var(--deep-burgundy)] text-white px-4 py-1.5 rounded-full text-[10px] font-black shadow-lg shadow-black/50 border border-white/10 animate-pulse">
-                -{{ featuredDiscountProduct.discount }}% OFF
+        class="absolute right-12 bottom-12 z-[100] hidden xl:block"
+        ref="discountBubble"
+      >
+        <div class="relative group cursor-pointer gsap-discount-bubble" @click="goToDetail(featuredDiscountProduct)">
+          <div class="w-28 h-28 rounded-full border border-[var(--primary-gold)]/30 p-1 overflow-hidden shadow-2xl group-hover:scale-105 transition-all bg-black/20 backdrop-blur-2xl">
+            <img :src="featuredDiscountProduct.image" class="w-full h-full object-cover rounded-full">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 bg-black/50 rounded-full">
+              <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-[0.3em] uppercase mb-0.5">HOT</span>
+              <div class="bg-[var(--deep-burgundy)] text-white px-2 py-0.5 rounded-full text-[8px] font-black animate-pulse">
+                -{{ featuredDiscountProduct.discount }}%
               </div>
             </div>
           </div>
-
-          <!-- Tooltip Label (Always Visible) -->
-          <div
-            class="absolute right-full mr-12 top-1/2 -translate-y-1/2 whitespace-nowrap opacity-100 translate-x-0 transition-all duration-700 pointer-events-none">
-            <div
-              class="bg-black/80 backdrop-blur-md border-r-4 border-r-[var(--primary-gold)] px-8 py-5 shadow-2xl relative animate-reveal-left">
-              <!-- Diamond icon -->
-              <div class="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-[var(--primary-gold)] rotate-45"></div>
-              <p class="text-[9px] font-black uppercase tracking-[0.6em] text-[var(--primary-gold)] mb-1">Ahmadcloths
-                Luxe</p>
-              <p class="text-white text-xs font-bold uppercase tracking-[0.3em]">Signature Collection Sale</p>
-              <div class="flex items-center gap-3 mt-3">
-                <span class="h-[1px] w-6 bg-white/30"></span>
-                <span class="text-white/60 text-[8px] font-bold tracking-[0.2em]">VIEW PRODUCT DETAILS</span>
-              </div>
-            </div>
-          </div>
+          <span class="absolute -top-3 -right-3 w-7 h-7 bg-[var(--primary-gold)] rounded-full flex items-center justify-center text-black text-[8px] font-black animate-bounce">✦</span>
         </div>
       </div>
     </section>
@@ -615,6 +670,26 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         IMAGE ZOOM MODAL (Lightbox)
+    ═══════════════════════════════════════════ -->
+    <transition name="zoom">
+      <div v-if="isZoomOpen" class="fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-12 cursor-zoom-out" @click="closeZoom">
+        <div class="absolute inset-0 bg-black/95 backdrop-blur-3xl"></div>
+        
+        <!-- Luxury Close Button -->
+        <button class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[111]">
+          <font-awesome-icon icon="fa-solid fa-times" class="text-3xl" />
+        </button>
+
+        <img :src="zoomImg" class="max-w-full max-h-full object-contain relative z-10 shadow-3xl animate-zoom-in" alt="Zoomed View">
+        
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-[0.6em] text-[var(--primary-gold)] uppercase animate-fade-in">
+          AhmadCloth Luxe Gallery
+        </div>
+      </div>
+    </transition>
+
   </div>
 </template>
 
@@ -623,29 +698,272 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 
-import Fugibles from "../assets/ladies.jpg"
-import Fugibles1 from "../assets/ladies3.jpg"
+import Fugibles from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
+import Fugibles1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
+import Fugibles2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png"
+import Fugibles3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png"
+import Fugibles4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png"
 
-import Fugibles2 from "../assets/ladies1.jpg"
-import Fugibles3 from "../assets/ladies2.jpg"
-import Fugibles4 from "../assets/ladies1.jpg"
+import HeroCollage1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png"
+import HeroCollage2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
+import HeroCollage3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
+import HeroCollage4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png"
 
-import Highlight1 from "../assets/highlight_1.png"
-import Highlight2 from "../assets/highlight_2.png"
-import Highlight3 from "../assets/highlight_3.png"
-import Highlight4 from "../assets/highlight_4.png"
+import Highlight1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png"
+import Highlight2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
+import Highlight3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
+import Highlight4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png"
+import ShopInterior from "../assets/hero/shop_interior.png"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import SponsoredAd from '../components/Home/SponsoredAd.vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
-import JewelrySponsored from '../assets/jewelry_sponsored.png'
+import JewelrySponsored from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png"
+
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+// ── Title character arrays for split-text ───────────────────
+const titleLine1 = 'TIMELESS'.split('')
+const titleLine2 = 'COUTURE'.split('')
+
+// ── GSAP Refs ──────────────────────────────────────────
+const heroSection     = ref(null)
+const cursorOuter    = ref(null)
+const cursorInner    = ref(null)
+const spotlight      = ref(null)
+const particleCanvas = ref(null)
+const collageCol     = ref(null)
+const colImg0        = ref(null)
+const colImg1        = ref(null)
+const colImg2        = ref(null)
+const colImg3        = ref(null)
+const textCol        = ref(null)
+const heroLabel      = ref(null)
+const heroTitle      = ref(null)
+const heroOrnament   = ref(null)
+const heroDesc       = ref(null)
+const heroCta        = ref(null)
+const heroSocial     = ref(null)
+const ctaPrimary     = ref(null)
+const ctaSecondary   = ref(null)
+const floatingBadge  = ref(null)
+const discountBubble = ref(null)
+const scrollIndicator = ref(null)
+const isZoomOpen = ref(false)
+const zoomImg = ref('')
 
 const isExpanded = ref(false)
 const isExiting = ref(false)
 const currentHeroIndex = ref(0)
 const scrollY = ref(0)
 const heroTimer = ref(null)
+
+const openZoom = (img) => {
+  zoomImg.value = img
+  isZoomOpen.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+const closeZoom = () => {
+  isZoomOpen.value = false
+  document.body.style.overflow = ''
+}
+
+// ── Particle System ────────────────────────
+function initParticles() {
+  const canvas = particleCanvas.value
+  if (!canvas) return
+  const ctx = canvas.getContext('2d')
+  let particles = []
+  let animId
+
+  function resize() {
+    canvas.width = canvas.offsetWidth
+    canvas.height = canvas.offsetHeight
+  }
+  resize()
+  window.addEventListener('resize', resize)
+
+  const GOLD = ['rgba(212,175,55,', 'rgba(255,215,100,', 'rgba(184,148,34,']
+  for (let i = 0; i < 55; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.6 + 0.4,
+      alpha: Math.random() * 0.5 + 0.1,
+      speed: Math.random() * 0.35 + 0.08,
+      drift: (Math.random() - 0.5) * 0.3,
+      color: GOLD[Math.floor(Math.random() * GOLD.length)]
+    })
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    particles.forEach(p => {
+      p.y -= p.speed
+      p.x += p.drift
+      p.alpha += (Math.random() - 0.5) * 0.01
+      p.alpha = Math.max(0.05, Math.min(0.7, p.alpha))
+      if (p.y < -10) { p.y = canvas.height + 5; p.x = Math.random() * canvas.width }
+      ctx.beginPath()
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+      ctx.fillStyle = p.color + p.alpha + ')'
+      ctx.fill()
+    })
+    animId = requestAnimationFrame(animate)
+  }
+  animate()
+  return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize) }
+}
+
+// ── Mouse Cursor Effect ────────────────────────
+let cursorRaf = null
+let mouseX = 0, mouseY = 0
+let outerX = 0, outerY = 0
+
+function initCursor() {
+  const outer = cursorOuter.value
+  const inner = cursorInner.value
+  if (!outer || !inner) return
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX
+    mouseY = e.clientY
+    gsap.to(inner, { x: mouseX, y: mouseY, duration: 0.12, ease: 'power2.out' })
+  })
+
+  function lerp(a, b, t) { return a + (b - a) * t }
+  function loop() {
+    outerX = lerp(outerX, mouseX, 0.09)
+    outerY = lerp(outerY, mouseY, 0.09)
+    gsap.set(outer, { x: outerX, y: outerY })
+    cursorRaf = requestAnimationFrame(loop)
+  }
+  loop()
+
+  setTimeout(() => {
+    const magnetEls = document.querySelectorAll('.gsap-btn-primary, .gsap-btn-secondary')
+    magnetEls.forEach(el => {
+      el.addEventListener('mouseenter', () => gsap.to(outer, { scale: 2.5, duration: 0.3, ease: 'back.out(2)' }))
+      el.addEventListener('mouseleave', () => gsap.to(outer, { scale: 1, duration: 0.3, ease: 'back.out(2)' }))
+    })
+
+    const imgEls = document.querySelectorAll('.gsap-collage-item')
+    imgEls.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        gsap.to(outer, { scale: 1.8, borderColor: 'rgba(212,175,55,1)', duration: 0.3 })
+        gsap.to(inner, { scale: 0.3, backgroundColor: 'rgba(212,175,55,1)', duration: 0.3 })
+      })
+      el.addEventListener('mouseleave', () => {
+        gsap.to(outer, { scale: 1, borderColor: 'rgba(212,175,55,0.6)', duration: 0.3 })
+        gsap.to(inner, { scale: 1, backgroundColor: 'rgba(212,175,55,1)', duration: 0.3 })
+      })
+    })
+  }, 1000)
+}
+
+function onHeroMouseMove(e) {
+  if (!spotlight.value || !heroSection.value) return
+  const rect = heroSection.value.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  gsap.to(spotlight.value, {
+    left: x + 'px', top: y + 'px',
+    duration: 0.6, ease: 'power2.out'
+  })
+}
+
+// ── Hero Animation Timeline ────────────────────
+function initHeroGSAP() {
+  const chars = heroTitle.value?.querySelectorAll('.hero-char')
+  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } })
+
+  gsap.set([collageCol.value, colImg0.value, colImg1.value, colImg2.value, colImg3.value], { opacity: 0, y: 60 })
+  gsap.set(heroLabel.value, { opacity: 0, y: 20 })
+  gsap.set(chars, { y: 120, opacity: 0 })
+  gsap.set(heroOrnament.value, { opacity: 0, scaleX: 0 })
+  gsap.set(heroDesc.value, { opacity: 0, y: 30 })
+  gsap.set(heroCta.value, { opacity: 0, y: 30 })
+  gsap.set(heroSocial.value, { opacity: 0, y: 20 })
+  gsap.set(scrollIndicator.value, { opacity: 0, y: 10 })
+  if (floatingBadge.value) gsap.set(floatingBadge.value, { opacity: 0, scale: 0.7, rotation: -15 })
+  if (discountBubble.value) gsap.set(discountBubble.value, { opacity: 0, scale: 0.7 })
+
+  tl.to(heroLabel.value, { opacity: 1, y: 0, duration: 0.8 })
+    .to(chars, { y: 0, opacity: 1, duration: 0.9, stagger: 0.045, ease: 'power4.out' }, '-=0.4')
+    .to(heroOrnament.value, { opacity: 1, scaleX: 1, duration: 0.7, ease: 'power3.out' }, '-=0.4')
+    .to(heroDesc.value, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+    .to(heroCta.value, { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
+    .to(heroSocial.value, { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
+    .to(colImg0.value, { opacity: 1, y: 0, duration: 1.1 }, 0.2)
+    .to(colImg1.value, { opacity: 1, y: 0, duration: 1.1 }, 0.35)
+    .to(colImg2.value, { opacity: 1, y: 0, duration: 1.1 }, 0.5)
+    .to(colImg3.value, { opacity: 1, y: 0, duration: 1.1 }, 0.65)
+    .to(scrollIndicator.value, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+
+  if (floatingBadge.value) {
+    tl.to(floatingBadge.value, { opacity: 1, scale: 1, rotation: 0, duration: 1, ease: 'elastic.out(1, 0.7)' }, '-=0.5')
+    gsap.to(floatingBadge.value, { y: -10, duration: 2.5, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2 })
+  }
+
+  if (discountBubble.value) {
+    tl.to(discountBubble.value, { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.5)' }, '-=0.3')
+  }
+
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY
+    if (collageCol.value) {
+      gsap.to(collageCol.value, { y: sy * 0.12, duration: 0.5, ease: 'none' })
+    }
+  }, { passive: true })
+}
+
+// ── Global Scroll Animations ───────────────────
+function initScrollAnimations() {
+  // Grab all sections except the hero
+  const sections = document.querySelectorAll('section:not(.gsap-hero)')
+  
+  sections.forEach((sec) => {
+    gsap.fromTo(sec, 
+      { opacity: 0, y: 80 }, 
+      {
+        opacity: 1, 
+        y: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sec,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    )
+
+    // Also float up individual child elements to create a staggered beautiful effect
+    const childrenToAnimate = sec.querySelectorAll('h2, h3, p, img, .filter-group, .product-card, .patron-card, .atelier-img-card')
+    if (childrenToAnimate.length > 0) {
+      gsap.fromTo(childrenToAnimate,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+    }
+  })
+}
 
 const heroSlides = [
   { image: Fugibles1, subtitle: 'LUXURY BRIDAL', title1: 'TIMLESS', titleHighlight: 'COUTURE', title2: '2026', description: 'A masterpiece of hand-embroidered artisanal couture.' },
@@ -692,19 +1010,19 @@ const patronStories = [
     quote: "The attention to detail at AHMADCLOTHESFABRICS is simply unparalleled. Their bridal couture is a masterclass in elegance.",
     name: "Eleanor Vance",
     role: "Fashion Curator",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop"
+    avatar: "https://i.pravatar.cc/200?u=eleanor"
   },
   {
     quote: "Every piece feels like a journey through an artisan's workshop. The unstitched fabric quality is the best I've ever seen.",
     name: "Marcus Thorne",
     role: "Fashion Critic",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop"
+    avatar: "https://i.pravatar.cc/200?u=marcus"
   },
   {
     quote: "AHMADCLOTHESFABRICS has become our go-to for all celebrations. Their festive collections are as much a work of art as they are beautiful.",
     name: "Julianna Ross",
     role: "Event Designer",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop"
+    avatar: "https://i.pravatar.cc/200?u=julianna"
   }
 ]
 
@@ -830,8 +1148,25 @@ const categoryTiles = [
 <style scoped>
 @reference "../style.css";
 
-.hero-cinematic {
-  background: #000;
+.hero-luxury-collage {
+  background: #fafaf8;
+}
+
+.dark .hero-luxury-collage {
+  background: #050505;
+}
+
+.collage-item {
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.dark .collage-item {
+  border-color: rgba(255,255,255,0.03);
+}
+
+.collage-item img {
+  transform-origin: center;
 }
 
 .animate-ken-burns {
@@ -881,6 +1216,22 @@ const categoryTiles = [
   100% {
     transform: translateY(100%);
   }
+}
+
+.zoom-enter-active, .zoom-leave-active {
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.zoom-enter-from, .zoom-leave-to {
+  opacity: 0;
+}
+
+@keyframes zoom-in-ani {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-zoom-in {
+  animation: zoom-in-ani 0.7s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 .fade-scale-enter-active,

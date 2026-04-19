@@ -33,7 +33,7 @@
         
         <div class="flex-1 w-full relative">
           <div class="relative aspect-[4/5] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-white/10">
-            <img :src="image || 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1974&auto=format&fit=crop'" 
+            <img :src="image || 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png'" 
                  alt="Collaboration Showcase" 
                  class="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

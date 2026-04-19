@@ -1,7 +1,7 @@
 <template>
   <header class="w-full" :class="{ 'header-scrolled': isScrolled }">
     <!-- Promotional Announcement Bar -->
-    <div class="bg-[var(--deep-burgundy)] text-white py-2 px-4 text-center overflow-hidden relative group">
+    <div class="bg-[var(--deep-burgundy)] text-white py-0 px-4 text-center overflow-hidden relative group">
       <div class="animate-marquee whitespace-nowrap inline-block">
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
           AHMADCLOTHESFABRICS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
@@ -29,12 +29,12 @@
 
     <!-- Main Header -->
     <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
-      :class="isScrolled ? 'py-1 shadow-lg' : 'py-1'">
+      :class="isScrolled ? 'py-0 shadow-lg' : 'py-0'">
       <!-- Top Row: Actions Left, Logo Center, Actions Right -->
       <div class="w-full flex items-center justify-between">
         <!-- LEFT: Hamburger (mobile) + Search (desktop) -->
         <div class="flex items-center gap-4 flex-1">
-          <button @click="isMenuOpen = !isMenuOpen" class="hamburger-btn flex flex-col lg:hidden shrink-0"
+          <button @click="isMenuOpen = !isMenuOpen" class="hamburger-btn flex flex-col shrink-0 lg:hidden"
             aria-label="Menu">
             <span class="hamburger-line"
               :class="{ 'rotate-45 translate-y-[7px] bg-[var(--deep-burgundy)]': isMenuOpen, 'bg-[var(--luxury-black)]': !isMenuOpen }"></span>
@@ -48,9 +48,9 @@
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
           </button>
 
-          <!-- Luxury Concierge (Support) -->
-          <div class="relative group ml-1 sm:ml-4">
-            <button class="concierge-btn flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn">
+          <!-- Luxury Concierge (Support) - Hidden on desktop as per request -->
+          <div class="relative group ml-1 sm:ml-4 lg:hidden">
+            <button class="concierge-btn flex items-center gap-2.5 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn">
               <div class="relative">
                 <font-awesome-icon icon="fa-solid fa-headset" class="text-[10px] text-amber-500 animate-pulse-slow" />
                 <span class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-green-500 rounded-full border border-black animate-ping"></span>
@@ -222,8 +222,8 @@
         </button>
       </div>
 
-      <!-- Bottom Row: Navigation (Desktop Only) -->
-      <nav class="hidden lg:flex items-center gap-12 mt-6 w-full justify-center border-t border-black/5 pt-4">
+      <!-- Bottom Row: Navigation (Visible on Desktop) -->
+      <nav class="hidden lg:flex items-center gap-12 mt-6 w-full justify-center border-t border-black/5 dark:border-white/5 pt-4">
         <div v-for="item in navItems" :key="item.name" class="relative group/nav">
           <router-link :to="item.path" class="nav-link-premium">
             {{ item.name }}
@@ -361,12 +361,12 @@
 
     <!-- Mobile Navigation Drawer -->
     <transition name="drawer">
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[20000] lg:hidden">
+      <div v-if="isMenuOpen" class="fixed inset-0 z-[20000]">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="isMenuOpen = false"></div>
         <div class="drawer-panel">
           <!-- Header -->
           <div class="flex items-center justify-between p-6 border-b border-white/5">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity" @click="goToHome(); isMenuOpen = false">
               <h1 class="text-lg font-playfair tracking-[0.2em] font-light text-white uppercase">AHMADCLOTHS</h1>
               <span class="text-[7px] tracking-[0.3em] text-[var(--primary-gold)] uppercase">House of Couture</span>
             </div>
@@ -518,7 +518,7 @@ import { useFavoritesStore } from '../../stores/favorites'
 import { useAuthStore } from '../../stores/auth'
 import { useProductsStore } from '../../stores/products'
 import { useThemeStore } from '../../stores/theme'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import api from '../../api'
 import Swal from 'sweetalert2'
 import ahmadlogo from '../../assets/fugibles.png'
@@ -529,6 +529,7 @@ const auth = useAuthStore()
 const productStore = useProductsStore()
 const themeStore = useThemeStore()
 const router = useRouter()
+const route = useRoute()
 
 const isMenuOpen = ref(false)
 const searchOpen = ref(false)
@@ -708,6 +709,9 @@ const navItems = computed(() => {
       })
     }
   })
+  items.push({ name: 'Discount', path: '/shop/Discount', products: [] })
+  items.push({ name: 'Office', path: '/shop/Office', products: [] })
+  items.push({ name: 'Sale Offer', path: '/shop/Sale Offer', products: [] })
   items.push({ name: 'About Us', path: '/about', products: [] })
   items.push({ name: 'Blog', path: '/blog', products: [] })
   items.push({ name: 'Contact Us', path: '/contact', products: [] })
@@ -765,7 +769,13 @@ const liveResults = computed(() => {
     .slice(0, 12)
 })
 
-const goToHome = () => router.push('/')
+const goToHome = () => {
+  if (route.path === '/') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } else {
+    router.push('/')
+  }
+}
 </script>
 
 <style scoped>

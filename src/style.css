@@ -25,7 +25,7 @@
 .body {
   background-color: var(--bg-light);
   color: var(--luxury-black);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Jost', sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -36,11 +36,11 @@
 
 
 .font-playfair {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Jost', sans-serif;
 }
 
 /* Maria B & Warda Inspired Patterns */
@@ -54,7 +54,7 @@
 
 /* Global Typography Refinement */
 h1, h2, h3, h4, .font-luxury {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -117,7 +117,7 @@ h1, h2, h3, h4, .font-luxury {
   cursor: pointer !important;
   height: 32px !important;
   padding: 0 15px !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Jost', sans-serif !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
 }

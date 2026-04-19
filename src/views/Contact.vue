@@ -192,7 +192,7 @@
                
                <div class="relative aspect-square">
                   <div class="absolute inset-0 border border-amber-500/10 m-12 z-10 pointer-events-none"></div>
-                  <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Luxury Fashion Design" />
+                  <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png" class="w-full h-full object-cover" alt="Luxury Fashion Design" />
                   <div class="absolute -bottom-10 -right-10 bg-black p-12 hidden lg:block">
                      <p class="text-amber-500 font-playfair italic text-4xl mb-4">"Pure Art"</p>
                      <p class="text-white font-black text-[9px] uppercase tracking-[0.4em]">The Ahmadcloths Ethos</p>

@@ -1,7 +1,7 @@
-import img1 from '../assets/ladies.jpg';
-import img2 from '../assets/ladies1.jpg';
-import img3 from '../assets/ladies2.jpg';
-import img4 from '../assets/ladies3.jpg';
+import img1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png";
+import img2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png";
+import img3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png";
+import img4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png";
 
 const localImages = [img1, img2, img3, img4];
 
