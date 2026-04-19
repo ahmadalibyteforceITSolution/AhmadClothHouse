@@ -161,6 +161,7 @@
         </div>
       </div>
     </section>
+  
 
     <!-- ═══════════════════════════════════════════
          HERITAGE & CRAFTSMANSHIP (AdSense Content Boost)
@@ -207,12 +208,12 @@
           <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-[var(--primary-gold)]/5 blur-[100px] rounded-full pointer-events-none"></div>
           <div class="grid grid-cols-2 gap-6 relative z-10">
             <div class="space-y-6 pt-12">
-              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=800&auto=format&fit=crop" class="w-full h-[350px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Artisan Weaving">
-              <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=800&auto=format&fit=crop" class="w-full h-[250px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Luxury Fabric Detail">
+              <img :src="Highlight1" class="w-full h-[350px] object-cover transition-all duration-1000 shadow-2xl hover:scale-105" alt="Premium Pakistani Suit">
+              <img :src="Highlight2" class="w-full h-[250px] object-cover transition-all duration-1000 shadow-2xl hover:scale-105" alt="Intricate Embroidery Detail">
             </div>
             <div class="space-y-6">
-              <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=800&auto=format&fit=crop" class="w-full h-[250px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Embroidery Craft">
-              <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&auto=format&fit=crop" class="w-full h-[350px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Boutique Studio">
+              <img :src="Highlight3" class="w-full h-[250px] object-cover transition-all duration-1000 shadow-2xl hover:scale-105" alt="Boutique Luxury Pret">
+              <img :src="Highlight4" class="w-full h-[350px] object-cover transition-all duration-1000 shadow-2xl hover:scale-105" alt="Luxury Fabric Selection">
             </div>
           </div>
         </div>
@@ -629,6 +630,11 @@ import Fugibles1 from "../assets/ladies3.jpg"
 import Fugibles2 from "../assets/ladies1.jpg"
 import Fugibles3 from "../assets/ladies2.jpg"
 import Fugibles4 from "../assets/ladies1.jpg"
+
+import Highlight1 from "../assets/highlight_1.png"
+import Highlight2 from "../assets/highlight_2.png"
+import Highlight3 from "../assets/highlight_3.png"
+import Highlight4 from "../assets/highlight_4.png"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
