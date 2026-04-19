@@ -18,39 +18,36 @@
          </ul>
       </section>
 
-      <!-- Hero Archive Section -->
-      <section class="relative h-[80vh] min-h-[650px] overflow-hidden bg-black flex items-center px-6">
-         <!-- Dynamic Background Artifact -->
-         <div class="absolute inset-0 opacity-40 scale-105 animate-slow-zoom">
-            <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png"
-               class="w-full h-full object-cover brightness-50" alt="AHMADCLOTHESFABRICS Fashion Heritage - Artisan Weaving Tradition" />
-         </div>
-         <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/60 pointer-events-none">
+      <!-- Premium Cinematic About Hero -->
+      <section class="relative h-[80vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-black">
+         <!-- Dynamic Background -->
+         <div class="absolute inset-0 z-0">
+            <img :src="Hero1" class="w-full h-full object-cover opacity-60 animate-slow-zoom" 
+                 alt="AHMADCLOTHESFABRICS Fashion Heritage" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-[#fafaf8] dark:to-[#050505]"></div>
          </div>
 
-         <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
-            <div class="flex flex-col items-center gap-6 mb-8 animate-reveal">
-               <div class="text-3xl sm:text-4xl font-playfair tracking-[0.3em] font-light text-white uppercase">AhmadClothesHouse</div>
-               <div class="h-[1px] w-16 bg-[var(--primary-gold)]"></div>
-               <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">ESTABLISHED
-                  MMXXVI</span>
+         <div class="max-w-7xl mx-auto px-8 w-full relative z-10 flex flex-col items-center text-center">
+            <div class="flex items-center gap-4 mb-10 animate-reveal">
+               <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
+               <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">SINCE MMXXVI</span>
+               <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
             </div>
 
-            <h1
-               class="text-6xl md:text-9xl font-light uppercase tracking-tighter leading-[0.9] text-white transition-all font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px] mb-12">
-               The Heritage <br>
-               <span class="text-[var(--primary-gold)] font-sans tracking-[0.2em] font-light ml-4 uppercase not-italic">of
-                  AhmadClothesHouse</span>
+            <h1 class="text-6xl md:text-9xl font-playfair italic text-white leading-none tracking-tighter mb-14 drop-shadow-2xl animate-reveal">
+               Artisanal <br>
+               <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light">EXCELLENCE</span>
             </h1>
 
-            <p
-               class="text-[11px] md:text-base font-bold tracking-[0.5em] text-white/40 uppercase max-w-3xl mx-auto leading-relaxed animate-reveal-delay">
-               "A journey from artisanal passion to couture excellence. We craft the elegant moments of tomorrow."
-            </p>
+            <div class="max-w-2xl bg-white/5 backdrop-blur-3xl border border-white/10 p-8 md:p-12 animate-reveal-delay">
+               <p class="text-[11px] md:text-sm text-white/70 font-medium uppercase tracking-[0.4em] leading-loose italic">
+                  "A journey from artisanal passion to global couture excellence. We craft the elegant moments of tomorrow with every thread."
+               </p>
+            </div>
          </div>
 
-         <!-- Downward Perspective Scroll -->
-         <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 opacity-40">
+         <!-- Scroll Indicator -->
+         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 opacity-30">
             <div class="w-[1px] h-20 bg-gradient-to-b from-[var(--primary-gold)] to-transparent"></div>
             <span class="text-[8px] font-bold uppercase tracking-[0.6em] text-white">THE PERSPECTIVE</span>
          </div>
@@ -101,7 +98,7 @@
             <div
                class="absolute inset-0 border border-white/10 group-hover:border-[var(--primary-gold)]/20 transition-colors duration-700 z-20 pointer-events-none m-8">
             </div>
-            <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
+            <img :src="Hero2"
                class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                alt="Artisan Tailoring at AHMADCLOTHESFABRICS Studio">
          </div>
@@ -139,7 +136,7 @@
       <!-- Artisan Spotlight -->
       <section class="py-40 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
          <div class="order-2 lg:order-1 relative aspect-square group overflow-hidden animate-reveal-left">
-            <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
+            <img :src="Hero3"
                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                alt="Artisan Craftsmanship">
          </div>
@@ -231,7 +228,7 @@
            GLOBAL SOURCING (NEW)
       ═══════════════════════════════════════════ -->
       <section class="relative py-40 bg-black overflow-hidden">
-         <div class="absolute inset-0 opacity-20 bg-[url('C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png')] bg-cover bg-center"></div>
+         <div class="absolute inset-0 opacity-20 bg-cover bg-center" :style="{ backgroundImage: `url(${Hero4})` }"></div>
          <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
          
          <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
@@ -261,6 +258,12 @@
 <script setup>
 import { onMounted } from 'vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
+
+import Hero1 from "../assets/ai/hero_1.png"
+import Hero2 from "../assets/ai/hero_2.png"
+import Hero3 from "../assets/ai/hero_3.png"
+import Hero4 from "../assets/ai/hero_4.png"
+
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const philosophy = [

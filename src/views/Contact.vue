@@ -14,35 +14,40 @@
          </ul>
       </section>
 
-      <!-- Contact Header - Minimal & Warm -->
-      <header class="pt-40 pb-24 px-8 max-w-7xl mx-auto border-b border-[#d4af3711] mb-20 relative">
-         <div class="absolute -top-10 -left-10 w-64 h-64 bg-[var(--primary-gold)]/5 blur-[100px] rounded-full pointer-events-none">
-         </div>
+      <!-- Premium Cinematic Contact Hero -->
+      <section class="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
+        <!-- Background with slow pan animation -->
+        <div class="absolute inset-0 z-0">
+          <img :src="BridalHighlight" alt="Contact AhmadClothesHouse - Luxury Fashion Consulting" 
+               class="w-full h-full object-cover opacity-60 animate-slow-zoom" />
+          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-[#fafaf8] dark:to-[#050505]"></div>
+        </div>
 
-         <div class="flex flex-col md:flex-row justify-between items-end gap-16 relative z-10">
-            <div class="max-w-2xl animate-reveal-left">
-               <div class="text-2xl sm:text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] dark:text-white uppercase mb-10">AhmadClothesHouse</div>
-               <div class="flex items-center gap-3 mb-6">
-                  <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-                  <span
-                     class="text-[var(--primary-gold)] font-bold text-[9px] uppercase tracking-[0.5em]">DESIGN
-                     CONSULTATION</span>
-               </div>
-               <h1
-                  class="text-6xl md:text-9xl font-light uppercase tracking-tighter leading-[0.85] text-gray-900 dark:text-white font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px]">
-                  Collaborate <br>
-                  <span class="text-[var(--primary-gold)] font-sans tracking-[0.2em] font-light ml-4 uppercase not-italic">with
-                     AhmadClothesHouse</span>
-               </h1>
-            </div>
-            <div class="max-w-xs text-right animate-reveal-right">
-               <p
-                  class="text-[10px] text-stone-400 font-bold uppercase tracking-[0.4em] leading-loose italic opacity-60">
-                  Reach our design hub for custom bridal orders, couture consultations, or exclusive collection inquiries.
-               </p>
-            </div>
-         </div>
-      </header>
+        <div class="max-w-7xl mx-auto px-8 w-full relative z-10 flex flex-col items-center text-center">
+          <div class="flex items-center gap-4 mb-8 animate-reveal">
+            <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
+            <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">GET IN TOUCH</span>
+            <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
+          </div>
+
+          <h1 class="text-6xl md:text-9xl font-playfair italic text-white leading-none tracking-tighter mb-12 drop-shadow-2xl">
+            Couture <br>
+            <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light">CONSULTATION</span>
+          </h1>
+
+          <div class="max-w-xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 animate-reveal-delay">
+            <p class="text-[11px] md:text-sm text-white/70 font-medium uppercase tracking-[0.4em] leading-loose italic">
+              Reach our exclusive design hub for custom bridal orders, bespoke couture consultations, or collection inquiries.
+            </p>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
+           <div class="w-[1px] h-16 bg-gradient-to-b from-[var(--primary-gold)] to-transparent"></div>
+           <span class="text-[8px] font-bold uppercase tracking-[0.6em] text-white">ORCHESTRATE YOUR LOOK</span>
+        </div>
+      </section>
 
       <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-32 pb-48 relative">
 
@@ -192,7 +197,7 @@
                
                <div class="relative aspect-square">
                   <div class="absolute inset-0 border border-amber-500/10 m-12 z-10 pointer-events-none"></div>
-                  <img src="C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png" class="w-full h-full object-cover" alt="Luxury Fashion Design" />
+                  <img :src="BridalHighlight" class="w-full h-full object-cover" alt="Luxury Fashion Design" />
                   <div class="absolute -bottom-10 -right-10 bg-black p-12 hidden lg:block">
                      <p class="text-amber-500 font-playfair italic text-4xl mb-4">"Pure Art"</p>
                      <p class="text-white font-black text-[9px] uppercase tracking-[0.4em]">The Ahmadcloths Ethos</p>
@@ -211,6 +216,7 @@ import api from '../api'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
 import * as yup from 'yup'
+import BridalHighlight from "../assets/ai/bridal_highlight.png"
 const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const auth = useAuthStore()
@@ -413,6 +419,35 @@ onMounted(() => {
 
 .font-playfair {
    font-family: 'Playfair Display', serif;
+}
+
+.animate-slow-zoom {
+   animation: slow-zoom 30s infinite linear alternate;
+}
+
+@keyframes slow-zoom {
+   from { transform: scale(1); }
+   to { transform: scale(1.1); }
+}
+
+.animate-reveal {
+   animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.animate-reveal-delay {
+   animation: reveal-bottom 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
+   opacity: 0;
+}
+
+@keyframes reveal-bottom {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
 .fade-enter-active,

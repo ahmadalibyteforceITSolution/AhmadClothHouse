@@ -187,6 +187,11 @@ import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
 
+import Hero1 from "../assets/ai/hero_1.png"
+import Hero2 from "../assets/ai/hero_2.png"
+import Hero4 from "../assets/ai/hero_4.png"
+import BridalHighlight from "../assets/ai/bridal_highlight.png"
+
 const route = useRoute()
 const router = useRouter()
 const productStore = useProductsStore()
@@ -209,7 +214,7 @@ const category = computed(() => route.params.category)
 
 watch([selectedCategory, category, () => route.query.q], () => {
   currentPage.value = 1
-  const activeCat = newCat || routeCat || 'All Collections'
+  const activeCat = selectedCategory.value || category.value || 'All Collections'
   document.title = `${activeCat} | Shop Pakistani Designer Suits - AHMADCLOTHESFABRICS`
   
   const metaDescription = document.querySelector('meta[name="description"]')
@@ -219,25 +224,45 @@ watch([selectedCategory, category, () => route.query.q], () => {
 }, { immediate: true })
 
 const displayTitleParts = computed(() => {
-  let title = 'All Categories'
-  if (route.query.q) title = `Search: ${route.query.q}`
-  else if (category.value) title = category.value.replace(/-/g, ' ')
+  let main = 'All'
+  let accent = 'Collections'
   
-  const words = title.split(' ')
-  return {
-    main: words[0].toUpperCase(),
-    accent: words.slice(1).join(' ').toUpperCase() || 'CATALOG'
+  if (route.query.q) {
+    main = 'Search'
+    accent = `"${route.query.q}"`
+  } else if (category.value) {
+    const cat = category.value.toLowerCase()
+    if (cat === 'discount') {
+      main = 'Luxury'
+      accent = 'Discounts'
+    } else if (cat === 'sale offer') {
+      main = 'Seasonal'
+      accent = 'Sale Event'
+    } else if (cat === 'office') {
+      main = 'Office'
+      accent = 'Corporate Luxe'
+    } else {
+      const parts = category.value.split('-')
+      main = parts[0].toUpperCase()
+      accent = parts.slice(1).join(' ').toUpperCase() || 'COLLECTION'
+    }
   }
+  
+  return { main, accent }
 })
 
 const headerImage = computed(() => {
+  const cat = category.value?.toLowerCase()
   const mapping = {
-    'unstitched-lawn': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png',
-    'pret': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png',
-    'bridal': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png',
-    'm.print': 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png'
+    'unstitched-lawn': Hero1,
+    'pret': Hero4,
+    'bridal': BridalHighlight,
+    'm.print': Hero2,
+    'discount': Hero1,
+    'sale offer': Hero2,
+    'office': Hero4
   }
-  return mapping[category.value?.toLowerCase()] || 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png'
+  return mapping[cat] || Hero4
 })
 
 const uniqueCategories = computed(() => {
@@ -270,11 +295,28 @@ const filteredProducts = computed(() => {
   const nameFilter = selectedProductName.value?.toLowerCase()
   
   return productStore.products.filter(p => {
-    if (query && !p.name.toLowerCase().includes(query)) return false
+    // 1. Discount/Sale Logic
+    if (catRoute === 'discount' || catRoute === 'sale offer') {
+      if (p.discount <= 0 && !p.category?.toLowerCase().includes('sale') && !p.parentCategory?.toLowerCase().includes('sale')) return false
+    }
+    
+    // 2. Search Logic
+    if (query && !p.name.toLowerCase().includes(query) && !p.category?.toLowerCase().includes(query)) return false
+    
+    // 3. Name Filter
     if (nameFilter && !p.name.toLowerCase().includes(nameFilter)) return false
-    if (catRoute && p.category?.toLowerCase() !== catRoute && p.parentCategory?.toLowerCase() !== catRoute) return false
+    
+    // 4. Category Logic (Normal Categories)
+    if (catRoute && catRoute !== 'discount' && catRoute !== 'sale offer') {
+      if (p.category?.toLowerCase() !== catRoute && p.parentCategory?.toLowerCase() !== catRoute) return false
+    }
+
+    // 5. Secondary Filter
     if (catFilter && p.category?.toLowerCase() !== catFilter) return false
+    
+    // 6. Price Logic
     if (p.price > maxPrice.value) return false
+    
     return true
   })
 })

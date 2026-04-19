@@ -1,14 +1,35 @@
 <template>
-  <div class="blog-list-page bg-white dark:bg-[#050505] min-h-screen pt-32 pb-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <!-- Header -->
-      <div class="text-center mb-20">
-        <span class="text-[10px] font-black text-amber-500 uppercase tracking-[0.6em] mb-4 block animate-reveal">The House Journal</span>
-        <h1 class="text-4xl md:text-6xl font-playfair text-[var(--luxury-black)] dark:text-white mb-6 animate-reveal">COUTURE <span class="text-stone-400">&</span> CULTURE</h1>
-        <p class="text-stone-500 dark:text-stone-400 text-sm max-w-2xl mx-auto tracking-widest uppercase leading-relaxed animate-reveal">
-          Exploring the artistry, heritage, and modern evolution of Pakistani fashion.
-        </p>
+  <div class="blog-list-page bg-[#fafaf8] dark:bg-[#050505] min-h-screen pb-32 transition-colors duration-700">
+    
+    <!-- Cinematic Blog Hero -->
+    <section class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black mb-20">
+      <div class="absolute inset-0 z-0">
+        <img :src="Hero4" alt="AhmadClothesHouse Fashion Journal" 
+             class="w-full h-full object-cover opacity-50 animate-slow-zoom" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-[#fafaf8] dark:to-[#050505]"></div>
       </div>
+
+      <div class="max-w-7xl mx-auto px-8 w-full relative z-10 flex flex-col items-center text-center">
+        <div class="flex items-center gap-4 mb-6 animate-reveal">
+          <div class="h-[1px] w-12 bg-amber-500"></div>
+          <span class="text-amber-500 font-bold text-[10px] uppercase tracking-[0.6em]">THE HOUSE JOURNAL</span>
+          <div class="h-[1px] w-12 bg-amber-500"></div>
+        </div>
+
+        <h1 class="text-6xl md:text-9xl font-playfair italic text-white leading-none tracking-tighter mb-10 drop-shadow-2xl animate-reveal-delay">
+          Couture <br>
+          <span class="text-stone-400 not-italic font-sans tracking-[0.2em] font-light">COLLECTIVE</span>
+        </h1>
+
+        <div class="max-w-xl bg-white/5 backdrop-blur-3xl border border-white/10 p-6 md:p-8 animate-reveal-delay" style="animation-delay: 0.4s">
+          <p class="text-[10px] md:text-xs text-white/60 font-medium uppercase tracking-[0.4em] leading-loose italic">
+            Exploring the artistry, deep-rooted heritage, and modern evolution of Pakistani high fashion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-6">
 
       <!-- Categories Filter -->
       <div class="flex flex-wrap justify-center gap-4 mb-16">
@@ -78,6 +99,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { blogs as staticBlogs } from '../data/blogs'
 import { useProductsStore } from '../stores/products'
+import Hero4 from "../assets/ai/hero_1.png" // Using hero_1 for a fresh look
 
 const router = useRouter()
 const productStore = useProductsStore()
@@ -127,13 +149,29 @@ const totalFiltered = computed(() => {
 </script>
 
 <style scoped>
-.animate-reveal {
-  animation: reveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  opacity: 0;
-  transform: translateY(30px);
+.animate-slow-zoom {
+  animation: slow-zoom 40s infinite linear alternate;
 }
 
-@keyframes reveal {
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+.animate-reveal {
+  animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.animate-reveal-delay {
+  animation: reveal-bottom 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes reveal-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);

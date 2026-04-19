@@ -1,3 +1,9 @@
+import Hero1 from "../assets/ai/hero_1.png"
+import Hero2 from "../assets/ai/hero_2.png"
+import Hero3 from "../assets/ai/hero_3.png"
+import Hero4 from "../assets/ai/hero_4.png"
+import BridalHighlight from "../assets/ai/bridal_highlight.png"
+
 export const blogs = [
   {
     id: 51,
@@ -6,7 +12,7 @@ export const blogs = [
     date: 'April 19, 2026',
     author: 'Ahmad Cloth House Style Team',
     category: 'Daily Trends',
-    image: 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png',
+    image: Hero1,
     summary: 'Explore the hottest lawn trends for today, focusing on printed unstitched suits and breathable luxury fabrics.',
     content: `As of April 19, 2026, the temperature across Pakistan is rising, and so is the demand for premium summer lawn. Today, we are seeing a massive shift towards monochromatic unstitched suits paired with vibrant, digitally printed silk dupattas. Brands like Maria B and Sana Safinaz have just dropped their latest mid-summer archives, and the focus is clearly on breathable, high-thread-count cotton.
 
@@ -21,7 +27,7 @@ Whether you are shopping for a casual day out or a formal summer lunch, the 2026
     date: 'April 15, 2026',
     author: 'Ahmad Cloth House Editorial',
     category: 'Bridal Couture',
-    image: 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png',
+    image: BridalHighlight,
     summary: 'Discover the most anticipated bridal trends for the 2026 wedding season in Pakistan.',
     content: `The Pakistani bridal landscape is undergoing a magnificent transformation in 2026. This year, we see a stunning blend of deep heritage and contemporary minimalism. High-end designers are moving towards monochromatic lehengas, where the embroidery matches the fabric base perfectly, creating a sophisticated, textured look. Pishwas styles are making a massive comeback, featuring floor-length silhouettes with thousands of crystals and traditional zardosi work.
 
@@ -51,7 +57,7 @@ If you are attending a formal event on short notice, a silk pret tunic is your b
     date: 'April 5, 2026',
     author: 'Care Expert',
     category: 'Maintenance',
-    image: 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png',
+    image: Hero2,
     summary: 'Tips and tricks to ensure your couture pieces last for generations.',
     content: `Investing in luxury Pakistani fashion means you own pieces of art. Fabrics like pure chiffon and heavy silk require delicate care to maintain their sheen and structural integrity. One of the most common mistakes is machine washing these garments. Always opt for professional dry cleaning, especially for dresses with heavy stone work or tilla embroidery.
 
@@ -81,7 +87,7 @@ Ahmad Cloth House's upcoming Summer Lawn series features 3-piece unstitched suit
     date: 'March 20, 2026',
     author: 'Heritage Specialist',
     category: 'Culture',
-    image: 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png',
+    image: Hero3,
     summary: 'Exploring the intricate world of traditional Pakistani embroidery techniques.',
     content: `Hand embroidery is the soul of Pakistani fashion. Techniques like Zardozi, Gota-patti, and Chikankari have been passed down through generations of artisans in cities like Lahore, Multan, and Karachi. Each stitch tells a story of patience and mastery. In an era of fast machine-made fashion, hand-crafted pieces from Ahmad Cloth House represent a commitment to preserving this fine art.
 
@@ -126,7 +132,7 @@ At Ahmad Cloth House, we believe in providing quality that lasts. Our mens unsti
     date: 'March 1, 2026',
     author: 'Global Trade Analyst',
     category: 'Industry News',
-    image: 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png',
+    image: Hero4,
     summary: 'How Pakistani designers are making waves in New York, London, and Paris.',
     content: `Pakistani fashion is no longer restricted to South Asia. With the rise of digital commerce and global logistics, designers from Lahore and Karachi are showcasing their work on the worlds most prestigious runways. The intricate embroidery and high-quality fabrics unique to Pakistan have found a dedicated audience in the UK, USA, Canada, and the UAE.
 
@@ -227,7 +233,7 @@ Thirdly, always consult the size chart carefully for ready-to-wear pieces. Brand
     date: 'January 15, 2026',
     author: 'Master Tailor',
     category: 'Guide',
-    image: 'C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png',
+    image: BridalHighlight,
     summary: 'Essential instructions for your tailor to ensure a high-fashion finish.',
     content: `A poorly stitched designer suit loses its value. Always provide your tailor with exact measurements and reference photos of the design. Pay attention to the "finishing"—the inner piping, the quality of thread, and the placement of lace. We provide detailed stitching manuals with our luxury unstitched collections to help you achieve a boutique finish at home.`
   },

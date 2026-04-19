@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @theme {
   --color-primary-gold: #B8860B;
   --color-deep-burgundy: #4A0E0E;
@@ -8,13 +9,18 @@
   --color-amber-500: #8B6508;
   --color-amber-600: #735307;
 }
+
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --primary-gold: #B8860B; /* Muted Luxurious Gold (Maria B) */
-  --deep-burgundy: #4A0E0E; /* Deep Royal Maroon */
-  --luxury-cream: #FDFBF7; /* Elegant Off-White */
-  --luxury-black: #1A1A1A; /* Soft Black for text */
+  --primary-gold: #B8860B;
+  /* Muted Luxurious Gold (Maria B) */
+  --deep-burgundy: #4A0E0E;
+  /* Deep Royal Maroon */
+  --luxury-cream: #FDFBF7;
+  /* Elegant Off-White */
+  --luxury-black: #1A1A1A;
+  /* Soft Black for text */
   --accent-maroon: #2D0808;
   --bg-light: #FFFFFF;
 }
@@ -22,6 +28,7 @@
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
 .body {
   background-color: var(--bg-light);
   color: var(--luxury-black);
@@ -53,7 +60,11 @@
 }
 
 /* Global Typography Refinement */
-h1, h2, h3, h4, .font-luxury {
+h1,
+h2,
+h3,
+h4,
+.font-luxury {
   font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -105,27 +116,33 @@ h1, h2, h3, h4, .font-luxury {
 
 .goog-te-gadget-simple {
   background-color: #000 !important;
-  border: 1.5px solid #d4af37 !important;
-  border-radius: 50px !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  border-radius: 4px !important;
+  /* Sharp sharp corners or very soft? Let's go with slightly rounded luxury pill */
   font-size: 10px !important;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
   letter-spacing: 0.15em !important;
   text-transform: uppercase !important;
   display: flex !important;
   align-items: center !important;
   color: #d4af37 !important;
   cursor: pointer !important;
-  height: 32px !important;
-  padding: 0 15px !important;
+  height: 38px !important;
+  padding: 0 20px !important;
   font-family: 'Jost', sans-serif !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
-  transition: all 0.3s ease !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
 }
 
 .goog-te-gadget-simple:hover {
-  background-color: #111 !important;
-  border-color: #fff !important;
-  transform: translateY(-1px);
+  background-color: #d4af37 !important;
+  border-color: #d4af37 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4) !important;
+}
+
+.goog-te-gadget-simple:hover * {
+  color: #000 !important;
 }
 
 .goog-te-gadget-simple span {
@@ -140,7 +157,7 @@ h1, h2, h3, h4, .font-luxury {
   margin: 0 !important;
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
 }
 
 .goog-te-menu-value span:first-child {
@@ -161,25 +178,37 @@ h1, h2, h3, h4, .font-luxury {
   display: none !important;
 }
 
-/* Force "SELECT LANGUAGE" text if span:first-child is empty or not as expected */
+/* Premium Globe Icon before the text */
 .goog-te-gadget-simple::before {
-  content: 'SELECT LANGUAGE';
-  margin-right: 5px;
-  font-size: 9px;
+  content: '🌐';
+  font-size: 14px;
+  margin-right: 8px;
+  filter: sepia(1) saturate(5) hue-rotate(-10deg);
+  /* Make it look golden */
 }
 
-/* If span:first-child is visible, it might show the current language (e.g., "English") */
-/* If you only want "SELECT LANGUAGE" always, we can hide the first child */
+/* Ensure the first child (Language Name) is visible and styled properly */
 .goog-te-menu-value span:first-child {
-  display: none !important;
+  display: inline-block !important;
+  color: #d4af37 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 9px !important;
+  letter-spacing: 0.1em !important;
 }
 
 /* Custom Dropdown Arrow */
 .goog-te-menu-value::after {
   content: '▼';
-  font-size: 8px;
+  font-size: 7px;
   color: #d4af37;
-  margin-left: 2px;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.goog-te-gadget-simple:hover .goog-te-menu-value::after {
+  transform: rotate(180deg);
+  color: #000;
 }
 
 #google_translate_element:hover .goog-te-menu-value::after,
@@ -214,9 +243,9 @@ iframe.goog-te-menu-frame,
   overflow: visible !important;
 }
 
-.goog-te-menu2-item div, 
-.goog-te-menu2-item:link div, 
-.goog-te-menu2-item:visited div, 
+.goog-te-menu2-item div,
+.goog-te-menu2-item:link div,
+.goog-te-menu2-item:visited div,
 .goog-te-menu2-item:active div {
   color: rgba(255, 255, 255, 0.8) !important;
   background-color: transparent !important;
@@ -240,7 +269,7 @@ iframe.goog-te-menu-frame,
 }
 
 /* Hide Google Translate Banner & Floating Widgets */
-.goog-te-banner-frame.skiptranslate, 
+.goog-te-banner-frame.skiptranslate,
 .goog-te-banner-frame,
 .goog-te-banner,
 .goog-te-gadget-icon,
@@ -269,6 +298,7 @@ body {
 
 /* Mobile adjustments */
 @media (max-width: 640px) {
+
   #google_translate_element,
   #google_translate_element_mobile {
     min-width: 100px !important;

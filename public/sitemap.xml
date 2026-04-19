@@ -3,118 +3,88 @@
   <!-- Core Pages -->
   <url>
     <loc>https://ahmad-cloths.vercel.app/</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ahmad-cloths.vercel.app/shop</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ahmad-cloths.vercel.app/blog</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ahmad-cloths.vercel.app/about</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ahmad-cloths.vercel.app/contact</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-cloths.vercel.app/blog</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Categories -->
+  <!-- Collections -->
   <url>
     <loc>https://ahmad-cloths.vercel.app/shop/Unstitched</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ahmad-cloths.vercel.app/shop/Pret</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ahmad-cloths.vercel.app/shop/Bridal</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ahmad-cloths.vercel.app/shop/M.Print</loc>
+    <loc>https://ahmad-cloths.vercel.app/shop/Discount</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-cloths.vercel.app/shop/Sale%20Offer</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-cloths.vercel.app/shop/Office</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- Blogs (51 Entries) -->
-  <url><loc>https://ahmad-cloths.vercel.app/blog/pakistani-summer-lawn-trends-april-2026</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/trending-pakistani-bridal-wear-2026</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/unstitched-vs-ready-to-wear-pakistan</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/maintaining-luxury-chiffon-dresses</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/luxury-lawn-trends-summer-2026</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/hand-embroidery-heritage-pakistan</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/perfect-eid-outfit-guide-2026</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/evolution-of-pakistani-men-fashion</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/global-impact-pakistani-couture</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/silk-collection-winter-2026</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/shopping-online-dresses-pakistan-tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/velvet-majesty-winter-weddings</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/sustainable-fashion-pakistan-future</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/accessories-to-pair-with-pakistani-suits</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/daywear-vs-nightwear-couture-tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/history-of-pishwas-pakistan-fashion</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/finding-perfect-fit-tailoring-tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/organza-magic-formal-event-trends</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/lahore-fashion-hub-of-pakistan</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/budget-friendly-luxury-shopping-tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/embroidered-dupattas-statement-pieces</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/chikankari-revival-summer-outfits</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/best-fabrics-for-pakistani-weather</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/minimalist-bridal-jewellery-trends</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/importance-of-high-thread-count-lawn</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/online-boutique-shopping-benefits</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/pakistani-formal-wear-for-graduations</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/khaddar-comfort-for-winter-daily-wear</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/pakistani-diaspora-fashion-trends</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/bespoke-bridal-consultation-process</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/gift-guide-best-pakistani-suits-for-her</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/linen-collection-spring-2026-review</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/organza-wraps-modern-winter-layering</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/pakistani-fashion-marketing-digital-age</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/the-perfect-clutch-for-formal-events</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/pakistani-hand-painted-shawls-trend</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/styling-maxi-dresses-for-mehndi-functions</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/cotton-basics-for-everyday-elegance</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/men-tailoring-guide-sherwani-perfection</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/the-impact-of-fast-fashion-on-traditional-craft</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/navigating-pakistani-size-charts-internationally</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/luxury-jewelry-cleaning-at-home-tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/traditional-hair-styling-for-bridal-looks</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/sustainable-packaging-in-luxury-fashion</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/pakistani-culture-and-modest-fashion-trends</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/why-lahore-lawn-is-the-best-in-the-world</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/preparing-your-wardrobe-for-the-wedding-season</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/embroidered-sleeves-the-micro-trend-of-2026</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/silk-scarves-versatile-accessory-for-the-modern-woman</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/the-rise-of-gender-neutral-colors-in-traditional-wear</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ahmad-cloths.vercel.app/blog/final-insider-tip-successful-online-shopping</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Legal & Info -->
+  <!-- Blog Entries (Top SEO content) -->
   <url>
-    <loc>https://ahmad-cloths.vercel.app/faq</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ahmad-cloths.vercel.app/privacy</loc>
+    <loc>https://ahmad-cloths.vercel.app/blog/pakistani-summer-lawn-trends-april-2026</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ahmad-cloths.vercel.app/terms</loc>
+    <loc>https://ahmad-cloths.vercel.app/blog/trending-pakistani-bridal-wear-2026</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-cloths.vercel.app/blog/hand-embroidery-heritage-pakistan</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,10 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Disallow: /cart
-Disallow: /checkout
-Disallow: /favorites
 Disallow: /admin/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /dashboard/
 Disallow: /reset-password/
-Disallow: /dashboard
+Disallow: /forgot-password/
 
+# Sitemaps
 Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml

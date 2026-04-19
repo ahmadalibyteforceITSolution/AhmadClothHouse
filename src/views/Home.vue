@@ -149,26 +149,26 @@
           </p>
 
           <!-- CTA Buttons -->
-          <div ref="heroCta" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-4">
+          <div ref="heroCta" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-6">
             <button
               ref="ctaPrimary"
               @click="scrollToDiscovery"
-              class="gsap-btn-primary group relative overflow-hidden"
+              class="premium-btn primary group"
             >
-              <span class="gsap-btn-fill"></span>
-              <span class="relative z-10 flex items-center gap-3">
-                EXPLORE COLLECTION
-                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-              </span>
+              <div class="btn-glow"></div>
+              <span class="btn-text">EXPLORE COLLECTION</span>
+              <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
             </button>
 
             <button
               ref="ctaSecondary"
               @click="router.push('/about')"
-              class="gsap-btn-secondary group relative"
+              class="premium-btn secondary group"
             >
-              <span class="gsap-btn-ring"></span>
-              OUR HERITAGE
+              <span class="btn-text">OUR HERITAGE</span>
+              <div class="btn-border-draw"></div>
             </button>
           </div>
 
@@ -375,7 +375,6 @@
     <!-- Atelier Section -->
     <section class="atelier-section bg-[var(--luxury-cream)] dark:bg-[#080808] py-32 transition-colors duration-500">
       <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        <!-- Text Content -->
         <div class="lg:col-span-5 space-y-8">
           <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">LUXURY PRET PAKISTAN</div>
           <h2
@@ -440,6 +439,61 @@
         </span>
       </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════
+           LATEST FROM THE JOURNAL (FOR ADSENSE & SEO)
+    ═══════════════════════════════════════════ -->
+    <section class="py-32 bg-[#fafaf8] dark:bg-[#080808] border-b border-black/5 dark:border-white/5 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#d4af37_1px,_transparent_1px)] bg-[size:100px_100px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="flex flex-col md:flex-row justify-between items-end gap-12 mb-20 animate-reveal">
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <div class="h-[1px] w-12 bg-amber-500"></div>
+                <span class="text-amber-500 font-bold text-[10px] uppercase tracking-[0.5em]">Editorial</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl font-playfair font-bold text-black dark:text-white leading-none">
+                THE HOUSE <br> <span class="text-stone-400 italic font-thin">JOURNAL</span>
+              </h2>
+            </div>
+            <router-link to="/blog" class="group flex items-center gap-6 px-10 py-5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.4em] transition-all hover:bg-amber-500 dark:hover:bg-amber-500 hover:text-black">
+              View All Entries
+              <font-awesome-icon icon="fa-solid fa-arrow-right" class="group-hover:translate-x-2 transition-transform" />
+            </router-link>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <article v-for="blog in homeBlogs" :key="blog.id" class="group cursor-pointer" @click="router.push(`/blog/${blog.slug}`)">
+              <div class="relative aspect-[3/4] overflow-hidden mb-8 shadow-2xl">
+                <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
+                <div class="absolute top-6 left-6 py-1 px-4 bg-white/90 backdrop-blur-md">
+                  <span class="text-[8px] font-black text-black uppercase tracking-widest">{{ blog.category }}</span>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3 text-stone-400 text-[8px] font-bold uppercase tracking-widest">
+                  <span>{{ blog.date }}</span>
+                  <span class="w-4 h-[1px] bg-amber-500/20"></span>
+                  <span>By {{ blog.author }}</span>
+                </div>
+                <h3 class="text-2xl font-playfair text-black dark:text-white group-hover:text-amber-500 transition-colors leading-tight">
+                  {{ blog.title }}
+                </h3>
+                <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-3">
+                  {{ blog.summary }}
+                </p>
+                <div class="pt-4 overflow-hidden">
+                  <span class="text-[9px] font-black text-amber-500 uppercase tracking-widest block transition-transform group-hover:-translate-x-2">Read Entry —</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+    </section>
 
 
 
@@ -698,28 +752,29 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 
-import Fugibles from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
-import Fugibles1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
-import Fugibles2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png"
-import Fugibles3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png"
-import Fugibles4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png"
+import Fugibles from "../assets/ai/hero_3.png"
+import Fugibles1 from "../assets/ai/hero_2.png"
+import Fugibles2 from "../assets/ai/bridal_highlight.png"
+import Fugibles3 from "../assets/ai/hero_1.png"
+import Fugibles4 from "../assets/ai/hero_4.png"
 
-import HeroCollage1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_1_1776631751767.png"
-import HeroCollage2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
-import HeroCollage3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
-import HeroCollage4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png"
+import HeroCollage1 from "../assets/ai/hero_1.png"
+import HeroCollage2 from "../assets/ai/hero_2.png"
+import HeroCollage3 from "../assets/ai/hero_3.png"
+import HeroCollage4 from "../assets/ai/hero_4.png"
 
-import Highlight1 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png"
-import Highlight2 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_2_1776631769735.png"
-import Highlight3 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_3_1776631788553.png"
-import Highlight4 from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/hero_collage_4_new_1776632263023.png"
+import Highlight1 from "../assets/ai/bridal_highlight.png"
+import Highlight2 from "../assets/ai/hero_2.png"
+import Highlight3 from "../assets/ai/hero_3.png"
+import Highlight4 from "../assets/ai/hero_4.png"
 import ShopInterior from "../assets/hero/shop_interior.png"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import SponsoredAd from '../components/Home/SponsoredAd.vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
-import JewelrySponsored from "C:/Users/ltc/.gemini/antigravity/brain/b52d09ca-52b9-41bc-a17b-2f944043cc90/highlight_1_new_val_1776632331730.png"
+import JewelrySponsored from "../assets/ai/bridal_highlight.png"
+import { blogs as allBlogs } from '../data/blogs'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -761,6 +816,14 @@ const isExiting = ref(false)
 const currentHeroIndex = ref(0)
 const scrollY = ref(0)
 const heroTimer = ref(null)
+
+const homeBlogs = computed(() => {
+  return (allBlogs || []).slice(0, 3)
+})
+
+const scrollToDiscovery = () => {
+  document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })
+}
 
 const openZoom = (img) => {
   zoomImg.value = img
@@ -1053,7 +1116,6 @@ const heroWrapStyle = computed(() => ({
 const handleScroll = () => {
   scrollY.value = window.scrollY
 }
-const scrollToDiscovery = () => document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })
 
 const resetHeroTimer = () => {
   if (heroTimer.value) clearInterval(heroTimer.value)
@@ -1293,6 +1355,60 @@ const categoryTiles = [
   to {
     transform: rotate(-360deg);
   }
+}
+
+/* Premium Button Redesign */
+.premium-btn {
+  @apply relative px-8 py-4 text-[11px] font-bold tracking-[0.4em] uppercase transition-all duration-700 ease-in-out flex items-center gap-4 overflow-hidden;
+  border-radius: 2px;
+}
+
+.premium-btn.primary {
+  @apply bg-[var(--primary-gold)] text-black border border-[var(--primary-gold)];
+  box-shadow: 0 10px 40px -10px rgba(184, 134, 11, 0.4);
+}
+
+.premium-btn.primary .btn-glow {
+  @apply absolute -inset-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-1000;
+}
+
+.premium-btn.primary:hover .btn-glow {
+  @apply translate-x-full;
+}
+
+.premium-btn.primary:hover {
+  @apply bg-black text-white border-black scale-[1.03];
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+
+.premium-btn.secondary {
+  @apply bg-transparent text-white border border-white/20 backdrop-blur-md;
+}
+
+.premium-btn.secondary .btn-border-draw {
+  @apply absolute inset-0 border-2 border-transparent transition-all duration-700;
+}
+
+.premium-btn.secondary:hover {
+  @apply border-white bg-white text-black scale-[1.03];
+  box-shadow: 0 20px 50px -10px rgba(255, 255, 255, 0.15);
+}
+
+.btn-text {
+  @apply relative z-10;
+}
+
+.btn-icon {
+  @apply w-4 h-4 transition-transform duration-500 group-hover:translate-x-2 relative z-10;
+}
+
+/* Old styles to be replaced/removed if they conflict, but keeping them for consistency with other parts if they don't */
+.gsap-btn-primary {
+  display: none; /* Hide old if accidentally used */
+}
+
+.gsap-btn-secondary {
+  display: none; /* Hide old if accidentally used */
 }
 
 .animate-spin-slow {
