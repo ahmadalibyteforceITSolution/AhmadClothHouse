@@ -1,5 +1,20 @@
 export const blogs = [
   {
+    id: 51,
+    slug: 'pakistani-summer-lawn-trends-april-2026',
+    title: 'Today’s Trend: Why 2026 Summer Lawn is the Ultimate Fashion Choice',
+    date: 'April 19, 2026',
+    author: 'Ahmad Cloth House Style Team',
+    category: 'Daily Trends',
+    image: 'https://images.unsplash.com/photo-1605522455879-02d5f1fc219c?auto=format&fit=crop&q=80&w=800',
+    summary: 'Explore the hottest lawn trends for today, focusing on printed unstitched suits and breathable luxury fabrics.',
+    content: `As of April 19, 2026, the temperature across Pakistan is rising, and so is the demand for premium summer lawn. Today, we are seeing a massive shift towards monochromatic unstitched suits paired with vibrant, digitally printed silk dupattas. Brands like Maria B and Sana Safinaz have just dropped their latest mid-summer archives, and the focus is clearly on breathable, high-thread-count cotton.
+
+At Ahmad Cloth House, we are prioritizing 3-piece suites that offer both comfort and a high-fashion edge. Our top-selling items today include soft pastel tones like mint green, lavender, and peach, enriched with delicate schiffli embroidery. For our international clients in the USA and UK, we recommend opting for unstitched lawn as it provides the perfect customizable fit for any body type.
+
+Whether you are shopping for a casual day out or a formal summer lunch, the 2026 lawn collection offers unparalleled versatility. Shop our "Today's Top Picks" section and get express shipping on all orders placed before midnight.`
+  },
+  {
     id: 1,
     slug: 'trending-pakistani-bridal-wear-2026',
     title: 'Top 10 Trending Pakistani Bridal Wear Styles for 2026',
