@@ -161,7 +161,6 @@
         </div>
       </div>
     </section>
-  
 
     <!-- ═══════════════════════════════════════════
          HERITAGE & CRAFTSMANSHIP (AdSense Content Boost)
@@ -257,7 +256,7 @@
           <div class="filter-group">
             <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Max Price: Rs. {{
               maxPrice }}</label>
-            <input type="range" min="0" max="50000" step="1000" v-model="maxPrice"
+            <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
               class="w-full accent-[var(--deep-burgundy)]">
           </div>
         </div>
@@ -267,7 +266,7 @@
     <!-- ═══════════════════════════════════════════
          PRODUCT GRID
     ═══════════════════════════════════════════ -->
-    <section class="products-section pb-32 bg-white dark:bg-[#080808]">
+    <section class="products-section pb-32 bg-white dark:bg-[#080808] min-h-[600px]">
       <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
         <ProductCard v-for="product in displayedProducts" :key="product.id" :product="product"
           @click-product="goToDetail" />

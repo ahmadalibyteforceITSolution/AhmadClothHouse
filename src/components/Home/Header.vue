@@ -44,7 +44,7 @@
               :class="{ '-rotate-45 -translate-y-[7px] bg-[var(--deep-burgundy)]': isMenuOpen, 'bg-[var(--luxury-black)]': !isMenuOpen }"></span>
           </button>
 
-          <button @click="searchOpen = !searchOpen" class="icon-btn flex" aria-label="Search">
+          <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn flex" aria-label="Search">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
           </button>
 
@@ -261,21 +261,38 @@
     
 
     <!-- Search Bar Dropdown -->
-    <transition name="search-drop">
-      <div v-if="searchOpen" class="search-bar-container">
-        <div class="max-w-4xl mx-auto px-6 py-10">
+    <transition name="modal-fade">
+      <div v-if="searchOpen" class="fixed inset-0 z-[20001] flex flex-col">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" @click="searchOpen = false"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative w-full h-full overflow-y-auto pt-20 pb-32">
+          <!-- Close Button -->
+          <button @click="searchOpen = false" 
+            class="absolute top-8 right-8 text-white/40 hover:text-white transition-all w-12 h-12 flex items-center justify-center rounded-full border border-white/10 hover:border-white/40 group">
+            <font-awesome-icon icon="fa-solid fa-xmark" class="text-2xl group-hover:rotate-90 transition-transform duration-500" />
+          </button>
+
+          <div class="max-w-6xl mx-auto px-6">
           <div class="flex items-center gap-4 mb-4 border-b border-black/10 dark:border-white/10 pb-4">
             <button @click="handleSearch" class="group/search p-2 hover:scale-110 transition-all duration-300">
               <font-awesome-icon icon="fa-solid fa-magnifying-glass"
                 class="text-[var(--primary-gold)] text-lg group-hover/search:text-amber-500 transition-colors" />
             </button>
             <input ref="searchInput" v-model="searchQuery" @keyup.enter="handleSearch" type="text"
-              placeholder="Search unstitched, pret, bridal..."
-              class="search-input flex-grow bg-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/30 outline-none text-xl font-light tracking-widest" />
-            <button @click="searchOpen = false"
-              class="text-gray-400 dark:text-white/40 hover:text-amber-500 transition-colors shrink-0 p-2">
-              <font-awesome-icon icon="fa-solid fa-xmark" class="text-xl" />
-            </button>
+              placeholder="What are you looking for today?"
+              class="search-input flex-grow bg-transparent text-white placeholder-white/20 outline-none text-4xl md:text-6xl font-playfair font-light tracking-tight italic" />
+          </div>
+
+          <!-- Quick Suggestions -->
+          <div v-if="searchQuery.length === 0" class="flex flex-wrap gap-4 mb-16 animate-reveal">
+             <span class="text-[9px] font-black tracking-[0.4em] text-[var(--primary-gold)] w-full mb-2">SUGGESTIONS</span>
+             <button v-for="tag in ['Chiffon', 'Bridal', 'Silk', 'Lawn', 'Pret']" :key="tag"
+               @click="searchQuery = tag"
+               class="px-6 py-2 border border-white/5 bg-white/5 text-[10px] text-white/60 uppercase tracking-widest hover:border-[var(--primary-gold)] hover:text-[var(--primary-gold)] transition-all">
+               {{ tag }}
+             </button>
           </div>
 
           <!-- Live Results Architecture -->
@@ -285,9 +302,9 @@
               <div class="h-[1px] flex-grow bg-[var(--primary-gold)]/10"></div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               <div v-for="p in liveResults" :key="p.id" @click="goToLiveProduct(p)"
-                class="flex items-center gap-4 p-4 border border-black/[0.03] dark:border-white/[0.03] hover:border-[var(--primary-gold)]/30 cursor-pointer transition-all bg-stone-50 dark:bg-white/[0.02] group">
+                class="flex items-center gap-4 p-4 border border-black/[0.05] dark:border-white/[0.05] hover:border-[var(--primary-gold)] hover:bg-white dark:hover:bg-white/[0.05] cursor-pointer transition-all bg-white dark:bg-white/[0.02] group rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1">
                 <img :src="p.image" class="w-12 h-12 object-cover transition-all" />
                 <div class="flex-grow">
                   <p class="text-[10px] font-black uppercase tracking-tighter dark:text-white line-clamp-1">{{ p.name }}
@@ -300,28 +317,31 @@
                 class="col-span-full py-4 text-[9px] font-black uppercase tracking-widest text-center text-stone-400 opacity-50 italic">
                 No pieces match your search criteria...
               </div>
+              <div v-if="liveResults.length > 0" class="col-span-full mt-6 text-center">
+                <button @click="handleSearch" class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--primary-gold)] border-b border-[var(--primary-gold)]/20 pb-1 hover:border-[var(--primary-gold)] transition-all">
+                  View All Search Results
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- Quick Filters -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 animate-reveal">
             <div>
-              <h4 class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.4em] mb-6">Quick
-                Categories</h4>
-              <div class="flex flex-wrap gap-3">
+              <h4 class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.4em] mb-6">Explore Collections</h4>
+              <div class="space-y-4">
                 <button v-for="cat in ['Unstitched', 'Pret', 'Bridal', 'M.Print']" :key="cat"
                   @click="searchQuery = cat; handleSearch()"
-                  class="px-4 py-2 border border-white/10 text-[10px] text-white/60 uppercase tracking-widest hover:border-[var(--primary-gold)] hover:text-[var(--primary-gold)] transition-all">
+                  class="block text-2xl font-playfair text-white/40 hover:text-[var(--primary-gold)] transition-all italic">
                   {{ cat }}
                 </button>
               </div>
             </div>
             <div>
-              <h4 class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.4em] mb-6">Price Range
-              </h4>
-              <div class="flex flex-wrap gap-3">
+              <h4 class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.4em] mb-6">Price Points</h4>
+              <div class="space-y-4">
                 <button v-for="price in ['Under 5k', '5k - 15k', '15k - 50k', 'Couture']" :key="price"
-                  class="px-4 py-2 border border-white/10 text-[10px] text-white/60 uppercase tracking-widest hover:border-[var(--primary-gold)] hover:text-[var(--primary-gold)] transition-all">
+                  class="block text-2xl font-playfair text-white/40 hover:text-[var(--primary-gold)] transition-all italic">
                   {{ price }}
                 </button>
               </div>
@@ -336,7 +356,8 @@
           </div>
         </div>
       </div>
-    </transition>
+    </div>
+  </transition>
 
     <!-- Mobile Navigation Drawer -->
     <transition name="drawer">
@@ -708,8 +729,16 @@ const handleLogout = () => {
 }
 
 const handleSearch = () => {
-  if (searchQuery.value.trim()) {
-    router.push({ path: '/shop', query: { q: searchQuery.value.trim() } })
+  const q = searchQuery.value.trim()
+  if (q) {
+    // If it's a category name, navigate to category directly for better UX
+    const categoriesList = ['unstitched', 'pret', 'bridal', 'm.print']
+    if (categoriesList.includes(q.toLowerCase())) {
+      router.push(`/shop/${q}`)
+    } else {
+      router.push({ path: '/shop', query: { q } })
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     searchQuery.value = ''
     searchOpen.value = false
   }
@@ -725,8 +754,15 @@ const liveResults = computed(() => {
   if (searchQuery.value.length < 2) return []
   const q = searchQuery.value.toLowerCase()
   return productStore.products
-    .filter(p => p.name.toLowerCase().includes(q) || (p.category && p.category.toLowerCase().includes(q)))
-    .slice(0, 4)
+    .filter(p => 
+      p.name?.toLowerCase().includes(q) || 
+      p.category?.toLowerCase().includes(q) ||
+      p.parentCategory?.toLowerCase().includes(q) ||
+      p.description?.toLowerCase().includes(q) ||
+      p.brand?.toLowerCase().includes(q) ||
+      p.nature?.toLowerCase().includes(q)
+    )
+    .slice(0, 12)
 })
 
 const goToHome = () => router.push('/')
@@ -919,18 +955,15 @@ const goToHome = () => router.push('/')
 }
 
 /* Search Bar */
-.search-bar-container {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  z-index: 99;
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.dark .search-bar-container {
-  background: #1A1A1A;
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.98);
 }
 
 .search-input {

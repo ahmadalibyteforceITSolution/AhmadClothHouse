@@ -121,7 +121,7 @@
     </div>
 
     <!-- Product Collection Grid -->
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-6 min-h-[60vh]">
       <div v-if="filteredProducts.length > 0">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-20">
           <ProductCard 
@@ -200,14 +200,14 @@ const itemsPerPage = 8
 
 const selectedCategory = ref('')
 const selectedProductName = ref('')
-const maxPrice = ref(2000)
+const maxPrice = ref(500000)
 
 const isCatOpen = ref(false)
 const isNameOpen = ref(false)
 
 const category = computed(() => route.params.category)
 
-watch([selectedCategory, category], ([newCat, routeCat]) => {
+watch([selectedCategory, category, () => route.query.q], () => {
   currentPage.value = 1
   const activeCat = newCat || routeCat || 'All Collections'
   document.title = `${activeCat} | Shop Pakistani Designer Suits - AHMADCLOTHESFABRICS`
