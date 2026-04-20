@@ -16,13 +16,13 @@ export const useProductsStore = defineStore('products', {
       const isDev = import.meta.env.MODE === 'development';
       const apiURL = isDev ? 'http://localhost:5000' : window.location.origin;
 
-      // Fallback to local products if dynamic products haven't loaded or are empty
-      const items = (state.dynamicProducts && state.dynamicProducts.length > 0) ? state.dynamicProducts : localProducts;
+      // ONLY SHOW DYNAMIC PRODUCTS FROM DATABASE
+      const items = (state.dynamicProducts && state.dynamicProducts.length > 0) ? state.dynamicProducts : [];
       if (!Array.isArray(items)) return [];
-      
+
       return items.filter(p => !!p).map(p => {
         let img = p.image || p.imageUrl || ''
-        
+
         // Dynamically Handle browser live link: auto-adapt old hardcoded localhost URLs to ANY domain
         if (img && img.includes('localhost:5000')) {
           if (!isDev) {
@@ -32,7 +32,7 @@ export const useProductsStore = defineStore('products', {
           // If the old image is a relative path like /uploads/...
           img = `${apiURL}${img}`;
         }
-        
+
         return {
           ...p,
           id: p._id || p.id,
@@ -51,7 +51,13 @@ export const useProductsStore = defineStore('products', {
     }
   },
   actions: {
-    async fetchProducts() {
+    async fetchProducts(force = false) {
+      // CACHE CHECK: If we already have products and aren't forcing a refresh, skip the fetch
+      if (this.dynamicProducts.length > 0 && !force) {
+        console.log("AHMADCLOTHS: Using cached products.");
+        return;
+      }
+
       this.loading = true
       console.log("AHMADCLOTHS: Starting product fetch...");
       try {
@@ -136,13 +142,13 @@ export const useProductsStore = defineStore('products', {
           description: `Signature ${prodData.nature} Collection.`,
           details: ["Dynamic Backend Persistence", "Fudgeables Secured", "Freshly Baked"]
         }
-        
-     
+
+
         const res = await api.post('/products', payload)
         if (res.data.success) {
 
           await this.fetchProducts()
-          
+
           Swal.fire({
             toast: true,
             position: 'top-end',
@@ -159,7 +165,7 @@ export const useProductsStore = defineStore('products', {
       } catch (err) {
         console.error("FUDGEABLES UPLOAD ERROR:", err.response || err);
         this.error = 'Upload protocol failed. Ensure your server is active and image size is within limits.'
-        
+
         Swal.fire({
           icon: 'error',
           title: 'AhmadClothes House - Protocol Error',
@@ -194,13 +200,13 @@ export const useProductsStore = defineStore('products', {
           payload.image = prodData.imageUrl;
           payload.filterImageUrl = prodData.filterImageUrl;
         }
-        
- 
+
+
         const res = await api.put(`/products/${id}`, payload)
         if (res.data.success) {
-      
+
           await this.fetchProducts()
-          
+
           Swal.fire({
             toast: true,
             position: 'top-end',
@@ -217,7 +223,7 @@ export const useProductsStore = defineStore('products', {
       } catch (err) {
         console.error("FUDGEABLES UPDATE ERROR:", err.response || err);
         this.error = 'Update protocol failed.'
-        
+
         Swal.fire({
           icon: 'error',
           title: 'AhmadClothes House - Update Error',
@@ -233,51 +239,58 @@ export const useProductsStore = defineStore('products', {
 
     async removeProduct(id) {
       const auth = useAuthStore()
-      // Check if it's dynamic
-      if (typeof id === 'string' || id.length > 20) { // MongoDB ObjectId usually
-        const result = await Swal.fire({
-          title: 'Remove Product?',
-          text: "Protocol will permanently remove this item from the AhmadClothes House registry.",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#d33',
-          cancelButtonColor: '#4f46e5',
-          confirmButtonText: 'CONFIRM REMOVAL',
-          background: auth.isDark ? '#000' : '#fff',
-          color: auth.isDark ? '#fff' : '#000'
-        });
 
-        if (!result.isConfirmed) return;
+      // Confirmation first (could also be removed for 'ultimate speed' but safer to keep)
+      const result = await Swal.fire({
+        title: 'Remove Product?',
+        text: "This will permanently remove this item from the database.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#4f46e5',
+        confirmButtonText: 'CONFIRM REMOVAL',
+        background: auth.isDark ? '#000' : '#fff',
+        color: auth.isDark ? '#fff' : '#000'
+      });
 
-        try {
-          await api.delete(`/products/${id}`)
-          await this.fetchProducts()
-          
+      if (!result.isConfirmed) return;
+
+      // OPTIMISTIC UPDATE: Remove locally immediately for "fast response"
+      const previousProducts = [...this.dynamicProducts];
+      this.dynamicProducts = this.dynamicProducts.filter(p => (p._id || p.id) !== id);
+
+      try {
+        const res = await api.delete(`/products/${id}`)
+
+        if (res.data.success) {
           Swal.fire({
             toast: true,
             position: 'top-end',
             icon: 'success',
-            title: 'AhmadClothes House - Registry Updated',
+            title: 'Removed Successfully',
             showConfirmButton: false,
             timer: 2000,
             background: auth.isDark ? '#000' : '#fff',
             color: auth.isDark ? '#fff' : '#000'
           })
-        } catch (err) {
-          console.error("Deletion at database failed.")
-          Swal.fire({
-            icon: 'error',
-            title: 'AhmadClothes House - Registry Protocol Failed',
-            background: auth.isDark ? '#000' : '#fff',
-            color: auth.isDark ? '#fff' : '#000'
-          })
+        } else {
+          throw new Error("API reported failure");
         }
-      } else {
-        // Fallback for local storage (if any left) or seed (though seed is usually protected)
-        this.dynamicProducts = this.dynamicProducts.filter(p => p.id !== id)
+      } catch (err) {
+        console.error("Deletion failed, rolling back:", err);
+        // ROLLBACK on failure
+        this.dynamicProducts = previousProducts;
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Removal Failed',
+          text: 'The database could not process the removal. Restoring item.',
+          background: auth.isDark ? '#000' : '#fff',
+          color: auth.isDark ? '#fff' : '#000'
+        })
       }
     },
-    
+
     async incrementView(id) {
       if (typeof id !== 'string' || id.length < 10) return; // Ignore seed ids for live tracking
       try {

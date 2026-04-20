@@ -48,8 +48,8 @@
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
           </button>
 
-          <!-- Luxury Concierge (Support) - Hidden on desktop as per request -->
-          <div class="relative group ml-1 sm:ml-4 lg:hidden">
+          <!-- Luxury Concierge (Support) -->
+          <div class="relative group ml-1 sm:ml-4">
             <button class="concierge-btn flex items-center gap-2.5 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn">
               <div class="relative">
                 <font-awesome-icon icon="fa-solid fa-headset" class="text-[10px] text-amber-500 animate-pulse-slow" />

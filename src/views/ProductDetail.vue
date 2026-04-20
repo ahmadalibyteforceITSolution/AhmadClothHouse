@@ -1,98 +1,102 @@
 <template>
-  <div v-if="product" class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 pb-48 pt-24 px-8 selection:bg-[var(--primary-gold)]/30">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 relative">
+  <div v-if="product" class="min-h-screen bg-white dark:bg-[#050505] transition-colors duration-1000 pb-40 text-[#1a1a1a] dark:text-[#f9f9f9]">
+    
+    <!-- Ultra-Luxury Top Banner -->
+    <div class="w-full h-12 bg-black dark:bg-[#1a1a1a] flex items-center justify-center overflow-hidden mb-12">
+       <span class="text-[8px] md:text-[9px] font-medium tracking-[0.4em] text-white uppercase animate-pulse">
+         COMPLIMENTARY NATIONWIDE SHIPPING ON LUXURY ATELIERS
+       </span>
+    </div>
+
+    <div class="max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
        
-       <!-- Sticky Media Gallery -->
-       <div class="lg:w-3/5 lg:sticky lg:top-32 h-fit">
-         <div class="aspect-[4/5] overflow-hidden bg-white dark:bg-[#080808] border border-[#d4af3711] shadow-3xl relative group">
-           <!-- Dynamic Focus Overlay -->
-           <div class="absolute inset-0 bg-[var(--primary-gold)]/5 group-hover:opacity-0 transition-opacity duration-1000 z-10"></div>
-           
+       <!-- Left Side: Grand Image Presentation (Maria B Style) -->
+       <div class="lg:col-span-7 flex flex-col gap-6">
+         <!-- Main Hero Image -->
+         <div class="relative w-full overflow-hidden bg-[#fafaf8] dark:bg-[#080808] aspect-[3/4] group mb-4">
+           <!-- Subtle zoom effect on hover -->
            <img 
              :src="currentDisplayImage" 
              :alt="product.name" 
-             class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+             class="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-110 ease-out"
            />
-           
-           <!-- Perspective Mask -->
-           <div class="absolute inset-0 border-[24px] border-[#fafaf8] dark:border-[#050505] transition-all duration-700 group-hover:border-[0px] z-20 pointer-events-none"></div>
-
-           <!-- Label Overlay -->
-           <div class="absolute bottom-12 left-12 z-20">
-              <div class="bg-black/80 backdrop-blur-3xl px-8 py-4 border border-white/10 text-white flex flex-col items-center">
-                 <span class="text-[9px] font-bold uppercase tracking-[0.5em] mb-1">AHMADCLOTHS_ORIGINAL</span>
-                 <div class="h-[1px] w-8 bg-[var(--primary-gold)]"></div>
-              </div>
+           <!-- Minimalist Watermark -->
+           <div class="absolute inset-0 border border-black/5 dark:border-white/5 pointer-events-none"></div>
+           <div class="absolute bottom-6 left-6 rotate-[-90deg] origin-bottom-left text-[8px] font-black tracking-[0.5em] text-black/30 dark:text-white/30 uppercase mix-blend-difference">
+              MARIA.B INSPIRED
            </div>
          </div>
          
-         <!-- Minimal Thumbnail Navigation -->
-         <div v-if="allImages.length > 1" class="mt-10 flex gap-6 overflow-x-auto pb-6 scrollbar-none justify-center">
+         <!-- Thumbnail Grid -->
+         <div v-if="allImages.length > 1" class="grid grid-cols-4 gap-4">
            <button 
              v-for="(img, idx) in allImages" :key="idx"
              @click="selectImage(img)"
-             class="w-20 h-28 flex-shrink-0 border transition-all duration-700 relative overflow-hidden group"
-             :class="currentDisplayImage === img ? 'border-[var(--primary-gold)] shadow-xl scale-110' : 'border-[#d4af3711] opacity-40 hover:opacity-100'"
+             class="aspect-[3/4] overflow-hidden relative group transition-opacity duration-500"
+             :class="currentDisplayImage === img ? 'opacity-100 ring-1 ring-black dark:ring-white ring-offset-2 dark:ring-offset-[#050505]' : 'opacity-50 hover:opacity-100'"
            >
-             <img :src="img" class="w-full h-full object-cover transition-all duration-700">
-             <div v-if="currentDisplayImage === img" class="absolute bottom-0 left-0 right-0 h-1 bg-[var(--primary-gold)]"></div>
+             <img :src="img" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
            </button>
          </div>
        </div>
 
-       <!-- Information Curation -->
-       <div class="lg:w-2/5 flex flex-col font-sans">
-         <div class="mb-16">
-            <div class="flex items-center gap-3 mb-6 animate-reveal">
-               <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-               <span class="text-[var(--primary-gold)] font-bold text-[9px] uppercase tracking-[0.5em]">{{ product.category.toUpperCase() }}</span>
-            </div>
+       <!-- Right Side: Clean Minimalist Details -->
+       <div class="lg:col-span-5 flex flex-col relative">
+         <div class="lg:sticky lg:top-10 animate-fade-in-up">
             
-            <h1 class="text-5xl md:text-7xl font-light uppercase tracking-tighter text-gray-900 dark:text-white mb-8 font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[16px] leading-[0.9]">
-               {{ product.name }}
-            </h1>
-            
-            <div class="flex flex-col mb-12">
-                <div class="flex items-baseline gap-6 mb-2">
-                   <span class="text-4xl font-bold text-[var(--primary-gold)] font-serif italic">Rs. {{ product.price.toLocaleString() }}</span>
-                   <span v-if="product.originalPrice && product.originalPrice > product.price" class="text-xl font-bold text-stone-400 line-through font-serif italic opacity-50">Rs. {{ product.originalPrice.toLocaleString() }}</span>
-                   <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-300 dark:text-stone-700">Luxury Piece</span>
-                </div>
-                <div v-if="product.originalPrice && product.originalPrice > product.price" class="flex items-center gap-4">
-                   <span class="bg-[#ff4757]/10 text-[#ff4757] px-4 py-1.5 text-[8px] font-bold uppercase tracking-[0.3em] border border-[#ff4757]/20">
-                     EXCLUSIVE SAVINGS: {{ Math.round((1 - product.price / product.originalPrice) * 100) }}% OFF
-                   </span>
-                </div>
-             </div>
-         </div>
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-[9px] font-black tracking-[0.3em] uppercase text-stone-400 mb-8">
+               <router-link to="/" class="hover:text-black dark:hover:text-white transition-colors">Home</router-link>
+               <span class="opacity-50">/</span>
+               <router-link :to="`/shop/${product.category}`" class="hover:text-black dark:hover:text-white transition-colors">{{ product.category }}</router-link>
+               <span class="opacity-50">/</span>
+               <span class="text-black dark:text-white line-clamp-1 max-w-[150px]">{{ product.name }}</span>
+            </nav>
 
-         <!-- Core Interactivity -->
-         <div class="space-y-16">
-            
-            <!-- Variants -->
-            <div v-if="product.variants && product.variants.length > 0" class="space-y-12 pb-12 border-b border-[#d4af3711]">
+            <!-- Title & Price Block -->
+            <div class="border-b border-black/10 dark:border-white/10 pb-8 mb-8">
+              <h1 class="text-3xl md:text-5xl font-playfair font-normal leading-[1.1] mb-6 tracking-tight text-[#111] dark:text-[#fff]">
+                 {{ product.name }}
+              </h1>
+              <div class="flex items-baseline gap-4">
+                 <span class="text-2xl font-light tracking-wide">PKR {{ product.price.toLocaleString() }}</span>
+                 <span v-if="product.originalPrice && product.originalPrice > product.price" class="text-sm text-stone-400 line-through opacity-70">
+                   PKR {{ product.originalPrice.toLocaleString() }}
+                 </span>
+              </div>
+              <p class="text-[10px] font-medium uppercase tracking-[0.2em] text-[#d4af37] mt-3">Inclusive of all taxes</p>
+            </div>
+
+            <!-- Interactivity (Variants) -->
+            <div class="space-y-8 mb-12">
               <div v-if="uniqueColors.length > 0">
-                <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-6">Color / Shade</h3>
-                <div class="flex flex-wrap gap-4">
+                <div class="flex justify-between items-center mb-4">
+                   <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#111] dark:text-[#eee]">Color</h3>
+                   <span class="text-[9px] font-medium text-stone-400 uppercase tracking-widest">{{ selectedColor || 'Select' }}</span>
+                </div>
+                <div class="flex flex-wrap gap-3">
                   <button 
                     v-for="color in uniqueColors" :key="color"
                     @click="selectColor(color)"
-                    class="px-8 py-3 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 border"
-                    :class="selectedColor === color ? 'bg-black text-white border-black dark:bg-[var(--primary-gold)] dark:border-[var(--primary-gold)]' : 'border-[#d4af3722] text-stone-500 hover:border-[var(--primary-gold)]/40 hover:text-[var(--primary-gold)]'"
+                    class="relative px-6 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors border"
+                    :class="selectedColor === color ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white' : 'border-stone-200 dark:border-stone-800 text-stone-500 hover:border-black dark:hover:border-white'"
                   >
-                    {{ color.toUpperCase() }}
+                    {{ color }}
                   </button>
                 </div>
               </div>
               
               <div v-if="uniqueSizes.length > 0">
-                <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-6">Size / Fit</h3>
-                <div class="flex flex-wrap gap-4">
+                <div class="flex justify-between items-center mb-4">
+                   <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#111] dark:text-[#eee]">Size</h3>
+                   <span class="text-[9px] cursor-pointer font-medium border-b border-black dark:border-white uppercase tracking-widest hover:text-[#d4af37] hover:border-[#d4af37] transition-colors">Size Guide</span>
+                </div>
+                <div class="flex flex-wrap gap-3">
                   <button 
                     v-for="size in uniqueSizes" :key="size"
                     @click="selectSize(size)"
-                    class="w-14 h-14 flex items-center justify-center text-[10px] font-bold uppercase tracking-widest transition-all duration-500 border rounded-full"
-                    :class="selectedSize === size ? 'bg-[var(--primary-gold)] text-white border-[var(--primary-gold)] shadow-xl shadow-[var(--primary-gold)]/20' : 'border-[#d4af3722] text-stone-500 hover:border-[var(--primary-gold)]/40 hover:text-[var(--primary-gold)]'"
+                    class="w-12 h-12 flex items-center justify-center text-[10px] font-bold uppercase tracking-widest border transition-all"
+                    :class="selectedSize === size ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white' : 'border-stone-200 dark:border-stone-800 text-stone-500 hover:border-black dark:hover:border-white'"
                   >
                     {{ size }}
                   </button>
@@ -100,87 +104,98 @@
               </div>
             </div>
 
-            <!-- Narrative / Notes -->
-            <div class="animate-reveal">
-               <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-8 border-l-2 border-[var(--primary-gold)]/20 pl-4 italic">Design Philosophy</h3>
-               <p class="text-xl text-stone-600 dark:text-stone-400 leading-loose font-light italic font-playfair mb-10 transition-all hover:text-gray-900 dark:hover:text-white">
-                 "{{ product.description || 'A timeless ensemble meticulously crafted for the elegant style, blending premium fabrics with artisanal precision.' }}"
-               </p>
+            <!-- Action Buttons -->
+            <div class="flex flex-col gap-4 mb-16">
+               <button 
+                 @click="handleAddToCart"
+                 class="w-full bg-black dark:bg-white text-white dark:text-black py-4 md:py-5 text-[11px] font-bold uppercase tracking-[0.4em] transition-transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-4 group"
+               >
+                 <span>ADD TO CART</span>
+                 <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[10px] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+               </button>
                
-               <ul class="space-y-6">
-                  <li v-for="feat in ['Hand-crafted Quality', 'Premium Luxury Fabrics', 'Exclusive Designer Wear', 'Worldwide Secure Shipping']" :key="feat" class="flex items-center gap-6 group">
-                     <div class="w-1.5 h-1.5 rounded-full bg-[var(--primary-gold)] group-hover:scale-150 transition-transform shadow-[0_0_8px_rgba(184,134,11,0.5)]"></div>
-                     <p class="text-[10px] font-bold text-stone-500 uppercase tracking-[0.3em] group-hover:text-[var(--primary-gold)] transition-colors">{{ feat }}</p>
-                  </li>
-               </ul>
+               <button 
+                 @click="favorites.toggleFavorite(product)"
+                 class="w-full bg-transparent border border-black dark:border-white text-black dark:text-white py-4 md:py-5 text-[11px] font-bold uppercase tracking-[0.4em] transition-colors hover:bg-stone-50 dark:hover:bg-stone-900 flex items-center justify-center gap-4"
+               >
+                 <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" :class="favorites.isFavorite(product.id) ? 'text-[#d4af37]' : ''" />
+                 <span>{{ favorites.isFavorite(product.id) ? 'SAVED TO WISHLIST' : 'ADD TO WISHLIST' }}</span>
+               </button>
             </div>
 
-            <!-- Deployment Command -->
-            <div class="pt-12 flex flex-col gap-8">
-               <div class="flex items-center gap-6">
-                  <button 
-                    @click="handleAddToCart"
-                    class="flex-grow bg-black dark:bg-[var(--primary-gold)] text-white py-8 px-12 text-[11px] font-bold uppercase tracking-[0.5em] shadow-3xl transition-all duration-700 hover:bg-[var(--deep-burgundy)] active:scale-95 flex items-center justify-center gap-6 group"
-                  >
-                    <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-[11px] group-hover:scale-120 transition-transform" /> 
-                    <span>ADD TO BAG</span>
-                  </button>
-                  
-                  <button 
-                    @click="favorites.toggleFavorite(product)"
-                    class="w-24 h-24 border border-[#d4af3722] transition-all duration-700 hover:border-[var(--primary-gold)]/50 flex items-center justify-center text-2xl group relative overflow-hidden"
-                    :class="favorites.isFavorite(product.id) ? 'text-[var(--primary-gold)] bg-[var(--primary-gold)]/5 border-[var(--primary-gold)]' : 'text-stone-300'"
-                  >
-                    <div class="absolute inset-0 bg-[var(--primary-gold)]/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                    <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" class="relative z-10" />
-                  </button>
+            <!-- Accordion Details (Maria B Style) -->
+            <div class="border-t border-black/10 dark:border-white/10">
+               <!-- Accordion Item 1 -->
+               <div class="py-6 border-b border-black/10 dark:border-white/10 group cursor-pointer" @click="activeAccordion = activeAccordion === 1 ? 0 : 1">
+                  <div class="flex justify-between items-center">
+                     <span class="text-[11px] font-black uppercase tracking-[0.3em]">Description</span>
+                     <span class="text-lg font-light transition-transform duration-300" :class="{'rotate-45': activeAccordion === 1}">+</span>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-500 max-h-0" :class="{'max-h-[500px] mt-6': activeAccordion === 1}">
+                     <p class="text-[13px] text-stone-600 dark:text-stone-400 leading-relaxed font-light">
+                        {{ product.description || 'Elevate your wardrobe with our latest unstitched ensemble. An exquisite curation of fine fabric and precise embroidery detailing.' }}
+                     </p>
+                  </div>
+               </div>
+
+               <!-- Accordion Item 2 -->
+               <div v-if="product.details && product.details.length" class="py-6 border-b border-black/10 dark:border-white/10 group cursor-pointer" @click="activeAccordion = activeAccordion === 2 ? 0 : 2">
+                  <div class="flex justify-between items-center">
+                     <span class="text-[11px] font-black uppercase tracking-[0.3em]">Fabric Details</span>
+                     <span class="text-lg font-light transition-transform duration-300" :class="{'rotate-45': activeAccordion === 2}">+</span>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-500 max-h-0" :class="{'max-h-[500px] mt-6': activeAccordion === 2}">
+                     <ul class="space-y-3">
+                        <li v-for="detail in product.details" :key="detail" class="text-[12px] text-stone-600 dark:text-stone-400 font-light flex items-start gap-4">
+                           <span class="w-1 h-1 rounded-full bg-black dark:bg-white mt-1.5 shrink-0"></span>
+                           <span class="tracking-wide">{{ detail }}</span>
+                        </li>
+                     </ul>
+                  </div>
                </div>
                
-               <p class="text-center text-[8px] text-stone-400 font-bold tracking-[0.4em] uppercase py-4 opacity-40">
-                  Secure worldwide shipping active | Quality guaranteed on arrival.
-               </p>
-            </div>
-
-            <!-- Details Partition -->
-            <div v-if="product.details && product.details.length" class="pt-16 animate-reveal">
-               <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-10">FABRIC & CARE</h3>
-               <div class="grid grid-cols-1 gap-6">
-                  <div v-for="detail in product.details" :key="detail" class="flex items-center justify-between border-b border-[#d4af3711] pb-6 hover:border-[var(--primary-gold)]/20 transition-all group">
-                     <span class="text-[11px] text-stone-600 dark:text-stone-400 font-bold uppercase tracking-widest group-hover:text-[var(--primary-gold)] transition-colors">{{ detail }}</span>
-                     <font-awesome-icon icon="fa-solid fa-check" class="text-[9px] text-[var(--primary-gold)]/40" />
+               <!-- Accordion Item 3 -->
+               <div class="py-6 border-b border-black/10 dark:border-white/10 group cursor-pointer" @click="activeAccordion = activeAccordion === 3 ? 0 : 3">
+                  <div class="flex justify-between items-center">
+                     <span class="text-[11px] font-black uppercase tracking-[0.3em]">Delivery & Returns</span>
+                     <span class="text-lg font-light transition-transform duration-300" :class="{'rotate-45': activeAccordion === 3}">+</span>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-500 max-h-0" :class="{'max-h-[500px] mt-6': activeAccordion === 3}">
+                     <p class="text-[12px] text-stone-600 dark:text-stone-400 leading-relaxed font-light">
+                        Orders are dispatched within 24-48 hours. Express delivery across Pakistan takes 2-4 working days. International delivery takes 5-10 working days. Unstitched items can be exchanged within 7 days of purchase.
+                     </p>
                   </div>
                </div>
             </div>
+
          </div>
        </div>
     </div>
     
-    <!-- Guest Reviews Section -->
-    <div class="max-w-7xl mx-auto px-8">
-       <ReviewSection :product-id="product?.id || product?._id" />
+    <!-- Guest Reviews Section Container -->
+    <div class="max-w-[1800px] mx-auto px-6 sm:px-12 mt-32">
+       <div class="py-16 border-t border-black/10 dark:border-white/10">
+         <ReviewSection :product-id="product?.id || product?._id" />
+       </div>
     </div>
 
-    <!-- Google AdSense: Product Detail Page — Slot D (unique to this page) -->
-    <div class="max-w-7xl mx-auto px-8 py-20">
-       <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" />
-    </div>
-    
-    <!-- Horizon Section -->
-    <div class="max-w-7xl mx-auto mt-64 animate-reveal">
-       <div class="flex items-center gap-6 mb-20 px-8">
-          <div class="h-[1px] flex-grow bg-amber-400/10"></div>
-          <h2 class="text-2xl font-black uppercase tracking-[0.3em] dark:text-white font-playfair italic">Similar Designs</h2>
-          <div class="h-[1px] flex-grow bg-amber-400/10"></div>
-       </div>
-       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 px-8">
-          <ProductCard v-for="p in relatedProducts" :key="p.id" :product="p" @click-product="goToDetail" />
+    <!-- Related Products -->
+    <div class="bg-stone-50 dark:bg-[#0a0a0a] py-32 mt-12 w-full">
+       <div class="max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-20">
+          <div class="flex items-center gap-6 mb-16">
+             <h2 class="text-3xl font-playfair uppercase tracking-widest dark:text-white">Complete The Look</h2>
+             <div class="h-[1px] flex-grow bg-black/10 dark:bg-white/10"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+             <ProductCard v-for="p in relatedProducts" :key="p.id" :product="p" @click-product="goToDetail" />
+          </div>
        </div>
     </div>
 
   </div>
-  <div v-else class="h-screen flex flex-col items-center justify-center bg-black gap-10">
-     <div class="w-16 h-16 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-     <span class="text-[9px] font-black text-amber-500 tracking-[0.6em] uppercase">Preparing Delight...</span>
+  <div v-else class="h-screen flex flex-col items-center justify-center bg-white dark:bg-[#050505] gap-10">
+     <div class="w-12 h-12 border border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
+     <span class="text-[10px] font-black text-black dark:text-white tracking-[0.5em] uppercase">Curating Detail...</span>
   </div>
 </template>
 
@@ -236,6 +251,7 @@ const selectedVariant = ref(null)
 const selectedColor = ref(null)
 const selectedSize = ref(null)
 const manuallySelectedImage = ref(null)
+const activeAccordion = ref(1) // Controls the accordion state
 
 const currentDisplayImage = computed(() => {
   if (manuallySelectedImage.value) return manuallySelectedImage.value
@@ -273,51 +289,83 @@ watch(product, (p) => {
   selectedSize.value = null
   manuallySelectedImage.value = null
 
-  if (p) {
-    // Update Document Title
-    document.title = `${p.name} | AHMADCLOTHESFABRICS - Premium Pakistani Couture`
+    // Advanced SEO Injection (Maria B Style Editorial Meta)
+    if (typeof document !== 'undefined' && p) {
+      const BASE = 'https://ahmad-cloths.vercel.app'
+      const pageUrl = `${BASE}${route.path}`
+      const pageTitle = `${p.name} | Premium Pakistani Designer Suit | AhmadClothHouse`
+      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} at AhmadClothHouse. Premium luxury fashion piece handcrafted with the finest Pakistani fabrics and intricate embroidery.`
+      const pageImage = p.image || `${BASE}/og-image.png`
 
-    // Update Meta Description
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) {
-      metaDescription.setAttribute('content', `Shop ${p.name} at AHMADCLOTHESFABRICS. ${p.description || 'Premium luxury fashion piece handcrafted with the finest fabrics.'} Best prices for Pakistani designer suits.`)
-    }
+      document.title = pageTitle
 
-    // Add Product Schema
-    if (typeof document !== 'undefined') {
-      const scriptId = 'product-schema-json-ld'
-      let script = document.getElementById(scriptId)
+      const setMeta = (name, isProperty, value) => {
+        const attr = isProperty ? `[property="${name}"]` : `[name="${name}"]`
+        let el = document.querySelector(`meta${attr}`)
+        if (!el) {
+          el = document.createElement('meta')
+          el.setAttribute(isProperty ? 'property' : 'name', name)
+          document.head.appendChild(el)
+        }
+        el.setAttribute('content', value)
+      }
+
+      setMeta('description', false, pageDesc)
+      setMeta('robots', false, 'index, follow')
+      setMeta('og:title', true, pageTitle)
+      setMeta('og:description', true, pageDesc)
+      setMeta('og:url', true, pageUrl)
+      setMeta('og:image', true, pageImage)
+      setMeta('og:type', true, 'product')
+      setMeta('product:price:amount', true, p.price)
+      setMeta('product:price:currency', true, 'PKR')
+
+      // Canonical
+      let canonical = document.querySelector('link[rel="canonical"]')
+      if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
+      canonical.href = pageUrl
+
+      // Product & Breadcrumb Schema
+      const schemas = [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": p.name,
+          "image": [p.image],
+          "description": pageDesc,
+          "sku": p.sku || p.id || p._id,
+          "brand": { "@type": "Brand", "name": "AhmadClothHouse" },
+          "offers": {
+            "@type": "Offer",
+            "url": pageUrl,
+            "priceCurrency": "PKR",
+            "price": p.price,
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@type": "Organization", "name": "AhmadClothHouse" }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE },
+            { "@type": "ListItem", "position": 2, "name": p.category, "item": `${BASE}/shop/${p.category}` },
+            { "@type": "ListItem", "position": 3, "name": p.name, "item": pageUrl }
+          ]
+        }
+      ]
+
+      let script = document.getElementById('product-schema-json-ld')
       if (!script) {
         script = document.createElement('script')
-        script.id = scriptId
+        script.id = 'product-schema-json-ld'
         script.type = 'application/ld+json'
         document.head.appendChild(script)
       }
-
-      const schema = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": p.name,
-        "image": [p.image],
-        "description": p.description || `${p.name} - Luxury Pakistani Designer Suit from AHMADCLOTHESFABRICS.`,
-        "sku": p.sku || p.id || p._id,
-        "brand": {
-          "@type": "Brand",
-          "name": "AHMADCLOTHESFABRICS"
-        },
-        "offers": {
-          "@type": "Offer",
-          "url": window.location.href,
-          "priceCurrency": "PKR",
-          "price": p.price,
-          "itemCondition": "https://schema.org/NewCondition",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-      script.text = JSON.stringify(schema)
+      script.text = JSON.stringify(schemas)
     }
-  }
-}, { immediate: true })
+  }, { immediate: true })
 
 const selectImage = (img) => {
   manuallySelectedImage.value = img
@@ -403,21 +451,19 @@ watch(() => route.params.id, (newId) => {
 </script>
 
 <style scoped>
-.shadow-3xl {
-  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.2);
-}
-.dark .shadow-3xl {
-  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6);
+/* Ultra-Luxury Maria B Styles */
+.font-playfair { font-family: 'Playfair Display', serif; }
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-.animate-reveal { animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
-
-@keyframes reveal-bottom {
-  from { opacity: 0; transform: translateY(40px); }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.font-playfair { font-family: 'Playfair Display', serif; }
+/* Hide scrollbar for cleaner look if needed on specific elements */
 .scrollbar-none::-webkit-scrollbar { display: none; }
 .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 </style>

@@ -1,7 +1,7 @@
-import img1 from "../assets/ai/hero_1.png";
-import img2 from "../assets/ai/hero_2.png";
-import img3 from "../assets/ai/hero_3.png";
-import img4 from "../assets/ai/hero_4.png";
+import img1 from "../assets/ai_new/hero_collage_1.png";
+import img2 from "../assets/ai_new/hero_collage_2.png";
+import img3 from "../assets/ai_new/hero_collage_3.png";
+import img4 from "../assets/ai_new/hero_collage_4.png";
 
 const localImages = [img1, img2, img3, img4];
 

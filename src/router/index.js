@@ -286,56 +286,53 @@ router.beforeEach((to, from, next) => {
 
 // Dynamic Meta Tag Guard
 router.afterEach((to) => {
-  // Update Title
-  if (to.meta.title) {
-    document.title = to.meta.title
-  } else {
-    document.title = 'AhmadClothes House - Premium Fashion House'
-  }
+  const BASE_URL = 'https://ahmad-cloths.vercel.app'
+  const canonicalUrl = `${BASE_URL}${to.path}`
+  const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`
 
-  // Update Meta Description
-  let descriptionElement = document.querySelector('meta[name="description"]')
-  if (to.meta.description) {
-    if (descriptionElement) {
-      descriptionElement.setAttribute('content', to.meta.description)
-    } else {
-      const meta = document.createElement('meta')
-      meta.name = 'description'
-      meta.content = to.meta.description
-      document.head.appendChild(meta)
+  // === Title ===
+  document.title = to.meta.title || 'AhmadClothesHouse | Premium Pakistani Fashion'
+
+  // === Helper to set any meta tag ===
+  const setMeta = (attrName, attrVal, contentVal) => {
+    let el = document.querySelector(`meta[${attrName}="${attrVal}"]`)
+    if (!el) {
+      el = document.createElement('meta')
+      el.setAttribute(attrName, attrVal)
+      document.head.appendChild(el)
     }
+    el.setAttribute('content', contentVal)
   }
 
-  // Update Meta Robots
-  let robotsElement = document.querySelector('meta[name="robots"]')
-  if (to.meta.robots) {
-    if (robotsElement) {
-      robotsElement.setAttribute('content', to.meta.robots)
-    } else {
-      const meta = document.createElement('meta')
-      meta.name = 'robots'
-      meta.content = to.meta.robots
-      document.head.appendChild(meta)
-    }
-  }
+  // === Standard Meta ===
+  if (to.meta.description) setMeta('name', 'description', to.meta.description)
+  if (to.meta.robots)      setMeta('name', 'robots',      to.meta.robots)
 
-  // Update Canonical Tag
-  let canonicalElement = document.querySelector('link[rel="canonical"]')
-  const canonicalUrl = `https://ahmad-cloths.vercel.app${to.path}`
-  if (canonicalElement) {
-    canonicalElement.setAttribute('href', canonicalUrl)
-  } else {
-    const link = document.createElement('link')
-    link.rel = 'canonical'
-    link.href = canonicalUrl
-    document.head.appendChild(link)
-  }
+  // === Open Graph ===
+  if (to.meta.title)       setMeta('property', 'og:title',       to.meta.title)
+  if (to.meta.description) setMeta('property', 'og:description', to.meta.description)
+  setMeta('property', 'og:url',   canonicalUrl)
+  setMeta('property', 'og:image', DEFAULT_IMAGE)
+  setMeta('property', 'og:type',  to.path.startsWith('/blog/') ? 'article' : 'website')
 
-  // Update Schema (JSON-LD)
+  // === Twitter ===
+  if (to.meta.title)       setMeta('property', 'twitter:title',       to.meta.title)
+  if (to.meta.description) setMeta('property', 'twitter:description', to.meta.description)
+  setMeta('property', 'twitter:url',   canonicalUrl)
+  setMeta('property', 'twitter:image', DEFAULT_IMAGE)
+
+  // === Canonical ===
+  let canonical = document.querySelector('link[rel="canonical"]')
+  if (!canonical) {
+    canonical = document.createElement('link')
+    canonical.rel = 'canonical'
+    document.head.appendChild(canonical)
+  }
+  canonical.href = canonicalUrl
+
+  // === Page JSON-LD Schema (from route meta) ===
   let schemaElement = document.querySelector('script[id="dynamic-schema"]')
-  if (schemaElement) {
-    schemaElement.remove()
-  }
+  if (schemaElement) schemaElement.remove()
   if (to.meta.schema) {
     const script = document.createElement('script')
     script.id = 'dynamic-schema'
@@ -344,16 +341,44 @@ router.afterEach((to) => {
     document.head.appendChild(script)
   }
 
-  // Meta Pixel PageView Tracking
+  // === BreadcrumbList Schema for all indexable pages ===
+  const BREADCRUMB_SKIP = ['login', 'signup', 'admin-dashboard', 'dashboard', 'checkout', 'cart', 'notfound']
+  if (!BREADCRUMB_SKIP.includes(to.name)) {
+    let bcEl = document.querySelector('script[id="breadcrumb-schema"]')
+    if (bcEl) bcEl.remove()
+
+    const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL }]
+
+    if (to.path.startsWith('/shop')) {
+      crumbs.push({ '@type': 'ListItem', position: 2, name: 'Shop', item: `${BASE_URL}/shop` })
+      if (to.params?.category) {
+        crumbs.push({ '@type': 'ListItem', position: 3, name: to.params.category, item: canonicalUrl })
+      }
+    } else if (to.path.startsWith('/blog/')) {
+      crumbs.push({ '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog` })
+      crumbs.push({ '@type': 'ListItem', position: 3, name: document.title.split('|')[0].trim(), item: canonicalUrl })
+    } else if (to.path !== '/') {
+      const pageName = to.name ? to.name.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : to.path
+      crumbs.push({ '@type': 'ListItem', position: 2, name: pageName, item: canonicalUrl })
+    }
+
+    if (crumbs.length > 1) {
+      const bcScript = document.createElement('script')
+      bcScript.id = 'breadcrumb-schema'
+      bcScript.type = 'application/ld+json'
+      bcScript.text = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbs })
+      document.head.appendChild(bcScript)
+    }
+  }
+
+  // === Meta Pixel PageView ===
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'PageView')
   }
 
-  // Hide loading spinner after transition
+  // === Hide Loading Spinner ===
   const loading = useLoadingStore()
-  setTimeout(() => {
-    loading.setLoading(false)
-  }, 1000) // Delay to ensure consistent premium feel
+  loading.setLoading(false)
 })
 
 export default router

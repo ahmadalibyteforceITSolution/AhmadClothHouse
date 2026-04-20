@@ -1,12 +1,32 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt — AhmadClothesHouse
+# https://ahmad-cloths.vercel.app
+
 User-agent: *
 Allow: /
+
+# Block private/user-specific pages
 Disallow: /admin/
-Disallow: /checkout/
-Disallow: /cart/
-Disallow: /dashboard/
-Disallow: /reset-password/
-Disallow: /forgot-password/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /dashboard
+Disallow: /track-order
+Disallow: /reset-password
+Disallow: /forgot-password
+
+# Allow all bots to access important public routes explicitly
+Allow: /blog/
+Allow: /shop/
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+
+# Crawl-delay for non-Google bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
 
 # Sitemaps
 Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml

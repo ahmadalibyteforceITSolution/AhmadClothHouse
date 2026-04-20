@@ -51,28 +51,28 @@
       </div>
     </div>
 
-    <!-- Filter Bar -->
-    <div class="sticky top-0 z-40 bg-white/80 dark:bg-[#080808]/80 backdrop-blur-3xl border-b border-[#d4af3711] mb-20">
-      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+    <!-- Luxury Filter Bar (Maria B Style) -->
+    <div class="sticky top-0 z-40 bg-white/95 dark:bg-[#050505]/95 backdrop-blur-xl border-y border-black/5 dark:border-white/5 mb-20 pt-4 pb-2">
+      <div class="max-w-[1700px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         
-        <!-- Result Count -->
-        <div class="flex items-center gap-4">
-           <span class="text-[10px] font-black text-amber-600 dark:text-amber-400 bg-amber-500/5 px-4 py-2 border border-[#d4af371a]">{{ filteredProducts.length }} ITEMS FOUND</span>
+        <!-- Result Count Minimalist -->
+        <div class="flex items-center gap-4 order-2 lg:order-1 pt-2 lg:pt-0">
+           <span class="text-[9px] font-medium tracking-[0.2em] text-stone-500 uppercase">{{ filteredProducts.length }} Masterpieces Found</span>
         </div>
 
         <!-- Filters Section -->
-        <div class="flex flex-wrap items-center gap-8 lg:gap-12">
+        <div class="flex flex-wrap items-center gap-6 lg:gap-14 order-1 lg:order-2 w-full lg:w-auto">
           
           <!-- Product Name Search -->
-          <div class="flex flex-col gap-2 relative">
-             <label class="text-[8px] font-black uppercase tracking-widest text-stone-400">Item Name</label>
-             <div class="luxury-dropdown-container" @click="isNameOpen = !isNameOpen">
-                <div class="luxury-dropdown-selected">
-                   {{ selectedProductName || 'All Items' }}
-                   <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] transition-transform" :class="{'rotate-180': isNameOpen}" />
+          <div class="flex flex-col gap-1 relative w-full sm:w-auto">
+             <label class="text-[7px] font-black uppercase tracking-[0.3em] text-stone-400 mb-0.5">Item Name</label>
+             <div class="luxury-dropdown-container w-full sm:w-auto" @click="isNameOpen = !isNameOpen">
+                <div class="luxury-dropdown-selected flex justify-between items-center text-[#111] dark:text-white border-b border-black/10 dark:border-white/10 pb-2">
+                   <span class="text-[10px] font-bold tracking-widest uppercase truncate max-w-[150px]">{{ selectedProductName || 'All Items' }}</span>
+                   <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] ml-4 text-stone-400 transition-transform" :class="{'rotate-180': isNameOpen}" />
                 </div>
                 <transition name="dropdown-reveal">
-                   <div v-if="isNameOpen" class="luxury-dropdown-list shadow-3xl">
+                   <div v-if="isNameOpen" class="luxury-dropdown-list shadow-2xl border border-black/5 dark:border-white/5">
                       <div class="luxury-dropdown-item" @click="selectedProductName = ''">All Items</div>
                       <div v-for="name in uniqueProductNames" :key="name" class="luxury-dropdown-item" @click="selectedProductName = name">{{ name }}</div>
                    </div>
@@ -81,15 +81,15 @@
           </div>
 
           <!-- Category/Nature Filter -->
-          <div class="flex flex-col gap-2 relative">
-             <label class="text-[8px] font-black uppercase tracking-widest text-stone-400">Item Type</label>
-             <div class="luxury-dropdown-container" @click="isCatOpen = !isCatOpen" v-click-outside="() => isCatOpen = false">
-                <div class="luxury-dropdown-selected">
-                   {{ selectedCategory || 'All Types' }}
-                   <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] transition-transform" :class="{'rotate-180': isCatOpen}" />
+          <div class="flex flex-col gap-1 relative w-full sm:w-auto">
+             <label class="text-[7px] font-black uppercase tracking-[0.3em] text-stone-400 mb-0.5">Collection Type</label>
+             <div class="luxury-dropdown-container w-full sm:w-auto" @click="isCatOpen = !isCatOpen" v-click-outside="() => isCatOpen = false">
+                <div class="luxury-dropdown-selected flex justify-between items-center text-[#111] dark:text-white border-b border-black/10 dark:border-white/10 pb-2">
+                   <span class="text-[10px] font-bold tracking-widest uppercase truncate max-w-[150px]">{{ selectedCategory || 'All Types' }}</span>
+                   <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] ml-4 text-stone-400 transition-transform" :class="{'rotate-180': isCatOpen}" />
                 </div>
                 <transition name="dropdown-reveal">
-                   <div v-if="isCatOpen" class="luxury-dropdown-list shadow-3xl">
+                   <div v-if="isCatOpen" class="luxury-dropdown-list shadow-2xl border border-black/5 dark:border-white/5">
                       <div class="luxury-dropdown-item" @click="selectedCategory = ''">All Types</div>
                       <div v-for="cat in uniqueCategories" :key="cat" class="luxury-dropdown-item" @click="selectedCategory = cat">{{ cat }}</div>
                    </div>
@@ -98,18 +98,18 @@
           </div>
 
           <!-- Price Range Slider -->
-          <div class="flex flex-col gap-3 min-w-[200px]">
-             <div class="flex justify-between items-center px-1">
-               <label class="text-[8px] font-black uppercase tracking-widest text-stone-400">Price Limit</label>
-               <span class="text-[10px] font-black text-amber-600 dark:text-amber-400">Rs. {{ maxPrice }}</span>
+          <div class="flex flex-col gap-2 min-w-[200px] w-full sm:w-auto pt-1">
+             <div class="flex justify-between items-baseline mb-1">
+               <label class="text-[7px] font-black uppercase tracking-[0.3em] text-stone-400">Limit</label>
+               <span class="text-[10px] font-bold tracking-wider text-[#111] dark:text-white font-playfair">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
              </div>
              <input type="range" v-model="maxPrice" min="0" max="500000" step="1000" class="luxury-range">
           </div>
 
-          <!-- Mode Toggle -->
-          <div class="flex gap-2">
-             <button class="w-8 h-8 flex items-center justify-center text-amber-500 border border-amber-500/20 bg-amber-500/5"><font-awesome-icon icon="fa-solid fa-grip" class="text-[10px]" /></button>
-             <button class="w-8 h-8 flex items-center justify-center text-stone-400 hover:text-amber-500 transition-colors"><font-awesome-icon icon="fa-solid fa-list" class="text-[10px]" /></button>
+          <!-- Mode Toggle (Minimalist) -->
+          <div class="flex gap-4 items-center hidden sm:flex pt-3 lg:pt-0">
+             <button @click="viewMode = 'grid'" :class="viewMode === 'grid' ? 'text-[#111] dark:text-white' : 'text-stone-300 dark:text-stone-700 hover:text-[#111] dark:hover:text-white'" class="transition-colors"><font-awesome-icon icon="fa-solid fa-grip" class="text-[12px]" /></button>
+             <button @click="viewMode = 'list'" :class="viewMode === 'list' ? 'text-[#111] dark:text-white' : 'text-stone-300 dark:text-stone-700 hover:text-[#111] dark:hover:text-white'" class="transition-colors"><font-awesome-icon icon="fa-solid fa-list" class="text-[12px]" /></button>
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
     <!-- Product Collection Grid -->
     <div class="max-w-7xl mx-auto px-6 min-h-[60vh]">
       <div v-if="filteredProducts.length > 0">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-20">
+        <div :class="viewMode === 'list' ? 'flex flex-col gap-16 max-w-3xl mx-auto' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-20'">
           <ProductCard 
             v-for="(product, i) in displayedProducts" 
             :key="product.id" 
@@ -187,10 +187,10 @@ import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
 
-import Hero1 from "../assets/ai/hero_1.png"
-import Hero2 from "../assets/ai/hero_2.png"
-import Hero4 from "../assets/ai/hero_4.png"
-import BridalHighlight from "../assets/ai/bridal_highlight.png"
+import Hero1 from "../assets/ai_new/hero_collage_1.png"
+import Hero2 from "../assets/ai_new/hero_collage_2.png"
+import Hero4 from "../assets/ai_new/hero_collage_4.png"
+import BridalHighlight from "../assets/ai_new/bridal_highlight.png"
 
 const route = useRoute()
 const router = useRouter()
@@ -202,6 +202,8 @@ onMounted(() => {
 
 const currentPage = ref(1)
 const itemsPerPage = 8
+
+const viewMode = ref('grid')
 
 const selectedCategory = ref('')
 const selectedProductName = ref('')
@@ -384,105 +386,118 @@ export default {
 <style scoped>
 .luxury-dropdown-container {
   position: relative;
-  min-width: 160px;
+  min-width: 140px;
   cursor: pointer;
   user-select: none;
 }
 
 .luxury-dropdown-selected {
-  border-bottom: 1px solid #d4af3722;
-  padding: 10px 0;
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #1a1a1a;
+  letter-spacing: 0.1em;
+  color: #111;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .dark .luxury-dropdown-selected { color: white; }
-.luxury-dropdown-container:hover .luxury-dropdown-selected { border-color: #d4af37; padding-left: 8px; }
 
 .luxury-dropdown-list {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 4px);
   left: 0;
   right: 0;
   background: white;
-  border: 1px solid #d4af3711;
+  border-top: 2px solid #111;
   z-index: 100;
-  max-height: 300px;
+  max-height: 250px;
   overflow-y: auto;
-  padding: 8px;
-  border-radius: 4px;
+  border-radius: 0;
 }
 .dark .luxury-dropdown-list { 
-  background: rgba(8, 8, 8, 0.95); 
-  backdrop-filter: blur(20px);
-  border-color: rgba(212, 175, 55, 0.1);
+  background: #0a0a0a; 
+  border-top: 2px solid white;
 }
 
 .luxury-dropdown-item {
-  padding: 12px 14px;
+  padding: 14px 16px;
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #666;
-  transition: all 0.3s ease;
-  border-radius: 4px;
+  color: #555;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
 }
-.dark .luxury-dropdown-item { color: rgba(255, 255, 255, 0.5); }
+.dark .luxury-dropdown-item { 
+  color: #aaa; 
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
 
 .luxury-dropdown-item:hover {
-  background: rgba(212, 175, 55, 0.05);
-  color: #d4af37;
-  padding-left: 18px;
+  background: #fdfdfd;
+  color: #111;
+  padding-left: 20px;
+}
+.dark .luxury-dropdown-item:hover {
+  background: #111;
+  color: white;
 }
 
-/* Custom Scrollbar */
-.luxury-dropdown-list::-webkit-scrollbar { width: 3px; }
+/* Custom Scrollbar Minimalist */
+.luxury-dropdown-list::-webkit-scrollbar { width: 4px; }
 .luxury-dropdown-list::-webkit-scrollbar-track { background: transparent; }
-.luxury-dropdown-list::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.2); border-radius: 10px; }
+.luxury-dropdown-list::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.1); }
+.dark .luxury-dropdown-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
 
 .dropdown-reveal-enter-active, .dropdown-reveal-leave-active {
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .dropdown-reveal-enter-from, .dropdown-reveal-leave-to {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(5px);
 }
 
-.shadow-3xl {
-  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+.shadow-2xl {
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
 }
-.dark .shadow-3xl {
-  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+.dark .shadow-2xl {
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
 }
 
+/* Minimalist Range Slider */
 .luxury-range {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 2px;
-  background: #d4af3711;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
   outline: none;
-  accent-color: #d4af37;
 }
+.dark .luxury-range { background: rgba(255, 255, 255, 0.1); }
 
 .luxury-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 12px;
   height: 12px;
-  background: #d4af37;
-  border-radius: 50%;
+  background: #111;
+  border: 1px solid #fff;
+  border-radius: 0%;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
-.luxury-range::-webkit-slider-thumb:hover { transform: scale(1.4); }
+.dark .luxury-range::-webkit-slider-thumb {
+  background: #fff;
+  border-color: #111;
+}
+
+.luxury-range::-webkit-slider-thumb:hover { 
+  transform: scale(1.2); 
+}
 
 .animate-pan {
   animation: slow-pan 60s infinite alternate linear;

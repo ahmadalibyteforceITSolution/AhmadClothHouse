@@ -274,45 +274,72 @@
       </div>
     </section>
 
-    <section id="discovery" class="filter-section py-20 bg-white dark:bg-[#080808]">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8 border-b border-black/5 pb-8">
-          <div class="space-y-2">
-            <p class="text-[10px] font-bold tracking-[0.3em] text-[var(--primary-gold)] uppercase">THE COLLECTIONS</p>
-            <h2 class="text-4xl font-playfair italic text-[var(--luxury-black)] dark:text-white">
-              {{ selectedCategory === 'all' ? 'All Designs' : selectedCategory }}
+    <section id="discovery" class="filter-section relative pt-32 pb-16 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-1000">
+      <!-- Subtle Background Accents -->
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/5 dark:from-white/5 to-transparent pointer-events-none"></div>
+
+      <div class="max-w-[1600px] mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-black/10 dark:border-white/10 pb-12">
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="h-[1px] w-8 bg-amber-500"></div>
+              <p class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Signature Catalog</p>
+            </div>
+            <h2 class="text-5xl md:text-7xl font-playfair font-normal text-[#111] dark:text-white leading-none tracking-tight">
+              {{ selectedCategory === 'all' ? 'Curated Designs' : selectedCategory }}
             </h2>
           </div>
-          <div class="flex items-center gap-4 text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-            <span class="text-[var(--deep-burgundy)]">{{ filteredProducts.length }}</span> ITEMS FOUND
+          
+          <div class="flex items-center gap-3 bg-white dark:bg-[#0a0a0a] border border-black/5 dark:border-white/5 px-6 py-4 shadow-xl">
+            <span class="text-[16px] font-playfair italic text-amber-500 leading-none">{{ filteredProducts.length }}</span>
+            <span class="text-[8px] font-black tracking-[0.3em] text-[#111] dark:text-gray-400 uppercase leading-none mt-1">Masterpieces</span>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Filters (Simplified) -->
-          <div class="filter-group">
-            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Category</label>
-            <select v-model="selectedCategory"
-              class="w-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 px-4 py-3 text-[10px] font-bold tracking-widest uppercase outline-none focus:border-[var(--primary-gold)]">
-              <option value="all">All Categories</option>
-              <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
-            </select>
+        <!-- Luxury Filter Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-center bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5 relative z-20">
+          
+          <!-- Category Filter -->
+          <div class="relative group">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10 transition-colors group-hover:text-[#111] dark:group-hover:text-white">Category</label>
+            <div class="relative">
+              <select v-model="selectedCategory"
+                class="w-full bg-transparent border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:border-black dark:hover:border-white transition-colors appearance-none relative z-0">
+                <option value="all">All Categories</option>
+                <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
+              </select>
+              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-6 h-6 rounded-full border border-black/5 dark:border-white/10">
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+              </div>
+            </div>
           </div>
-          <div class="filter-group">
-            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Type</label>
-            <select v-model="selectedNature"
-              class="w-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 px-4 py-3 text-[10px] font-bold tracking-widest uppercase outline-none focus:border-[var(--primary-gold)]">
-              <option value="all">All Types</option>
-              <option value="standard">Ready to Wear</option>
-              <option value="premium">Luxury Collection</option>
-              <option value="limited">Limited Edition</option>
-            </select>
+
+          <!-- Type Filter -->
+          <div class="relative group">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10 transition-colors group-hover:text-[#111] dark:group-hover:text-white">Collection Type</label>
+            <div class="relative">
+              <select v-model="selectedNature"
+                class="w-full bg-transparent border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:border-black dark:hover:border-white transition-colors appearance-none relative z-0">
+                <option value="all">All Types</option>
+                <option value="standard">Ready to Wear</option>
+                <option value="premium">Luxury Collection</option>
+                <option value="limited">Limited Edition</option>
+              </select>
+              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-6 h-6 rounded-full border border-black/5 dark:border-white/10">
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+              </div>
+            </div>
           </div>
-          <div class="filter-group">
-            <label class="text-[9px] font-bold tracking-widest text-gray-400 uppercase mb-3 block">Max Price: Rs. {{
-              maxPrice }}</label>
+
+          <!-- Price Slider -->
+          <div class="flex flex-col gap-5 pt-2">
+            <div class="flex justify-between items-center px-2">
+              <label class="text-[8px] font-black tracking-widest text-stone-400 uppercase">Limit Strategy</label>
+              <span class="text-[12px] font-normal font-playfair text-[#111] dark:text-white">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
+            </div>
             <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
-              class="w-full accent-[var(--deep-burgundy)]">
+              class="luxury-home-range w-full cursor-pointer">
           </div>
         </div>
       </div>
@@ -366,11 +393,16 @@
       ]"
     />
 
-    <!-- Google AdSense: Home Page — Slot A (unique to this page) -->
-    <!-- Replace slot="1111111111" with your actual AdSense Slot ID to enable ads -->
-    <div class="max-w-5xl mx-auto px-6">
-      <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" wrapper-class="my-10" />
-    </div>
+    <!-- Google AdSense: Home Page — Slot A (Premium Placement) -->
+    <!-- Positioned after product grid/collaborations for high engagement and clear UX structure -->
+    <section class="adsense-container py-16 bg-[#fafaf8] dark:bg-[#050505] border-y border-black/5 dark:border-white/5 relative flex justify-center w-full">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#d4af3711_0%,_transparent_70%)] pointer-events-none"></div>
+      <div class="w-full max-w-6xl px-6 relative z-10 text-center">
+        <!-- Subtle Ad Labeling per AdSense Policy -->
+        <p class="text-[7px] tracking-[0.4em] uppercase text-stone-400 mb-6 font-bold">Advertisement</p>
+        <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" wrapper-class="min-h-[100px] sm:min-h-[250px] shadow-sm bg-white dark:bg-[#080808]" />
+      </div>
+    </section>
 
     <!-- Atelier Section -->
     <section class="atelier-section bg-[var(--luxury-cream)] dark:bg-[#080808] py-32 transition-colors duration-500">
@@ -630,6 +662,15 @@
 
 
    
+    <!-- Google AdSense: Home Page — Slot B (Editorial Placement) -->
+    <!-- Strategically placed before FAQs to capture engaged readers scrolling down -->
+    <section class="adsense-container py-16 bg-[#fafaf8] dark:bg-[#080808] border-t border-black/5 dark:border-white/5 relative flex justify-center w-full mt-20">
+      <div class="w-full max-w-6xl px-6 relative z-10 text-center">
+        <p class="text-[7px] tracking-[0.4em] uppercase text-stone-400 mb-6 font-bold">Advertisement</p>
+        <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" wrapper-class="min-h-[100px] sm:min-h-[250px] rounded-lg overflow-hidden bg-white dark:bg-[#050505] shadow-xl border border-black/5 dark:border-white/5" />
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════════════
          FAQ SECTION (Content Boost)
     ═══════════════════════════════════════════ -->
@@ -752,28 +793,28 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 
-import Fugibles from "../assets/ai/hero_3.png"
-import Fugibles1 from "../assets/ai/hero_2.png"
-import Fugibles2 from "../assets/ai/bridal_highlight.png"
-import Fugibles3 from "../assets/ai/hero_1.png"
-import Fugibles4 from "../assets/ai/hero_4.png"
+import Fugibles from "../assets/ai_new/hero_collage_3.png"
+import Fugibles1 from "../assets/ai_new/hero_collage_2.png"
+import Fugibles2 from "../assets/ai_new/bridal_highlight.png"
+import Fugibles3 from "../assets/ai_new/hero_collage_1.png"
+import Fugibles4 from "../assets/ai_new/hero_collage_4.png"
 
-import HeroCollage1 from "../assets/ai/hero_1.png"
-import HeroCollage2 from "../assets/ai/hero_2.png"
-import HeroCollage3 from "../assets/ai/hero_3.png"
-import HeroCollage4 from "../assets/ai/hero_4.png"
+import HeroCollage1 from "../assets/ai_new/hero_collage_1.png"
+import HeroCollage2 from "../assets/ai_new/hero_collage_2.png"
+import HeroCollage3 from "../assets/ai_new/hero_collage_3.png"
+import HeroCollage4 from "../assets/ai_new/hero_collage_4.png"
 
-import Highlight1 from "../assets/ai/bridal_highlight.png"
-import Highlight2 from "../assets/ai/hero_2.png"
-import Highlight3 from "../assets/ai/hero_3.png"
-import Highlight4 from "../assets/ai/hero_4.png"
-import ShopInterior from "../assets/hero/shop_interior.png"
+import Highlight1 from "../assets/ai_new/bridal_highlight.png"
+import Highlight2 from "../assets/ai_new/hero_collage_2.png"
+import Highlight3 from "../assets/ai_new/hero_collage_3.png"
+import Highlight4 from "../assets/ai_new/hero_collage_4.png"
+import ShopInterior from "../assets/ai_new/shop_interior.png"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import SponsoredAd from '../components/Home/SponsoredAd.vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
-import JewelrySponsored from "../assets/ai/bridal_highlight.png"
+import JewelrySponsored from "../assets/ai_new/bridal_highlight.png"
 import { blogs as allBlogs } from '../data/blogs'
 
 import { gsap } from 'gsap'
@@ -1405,6 +1446,41 @@ const categoryTiles = [
 /* Old styles to be replaced/removed if they conflict, but keeping them for consistency with other parts if they don't */
 .gsap-btn-primary {
   display: none; /* Hide old if accidentally used */
+}
+
+.luxury-home-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: #d4af3722;
+  outline: none;
+  accent-color: #d4af37;
+}
+
+.dark .luxury-home-range {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.luxury-home-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #111;
+  border: 2px solid #d4af37;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background 0.3s ease;
+}
+
+.dark .luxury-home-range::-webkit-slider-thumb {
+  background: white;
+}
+
+.luxury-home-range::-webkit-slider-thumb:hover { 
+  transform: scale(1.4); 
+  background: #d4af37;
 }
 
 .gsap-btn-secondary {

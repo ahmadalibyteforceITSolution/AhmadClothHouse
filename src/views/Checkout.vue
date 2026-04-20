@@ -1,202 +1,131 @@
 <template>
-   <div
-      class="min-h-screen bg-[#FDFBF7] dark:bg-[#050505] transition-colors duration-700 pb-32 selection:bg-[var(--primary-gold)]/30 font-sans">
+   <div class="min-h-screen bg-white dark:bg-[#050505] transition-colors duration-1000 pb-32 text-[#111] dark:text-[#eee] font-sans">
 
       <!-- LUXURY BRAND HEADER -->
-      <header
-         class="w-full py-12 px-8 border-b border-stone-200 dark:border-stone-800 flex flex-col items-center gap-2 mb-16 transition-colors bg-white dark:bg-[#0A0A0A] sticky top-0 z-[100] backdrop-blur-xl bg-opacity-90">
-         <div class="flex items-center gap-6 mb-2">
-            <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
-            <h1 class="text-xl md:text-3xl font-playfair tracking-[0.2em] md:tracking-[0.4em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
-               @click="router.push('/')">AHMADCLOTHESFABRICS</h1>
-            <div class="h-[1px] w-8 bg-[var(--primary-gold)] opacity-40"></div>
-         </div>
-         <span class="text-[8px] tracking-[0.6em] text-[var(--primary-gold)] uppercase font-bold opacity-80 italic">The
-            Art of Couture Checkout</span>
+      <header class="w-full py-8 px-8 border-b border-black/5 dark:border-white/5 flex flex-col items-center justify-center gap-1 mb-12 bg-white/90 dark:bg-[#050505]/90 sticky top-0 z-[100] backdrop-blur-3xl">
+         <h1 class="text-2xl md:text-3xl font-playfair tracking-[0.3em] font-normal uppercase cursor-pointer transition-transform hover:scale-105"
+             @click="router.push('/')">
+            AHMADCLOTHES
+         </h1>
+         <span class="text-[7px] tracking-[0.5em] text-[#d4af37] uppercase font-bold italic">Secure Checkout</span>
       </header>
 
       <!-- Success Protocol Overlay -->
       <transition name="fade">
-         <div v-if="success"
-            class="h-screen flex flex-col items-center justify-center text-center px-8 bg-white dark:bg-[#050505] z-[1000] fixed inset-0">
-            <div class="relative mb-12">
-               <div
-                  class="w-40 h-40 border border-[var(--primary-gold)]/30 rounded-full flex items-center justify-center text-6xl text-[var(--primary-gold)] shadow-[0_0_80px_rgba(184,134,11,0.15)] animate-reveal">
-                  <font-awesome-icon icon="fa-solid fa-check" />
-               </div>
-               <div class="absolute inset-0 border border-[var(--primary-gold)] rounded-full animate-ping opacity-10">
-               </div>
-            </div>
-
-            <div class="space-y-6 max-w-2xl px-6">
-               <h2
-                  class="text-4xl md:text-8xl font-light uppercase tracking-tighter font-playfair italic text-[var(--luxury-black)] dark:text-white">
-                  AhmadClothes House</h2>
-               <div class="w-24 h-[1px] bg-[var(--primary-gold)] mx-auto opacity-40"></div>
-               <p
-                  class="text-stone-500 dark:text-stone-400 max-w-md mx-auto uppercase text-[10px] font-bold leading-loose tracking-[0.4em]">
-                  Order ID #{{ Math.floor(Math.random() * 9000) + 1000 }} Confirmed. <br>
-                  A signature couture experience awaits you.
+         <div v-if="success" class="h-screen flex flex-col items-center justify-center text-center px-8 bg-white dark:bg-[#050505] z-[1000] fixed inset-0">
+            <div class="space-y-6 max-w-2xl px-6 animate-fade-in-up">
+               <h2 class="text-5xl md:text-7xl font-light uppercase tracking-tighter font-playfair mb-6">Order Confirmed.</h2>
+               <div class="w-16 h-[1px] bg-black dark:bg-white mx-auto opacity-20"></div>
+               <p class="text-stone-500 max-w-md mx-auto uppercase text-[9px] font-bold leading-loose tracking-[0.4em] mt-6">
+                  Order ID #{{ Math.floor(Math.random() * 9000) + 1000 }} <br><br>
+                  Your luxury pieces are being prepared by our artisans. A confirmation email has been dispatched.
                </p>
             </div>
 
-            <router-link to="/"
-               class="mt-20 group relative px-20 py-6 bg-[var(--luxury-black)] dark:bg-white text-white dark:text-black text-[11px] font-bold uppercase tracking-[0.4em] transition-all hover:bg-[var(--deep-burgundy)] dark:hover:bg-[var(--primary-gold)] overflow-hidden flex items-center gap-6">
-               <span class="relative z-10 font-bold">RETURN TO ATELIER</span>
-               <font-awesome-icon icon="fa-solid fa-arrow-right"
-                  class="relative z-10 group-hover:translate-x-4 transition-transform text-[10px]" />
-               <div
-                  class="absolute inset-0 bg-[var(--primary-gold)] translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-               </div>
+            <router-link to="/" class="mt-16 group relative px-12 py-4 border border-black dark:border-white text-black dark:text-white text-[9px] font-bold uppercase tracking-[0.4em] transition-all hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black overflow-hidden flex items-center justify-center gap-4">
+               <span>Return to Collection</span>
+               <font-awesome-icon icon="fa-solid fa-arrow-right" class="group-hover:translate-x-2 transition-transform" />
             </router-link>
          </div>
       </transition>
 
       <!-- MAIN CHECKOUT PORTAL -->
-      <div v-if="!success" class="max-w-7xl mx-auto px-6 py-12">
-         <div class="flex flex-col lg:flex-row gap-16 relative items-start">
+      <div v-if="!success" class="max-w-[1600px] mx-auto px-6 sm:px-12 lg:px-20 py-4">
+         <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 relative items-start">
 
-            <!-- Formulation Column: LEFT -->
-            <div class="flex-grow lg:w-2/3 animate-reveal-left space-y-20">
+            <!-- Information Formulation Column: LEFT -->
+            <div class="flex-grow lg:w-[60%] animate-fade-in-up space-y-16">
 
-               <!-- Breadcrumbs Integration -->
-               <nav
-                  class="flex items-center gap-4 text-[9px] font-bold tracking-[0.3em] uppercase text-stone-400 mb-12">
-                  <router-link to="/cart" class="hover:text-[var(--primary-gold)] transition-colors">Bag</router-link>
-                  <font-awesome-icon icon="fa-solid fa-chevron-right" class="text-[7px] opacity-40" />
-                  <span class="text-[var(--luxury-black)] dark:text-white">Checkout Information</span>
+               <!-- Breadcrumbs styled subtly -->
+               <nav class="flex items-center gap-3 text-[8px] font-bold tracking-[0.4em] uppercase text-stone-400">
+                  <router-link to="/cart" class="hover:text-black dark:hover:text-white transition-colors">Cart</router-link>
+                  <span class="opacity-30">/</span>
+                  <span class="text-black dark:text-white border-b border-black dark:border-white pb-0.5">Information</span>
+                  <span class="opacity-30">/</span>
+                  <span class="opacity-50">Payment</span>
                </nav>
 
                <!-- Section 1: Identity & Delivery -->
-               <section
-                  class="bg-white dark:bg-[#0A0A0A] p-6 md:p-16 border border-stone-100 dark:border-stone-900 shadow-sm space-y-16">
-                  <div
-                     class="flex items-center gap-6 mb-8 text-[9px] font-bold tracking-[0.4em] text-[var(--primary-gold)] uppercase">
-                     <span>01</span>
-                     <div class="h-[1px] flex-grow bg-stone-100 dark:bg-stone-900"></div>
-                     <span>DELIVERY PROTOCOL</span>
-                  </div>
+               <section class="space-y-12">
+                  <h2 class="text-lg font-playfair italic underline decoration-black/10 dark:decoration-white/10 underline-offset-8">1. Delivery Destination</h2>
 
-                  <div class="flex flex-col md:grid md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-16">
+                  <div class="flex flex-col md:grid md:grid-cols-2 gap-x-8 gap-y-10">
                      <div class="col-span-2 relative group">
-                        <label
-                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Full
-                           Name</label>
-                        <input v-model="customer.name" type="text" placeholder="GIVEN & FAMILY NAME"
-                           class="mariab-input w-full">
+                        <input v-model="customer.name" type="text" id="fname" placeholder=" " class="mariab-input w-full peer">
+                        <label for="fname" class="mariab-label">Full Legal Name</label>
                      </div>
                      <div class="col-span-2 relative group">
-                        <label
-                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Digital
-                           Identity (Email)</label>
-                        <input v-model="customer.email" type="email" placeholder="SECURE@DOMAIN.COM"
-                           class="mariab-input w-full lowercase">
+                        <input v-model="customer.email" type="email" id="femail" placeholder=" " class="mariab-input w-full lowercase peer">
+                        <label for="femail" class="mariab-label">Email Address</label>
                      </div>
                      <div class="col-span-2 relative group">
-                        <label
-                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Residence
-                           Address</label>
-                        <input v-model="customer.address" type="text" placeholder="HOUSE, STREET, AREA"
-                           class="mariab-input w-full">
+                        <input v-model="customer.address" type="text" id="faddress" placeholder=" " class="mariab-input w-full peer">
+                        <label for="faddress" class="mariab-label">Complete Shipping Address</label>
                      </div>
                      <div class="relative group">
-                        <label
-                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Postal
-                           Code</label>
-                        <input v-model="customer.zip" type="text" placeholder="ZIP CODE" class="mariab-input w-full">
+                        <input v-model="customer.zip" type="text" id="fzip" placeholder=" " class="mariab-input w-full peer">
+                        <label for="fzip" class="mariab-label">Postal Code</label>
                      </div>
                      <div class="relative group">
-                        <label
-                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Jurisdiction
-                           (City)</label>
-                        <input v-model="customer.city" type="text" placeholder="CITY NAME" class="mariab-input w-full">
+                        <input v-model="customer.city" type="text" id="fcity" placeholder=" " class="mariab-input w-full peer">
+                        <label for="fcity" class="mariab-label">City</label>
                      </div>
-                     <div class="relative group">
-                        <label
-                           class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Contact
-                           Number</label>
-                        <input v-model="customer.phone" type="tel" placeholder="03XX-XXXXXXX" class="mariab-input w-full">
+                     <div class="relative group col-span-2 md:col-span-1">
+                        <input v-model="customer.phone" type="tel" id="fphone" placeholder=" " class="mariab-input w-full peer">
+                        <label for="fphone" class="mariab-label">Contact Number (03XX)</label>
                      </div>
                   </div>
                </section>
 
+               <div class="w-full h-[1px] bg-black/5 dark:bg-white/5"></div>
+
                <!-- Section 2: Financial Selection -->
-               <section
-                  class="bg-white dark:bg-[#0A0A0A] p-6 md:p-16 border border-stone-100 dark:border-stone-900 shadow-sm space-y-16">
-                  <div
-                     class="flex items-center gap-6 mb-8 text-[9px] font-bold tracking-[0.4em] text-[var(--primary-gold)] uppercase">
-                     <span>02</span>
-                     <div class="h-[1px] flex-grow bg-stone-100 dark:bg-stone-900"></div>
-                     <span>FINANCIAL ARCHITECTURE</span>
-                  </div>
+               <section class="space-y-12">
+                  <h2 class="text-lg font-playfair italic underline decoration-black/10 dark:decoration-white/10 underline-offset-8">2. Payment Method</h2>
 
-                  <div class="space-y-6">
+                  <div class="space-y-4">
                       <!-- Payment Options Container -->
-                      <div class="flex flex-col md:grid md:grid-cols-3 gap-6">
-                         <div @click="paymentMethod = 'easypaisa'" :class="['payment-card group',
-                            paymentMethod === 'easypaisa' ? 'active' : 'inactive']">
-                            <div class="flex justify-between items-center mb-6">
-                               <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
-                                  :class="paymentMethod === 'easypaisa' ? 'text-black dark:text-white' : 'text-stone-400'">Easypaisa</span>
-                               <font-awesome-icon icon="fa-solid fa-mobile-retro"
-                                  class="text-lg transition-colors group-hover:text-[#37a844]"
-                                  :class="paymentMethod === 'easypaisa' ? 'text-[#37a844]' : 'text-stone-300'" />
-                            </div>
-                            <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Direct transfer to our EasyPaisa account.</p>
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                         <div @click="paymentMethod = 'easypaisa'" :class="['payment-card', paymentMethod === 'easypaisa' ? 'active shadow-lg border-black dark:border-white scale-[1.02]' : 'border-black/10 dark:border-white/10']">
+                            <span class="text-[10px] font-black uppercase tracking-[0.2em] mb-2 block text-center" :class="paymentMethod === 'easypaisa' ? 'text-black dark:text-white' : 'text-stone-500'">Easypaisa</span>
+                            <p class="text-[8px] text-center text-stone-500 leading-relaxed font-medium">Direct Transfer</p>
                          </div>
 
-                         <div @click="paymentMethod = 'jazzcash'" :class="['payment-card group',
-                            paymentMethod === 'jazzcash' ? 'active' : 'inactive']">
-                            <div class="flex justify-between items-center mb-6">
-                               <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
-                                  :class="paymentMethod === 'jazzcash' ? 'text-black dark:text-white' : 'text-stone-400'">JazzCash</span>
-                               <font-awesome-icon icon="fa-solid fa-wallet"
-                                  class="text-lg transition-colors group-hover:text-[#ed1c24]"
-                                  :class="paymentMethod === 'jazzcash' ? 'text-[#ed1c24]' : 'text-stone-300'" />
-                            </div>
-                            <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Direct transfer to our JazzCash account.</p>
+                         <div @click="paymentMethod = 'jazzcash'" :class="['payment-card', paymentMethod === 'jazzcash' ? 'active shadow-lg border-black dark:border-white scale-[1.02]' : 'border-black/10 dark:border-white/10']">
+                            <span class="text-[10px] font-black uppercase tracking-[0.2em] mb-2 block text-center" :class="paymentMethod === 'jazzcash' ? 'text-black dark:text-white' : 'text-stone-500'">JazzCash</span>
+                            <p class="text-[8px] text-center text-stone-500 leading-relaxed font-medium">Direct Transfer</p>
                          </div>
 
-                         <div @click="paymentMethod = 'cod'" :class="['payment-card group',
-                            paymentMethod === 'cod' ? 'active' : 'inactive']">
-                            <div class="flex justify-between items-center mb-6">
-                               <span class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors"
-                                  :class="paymentMethod === 'cod' ? 'text-black dark:text-white' : 'text-stone-400'">Cash
-                                  On Delivery</span>
-                               <font-awesome-icon icon="fa-solid fa-money-bill-transfer"
-                                  class="text-lg transition-colors group-hover:text-[var(--primary-gold)]"
-                                  :class="paymentMethod === 'cod' ? 'text-[var(--primary-gold)]' : 'text-stone-300'" />
-                            </div>
-                            <p class="text-[9px] leading-relaxed text-stone-400 font-medium tracking-wide">Payment on
-                               delivery. RS. 200 service charge applies.</p>
+                         <div @click="paymentMethod = 'cod'" :class="['payment-card', paymentMethod === 'cod' ? 'active shadow-lg border-black dark:border-white scale-[1.02]' : 'border-black/10 dark:border-white/10']">
+                            <span class="text-[10px] font-black uppercase tracking-[0.2em] mb-2 block text-center" :class="paymentMethod === 'cod' ? 'text-black dark:text-white' : 'text-stone-500'">Cash on Delivery</span>
+                            <p class="text-[8px] text-center text-stone-500 leading-relaxed font-medium">+ Rs. 200 Handling</p>
                          </div>
                       </div>
 
                       <!-- Payment Detail Panel -->
                       <transition name="slide-up">
                          <div v-if="paymentMethod === 'easypaisa' || paymentMethod === 'jazzcash'"
-                            class="mt-8 p-6 md:p-10 border border-stone-100 dark:border-stone-900 bg-stone-50/50 dark:bg-stone-900/20 space-y-8">
+                            class="mt-8 p-8 border border-black/10 dark:border-white/10 bg-[#fafaf8] dark:bg-[#080808] space-y-8">
                             
                             <div class="text-center space-y-4">
-                               <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--primary-gold)]">Account Details</p>
-                               <div class="space-y-2">
-                                  <p class="text-2xl font-playfair italic text-[var(--luxury-black)] dark:text-white">
+                               <p class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#d4af37]">Merchant Account</p>
+                               <div class="space-y-1">
+                                  <p class="text-3xl font-light tracking-widest text-black dark:text-white">
                                      {{ paymentMethod === 'easypaisa' ? easypaisaNumber : jazzcashNumber }}
                                   </p>
-                                  <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400">
-                                     Account Name: {{ paymentMethod === 'easypaisa' ? easypaisaName : jazzcashName }}
+                                  <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-500">
+                                     Title: {{ paymentMethod === 'easypaisa' ? easypaisaName : jazzcashName }}
                                   </p>
                                </div>
-                               <p class="text-[8px] text-stone-400 uppercase tracking-widest leading-loose">
-                                  Please send exactly <span class="text-[var(--primary-gold)] font-bold">Rs. {{ (cart.totalPrice).toLocaleString() }}</span> to the above account <br>
-                                  and enter your Transaction ID (TID) below to finalize your order.
+                               <p class="text-[9px] text-stone-500 uppercase tracking-widest leading-loose pt-4">
+                                  Transfer exactly <span class="text-black dark:text-white font-black border-b border-black/20 dark:border-white/20 pb-0.5">Rs. {{ (cart.totalPrice).toLocaleString() }}</span> <br>
+                                  and provide the Transaction ID (TID) below.
                                </p>
                             </div>
 
-                            <div class="max-w-md mx-auto relative group">
-                               <label class="text-[9px] font-black text-stone-400 uppercase tracking-widest pl-1 mb-4 block group-focus-within:text-[var(--primary-gold)] transition-colors">Transaction ID (TID)</label>
-                               <input v-model="transactionId" type="text" placeholder="e.g. TID12345678 (from your Easypaisa/JazzCash SMS)" class="mariab-input w-full text-center tracking-[0.3em]">
-                               <font-awesome-icon icon="fa-solid fa-money-bill-1-wave" class="absolute right-0 bottom-6 text-[var(--primary-gold)] opacity-0 group-focus-within:opacity-100 transition-all" />
+                            <div class="max-w-md mx-auto relative group mt-6">
+                               <input v-model="transactionId" type="text" id="ftid" placeholder=" " class="mariab-input w-full text-center tracking-[0.4em] font-medium peer">
+                               <label for="ftid" class="mariab-label left-1/2 -translate-x-1/2 peer-focus:-translate-x-1/2 peer-[&:not(:placeholder-shown)]:-translate-x-1/2">Transaction ID (TID)</label>
                             </div>
                          </div>
                       </transition>
@@ -204,78 +133,57 @@
                </section>
 
                <button @click="processPayment" :disabled="isProcessing"
-                  class="w-full bg-[var(--luxury-black)] dark:bg-white text-white dark:text-black py-8 text-[11px] font-bold uppercase tracking-[0.5em] transition-all hover:bg-[var(--deep-burgundy)] dark:hover:bg-[var(--primary-gold)] flex items-center justify-center gap-6 relative overflow-hidden group disabled:opacity-50">
-                  <span class="relative z-10 tracking-[0.8em] font-bold">{{ isProcessing ? 'AUTHENTICATING TRANSACTION...' : 'FINALIZE SECURE ORDER' }}</span>
-                  <font-awesome-icon v-if="!isProcessing" icon="fa-solid fa-lock"
-                     class="relative z-10 text-[10px] group-hover:scale-125 transition-transform" />
-                  <div
-                     class="absolute inset-0 bg-[var(--primary-gold)] translate-y-full group-hover:translate-y-0 transition-transform duration-700">
-                  </div>
+                  class="w-full bg-black dark:bg-white text-white dark:text-black py-6 text-[10px] font-bold uppercase tracking-[0.5em] transition-all hover:bg-[#111] dark:hover:bg-[#eee] hover:-translate-y-1 shadow-xl flex items-center justify-center gap-4 relative overflow-hidden group disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none mt-12">
+                  <span class="relative z-10">{{ isProcessing ? 'PROCESSING...' : 'COMPLETE ORDER' }}</span>
+                  <font-awesome-icon v-if="!isProcessing" icon="fa-solid fa-lock" class="relative z-10 text-[9px] opacity-70" />
                </button>
             </div>
 
             <!-- Order Summary: RIGHT (Sticky) -->
-            <div class="lg:w-1/3 w-full lg:sticky lg:top-40 animate-reveal-right space-y-8">
-               <div class="bg-white dark:bg-[#0A0A0A] border border-stone-100 dark:border-stone-900 p-10 shadow-sm">
-                  <h3
-                     class="text-xl font-playfair italic mb-10 text-[var(--luxury-black)] dark:text-white border-b border-stone-50 pb-6 uppercase tracking-wider">
-                     Catalogue Summary</h3>
+            <div class="lg:w-[40%] w-full lg:sticky lg:top-32 animate-fade-in-up">
+               <div class="bg-[#fafaf8] dark:bg-[#080808] border border-black/10 dark:border-white/10 p-8 md:p-12">
+                  <h3 class="text-xl font-playfair mb-8 text-[#111] dark:text-[#eee]">Order Summary</h3>
 
-                  <div class="space-y-8 max-h-[400px] overflow-y-auto pr-4 mb-10 luxury-scroll">
-                     <div v-for="item in cart.items" :key="item.id" class="flex gap-6 items-center">
-                        <div class="w-20 h-24 bg-stone-50 overflow-hidden shrink-0 border border-stone-50">
-                           <img :src="item.cartImage || item.image"
-                              class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
-                              alt="Product" />
+                  <div class="space-y-6 max-h-[50vh] overflow-y-auto pr-4 mb-8 luxury-scroll">
+                     <div v-for="item in cart.items" :key="item.id" class="flex gap-6 items-start group">
+                        <div class="w-20 aspect-[3/4] bg-white dark:bg-black overflow-hidden shrink-0 border border-black/5 dark:border-white/5 relative">
+                           <img :src="item.cartImage || item.image" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" alt="Product" />
+                           <div class="absolute -top-2 -right-2 w-5 h-5 bg-black dark:bg-white text-white dark:text-black text-[8px] flex items-center justify-center rounded-full font-bold">
+                              {{ item.quantity }}
+                           </div>
                         </div>
                         <div class="flex-grow space-y-1">
-                           <p
-                              class="text-[10px] font-black uppercase tracking-tighter text-[var(--luxury-black)] dark:text-white leading-tight line-clamp-1">
-                              {{ item.name }}</p>
-                           <p class="text-[8px] font-bold text-stone-400 uppercase tracking-widest">{{ item.category }}
-                              &nbsp; ✦ &nbsp; QTY: {{ item.quantity }}</p>
-                           <p class="text-[10px] font-bold text-[var(--primary-gold)]">Rs. {{ (item.price *
-                              item.quantity).toLocaleString() }}</p>
+                           <p class="text-[11px] font-medium uppercase tracking-widest text-[#111] dark:text-[#eee] leading-tight">{{ item.name }}</p>
+                           <p class="text-[9px] text-stone-500 uppercase tracking-widest pt-1">{{ item.category }}</p>
+                           <p v-if="item.variant && item.variant.size" class="text-[9px] text-stone-400">{{ item.variant.color }} / {{ item.variant.size }}</p>
+                        </div>
+                        <div class="text-[10px] font-medium tracking-wide shrink-0">
+                           Rs. {{ (item.price * item.quantity).toLocaleString() }}
                         </div>
                      </div>
                   </div>
 
-                  <div class="space-y-4 pt-10 border-t border-stone-100 dark:border-stone-900">
-                     <div
-                        class="flex justify-between text-[10px] font-bold text-stone-400 uppercase tracking-widest italic leading-relaxed">
+                  <div class="space-y-5 pt-8 border-t border-black/10 dark:border-white/10">
+                     <div class="flex justify-between text-[10px] font-bold text-stone-500 uppercase tracking-widest">
                         <span>Subtotal</span>
                         <span>Rs. {{ cart.totalPrice.toLocaleString() }}</span>
                      </div>
-                     <div
-                        class="flex justify-between text-[10px] font-bold text-stone-400 uppercase tracking-widest italic leading-relaxed">
-                        <span>Delivery ({{ customer.city || 'Standard' }})</span>
-                        <span>{{ deliveryCharge === 0 ? 'FREE' : 'Rs. ' + deliveryCharge }}</span>
+                     <div class="flex justify-between text-[10px] font-bold text-stone-500 uppercase tracking-widest">
+                        <span>Shipping</span>
+                        <span>{{ deliveryCharge === 0 ? 'COMPLIMENTARY' : 'Rs. ' + deliveryCharge }}</span>
                      </div>
-                     <div class="h-[1px] bg-stone-100 dark:bg-stone-900 my-4"></div>
-                     <div
-                        class="flex justify-between text-lg font-playfair italic text-[var(--luxury-black)] dark:text-white">
-                        <span>Grand Total</span>
-                        <span class="text-[var(--primary-gold)] font-sans not-italic font-black">Rs. {{ (cart.totalPrice
-                           + deliveryCharge).toLocaleString() }}</span>
+                     <div class="h-[1px] bg-black/10 dark:bg-white/10 my-6"></div>
+                     <div class="flex justify-between items-end">
+                        <span class="text-[12px] font-bold uppercase tracking-[0.3em]">Total</span>
+                        <div class="text-right">
+                           <span class="text-[9px] text-stone-400 mr-2">PKR</span>
+                           <span class="text-2xl font-light tracking-wide">Rs. {{ (cart.totalPrice + deliveryCharge).toLocaleString() }}</span>
+                        </div>
                      </div>
                   </div>
-
-                  <div
-                     class="mt-12 flex items-center gap-4 py-4 px-6 bg-stone-50 dark:bg-stone-900/10 border border-stone-100 dark:border-white/5 rounded-sm">
-                     <font-awesome-icon icon="fa-solid fa-shield-halved" class="text-[var(--primary-gold)] text-sm" />
-                     <p class="text-[8px] font-bold uppercase tracking-[0.3em] text-stone-400">Authentic Secure Checkout
-                     </p>
-                  </div>
-               </div>
-
-               <div class="bg-[var(--primary-gold)]/5 border border-[var(--primary-gold)]/10 p-10 text-center">
-                  <p class="text-[8px] font-black text-[var(--primary-gold)] uppercase tracking-[0.5em] mb-4">MEMBER
-                     EXCLUSIVE</p>
-                  <p class="text-[10px] font-playfair italic text-stone-500">Free nationwide shipping on orders over
-                     <br> Rs. 5000 (Non-COD)
-                  </p>
                </div>
             </div>
+
          </div>
       </div>
    </div>
@@ -444,57 +352,85 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Ultra Luxury Maria B Style Inputs */
 .mariab-input {
    background: transparent;
-   border: none;
-   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-   padding: 18px 0;
+   border: 1px solid rgba(0, 0, 0, 0.15);
+   padding: 22px 16px 8px;
    font-size: 13px;
    font-weight: 500;
-   letter-spacing: 0.1em;
+   border-radius: 2px;
    outline: none;
-   transition: all 0.5s ease;
-   color: #1a1a1a;
+   transition: border-color 0.3s ease;
+   color: #111;
 }
 
 .dark .mariab-input {
-   color: white;
-   border-bottom-color: rgba(255, 255, 255, 0.1);
+   border-color: rgba(255, 255, 255, 0.15);
+   color: #eee;
 }
 
 .mariab-input:focus {
-   border-bottom-color: var(--primary-gold);
-   padding-left: 12px;
+   border-color: #111;
 }
 
-.mariab-input::placeholder {
-   color: #ccc;
-   font-weight: 300;
-   font-size: 11px;
-   letter-spacing: 0.2em;
+.dark .mariab-input:focus {
+   border-color: #eee;
 }
 
+.mariab-label {
+   position: absolute;
+   left: 16px;
+   top: 15px;
+   font-size: 10px;
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   color: #888;
+   transition: all 0.2s ease;
+   pointer-events: none;
+}
+
+.mariab-input:focus ~ .mariab-label,
+.mariab-input:not(:placeholder-shown) ~ .mariab-label {
+   top: 6px;
+   font-size: 7px;
+   color: #111;
+}
+
+.dark .mariab-input:focus ~ .mariab-label,
+.dark .mariab-input:not(:placeholder-shown) ~ .mariab-label {
+   color: #eee;
+}
+
+/* Payment Cards */
 .payment-card {
-   padding: 30px;
-   border: 1px solid #f0f0f0;
+   padding: 24px;
+   border: 1px solid;
    cursor: pointer;
-   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-   background: white;
+   transition: all 0.3s ease;
+   background: transparent;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-height: 100px;
 }
 
-.dark .payment-card {
-   background: #0A0A0A;
-   border-color: #1a1a1a;
+/* Animations */
+.animate-fade-in-up {
+   animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-.payment-card.active {
-   border-color: var(--primary-gold);
-   background: rgba(184, 134, 11, 0.03);
-}
-
-.payment-card.inactive:hover {
-   border-color: #ccc;
-   transform: translateY(-4px);
+@keyframes fadeInUp {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
 .luxury-scroll::-webkit-scrollbar {
@@ -502,44 +438,11 @@ onMounted(() => {
 }
 
 .luxury-scroll::-webkit-scrollbar-thumb {
-   background: var(--primary-gold);
-   opacity: 0.2;
+   background: #111;
 }
 
-.animate-reveal-left {
-   animation: reveal-left 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-.animate-reveal-right {
-   animation: reveal-right 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-@keyframes reveal-left {
-   from {
-      opacity: 0;
-      transform: translateX(-30px);
-   }
-
-   to {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-
-@keyframes reveal-right {
-   from {
-      opacity: 0;
-      transform: translateX(30px);
-   }
-
-   to {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-
-.font-playfair {
-   font-family: 'Playfair Display', serif;
+.dark .luxury-scroll::-webkit-scrollbar-thumb {
+   background: #eee;
 }
 
 .fade-enter-active,

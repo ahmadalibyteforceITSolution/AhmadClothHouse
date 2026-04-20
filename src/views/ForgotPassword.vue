@@ -1,70 +1,73 @@
 <template>
-  <div class="h-screen flex items-center justify-center p-8 relative overflow-hidden bg-[#050505] selection:bg-amber-500/30 scrollbar-none">
+  <div class="h-screen flex items-center justify-center p-8 relative overflow-hidden bg-white dark:bg-[#050505] transition-colors duration-1000 selection:bg-black/10 dark:selection:bg-white/10 font-sans text-[#111] dark:text-[#eee]">
     
     <!-- Ultra Cinematic Background -->
-    <div class="absolute inset-0">
-       <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div class="absolute inset-0 group">
+       <div class="absolute inset-0 bg-white/90 dark:bg-black/90 z-10 backdrop-blur-[2px]"></div>
        <img 
           :src="Fugible3" 
-          class="w-full h-full object-cover scale-110 animate-slow-zoom"
-          alt="AHMADCLOTHESFABRICS"
+          class="w-full h-full object-cover scale-110 animate-slow-zoom grayscale opacity-20 dark:opacity-40"
+          alt="Luxury Abstract"
        >
-    </div>
+    </div>  
 
-    <!-- Centered Recover Card (Glass) -->
-    <div class="max-w-md w-full bg-black/40 backdrop-blur-3xl border border-white/10 p-16 shadow-[0_50px_100px_rgba(0,0,0,1)] relative z-20 animate-reveal group">
+    <!-- Centered Recover Card (Minimalist) -->
+    <div class="max-w-md w-full bg-white dark:bg-[#050505] p-12 sm:p-16 border border-black/10 dark:border-white/10 shadow-2xl relative z-20 animate-fade-in-up">
       
-      <!-- Aesthetic Stamp -->
-      <div class="absolute -top-12 -left-12 w-24 h-24 border border-amber-500/20 bg-[#080808] flex items-center justify-center p-4 shadow-2xl group-hover:rotate-[360deg] transition-transform duration-[3s]">
-         <img :src="Fugible" alt="Logo" class="w-full h-auto" />
+      <div class="text-center mb-12">
+        <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-stone-500 mb-4">ACCOUNT RECOVERY</p>
+        <h1 class="text-3xl font-playfair font-normal leading-tight tracking-tight mb-4">Reset Password</h1>
+        <div class="h-[1px] w-12 bg-black dark:bg-white mx-auto opacity-20"></div>
       </div>
 
-      <div class="text-center mb-16">
-        <h1 class="text-3xl font-black uppercase tracking-tighter text-white mb-4 font-playfair italic underline decoration-amber-500/10 underline-offset-8">Reset Password</h1>
-        <p class="text-[9px] font-black uppercase text-amber-500 tracking-[0.6em] opacity-40">PASSWORD_RECOVERY</p>
-      </div>
-
-      <div v-if="successMsg" class="text-center space-y-10 animate-reveal">
-          <div class="w-20 h-20 border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 rounded-full flex items-center justify-center mx-auto text-3xl shadow-3xl animate-pulse">
-             <font-awesome-icon icon="fa-solid fa-paper-plane" />
-          </div>
-          <p class="text-[10px] font-black uppercase tracking-[0.4em] leading-loose text-white px-6">
-            {{ successMsg.toUpperCase() }}
-          </p>
-          <div class="pt-10 border-t border-white/5">
-             <router-link to="/login" class="bg-amber-600 text-white px-12 py-5 text-[9px] font-black uppercase tracking-[0.4em] shadow-3xl hover:bg-amber-500 transition-all active:scale-95">RETURN TO LOGIN</router-link>
-          </div>
-      </div>
-
-      <form v-else @submit.prevent="handleSubmit" class="space-y-12">
-        <div class="space-y-4">
-          <label class="text-[8px] font-black uppercase text-stone-500 tracking-[0.4em] block pl-1">EMAIL ADDRESS</label>
-          <input 
-            v-model="email"
-            type="email" 
-            placeholder="HELLO@AHMADCLOTHS.COM" 
-            class="luxury-input-glass lowercase"
-            :class="{ 'border-red-500/60': emailError }"
-          >
-          <p v-if="emailError" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ emailError }}</p>
+      <transition name="fade" mode="out-in">
+        <div v-if="successMsg" class="text-center space-y-8 animate-fade-in-up">
+            <div class="w-16 h-16 border border-green-500/30 bg-green-500/5 text-green-500 rounded-full flex items-center justify-center mx-auto text-xl animate-pulse">
+               <font-awesome-icon icon="fa-solid fa-paper-plane" />
+            </div>
+            <p class="text-[10px] font-bold uppercase tracking-widest leading-loose px-4">
+              {{ successMsg }}
+            </p>
+            <div class="pt-8">
+               <router-link to="/login" class="block w-full border border-black dark:border-white text-black dark:text-white px-8 py-4 text-[9px] font-bold uppercase tracking-[0.4em] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                 RETURN TO LOGIN
+               </router-link>
+            </div>
         </div>
 
-        <transition name="fade">
-           <p v-if="error" class="text-[9px] text-red-600 font-black uppercase tracking-[0.3em] text-center bg-red-500/5 py-4 border border-red-500/20">{{ error.toUpperCase() }}</p>
-        </transition>
+        <form v-else @submit.prevent="handleSubmit" class="space-y-10">
+          <div class="relative group">
+            <input 
+              v-model="email"
+              type="email" 
+              id="email"
+              placeholder=" " 
+              class="mariab-input w-full lowercase peer"
+              :class="{ 'border-red-500': emailError }"
+            >
+            <label for="email" class="mariab-label bg-white dark:bg-[#050505]">Email Address</label>
+            <p v-if="emailError" class="text-[9px] text-red-500 font-bold uppercase tracking-widest mt-2">{{ emailError }}</p>
+          </div>
 
-        <button 
-          :disabled="loading"
-          class="w-full bg-amber-600 text-white py-6 rounded-none font-black uppercase tracking-[0.4em] text-[10px] hover:bg-amber-500 transition-all shadow-3xl active:scale-95 disabled:opacity-20 flex items-center justify-center gap-6 group"
-        >
-          <span>{{ loading ? 'SENDING...' : 'SEND RESET LINK' }}</span>
-          <font-awesome-icon icon="fa-solid fa-bolt" class="text-[8px] group-hover:scale-125 transition-transform" />
-        </button>
-      </form>
+          <transition name="fade">
+             <p v-if="error" class="text-[10px] text-red-500 font-bold uppercase tracking-widest text-center py-2">{{ error }}</p>
+          </transition>
 
-      <div class="mt-12 text-center pt-10 border-t border-white/5">
-        <router-link to="/login" class="text-[10px] text-amber-500 font-black uppercase tracking-[0.4em] border-b border-amber-500/10 hover:border-amber-500 transition-all">BACK TO LOGIN</router-link>
-      </div>
+          <button 
+            :disabled="loading"
+            class="w-full bg-black dark:bg-white text-white dark:text-black py-5 text-[10px] font-bold uppercase tracking-[0.4em] transition-transform hover:-translate-y-1 hover:shadow-2xl active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-4 group"
+          >
+            <span>{{ loading ? 'SENDING IDENTIFICATION...' : 'SEND RESET LINK' }}</span>
+            <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[9px] opacity-70 group-hover:translate-x-1" />
+          </button>
+
+          <div class="text-center pt-8 border-t border-black/5 dark:border-white/5">
+            <router-link to="/login" class="text-[9px] text-stone-500 font-bold uppercase tracking-widest hover:text-black dark:hover:text-white transition-colors border-b border-transparent hover:border-black dark:hover:border-white pb-0.5">
+              BACK TO LOGIN
+            </router-link>
+          </div>
+        </form>
+      </transition>
     </div>
   </div>
 </template>
@@ -75,8 +78,8 @@ import api from '../api'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
 import * as yup from 'yup'
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
-const Fugible3 = "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1600&auto=format&fit=crop"
+import Fugible from '../assets/ai_new/shop_header.png'
+import Fugible3 from '../assets/ai_new/hero_collage_4.png'
 
 const auth = useAuthStore()
 const email = ref('')
@@ -141,30 +144,64 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.luxury-input-glass {
-  width: 100%;
-  background: rgba(255,255,255,0.03);
-  border: none;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-  padding: 16px 12px;
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  outline: none;
-  transition: all 0.5s ease;
-  color: white;
-}
-.luxury-input-glass:focus { border-color: #d4af37; background: rgba(255,255,255,0.08); }
-.luxury-input-glass::placeholder { color: rgba(255,255,255,0.1); font-weight: 400; font-size: 10px; }
-
-.shadow-3xl {
-  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8);
+/* Ultra Luxury Maria B Style Inputs */
+.mariab-input {
+   background: transparent;
+   border: 1px solid rgba(0, 0, 0, 0.15);
+   padding: 24px 16px 8px;
+   font-size: 13px;
+   font-weight: 500;
+   border-radius: 2px;
+   outline: none;
+   transition: border-color 0.3s ease;
+   color: #111;
 }
 
-.animate-reveal { animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
-@keyframes reveal-bottom {
-  from { opacity: 0; transform: translateY(40px); }
+.dark .mariab-input {
+   border-color: rgba(255, 255, 255, 0.15);
+   color: #eee;
+}
+
+.mariab-input:focus {
+   border-color: #111;
+}
+
+.dark .mariab-input:focus {
+   border-color: #eee;
+}
+
+.mariab-label {
+   position: absolute;
+   left: 16px;
+   top: 17px;
+   font-size: 10px;
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   color: #888;
+   transition: all 0.2s ease;
+   pointer-events: none;
+   padding: 0 4px; 
+}
+
+.mariab-input:focus ~ .mariab-label,
+.mariab-input:not(:placeholder-shown) ~ .mariab-label {
+   top: -9px;
+   font-size: 8px;
+   color: #111;
+}
+
+.dark .mariab-input:focus ~ .mariab-label,
+.dark .mariab-input:not(:placeholder-shown) ~ .mariab-label {
+   color: #eee;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 

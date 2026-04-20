@@ -81,7 +81,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { blogs as staticBlogs } from '../data/blogs'
 import { useProductsStore } from '../stores/products'
@@ -98,7 +98,6 @@ const post = computed(() => {
   const staticPost = staticBlogs.find(b => b.slug === route.params.slug)
   if (!staticPost) return null
 
-  // Try to find a product in the same category to use its image from DB
   const relatedProduct = productStore.products.find(p => 
     p.category?.toLowerCase() === staticPost.category.toLowerCase() || 
     p.parentCategory?.toLowerCase() === staticPost.category.toLowerCase()
@@ -109,6 +108,99 @@ const post = computed(() => {
     image: relatedProduct?.image || productStore.products[0]?.image || staticPost.image
   }
 })
+
+// === Dynamic SEO per blog post ===
+const injectBlogMeta = (p) => {
+  if (!p) return
+
+  const BASE_URL = 'https://ahmad-cloths.vercel.app'
+  const pageUrl = `${BASE_URL}/blog/${p.slug}`
+  const pageTitle = `${p.title} | AhmadClothesHouse Fashion Blog`
+  const pageDesc = p.summary || `Read about ${p.title} on the AhmadClothesHouse fashion blog. Expert insights into Pakistani couture, luxury fabric trends, and bridal wear.`
+  const pageImage = typeof p.image === 'string' && p.image.startsWith('http') 
+    ? p.image 
+    : `${BASE_URL}/og-image.png`
+
+  // Title
+  document.title = pageTitle
+
+  const setMeta = (selector, attr, value) => {
+    let el = document.querySelector(selector)
+    if (!el) {
+      el = document.createElement('meta')
+      // Parse selector like meta[name="description"] or meta[property="og:title"]
+      const attrMatch = selector.match(/\[(name|property)="([^"]+)"\]/)
+      if (attrMatch) el.setAttribute(attrMatch[1], attrMatch[2])
+      document.head.appendChild(el)
+    }
+    el.setAttribute(attr, value)
+  }
+
+  // Standard meta
+  setMeta('meta[name="description"]', 'content', pageDesc)
+  setMeta('meta[name="robots"]', 'content', 'index, follow')
+  setMeta('meta[name="keywords"]', 'content', `${p.category}, Pakistani fashion, ${p.title}, AhmadClothesHouse, luxury couture, unstitched suits`)
+
+  // Open Graph
+  setMeta('meta[property="og:title"]', 'content', pageTitle)
+  setMeta('meta[property="og:description"]', 'content', pageDesc)
+  setMeta('meta[property="og:url"]', 'content', pageUrl)
+  setMeta('meta[property="og:image"]', 'content', pageImage)
+  setMeta('meta[property="og:type"]', 'content', 'article')
+
+  // Twitter
+  setMeta('meta[property="twitter:title"]', 'content', pageTitle)
+  setMeta('meta[property="twitter:description"]', 'content', pageDesc)
+  setMeta('meta[property="twitter:url"]', 'content', pageUrl)
+  setMeta('meta[property="twitter:image"]', 'content', pageImage)
+
+  // Canonical
+  let canonical = document.querySelector('link[rel="canonical"]')
+  if (!canonical) {
+    canonical = document.createElement('link')
+    canonical.rel = 'canonical'
+    document.head.appendChild(canonical)
+  }
+  canonical.href = pageUrl
+
+  // Article JSON-LD Schema
+  let schema = document.querySelector('script[id="blog-schema"]')
+  if (schema) schema.remove()
+  schema = document.createElement('script')
+  schema.id = 'blog-schema'
+  schema.type = 'application/ld+json'
+  schema.text = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": p.title,
+    "description": pageDesc,
+    "image": pageImage,
+    "url": pageUrl,
+    "datePublished": p.date,
+    "dateModified": p.date,
+    "author": {
+      "@type": "Person",
+      "name": p.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AhmadClothesHouse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ahmad-cloths.vercel.app/favicon.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": pageUrl
+    },
+    "articleSection": p.category,
+    "keywords": `Pakistani fashion, ${p.category}, luxury couture, AhmadClothesHouse`
+  })
+  document.head.appendChild(schema)
+}
+
+watch(post, (p) => { if (p) injectBlogMeta(p) }, { immediate: true })
 
 const paragraphs = computed(() => {
   if (!post.value) return []

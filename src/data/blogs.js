@@ -1,8 +1,8 @@
-import Hero1 from "../assets/ai/hero_1.png"
-import Hero2 from "../assets/ai/hero_2.png"
-import Hero3 from "../assets/ai/hero_3.png"
-import Hero4 from "../assets/ai/hero_4.png"
-import BridalHighlight from "../assets/ai/bridal_highlight.png"
+import Hero1 from "../assets/ai_new/hero_collage_1.png"
+import Hero2 from "../assets/ai_new/hero_collage_2.png"
+import Hero3 from "../assets/ai_new/hero_collage_3.png"
+import Hero4 from "../assets/ai_new/hero_collage_4.png"
+import BridalHighlight from "../assets/ai_new/bridal_highlight.png"
 
 export const blogs = [
   {

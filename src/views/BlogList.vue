@@ -108,6 +108,64 @@ const displayLimit = ref(12)
 
 onMounted(() => {
   productStore.fetchProducts()
+
+  // === Inject blog list page SEO ===
+  const BASE = 'https://ahmad-cloths.vercel.app'
+  document.title = 'Fashion Blog | Pakistani Designer Trends & Luxury Style Guides | AhmadClothesHouse'
+
+  const setMeta = (name, isProperty, value) => {
+    const attr = isProperty ? `[property="${name}"]` : `[name="${name}"]`
+    let el = document.querySelector(`meta${attr}`)
+    if (!el) {
+      el = document.createElement('meta')
+      el.setAttribute(isProperty ? 'property' : 'name', name)
+      document.head.appendChild(el)
+    }
+    el.setAttribute('content', value)
+  }
+
+  setMeta('description', false, 'Read the latest Pakistani fashion blog posts at AhmadClothesHouse. Covering bridal trends, luxury lawn collections, fabric guides, and style tips for 2026.')
+  setMeta('robots', false, 'index, follow')
+  setMeta('keywords', false, 'Pakistani fashion blog, bridal wear 2026, lawn collection trends, luxury couture, AhmadClothesHouse blog')
+  setMeta('og:title', true, 'AhmadClothesHouse Fashion Journal | Pakistani Couture Blog')
+  setMeta('og:description', true, 'Explore expert editorial content on Pakistani fashion, bridal wear, luxury fabrics, and seasonal trends at the AhmadClothesHouse Journal.')
+  setMeta('og:url', true, `${BASE}/blog`)
+  setMeta('og:type', true, 'website')
+
+  // Canonical
+  let canonical = document.querySelector('link[rel="canonical"]')
+  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
+  canonical.href = `${BASE}/blog`
+
+  // BreadcrumbList Schema
+  let bcSchema = document.querySelector('script[id="blog-list-schema"]')
+  if (bcSchema) bcSchema.remove()
+  bcSchema = document.createElement('script')
+  bcSchema.id = 'blog-list-schema'
+  bcSchema.type = 'application/ld+json'
+  bcSchema.text = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE}/blog` }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "AhmadClothesHouse Fashion Journal",
+      "url": `${BASE}/blog`,
+      "description": "Expert editorial on Pakistani fashion, bridal wear, and luxury couture trends.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AhmadClothesHouse",
+        "logo": { "@type": "ImageObject", "url": `${BASE}/favicon.svg` }
+      }
+    }
+  ])
+  document.head.appendChild(bcSchema)
 })
 
 const categories = computed(() => {

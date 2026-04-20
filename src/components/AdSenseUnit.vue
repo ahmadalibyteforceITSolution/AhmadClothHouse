@@ -1,5 +1,5 @@
 <template>
-  <div v-if="publisherId" class="adsense-wrapper" :class="wrapperClass">
+  <div v-if="publisherId" class="adsense-wrapper overflow-hidden transition-all duration-700" :class="[wrapperClass, { 'opacity-0 h-0 my-0': !isAdLoaded && !isDevelopment }]">
     <ins
       class="adsbygoogle"
       style="display:block"
@@ -8,55 +8,46 @@
       :data-ad-format="format"
       :data-full-width-responsive="fullWidthResponsive ? 'true' : 'false'"
     ></ins>
+    
+    <!-- Development/Empty Placeholder (Branded Ahmad Cloth House) -->
+    <div v-if="isDevelopment && !isAdLoaded" class="flex flex-col items-center justify-center py-12 bg-[#fafaf8] dark:bg-[#080808] border border-dashed border-stone-200 dark:border-white/10 opacity-50">
+       <span class="text-[8px] tracking-[0.4em] uppercase text-stone-400 font-bold mb-2">Ahmad Cloth House</span>
+       <span class="text-[7px] tracking-[0.2em] italic text-stone-400 uppercase">Premium Editorial Placement</span>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const props = defineProps({
-  /** Unique ad slot ID from your AdSense dashboard (e.g. "1234567890") */
-  slot: {
-    type: String,
-    required: true
-  },
-  /** AdSense ad format: "auto", "rectangle", "vertical", "horizontal" */
-  format: {
-    type: String,
-    default: 'auto'
-  },
-  /** Whether to use full-width responsive ads */
-  fullWidthResponsive: {
-    type: Boolean,
-    default: true
-  },
-  /** Optional extra CSS classes for the wrapper div */
-  wrapperClass: {
-    type: String,
-    default: 'my-8'
-  },
-  /** Publisher ID – falls back to the one already loaded in index.html */
-  publisherId: {
-    type: String,
-    default: 'ca-pub-1888138480311828'
-  }
+  slot: { type: String, required: true },
+  format: { type: String, default: 'auto' },
+  fullWidthResponsive: { type: Boolean, default: true },
+  wrapperClass: { type: String, default: 'my-8' },
+  publisherId: { type: String, default: 'ca-pub-1888138480311828' }
 })
 
+const isAdLoaded = ref(false)
+const isDevelopment = ref(false)
+
 onMounted(() => {
-  // Prevent AdSense 400 errors during local development
-  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-    console.log('[AdSense] Skipped initialization on localhost to prevent 400 errors.');
-    return;
+  if (typeof window !== 'undefined') {
+    isDevelopment.value = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   }
 
-  // Use timeout to ensure DOM is fully laid out and width is > 0
   setTimeout(() => {
     try {
-      // Push to adsbygoogle queue to initialize this unit
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+      (window.adsbygoogle = window.adsbygoogle || []).push({})
+      // Check if ad was injected after a few seconds
+      setTimeout(() => {
+        const ins = document.querySelector(`ins[data-ad-slot="${props.slot}"]`)
+        if (ins && ins.innerHTML.trim().length > 0) {
+          isAdLoaded.value = true
+        }
+      }, 3000)
     } catch (e) {
-      // AdSense not loaded yet or blocked by ad blocker — fail silently
-      console.warn('[AdSense] Could not initialize ad unit for slot:', props.slot, e)
+      console.warn('[AdSense] Initialization skipped or blocked.', e)
     }
   }, 100)
 })
