@@ -96,12 +96,14 @@ app.use(async (req, res, next) => {
     await connectDB();
     next();
   } catch (err) {
-    console.error("💀 [API ERROR]:", err.message);
-    res.status(500).json({
-      success: false,
-      error: "Database integrity check failed",
-      message: err.message, // Temporarily showing this to solve the 500 error
-      hint: "Ensure MONGO_URI and BLOB_READ_WRITE_TOKEN are set in Vercel Settings"
+    const errorMsg = err.message || "Unknown Connection Error";
+    console.error("💀 [DB_FAILURE]:", errorMsg);
+    
+    res.status(500).json({ 
+      success: false, 
+      error: "Boutique Database Offline",
+      message: errorMsg,
+      remedy: "Check Vercel Env Vars for MONGO_URI"
     });
   }
 });

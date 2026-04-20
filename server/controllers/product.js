@@ -3,7 +3,6 @@ const Product = require('../models/Product');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { put } = require('@vercel/blob');
 
 // @desc    Get all products
 exports.getProducts = async (req, res) => {
@@ -74,8 +73,10 @@ exports.uploadImage = async (req, res) => {
     const ext = path.extname(req.file.originalname) || '.jpg';
     const filename = `products/product-${Date.now()}-${uniqueSuffix}${ext}`;
 
+    // Lazy load put to prevent startup crashes
+    const { put } = require('@vercel/blob');
+
     // Upload to Vercel Blob
-    // No token passed explicitly here - it will use process.env.BLOB_READ_WRITE_TOKEN automatically
     const blob = await put(filename, req.file.buffer, {
       access: 'public',
       contentType: req.file.mimetype
