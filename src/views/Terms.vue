@@ -1,124 +1,150 @@
 <template>
-   <div
-      class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 pb-48 font-sans selection:bg-amber-500/30">
-      <!-- Cinematic Header -->
-      <header class="bg-black py-40 px-8 relative overflow-hidden border-b border-white/5">
-         <div class="absolute inset-0 opacity-10">
-            <div
-               class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#B8860B11_1px,_transparent_1px)] bg-[size:60px_60px]">
-            </div>
-         </div>
-         <div class="max-w-7xl mx-auto text-center relative z-10 animate-reveal">
-            <div class="text-xl font-playfair tracking-[0.2em] font-light text-white uppercase mb-10">AHMADCLOTHESFABRICS</div>
-            <div class="flex items-center justify-center gap-6 mb-12">
-               <div class="h-[1px] w-16 bg-[var(--primary-gold)]/30"></div>
-               <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em] block">GOVERNANCE &
-                  ETHICS</span>
-               <div class="h-[1px] w-16 bg-[var(--primary-gold)]/30"></div>
-            </div>
-            <h1
-               class="text-6xl md:text-8xl font-light uppercase tracking-tighter text-white font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px]">
-               Terms of <span
-                  class="text-[var(--primary-gold)] font-sans tracking-[0.2em] font-light ml-4 uppercase not-italic">Service</span>
-            </h1>
-            <p
-               class="text-[11px] font-bold text-white/30 uppercase tracking-[0.5em] mt-16 max-w-2xl mx-auto leading-loose italic">
-               The framework of mutual agreement and authority within the Ahmadcloths network.
-            </p>
-         </div>
-      </header>
+  <div class="luxury-terms min-h-screen bg-[#FDFBF7] dark:bg-[#050505] transition-colors duration-700 pb-32">
+    
+    <!-- ═══════════════════════════════════════════
+         ELITE HERO (Monochrome Elegance)
+    ═══════════════════════════════════════════ -->
+    <header class="relative h-[65vh] flex flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] text-center px-6">
+      <!-- High-Fashion Grain Overlay -->
+      <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-noise"></div>
+      
+      <!-- Pattern Overlay -->
+      <div class="absolute inset-0 opacity-5 bg-damask pointer-events-none"></div>
 
-      <!-- Narrative Content -->
-      <main class="max-w-4xl mx-auto px-8 py-32 space-y-32">
-         <section v-for="(section, k) in termSections" :key="k" class="space-y-10 group animate-reveal"
-            :style="{ animationDelay: `${k * 0.2}s` }">
-            <div class="flex items-center gap-6">
-               <div
-                  class="w-12 h-12 rounded-full border border-[var(--primary-gold)]/10 bg-[var(--primary-gold)]/5 flex items-center justify-center text-[var(--primary-gold)] text-xs transition-all duration-700 group-hover:bg-[var(--primary-gold)] group-hover:text-white">
-                  0{{ k + 1 }}
-               </div>
-               <h2
-                  class="text-2xl font-light uppercase tracking-tight text-gray-900 dark:text-white font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-8 transition-all group-hover:pl-4 group-hover:border-l group-hover:border-[var(--primary-gold)]/40">
-                  {{ section.title }}
-               </h2>
-            </div>
-            <p
-               class="text-stone-500 dark:text-stone-400 leading-[2] font-light text-lg italic transition-all border-l-0 group-hover:border-l border-[var(--primary-gold)]/10 pl-0 group-hover:pl-8">
-               {{ section.content }}
-            </p>
-         </section>
+      <div class="relative z-10 space-y-12 animate-reveal">
+        <div class="flex flex-col items-center gap-4">
+          <span class="text-[8px] font-black tracking-[0.6em] text-[var(--primary-gold)] uppercase opacity-80">Codex of Conduct</span>
+          <div class="h-[1px] w-32 bg-gradient-to-r from-transparent via-[var(--primary-gold)] to-transparent"></div>
+        </div>
 
-         <!-- Signature Block -->
-         <div class="pt-24 border-t border-[#d4af3711] text-center">
-            <div class="flex flex-col items-center gap-12">
-               <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-stone-400 max-w-xs leading-loose italic">
-                  By using this website, you agree to our terms and conditions.
-               </p>
-               <div class="h-[1px] w-32 bg-[var(--primary-gold)]/20"></div>
-            </div>
-         </div>
-      </main>
-   </div>
+        <h1 class="text-7xl md:text-9xl font-playfair italic text-white leading-none tracking-tight">
+          Terms <span class="text-[var(--primary-gold)] not-italic font-sans font-extralight tracking-[0.3em] block mt-6 text-5xl md:text-7xl uppercase">OF ENGAGEMENT</span>
+        </h1>
+
+        <p class="max-w-xl mx-auto text-[10px] md:text-sm text-stone-500 font-medium tracking-[0.3em] leading-loose uppercase opacity-80 italic">
+          Defining the architecture of our mutual trust.
+        </p>
+      </div>
+
+      <!-- Scroll line -->
+      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce">
+        <div class="w-[1px] h-10 bg-white/20"></div>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════
+         STRUCTURED BLOCKS CONTENT
+    ═══════════════════════════════════════════ -->
+    <main class="max-w-[1200px] mx-auto px-6 py-40">
+      <div class="space-y-40">
+        <section v-for="(section, k) in termSections" :key="k" 
+                 class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start group animate-reveal"
+                 :style="{ animationDelay: `${k * 0.15}s` }">
+          
+          <!-- Section Number -->
+          <div class="lg:col-span-3 flex flex-col gap-6">
+            <div class="text-[8px] font-black tracking-[0.5em] text-[var(--primary-gold)] uppercase">Article 0{{ k + 1 }}</div>
+            <div class="h-[1px] w-full bg-black/5 dark:bg-white/5 group-hover:bg-[var(--primary-gold)]/30 transition-all duration-700"></div>
+          </div>
+
+          <!-- Section Content -->
+          <div class="lg:col-span-9 space-y-10 group-hover:translate-x-4 transition-transform duration-700">
+            <h2 class="text-4xl md:text-5xl font-playfair italic text-gray-900 dark:text-white capitalize leading-tight">
+              {{ section.title }}
+            </h2>
+            <p class="text-stone-500 dark:text-stone-400 text-lg md:text-xl leading-[2] font-light max-w-4xl">
+              {{ section.content }}
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           ETHICAL SIGNATURE BLOCK
+      ═══════════════════════════════════════════ -->
+      <section class="mt-60 bg-white dark:bg-[#0A0A0A] p-20 lg:p-32 border border-black/5 dark:border-white/5 shadow-2xl text-center flex flex-col items-center gap-16 group">
+        <div class="space-y-8">
+          <div class="flex items-center justify-center gap-4 text-[var(--primary-gold)]">
+            <span class="text-3xl">✦</span>
+          </div>
+          <h3 class="text-5xl md:text-7xl font-playfair italic text-gray-900 dark:text-white">Ethical Foundation</h3>
+          <p class="max-w-2xl mx-auto text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
+            By engaging with our digital atelier, you signify your alignment with these principles of mutual respect and integrity. We reserve the right to evolve these terms as our brand reaches new horizons.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-8">
+          <div class="h-[1px] w-48 bg-black/10 dark:bg-white/10 group-hover:w-64 group-hover:bg-[var(--primary-gold)] transition-all duration-1000"></div>
+          <p class="text-[8px] font-black tracking-[0.6em] text-stone-400 uppercase opacity-60">AHMADCLOTHESFABRICS AUTHORITY</p>
+        </div>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const termSections = [
-   {
-      title: "Agreement to Terms",
-      content: "By accessing and using AHMADCLOTHESFABRICS (ahmad-cloths.vercel.app), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
-   },
-   {
-      title: "Intellectual Property Rights",
-      content: "The content, original features, and functionality of this website, including but not limited to designs, text, graphics, logos, and images, are the exclusive property of AHMADCLOTHESFABRICS and are protected by international copyright, trademark, patent, and other intellectual property laws."
-   },
-   {
-      title: "User Conduct & Restrictions",
-      content: "Users are prohibited from using the site for any unlawful purpose, soliciting others to perform unlawful acts, or violating any international, federal, or state regulations. You may not reproduce, duplicate, copy, sell, or exploit any portion of our service without express written permission."
-   },
-   {
-      title: "Products & Accuracy of Information",
-      content: "We make every effort to display as accurately as possible the colors and images of our products. However, we cannot guarantee that your computer monitor's display of any color will be accurate. We reserve the right to limit the sales of our products to any person or geographic region."
-   },
-   {
-      title: "Billing & Account Integrity",
-      content: "You agree to provide current, complete, and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers, so that we can complete your transactions."
-   },
-   {
-      title: "Third-Party Links & Ads",
-      content: "Our website may contain links to third-party websites or services that are not owned or controlled by AHMADCLOTHESFABRICS. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that AHMADCLOTHESFABRICS shall not be responsible or liable, directly or indirectly, for any damage or loss caused by your use of such third-party content."
-   },
-   {
-      title: "Governing Law",
-      content: "These terms and conditions are governed by and construed in accordance with the laws of Pakistan. You irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
-   }
+  {
+    title: "Agreement to Terms",
+    content: "By accessing and using AHMADCLOTHESFABRICS (ahmad-cloths.vercel.app), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
+  },
+  {
+    title: "Intellectual Property Rights",
+    content: "The content, original features, and functionality of this website, including but not limited to designs, text, graphics, logos, and images, are the exclusive property of AHMADCLOTHESFABRICS and are protected by international copyright, trademark, patent, and other intellectual property laws."
+  },
+  {
+    title: "User Conduct & Restrictions",
+    content: "Users are prohibited from using the site for any unlawful purpose, soliciting others to perform unlawful acts, or violating any international, federal, or state regulations. You may not reproduce, duplicate, copy, sell, or exploit any portion of our service without express written permission."
+  },
+  {
+    title: "Products & Accuracy of Information",
+    content: "We make every effort to display as accurately as possible the colors and images of our products. However, we cannot guarantee that your computer monitor's display of any color will be accurate. We reserve the right to limit the sales of our products to any person or geographic region."
+  },
+  {
+    title: "Billing & Account Integrity",
+    content: "You agree to provide current, complete, and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers, so that we can complete your transactions."
+  },
+  {
+    title: "Third-Party Links & Ads",
+    content: "Our website may contain links to third-party websites or services that are not owned or controlled by AHMADCLOTHESFABRICS. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that AHMADCLOTHESFABRICS shall not be responsible or liable, directly or indirectly, for any damage or loss caused by your use of such third-party content."
+  },
+  {
+    title: "Governing Law",
+    content: "These terms and conditions are governed by and construed in accordance with the laws of Pakistan. You irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
+  }
 ]
 
 onMounted(() => {
-   window.scrollTo(0, 0)
+  window.scrollTo(0, 0)
 })
 </script>
 
 <style scoped>
 .animate-reveal {
-   animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  opacity: 0;
 }
 
 @keyframes reveal-bottom {
-   from {
-      opacity: 0;
-      transform: translateY(30px);
-   }
-
-   to {
-      opacity: 1;
-      transform: translateY(0);
-   }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .font-playfair {
-   font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.bg-damask {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.05'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+html {
+  scroll-behavior: smooth;
 }
 </style>
