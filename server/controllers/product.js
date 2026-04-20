@@ -1,5 +1,9 @@
 // @desc    Get all products
 const Product = require('../models/Product');
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const { put } = require('@vercel/blob');
 
 // @desc    Get all products
 exports.getProducts = async (req, res) => {
@@ -45,12 +49,12 @@ exports.getProductImage = async (req, res) => {
       const base64Data = parts[1].replace('base64,', '');
       const imgBuffer = Buffer.from(base64Data, 'base64');
       
-      // Set strong cache control and proper content type for immediate loading
       res.set('Cache-Control', 'public, max-age=604800, immutable');
       res.type(mime);
       return res.send(imgBuffer);
     } else {
-      // If it's just an external HTTP URL, redirect
+      // If it's a relative path like /uploads/..., we can redirect to the static file server
+      // or if it's an external URL, redirect directly.
       return res.redirect(product.image);
     }
   } catch (err) {
@@ -58,17 +62,30 @@ exports.getProductImage = async (req, res) => {
   }
 };
 
-// @desc    Upload an image
+// @desc    Upload an image to Vercel Blob
 exports.uploadImage = async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, error: 'Please upload an image' });
     }
-    // Encode image buffer to base64 Data URL (can be sent back and saved in MongoDB)
-    const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
-    res.status(200).json({ success: true, url: base64Image });
+
+    // Generate unique filename with random suffix for Vercel Blob
+    const uniqueSuffix = crypto.randomBytes(6).toString('hex');
+    const ext = path.extname(req.file.originalname) || '.jpg';
+    const filename = `products/product-${Date.now()}-${uniqueSuffix}${ext}`;
+
+    // Upload to Vercel Blob
+    // No token passed explicitly here - it will use process.env.BLOB_READ_WRITE_TOKEN automatically
+    const blob = await put(filename, req.file.buffer, {
+      access: 'public',
+      contentType: req.file.mimetype
+    });
+
+    // Return the high-performance BLOB URL
+    res.status(200).json({ success: true, url: blob.url });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    console.error('SERVER_ERROR [VercelBlob]:', err.message);
+    res.status(500).json({ success: false, error: 'Failed to upload image to Vercel Blob. Ensure BLOB_READ_WRITE_TOKEN is set.' });
   }
 };
 
