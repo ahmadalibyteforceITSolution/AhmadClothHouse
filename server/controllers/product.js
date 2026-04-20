@@ -8,7 +8,7 @@ exports.getProducts = async (req, res) => {
     // 1. Exclude large fields like 'variants', 'description', and 'details' for list view
     // 2. Use .lean() for faster execution
     const products = await Product.find()
-      .select('-variants -description -details')
+      .select('-variants -description -details -image -filterImageUrl')
       .sort({ createdAt: -1 })
       .limit(100)
       .lean();
@@ -27,6 +27,34 @@ exports.getProduct = async (req, res) => {
     res.status(200).json({ success: true, data: product });
   } catch (err) {
     res.status(400).json({ success: false, error: err.message });
+  }
+};
+
+// @desc    Get product image directly as binary
+exports.getProductImage = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).select('image').lean();
+    if (!product || !product.image) {
+      return res.status(404).json({ success: false, error: 'Image not found' });
+    }
+    
+    // Check if it's base64 data
+    if (product.image.startsWith('data:image/')) {
+      const parts = product.image.split(';');
+      const mime = parts[0].split(':')[1];
+      const base64Data = parts[1].replace('base64,', '');
+      const imgBuffer = Buffer.from(base64Data, 'base64');
+      
+      // Set strong cache control and proper content type for immediate loading
+      res.set('Cache-Control', 'public, max-age=604800, immutable');
+      res.type(mime);
+      return res.send(imgBuffer);
+    } else {
+      // If it's just an external HTTP URL, redirect
+      return res.redirect(product.image);
+    }
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'Failed to stream image' });
   }
 };
 

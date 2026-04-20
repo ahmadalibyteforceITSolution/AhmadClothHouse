@@ -23,6 +23,11 @@ export const useProductsStore = defineStore('products', {
       return items.filter(p => !!p).map(p => {
         let img = p.image || p.imageUrl || ''
 
+        // If image is missing (because we excluded it in getProducts), try to fetch via stream endpoint
+        if (!img || img === '') {
+          img = `${apiURL}/api/products/${p._id || p.id}/image`;
+        }
+
         // Dynamically Handle browser live link: auto-adapt old hardcoded localhost URLs to ANY domain
         if (img && img.includes('localhost:5000')) {
           if (!isDev) {
