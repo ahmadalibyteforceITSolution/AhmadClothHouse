@@ -8,15 +8,13 @@ let activeSessions = new Map();
 // Helper to get today's date string
 const getTodayStr = () => new Date().toISOString().split('T')[0];
 
-// Middleware to clean up old sessions every minute
-setInterval(() => {
+// Passive cleanup helper (works better in serverless than setInterval)
+const cleanupSessions = () => {
   const now = Date.now();
   for (const [sessionId, lastSeen] of activeSessions.entries()) {
-    if (now - lastSeen > 60000) { // 1 minute timeout
-      activeSessions.delete(sessionId);
-    }
+    if (now - lastSeen > 60000) activeSessions.delete(sessionId);
   }
-}, 60000);
+};
 
 // Heartbeat endpoint
 router.post("/ping", async (req, res) => {
@@ -25,6 +23,7 @@ router.post("/ping", async (req, res) => {
     return res.status(400).json({ message: "Session ID required" });
   }
   
+  cleanupSessions();
   activeSessions.set(sessionId, Date.now());
 
   try {

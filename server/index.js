@@ -60,6 +60,11 @@ async function connectDB() {
     return cached.conn;
   }
 
+  if (!process.env.MONGO_URI) {
+    console.error("❌ CRITICAL: MONGO_URI is not defined in environment variables!");
+    throw new Error("MONGO_URI_MISSING");
+  }
+
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
@@ -91,8 +96,24 @@ app.use(async (req, res, next) => {
     await connectDB();
     next();
   } catch (err) {
-    res.status(500).json({ success: false, error: "Database connection timeout or failed" });
+    console.error("💀 [API ERROR]:", err.message);
+    res.status(500).json({
+      success: false,
+      error: "Database integrity check failed",
+      message: err.message, // Temporarily showing this to solve the 500 error
+      hint: "Ensure MONGO_URI and BLOB_READ_WRITE_TOKEN are set in Vercel Settings"
+    });
   }
+});
+
+// Diagnostic route to check env status without revealing keys
+app.get("/api/debug-setup", (req, res) => {
+  res.json({
+    hasMongoUri: !!process.env.MONGO_URI,
+    hasBlobToken: !!process.env.BLOB_READ_WRITE_TOKEN,
+    nodeEnv: process.env.NODE_ENV,
+    timestamp: new Date().toISOString()
+  });
 });
 
 app.get("/", (req, res) => res.send("AhmadClothesFabrics Backend v1.0 running..."));

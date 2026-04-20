@@ -1,245 +1,234 @@
 <template>
-  <div
-    class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] flex transition-colors duration-700 font-sans relative overflow-x-hidden">
+  <div class="luxury-dashboard min-h-screen bg-[#FDFBF7] dark:bg-[#050505] transition-colors duration-700 font-sans relative overflow-x-hidden">
     
-    <!-- SEO Heading (Visually Hidden) -->
-    <h1 class="sr-only">AHMADCLOTHESFABRICS | User Dashboard - My Couture Profile</h1>
-
-    <!-- Sidebar -->
-    <aside :class="isMobileMenuOpen ? 'translate-x-0 shadow-2xl shadow-black/50' : '-translate-x-full lg:translate-x-0'"
-      class="fixed left-0 top-0 h-screen w-72 bg-white dark:bg-[#080808] border-r border-[#d4af371a] p-6 sm:p-10 flex flex-col z-[150] transition-transform duration-500 ease-in-out overflow-y-auto scrollbar-none">
-      <div class="mb-16 flex items-center justify-between">
-        <div
-          class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
+    <!-- ═══════════════════════════════════════════
+         ELITE SIDEBAR (STATIONARY)
+    ═══════════════════════════════════════════ -->
+    <aside :class="isMobileMenuOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:translate-x-0'"
+      class="fixed left-0 top-0 h-screen w-80 bg-white dark:bg-[#0A0A0A] border-r border-black/5 dark:border-white/5 p-12 flex flex-col z-[150] transition-transform duration-700 ease-in-out scrollbar-none">
+      
+      <!-- Brand Identity -->
+      <div class="mb-20 flex flex-col gap-4">
+        <div class="h-[1px] w-8 bg-[var(--primary-gold)]"></div>
+        <div class="text-2xl font-playfair tracking-[0.2em] font-light text-black dark:text-white uppercase cursor-pointer"
           @click="router.push('/')">AHMADCLOTHS</div>
-        <button @click="isMobileMenuOpen = false" class="lg:hidden p-2 text-stone-400">
-          <font-awesome-icon icon="fa-solid fa-xmark" />
-        </button>
+        <p class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase opacity-60">Couture Membership</p>
       </div>
 
-      <nav class="flex flex-col gap-4 overflow-y-auto scrollbar-none">
-        <button v-for="link in navLinks" :key="link.name" @click="currentTab = link.id; isMobileMenuOpen = false"
+      <!-- Navigation Matrix -->
+      <nav class="flex flex-col gap-2">
+        <button v-for="link in navLinks" :key="link.id" @click="currentTab = link.id; isMobileMenuOpen = false"
           :class="currentTab === link.id
-            ? 'text-black dark:text-white bg-[var(--primary-gold)]/5 border-[var(--primary-gold)]/20'
-            : 'text-gray-400 dark:text-stone-600 hover:text-[var(--primary-gold)] dark:hover:text-[var(--primary-gold)] border-transparent'"
-          class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] p-4 rounded-xl transition-all duration-500 border">
-          <font-awesome-icon :icon="link.icon" class="text-xs" />
-          {{ link.name }}
-          <div v-if="currentTab === link.id"
-            class="ml-auto w-1 h-1 rounded-full bg-[var(--primary-gold)] shadow-[0_0_10px_rgba(184,134,11,0.5)]"></div>
+            ? 'text-black dark:text-white bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/5'
+            : 'text-stone-400 hover:text-[var(--primary-gold)] border-transparent'"
+          class="group flex items-center gap-6 p-5 rounded-none transition-all duration-500 border relative overflow-hidden">
+          
+          <div v-if="currentTab === link.id" 
+               class="absolute left-0 top-0 h-full w-1 bg-[var(--primary-gold)] animate-reveal-height"></div>
+          
+          <font-awesome-icon :icon="link.icon" class="text-xs transition-transform group-hover:scale-125" />
+          <span class="text-[10px] font-black uppercase tracking-[0.3em]">{{ link.name }}</span>
         </button>
       </nav>
 
-      <div class="mt-auto pt-10 border-t border-[#d4af371a]">
-        <div class="flex items-center gap-4 mb-8">
-          <div
-            class="w-10 h-10 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center text-[10px] font-bold uppercase tracking-widest text-stone-500 dark:text-stone-400 shadow-inner">
-            {{ userInitial }}
+      <!-- Signature Footer -->
+      <div class="mt-auto pt-10 border-t border-black/5 dark:border-white/5 flex flex-col gap-10">
+        <div class="flex items-center gap-5 group cursor-pointer">
+          <div class="relative w-12 h-12">
+             <div class="absolute inset-0 border border-[var(--primary-gold)]/20 rounded-full group-hover:rotate-180 transition-transform duration-1000"></div>
+             <div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold uppercase tracking-widest text-black dark:text-white">
+                {{ userInitial }}
+             </div>
           </div>
           <div class="flex flex-col">
-            <span class="text-[9px] font-bold uppercase tracking-widest text-[var(--primary-gold)] mb-0.5">GUEST
-              MEMBER</span>
-            <span class="text-xs font-bold text-gray-900 dark:text-white">{{ auth.user?.name || 'Guest' }}</span>
+            <span class="text-xs font-black text-gray-900 dark:text-white tracking-tight">{{ auth.user?.name || 'Guest User' }}</span>
+            <span class="text-[8px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.2em] opacity-80">Platinum Status</span>
           </div>
         </div>
 
         <button @click="handleLogout"
-          class="w-full py-4 text-[9px] font-bold uppercase tracking-[0.4em] text-red-800/60 dark:text-red-400/40 hover:text-red-600 dark:hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-all duration-500">
-          Sign Out
+          class="group flex items-center gap-4 text-[9px] font-black uppercase tracking-[0.5em] text-stone-400 hover:text-red-600 transition-colors">
+          <span>EXIT ATELIER</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" class="text-[8px] group-hover:translate-x-2 transition-transform" />
         </button>
       </div>
     </aside>
 
     <!-- Mobile Backdrop -->
-    <div v-if="isMobileMenuOpen"
-      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[140] lg:hidden transition-opacity duration-500"
-      @click="isMobileMenuOpen = false"></div>
+    <div v-if="isMobileMenuOpen" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[140] lg:hidden" @click="isMobileMenuOpen = false"></div>
 
-    <!-- Main Content Area -->
-    <div class="flex-grow flex flex-col overflow-hidden relative lg:ml-72">
-      <!-- Background Decorative Element -->
-      <div
-        class="absolute -top-24 -right-24 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none">
-      </div>
+    <!-- ═══════════════════════════════════════════
+         MAIN CANVAS AREA
+    ═══════════════════════════════════════════ -->
+    <div class="flex-grow flex flex-col lg:ml-80 relative">
+      
+      <!-- Ambient Background Pattern -->
+      <div class="absolute inset-0 opacity-10 bg-damask pointer-events-none"></div>
 
-      <!-- Mobile Header -->
-      <header
-        class="lg:hidden bg-white dark:bg-[#080808] border-b border-[#d4af371a] px-4 sm:px-8 py-4 sm:py-5 flex justify-between items-center z-[110] shrink-0">
-        <div class="flex items-center gap-2 sm:gap-4">
-          <button @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="p-4 -ml-4 text-stone-400 shrink-0 relative z-[120]" aria-label="Toggle Menu">
-            <font-awesome-icon :icon="isMobileMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'" class="text-lg" />
-          </button>
-          <h1
-            class="text-lg font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
-            @click="router.push('/')">AHMADCLOTHS</h1>
-        </div>
-        <div class="flex items-center gap-2 sm:gap-4">
-          <button v-for="link in navLinks" :key="'m-' + link.id" @click="currentTab = link.id"
-            class="p-2 text-stone-400" :class="{ 'text-[var(--primary-gold)]': currentTab === link.id }">
-            <font-awesome-icon :icon="link.icon" />
-          </button>
-        </div>
+      <!-- Mobile Header (Visible on handheld only) -->
+      <header class="lg:hidden bg-white/90 dark:bg-[#080808]/90 backdrop-blur-xl border-b border-black/5 px-8 py-6 flex justify-between items-center z-[110] sticky top-0">
+        <button @click="isMobileMenuOpen = true" class="text-black dark:text-white">
+          <font-awesome-icon icon="fa-solid fa-bars-staggered" class="text-lg" />
+        </button>
+        <div class="text-sm font-playfair tracking-widest text-black dark:text-white uppercase">PROFILE</div>
+        <div class="w-8 h-8 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center text-[8px] font-bold">{{ userInitial }}</div>
       </header>
 
-      <!-- Scroll Content Container -->
-      <main class="flex-grow overflow-y-auto p-6 md:p-12 lg:p-20 scroll-smooth">
+      <!-- Content Heart -->
+      <main class="flex-grow p-10 lg:p-24 relative z-10 transition-all duration-700">
         <div class="max-w-6xl mx-auto">
-          <header class="mb-16">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="h-[1px] w-12 bg-[var(--primary-gold)]/40"></div>
-              <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-[var(--primary-gold)]/80">BOUTIQUE
-                RECEPTION</span>
+          
+          <!-- Tab Header -->
+          <header class="mb-20 space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
+              <p class="text-[8px] font-black tracking-[0.6em] text-[var(--primary-gold)] uppercase">Private Viewing</p>
             </div>
-            <h1 class="text-4xl md:text-5xl font-light uppercase tracking-tighter text-gray-900 dark:text-white font-playfair italic">
-              {{ currentTabTitleParts.main }} <span class="text-[var(--primary-gold)] italic font-serif font-light">{{ currentTabTitleParts.accent }}</span>
-            </h1>
+            <h2 class="text-5xl md:text-7xl font-playfair italic text-black dark:text-white leading-none tracking-tight">
+               {{ currentTabTitleParts.main }} <span class="text-[var(--primary-gold)] not-italic font-sans font-extralight uppercase tracking-widest block mt-4 text-2xl md:text-3xl">{{ currentTabTitleParts.accent }}</span>
+            </h2>
           </header>
 
-          <transition name="fade-slide" mode="out-in">
-            <div :key="currentTab" class="relative">
-              <div v-if="currentTab === 'cart'" class="dashboard-card">
-                <CartComponent class="!p-0 !bg-transparent !min-h-0" />
+          <!-- Tab Content with Luxury Transitions -->
+          <transition name="luxury-tab" mode="out-in">
+            <div :key="currentTab">
+              
+              <!-- 🛒 BASKET VIEW -->
+              <div v-if="currentTab === 'cart'" class="animate-reveal">
+                <div class="bg-white dark:bg-[#0A0A0A] p-0 md:p-12 border border-black/5 dark:border-white/5 shadow-2xl hover:shadow-black/20 transition-all duration-1000">
+                   <CartComponent class="!p-0 !bg-transparent !min-h-0" />
+                </div>
               </div>
-              <div v-else-if="currentTab === 'favorites'" class="dashboard-card">
-                <FavoritesComponent class="!p-0 !bg-transparent !min-h-0" />
+
+              <!-- ❤️ FAVORITES VIEW -->
+              <div v-else-if="currentTab === 'favorites'" class="animate-reveal">
+                 <div class="bg-white dark:bg-[#0A0A0A] p-0 md:p-12 border border-black/5 dark:border-white/5 shadow-2xl transition-all duration-1000">
+                    <FavoritesComponent class="!p-0 !bg-transparent !min-h-0" />
+                 </div>
               </div>
-              <div v-else-if="currentTab === 'orders'" class="dashboard-card">
-                <div class="space-y-12">
-                  <div v-if="orders.length === 0"
-                    class="text-center py-32 border border-dashed border-[#d4af3722] rounded-3xl">
-                    <font-awesome-icon icon="fa-solid fa-box-open"
-                      class="text-5xl text-[var(--primary-gold)]/20 mb-8" />
-                    <p class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400">Your fashion archive is
-                      currently empty</p>
-                    <button @click="router.push('/shop')"
-                      class="mt-8 text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-widest hover:underline decoration-1">Begin
-                      Collection</button>
+
+              <!-- 📦 ORDERS LOG VIEW -->
+              <div v-else-if="currentTab === 'orders'" class="space-y-16 animate-reveal">
+                <div v-if="orders.length === 0" 
+                     class="group flex flex-col items-center justify-center py-40 border border-black/5 dark:border-white/5 bg-white dark:bg-[#0A0A0A] shadow-lg">
+                  <div class="w-24 h-24 rounded-full border border-[var(--primary-gold)]/10 flex items-center justify-center mb-10 group-hover:border-[var(--primary-gold)]/40 transition-all duration-1000">
+                     <font-awesome-icon icon="fa-solid fa-box-open" class="text-3xl text-[var(--primary-gold)]/20 group-hover:text-[var(--primary-gold)] transition-all" />
                   </div>
-                  <div v-else class="space-y-6">
-                    <div v-for="order in orders" :key="order.id"
-                      class="p-6 sm:p-10 bg-white dark:bg-black/40 border border-[#d4af3711] group hover:border-[var(--primary-gold)]/40 transition-all duration-700">
-                      <div class="flex flex-col md:flex-row justify-between gap-8 md:gap-10">
-                        <div class="flex flex-col gap-6">
-                          <div class="flex items-center gap-4">
-                            <span class="text-[8px] font-bold uppercase tracking-widest text-stone-400">ORDER
-                              REF:</span>
-                            <span class="text-xs font-bold text-[var(--primary-gold)] font-mono italic">{{ order.id
-                            }}</span>
-                          </div>
-                          <div class="flex items-center gap-6">
-                            <div
-                              class="px-6 py-2 bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/10 text-[8px] font-bold uppercase tracking-widest text-stone-500">
-                              {{ order.status }}
-                            </div>
-                            <div v-if="order.trackingNumber"
-                              class="text-[9px] font-bold uppercase tracking-widest text-emerald-500">
-                              TRACKING: {{ order.trackingNumber }}
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="text-left md:text-right mt-4 md:mt-0 pt-6 md:pt-0 border-t md:border-t-0 border-[#d4af3711]">
-                          <p class="text-[9px] font-bold uppercase tracking-widest text-stone-400 mb-1">TOTAL INVESTMENT
-                          </p>
-                          <p class="text-2xl font-light font-playfair italic text-gray-900 dark:text-white">Rs. {{
-                            order.amount.toLocaleString() }}</p>
-                        </div>
-                      </div>
+                  <p class="text-[10px] font-black tracking-[0.5em] text-stone-400 uppercase">Your sartorial archive is waiting</p>
+                  <router-link to="/shop" class="mt-8 text-[9px] font-black uppercase tracking-widest text-[var(--primary-gold)] border-b border-[var(--primary-gold)]/20 pb-2">Start a New Chapter</router-link>
+                </div>
 
-                      <!-- Delivery Progress Tracking UI -->
-                      <div class="mt-12 pt-12 border-t border-[#d4af3711]">
-                        <h4 class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 mb-10">DELIVERY
-                          STATUS_</h4>
-                        <div class="relative">
-                          <div
-                            class="absolute top-1/2 left-0 right-0 h-0.5 bg-stone-100 dark:bg-white/5 -translate-y-1/2">
-                          </div>
-                          <div
-                            class="absolute top-1/2 left-0 h-0.5 bg-[var(--primary-gold)] -translate-y-1/2 transition-all duration-1000"
-                            :style="{ width: getStatusProgress(order.status) + '%' }"></div>
+                <div v-else class="grid grid-cols-1 gap-12">
+                  <div v-for="order in orders" :key="order.id" 
+                       class="group bg-white dark:bg-[#0A0A0A] border border-black/5 dark:border-white/5 p-10 lg:p-16 hover:shadow-3xl transition-all duration-1000 relative overflow-hidden">
+                    
+                    <!-- Decorative Background Accent -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-damask opacity-5 -translate-y-1/4 translate-x-1/4 group-hover:scale-110 transition-transform duration-[2s]"></div>
 
-                          <div class="relative flex justify-between px-2 sm:px-6">
-                            <div v-for="step in ['Processing', 'Shipped', 'Delivered']" :key="step"
-                              class="flex flex-col items-center">
-                              <div
-                                :class="isStepComplete(order.status, step) ? 'bg-[var(--primary-gold)] text-white shadow-[0_0_15px_rgba(184,134,11,0.5)]' : 'bg-white dark:bg-black border-2 border-stone-100 dark:border-white/5 text-stone-300'"
-                                class="w-6 h-6 rounded-full flex items-center justify-center text-[8px] relative z-20 transition-all duration-700">
-                                <font-awesome-icon icon="fa-solid fa-check" v-if="isStepComplete(order.status, step)" />
-                              </div>
-                              <span
-                                class="mt-4 text-[7px] font-bold uppercase tracking-widest text-stone-400 text-center">{{
-                                  step }}</span>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
+                      
+                      <!-- Info Column -->
+                      <div class="lg:col-span-8 flex flex-col gap-10">
+                        <div class="flex flex-col gap-4">
+                          <span class="text-[8px] font-black tracking-[0.6em] text-[var(--primary-gold)] uppercase">IDENTIFIER</span>
+                          <h3 class="text-2xl font-playfair italic text-black dark:text-white">#{{ order.id.slice(-8).toUpperCase() }}</h3>
+                        </div>
+
+                        <!-- Delivery Progress -->
+                        <div class="space-y-10">
+                          <div class="flex justify-between items-end">
+                            <span class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Logistic Progression</span>
+                            <span class="text-[10px] font-bold text-[var(--primary-gold)] tracking-widest uppercase">{{ order.status }}</span>
+                          </div>
+                          
+                          <div class="relative h-1 bg-black/5 dark:bg-white/5">
+                            <div class="absolute left-0 top-0 h-full bg-[var(--primary-gold)] transition-all duration-[2s] ease-in-out shadow-[0_0_15px_var(--primary-gold)]"
+                                 :style="{ width: getStatusProgress(order.status) + '%' }"></div>
+                            
+                            <!-- Delivery Nodes -->
+                            <div class="absolute inset-0 flex justify-between items-center px-0">
+                               <div v-for="step in ['Pending', 'Processing', 'Shipped', 'Delivered']" :key="step"
+                                    class="w-3 h-3 rounded-full border-4 border-white dark:border-[#0A0A0A] transition-all duration-700"
+                                    :class="isStepComplete(order.status, step) ? 'bg-[var(--primary-gold)] scale-125' : 'bg-stone-200 dark:bg-stone-800'">
+                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                        <div v-if="order.status === 'Shipped'"
-                          class="mt-10 p-6 bg-[var(--primary-gold)]/5 border border-[var(--primary-gold)]/20">
-                          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-                            <p class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.2em] leading-relaxed max-w-lg">
-                              DESIGNER'S NOTE: Your package is currently in transit with {{ order.carrier || 'BoutiqueCourier' }}. Arrival expected within 3-5 business days.
-                            </p>
-                            <button @click="order.showMap = !order.showMap" 
-                              class="text-[8px] font-black uppercase tracking-[0.4em] px-6 py-3 border border-[var(--primary-gold)] text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-black transition-all">
-                              {{ order.showMap ? 'Hide Logistic Map' : 'View Logistic Map' }}
-                            </button>
-                          </div>
-
-                          <transition name="fade">
-                            <div v-if="order.showMap" class="mt-8 h-64 w-full border border-[var(--primary-gold)]/20 transition-all duration-1000">
-                              <iframe
-                                width="100%"
-                                height="100%"
-                                frameborder="0" style="border:0"
-                                :src="getGoogleMapUrl(order.city)"
-                                allowfullscreen>
-                              </iframe>
-                            </div>
-                          </transition>
+                      <!-- Value Column -->
+                      <div class="lg:col-span-4 lg:text-right flex flex-col justify-between py-2 border-t lg:border-t-0 lg:border-l border-black/5 dark:border-white/5 lg:pl-16">
+                        <div class="flex flex-col gap-4">
+                          <span class="text-[8px] font-black tracking-[0.6em] text-stone-400 uppercase">Valuation</span>
+                          <p class="text-4xl font-playfair italic text-black dark:text-white">Rs. {{ order.amount.toLocaleString() }}</p>
                         </div>
+                        
+                        <div v-if="order.trackingNumber" class="mt-10 flex flex-col gap-2">
+                           <span class="text-[7px] font-black tracking-[0.3em] text-stone-400 uppercase">CONSIGNMENT REF</span>
+                           <span class="text-[10px] font-black text-[var(--primary-gold)] tracking-widest uppercase">{{ order.trackingNumber }}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Enhanced Logistic Map / Note -->
+                    <div v-if="order.status === 'Shipped'" class="mt-16 pt-12 border-t border-black/5 dark:border-white/5 animate-reveal">
+                       <div class="flex flex-col lg:flex-row gap-10 items-start lg:items-center justify-between">
+                          <div class="flex gap-6 items-center flex-grow">
+                             <div class="w-12 h-12 flex-shrink-0 rounded-full border border-[var(--primary-gold)]/20 flex items-center justify-center">
+                                <font-awesome-icon icon="fa-solid fa-paper-plane" class="text-sm text-[var(--primary-gold)] animate-pulse" />
+                             </div>
+                             <p class="text-[9px] font-bold text-stone-500 uppercase tracking-widest leading-loose max-w-xl">
+                                Curated transit via <span class="text-black dark:text-white">{{ order.carrier || 'Boutique Express' }}</span>. Expect arrival at <span class="text-[var(--primary-gold)]">{{ order.city }}</span> within our premium window.
+                             </p>
+                          </div>
+                          <button @click="order.showMap = !order.showMap" 
+                                  class="text-[9px] font-black tracking-[0.5em] text-[var(--primary-gold)] uppercase border border-[var(--primary-gold)]/30 px-10 py-4 hover:bg-[var(--primary-gold)] hover:text-black transition-all">
+                             {{ order.showMap ? 'DISMISS GRID' : 'VISUALIZE LOGISTICS' }}
+                          </button>
+                       </div>
+
+                       <transition name="luxury-map">
+                         <div v-if="order.showMap" class="mt-10 grayscale dark:invert opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                           <iframe width="100%" height="350" frameborder="0" style="border:0" :src="getGoogleMapUrl(order.city)" allowfullscreen></iframe>
+                         </div>
+                       </transition>
                     </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </transition>
         </div>
       </main>
     </div>
+
+    <!-- ═══════════════════════════════════════════
+         AESTHETIC NOISE OVERLAY
+    ═══════════════════════════════════════════ -->
+    <div class="fixed inset-0 pointer-events-none opacity-20 bg-noise mix-blend-overlay"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
-import Fugible from "../assets/fugibles.png"
+import { useOrdersStore } from '../stores/orders'
 import CartComponent from './Cart.vue'
 import FavoritesComponent from './Favorites.vue'
-import { useOrdersStore } from '../stores/orders'
-import { onMounted } from 'vue'
 
 const router = useRouter()
 const auth = useAuthStore()
 const orderStore = useOrdersStore()
 
-const currentTab = ref('cart')
+const currentTab = ref('orders') // default to orders to show off the new cards
 const isMobileMenuOpen = ref(false)
 
-watch(isMobileMenuOpen, (val) => {
-  if (val) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
-  }
-})
-
 const navLinks = [
+  { id: 'orders', name: 'Order Logs', icon: ['fas', 'truck-fast'] },
   { id: 'cart', name: 'My Basket', icon: ['fas', 'cart-shopping'] },
-  { id: 'favorites', name: 'My Favorites', icon: ['fas', 'heart'] },
-  { id: 'orders', name: 'Order Logs', icon: ['fas', 'truck-fast'] }
+  { id: 'favorites', name: 'My Favorites', icon: ['fas', 'heart'] }
 ]
 
 const orders = computed(() => {
@@ -263,88 +252,88 @@ onMounted(() => {
   if (auth.user?.id || auth.user?._id) {
     orderStore.fetchUserOrders(auth.user.id || auth.user._id)
   }
+  window.scrollTo(0, 0)
 })
 
 const getStatusProgress = (status) => {
   const s = status?.toLowerCase()
-  if (s === 'pending') return 10
-  if (s === 'processing') return 30
-  if (s === 'shipped') return 60
+  if (s === 'pending') return 25
+  if (s === 'processing') return 50
+  if (s === 'shipped') return 75
   if (s === 'delivered') return 100
-  if (s === 'cancelled') return 0
   return 0
 }
 
 const isStepComplete = (currentStatus, step) => {
-  const steps = ['Processing', 'Shipped', 'Delivered']
+  const steps = ['Pending', 'Processing', 'Shipped', 'Delivered']
   return steps.indexOf(currentStatus) >= steps.indexOf(step)
 }
 
 const currentTabTitleParts = computed(() => {
   const name = navLinks.find(l => l.id === currentTab.value)?.name || 'Dashboard'
   const parts = name.split(' ')
-  return {
-    main: parts[0],
-    accent: parts[1] || ''
-  }
+  return { main: parts[0], accent: parts[1] || '' }
 })
 
-const userInitial = computed(() => {
-  return auth.user?.name?.charAt(0) || 'F'
-})
-
-const handleLogout = () => {
-  auth.logout()
-  router.push('/login')
-}
+const userInitial = computed(() => auth.user?.name?.charAt(0) || 'A')
+const handleLogout = () => { auth.logout(); router.push('/login') }
 </script>
 
 <style scoped>
-.dashboard-card {
-  animation: card-reveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-@keyframes card-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.5s ease;
-}
-
-.fade-slide-enter-from {
+.animate-reveal {
+  animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   opacity: 0;
-  transform: translateX(10px);
 }
 
-.fade-slide-leave-to {
+.animate-reveal-height {
+  animation: reveal-height 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes reveal-height {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+@keyframes reveal-bottom {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.luxury-tab-enter-active, .luxury-tab-leave-active {
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.luxury-tab-enter-from { opacity: 0; transform: translateX(20px); }
+.luxury-tab-leave-to { opacity: 0; transform: translateX(-20px); }
+
+.luxury-map-enter-active, .luxury-map-leave-active {
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  max-height: 400px;
+}
+.luxury-map-enter-from, .luxury-map-leave-to {
   opacity: 0;
-  transform: translateX(-10px);
+  max-height: 0;
 }
 
-/* Remove any injected padding/bg from subcomponents to maintain dashboard integrity */
-:deep(.min-h-screen) {
-  min-height: auto !important;
-  padding: 0 !important;
-  background: transparent !important;
+.font-playfair { font-family: 'Cormorant Garamond', serif; }
+
+.bg-damask {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.05'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-:deep(h2) {
-  display: none !important;
-  /* Hide redundant titles in dashboard view */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-:deep(.py-20) {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+.shadow-3xl {
+  box-shadow: 0 40px 120px -20px rgba(0, 0, 0, 0.15);
 }
+
+:deep(.dashboard-card) {
+   background: transparent !important;
+   border: none !important;
+   padding: 0 !important;
+}
+
+:deep(.py-20) { padding: 0 !important; }
 </style>
