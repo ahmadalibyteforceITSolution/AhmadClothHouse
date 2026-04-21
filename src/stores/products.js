@@ -82,6 +82,23 @@ export const useProductsStore = defineStore('products', {
       }
     },
 
+    async fetchAdminProducts(force = false) {
+      if (this.dynamicProducts.length > 0 && !force) {
+        return;
+      }
+      this.loading = true
+      try {
+        const res = await api.get('/products/admin')
+        if (res.data && res.data.success) {
+          this.dynamicProducts = res.data.data;
+        }
+      } catch (err) {
+        this.error = 'Failed to fetch admin products data'
+      } finally {
+        this.loading = false
+      }
+    },
+
     async fetchProductById(id) {
       this.loading = true
       try {

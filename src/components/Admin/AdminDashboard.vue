@@ -205,7 +205,7 @@ const dispatchTabDataLoad = (tab) => {
       break
     case 'products':
     case 'catalog':
-      productStore.fetchProducts()
+      productStore.fetchAdminProducts()
       break
     case 'customers':
     case 'security':

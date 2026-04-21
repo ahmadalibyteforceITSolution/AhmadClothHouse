@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getProducts, getProduct, getProductImage, createProduct, updateProduct, deleteProduct, viewProduct, recordSale, uploadImage } = require('../controllers/product');
+const { getProducts, getAdminProducts, getProduct, getProductImage, createProduct, updateProduct, deleteProduct, viewProduct, recordSale, uploadImage } = require('../controllers/product');
 const multer = require('multer');
 const path = require('path');
 
@@ -10,6 +10,7 @@ const upload = multer({ storage });
 const { protect, authorize } = require('../middleware/auth');
 
 router.get('/', getProducts);
+router.get('/admin', protect, authorize('admin'), getAdminProducts);
 router.get('/:id', getProduct);
 router.get('/:id/image', getProductImage);
 router.post('/', protect, authorize('admin'), createProduct);

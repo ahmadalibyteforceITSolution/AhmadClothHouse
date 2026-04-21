@@ -25,6 +25,20 @@ exports.getProducts = async (req, res) => {
   }
 };
 
+// @desc    Get all products for ADMIN (includes all details, no hard limits)
+exports.getAdminProducts = async (req, res) => {
+  try {
+    const products = await Product.find()
+      .sort({ createdAt: -1 })
+      .lean();
+    res.setHeader('Cache-Control', 'private, max-age=10'); // less cache for admin, fresher data
+    res.status(200).json({ success: true, count: products.length, data: products });
+  } catch (err) {
+    console.error('AHMADCLOTHS_SERVER_ERROR [AdminFetch]:', err.message);
+    res.status(500).json({ success: false, error: err.message });
+  }
+};
+
 // @desc    Get single product
 exports.getProduct = async (req, res) => {
   try {
