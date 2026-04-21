@@ -199,7 +199,6 @@ const dispatchTabDataLoad = (tab) => {
     case 'overview':
       fetchTrafficStats()
       orderStore.fetchAllOrders()
-      productStore.fetchProducts()
       break
     case 'sales':
       orderStore.fetchAllOrders()
@@ -385,7 +384,6 @@ const currentTabEvents = computed(() => {
       'switch-tab': (tab) => currentTab.value = tab,
       'refresh': () => {
         orderStore.fetchAllOrders()
-        productStore.fetchProducts()
         fetchTrafficStats()
       },
       'select-order': (order) => { selectedOrder.value = selectedOrder.value?.id === order.id ? null : order },
