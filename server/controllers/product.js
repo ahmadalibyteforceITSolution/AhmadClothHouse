@@ -87,53 +87,58 @@ exports.uploadImage = async (req, res) => {
 
     const token = process.env.BLOB_READ_WRITE_TOKEN;
 
-    // Check if token exists
+    // 1. Check if token exists and is valid
     if (!token || token === 'YOUR_VERCEL_BLOB_TOKEN_HERE') {
-      console.warn('⚠️ AHMADCLOTHS: Vercel Blob token missing. Falling back to Base64.');
+      console.warn('⚠️ AHMADCLOTHS: Vercel Blob token missing/invalid. Falling back to Base64.');
       const base64Data = req.file.buffer.toString('base64');
       const dataUri = `data:${req.file.mimetype};base64,${base64Data}`;
       return res.status(200).json({ 
         success: true, 
         url: dataUri,
-        storage: 'base64',
-        note: 'BLOB_READ_WRITE_TOKEN not configured. Using Base64 fallback.'
+        storage: 'base64-no-token',
+        note: 'BLOB_READ_WRITE_TOKEN not configured. Please add it to your .env or Vercel Dashboard.'
       });
     }
     
-    // Attempt Vercel Blob upload
+    // 2. Attempt Vercel Blob upload
     try {
       const { put } = require('@vercel/blob');
+      const crypto = require('crypto');
+      const path = require('path');
 
       const uniqueSuffix = crypto.randomBytes(6).toString('hex');
       const ext = path.extname(req.file.originalname) || '.jpg';
       const filename = `products/product-${Date.now()}-${uniqueSuffix}${ext}`;
 
-      console.log(`AHMADCLOTHS: Uploading to Vercel Blob: ${filename} (${req.file.size} bytes)`);
-      console.log(`AHMADCLOTHS: Token present: ${!!token}, Token length: ${token.length}`);
+      console.log(`AHMADCLOTHS: Attempting Vercel Blob upload [${filename}]...`);
 
-      // Explicitly pass the token — Vercel auto-detection can fail in serverless
+      // We explicitly pass the token to avoid any environment detection issues
       const blob = await put(filename, req.file.buffer, {
         access: 'public',
         contentType: req.file.mimetype,
         token: token
       });
 
-      console.log(`AHMADCLOTHS: Blob upload SUCCESS -> ${blob.url}`);
-      return res.status(200).json({ success: true, url: blob.url, storage: 'vercel-blob' });
+      console.log(`AHMADCLOTHS: ✅ SUCCESS! Image uploaded to CDN: ${blob.url}`);
+      return res.status(200).json({ 
+        success: true, 
+        url: blob.url, 
+        storage: 'vercel-blob' 
+      });
 
     } catch (blobErr) {
-      // LOG THE REAL ERROR so we can debug
-      console.error('❌ AHMADCLOTHS Vercel Blob FAILED:', blobErr.message);
-      console.error('❌ Full Blob Error:', JSON.stringify(blobErr, Object.getOwnPropertyNames(blobErr)));
+      // 3. Log the exact error for debugging
+      console.error('❌ AHMADCLOTHS: Vercel Blob upload FAILED.');
+      console.error('Error Message:', blobErr.message);
       
-      // Fallback to Base64 but WARN the admin
+      // Fallback to Base64 so the admin can still save products, but with a warning
       const base64Data = req.file.buffer.toString('base64');
       const dataUri = `data:${req.file.mimetype};base64,${base64Data}`;
       return res.status(200).json({ 
         success: true, 
         url: dataUri,
         storage: 'base64-fallback',
-        note: `Vercel Blob error: ${blobErr.message}. Using Base64 fallback. Fix your BLOB_READ_WRITE_TOKEN in Vercel Dashboard.`
+        note: `Vercel Blob failed: ${blobErr.message}. Ensure your token is active and and not expired.`
       });
     }
   } catch (err) {
