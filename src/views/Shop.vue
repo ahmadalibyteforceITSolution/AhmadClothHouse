@@ -3,16 +3,17 @@
 
     <!-- SEO CONTENT (VISUALLY HIDDEN) -->
     <section class="sr-only">
-      <h1>Shop Luxury Pakistani Designer Suits Online at AhmadClothesHouse | International Delivery</h1>
-      <p>Explore AhmadClothesHouse's exclusive collection of unstitched ladies suits, luxury pret, and bridal couture. We offer the finest embroidered lawn, chiffon, and velvet collections with express shipping to USA, UK, Canada, UAE, Australia, and Europe. Buy authentic Pakistani dresses online from AhmadClothesHouse (formerly AhmadClothesFabrics).</p>
+      <h1>Shop Pakistani Designer Suits 2026 | AhmadClothesHouse Luxury Lawn & Couture</h1>
+      <p>Explore AhmadClothesHouse's exclusive collection of 2026 unstitched ladies suits, luxury pret, and bridal couture. We offer the finest embroidered Maria B lawn, Sana Safinaz chiffon, and Asim Jofa premium collections with express shipping to USA, UK, Canada, UAE, Australia, and Europe. Buy authentic Pakistani dresses online.</p>
       <ul>
-        <li>AhmadClothesHouse Unstitched Pakistani Suits Online USA</li>
-        <li>Luxury Pret Collection UK AhmadClothesHouse</li>
-        <li>Bridal Couture Shipping to Canada from Pakistan</li>
-        <li>Designer Embroidered Lawn 2026 UAE</li>
-        <li>Authentic Pakistani Fashion Brands Online Lahore</li>
-        <li>Chiffon & Silk Collections Worldwide Shipping</li>
-        <li>Best Pakistani Suits for Eid and Weddings</li>
+        <li>Pakistani Luxury Lawn 2026 AhmadClothesHouse</li>
+        <li>Unstitched Designer Suits Maria B Sana Safinaz</li>
+        <li>Luxury Pret Online Boutique Worldwide Shipping</li>
+        <li>Bridal Couture Lahore 2026 High-end Wedding Wear</li>
+        <li>Buy Pakistani Dresses Online USA UK Canada UAE</li>
+        <li>Embroidered Chiffon & Silk Collections 2026</li>
+        <li>Latest Party Wear Dresses & Eid Collections 2026</li>
+        <li>Global Shipping Pakistani Designer Suits Online</li>
       </ul>
     </section>
 
@@ -217,11 +218,11 @@ const category = computed(() => route.params.category)
 watch([selectedCategory, category, () => route.query.q], () => {
   currentPage.value = 1
   const activeCat = selectedCategory.value || category.value || 'All Collections'
-  document.title = `${activeCat} | Shop Pakistani Designer Suits - AHMADCLOTHESFABRICS`
+  document.title = `${activeCat} | Shop Pakistani Designer Suits 2026 - AhmadClothesHouse`
   
   const metaDescription = document.querySelector('meta[name="description"]')
   if (metaDescription) {
-    metaDescription.setAttribute('content', `Browse our ${activeCat} collection at AHMADCLOTHESFABRICS. Premium unstitched suits, luxury pret, and bridal wear. Best quality Pakistani designer fashion online.`)
+    metaDescription.setAttribute('content', `Browse our latest ${activeCat} Pakistani designer suits 2026 at AhmadClothesHouse. Premium unstitched fabrics, luxury pret, and bridal wear shipping to USA, UK, and worldwide.`)
   }
 }, { immediate: true })
 

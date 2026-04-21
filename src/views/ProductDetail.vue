@@ -293,8 +293,8 @@ watch(product, (p) => {
     if (typeof document !== 'undefined' && p) {
       const BASE = 'https://ahmad-cloths.vercel.app'
       const pageUrl = `${BASE}${route.path}`
-      const pageTitle = `${p.name} | Premium Pakistani Designer Suit | AhmadClothHouse`
-      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} at AhmadClothHouse. Premium luxury fashion piece handcrafted with the finest Pakistani fabrics and intricate embroidery.`
+      const pageTitle = `${p.name} | Pakistani Designer 2026 | AhmadClothesHouse`
+      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} from AhmadClothesHouse 2026 Collection. Premium luxury unstitched lawn and handcrafted Pakistani couture with worldwide shipping.`
       const pageImage = p.image || `${BASE}/og-image.png`
 
       document.title = pageTitle
@@ -334,7 +334,7 @@ watch(product, (p) => {
           "image": [p.image],
           "description": pageDesc,
           "sku": p.sku || p.id || p._id,
-          "brand": { "@type": "Brand", "name": "AhmadClothHouse" },
+          "brand": { "@type": "Brand", "name": "AhmadClothesHouse" },
           "offers": {
             "@type": "Offer",
             "url": pageUrl,
@@ -342,7 +342,7 @@ watch(product, (p) => {
             "price": p.price,
             "itemCondition": "https://schema.org/NewCondition",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "AhmadClothHouse" }
+            "seller": { "@type": "Organization", "name": "AhmadClothesHouse" }
           }
         },
         {

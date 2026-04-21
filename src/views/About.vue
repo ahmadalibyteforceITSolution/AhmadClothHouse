@@ -4,17 +4,17 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>About AhmadClothesHouse | Our Fashion Heritage & Global Vision</h2>
-         <p>Learn about AhmadClothesHouse and our commitment to artisanal mastery, ethical fashion, and design innovation. Since 2026, AhmadClothesHouse has been dedicated to using premium fabrics for our handcrafted luxury apparel and bridal couture. We proudly ship our authentic Pakistani designer suits to the USA, UK, Canada, UAE, Australia, and beyond.</p>
+         <h2>About AhmadClothesHouse | High-End Pakistani Fashion & Global Heritage</h2>
+         <p>Learn about AhmadClothesHouse and our commitment to artisanal mastery, ethical fashion, and design innovation in the 2026 collection. Since our inception, AhmadClothesHouse has been dedicated to using premium fabrics for our handcrafted luxury unstitched lawn and bridal couture. We ship our authentic Pakistani designer suits to the USA, UK, Canada, UAE, Australia, and beyond.</p>
          <ul>
-            <li>AhmadClothesHouse Heritage Lahore</li>
-            <li>Artisan Fashion Heritage Pakistan</li>
-            <li>Master Designers of Pakistani Couture</li>
-            <li>Premium Luxury Fabrics for Worldwide Shipping</li>
-            <li>Sustainable Fashion Practices in Pakistan</li>
-            <li>Handcrafted Couture Excellence for Overseas Pakistanis</li>
-            <li>Pakistani Designer Suits Online USA, UK & UAE</li>
-            <li>Best boutique in Lahore for Unstitched Suits</li>
+            <li>AhmadClothesHouse Official Fashion Heritage</li>
+            <li>Artisan Hand-Embroidery 2026 Pakistan</li>
+            <li>Master Designers of Luxury Pakistani Couture</li>
+            <li>Premium Fabrics for Maria B Sana Safinaz Collections</li>
+            <li>Sustainable & Ethical Fashion Practices UAE UK USA</li>
+            <li>Handcrafted Couture for Overseas Pakistanis Worldwide</li>
+            <li>Best Pakistani Fashion Boutique in Lahore 2026</li>
+            <li>Luxury Unstitched Suits Maria B Sana Safinaz Asim Jofa</li>
          </ul>
       </section>
 

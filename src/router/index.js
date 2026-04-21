@@ -7,8 +7,8 @@ const routes = [
     name: 'home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: 'AhmadClothesHouse | Premium Unstitched Ladies Suits & Luxury Pret | Worldwide Shipping',
-      description: 'Shop premium unstitched ladies suits, luxury pret, and bridal couture at AhmadClothesHouse. Handcrafted Pakistani designer wear with worldwide shipping to USA, UK, Canada & UAE.',
+      title: 'AhmadClothesHouse | Pakistani Designer Suits 2026 | Luxury Lawn & Bridal Couture',
+      description: 'Shop latest 2026 Pakistani luxury lawn, unstitched suits, and premium bridal couture at AhmadClothesHouse. Authentic Maria B & Sana Safinaz designs with global shipping.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
@@ -35,8 +35,8 @@ const routes = [
     component: () => import('../views/Shop.vue'),
     props: true,
     meta: {
-      title: 'Shop Pakistani Designer Suits Online | Unstitched & Luxury Pret | AhmadClothesHouse',
-      description: 'Browse latest unstitched suits, luxury pret, and wedding wear at AhmadClothesHouse. Designer embroidery and premium fabrics including lawn & chiffon. Express delivery to USA, UK, Canada & UAE.',
+      title: 'Shop Pakistani Designer Suits Online 2026 | Unstitched & Luxury Pret | AhmadClothesHouse',
+      description: 'Browse the newest 2026 Pakistani summer lawn, luxury silk collections, and bridal wear. Express shipping for designer suits to USA, UK, Canada, UAE, and Europe.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
@@ -211,8 +211,8 @@ const routes = [
     name: 'blog-list',
     component: () => import('../views/BlogList.vue'),
     meta: {
-      title: 'Fashion Blog | Pakistani Designer Trends & Style Guides | AhmadClothesHouse',
-      description: 'Read the latest about Pakistani fashion, bridal trends, lawn collection guides, and luxury couture styling at the AhmadClothesHouse blog.',
+      title: 'Fashion Journal | Pakistani Luxury Lawn Trends 2026 | Style Guides | AhmadClothesHouse',
+      description: 'Expert insights on Pakistani fashion, 2026 bridal collection trends, lawn shopping guides, and luxury couture styling at the AhmadClothesHouse Journal.',
       robots: 'index, follow'
     }
   },
