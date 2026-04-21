@@ -50,8 +50,10 @@ router.post("/ping", async (req, res) => {
   res.json({ success: true });
 });
 
+const { protect, authorize } = require('../middleware/auth');
+
 // Stats endpoint for Admin Dashboard
-router.get("/stats", async (req, res) => {
+router.get("/stats", protect, authorize('admin'), async (req, res) => {
   const activeCount = activeSessions.size;
   const today = getTodayStr();
   

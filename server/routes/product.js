@@ -7,13 +7,15 @@ const path = require('path');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+const { protect, authorize } = require('../middleware/auth');
+
 router.get('/', getProducts);
 router.get('/:id', getProduct);
 router.get('/:id/image', getProductImage);
-router.post('/', createProduct);
-router.post('/upload', upload.single('image'), uploadImage);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
+router.post('/', protect, authorize('admin'), createProduct);
+router.post('/upload', protect, authorize('admin'), upload.single('image'), uploadImage);
+router.put('/:id', protect, authorize('admin'), updateProduct);
+router.delete('/:id', protect, authorize('admin'), deleteProduct);
 router.patch('/views/:id', viewProduct);
 router.post('/sale/:id', recordSale);
 

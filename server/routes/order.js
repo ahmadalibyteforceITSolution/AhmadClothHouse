@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { getOrders, getOrderById, getUserOrders, createOrder, updateOrderStatus, deleteOrder, testEmail } = require('../controllers/order');
+const { protect, authorize } = require('../middleware/auth');
 
 // Admin routes
-router.get('/', getOrders);
-router.get('/test-mail', testEmail);
-router.put('/:id', updateOrderStatus);
-router.delete('/:id', deleteOrder);
+router.get('/', protect, authorize('admin'), getOrders);
+router.get('/test-mail', protect, authorize('admin'), testEmail);
+router.put('/:id', protect, authorize('admin'), updateOrderStatus);
+router.delete('/:id', protect, authorize('admin'), deleteOrder);
 
 // User routes
 router.get('/user/:userId', getUserOrders);
