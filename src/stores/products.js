@@ -168,7 +168,7 @@ export const useProductsStore = defineStore('products', {
           return true
         }
       } catch (err) {
-        console.error("FUDGEABLES UPLOAD ERROR:", err.response || err);
+        console.error("AHMADCLOTHS UPLOAD ERROR:", err.response || err);
         this.error = 'Upload protocol failed. Ensure your server is active and image size is within limits.'
 
         Swal.fire({
@@ -226,7 +226,7 @@ export const useProductsStore = defineStore('products', {
           return true
         }
       } catch (err) {
-        console.error("FUDGEABLES UPDATE ERROR:", err.response || err);
+        console.error("AHMADCLOTHS UPDATE ERROR:", err.response || err);
         this.error = 'Update protocol failed.'
 
         Swal.fire({

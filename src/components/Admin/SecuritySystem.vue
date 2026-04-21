@@ -63,7 +63,7 @@
                       <div class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 bg-[var(--primary-gold)]/5 flex items-center justify-center text-[11px] font-bold shadow-2xl group-hover:border-[var(--primary-gold)] transition-colors">FB</div>
                       <div>
                          <p class="text-[11px] font-bold uppercase tracking-[0.2em] mb-1">{{ admin.name }}</p>
-                         <p class="text-[8px] text-white/30 uppercase tracking-widest italic">HEAD BAKER ACCESS</p>
+                         <p class="text-[8px] text-white/30 uppercase tracking-widest italic">HEAD DESIGNER ACCESS</p>
                       </div>
                    </div>
                    <button @click="$emit('revoke', admin._id)" class="px-8 py-3 bg-red-600/10 text-red-500 text-[9px] font-bold uppercase tracking-[0.3em] border border-red-500/20 hover:bg-red-600 hover:text-white transition-all transform active:scale-95">REVOKE</button>
@@ -107,7 +107,7 @@ defineProps({
     default: () => [
       {u:'ADMIN_ROOT', ip:'4.182.20.91', s:'Authorized', t:'2m ago'},
       {u:'GUEST_USER', ip:'142.12.89.4', s:'Denied', t:'14m ago'},
-      {u:'STRICT_BAKER', ip:'10.0.0.42', s:'Authorized', t:'1h ago'}
+      {u:'STRICT_DESIGNER', ip:'10.0.0.42', s:'Authorized', t:'1h ago'}
     ]
   }
 })

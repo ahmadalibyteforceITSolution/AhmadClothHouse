@@ -150,7 +150,8 @@
 import { ref, computed, markRaw, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
+// Global Admin State
+const router = useRouter()
 import { useProductsStore } from '../../stores/products'
 import { useOrdersStore } from '../../stores/orders'
 import { useReviewsStore } from '../../stores/reviews'
@@ -645,6 +646,10 @@ const submitProduct = async () => {
         productStore.error = "Images must be fully uploaded. Please re-select the image."
         return
       }
+    } else if (productForm.value.filterImagePreview?.startsWith('blob:')) {
+        // Image was selected but not uploaded to server yet (fell through File check)
+        productStore.error = "Please wait for the image upload to complete."
+        return
     }
 
     // Safety check: Don't allow blob URLs to leak into payload
@@ -670,7 +675,8 @@ const submitProduct = async () => {
       })
     }
 
-    if (editingProduct.value) await productStore.updateProduct(editingProduct.value._id, payload)
+    const productId = editingProduct.value?._id || editingProduct.value?.id;
+    if (editingProduct.value) await productStore.updateProduct(productId, payload)
     else await productStore.addProduct(payload)
 
     cancelEditProduct()
@@ -744,7 +750,7 @@ const startUserEdit = (u) => { editingUser.value = u._id; editForm.value = { nam
 const saveUserEdit = async (id) => { await auth.updateExternalUser(id, editForm.value); editingUser.value = null }
 const deleteIdentity = async (id) => { await auth.deleteExternalUser(id) }
 
-const handleLogout = async () => { if (confirm('Log out of the Bakery Console?')) { await auth.logout(); router.push('/login') } }
+const handleLogout = async () => { if (confirm('Log out of the Boutique Console?')) { await auth.logout(); router.push('/login') } }
 
 onMounted(() => { 
   if (auth.users.length === 0) auth.fetchUsers() 

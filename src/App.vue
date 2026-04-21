@@ -38,8 +38,8 @@
       <!-- Dim Overlay -->
       <div class="lux-overlay" :class="{ active: isPanelOpen }" @click.stop="closeAhmadMenu"></div>
 
-      <!-- Ahmadcloths Panel -->
-      <div class="fudge-panel" :class="{ open: isPanelOpen }" @click.stop>
+      <!-- Boutique Splash Panel -->
+      <div class="boutique-panel" :class="{ open: isPanelOpen }" @click.stop>
         <div class="panel-content w-full max-w-6xl px-6 sm:px-12">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <!-- Left: Brand Story -->
@@ -266,7 +266,7 @@ const scrollY = ref(0)
 const isWhatsappOpen = ref(false)
 const toggleWhatsapp = () => isWhatsappOpen.value = !isWhatsappOpen.value
 
-// Fudgeable Panel State
+// Boutique Panel State
 const isPanelOpen = ref(false)
 const closeAhmadMenu = () => isPanelOpen.value = false
 const openAhmadMenu = () => isPanelOpen.value = true
@@ -546,7 +546,7 @@ onUnmounted(() => {
 
 
 /* === BOTTOM PANEL === */
-.fudge-panel {
+.boutique-panel {
   position: fixed;
   top: 0;
   left: 0;
@@ -648,7 +648,7 @@ onUnmounted(() => {
   }
 }
 
-.fudge-desc {
+.boutique-desc {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.9);
   /* Much whiter text */
