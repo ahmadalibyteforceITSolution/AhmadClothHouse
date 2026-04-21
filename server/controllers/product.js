@@ -100,45 +100,54 @@ exports.uploadImage = async (req, res) => {
       });
     }
     
-    // 2. Attempt Vercel Blob upload
+    // 2. Attempt Vercel Blob upload with Sharp compression
     try {
       const { put } = require('@vercel/blob');
+      const sharp = require('sharp');
       const crypto = require('crypto');
       const path = require('path');
 
+      console.log(`AHMADCLOTHS: Optimizing image [${req.file.originalname}]...`);
+
+      // Compress and Optimize using Sharp
+      const optimizedBuffer = await sharp(req.file.buffer)
+        .resize({ width: 1920, withoutEnlargement: true }) // Standard HD max width
+        .webp({ quality: 80 }) // Smallest, highest-quality format
+        .toBuffer();
+
       const uniqueSuffix = crypto.randomBytes(6).toString('hex');
-      const ext = path.extname(req.file.originalname) || '.jpg';
-      const filename = `products/product-${Date.now()}-${uniqueSuffix}${ext}`;
+      const filename = `products/product-${Date.now()}-${uniqueSuffix}.webp`; // Force .webp extension
 
       console.log(`AHMADCLOTHS: Attempting Vercel Blob upload [${filename}]...`);
+      console.log(`Size reduction: ${Math.round((req.file.size - optimizedBuffer.length) / 1024)} KB saved.`);
 
       // We explicitly pass the token to avoid any environment detection issues
-      const blob = await put(filename, req.file.buffer, {
+      const blob = await put(filename, optimizedBuffer, {
         access: 'public',
-        contentType: req.file.mimetype,
+        contentType: 'image/webp',
         token: token
       });
 
-      console.log(`AHMADCLOTHS: ✅ SUCCESS! Image uploaded to CDN: ${blob.url}`);
+      console.log(`AHMADCLOTHS: ✅ SUCCESS! Optimized image uploaded: ${blob.url}`);
       return res.status(200).json({ 
         success: true, 
         url: blob.url, 
-        storage: 'vercel-blob' 
+        storage: 'vercel-blob-optimized' 
       });
 
     } catch (blobErr) {
       // 3. Log the exact error for debugging
-      console.error('❌ AHMADCLOTHS: Vercel Blob upload FAILED.');
-      console.error('Error Message:', blobErr.message);
+      console.error('❌ AHMADCLOTHS: Image processing or upload FAILED.');
+      console.error('Error Details:', blobErr.message);
       
-      // Fallback to Base64 so the admin can still save products, but with a warning
+      // Fallback to Base64 (original raw image) if something went wrong
       const base64Data = req.file.buffer.toString('base64');
       const dataUri = `data:${req.file.mimetype};base64,${base64Data}`;
       return res.status(200).json({ 
         success: true, 
         url: dataUri,
-        storage: 'base64-fallback',
-        note: `Vercel Blob failed: ${blobErr.message}. Ensure your token is active and and not expired.`
+        storage: 'base64-error-fallback',
+        note: `Compression/Blob failed: ${blobErr.message}.`
       });
     }
   } catch (err) {

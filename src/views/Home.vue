@@ -39,6 +39,9 @@
       @mousemove="onHeroMouseMove"
       :style="{ backgroundImage: `url(${ShopInterior})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
     >
+      <!-- Preload the background image for LCP boost -->
+      <img :src="ShopInterior" class="hidden" fetchpriority="high" aria-hidden="true" />
+      
       <!-- Premium Dark Overlay for readability -->
       <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-[1]"></div>
       
@@ -64,15 +67,15 @@
           <div class="collage-grid grid grid-cols-2 gap-4 lg:gap-6 relative z-10">
             <!-- Left Column -->
             <div class="space-y-4 lg:space-y-6">
-              <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in">
+              <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in aspect-[3/4]">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage1" alt="Luxury Pakistani Suit"
-                  class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <img :src="HeroCollage1" alt="Luxury Pakistani Suit" fetchpriority="high" loading="eager"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
               <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.8] cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage3" alt="Intricate Embroidery"
+                <img :src="HeroCollage3" alt="Intricate Embroidery" loading="eager"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
