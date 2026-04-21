@@ -106,6 +106,7 @@ export const useProductsStore = defineStore('products', {
     },
 
     async uploadImage(file) {
+      const auth = useAuthStore()
       this.loading = true
       try {
         const formData = new FormData()
@@ -119,8 +120,25 @@ export const useProductsStore = defineStore('products', {
         })
         console.log('AHMADCLOTHS: Upload response:', res.data)
         if (res.data.success) {
-          if (res.data.note) {
-            console.warn('AHMADCLOTHS Upload Note:', res.data.note)
+          // Warn admins if Blob failed and fell back to base64
+          if (res.data.storage === 'base64-fallback' || res.data.storage === 'base64') {
+            console.warn('AHMADCLOTHS: ⚠️ Image stored as Base64 (slow). Fix BLOB_READ_WRITE_TOKEN!')
+            Swal.fire({
+              toast: true, position: 'top-end', icon: 'warning',
+              title: 'Image saved as Base64',
+              text: res.data.note || 'Vercel Blob is not configured. Images will load slowly.',
+              showConfirmButton: false, timer: 5000,
+              background: auth.isDark ? '#000' : '#fff',
+              color: auth.isDark ? '#fff' : '#000'
+            })
+          } else {
+            Swal.fire({
+              toast: true, position: 'top-end', icon: 'success',
+              title: 'Image uploaded to CDN',
+              showConfirmButton: false, timer: 2000,
+              background: auth.isDark ? '#000' : '#fff',
+              color: auth.isDark ? '#fff' : '#000'
+            })
           }
           return res.data.url
         } else {

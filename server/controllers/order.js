@@ -6,10 +6,14 @@ exports.getOrders = async (req, res) => {
   try {
     const orders = await Order.find()
       .populate('user', 'name email')
-      .populate('items.product', 'name image price views sales')
+      .populate('items.product', 'name price views sales') // EXCLUDE 'image' — it's a huge base64 string
+      .select('-__v')
       .sort({ createdAt: -1 })
+      .limit(200) // cap at 200 most recent orders
       .lean();
-    res.status(200).json({ success: true, data: orders });
+    // Cache for 10 seconds to reduce duplicate admin refreshes
+    res.setHeader('Cache-Control', 'private, max-age=10');
+    res.status(200).json({ success: true, count: orders.length, data: orders });
   } catch (err) {
     console.error('ORDER_ERROR [Fetch]:', err.message);
     res.status(500).json({ success: false, error: err.message });
@@ -35,8 +39,9 @@ exports.getOrderById = async (req, res) => {
 exports.getUserOrders = async (req, res) => {
   try {
     const orders = await Order.find({ user: req.params.userId })
-      .populate('items.product', 'name image price views sales')
+      .populate('items.product', 'name price views sales') // EXCLUDE 'image'
       .sort({ createdAt: -1 })
+      .limit(50)
       .lean();
     res.status(200).json({ success: true, data: orders });
   } catch (err) {
