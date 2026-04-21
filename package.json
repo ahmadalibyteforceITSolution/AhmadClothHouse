@@ -33,6 +33,7 @@
     "nodemailer": "^8.0.3",
     "pinia": "^3.0.4",
     "resend": "^6.10.0",
+    "sharp": "^0.34.5",
     "sweetalert2": "^11.26.24",
     "tailwindcss": "^4.2.2",
     "vee-validate": "^4.15.1",
