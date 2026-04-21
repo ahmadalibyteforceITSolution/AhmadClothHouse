@@ -4,7 +4,7 @@
     <div class="bg-[var(--deep-burgundy)] text-white py-0 px-4 text-center overflow-hidden relative group">
       <div class="animate-marquee whitespace-nowrap inline-block">
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          AHMADCLOTHESFABRICS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+          AHMAD CLOTHS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
         </span>
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
           FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
@@ -16,7 +16,7 @@
       <!-- Duplicate for seamless loop -->
       <div class="animate-marquee whitespace-nowrap inline-block absolute top-2 left-full">
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          AHMADCLOTHESFABRICS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+          AHMAD CLOTHS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
         </span>
         <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
           FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
@@ -367,7 +367,7 @@
           <!-- Header -->
           <div class="flex items-center justify-between p-6 border-b border-white/5">
             <div class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity" @click="goToHome(); isMenuOpen = false">
-              <h1 class="text-lg font-playfair tracking-[0.2em] font-light text-white uppercase">AHMADCLOTHS</h1>
+              <h1 class="text-lg font-playfair tracking-[0.2em] font-light text-white uppercase">AHMAD CLOTHS</h1>
               <span class="text-[7px] tracking-[0.3em] text-[var(--primary-gold)] uppercase">House of Couture</span>
             </div>
             <button @click="isMenuOpen = false"

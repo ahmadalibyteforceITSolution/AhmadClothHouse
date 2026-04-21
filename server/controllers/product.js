@@ -8,10 +8,11 @@ const crypto = require('crypto');
 exports.getProducts = async (req, res) => {
   try {
     // Optimized fetch:
-    // 1. Exclude large fields like 'variants', 'description', and 'details' for list view
-    // 2. Use .lean() for faster execution
+    // 1. Exclude heavy fields (variants, description, details) for list view
+    // 2. KEEP image and filterImageUrl so products display correctly
+    // 3. Use .lean() for faster execution
     const products = await Product.find()
-      .select('-variants -description -details -image -filterImageUrl')
+      .select('-variants -description -details')
       .sort({ createdAt: -1 })
       .limit(100)
       .lean();

@@ -8,7 +8,7 @@
       <div class="mb-16">
         <h1
           class="text-xl font-playfair tracking-[0.2em] font-light text-[var(--luxury-black)] dark:text-white uppercase cursor-pointer"
-          @click="router.push('/')">AHMADCLOTHS</h1>
+          @click="router.push('/')">AHMAD CLOTHS</h1>
         <p
           class="text-[8px] font-bold text-stone-400 uppercase tracking-[0.4em] mt-4 border-l border-[var(--primary-gold)]/40 pl-3">
           BOUTIQUE CONSOLE_V3</p>
@@ -150,8 +150,7 @@
 import { ref, computed, markRaw, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
-// Global Admin State
-const router = useRouter()
+const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 import { useProductsStore } from '../../stores/products'
 import { useOrdersStore } from '../../stores/orders'
 import { useReviewsStore } from '../../stores/reviews'
@@ -192,6 +191,43 @@ const fetchTrafficStats = async () => {
     console.error('Failed to fetch traffic stats', err)
   }
 }
+
+// Optimized Data Dispatching
+const dispatchTabDataLoad = (tab) => {
+  console.log(`AHMADCLOTHS: Dispatching data load for tab [${tab}]`);
+  switch (tab) {
+    case 'overview':
+      fetchTrafficStats()
+      orderStore.fetchAllOrders()
+      productStore.fetchProducts()
+      break
+    case 'sales':
+      orderStore.fetchAllOrders()
+      break
+    case 'products':
+    case 'catalog':
+      productStore.fetchProducts()
+      break
+    case 'customers':
+    case 'security':
+      auth.fetchUsers()
+      break
+    case 'monetization':
+      fetchTrafficStats()
+      orderStore.fetchAllOrders()
+      break
+    case 'reviews':
+      reviewsStore.fetchAllReviews()
+      break
+    default:
+      break
+  }
+}
+
+// Watch for tab changes to call respective APIs
+watch(currentTab, (newTab) => {
+  dispatchTabDataLoad(newTab)
+})
 
 watch(isMobileMenuOpen, (val) => {
   if (val) {
@@ -640,16 +676,15 @@ const submitProduct = async () => {
         if (uploadedUrl) {
           payload.imageUrl = uploadedUrl
           payload.filterImageUrl = uploadedUrl
+        } else {
+          productStore.error = "Failed to secure main image upload. Please select a valid file and try again."
+          return
         }
       } else if (typeof productForm.value.filterImage === 'string' && productForm.value.filterImage.startsWith('blob:')) {
         // Blobs are not allowed, force re-upload or error
         productStore.error = "Images must be fully uploaded. Please re-select the image."
         return
       }
-    } else if (productForm.value.filterImagePreview?.startsWith('blob:')) {
-        // Image was selected but not uploaded to server yet (fell through File check)
-        productStore.error = "Please wait for the image upload to complete."
-        return
     }
 
     // Safety check: Don't allow blob URLs to leak into payload
@@ -665,6 +700,9 @@ const submitProduct = async () => {
         const uploadedUrl = await productStore.uploadImage(v.imageFile)
         if (uploadedUrl) {
           variantImage = uploadedUrl
+        } else {
+           productStore.error = `Variant image upload failed for ${v.size} / ${v.color}.`
+           return
         }
       }
 
@@ -675,13 +713,16 @@ const submitProduct = async () => {
       })
     }
 
-    const productId = editingProduct.value?._id || editingProduct.value?.id;
-    if (editingProduct.value) await productStore.updateProduct(productId, payload)
+    if (editingProduct.value) await productStore.updateProduct(editingProduct.value._id, payload)
     else await productStore.addProduct(payload)
 
     cancelEditProduct()
-  } catch (err) { console.error(err) }
+  } catch (err) { 
+    console.error(err) 
+    productStore.error = "An unexpected error occurred during submission."
+  }
 }
+
 
 const adminSelectedCategory = ref('')
 const adminCategoryProducts = computed(() => {
@@ -753,16 +794,13 @@ const deleteIdentity = async (id) => { await auth.deleteExternalUser(id) }
 const handleLogout = async () => { if (confirm('Log out of the Boutique Console?')) { await auth.logout(); router.push('/login') } }
 
 onMounted(() => { 
-  if (auth.users.length === 0) auth.fetchUsers() 
-  orderStore.fetchAllOrders()
-  productStore.fetchProducts()
+  // Call API only for the initial tab
+  dispatchTabDataLoad(currentTab.value)
   
-  fetchTrafficStats()
   trafficInterval.value = setInterval(() => {
-    fetchTrafficStats()
-    orderStore.fetchAllOrders()
-    reviewsStore.fetchAllReviews() // Corrected variable name
-  }, 10000) // Refresh every 10s
+    // Refresh only the active tab's specific data every 20 seconds
+    dispatchTabDataLoad(currentTab.value)
+  }, 20000)
 })
 
 onUnmounted(() => {

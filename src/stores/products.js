@@ -110,16 +110,29 @@ export const useProductsStore = defineStore('products', {
       try {
         const formData = new FormData()
         formData.append('image', file)
+        console.log('AHMADCLOTHS: Uploading image...', file.name, file.size, 'bytes')
         const res = await api.post('/products/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
-          }
+          },
+          timeout: 60000 // 60s timeout for large images
         })
+        console.log('AHMADCLOTHS: Upload response:', res.data)
         if (res.data.success) {
+          if (res.data.note) {
+            console.warn('AHMADCLOTHS Upload Note:', res.data.note)
+          }
           return res.data.url
+        } else {
+          this.error = 'Image upload returned unsuccessful response.'
+          Swal.fire({ icon: 'warning', title: 'Upload Issue', text: 'Server accepted the file but returned an error. Please try again.', confirmButtonColor: '#d4af37' })
+          return null
         }
       } catch (err) {
-        console.error("IMAGE UPLOAD ERROR:", err)
+        console.error('AHMADCLOTHS IMAGE UPLOAD ERROR:', err.response?.data || err.message || err)
+        const errorMsg = err.response?.data?.error || err.message || 'Network error during upload'
+        this.error = `Image upload failed: ${errorMsg}`
+        Swal.fire({ icon: 'error', title: 'Image Upload Failed', text: errorMsg, confirmButtonColor: '#d4af37' })
         return null
       } finally {
         this.loading = false
@@ -144,15 +157,15 @@ export const useProductsStore = defineStore('products', {
           filterImageUrl: prodData.filterImageUrl,
           variants: prodData.variants || [],
           costPrice: parseFloat(prodData.costPrice || 0),
-          description: `Signature ${prodData.nature} Collection.`,
-          details: ["Dynamic Backend Persistence", "Fudgeables Secured", "Freshly Baked"]
+          description: `Signature ${prodData.nature} Collection by Ahmad Cloths.`,
+          details: ["Ahmad Cloths Guaranteed", "Premium Luxury Fabric", "Authentic Design"]
         }
 
 
         const res = await api.post('/products', payload)
         if (res.data.success) {
 
-          await this.fetchProducts()
+          await this.fetchProducts(true)
 
           Swal.fire({
             toast: true,
@@ -210,7 +223,7 @@ export const useProductsStore = defineStore('products', {
         const res = await api.put(`/products/${id}`, payload)
         if (res.data.success) {
 
-          await this.fetchProducts()
+          await this.fetchProducts(true)
 
           Swal.fire({
             toast: true,

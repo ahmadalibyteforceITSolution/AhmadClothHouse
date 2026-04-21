@@ -24,7 +24,7 @@ import {
   faMobileRetro, faWallet, faMoneyBill1Wave, faMoneyBillTransfer,
   faSackDollar, faArrowsToDot, faUsersGear, faStarHalfStroke, faEarthAmericas,
   faBoxOpen, faClock, faHouseCircleCheck, faEnvelopeOpenText, faHandHoldingHeart,
-  faHeadset
+  faHeadset, faRotate, faCommentSlash, faCalendarDay
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart, faStar as farStar, faStar as fasStar } from '@fortawesome/free-regular-svg-icons'
 import { 
@@ -50,6 +50,7 @@ library.add(
   faMobileRetro, faWallet, faMoneyBill1Wave, faMoneyBillTransfer,
   faSackDollar, faArrowsToDot, faUsersGear, faStarHalfStroke, faEarthAmericas,
   faBoxOpen, faClock, faHouseCircleCheck, faEnvelopeOpenText, faHandHoldingHeart, faHeadset,
+  faRotate, faCommentSlash, faCalendarDay,
   farHeart, farStar, fasStar,
   faInstagram, faFacebookF, faCcVisa, faCcMastercard, faCcApplePay, 
   faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle, faWhatsapp

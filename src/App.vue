@@ -13,8 +13,8 @@
             <div class="absolute -inset-10 rounded-full border border-[var(--primary-gold)]/5 animate-pulse-slow"></div>
 
             <h1
-              class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] animate-float uppercase">
-              AHMADCLOTHESFABRICS</h1>
+            class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] animate-float uppercase">
+            AHMAD CLOTHS</h1>
           </div>
 
           <!-- Text -->
@@ -110,8 +110,8 @@
         <!-- Branding Bottom Bar -->
         <div class="panel-bottom-bar cursor-pointer" @click="closeAhmadMenu">
           <h1
-            class="text-3xl font-playfair tracking-[0.3em] font-light text-yellow-500 animate-float uppercase">
-            AHMADCLOTHESFABRICS</h1>
+            class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--primary-gold)] animate-float uppercase">
+            AHMAD CLOTHS</h1>
         </div>
       </div>
     </div>
@@ -567,12 +567,10 @@ onUnmounted(() => {
   border-bottom: 1px solid rgba(65, 45, 45, 0.05);
 }
 
-.fudge-panel.open {
+.boutique-panel.open {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-
-
 }
 
 .panel-bottom-bar {
