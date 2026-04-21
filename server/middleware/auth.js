@@ -37,7 +37,11 @@ exports.protect = async (req, res, next) => {
 // Grant access to specific roles
 exports.authorize = (...roles) => {
   return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
+    // Allow access if user has the required role OR if they are the primary admin email
+    const isAdminEmail = process.env.ADMIN_EMAIL && 
+                         req.user.email.toLowerCase() === process.env.ADMIN_EMAIL.toLowerCase();
+    
+    if (!roles.includes(req.user.role) && !isAdminEmail) {
       return res.status(403).json({
         success: false,
         error: `User role ${req.user.role} is not authorized to access this route`,
