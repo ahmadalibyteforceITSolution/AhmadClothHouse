@@ -68,6 +68,16 @@ exports.uploadImage = async (req, res) => {
       return res.status(400).json({ success: false, error: 'Please upload an image' });
     }
 
+    // Check if token exists
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.warn('⚠️ WARNING: BLOB_READ_WRITE_TOKEN is not set. Image upload will fail.');
+      return res.status(500).json({ 
+        success: false, 
+        error: 'Storage Configuration Missing',
+        message: 'BLOB_READ_WRITE_TOKEN is not set in environment variables.' 
+      });
+    }
+
     // Generate unique filename with random suffix for Vercel Blob
     const uniqueSuffix = crypto.randomBytes(6).toString('hex');
     const ext = path.extname(req.file.originalname) || '.jpg';
@@ -86,7 +96,11 @@ exports.uploadImage = async (req, res) => {
     res.status(200).json({ success: true, url: blob.url });
   } catch (err) {
     console.error('SERVER_ERROR [VercelBlob]:', err.message);
-    res.status(500).json({ success: false, error: 'Failed to upload image to Vercel Blob. Ensure BLOB_READ_WRITE_TOKEN is set.' });
+    res.status(500).json({ 
+      success: false, 
+      error: 'Failed to upload image',
+      message: err.message 
+    });
   }
 };
 
