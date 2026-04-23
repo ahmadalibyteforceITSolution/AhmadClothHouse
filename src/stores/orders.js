@@ -61,8 +61,13 @@ export const useOrdersStore = defineStore('orders', {
       try {
         // CALL NOTIFY ENDPOINT (Sends Gmail to Admin/Customer without DB write)
         await api.post('/orders/notify', orderData)
+        console.log("AHMADCLOTHS: Gmail notification sent successfully.")
       } catch (err) {
-        console.warn("ORDER_NOTIFY_ERROR: Could not send Gmail alert", err)
+        console.error("ORDER_NOTIFY_ERROR: Could not send Gmail alert.", err)
+        // If it's a 404, maybe the server hasn't been updated?
+        if (err.response?.status === 404) {
+          console.warn("SERVER_OUT_OF_SYNC: The /notify endpoint was not found. Please ensure the backend is redeployed.")
+        }
       }
 
       // Still handle the order locally for UI consistency
