@@ -254,7 +254,7 @@
     </div>
 
     <!-- Scroll Progress Bar -->
-    <div class="fixed top-20 left-0 h-[2px] bg-[var(--primary-gold)] z-[100001] transition-all duration-300"
+    <div class="fixed top-0 left-0 h-[2px] bg-[var(--primary-gold)] z-[100001] transition-all duration-300"
       :style="{ width: scrollProgress + '%' }"></div>
 
     <BottomNav v-if="showHeaderFooter" />
