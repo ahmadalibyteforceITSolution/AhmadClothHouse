@@ -116,7 +116,11 @@
       </div>
     </div>
 
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="page" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
 
     <!-- Trust Promotion Bar -->
     <section v-if="showHeaderFooter" class="py-16 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5">
@@ -163,9 +167,12 @@
 
     <!-- Floating Contact Buttons -->
     <transition name="fade-scale">
-      <div v-if="scrollY > 500" class="fixed bottom-5 right-5 sm:right-10 flex flex-col gap-4 z-[9999]">
+      <div v-if="scrollY > 500" class="fixed bottom-24 right-5 sm:bottom-10 sm:right-10 flex flex-col gap-4 z-[9999]">
         <button @click="toggleChatbot" class="contact-btn chatbot-btn" aria-label="Chat with AI">
-          <font-awesome-icon :icon="isChatbotOpen ? 'fa-solid fa-times' : 'fa-solid fa-robot'" />
+          <div class="relative">
+            <font-awesome-icon :icon="isChatbotOpen ? 'fa-solid fa-times' : 'fa-solid fa-robot'" />
+            <span v-if="!isChatbotOpen" class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-black animate-pulse"></span>
+          </div>
         </button>
       </div>
     </transition>
@@ -223,24 +230,34 @@
     </transition>
 
     <!-- Floating WhatsApp Left Side -->
-    <div class="fixed bottom-5 left-5 sm:left-10 z-[9999] flex flex-col-reverse items-start gap-4">
-      <button @click="toggleWhatsapp" class="whatsapp-main-btn shadow-2xl" aria-label="WhatsApp Contact">
+    <div class="fixed bottom-24 left-5 sm:bottom-10 sm:left-10 z-[9999] flex flex-col-reverse items-start gap-4">
+      <button @click="toggleWhatsapp" class="whatsapp-main-btn shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.5)]" aria-label="WhatsApp Contact">
         <font-awesome-icon :icon="isWhatsappOpen ? 'fa-solid fa-times' : 'fa-brands fa-whatsapp'" />
       </button>
 
       <transition-group name="whatsapp-pop">
         <div v-if="isWhatsappOpen" key="menu" class="flex flex-col gap-3 mb-2">
-          <a href="https://wa.me/923416887454" target="_blank" class="whatsapp-sub-btn">
-            <font-awesome-icon icon="fa-brands fa-whatsapp" class="mr-3" />
-            <span class="text-[10px] font-bold tracking-widest uppercase">Contact Line 1</span>
+          <a href="https://wa.me/923416887454" target="_blank" class="whatsapp-sub-btn group">
+            <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+              <font-awesome-icon icon="fa-brands fa-whatsapp" />
+            </div>
+            <span class="text-[9px] font-black tracking-[0.2em] uppercase bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white">Line 1</span>
           </a>
-          <a href="https://wa.me/923244902607" target="_blank" class="whatsapp-sub-btn">
-            <font-awesome-icon icon="fa-brands fa-whatsapp" class="mr-3" />
-            <span class="text-[10px] font-bold tracking-widest uppercase">Contact Line 2</span>
+          <a href="https://wa.me/923244902607" target="_blank" class="whatsapp-sub-btn group">
+            <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+              <font-awesome-icon icon="fa-brands fa-whatsapp" />
+            </div>
+            <span class="text-[9px] font-black tracking-[0.2em] uppercase bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white">Line 2</span>
           </a>
         </div>
       </transition-group>
     </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="fixed top-0 left-0 h-[2px] bg-[var(--primary-gold)] z-[100001] transition-all duration-300"
+      :style="{ width: scrollProgress + '%' }"></div>
+
+    <BottomNav v-if="showHeaderFooter" />
   </div>
 
 </template>
@@ -251,6 +268,7 @@ import { useRoute, useRouter } from 'vue-router'
 import Header from './components/Home/Header.vue'
 import DailySEOAds from './components/DailySEOAds.vue'
 import Footer from './components/Footer.vue'
+import BottomNav from './components/BottomNav.vue'
 import { useAuthStore } from './stores/auth'
 import { useProductsStore } from './stores/products'
 import { useLoadingStore } from './stores/loading'
@@ -263,6 +281,7 @@ const loading = useLoadingStore()
 const route = useRoute()
 const router = useRouter()
 const scrollY = ref(0)
+const scrollProgress = ref(0)
 const isWhatsappOpen = ref(false)
 const toggleWhatsapp = () => isWhatsappOpen.value = !isWhatsappOpen.value
 
@@ -280,6 +299,11 @@ watch(() => route.name, (newName) => {
 
 const handleScroll = () => {
   scrollY.value = window.scrollY
+  
+  // Calculate scroll progress
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  scrollProgress.value = (winScroll / height) * 100
 
   // Only handle panel on home route
   if (route.name === 'home') {
@@ -542,6 +566,48 @@ onUnmounted(() => {
 <style>
 @reference "./style.css";
 
+/* === GLOBAL APP-LIKE STYLES === */
+:root {
+  --app-bottom-height: 70px;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+@media (max-width: 768px) {
+  .min-h-screen {
+    padding-bottom: var(--app-bottom-height);
+  }
+  
+  /* Hide scrollbars but allow scrolling */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* === PAGE TRANSITIONS === */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
 /* === DIM OVERLAY === */
 
 
@@ -674,34 +740,38 @@ onUnmounted(() => {
 /* Back to Top */
 .back-to-top {
   position: fixed;
-  bottom: 80px;
+  bottom: 240px;
   right: 20px;
-  width: 50px;
-  height: 50px;
-  background: #d4af37;
+  width: 44px;
+  height: 44px;
+  background: rgba(212, 175, 55, 0.9);
+  backdrop-filter: blur(10px);
   color: black;
   border-radius: 50%;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @media (min-width: 640px) {
   .back-to-top {
+    bottom: 40px;
     right: 40px;
+    width: 50px;
+    height: 50px;
   }
 }
 
 .back-to-top:hover {
   transform: translateY(-8px) scale(1.1);
   background: white;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Contact Buttons */
@@ -739,7 +809,25 @@ onUnmounted(() => {
 }
 
 .chatbot-btn {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+.chatbot-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
   background: #d4af37;
+  opacity: 0.3;
+  z-index: -1;
+  animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+  0% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
 .contact-btn:hover {
@@ -986,24 +1074,11 @@ onUnmounted(() => {
 }
 
 .whatsapp-sub-btn {
-  background: rgba(37, 211, 102, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(37, 211, 102, 0.2);
-  color: #25D366;
-  padding: 12px 20px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  transition: all 0.4s ease;
-  white-space: nowrap;
+  @apply flex items-center gap-3 no-underline transition-all duration-500;
 }
 
 .whatsapp-sub-btn:hover {
-  background: #25D366;
-  color: white;
   transform: translateX(10px);
-  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
 }
 
 .whatsapp-pop-enter-active,

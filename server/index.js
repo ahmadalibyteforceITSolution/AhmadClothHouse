@@ -68,8 +68,9 @@ async function connectDB() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 30000, // Increase to 30s
       socketTimeoutMS: 45000,
+      family: 4, // Force IPv4
       maxPoolSize: 10,
     };
 
@@ -98,9 +99,9 @@ app.use(async (req, res, next) => {
   } catch (err) {
     const errorMsg = err.message || "Unknown Connection Error";
     console.error("💀 [DB_FAILURE]:", errorMsg);
-    
-    res.status(500).json({ 
-      success: false, 
+
+    res.status(500).json({
+      success: false,
       error: "Boutique Database Offline",
       message: errorMsg,
       remedy: "Check Vercel Env Vars for MONGO_URI"
@@ -108,13 +109,24 @@ app.use(async (req, res, next) => {
   }
 });
 
-// Diagnostic route to check env status without revealing keys
-app.get("/api/debug-setup", (req, res) => {
+// Diagnostic route to check env status and provide public IP for Atlas whitelisting
+app.get("/api/debug-setup", async (req, res) => {
+  let publicIp = "Unknown";
+  try {
+    const axios = require("axios");
+    const response = await axios.get("https://api.ipify.org?format=json", { timeout: 3000 });
+    publicIp = response.data.ip;
+  } catch (e) {
+    publicIp = "Could not detect";
+  }
+
   res.json({
     hasMongoUri: !!process.env.MONGO_URI,
     hasBlobToken: !!process.env.BLOB_READ_WRITE_TOKEN,
+    publicIp: publicIp,
     nodeEnv: process.env.NODE_ENV,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    tip: "If MongoDB times out, ensure this public IP is whitelisted in MongoDB Atlas Network Access."
   });
 });
 

@@ -1,42 +1,48 @@
 <template>
   <header class="w-full" :class="{ 'header-scrolled': isScrolled }">
-    <!-- Promotional Announcement Bar -->
-    <div class="bg-[var(--deep-burgundy)] text-white py-0 px-4 text-center overflow-hidden relative group">
+    <div class="bg-[var(--deep-burgundy)] text-white py-1.5 px-4 text-center overflow-hidden relative group border-b border-white/10">
       <div class="animate-marquee whitespace-nowrap inline-block">
-        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          AHMAD CLOTHS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
+          ✨ SPECIAL RAMADAN OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
         </span>
-        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
-        </span>
-        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          NEW SEASONAL ARRIVALS NOW LIVE ✦ 
+        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
+          🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚
         </span>
       </div>
       <!-- Duplicate for seamless loop -->
-      <div class="animate-marquee whitespace-nowrap inline-block absolute top-2 left-full">
-        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          AHMAD CLOTHS: TOP BRAND IN PAKISTAN FOR LUXURY FASHION ✦ 
+      <div class="animate-marquee whitespace-nowrap inline-block absolute top-1.5 left-full">
+        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
+          ✨ SPECIAL RAMADAN OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
         </span>
-        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          FREE WORLDWIDE SHIPPING ON ALL BRIDAL COUTURE ✦ 
-        </span>
-        <span class="text-[9px] font-black uppercase tracking-[0.4em] mx-10">
-          NEW SEASONAL ARRIVALS NOW LIVE ✦ 
+        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
+          🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚
         </span>
       </div>
     </div>
     
     <!-- WhatsApp Support Bar -->
-    <div class="bg-white dark:bg-[#0A0A0A] py-2 px-4 border-b border-black/5 dark:border-white/5 flex items-center justify-center gap-3">
-      <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-base" />
-      <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
-        <span class="text-[#25D366] uppercase">Inquiry:</span> 
-        <a href="https://wa.me/923416887454" target="_blank" class="text-black dark:text-white ml-1 hover:text-green-600 transition-colors">0341 6887454</a>
-        <span class="mx-3 opacity-20 text-black dark:text-white">|</span>
-        <span class="text-[#25D366] uppercase">Support:</span> 
-        <a href="https://wa.me/923244902607" target="_blank" class="text-black dark:text-white ml-1 hover:text-green-600 transition-colors">0324 4902607</a>
-      </p>
+    <div class="bg-white dark:bg-[#0A0A0A] py-2 px-4 border-b border-black/5 dark:border-white/5 flex items-center justify-center gap-6 overflow-hidden">
+      <div class="flex items-center gap-2 group/wa">
+        <div class="relative">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-base group-hover/wa:scale-110 transition-transform" />
+          <span class="absolute inset-0 bg-[#25D366] rounded-full blur-[4px] opacity-0 group-hover/wa:opacity-40 transition-opacity"></span>
+        </div>
+        <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
+          <span class="text-[#25D366] uppercase mr-1">Inquiry:</span> 
+          <a href="https://wa.me/923416887454" target="_blank" class="text-black dark:text-white hover:text-green-600 transition-colors">0341 6887454</a>
+        </p>
+      </div>
+      <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
+      <div class="flex items-center gap-2 group/wa2">
+        <div class="relative">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-base group-hover/wa2:scale-110 transition-transform" />
+          <span class="absolute inset-0 bg-[#25D366] rounded-full blur-[4px] opacity-0 group-hover/wa2:opacity-40 transition-opacity"></span>
+        </div>
+        <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
+          <span class="text-[#25D366] uppercase mr-1">Support:</span> 
+          <a href="https://wa.me/923244902607" target="_blank" class="text-black dark:text-white hover:text-green-600 transition-colors">0324 4902607</a>
+        </p>
+      </div>
     </div>
 
     <!-- Main Header -->
@@ -44,30 +50,29 @@
       :class="isScrolled ? 'py-0 shadow-lg' : 'py-0'">
       <!-- Top Row: Actions Left, Logo Center, Actions Right -->
       <div class="w-full flex items-center justify-between">
-        <!-- LEFT: Hamburger (mobile) + Search (desktop) -->
+        <!-- LEFT: Logo (Mobile) + Actions (Desktop/Mobile) -->
         <div class="flex items-center gap-4 flex-1">
-          <button @click="isMenuOpen = !isMenuOpen" class="hamburger-btn flex flex-col shrink-0 lg:hidden"
-            aria-label="Menu">
-            <span class="hamburger-line"
-              :class="{ 'rotate-45 translate-y-[7px] bg-[var(--deep-burgundy)]': isMenuOpen, 'bg-[var(--luxury-black)]': !isMenuOpen }"></span>
-            <span class="hamburger-line"
-              :class="{ 'opacity-0 bg-[var(--deep-burgundy)]': isMenuOpen, 'bg-[var(--luxury-black)]': !isMenuOpen }"></span>
-            <span class="hamburger-line"
-              :class="{ '-rotate-45 -translate-y-[7px] bg-[var(--deep-burgundy)]': isMenuOpen, 'bg-[var(--luxury-black)]': !isMenuOpen }"></span>
+          <!-- Logo for Mobile (Left) -->
+          <div class="lg:hidden cursor-pointer" @click="goToHome">
+            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+          </div>
+
+          <!-- Back Button (Mobile Only) -->
+          <button v-if="route.path !== '/' && isMobile" @click="router.back()" class="icon-btn" aria-label="Back">
+            <font-awesome-icon icon="fa-solid fa-arrow-left" />
           </button>
 
-          <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn flex" aria-label="Search">
-            <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-          </button>
 
-          <!-- Luxury Concierge (Support) -->
-          <div class="relative group ml-1 sm:ml-4">
-            <button class="concierge-btn flex items-center gap-2.5 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn">
+
+          <!-- Luxury Concierge (Desktop) -->
+          <div class="relative group ml-1 sm:ml-4 hidden lg:block">
+            <button class="concierge-btn flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn shadow-[0_0_15px_rgba(245,158,11,0.1)] hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]">
               <div class="relative">
-                <font-awesome-icon icon="fa-solid fa-headset" class="text-[10px] text-amber-500 animate-pulse-slow" />
-                <span class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-green-500 rounded-full border border-black animate-ping"></span>
+                <font-awesome-icon icon="fa-solid fa-headset" class="text-[11px] text-amber-500" />
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-black animate-pulse"></span>
+                <span class="absolute inset-0 bg-amber-500 rounded-full blur-[6px] animate-pulse opacity-40"></span>
               </div>
-              <span class="text-[8px] sm:text-[10px] font-black tracking-[0.2em] text-amber-600 dark:text-amber-500 uppercase flex items-center gap-1">
+              <span class="text-[9px] sm:text-[10px] font-black tracking-[0.3em] text-amber-600 dark:text-amber-500 uppercase flex items-center gap-1">
                 Concierge
                 <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] opacity-40 group-hover/btn:rotate-180 transition-transform duration-500" />
               </span>
@@ -86,7 +91,6 @@
                     </div>
                     <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[8px] text-amber-500 -translate-x-2 opacity-0 group-hover/wa:translate-x-0 group-hover/wa:opacity-100 transition-all" />
                   </a>
-                  
                   <a href="tel:+923416887454" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
                     <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
                     <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0341 6887454</span>
@@ -96,7 +100,6 @@
                     <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0324 4902607</span>
                   </a>
                 </div>
-                
                 <div class="mt-4 pt-4 border-t border-amber-500/10">
                   <button @click="isQueryModalOpen = true" class="w-full py-3 bg-[#111] dark:bg-amber-500 text-white dark:text-black font-black text-[9px] uppercase tracking-[0.3em] hover:bg-amber-600 transition-all">
                     Leave a Message
@@ -107,16 +110,30 @@
           </div>
         </div>
 
-        <!-- CENTER: Logo -->
-        <div class="flex-shrink-0 cursor-pointer flex flex-col items-center group px-2 sm:px-4" @click="goToHome">
-         
-          <img :src="ahmadlogo" alt="" class="w-24 h-24">
-            
+        <!-- CENTER: Logo (Desktop Only) -->
+        <div class="hidden lg:flex flex-shrink-0 cursor-pointer flex-col items-center group px-4" @click="goToHome">
+          <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-24 h-24">
         </div>
 
-        <!-- RIGHT: Actions -->
         <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
-          <!-- Theme & Auth Actions (Desktop Only Group) -->
+          <!-- Search Icon (Always Visible) -->
+          <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn" aria-label="Search">
+            <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+          </button>
+
+          <!-- Mobile Only Actions -->
+          <div class="lg:hidden flex items-center gap-2">
+            <button @click="isQueryModalOpen = true" class="icon-btn" aria-label="Concierge">
+              <font-awesome-icon icon="fa-solid fa-headset" class="text-amber-500" />
+            </button>
+            <button v-if="route.path === '/'" @click="isMenuOpen = !isMenuOpen" class="hamburger-btn" aria-label="Menu">
+              <span class="hamburger-line bg-[var(--luxury-black)]"></span>
+              <span class="hamburger-line bg-[var(--luxury-black)]"></span>
+              <span class="hamburger-line bg-[var(--luxury-black)]"></span>
+            </button>
+          </div>
+
+          <!-- Desktop Only Actions -->
           <div class="hidden sm:flex items-center gap-2 sm:gap-5">
             <!-- Theme Toggle -->
             <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
@@ -138,7 +155,7 @@
             </button>
           </div>
 
-          <!-- Google Translate (Desktop) - Bulletproof Container -->
+          <!-- Google Translate (Desktop) -->
           <div v-if="!isSmallMobile" id="google_translate_element" class="hidden sm:flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
 
           <!-- User Account Actions -->
@@ -185,7 +202,6 @@
               <span class="text-[10px] font-black uppercase tracking-widest text-[#d4af37]">JOIN HOUSE</span>
             </router-link>
           </div>
-
         </div>
       </div>
 
@@ -433,12 +449,12 @@
               </div>
             </div>
 
-            <div class="flex items-center justify-center gap-6 mb-8">
-              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all">
-                <font-awesome-icon :icon="['fab', 'instagram']" />
+            <div class="flex items-center justify-center gap-8 mb-8">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] hover:bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'instagram']" class="text-xl group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all">
-                <font-awesome-icon :icon="['fab', 'facebook-f']" />
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 hover:bg-blue-600 transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-xl group-hover:scale-110 transition-transform" />
               </a>
             </div>
 

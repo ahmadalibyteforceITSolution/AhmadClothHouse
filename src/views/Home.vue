@@ -396,73 +396,9 @@
       </div>
     </section>
 
-    <!-- Atelier Section -->
-    <section class="atelier-section bg-[var(--luxury-cream)] dark:bg-[#080808] py-32 transition-colors duration-500">
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        <div class="lg:col-span-5 space-y-8">
-          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">LUXURY PRET PAKISTAN</div>
-          <h2
-            class="text-5xl md:text-6xl font-playfair italic text-[var(--luxury-black)] dark:text-white leading-tight">
-            UNSTITCHED<br><span class="text-[var(--deep-burgundy)]">LADIES SUITS</span></h2>
-          <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
-            True elegance resides in the selection of fabrics. Every garment in the AHMADCLOTHESFABRICS atelier is crafted
-            with precision — premium silk, luxury lawn, and the finest hand embroidery. Our artisans spend hundreds of 
-            hours on each piece to ensure it meets our rigorous standards of quality and beauty.
-          </p>
-          <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
-            From the initial sketch to the final stitch, our process is a labor of love. We take pride in our ability to 
-            revive forgotten techniques and present them in a way that resonates with the modern woman. Discover our 
-            Luxury Pret and Bridal Couture collections today.
-          </p>
-          <div class="grid grid-cols-2 gap-8 py-6 border-y border-black/5 dark:border-white/5">
-            <div v-for="stat in ['Master Artisans', 'Premium Fabrics']" :key="stat" class="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[var(--primary-gold)]"></span>
-              <span
-                class="text-[10px] font-bold tracking-widest uppercase text-[var(--luxury-black)] dark:text-gray-300">{{
-                  stat }}</span>
-            </div>
-          </div>
-          <button class="btn-outline-gold" @click="router.push('/about')">Our Legacy</button>
-        </div>
-        <!-- Split Grid Images -->
-        <div class="lg:col-span-7 grid grid-cols-2 gap-6 relative">
-          <div class="space-y-6 pt-16">
-            <div class="atelier-img-card h-[420px] overflow-hidden group">
-              <img :src="PakistaniCouture2" alt="Luxury Pret"
-                class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-            </div>
-            <div class="atelier-img-card h-[280px] overflow-hidden group">
-              <img :src="BridalHeritage" alt="Bridal Couture"
-                class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-            </div>
-          </div>
-          <div class="space-y-6">
-            <div class="atelier-img-card h-[320px] overflow-hidden group">
-              <img :src="PakistaniCouture1" alt="Artisan Crafts"
-                class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-            </div>
-            <div class="atelier-img-card h-[480px] overflow-hidden group">
-              <img :src="PakistaniCouture4" alt="Signature Designs"
-                class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <div
-      class="marquee-strip-luxe bg-[var(--luxury-black)] dark:bg-black py-4 border-y border-[var(--primary-gold)]/10 overflow-hidden">
-      <div class="marquee-track flex items-center whitespace-nowrap">
-        <span v-for="n in 12" :key="n"
-          class="marquee-item text-[10px] font-bold tracking-[0.6em] text-white/40 dark:text-amber-400/20 px-8 uppercase">
-          SANA SAFINAZ ✦ ANEELAS COLLECTION ✦ MARIA B ✦ NISHAT BRAND ✦
-        </span>
-      </div>
-    </div>
+
+
 
     <!-- ═══════════════════════════════════════════
            LATEST FROM THE JOURNAL (FOR ADSENSE & SEO)
@@ -522,35 +458,7 @@
 
 
 
-    <section class="curated-look-section bg-white dark:bg-[#050505] py-32 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div class="relative order-2 lg:order-1">
-          <div class="look-image-frame bg-gray-50 p-4">
-            <img :src="PakistaniCouture3" class="look-img transition-all duration-1000"
-              alt="Seasonal Collection" loading="lazy" />
-            <div
-              class="absolute top-8 left-0 bg-[var(--deep-burgundy)] text-white px-6 py-2 text-[10px] font-bold tracking-[0.3em] -rotate-90 origin-top-left">
-              SUMMER '26
-            </div>
-          </div>
-        </div>
-        <div class="space-y-10 order-1 lg:order-2">
-          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">PAKISTANI DESIGNER SUITS</div>
-          <h2
-            class="text-5xl md:text-7xl font-playfair italic text-[var(--luxury-black)] dark:text-white leading-tight">
-            SIGNATURE<br><span class="text-[var(--deep-burgundy)]">BRIDAL COUTURE</span></h2>
-          <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-lg font-light italic">
-            Our latest collection explores the delicate balance of textures—from the intricate patterns of hand-woven
-            fabrics to the luxury feel of our signature unstitched collections.
-          </p>
-          <button
-            class="bg-[var(--deep-burgundy)] text-white px-10 py-4 text-xs font-bold tracking-widest uppercase hover:bg-[var(--luxury-black)] transition-all"
-            @click="router.push('/shop')">
-            VIEW COLLECTION
-          </button>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ═══════════════════════════════════════════
          THE ESSENCE OF CRAFT

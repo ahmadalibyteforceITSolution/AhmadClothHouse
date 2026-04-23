@@ -57,14 +57,14 @@ exports.getProductImage = async (req, res) => {
     if (!product || !product.image) {
       return res.status(404).json({ success: false, error: 'Image not found' });
     }
-    
+
     // Check if it's base64 data
     if (product.image.startsWith('data:image/')) {
       const parts = product.image.split(';');
       const mime = parts[0].split(':')[1];
       const base64Data = parts[1].replace('base64,', '');
       const imgBuffer = Buffer.from(base64Data, 'base64');
-      
+
       res.set('Cache-Control', 'public, max-age=604800, immutable');
       res.type(mime);
       return res.send(imgBuffer);
@@ -92,14 +92,14 @@ exports.uploadImage = async (req, res) => {
       console.warn('⚠️ AHMADCLOTHS: Vercel Blob token missing/invalid. Falling back to Base64.');
       const base64Data = req.file.buffer.toString('base64');
       const dataUri = `data:${req.file.mimetype};base64,${base64Data}`;
-      return res.status(200).json({ 
-        success: true, 
+      return res.status(200).json({
+        success: true,
         url: dataUri,
         storage: 'base64-no-token',
         note: 'BLOB_READ_WRITE_TOKEN not configured. Please add it to your .env or Vercel Dashboard.'
       });
     }
-    
+
     // 2. Attempt Vercel Blob upload with Sharp compression
     try {
       const { put } = require('@vercel/blob');
@@ -129,22 +129,22 @@ exports.uploadImage = async (req, res) => {
       });
 
       console.log(`AHMADCLOTHS: ✅ SUCCESS! Optimized image uploaded: ${blob.url}`);
-      return res.status(200).json({ 
-        success: true, 
-        url: blob.url, 
-        storage: 'vercel-blob-optimized' 
+      return res.status(200).json({
+        success: true,
+        url: blob.url,
+        storage: 'vercel-blob-optimized'
       });
 
     } catch (blobErr) {
       // 3. Log the exact error for debugging
       console.error('❌ AHMADCLOTHS: Image processing or upload FAILED.');
       console.error('Error Details:', blobErr.message);
-      
+
       // Fallback to Base64 (original raw image) if something went wrong
       const base64Data = req.file.buffer.toString('base64');
       const dataUri = `data:${req.file.mimetype};base64,${base64Data}`;
-      return res.status(200).json({ 
-        success: true, 
+      return res.status(200).json({
+        success: true,
         url: dataUri,
         storage: 'base64-error-fallback',
         note: `Compression/Blob failed: ${blobErr.message}.`
@@ -176,7 +176,7 @@ exports.updateProduct = async (req, res) => {
       runValidators: true
     });
     if (!product) return res.status(404).json({ success: false, error: 'Product not found' });
-    
+
     res.status(200).json({ success: true, data: product });
   } catch (err) {
     console.error('AHMADCLOTHS_SERVER_ERROR [Update]:', err.message);
@@ -189,7 +189,7 @@ exports.deleteProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ success: false, error: 'Product not found' });
-    
+
     await product.deleteOne();
     res.status(200).json({ success: true, data: {} });
   } catch (err) {
@@ -200,8 +200,8 @@ exports.deleteProduct = async (req, res) => {
 // @desc    Increment product views
 exports.viewProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, 
-      { $inc: { views: 1 } }, 
+    const product = await Product.findByIdAndUpdate(req.params.id,
+      { $inc: { views: 1 } },
       { returnDocument: 'after' }
     );
     if (!product) return res.status(404).json({ success: false, error: 'Product not found' });
@@ -215,8 +215,8 @@ exports.viewProduct = async (req, res) => {
 exports.recordSale = async (req, res) => {
   try {
     const { quantity } = req.body;
-    const product = await Product.findByIdAndUpdate(req.params.id, 
-      { $inc: { sales: quantity || 1 } }, 
+    const product = await Product.findByIdAndUpdate(req.params.id,
+      { $inc: { sales: quantity || 1 } },
       { returnDocument: 'after' }
     );
     if (!product) return res.status(404).json({ success: false, error: 'Product not found' });
