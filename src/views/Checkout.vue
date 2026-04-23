@@ -302,7 +302,7 @@ const processPayment = async () => {
       // Track Meta Purchase Event
       if (typeof window !== 'undefined' && window.fbq) {
          window.fbq('track', 'Purchase', {
-            value: orderData.totalAmount,
+            value: Number(orderData.totalAmount).toFixed(2),
             currency: 'PKR',
             content_ids: cart.items.map(i => i.id || i._id),
             content_type: 'product'

@@ -88,7 +88,7 @@ exports.notifyOrder = async (req, res) => {
 
     await sendEmail({
       email: adminEmail,
-      subject: `[NEW ORDER] ${shipping.fullName} - Rs. ${order.totalAmount}`,
+      subject: `[NEW ORDER] ${shipping.fullName} - Rs. ${Number(order.totalAmount).toLocaleString()}`,
       message: adminMessage
     });
 
@@ -97,14 +97,18 @@ exports.notifyOrder = async (req, res) => {
       await sendEmail({
         email: order.customerEmail,
         subject: 'Order Received - AhmadClothesHouse',
-        message: `Hello ${shipping.fullName},\n\nWe have received your order request for Rs. ${order.totalAmount}.\n\nOur team is reviewing the details and will contact you shortly via WhatsApp or Phone to confirm shipment.\n\nThank you for choosing AhmadClothesHouse.`
+        message: `Hello ${shipping.fullName},\n\nWe have received your order request for Rs. ${Number(order.totalAmount).toLocaleString()}.\n\nOur team is reviewing the details and will contact you shortly via WhatsApp or Phone to confirm shipment.\n\nThank you for choosing AhmadClothesHouse.`
       });
     }
 
     res.status(200).json({ success: true, message: 'Notification sent successfully' });
   } catch (err) {
     console.error('ORDER_NOTIFY_ERROR:', err.message);
-    res.status(500).json({ success: false, error: 'Email notification failed' });
+    res.status(500).json({ 
+      success: false, 
+      error: 'Email notification failed',
+      details: err.message // Send specific error back for debugging
+    });
   }
 };
 
