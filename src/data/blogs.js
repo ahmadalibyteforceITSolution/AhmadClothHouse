@@ -6,6 +6,102 @@ import BridalHighlight from "../assets/ai_new/bridal_highlight.png"
 
 export const blogs = [
   {
+    id: 54,
+    slug: 'science-of-fine-fabrics-lawn-silk-chiffon-guide',
+    title: 'The Science of Fine Fabrics: A Comprehensive Guide to Lawn, Silk, and Chiffon Grades',
+    date: 'April 23, 2026',
+    author: 'Ahmad Cloth House Textile Lab',
+    category: 'Fabric Science',
+    image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&q=80&w=1200',
+    summary: 'Dive deep into the technical specifications of luxury textiles, understanding thread counts, weave patterns, and how to identify premium quality.',
+    content: `When it comes to luxury Pakistani fashion, the fabric is more than just a base—it is the very soul of the garment. At Ahmad Cloth House, we believe that a truly informed shopper is an empowered one. In this technical deep-dive, we explore the intricate science behind the three pillars of our collections: Lawn, Silk, and Chiffon.
+
+### The Anatomy of Premium Lawn
+Lawn is often misunderstood as simple cotton. However, luxury lawn, particularly the variety used in our 2026 summer archives, is defined by its thread count and yarn quality. We utilize "Combed Cotton," a process where shorter fibers are removed, leaving only the longest and strongest strands. This results in a fabric that is incredibly smooth, durable, and highly absorbent. 
+
+A key technical metric is the "Linear Density" of the yarn. Our premium lawn typically uses a 100s or 120s yarn count. The higher the number, the finer the yarn, leading to a more breathable and lightweight feel that is essential for the intense heat of Lahore or Dubai. When you hold a piece of Ahmadcloths lawn, you'll notice a subtle sheen—this is "Mercerization," a treatment that strengthens the fibers and increases their affinity for dyes, ensuring colors remain vibrant for years.
+
+### The Luster of Pure Silk
+Silk is the gold standard of textiles, and its quality is measured in "Momme" (mm). For our formal tunics and bridal bases, we focus on 16mm to 22mm silk. Anything lighter lacks the structural integrity needed for heavy embroidery, while anything heavier can feel restrictive.
+
+We primarily source "Mulberry Silk," produced by silkworms fed exclusively on mulberry leaves. This produces the most consistent and luxurious fibers. The unique triangular prism-like structure of the silk fiber is what allows silk cloth to refract incoming light at different angles, thus producing different colors. This natural luminosity is why our silk digital prints have a depth that synthetic fabrics simply cannot replicate.
+
+### The Ethereal Nature of Chiffon
+Chiffon is all about the "Twist." It is a plain-woven fabric made from highly twisted yarns. These yarns are twisted in both the S and Z directions, which creates a slightly rough feel and a unique "crinkle" effect. 
+
+In the world of high-end couture, "Pure Silk Chiffon" is the ultimate luxury. It is exceptionally sheer and requires a master tailor's touch to handle. Synthetic alternatives like polyester chiffon are often stiffer and lack the graceful "drape" that allows a dupatta to flow effortlessly. At Ahmad Cloth House, we test for "Tensile Strength" to ensure that even our most delicate chiffons can support the weight of traditional hand-embroidery without tearing.
+
+Understanding these technical nuances ensures that when you invest in an Ahmad Cloth House piece, you are not just buying a dress, but a scientifically engineered work of textile art. Professional dry cleaning is always recommended for these high-grade fabrics to preserve their molecular structure and aesthetic brilliance.`
+  },
+  {
+    id: 53,
+    slug: 'ultimate-guide-sustainable-fashion-pakistan-2026',
+    title: 'The Ultimate Guide to Sustainable Fashion in Pakistan: Moving Towards a Greener Future',
+    date: 'April 22, 2026',
+    author: 'Eco-Ethics Team',
+    category: 'Sustainability',
+    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1200',
+    summary: 'Exploring the intersection of tradition and environmental responsibility in the modern Pakistani apparel industry.',
+    content: `As the fashion industry globally pivots towards sustainability, Pakistan—a textile powerhouse—is at the forefront of this transformation. At Ahmad Cloth House, we recognize that luxury should not come at the cost of our planet. This guide explores how we are integrating eco-friendly practices into the heart of traditional couture.
+
+### The Rise of Organic and Regenerative Cotton
+Cotton is the backbone of Pakistani textiles, but traditional farming can be water-intensive. The shift towards "Organic Cotton" is a game-changer. Organic farming avoids synthetic pesticides and fertilizers, protecting local biodiversity and the health of farmers. In 2026, we have begun sourcing from regenerative farms that actively work to restore soil health, capturing carbon from the atmosphere.
+
+By choosing organic unstitched lawn, you are supporting a supply chain that uses up to 91% less water than conventional methods. This is particularly vital in regions where water scarcity is a growing concern.
+
+### Artisanal Craftsmanship as "Slow Fashion"
+One of the most sustainable aspects of Pakistani fashion is our heritage of hand-embroidery. While machine-made "Fast Fashion" promotes a culture of disposability, a hand-crafted bridal lehenga or a hand-loomed khaddar suit is an investment for life. 
+
+This "Slow Fashion" movement encourages consumers to buy fewer, higher-quality pieces that can be passed down through generations. Our master artisans in Lahore spend weeks on a single garment, ensuring a level of durability and timelessness that mass-produced items lack. Sustainability is as much about longevity as it is about materials.
+
+### Eco-Friendly Dyeing and Water Management
+The textile dyeing process has historically been a significant source of water pollution. We are now seeing the adoption of "Zero Liquid Discharge" (ZLD) systems in high-end mills. These systems recycle nearly 100% of the water used in the dyeing process. Furthermore, we are moving towards natural and low-impact dyes that are free from harmful heavy metals and AZO compounds.
+
+### The Role of the Conscious Consumer
+Sustainability is a shared responsibility. As a consumer, you can contribute by:
+1. **Investing in Quality**: Choose premium fabrics that last longer and don't need frequent replacement.
+2. **Proper Care**: Follow dry-cleaning instructions and store garments in breathable bags to extend their lifespan.
+3. **Upcycling**: Traditional unstitched suits can often be re-styled or transformed into new silhouettes by a creative tailor.
+
+At Ahmad Cloth House, our vision for 2026 and beyond is to prove that "Made in Pakistan" is synonymous with "Ethically Made." We are committed to transparency in our production line, from the cotton fields of Punjab to the final stitch in our studio. Join us in embracing a fashion future that honors both our heritage and our home.`
+  },
+  {
+    id: 52,
+    slug: 'mastering-drapery-style-perfect-pakistani-dupatta',
+    title: 'Mastering the Art of Drapery: How to Style the Perfect Pakistani Dupatta',
+    date: 'April 21, 2026',
+    author: 'Lead Stylist',
+    category: 'Styling Guide',
+    image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&q=80&w=1200',
+    summary: 'From the classic "Sideways flow" to the "Royal Wrap," learn the professional techniques to elevate your look.',
+    content: `In the world of South Asian fashion, the Dupatta is more than an accessory—it is the defining element of the ensemble. Whether it's a sheer organza wrap, a heavy bridal dupatta, or a digitally printed silk scarf, the way you drape it can completely transform your silhouette. Here are the professional styling techniques used by our lead designers at Ahmad Cloth House.
+
+### 1. The Classic One-Side Drape (The "Graceful Flow")
+This is the most popular style for formal lunches and evening soirees. Fold the dupatta lengthwise and place it on one shoulder, letting it hang evenly at the front and back.
+*   **Pro Tip**: Secure it with a small, hidden safety pin on the shoulder seam of your kameez. This works best with heavy chiffons and luxury lawns as it shows off the daman (hem) and neckline of the shirt.
+
+### 2. The Royal "V" Drape
+Perfect for festive events like Eid or a Nikah ceremony. Pin one end of the dupatta to your left shoulder, bring the fabric across the front to create a soft "V" shape, and tuck or pin the other end to your right shoulder.
+*   **Best For**: Heavily embroidered dupattas where you want to showcase the intricate central work. This style adds a layer of sophistication and coverage while maintaining a structured look.
+
+### 3. The Front Fall (The "Modern Chic")
+A favorite for our ready-to-wear "Pret" collection. Drape the dupatta around your neck with both ends falling forward over your chest.
+*   **Styling Insight**: This is a great way to add volume to a minimalist outfit. Use a printed silk dupatta with a solid-color suit for a high-fashion, contemporary vibe. It’s also practical for cooler evenings.
+
+### 4. The Elbow Wrap (The "Red Carpet Look")
+Commonly seen in bridal couture and high-end galas. Drape the dupatta across your back and let the ends hang over your forearms or elbows.
+*   **When to Wear**: Use this for your "Walima" or "Reception" look. It allows you to walk with a regal posture and ensures that your heavy front embroidery is fully visible. This works exceptionally well with structured fabrics like velvet or stiff organza.
+
+### 5. The Head-Cover Style (The "Bridal Heritage")
+For brides and traditional ceremonies, the head drape is essential. Place the center of the dupatta over the head, ensuring it frames the face perfectly. One side is usually pinned to the shoulder while the other is left free or tucked into the waist (lehenga style).
+*   **Technical Tip**: If the dupatta is heavy with stonework, use a "Dupatta Setting" technique where a hidden hair clip or comb is sewn into the fabric to anchor it to your hairstyle.
+
+### Caring for Your Statement Dupattas
+Regardless of the style, the weight of embroidery can sometimes pull on delicate fabrics like net or pure chiffon. Always handle with clean hands to avoid transferring oils to the fabric. When storing, avoid folding heavy dupattas in the same place repeatedly to prevent permanent creases. Instead, roll them around a cardboard tube covered in acid-free tissue paper.
+
+Draping is an art form that celebrates the versatility of Pakistani fashion. Experiment with these styles to find the one that resonates with your personal elegance and the occasion. Explore our latest arrivals to find the perfect statement dupatta for your next event.`
+  },
+  {
     id: 51,
     slug: 'pakistani-summer-lawn-trends-april-2026',
     title: 'Today’s Trend: Why 2026 Summer Lawn is the Ultimate Fashion Choice',

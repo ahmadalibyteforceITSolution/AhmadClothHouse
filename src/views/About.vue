@@ -4,18 +4,8 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>About AhmadClothesHouse | High-End Pakistani Fashion & Global Heritage</h2>
-         <p>Learn about AhmadClothesHouse and our commitment to artisanal mastery, ethical fashion, and design innovation in the 2026 collection. Since our inception, AhmadClothesHouse has been dedicated to using premium fabrics for our handcrafted luxury unstitched lawn and bridal couture. We ship our authentic Pakistani designer suits to the USA, UK, Canada, UAE, Australia, and beyond.</p>
-         <ul>
-            <li>AhmadClothesHouse Official Fashion Heritage</li>
-            <li>Artisan Hand-Embroidery 2026 Pakistan</li>
-            <li>Master Designers of Luxury Pakistani Couture</li>
-            <li>Premium Fabrics for Maria B Sana Safinaz Collections</li>
-            <li>Sustainable & Ethical Fashion Practices UAE UK USA</li>
-            <li>Handcrafted Couture for Overseas Pakistanis Worldwide</li>
-            <li>Best Pakistani Fashion Boutique in Lahore 2026</li>
-            <li>Luxury Unstitched Suits Maria B Sana Safinaz Asim Jofa</li>
-         </ul>
+         <h2>About Ahmad Cloth House | Artisanal Mastery & Fashion Heritage</h2>
+         <p>Learn about Ahmad Cloth House and our commitment to artisanal excellence, ethical fashion, and design innovation. Since our inception, we have been dedicated to reviving traditional embroidery techniques and using premium fabrics for our luxury collections.</p>
       </section>
 
       <!-- Premium Cinematic About Hero -->

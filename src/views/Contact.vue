@@ -3,15 +3,8 @@
 
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
-         <h2>Contact AhmadClothesHouse | Global Customer Support & Consultations</h2>
-         <p>Get in touch with AhmadClothesHouse for custom bridal orders, fashion consultations, or international order support. We ship our handcrafted luxury apparel to USA, UK, Canada, UAE, Australia, and more. Our team is available for global consultations and design support.</p>
-         <ul>
-            <li>AhmadClothesHouse Custom Bridal Inquiries</li>
-            <li>International Order Support for Pakistani Suits</li>
-            <li>Fashion Consultations for Overseas Pakistanis</li>
-            <li>Luxury Gift Orders Global Delivery</li>
-            <li>Best Cloth Boutique Support Lahore & Worldwide</li>
-         </ul>
+         <h2>Contact Ahmad Cloth House | Global Customer Support & Consultations</h2>
+         <p>Get in touch with Ahmad Cloth House for custom bridal orders, fashion consultations, or international order support. Our team is available for global consultations and design support from our flagship studio in Lahore.</p>
       </section>
 
       <!-- Premium Cinematic Contact Hero -->
@@ -244,16 +237,10 @@ const contactSchema = yup.object({
 
 const boutiques = [
    {
-      city: 'London',
-      address: '24 Savile Row, Mayfair',
-      hours: 'Mon-Sat: 09:00 - 20:00',
-      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&auto=format&fit=crop'
-   },
-   {
-      city: 'Paris',
-      address: '12 Rue Royale, 8th Arr.',
-      hours: 'Mon-Sun: 10:00 - 19:00',
-      image: 'https://images.unsplash.com/photo-1550928431-ee0ec6db30d3?w=800&auto=format&fit=crop'
+      city: 'Lahore',
+      address: 'Wapda Town, Ameer Chowk',
+      hours: 'Mon-Sun: 10:00 - 22:00',
+      image: BridalHighlight
    }
 ]
 

@@ -91,7 +91,7 @@
             </div>
             <h3 class="text-4xl font-playfair italic">Elite Safeguarding</h3>
             <p class="max-w-2xl text-stone-400 text-sm font-light leading-loose tracking-wide">
-              AHMADCLOTHESFABRICS is the sole architect of your data journey. Our encryption protocols mirror the complexity of our finest embroideries—beautifully secure, absolutely reliable.
+              Ahmad Cloth House is the sole architect of your data journey. Our encryption protocols mirror the complexity of our finest embroideries—beautifully secure, absolutely reliable.
             </p>
             <div class="flex gap-4 pt-4">
               <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all group/icon">
@@ -118,11 +118,11 @@ import { onMounted } from 'vue'
 const privacySections = [
   {
     title: "Data Stewardship",
-    content: "AHMADCLOTHESFABRICS, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
+    content: "Ahmad Cloth House, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
   },
   {
     title: "Monetization & Advertising Ecosystem",
-    content: "We partner with Google AdSense to sustain our digital boutique. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet."
+    content: "We utilize Google AdSense to sustain our digital boutique. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet."
   },
   {
     title: "Personalized Advertising & Opt-Out",

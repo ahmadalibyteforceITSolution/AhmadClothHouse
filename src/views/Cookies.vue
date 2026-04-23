@@ -114,7 +114,7 @@ const cookieSections = [
   },
   {
     title: "Google AdSense & DoubleClick Cookies",
-    content: "As part of our partnership with Google AdSense, we use the DoubleClick cookie. This cookie enables Google and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet. You may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting Google's Ad Settings."
+    content: "As part of our integration with Google AdSense, we use the DoubleClick cookie. This cookie enables Google and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet. You may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting Google's Ad Settings."
   },
   {
     title: "How to Manage Cookies",

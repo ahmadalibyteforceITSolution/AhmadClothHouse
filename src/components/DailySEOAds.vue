@@ -50,59 +50,20 @@ import { blogs } from '../data/blogs'
 const displayedBlogs = computed(() => blogs.slice(0, 10))
 
 const trendingKeywords = ref([
-  // ✦ TODAY'S TOP TRENDS (High Volume)
-  'premium summer lawn 2026 online',
-  'latest maria b collection today',
-  'luxury lawn suites sale pakistan',
-  'unstitched designer suits online',
-  'best pakistani clothes shop uae',
-  'sapphire new arrivals 2026',
-  'affordable luxury pret lahore',
-  'khaadi summer lawn 2026 sale',
-  'gulahmed spring/summer collection',
-  'sana safinaz luxury lawn online',
-
-  // ✦ BRIDAL & COUTURE (High Intent)
-  'bridal dresses pakistan 2026',
-  'luxury bridal couture lahore',
-  'pakistani bridal lehenga price',
-  'wedding dresses for women 2026',
-  'custom bridal wear pakistan',
-  'hand-embroidered bridal maxi',
-  'walima dresses for bride 2026',
-  'nikah dresses pakistan online',
-  'designer bridal gowns pakistan',
-
-  // ✦ SEASONAL LAWN & FABRIC
-  'printed lawn suits pakistan',
-  '3 piece unstitched lawn suits',
-  'luxury chiffon suites sale uk',
-  'organza formal dresses online',
-  'velvet suits pakistan online',
-  'linen collection 2026 pakistan',
-  'pure cotton suits online shop',
-  'embroidered chiffon suits usa',
-  'luxury silk collection 2026',
-
-  // ✦ INTERNATIONAL SHOPPING (Global SEO)
-  'pakistani suits online usa uk',
-  'buy pakistani suits in canada',
-  'ship pakistani clothes to australia',
-  'best online boutique pakistan usa',
-  'ahmad clothes house official shop',
-  'online shopping pakistan clothes',
-  'premium pakistani fashion worldwide',
-  'designer suits lahore shipping',
-
-  // ✦ MODERN & READY TO WEAR
-  'pakistani co-ord sets 2026',
-  'luxury pret pakistan 2026',
-  'ready to wear dresses lahore',
-  'designer kurti designs 2026',
-  'fusion wear pakistan trends',
-  'monochromatic pakistani outfits',
-  'sustainable fashion pakistan',
-  'contemporary bridal wear 2026'
+  'luxury unstitched lawn',
+  'bridal couture 2026',
+  'hand-embroidered suits',
+  'premium pakistani fashion',
+  'summer lawn collection',
+  'chiffon formal wear',
+  'wedding dresses 2026',
+  'artisanal craftsmanship',
+  'worldwide shipping',
+  'luxury pret online',
+  'bespoke bridal wear',
+  'traditional embroidery',
+  'premium fabrics',
+  'exclusive designs'
 ])
 
 // In a real scenario, you might fetch these from an API daily

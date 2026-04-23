@@ -7,13 +7,13 @@
         <div class="flex-1 text-center lg:text-left space-y-8">
           <div class="flex items-center justify-center lg:justify-start gap-4">
             <span class="h-[1px] w-8 bg-[var(--primary-gold)]"></span>
-            <span class="text-[10px] font-black tracking-[0.5em] text-[var(--primary-gold)] uppercase">Partnership</span>
+            <span class="text-[10px] font-black tracking-[0.5em] text-[var(--primary-gold)] uppercase">Collaboration</span>
           </div>
           <h2 class="text-4xl md:text-7xl font-light italic font-playfair dark:text-white leading-tight uppercase tracking-tighter">
             {{ title || 'Elite Designer Collaborations' }}
           </h2>
           <p class="text-stone-500 dark:text-stone-400 max-w-xl text-lg font-light leading-relaxed italic">
-            {{ description || 'Exclusive partnership with Sana Safinaz, Aneelas Collection, Maria B, and Nishat Brand.' }}
+            {{ description || 'Curated designer collections featuring Sana Safinaz, Aneelas Collection, Maria B, and Nishat Brand.' }}
           </p>
           
           <!-- Discount Badge -->

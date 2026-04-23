@@ -5,23 +5,8 @@
          SEO CONTENT (VISUALLY HIDDEN)
     ═══════════════════════════════════════════ -->
     <section class="sr-only">
-      <h1>Pakistani Designer Suits 2026 | AhmadClothesHouse Premium Lawn & Couture</h1>
-      <p>AhmadClothesHouse (formerly AhmadClothesFabrics) is your premier destination for high-quality Pakistani designer suits. Discover the finest selection of handcrafted unstitched fabrics, luxury pret, and bridal couture. Our premium boutique offers designer embroidered lawn, chiffon collections, and signature bridal wear. 
-        Top-ranked Pakistani designer suits for our customers in Pakistan, USA, UK, Canada, UAE, and Australia. Experience premium fashion in Lahore with express worldwide shipping.</p>
-      <ul>
-        <li>Pakistani Luxury Lawn 2026 AhmadClothesHouse</li>
-        <li>Designer Unstitched Suits Maria B Sana Safinaz</li>
-        <li>Luxury Pret Pakistan - Ready to Wear Boutique Online</li>
-        <li>Bridal Couture & Wedding Wear Lahore 2026</li>
-        <li>Pakistani Designer Suits Online USA, UK, Canada Shipping</li>
-        <li>Embroidered Lawn & Chiffon Collections 2026 - Buy Online</li>
-        <li>Ahmad Cloth House Official Pakistani Store</li>
-        <li>Festive Wear & Eid Collections 2026 Worldwide Delivery</li>
-        <li>Exclusive Silk designs by AhmadClothesHouse Lahore</li>
-        <li>Luxury Hand-embroidered Outfits for Overseas Pakistanis</li>
-        <li>Best Pakistani Boutique in Lahore for Wedding Wear</li>
-        <li>Gul Ahmed, Asim Jofa, Khaadi, Sapphire 2026 Collections</li>
-      </ul>
+      <h1>Ahmad Cloth House | Premium Pakistani Couture & Luxury Unstitched Fabrics</h1>
+      <p>Ahmad Cloth House is a premier fashion boutique specializing in handcrafted unstitched lawn, luxury pret, and bespoke bridal couture. We combine traditional Pakistani craftsmanship with modern silhouettes to create timeless elegance for our global clientele.</p>
     </section>
 
     <!-- ═══════════════════════════════════════════
@@ -385,8 +370,8 @@
     <!-- Collaboration Slot: Sponsored Brands -->
     <SponsoredAd 
       title="Elite Designer Collaborations" 
-      description="Exclusive partnership with Sana Safinaz, Aneela's Collection, Maria B, and Nishat Brand. Experience the pinnacle of Pakistani fashion with an exclusive 30% discount on all collaboration pieces." 
-      button-text="VIEW COLLABORATIONS"
+      description="Explore our curated selection of premium designer collections from Sana Safinaz, Aneela's Collection, Maria B, and Nishat Brand. Experience the pinnacle of Pakistani fashion with the latest season's highlights." 
+      button-text="VIEW COLLECOTION"
       :image="Fugibles3"
       link="/shop"
       :brands="[
