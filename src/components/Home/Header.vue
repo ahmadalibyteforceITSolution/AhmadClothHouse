@@ -26,6 +26,18 @@
         </span>
       </div>
     </div>
+    
+    <!-- WhatsApp Support Bar -->
+    <div class="bg-white dark:bg-[#0A0A0A] py-2 px-4 border-b border-black/5 dark:border-white/5 flex items-center justify-center gap-3">
+      <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-base" />
+      <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
+        <span class="text-[#25D366] uppercase">Inquiry:</span> 
+        <a href="https://wa.me/923416887454" target="_blank" class="text-black dark:text-white ml-1 hover:text-green-600 transition-colors">0341 6887454</a>
+        <span class="mx-3 opacity-20 text-black dark:text-white">|</span>
+        <span class="text-[#25D366] uppercase">Support:</span> 
+        <a href="https://wa.me/923244902607" target="_blank" class="text-black dark:text-white ml-1 hover:text-green-600 transition-colors">0324 4902607</a>
+      </p>
+    </div>
 
     <!-- Main Header -->
     <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
@@ -79,9 +91,9 @@
                     <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
                     <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0341 6887454</span>
                   </a>
-                  <a href="tel:03334247601" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
+                  <a href="tel:+923244902607" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
                     <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
-                    <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0333 4247601</span>
+                    <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0324 4902607</span>
                   </a>
                 </div>
                 
@@ -408,13 +420,7 @@
                     class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
                   <span class="text-[10px] font-black uppercase tracking-[0.2em]">0341 6887454</span>
                 </a>
-                <a href="tel:03334247601"
-                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
-                  <font-awesome-icon icon="fa-solid fa-phone"
-                    class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
-                  <span class="text-[10px] font-black uppercase tracking-[0.2em]">0333 4247601</span>
-                </a>
-                <a href="tel:03244902607"
+                <a href="tel:+923244902607"
                   class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
                   <font-awesome-icon icon="fa-solid fa-phone"
                     class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />

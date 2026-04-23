@@ -5,7 +5,7 @@
     <div class="absolute inset-0 group">
        <div class="absolute inset-0 bg-white/90 dark:bg-black/90 z-10 backdrop-blur-[2px]"></div>
        <img 
-          :src="Fugible3" 
+          :src="CoutureDisplay" 
           class="w-full h-full object-cover scale-110 animate-slow-zoom grayscale opacity-20 dark:opacity-40"
           alt="Luxury Abstract"
        >
@@ -55,8 +55,8 @@ import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import api from '../api'
 import { useAuthStore } from '../stores/auth'
-import Fugible3 from '../assets/ai_new/hero_collage_3.png'
-import Fugible from '../assets/ai_new/shop_header.png'
+import CoutureDisplay from '../assets/ai_new/hero_collage_3.png'
+import BrandShowcase from '../assets/ai_new/shop_header.png'
 import Swal from 'sweetalert2'
 import * as yup from 'yup'
 

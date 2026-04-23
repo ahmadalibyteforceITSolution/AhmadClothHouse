@@ -3,7 +3,7 @@
 
     <!-- Cinematic Left Panel -->
     <div class="hidden lg:flex w-1/2 relative overflow-hidden group border-r border-black/5 dark:border-white/5">
-      <img :src="Fugible1"
+      <img :src="BridalShowcase"
         class="absolute inset-0 w-full h-full object-cover grayscale opacity-90 transition-all duration-[20s] ease-out group-hover:scale-105 group-hover:grayscale-0"
         alt="Couture Experience">
       
@@ -104,7 +104,7 @@ import { reactive, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { googleTokenLogin, decodeCredential } from 'vue3-google-login'
-import Fugible1 from '../assets/ai_new/bridal_highlight.png'
+import BridalShowcase from '../assets/ai_new/bridal_highlight.png'
 import * as yup from 'yup'
 
 const auth = useAuthStore()

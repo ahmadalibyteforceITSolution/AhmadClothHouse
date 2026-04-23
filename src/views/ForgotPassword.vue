@@ -5,7 +5,7 @@
     <div class="absolute inset-0 group">
        <div class="absolute inset-0 bg-white/90 dark:bg-black/90 z-10 backdrop-blur-[2px]"></div>
        <img 
-          :src="Fugible3" 
+          :src="CoutureDisplay" 
           class="w-full h-full object-cover scale-110 animate-slow-zoom grayscale opacity-20 dark:opacity-40"
           alt="Luxury Abstract"
        >
@@ -78,8 +78,8 @@ import api from '../api'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
 import * as yup from 'yup'
-import Fugible from '../assets/ai_new/shop_header.png'
-import Fugible3 from '../assets/ai_new/hero_collage_4.png'
+import BrandShowcase from '../assets/ai_new/shop_header.png'
+import CoutureDisplay from '../assets/ai_new/hero_collage_4.png'
 
 const auth = useAuthStore()
 const email = ref('')

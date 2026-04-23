@@ -72,9 +72,15 @@
 
       <!-- Bottom Bar -->
       <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-[10px] text-gray-400 tracking-widest uppercase">
-          © 2026 AHMADCLOTHESHOUSE. ALL RIGHTS RESERVED.
-        </p>
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <p class="text-[10px] text-gray-400 tracking-widest uppercase">
+            © 2026 AHMADCLOTHESHOUSE. ALL RIGHTS RESERVED.
+          </p>
+          <p class="text-[8px] text-[var(--primary-gold)] tracking-[0.4em] uppercase font-bold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-600"></span> 
+            Crafted in Lahore, Pakistan
+          </p>
+        </div>
         <div class="flex gap-6">
           <font-awesome-icon :icon="['fab', 'cc-visa']" class="text-gray-300 text-xl" />
           <font-awesome-icon :icon="['fab', 'cc-mastercard']" class="text-gray-300 text-xl" />
@@ -88,7 +94,6 @@
 <script setup>
 import { ref } from 'vue'
 import ahmadlogo from '../assets/fugibles.png'
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
 
 const email = ref('')
 const status = ref({

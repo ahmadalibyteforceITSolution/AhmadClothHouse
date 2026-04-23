@@ -39,6 +39,9 @@
     <!-- ═══════════════════════════════════════════
          NARRATIVE LAYOUT
     ═══════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════
+         SIGNATURE SECURITY SECTION
+    ═══════════════════════════════════════════ -->
     <main class="max-w-[1400px] mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-12 gap-20">
       
       <!-- Side Navigation (Sticky) -->
@@ -94,6 +97,9 @@
               Ahmad Cloth House is the sole architect of your data journey. Our encryption protocols mirror the complexity of our finest embroideries—beautifully secure, absolutely reliable.
             </p>
             <div class="flex gap-4 pt-4">
+              <a href="https://wa.me/923416887454" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all group/icon">
+                <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-xl group-hover/icon:scale-125 transition-transform" />
+              </a>
               <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all group/icon">
                 <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg group-hover/icon:scale-125 transition-transform" />
               </a>
@@ -109,6 +115,19 @@
     <!-- ═══════════════════════════════════════════
          FLOATING ACTION BUTTON
     ═══════════════════════════════════════════ -->
+    <div class="fixed bottom-10 right-10 z-[100] flex flex-col gap-4 animate-reveal-delay">
+      <a href="https://wa.me/923416887454" target="_blank" 
+         class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all group relative">
+        <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-2xl" />
+        <span class="absolute right-20 bg-white text-black px-4 py-2 text-[8px] font-bold tracking-widest uppercase shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          Couture Concierge
+        </span>
+      </a>
+      <button @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              class="w-16 h-16 bg-white dark:bg-[#1A1A1A] text-black dark:text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all group">
+        <font-awesome-icon icon="fa-solid fa-arrow-up" class="text-lg" />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -121,12 +140,24 @@ const privacySections = [
     content: "Ahmad Cloth House, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
   },
   {
+    title: "Log Files & Analytics",
+    content: "Ahmad Cloth House follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information."
+  },
+  {
     title: "Monetization & Advertising Ecosystem",
     content: "We utilize Google AdSense to sustain our digital boutique. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet."
   },
   {
     title: "Personalized Advertising & Opt-Out",
     content: "You may opt out of personalized advertising by visiting Google's Ads Settings (https://www.google.com/settings/ads). Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting www.aboutads.info. We also work with other third-party ad networks that may use cookies, web beacons, and similar technologies to collect information."
+  },
+  {
+    title: "Third Party Privacy Policies",
+    content: "Ahmad Cloth House's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You can choose to disable cookies through your individual browser options."
+  },
+  {
+    title: "Children's Information",
+    content: "Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Ahmad Cloth House does not knowingly collect any Personal Identifiable Information from children under the age of 13."
   },
   {
     title: "GDPR & CCPA Compliance",
@@ -148,12 +179,42 @@ const privacySections = [
 
 onMounted(() => {
   window.scrollTo(0, 0)
+
+  // === Inject Privacy Page SEO ===
+  const BASE = 'https://ahmad-cloths.vercel.app'
+  document.title = 'Privacy Policy | Data Protection & Cookies | AhmadClothesHouse'
+
+  const setMeta = (name, isProperty, value) => {
+    const attr = isProperty ? `[property="${name}"]` : `[name="${name}"]`
+    let el = document.querySelector(`meta${attr}`)
+    if (!el) {
+      el = document.createElement('meta')
+      el.setAttribute(isProperty ? 'property' : 'name', name)
+      document.head.appendChild(el)
+    }
+    el.setAttribute('content', value)
+  }
+
+  setMeta('description', false, 'Read the Privacy Policy of AhmadClothesHouse. Learn how we protect your data, our use of cookies for AdSense, and your rights under GDPR and CCPA.')
+  setMeta('robots', false, 'index, follow')
+  setMeta('og:title', true, 'Privacy Policy | AhmadClothesHouse Boutique')
+  setMeta('og:description', true, 'Learn about our commitment to your data privacy and security at AhmadClothesHouse.')
+  setMeta('og:url', true, `${BASE}/privacy`)
+  
+  let canonical = document.querySelector('link[rel="canonical"]')
+  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
+  canonical.href = `${BASE}/privacy`
 })
 </script>
 
 <style scoped>
 .animate-reveal {
   animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  opacity: 0;
+}
+
+.animate-reveal-delay {
+  animation: reveal-bottom 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
   opacity: 0;
 }
 
@@ -199,3 +260,4 @@ html {
   scroll-behavior: smooth;
 }
 </style>
+

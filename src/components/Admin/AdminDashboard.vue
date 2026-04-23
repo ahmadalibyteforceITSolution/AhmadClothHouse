@@ -150,7 +150,7 @@
 import { ref, computed, markRaw, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
+
 import { useProductsStore } from '../../stores/products'
 import { useOrdersStore } from '../../stores/orders'
 import { useReviewsStore } from '../../stores/reviews'

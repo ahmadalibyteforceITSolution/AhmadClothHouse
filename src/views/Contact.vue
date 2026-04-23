@@ -4,7 +4,7 @@
       <!-- SEO CONTENT (VISUALLY HIDDEN) -->
       <section class="sr-only">
          <h2>Contact Ahmad Cloth House | Global Customer Support & Consultations</h2>
-         <p>Get in touch with Ahmad Cloth House for custom bridal orders, fashion consultations, or international order support. Our team is available for global consultations and design support from our flagship studio in Lahore.</p>
+         <p>Get in touch with Ahmad Cloth House for custom bridal orders, fashion consultations, or international order support. Our team is available for global consultations and design support from our flagship studio in Lahore. Reach us at 0341 6887454 or 0324 4902607.</p>
       </section>
 
       <!-- Premium Cinematic Contact Hero -->
@@ -54,7 +54,7 @@
                </h3>
                <p
                   class="text-2xl font-light uppercase tracking-tighter text-gray-900 dark:text-white leading-tight font-playfair italic group-hover:pl-4 transition-all duration-700 border-l-0 group-hover:border-l border-[var(--primary-gold)]/40">
-                  +92 341 6887454<br>ahmadalihafeez24@gmail.com
+                  +92 341 6887454<br>+92 324 4902607<br>ahmadalihafeez24@gmail.com
                </p>
             </div>
 
@@ -210,7 +210,7 @@ import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
 import * as yup from 'yup'
 import BridalHighlight from "../assets/ai/bridal_highlight.png"
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
+
 
 const auth = useAuthStore()
 const form = reactive({
@@ -325,6 +325,82 @@ const transmitIntent = async () => {
 
 onMounted(() => {
    window.scrollTo(0, 0)
+
+   // === Inject Contact Page SEO ===
+   const BASE = 'https://ahmad-cloths.vercel.app'
+   const pageTitle = 'Contact Our Boutique | AhmadClothesHouse Lahore | Global Support'
+   const pageDesc = 'Get in touch for inquiries, bridal consultations, and international order support. Visit our luxury boutique in Lahore or contact our global team for express shipping to USA, UK, and UAE.'
+   
+   document.title = pageTitle
+
+   const setMeta = (name, isProperty, value) => {
+     const attr = isProperty ? `[property="${name}"]` : `[name="${name}"]`
+     let el = document.querySelector(`meta${attr}`)
+     if (!el) {
+       el = document.createElement('meta')
+       el.setAttribute(isProperty ? 'property' : 'name', name)
+       document.head.appendChild(el)
+     }
+     el.setAttribute('content', value)
+   }
+
+   setMeta('description', false, pageDesc)
+   setMeta('robots', false, 'index, follow')
+   setMeta('keywords', false, 'Contact AhmadClothesHouse, Pakistani bridal consultation, luxury fashion support, global shipping Pakistani suits, Lahore boutique contact')
+   
+   setMeta('og:title', true, pageTitle)
+   setMeta('og:description', true, pageDesc)
+   setMeta('og:url', true, `${BASE}/contact`)
+   setMeta('og:type', true, 'website')
+   
+   let canonical = document.querySelector('link[rel="canonical"]')
+   if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
+   canonical.href = `${BASE}/contact`
+
+   // ContactPage / ClothingStore Schema
+   let schema = document.querySelector('script[id="contact-schema"]')
+   if (schema) schema.remove()
+   schema = document.createElement('script')
+   schema.id = 'contact-schema'
+   schema.type = 'application/ld+json'
+   schema.text = JSON.stringify({
+     "@context": "https://schema.org",
+     "@type": "ContactPage",
+     "name": "Contact AhmadClothesHouse",
+     "description": pageDesc,
+     "url": `${BASE}/contact`,
+     "mainEntity": {
+       "@type": "ClothingStore",
+       "name": "AhmadClothesHouse",
+       "image": `${BASE}/og-image.png`,
+       "contact": "0341 6887454 / 0324 4902607",
+       "whatsapp": "+92 341 6887454",
+       "telephone": "+923416887454",
+       "email": "ahmadalihafeez24@gmail.com",
+       "address": {
+         "@type": "PostalAddress",
+         "streetAddress": "Wapda Town, Ameer Chowk",
+         "addressLocality": "Lahore",
+         "addressRegion": "Punjab",
+         "postalCode": "54000",
+         "addressCountry": "PK"
+       },
+       "geo": {
+         "@type": "GeoCoordinates",
+         "latitude": 31.4363,
+         "longitude": 74.2704
+       },
+       "url": BASE,
+       "priceRange": "$$$",
+       "openingHoursSpecification": {
+         "@type": "OpeningHoursSpecification",
+         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+         "opens": "10:00",
+         "closes": "22:00"
+       }
+     }
+   })
+   document.head.appendChild(schema)
 })
 </script>
 

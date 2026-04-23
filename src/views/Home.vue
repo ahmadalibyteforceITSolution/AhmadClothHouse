@@ -164,8 +164,11 @@
           <!-- Social Proof -->
           <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-8 border-t border-black/5 dark:border-white/5">
             <div class="flex -space-x-2.5">
-              <img v-for="i in 3" :key="i"
-                :src="`https://i.pravatar.cc/100?u=ahmad${i}`"
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&h=100&fit=crop"
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&h=100&fit=crop"
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&fit=crop"
                 class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
             </div>
             <div>
@@ -372,7 +375,7 @@
       title="Elite Designer Collaborations" 
       description="Explore our curated selection of premium designer collections from Sana Safinaz, Aneela's Collection, Maria B, and Nishat Brand. Experience the pinnacle of Pakistani fashion with the latest season's highlights." 
       button-text="VIEW COLLECOTION"
-      :image="Fugibles3"
+      :image="PakistaniCouture1"
       link="/shop"
       :brands="[
         { name: 'Sana Safinaz', link: 'https://www.sanasafinaz.com/' },
@@ -425,24 +428,24 @@
         <div class="lg:col-span-7 grid grid-cols-2 gap-6 relative">
           <div class="space-y-6 pt-16">
             <div class="atelier-img-card h-[420px] overflow-hidden group">
-              <img :src="Fugibles1" alt="Luxury Pret"
+              <img :src="PakistaniCouture2" alt="Luxury Pret"
                 class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
             <div class="atelier-img-card h-[280px] overflow-hidden group">
-              <img :src="Fugibles2" alt="Bridal Couture"
+              <img :src="BridalHeritage" alt="Bridal Couture"
                 class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
           </div>
           <div class="space-y-6">
             <div class="atelier-img-card h-[320px] overflow-hidden group">
-              <img :src="Fugibles3" alt="Artisan Crafts"
+              <img :src="PakistaniCouture1" alt="Artisan Crafts"
                 class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
             <div class="atelier-img-card h-[480px] overflow-hidden group">
-              <img :src="Fugibles4" alt="Signature Designs"
+              <img :src="PakistaniCouture4" alt="Signature Designs"
                 class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
@@ -523,7 +526,7 @@
       <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="relative order-2 lg:order-1">
           <div class="look-image-frame bg-gray-50 p-4">
-            <img :src="Fugibles" class="look-img transition-all duration-1000"
+            <img :src="PakistaniCouture3" class="look-img transition-all duration-1000"
               alt="Seasonal Collection" loading="lazy" />
             <div
               class="absolute top-8 left-0 bg-[var(--deep-burgundy)] text-white px-6 py-2 text-[10px] font-bold tracking-[0.3em] -rotate-90 origin-top-left">
@@ -587,8 +590,13 @@
     </section> -->
 
 
-    <section class="patron-stories py-40 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5">
-      <div class="max-w-7xl mx-auto px-6">
+    <section class="patron-stories py-40 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5 relative overflow-hidden">
+      <!-- Pakistani Heritage Accent -->
+      <div class="absolute inset-0 bg-damask opacity-5 pointer-events-none"></div>
+      <div class="absolute -right-20 top-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute -left-20 bottom-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-24 space-y-4">
           <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE PATRONS</div>
           <h2 class="text-4xl md:text-6xl font-playfair text-[var(--luxury-black)] dark:text-white uppercase">Voices of
@@ -685,10 +693,10 @@
       <div class="absolute inset-0">
 
         <!-- First Image -->
-        <img :src="Fugibles1" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
+        <img :src="PakistaniCouture2" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
 
         <!-- Second Image with blend -->
-        <img :src="Fugibles4" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50"
+        <img :src="PakistaniCouture4" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50"
           loading="lazy" />
 
       </div>
@@ -731,7 +739,7 @@
             class="w-full h-[500px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black/30 backdrop-blur-2xl group">
 
 
-            <img :src="Fugibles1" class="img-zoom" alt="Limited Edition" />
+            <img :src="PakistaniCouture2" class="img-zoom" alt="Limited Edition" />
 
 
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -782,11 +790,11 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 
-import Fugibles from "../assets/ai_new/hero_collage_3.png"
-import Fugibles1 from "../assets/ai_new/hero_collage_2.png"
-import Fugibles2 from "../assets/ai_new/bridal_highlight.png"
-import Fugibles3 from "../assets/ai_new/hero_collage_1.png"
-import Fugibles4 from "../assets/ai_new/hero_collage_4.png"
+import PakistaniCouture3 from "../assets/ai_new/hero_collage_3.png"
+import PakistaniCouture2 from "../assets/ai_new/hero_collage_2.png"
+import BridalHeritage from "../assets/ai_new/bridal_highlight.png"
+import PakistaniCouture1 from "../assets/ai_new/hero_collage_1.png"
+import PakistaniCouture4 from "../assets/ai_new/hero_collage_4.png"
 
 import HeroCollage1 from "../assets/ai_new/hero_collage_1.png"
 import HeroCollage2 from "../assets/ai_new/hero_collage_2.png"
@@ -1059,10 +1067,10 @@ function initScrollAnimations() {
 }
 
 const heroSlides = [
-  { image: Fugibles1, subtitle: 'LUXURY BRIDAL', title1: 'TIMLESS', titleHighlight: 'COUTURE', title2: '2026', description: 'A masterpiece of hand-embroidered artisanal couture.' },
-  { image: Fugibles2, subtitle: 'PREMIUM LAWN', title1: 'HERITAGE', titleHighlight: 'UNSTITCHED', title2: 'COLLECTION', description: 'Traditional weaving with modern aesthetics and graceful designs.' },
-  { image: Fugibles3, subtitle: 'DESIGNER PRET', title1: 'PURE', titleHighlight: 'LUXURY', title2: 'ELEGANCE', description: 'Delicate, stylish, and packed with grace for the modern woman.' },
-  { image: Fugibles4, subtitle: 'M.PRINT', title1: 'CHIC', titleHighlight: 'STYLE', title2: 'PRINTS', description: 'We believe the finest fabrics tell their own story.' }
+  { image: PakistaniCouture2, subtitle: 'LUXURY BRIDAL', title1: 'TIMLESS', titleHighlight: 'COUTURE', title2: '2026', description: 'A masterpiece of hand-embroidered artisanal couture.' },
+  { image: PakistaniCouture3, subtitle: 'PREMIUM LAWN', title1: 'HERITAGE', titleHighlight: 'UNSTITCHED', title2: 'COLLECTION', description: 'Traditional weaving with modern aesthetics and graceful designs.' },
+  { image: PakistaniCouture1, subtitle: 'DESIGNER PRET', title1: 'PURE', titleHighlight: 'LUXURY', title2: 'ELEGANCE', description: 'Delicate, stylish, and packed with grace for the modern woman.' },
+  { image: PakistaniCouture4, subtitle: 'M.PRINT', title1: 'CHIC', titleHighlight: 'STYLE', title2: 'PRINTS', description: 'We believe the finest fabrics tell their own story.' }
 ]
 
 const router = useRouter()
@@ -1084,38 +1092,38 @@ const craftItems = [
   {
     title: 'Heritage Weaving',
     desc: 'Our fabrics are woven using traditional techniques passed down through generations of master artisans.',
-    image: Fugibles2
+    image: PakistaniCouture3
   },
   {
     title: 'Intricate Embroidery',
     desc: 'Each piece features hand-crafted embroidery, using the finest silk threads and traditional tilla work.',
-    image: Fugibles3
+    image: PakistaniCouture1
   },
   {
     title: 'Bespoke Tailoring',
     desc: 'Precision is our hallmark. Each garment is tailored to perfection, ensuring a flawless silhouette.',
-    image: Fugibles4
+    image: PakistaniCouture4
   }
 ]
 
 const patronStories = [
   {
-    quote: "The attention to detail at AHMADCLOTHESFABRICS is simply unparalleled. Their bridal couture is a masterclass in elegance.",
-    name: "Eleanor Vance",
-    role: "Fashion Curator",
-    avatar: "https://i.pravatar.cc/200?u=eleanor"
+    quote: "The attention to detail at AHMADCLOTHESFABRICS is simply unparalleled. Their bridal couture is a masterclass in Lahore's artisanal elegance.",
+    name: "Mahnoor Khan",
+    role: "Lead Bridal Stylist",
+    avatar: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=200&h=200&fit=crop"
   },
   {
-    quote: "Every piece feels like a journey through an artisan's workshop. The unstitched fabric quality is the best I've ever seen.",
-    name: "Marcus Thorne",
-    role: "Fashion Critic",
-    avatar: "https://i.pravatar.cc/200?u=marcus"
+    quote: "Every piece feels like a journey through a traditional workshop. The unstitched fabric quality is the finest heritage silk I've ever seen.",
+    name: "Zeeshan Ali",
+    role: "Couture Photographer",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&h=200&fit=crop"
   },
   {
-    quote: "AHMADCLOTHESFABRICS has become our go-to for all celebrations. Their festive collections are as much a work of art as they are beautiful.",
-    name: "Julianna Ross",
-    role: "Event Designer",
-    avatar: "https://i.pravatar.cc/200?u=julianna"
+    quote: "AHMADCLOTHESFABRICS has become our go-to for all family festivities. Their festive collections are as much a work of art as they are beautiful.",
+    name: "Sarah Ahmed",
+    role: "Textile Consultant",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&fit=crop"
   }
 ]
 
@@ -1229,10 +1237,10 @@ const featuredDiscountProduct = computed(() => {
 })
 
 const categoryTiles = [
-  { name: 'Unstitched Lawn', sub: 'Summer Collections', image: Fugibles1 },
-  { name: 'Bridal Couture', sub: 'Wedding Essentials', image: Fugibles2 },
-  { name: 'Luxury Chiffon', sub: 'Evening Wear', image: Fugibles3 },
-  { name: 'Pret-Wear', sub: 'Ready-to-Wear', image: Fugibles4 }
+  { name: 'Unstitched Lawn', sub: 'Summer Collections', image: PakistaniCouture2 },
+  { name: 'Bridal Couture', sub: 'Wedding Essentials', image: BridalHeritage },
+  { name: 'Luxury Chiffon', sub: 'Evening Wear', image: PakistaniCouture1 },
+  { name: 'Pret-Wear', sub: 'Ready-to-Wear', image: PakistaniCouture4 }
 ]
 </script>
 

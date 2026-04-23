@@ -254,7 +254,7 @@ import Hero2 from "../assets/ai/hero_2.png"
 import Hero3 from "../assets/ai/hero_3.png"
 import Hero4 from "../assets/ai/hero_4.png"
 
-const Fugible = "https://loremflickr.com/200/80/fashion,logo?lock=1"
+
 
 const philosophy = [
    { title: 'Artisanal Mastery', icon: 'fa-solid fa-gem', desc: 'Every creation is handcrafted with precision, ensuring a perfect balance of design and quality in every stitch.' },
@@ -278,6 +278,61 @@ const globalSources = [
 
 onMounted(() => {
    window.scrollTo(0, 0)
+
+   // === Inject About Page SEO ===
+   const BASE = 'https://ahmad-cloths.vercel.app'
+   const pageTitle = 'Our Heritage & Design Philosophy | AhmadClothesHouse | Global Pakistani Fashion'
+   const pageDesc = 'Discover the story of AhmadClothesHouse. Traditional Lahore craftsmanship meets modern luxury. Delivering authentic Pakistani fashion to women worldwide since 2026.'
+   
+   document.title = pageTitle
+
+   const setMeta = (name, isProperty, value) => {
+     const attr = isProperty ? `[property="${name}"]` : `[name="${name}"]`
+     let el = document.querySelector(`meta${attr}`)
+     if (!el) {
+       el = document.createElement('meta')
+       el.setAttribute(isProperty ? 'property' : 'name', name)
+       document.head.appendChild(el)
+     }
+     el.setAttribute('content', value)
+   }
+
+   setMeta('description', false, pageDesc)
+   setMeta('robots', false, 'index, follow')
+   setMeta('keywords', false, 'About AhmadClothesHouse, Pakistani fashion heritage, luxury couture Lahore, artisanal embroidery, ethical fashion Pakistan')
+   
+   setMeta('og:title', true, pageTitle)
+   setMeta('og:description', true, pageDesc)
+   setMeta('og:url', true, `${BASE}/about`)
+   setMeta('og:type', true, 'website')
+   
+   let canonical = document.querySelector('link[rel="canonical"]')
+   if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
+   canonical.href = `${BASE}/about`
+
+   // AboutPage Schema
+   let schema = document.querySelector('script[id="about-schema"]')
+   if (schema) schema.remove()
+   schema = document.createElement('script')
+   schema.id = 'about-schema'
+   schema.type = 'application/ld+json'
+   schema.text = JSON.stringify({
+     "@context": "https://schema.org",
+     "@type": "AboutPage",
+     "name": "Our Story - AhmadClothesHouse",
+     "description": pageDesc,
+     "url": `${BASE}/about`,
+     "mainEntity": {
+       "@type": "Organization",
+       "name": "AhmadClothesHouse",
+       "foundingDate": "2026",
+       "location": {
+         "@type": "Place",
+         "address": "Lahore, Pakistan"
+       }
+     }
+   })
+   document.head.appendChild(schema)
 })
 </script>
 
