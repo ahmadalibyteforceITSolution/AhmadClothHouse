@@ -1,5 +1,5 @@
 <template>
-  <div class="daily-seo-ads bg-black/95 border-b border-white/10 relative z-[1000] py-1.5 overflow-hidden">
+  <div class="daily-seo-ads bg-black/95 border-b border-white/10 absolute -top-[9999px] left-0 w-full h-0 opacity-0 overflow-hidden pointer-events-none">
     <!-- Row 1: Announcement and Trending Bar -->
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 border-b border-white/5 pb-1 mb-1">
       <div class="flex items-center gap-2">
