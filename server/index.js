@@ -98,7 +98,9 @@ async function connectDB() {
 
 app.use(async (req, res, next) => {
   // Skip DB connection for notify endpoint to allow emails during DB overload
-  if (req.url === '/api/orders/notify') {
+  // Skip DB connection for notify/traffic to allow fast response during DB overload
+  const isBypassRoute = req.url.includes('/orders/notify') || req.url.includes('/traffic/ping');
+  if (isBypassRoute) {
     return next();
   }
   

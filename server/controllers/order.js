@@ -51,7 +51,7 @@ exports.getUserOrders = async (req, res) => {
 
 // @desc    Notify admin/customer about an order without saving to DB (to avoid overload)
 exports.notifyOrder = async (req, res) => {
-  console.log('AHMADCLOTHS: Received Order Notification Request');
+  console.log('AHMADCLOTHS: 📧 ORDER NOTIFICATION INITIATED for %s', req.body?.shippingAddress?.fullName);
   try {
     const order = req.body;
     const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
