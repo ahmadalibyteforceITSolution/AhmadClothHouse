@@ -1,32 +1,26 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 /**
- * Send an email notification using Nodemailer (Gmail SMTP)
+ * Send an email notification using Resend API (HTTP-based, more reliable on Vercel)
  * @param {Object} options - email options {email, subject, message}
  */
 const sendEmail = async (options) => {
-  const transporter = nodemailer.createTransport({
-    service: process.env.SMTP_SERVICE || 'gmail',
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: process.env.SMTP_PORT || 465,
-    secure: true, // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_EMAIL || 'ahmadalihafeez24@gmail.com',
-      pass: process.env.SMTP_PASSWORD || 'rfsmuthssmtqjysw'
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
-  });
+  const apiKey = process.env.RESEND_API_KEY || 're_8rJ2Q13i_Nf3fUE44N8Bs1wTB7MLpAuJh';
+  
+  if (!apiKey) {
+    console.error('AHMADCLOTHS MAIL ERROR: RESEND_API_KEY is not set');
+    throw new Error('Email service not configured. Please set RESEND_API_KEY.');
+  }
+
+  const resend = new Resend(apiKey);
 
   try {
-    console.log('AHMADCLOTHS MAIL: Sending via Nodemailer to %s', options.email);
+    console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
 
-    const mailOptions = {
-      from: `"${process.env.FROM_NAME || 'Ahmad Cloth House'}" <${process.env.SMTP_EMAIL || 'ahmadalihafeez24@gmail.com'}>`,
-      to: options.email,
+    const { data, error } = await resend.emails.send({
+      from: 'AhmadClothesHouse <onboarding@resend.dev>',
+      to: [options.email],
       subject: options.subject,
-      text: options.message,
       html: `
         <div style="font-family: 'Playfair Display', serif; padding: 40px; background: #fafaf8; border: 1px solid #d4af3722;">
           <h1 style="color: #000; text-align: center; font-style: italic;">AhmadClothesHouse</h1>
@@ -38,12 +32,16 @@ const sendEmail = async (options) => {
             © 2026 AHMADCLOTHESHOUSE LUXURY COUTURE
           </div>
         </div>
-      `
-    };
+      `,
+      text: options.message,
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log('AHMADCLOTHS MAIL SUCCESS: Message sent: %s', info.messageId);
-    return info;
+    if (error) {
+      console.error('RESEND_ERROR:', error);
+      throw new Error(error.message);
+    }
+
+    return data;
   } catch (error) {
     console.error('AHMADCLOTHS MAIL ERROR:', error.message);
     throw error;
