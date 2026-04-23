@@ -11,103 +11,70 @@ export const useOrdersStore = defineStore('orders', {
   }),
   actions: {
     async fetchAllOrders() {
-      this.loading = true
-      try {
-        const res = await api.get('/orders')
-        if (res.data.success) {
-          this.orders = res.data.data
-        }
-      } catch (err) {
-        console.error("ORDER_STORE_ERROR [FetchAll]:", err)
-        this.error = 'Failed to fetch boutique orders'
-      } finally {
-        this.loading = false
-      }
+      // Local mode: already has state.orders
+      return;
     },
     async fetchUserOrders(userId) {
-      this.loading = true
-      try {
-        const res = await api.get(`/orders/user/${userId}`)
-        if (res.data.success) {
-          this.orders = res.data.data
-        }
-      } catch (err) {
-        console.error("ORDER_STORE_ERROR [FetchUser]:", err)
-        this.error = 'Failed to fetch your fashion archive'
-      } finally {
-        this.loading = false
-      }
+      // Local mode
+      return;
     },
     async updateOrderStatus(orderId, status) {
       const auth = useAuthStore()
-      try {
-        const res = await api.put(`/orders/${orderId}`, { status })
-        if (res.data.success) {
-          const idx = this.orders.findIndex(o => (o._id || o.id) === orderId)
-          if (idx !== -1) {
-            this.orders[idx] = res.data.data
-          }
-          Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: 'AhmadClothes House - Status Updated',
-            text: `Order status moved to ${status}`,
-            showConfirmButton: false,
-            timer: 3000,
-            background: auth.isDark ? '#000' : '#fff',
-            color: auth.isDark ? '#fff' : '#000'
-          })
-          return true
-        }
-      } catch (err) {
-        console.error("ORDER_STORE_ERROR [UpdateStatus]:", err)
-        return false
+      const idx = this.orders.findIndex(o => String(o._id || o.id) === String(orderId))
+      if (idx !== -1) {
+        this.orders[idx].status = status
       }
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'AhmadClothes House - Status Updated',
+        text: `Order status moved to ${status} (Local only)`,
+        showConfirmButton: false,
+        timer: 3000,
+        background: auth.isDark ? '#000' : '#fff',
+        color: auth.isDark ? '#fff' : '#000'
+      })
+      return true
     },
     async updateOrderTracking(orderId, trackingNumber, carrier = 'BlueEx Luxury') {
       const auth = useAuthStore()
-      try {
-        const res = await api.put(`/orders/${orderId}`, { 
-          tracking: { trackingNumber, carrier } 
-        })
-        if (res.data.success) {
-          const idx = this.orders.findIndex(o => (o._id || o.id) === orderId)
-          if (idx !== -1) {
-            this.orders[idx] = res.data.data
-          }
-          Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: 'AhmadClothes House - Tracking Updated',
-            text: `Reference ${trackingNumber} registered`,
-            showConfirmButton: false,
-            timer: 3000,
-            background: auth.isDark ? '#000' : '#fff',
-            color: auth.isDark ? '#fff' : '#000'
-          })
-          return true
-        }
-      } catch (err) {
-        console.error("ORDER_STORE_ERROR [UpdateTracking]:", err)
-        return false
+      const idx = this.orders.findIndex(o => String(o._id || o.id) === String(orderId))
+      if (idx !== -1) {
+        this.orders[idx].tracking = { trackingNumber, carrier }
       }
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'AhmadClothes House - Tracking Updated',
+        text: `Reference ${trackingNumber} registered (Local only)`,
+        showConfirmButton: false,
+        timer: 3000,
+        background: auth.isDark ? '#000' : '#fff',
+        color: auth.isDark ? '#fff' : '#000'
+      })
+      return true
     },
     async createOrder(orderData) {
       this.loading = true
       try {
-        const res = await api.post('/orders', orderData)
-        if (res.data.success) {
-          this.orders.unshift(res.data.data)
-          return res.data.data
-        }
+        // CALL NOTIFY ENDPOINT (Sends Gmail to Admin/Customer without DB write)
+        await api.post('/orders/notify', orderData)
       } catch (err) {
-        console.error("ORDER_STORE_ERROR [Create]:", err)
-        throw err
-      } finally {
-        this.loading = false
+        console.warn("ORDER_NOTIFY_ERROR: Could not send Gmail alert", err)
       }
+
+      // Still handle the order locally for UI consistency
+      const newOrder = {
+        ...orderData,
+        _id: 'ord_' + Math.random().toString(36).substring(2, 11),
+        status: 'pending',
+        createdAt: new Date().toISOString()
+      }
+      this.orders.unshift(newOrder)
+      this.loading = false
+      return newOrder
     }
   }
 })

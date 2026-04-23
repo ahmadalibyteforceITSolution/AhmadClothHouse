@@ -49,6 +49,65 @@ exports.getUserOrders = async (req, res) => {
   }
 };
 
+// @desc    Notify admin/customer about an order without saving to DB (to avoid overload)
+exports.notifyOrder = async (req, res) => {
+  console.log('AHMADCLOTHS: Received Order Notification Request');
+  try {
+    const order = req.body;
+    const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
+    const shipping = order.shippingAddress;
+    
+    // 1. Send notification to ADMIN
+    const adminMessage = `
+      🚀 NEW ORDER RECEIVED (NOTIFIED ONLY)
+      
+      Order Summary:
+      -------------------------
+      Subtotal: RS ${order.subtotal || 0}
+      Delivery Charges: RS ${order.deliveryCharge || 0}
+      Total Amount: RS ${order.totalAmount}
+      Payment Method: ${order.paymentMethod?.toUpperCase()}
+      ${order.transactionId ? `TID: ${order.transactionId}` : ''}
+      
+      Customer Information:
+      -------------------------
+      Name: ${shipping.fullName}
+      Email: ${order.customerEmail || 'N/A'}
+      Phone: ${shipping.phone}
+      
+      Shipping Address:
+      -------------------------
+      Address: ${shipping.address}
+      City: ${shipping.city}
+      Zip Code: ${shipping.zipCode}
+      
+      Items:
+      -------------------------
+      ${order.items.map(i => `- ${i.name} (x${i.quantity})`).join('\n      ')}
+    `;
+
+    await sendEmail({
+      email: adminEmail,
+      subject: `[NEW ORDER] ${shipping.fullName} - Rs. ${order.totalAmount}`,
+      message: adminMessage
+    });
+
+    // 2. Send confirmation to CUSTOMER
+    if (order.customerEmail) {
+      await sendEmail({
+        email: order.customerEmail,
+        subject: 'Order Received - AhmadClothesHouse',
+        message: `Hello ${shipping.fullName},\n\nWe have received your order request for Rs. ${order.totalAmount}.\n\nOur team is reviewing the details and will contact you shortly via WhatsApp or Phone to confirm shipment.\n\nThank you for choosing AhmadClothesHouse.`
+      });
+    }
+
+    res.status(200).json({ success: true, message: 'Notification sent successfully' });
+  } catch (err) {
+    console.error('ORDER_NOTIFY_ERROR:', err.message);
+    res.status(500).json({ success: false, error: 'Email notification failed' });
+  }
+};
+
 // @desc    Create an order
 exports.createOrder = async (req, res) => {
   console.log('AHMADCLOTHS: Received Order Request');

@@ -69,7 +69,7 @@ async function connectDB() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 1000000,
+      serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
       family: 4,
       maxPoolSize: 2,
@@ -97,6 +97,11 @@ async function connectDB() {
 }
 
 app.use(async (req, res, next) => {
+  // Skip DB connection for notify endpoint to allow emails during DB overload
+  if (req.url === '/api/orders/notify') {
+    return next();
+  }
+  
   try {
     console.log(`📡 [DB_WAIT]: Ensuring connection for ${req.url}...`);
     await connectDB();

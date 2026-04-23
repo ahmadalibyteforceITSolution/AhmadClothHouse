@@ -21,4 +21,3 @@ export const navigationItems = [
   { name: 'About Us', path: '/about' },
   { name: 'Contact Us', path: '/contact' }
 ]
-

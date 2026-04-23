@@ -310,6 +310,21 @@ const processPayment = async () => {
       }
 
       success.value = true
+      
+      // GENERATE WHATSAPP NOTIFICATION
+      const orderSummary = cart.items.map(i => `- ${i.name} (x${i.quantity})`).join('%0A')
+      const waMessage = `*NEW ORDER FROM AHMADCLOTHES*%0A%0A` +
+        `*Customer:* ${customer.name}%0A` +
+        `*Phone:* ${customer.phone}%0A` +
+        `*Address:* ${customer.address}, ${customer.city}%0A` +
+        `*Items:*%0A${orderSummary}%0A` +
+        `*Total:* Rs. ${(cart.totalPrice + deliveryCharge.value).toLocaleString()}%0A` +
+        `*Payment:* ${paymentMethod.value.toUpperCase()}%0A` +
+        `${transactionId.value ? `*TID:* ${transactionId.value}` : ''}`
+      
+      const waNumber = '923416887454'
+      const waLink = `https://wa.me/${waNumber}?text=${waMessage}`
+      
       cart.clearCart()
 
       Swal.fire({

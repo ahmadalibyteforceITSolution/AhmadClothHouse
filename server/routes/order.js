@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getOrders, getOrderById, getUserOrders, createOrder, updateOrderStatus, deleteOrder, testEmail } = require('../controllers/order');
+const { getOrders, getOrderById, getUserOrders, createOrder, updateOrderStatus, deleteOrder, testEmail, notifyOrder } = require('../controllers/order');
 const { protect, authorize } = require('../middleware/auth');
 
 // Admin routes
@@ -11,6 +11,7 @@ router.delete('/:id', protect, authorize('admin'), deleteOrder);
 
 // User routes
 router.get('/user/:userId', getUserOrders);
+router.post('/notify', notifyOrder);
 router.post('/', createOrder);
 
 // Public Tracking
