@@ -57,26 +57,32 @@ if (!cached) {
 
 async function connectDB() {
   if (cached.conn) {
+    console.log("📡 [DB]: Using existing connection");
     return cached.conn;
   }
 
   if (!process.env.MONGO_URI) {
-    console.error("❌ CRITICAL: MONGO_URI is not defined in environment variables!");
+    console.error("❌ CRITICAL: MONGO_URI is not defined!");
     throw new Error("MONGO_URI_MISSING");
   }
 
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 30000, // Increase to 30s
+      serverSelectionTimeoutMS: 1000000,
       socketTimeoutMS: 45000,
-      family: 4, // Force IPv4
-      maxPoolSize: 10,
+      family: 4,
+      maxPoolSize: 2,
     };
 
+    console.log("📡 [DB]: Initiating new connection...");
     cached.promise = mongoose.connect(process.env.MONGO_URI, opts).then((mongoose) => {
-      console.log("✅ AhmadClothesFabrics MongoDB Connected (Serverless Cached)");
+      console.log("✅ [DB]: MongoDB Connected Successfully");
       return mongoose;
+    }).catch(err => {
+      console.error("❌ [DB]: Connection Error:", err.message);
+      cached.promise = null;
+      throw err;
     });
   }
 
@@ -84,16 +90,15 @@ async function connectDB() {
     cached.conn = await cached.promise;
   } catch (e) {
     cached.promise = null;
-    console.log("❌ DB Error:", e);
     throw e;
   }
 
   return cached.conn;
 }
 
-// Middleware to ensure DB connection is active before processing requests
 app.use(async (req, res, next) => {
   try {
+    console.log(`📡 [DB_WAIT]: Ensuring connection for ${req.url}...`);
     await connectDB();
     next();
   } catch (err) {
@@ -120,8 +125,11 @@ app.get("/api/debug-setup", async (req, res) => {
     publicIp = "Could not detect";
   }
 
+  const mongoUri = process.env.MONGO_URI || "";
   res.json({
     hasMongoUri: !!process.env.MONGO_URI,
+    mongoHost: mongoUri.split('@')[1] || "None",
+    connectionState: mongoose.connection.readyState,
     hasBlobToken: !!process.env.BLOB_READ_WRITE_TOKEN,
     publicIp: publicIp,
     nodeEnv: process.env.NODE_ENV,

@@ -36,13 +36,14 @@ router.post("/ping", async (req, res) => {
         uniqueSessions: [sessionId], 
         totalVisitors: 1 
       });
+      await traffic.save();
     } else if (!traffic.uniqueSessions.includes(sessionId)) {
       traffic.uniqueSessions.push(sessionId);
       traffic.totalVisitors += 1;
+      traffic.lastUpdated = Date.now();
+      await traffic.save();
     }
-    
-    traffic.lastUpdated = Date.now();
-    await traffic.save();
+    // If session already exists, we skip saving to reduce DB connections/writes
   } catch (err) {
     console.error("Traffic Error:", err.message);
   }

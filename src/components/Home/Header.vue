@@ -116,6 +116,9 @@
         </div>
 
         <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
+          <!-- Google Translate (Always Visible) -->
+          <div id="google_translate_element" class="flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
+
           <!-- Search Icon (Always Visible) -->
           <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn" aria-label="Search">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
@@ -155,8 +158,6 @@
             </button>
           </div>
 
-          <!-- Google Translate (Desktop) -->
-          <div v-if="!isSmallMobile" id="google_translate_element" class="hidden sm:flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
 
           <!-- User Account Actions -->
           <template v-if="auth.isAuthenticated">
@@ -207,9 +208,6 @@
 
       <!-- Mobile Actions Row (Theme, Favorites, Cart, Login) - Below Logo -->
       <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
-        <!-- Google Translate (Mobile) -->
-        <div v-if="isSmallMobile" id="google_translate_element" class="flex items-center justify-center scale-90 transition-all duration-500"></div>
-
         <!-- Theme Toggle -->
         <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
           <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
@@ -628,11 +626,6 @@ const checkMobile = () => {
   isMobile.value = window.innerWidth < 1024
 }
 
-const isSmallMobile = ref(false)
-const checkSmallMobile = () => {
-  isSmallMobile.value = window.innerWidth < 640
-}
-
 const initGoogleTranslate = (retryCount = 0) => {
   if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
     const el = document.getElementById('google_translate_element')
@@ -655,9 +648,6 @@ const initGoogleTranslate = (retryCount = 0) => {
   }
 }
 
-watch(isSmallMobile, () => {
-  setTimeout(() => initGoogleTranslate(0), 500);
-})
 
 const loadTranslateScript = () => {
   if (!document.querySelector('script[src*="translate.google.com"]')) {
@@ -679,9 +669,7 @@ watch(() => auth.isAuthenticated, () => {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', checkMobile)
-  window.addEventListener('resize', checkSmallMobile)
   checkMobile()
-  checkSmallMobile()
 
   // Load and Init
   loadTranslateScript();
@@ -691,7 +679,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', checkMobile)
-  window.removeEventListener('resize', checkSmallMobile)
 })
 
 const navItems = computed(() => {
