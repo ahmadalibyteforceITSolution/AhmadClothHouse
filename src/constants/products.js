@@ -78,6 +78,46 @@ import ahmadProduct30 from "../assets/ahmad_product_30.jpg";
 import ahmadProduct31 from "../assets/ahmad_product_31.jpg";
 import ahmadProductMain from "../assets/ahmad_product_main.jpg";
 
+// AI Brand Assets
+import aiBrand1 from "../assets/ai_brands/1.jpg";
+import aiBrand2 from "../assets/ai_brands/2.jpg";
+import aiBrand3 from "../assets/ai_brands/3.jpg";
+import aiBrand4 from "../assets/ai_brands/4.jpg";
+import aiBrand5 from "../assets/ai_brands/5.jpg";
+import aiBrand6 from "../assets/ai_brands/6.jpg";
+import aiBrand7 from "../assets/ai_brands/7.jpg";
+import aiBrand8 from "../assets/ai_brands/8.jpg";
+import aiBrand9 from "../assets/ai_brands/9.jpg";
+import aiBrand10 from "../assets/ai_brands/10.jpg";
+import aiBrand11 from "../assets/ai_brands/11.jpg";
+import aiBrand12 from "../assets/ai_brands/12.jpg";
+import aiBrand13 from "../assets/ai_brands/13.jpg";
+import aiBrand14 from "../assets/ai_brands/14.jpg";
+import aiBrand15 from "../assets/ai_brands/15.jpg";
+import aiBrand16 from "../assets/ai_brands/16.jpg";
+import aiBrand17 from "../assets/ai_brands/17.jpg";
+import aiBrand18 from "../assets/ai_brands/18.jpg";
+import aiBrand19 from "../assets/ai_brands/19.jpg";
+import aiBrand20 from "../assets/ai_brands/20.jpg";
+import aiBrand21 from "../assets/ai_brands/21.jpg";
+import aiBrand22 from "../assets/ai_brands/22.jpg";
+import aiBrand23 from "../assets/ai_brands/23.jpg";
+import aiBrand24 from "../assets/ai_brands/24.jpg";
+import aiBrand25 from "../assets/ai_brands/25.jpg";
+import aiBrand26 from "../assets/ai_brands/26.jpg";
+import aiBrand28 from "../assets/ai_brands/28.jpg";
+import aiBrand29 from "../assets/ai_brands/29.jpg";
+import aiBrand30 from "../assets/ai_brands/30.jpg";
+import aiBrand31 from "../assets/ai_brands/31.jpg";
+import aiBrand32 from "../assets/ai_brands/32.jpg";
+import aiBrand33 from "../assets/ai_brands/33.jpg";
+import aiBrand34 from "../assets/ai_brands/34.jpg";
+import aiBrand35 from "../assets/ai_brands/35.jpg";
+import aiBrand36 from "../assets/ai_brands/36.jpg";
+import aiBrand37 from "../assets/ai_brands/37.jpg";
+import aiBrand38 from "../assets/ai_brands/38.jpg";
+import aiBrand39 from "../assets/ai_brands/39.jpg";
+
 const baseProducts = [
   {
     id: "mariab-001",
@@ -357,50 +397,637 @@ const baseProducts = [
   }
 ];
 
-// Map remaining images to generated products
-const extraAssets = [
-  ahmadProduct1, ahmadProduct2, ahmadProduct3, ahmadProduct4, ahmadProduct5, 
-  ahmadProduct6, ahmadProduct7, ahmadProduct8, ahmadProduct9, ahmadProduct10,
-  ahmadProduct11, ahmadProduct12, ahmadProduct13, ahmadProduct14, ahmadProduct15, 
-  ahmadProduct21, ahmadProduct22, ahmadProduct23, ahmadProduct24, ahmadProduct25,
-  ahmadProduct26, ahmadProduct27, ahmadProduct28, ahmadProduct29, ahmadProduct30, 
-  ahmadProduct31, ahmadProductMain,
-  product3932, product3p1, asset64f, asset671, assetAab, dn32041, ergteg,
-  hero3, hero4, highlight1, highlight4,
-  ladiesV1, ladiesV2, ladiesV3, ladiesMain, heroCollage3
-];
-
-const brands = [
-  "Ahmadcloths Signature", "Maria B", "Nishat", "Gul Ahmed",
-  "Warda", "Aneela's", "Sana Safinaz", "Khaadi", "J."
-];
-
-const categories = [
-  { name: 'Unstitched Lawn', parent: 'Ladies Wear' },
-  { name: 'Unstitched Silk', parent: 'Ladies Wear' },
-  { name: 'Unstitched Chiffon', parent: 'Ladies Wear' },
-  { name: 'Unstitched Bridal', parent: 'Bridal Wear' },
-  { name: 'Unstitched Khaddar', parent: 'Ladies Wear' },
-  { name: 'Unstitched Velvet', parent: 'Ladies Wear' }
-];
-
-const extraProducts = extraAssets.map((asset, index) => {
-  const brand = brands[index % brands.length];
-  const cat = categories[index % categories.length];
-  return {
-    id: `gen-${index}`,
-    name: `${brand} ${cat.name} Vol ${index + 1}`.toLowerCase(),
-    brand: brand,
-    price: 3500 + (index * 150),
-    originalPrice: 4500 + (index * 200),
-    discount: 15 + (index % 10),
-    category: cat.name,
-    parentCategory: cat.parent,
-    image: asset,
-    nature: index % 3 === 0 ? "premium" : "standard",
-    description: `Exquisite ${cat.name} from the latest ${brand} collection. Featuring premium fabric and authentic designs.`,
+const aiBrandProducts = [
+  {
+    id: "ai-1",
+    name: "maria b unstitched lawn vol 1",
+    brand: "Maria B",
+    price: 16500,
+    originalPrice: 19500,
+    discount: 31,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand1,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Maria B collection. Featuring premium fabric and authentic designs.",
     details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
-  };
-});
+  },
+  {
+    id: "ai-2",
+    name: "orang unstitched silk vol 2",
+    brand: "Orang",
+    price: 8200,
+    originalPrice: 12000,
+    discount: 32,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand2,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest Orang collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-3",
+    name: "aneela's unstitched chiffon vol 3",
+    brand: "Aneela's",
+    price: 12000,
+    originalPrice: 18000,
+    discount: 33,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: aiBrand3,
+    nature: "standard",
+    description: "Exquisite Unstitched Chiffon from the latest Aneela's collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-4",
+    name: "nishat unstitched bridal vol 4",
+    brand: "Nishat",
+    price: 5500,
+    originalPrice: 10000,
+    discount: 45,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: aiBrand4,
+    nature: "premium",
+    description: "Exquisite Unstitched Bridal from the latest Nishat collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-5",
+    name: "warda unstitched khaddar vol 5",
+    brand: "Warda",
+    price: 3000,
+    originalPrice: 6000,
+    discount: 50,
+    category: "Unstitched Khaddar",
+    parentCategory: "Ladies Wear",
+    image: aiBrand5,
+    nature: "standard",
+    description: "Exquisite Unstitched Khaddar from the latest Warda collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-6",
+    name: "ahmadcloths signature unstitched velvet vol 6",
+    brand: "Ahmadcloths Signature",
+    price: 12500,
+    originalPrice: 20000,
+    discount: 37,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: aiBrand6,
+    nature: "standard",
+    description: "Exquisite Unstitched Velvet from the latest Ahmadcloths Signature collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-7",
+    name: "gul ahmed unstitched lawn vol 7",
+    brand: "Gul Ahmed",
+    price: 14000,
+    originalPrice: 17000,
+    discount: 42,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand7,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Gul Ahmed collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-8",
+    name: "sana safinaz unstitched silk vol 8",
+    brand: "Sana Safinaz",
+    price: 3500,
+    originalPrice: 9000,
+    discount: 61,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand8,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest Sana Safinaz collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-9",
+    name: "khaadi unstitched chiffon vol 9",
+    brand: "Khaadi",
+    price: 5000,
+    originalPrice: 12000,
+    discount: 58,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: aiBrand9,
+    nature: "standard",
+    description: "Exquisite Unstitched Chiffon from the latest Khaadi collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-10",
+    name: "j. unstitched bridal vol 10",
+    brand: "J.",
+    price: 4500,
+    originalPrice: 9000,
+    discount: 50,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: aiBrand10,
+    nature: "premium",
+    description: "Exquisite Unstitched Bridal from the latest J. collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-11",
+    name: "maria b unstitched khaddar vol 11",
+    brand: "Maria B",
+    price: 4800,
+    originalPrice: 7500,
+    discount: 36,
+    category: "Unstitched Khaddar",
+    parentCategory: "Ladies Wear",
+    image: aiBrand11,
+    nature: "standard",
+    description: "Exquisite Unstitched Khaddar from the latest Maria B collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-12",
+    name: "orang unstitched velvet vol 12",
+    brand: "Orang",
+    price: 15500,
+    originalPrice: 22000,
+    discount: 30,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: aiBrand12,
+    nature: "standard",
+    description: "Exquisite Unstitched Velvet from the latest Orang collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-13",
+    name: "aneela's unstitched lawn vol 13",
+    brand: "Aneela's",
+    price: 5200,
+    originalPrice: 8500,
+    discount: 39,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand13,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Aneela's collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-14",
+    name: "nishat unstitched silk vol 14",
+    brand: "Nishat",
+    price: 7800,
+    originalPrice: 13000,
+    discount: 40,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand14,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest Nishat collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-15",
+    name: "warda unstitched chiffon vol 15",
+    brand: "Warda",
+    price: 4200,
+    originalPrice: 7000,
+    discount: 40,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: aiBrand15,
+    nature: "standard",
+    description: "Exquisite Unstitched Chiffon from the latest Warda collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-16",
+    name: "ahmadcloths signature unstitched bridal vol 16",
+    brand: "Ahmadcloths Signature",
+    price: 18500,
+    originalPrice: 28000,
+    discount: 34,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: aiBrand16,
+    nature: "premium",
+    description: "Exquisite Unstitched Bridal from the latest Ahmadcloths Signature collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-17",
+    name: "gul ahmed unstitched khaddar vol 17",
+    brand: "Gul Ahmed",
+    price: 5500,
+    originalPrice: 9000,
+    discount: 39,
+    category: "Unstitched Khaddar",
+    parentCategory: "Ladies Wear",
+    image: aiBrand17,
+    nature: "standard",
+    description: "Exquisite Unstitched Khaddar from the latest Gul Ahmed collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-18",
+    name: "sana safinaz unstitched velvet vol 18",
+    brand: "Sana Safinaz",
+    price: 14000,
+    originalPrice: 20000,
+    discount: 30,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: aiBrand18,
+    nature: "standard",
+    description: "Exquisite Unstitched Velvet from the latest Sana Safinaz collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-19",
+    name: "khaadi unstitched lawn vol 19",
+    brand: "Khaadi",
+    price: 6200,
+    originalPrice: 10000,
+    discount: 38,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand19,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Khaadi collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-20",
+    name: "j. unstitched silk vol 20",
+    brand: "J.",
+    price: 8900,
+    originalPrice: 15000,
+    discount: 41,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand20,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest J. collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-21",
+    name: "maria b unstitched chiffon vol 21",
+    brand: "Maria B",
+    price: 4500,
+    originalPrice: 8000,
+    discount: 43,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: aiBrand21,
+    nature: "standard",
+    description: "Exquisite Unstitched Chiffon from the latest Maria B collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-22",
+    name: "orang unstitched bridal vol 22",
+    brand: "Orang",
+    price: 19500,
+    originalPrice: 28000,
+    discount: 30,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: aiBrand22,
+    nature: "premium",
+    description: "Exquisite Unstitched Bridal from the latest Orang collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-23",
+    name: "aneela's unstitched khaddar vol 23",
+    brand: "Aneela's",
+    price: 5800,
+    originalPrice: 9500,
+    discount: 38,
+    category: "Unstitched Khaddar",
+    parentCategory: "Ladies Wear",
+    image: aiBrand23,
+    nature: "standard",
+    description: "Exquisite Unstitched Khaddar from the latest Aneela's collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-24",
+    name: "nishat unstitched velvet vol 24",
+    brand: "Nishat",
+    price: 7200,
+    originalPrice: 12000,
+    discount: 40,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: aiBrand24,
+    nature: "standard",
+    description: "Exquisite Unstitched Velvet from the latest Nishat collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-25",
+    name: "warda unstitched lawn vol 25",
+    brand: "Warda",
+    price: 4900,
+    originalPrice: 8500,
+    discount: 42,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand25,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Warda collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-26",
+    name: "ahmadcloths signature unstitched silk vol 26",
+    brand: "Ahmadcloths Signature",
+    price: 8500,
+    originalPrice: 14000,
+    discount: 39,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand26,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest Ahmadcloths Signature collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-27",
+    name: "gul ahmed unstitched chiffon vol 27",
+    brand: "Gul Ahmed",
+    price: 12500,
+    originalPrice: 18000,
+    discount: 30,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: aiBrand28,
+    nature: "standard",
+    description: "Exquisite Unstitched Chiffon from the latest Gul Ahmed collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-28",
+    name: "sana safinaz unstitched bridal vol 28",
+    brand: "Sana Safinaz",
+    price: 12800,
+    originalPrice: 16000,
+    discount: 31,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: aiBrand29,
+    nature: "premium",
+    description: "Exquisite Unstitched Bridal from the latest Sana Safinaz collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-29",
+    name: "khaadi unstitched khaddar vol 29",
+    brand: "Khaadi",
+    price: 6400,
+    originalPrice: 11000,
+    discount: 41,
+    category: "Unstitched Khaddar",
+    parentCategory: "Ladies Wear",
+    image: aiBrand30,
+    nature: "standard",
+    description: "Exquisite Unstitched Khaddar from the latest Khaadi collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-30",
+    name: "j. unstitched velvet vol 30",
+    brand: "J.",
+    price: 9200,
+    originalPrice: 16000,
+    discount: 42,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: aiBrand31,
+    nature: "standard",
+    description: "Exquisite Unstitched Velvet from the latest J. collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-31",
+    name: "maria b unstitched lawn vol 31",
+    brand: "Maria B",
+    price: 5200,
+    originalPrice: 8500,
+    discount: 38,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand32,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Maria B collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-32",
+    name: "orang unstitched silk vol 32",
+    brand: "Orang",
+    price: 15800,
+    originalPrice: 24000,
+    discount: 34,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand33,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest Orang collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-33",
+    name: "aneela's unstitched chiffon vol 33",
+    brand: "Aneela's",
+    price: 4500,
+    originalPrice: 7500,
+    discount: 40,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: aiBrand34,
+    nature: "standard",
+    description: "Exquisite Unstitched Chiffon from the latest Aneela's collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-34",
+    name: "nishat unstitched bridal vol 34",
+    brand: "Nishat",
+    price: 18900,
+    originalPrice: 28000,
+    discount: 32,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: aiBrand35,
+    nature: "premium",
+    description: "Exquisite Unstitched Bridal from the latest Nishat collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-35",
+    name: "warda unstitched khaddar vol 35",
+    brand: "Warda",
+    price: 6800,
+    originalPrice: 11000,
+    discount: 38,
+    category: "Unstitched Khaddar",
+    parentCategory: "Ladies Wear",
+    image: aiBrand36,
+    nature: "standard",
+    description: "Exquisite Unstitched Khaddar from the latest Warda collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-36",
+    name: "ahmadcloths signature unstitched velvet vol 36",
+    brand: "Ahmadcloths Signature",
+    price: 12200,
+    originalPrice: 19000,
+    discount: 35,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: aiBrand37,
+    nature: "standard",
+    description: "Exquisite Unstitched Velvet from the latest Ahmadcloths Signature collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-37",
+    name: "gul ahmed unstitched lawn vol 37",
+    brand: "Gul Ahmed",
+    price: 11900,
+    originalPrice: 16000,
+    discount: 41,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: aiBrand38,
+    nature: "premium",
+    description: "Exquisite Unstitched Lawn from the latest Gul Ahmed collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ai-38",
+    name: "sana safinaz unstitched silk vol 38",
+    brand: "Sana Safinaz",
+    price: 9800,
+    originalPrice: 16000,
+    discount: 38,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: aiBrand39,
+    nature: "standard",
+    description: "Exquisite Unstitched Silk from the latest Sana Safinaz collection. Featuring premium fabric and authentic designs.",
+    details: ["Premium Fabric", "Authentic Design", "2026 Collection"]
+  },
+  {
+    id: "ahmad-1",
+    name: "ahmad signature lawn collection vol 1",
+    brand: "Ahmadcloths Signature",
+    price: 4000,
+    originalPrice: 8000,
+    discount: 25,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: ahmadProduct1,
+    nature: "premium",
+    description: "Exclusive signature collection from Ahmad Cloths, featuring hand-selected lawn fabrics.",
+    details: ["Signature Quality", "Hand-selected Fabric", "2026 Design"]
+  },
+  {
+    id: "ahmad-2",
+    name: "ahmad classic silk edition vol 2",
+    brand: "Ahmadcloths Signature",
+    price: 4500,
+    originalPrice: 8000,
+    discount: 26,
+    category: "Unstitched Silk",
+    parentCategory: "Ladies Wear",
+    image: ahmadProduct2,
+    nature: "standard",
+    description: "Timeless silk pieces from our heritage archives.",
+    details: ["Heritage Silk", "Classic Design"]
+  },
+  {
+    id: "ahmad-3",
+    name: "ahmad premium chiffon vol 3",
+    brand: "Ahmadcloths Signature",
+    price: 5400,
+    originalPrice: 8000,
+    discount: 27,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: ahmadProduct3,
+    nature: "premium",
+    description: "Lightweight premium chiffon with delicate handwork.",
+    details: ["Hand Embroidered", "Premium Chiffon"]
+  },
+  {
+    id: "ahmad-4",
+    name: "ahmad bridal masterpiece vol 4",
+    brand: "Ahmadcloths Signature",
+    price: 6500,
+    originalPrice: 8000,
+    discount: 25,
+    category: "Unstitched Bridal",
+    parentCategory: "Bridal Wear",
+    image: ahmadProduct4,
+    nature: "limited",
+    description: "A true masterpiece for the modern bride.",
+    details: ["Couture Grade", "Exquisite Detail"]
+  },
+  {
+    id: "ahmad-5",
+    name: "ahmad luxury velvet vol 5",
+    brand: "Ahmadcloths Signature",
+    price: 6120,
+    originalPrice: 8000,
+    discount: 26,
+    category: "Unstitched Velvet",
+    parentCategory: "Ladies Wear",
+    image: ahmadProduct5,
+    nature: "premium",
+    description: "Soft micro-velvet with intricate gold thread work.",
+    details: ["Micro Velvet 9000", "Zari Work"]
+  },
+  {
+    id: "special-1",
+    name: "couture special edition 3932",
+    brand: "Ahmadcloths Signature",
+    price: 3500,
+    originalPrice: 8000,
+    discount: 16,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: product3932,
+    nature: "limited",
+    description: "Special edition couture piece from the 3932 archive.",
+    details: ["Limited Edition", "Archive Series"]
+  },
+  {
+    id: "special-2",
+    name: "heritage chiffon collection 3p1",
+    brand: "Ahmadcloths Signature",
+    price: 6000,
+    originalPrice: 8000,
+    discount: 18,
+    category: "Unstitched Chiffon",
+    parentCategory: "Ladies Wear",
+    image: product3p1,
+    nature: "standard",
+    description: "Classic 3-piece chiffon suit from our heritage collection.",
+    details: ["3-Piece Suit", "Classic Fit"]
+  }
+];
 
-export const products = [...baseProducts, ...extraProducts];
+export const products = [...baseProducts, ...aiBrandProducts];

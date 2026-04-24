@@ -40,7 +40,7 @@ Understanding these technical nuances ensures that when you invest in an Ahmad C
     date: 'April 22, 2026',
     author: 'Eco-Ethics Team',
     category: 'Sustainability',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1591085686350-798c0f993407?auto=format&fit=crop&q=80&w=1200',
     summary: 'Exploring the intersection of tradition and environmental responsibility in the modern Pakistani apparel industry.',
     content: `As the fashion industry globally pivots towards sustainability, Pakistan—a textile powerhouse—is at the forefront of this transformation. At Ahmad Cloth House, we recognize that luxury should not come at the cost of our planet. This guide explores how we are integrating eco-friendly practices into the heart of traditional couture.
 
@@ -72,7 +72,7 @@ At Ahmad Cloth House, our vision for 2026 and beyond is to prove that "Made in P
     date: 'April 21, 2026',
     author: 'Lead Stylist',
     category: 'Styling Guide',
-    image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=1200',
     summary: 'From the classic "Sideways flow" to the "Royal Wrap," learn the professional techniques to elevate your look.',
     content: `In the world of South Asian fashion, the Dupatta is more than an accessory—it is the defining element of the ensemble. Whether it's a sheer organza wrap, a heavy bridal dupatta, or a digitally printed silk scarf, the way you drape it can completely transform your silhouette. Here are the professional styling techniques used by our lead designers at Ahmad Cloth House.
 

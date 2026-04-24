@@ -3,7 +3,7 @@
     <div class="bg-[var(--deep-burgundy)] text-white py-1.5 px-4 text-center overflow-hidden relative group border-b border-white/10">
       <div class="animate-marquee whitespace-nowrap inline-block">
         <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
-          ✨ SPECIAL RAMADAN OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
+          ✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
         </span>
         <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
           🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚
@@ -12,7 +12,7 @@
       <!-- Duplicate for seamless loop -->
       <div class="animate-marquee whitespace-nowrap inline-block absolute top-1.5 left-full">
         <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
-          ✨ SPECIAL RAMADAN OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
+          ✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
         </span>
         <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
           🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚
