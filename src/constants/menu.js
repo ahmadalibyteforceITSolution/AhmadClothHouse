@@ -18,6 +18,20 @@ export const navigationItems = [
       { name: 'Unstitched Bridal', path: '/shop/Unstitched Bridal' }
     ]
   },
+  { 
+    name: 'Accessories', 
+    path: '/shop/Accessories',
+    subItems: [
+      { name: 'Jewelry', path: '/shop/Jewelry' }
+    ]
+  },
+  { 
+    name: "Men's Wear", 
+    path: "/shop/Men's Wear",
+    subItems: [
+      { name: "Unstitched Men", path: "/shop/Men's Unstitched" }
+    ]
+  },
   { name: 'About Us', path: '/about' },
   { name: 'Contact Us', path: '/contact' }
 ]

@@ -75,7 +75,7 @@
         <div v-if="product.nature" class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></div>
       </div>
       
-      <h3 class="text-[#111] dark:text-white uppercase text-[11px] font-bold tracking-[0.1em] leading-snug line-clamp-2 mb-4 group-hover:text-amber-600 dark:group-hover:text-amber-500 transition-colors duration-300">
+      <h3 class="text-[#111] dark:text-white text-[11px] font-bold tracking-[0.1em] leading-snug line-clamp-2 mb-4 group-hover:text-amber-600 dark:group-hover:text-amber-500 transition-colors duration-300">
         {{ product.name }}
       </h3>
       
