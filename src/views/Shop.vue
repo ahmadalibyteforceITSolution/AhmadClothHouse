@@ -52,69 +52,136 @@
       </div>
     </div>
 
-    <!-- Luxury Filter Bar (Maria B Style) -->
-    <div class="sticky top-0 z-40 bg-white/95 dark:bg-[#050505]/95 backdrop-blur-xl border-y border-black/5 dark:border-white/5 mb-20 pt-4 pb-2">
-      <div class="max-w-[1700px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        
-        <!-- Result Count Minimalist -->
-        <div class="flex items-center gap-4 order-2 lg:order-1 pt-2 lg:pt-0">
-           <span class="text-[9px] font-medium tracking-[0.2em] text-stone-500 uppercase">{{ filteredProducts.length }} Masterpieces Found</span>
+    <!-- NEW LUXURY TOOLBAR (Show Filters, Switcher, Sort) -->
+    <div class="flex items-center justify-between py-6 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#050505]/80 backdrop-blur-xl sticky top-0 z-[200] transition-colors duration-500">
+      <!-- Left: Show Filters Toggle -->
+      <button @click="showFilters = !showFilters" 
+        class="flex items-center gap-3 group px-4 py-2 hover:bg-stone-50 dark:hover:bg-[#111] transition-all">
+        <font-awesome-icon icon="fa-solid fa-sliders" 
+          :class="showFilters ? 'text-[var(--primary-gold)]' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'"
+          class="text-xs transition-colors" />
+        <span class="text-[10px] font-black tracking-[0.3em] uppercase transition-colors"
+          :class="showFilters ? 'text-black dark:text-white' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'">
+          {{ showFilters ? 'Hide Filters' : "Show Filter's" }}
+        </span>
+      </button>
+
+      <!-- Right: Switcher & Sort -->
+      <div class="flex items-center gap-8">
+        <!-- Grid Switcher -->
+        <div class="hidden sm:flex items-center gap-2">
+          <button @click="gridCols = 2" 
+            :class="gridCols === 2 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
+            class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
+            <div class="flex gap-0.5">
+              <div class="w-2.5 h-6 border-2 border-current rounded-[1px]"></div>
+              <div class="w-2.5 h-6 border-2 border-current rounded-[1px]"></div>
+            </div>
+          </button>
+          <button @click="gridCols = 3" 
+            :class="gridCols === 3 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
+            class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
+            <div class="grid grid-cols-2 gap-0.5">
+              <div v-for="i in 4" :key="i" class="w-2.5 h-2.5 border-2 border-current rounded-[1px]"></div>
+            </div>
+          </button>
+          <button @click="gridCols = 4" 
+            :class="gridCols === 4 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
+            class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
+            <div class="grid grid-cols-3 gap-0.5">
+              <div v-for="i in 6" :key="i" class="w-2 h-2.5 border-2 border-current rounded-[1px]"></div>
+            </div>
+          </button>
         </div>
 
-        <!-- Filters Section -->
-        <div class="flex flex-wrap items-center gap-6 lg:gap-14 order-1 lg:order-2 w-full lg:w-auto">
-          
-          <!-- Product Name Search -->
-          <div class="flex flex-col gap-1 relative w-full sm:w-auto">
-             <label class="text-[7px] font-black uppercase tracking-[0.3em] text-stone-400 mb-0.5">Item Name</label>
-             <div class="luxury-dropdown-container w-full sm:w-auto" @click="isNameOpen = !isNameOpen">
-                <div class="luxury-dropdown-selected flex justify-between items-center text-[#111] dark:text-white border-b border-black/10 dark:border-white/10 pb-2">
-                   <span class="text-[10px] font-bold tracking-widest uppercase truncate max-w-[150px]">{{ selectedProductName || 'All Items' }}</span>
-                   <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] ml-4 text-stone-400 transition-transform" :class="{'rotate-180': isNameOpen}" />
-                </div>
-                <transition name="dropdown-reveal">
-                   <div v-if="isNameOpen" class="luxury-dropdown-list shadow-2xl border border-black/5 dark:border-white/5">
-                      <div class="luxury-dropdown-item" @click="selectedProductName = ''">All Items</div>
-                      <div v-for="name in uniqueProductNames" :key="name" class="luxury-dropdown-item" @click="selectedProductName = name">{{ name }}</div>
-                   </div>
-                </transition>
-             </div>
-          </div>
-
-          <!-- Category/Nature Filter -->
-          <div class="flex flex-col gap-1 relative w-full sm:w-auto">
-             <label class="text-[7px] font-black uppercase tracking-[0.3em] text-stone-400 mb-0.5">Collection Type</label>
-             <div class="luxury-dropdown-container w-full sm:w-auto" @click="isCatOpen = !isCatOpen" v-click-outside="() => isCatOpen = false">
-                <div class="luxury-dropdown-selected flex justify-between items-center text-[#111] dark:text-white border-b border-black/10 dark:border-white/10 pb-2">
-                   <span class="text-[10px] font-bold tracking-widest uppercase truncate max-w-[150px]">{{ selectedCategory || 'All Types' }}</span>
-                   <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] ml-4 text-stone-400 transition-transform" :class="{'rotate-180': isCatOpen}" />
-                </div>
-                <transition name="dropdown-reveal">
-                   <div v-if="isCatOpen" class="luxury-dropdown-list shadow-2xl border border-black/5 dark:border-white/5">
-                      <div class="luxury-dropdown-item" @click="selectedCategory = ''">All Types</div>
-                      <div v-for="cat in uniqueCategories" :key="cat" class="luxury-dropdown-item" @click="selectedCategory = cat">{{ cat }}</div>
-                   </div>
-                </transition>
-             </div>
-          </div>
-
-          <!-- Price Range Slider -->
-          <div class="flex flex-col gap-2 min-w-[200px] w-full sm:w-auto pt-1">
-             <div class="flex justify-between items-baseline mb-1">
-               <label class="text-[7px] font-black uppercase tracking-[0.3em] text-stone-400">Limit</label>
-               <span class="text-[10px] font-bold tracking-wider text-[#111] dark:text-white font-playfair">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
-             </div>
-             <input type="range" v-model="maxPrice" min="0" max="500000" step="1000" class="luxury-range">
-          </div>
-
-          <!-- Mode Toggle (Minimalist) -->
-          <div class="flex gap-4 items-center hidden sm:flex pt-3 lg:pt-0">
-             <button @click="viewMode = 'grid'" :class="viewMode === 'grid' ? 'text-[#111] dark:text-white' : 'text-stone-300 dark:text-stone-700 hover:text-[#111] dark:hover:text-white'" class="transition-colors"><font-awesome-icon icon="fa-solid fa-grip" class="text-[12px]" /></button>
-             <button @click="viewMode = 'list'" :class="viewMode === 'list' ? 'text-[#111] dark:text-white' : 'text-stone-300 dark:text-stone-700 hover:text-[#111] dark:hover:text-white'" class="transition-colors"><font-awesome-icon icon="fa-solid fa-list" class="text-[12px]" /></button>
+        <!-- Sort Button -->
+        <div class="relative group">
+          <button class="flex items-center gap-4 bg-stone-50 dark:bg-[#111] px-6 py-3 border border-black/5 dark:border-white/5 hover:border-[var(--primary-gold)] transition-all rounded-sm">
+            <font-awesome-icon icon="fa-solid fa-arrow-up-wide-short" class="text-[10px] text-[var(--primary-gold)]" />
+            <span class="text-[9px] font-black tracking-widest uppercase text-[#111] dark:text-white">{{ sortBy === 'default' ? 'Sort' : sortBy }}</span>
+            <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+          </button>
+          <!-- Sort Dropdown -->
+          <div class="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-[#111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] border border-black/10 dark:border-white/10 py-3 z-[300] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            <button v-for="option in ['Featured', 'Most relevant', 'Best selling', 'Alphabetically, A-Z', 'Alphabetically, Z-A', 'Price, low to high', 'Price, high to low', 'Date, old to new', 'Date, new to old']"
+              :key="option"
+              @click="sortBy = option" 
+              :class="sortBy === option ? 'bg-stone-100 dark:bg-[#222] text-black dark:text-white font-bold' : 'text-stone-500 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white'"
+              class="w-full text-left px-6 py-4 text-[10px] tracking-[0.1em] uppercase transition-all duration-200">
+              {{ option }}
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- COLLAPSIBLE FILTERS SECTION -->
+    <transition 
+      @before-enter="beforeFilterEnter" 
+      @enter="filterEnter" 
+      @leave="filterLeave">
+      <div v-if="showFilters" class="bg-stone-50 dark:bg-[#080808] border-b border-black/5 dark:border-white/5 overflow-hidden">
+        <div class="max-w-[1700px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 md:p-12">
+          
+          <!-- Product Name Search -->
+          <div class="md:col-span-3 relative group">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
+              <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Item Name</label>
+            </div>
+            <div class="relative overflow-hidden">
+              <select v-model="selectedProductName"
+                class="w-full bg-white dark:bg-[#111] border border-black/5 dark:border-white/5 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:bg-stone-50 dark:hover:bg-[#151515] transition-all appearance-none">
+                <option value="">All Masterpieces</option>
+                <option v-for="name in uniqueProductNames" :key="name" :value="name">{{ name }}</option>
+              </select>
+              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[10px] text-[var(--primary-gold)]" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="md:col-span-3 relative group">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
+              <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Collection</label>
+            </div>
+            <div class="relative overflow-hidden">
+              <select v-model="selectedCategory"
+                class="w-full bg-white dark:bg-[#111] border border-black/5 dark:border-white/5 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:bg-stone-50 dark:hover:bg-[#151515] transition-all appearance-none">
+                <option value="">All Collections</option>
+                <option v-for="cat in uniqueCategories" :key="cat" :value="cat">{{ cat }}</option>
+              </select>
+              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[10px] text-[var(--primary-gold)]" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Info -->
+          <div class="md:col-span-2 flex flex-col items-center justify-center p-4 bg-white dark:bg-[#111] border border-black/5 dark:border-white/5">
+            <span class="text-2xl font-playfair italic text-[var(--primary-gold)]">{{ filteredProducts.length }}</span>
+            <span class="text-[7px] font-black tracking-[0.2em] text-stone-400 uppercase mt-1">Masterpieces Found</span>
+          </div>
+
+          <!-- Price Slider -->
+          <div class="md:col-span-4 flex flex-col gap-6 pt-2">
+            <div class="flex justify-between items-center px-1">
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
+                <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Investment Limit</label>
+              </div>
+              <span class="text-[14px] font-medium font-playfair italic text-[var(--primary-gold)]">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
+            </div>
+            <div class="relative py-4">
+              <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
+                class="luxury-home-range w-full cursor-pointer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
 
     <!-- Google AdSense: Shop Page — Slot B (unique to this page) -->
     <div class="max-w-7xl mx-auto px-6 mb-12">
@@ -124,15 +191,25 @@
     <!-- Product Collection Grid -->
     <div class="max-w-7xl mx-auto px-6 min-h-[60vh]">
       <div v-if="filteredProducts.length > 0">
-        <div :class="viewMode === 'list' ? 'flex flex-col gap-16 max-w-3xl mx-auto' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-20'">
-          <ProductCard 
-            v-for="(product, i) in displayedProducts" 
-            :key="product.id" 
-            :product="product" 
-            @click-product="goToDetail"
-            class="shop-card-reveal"
-            :style="{ animationDelay: `${(i % 4) * 0.15}s` }"
-          />
+        <div class="max-w-[1700px] mx-auto grid gap-x-8 gap-y-16"
+          :class="viewMode === 'list' ? 'flex flex-col gap-16 max-w-3xl mx-auto' : {
+            'grid-cols-1 sm:grid-cols-2': gridCols === 2,
+            'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3': gridCols === 3,
+            'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4': gridCols === 4
+          }">
+          <div v-for="(product, i) in displayedProducts" :key="product.id" 
+            class="animate-reveal group/grid-item" :style="{ animationDelay: `${(i % 4) * 0.12}s` }">
+            <div class="luxury-card-wrapper relative transition-all duration-700">
+               <!-- Decorative Corner Accents -->
+               <div class="absolute -top-2 -left-2 w-4 h-4 border-t border-l border-[var(--primary-gold)] opacity-0 group-hover/grid-item:opacity-100 transition-all duration-500"></div>
+               <div class="absolute -bottom-2 -right-2 w-4 h-4 border-b border-r border-[var(--primary-gold)] opacity-0 group-hover/grid-item:opacity-100 transition-all duration-500"></div>
+               
+               <ProductCard :product="product" @click-product="goToDetail" class="hover-3d-effect" />
+               
+               <!-- Subtle Reflection Overlay -->
+               <div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover/grid-item:opacity-100 transition-opacity duration-1000"></div>
+            </div>
+          </div>
         </div>
         
         <!-- Pagination - Luxury Style -->
@@ -212,6 +289,34 @@ const maxPrice = ref(500000)
 
 const isCatOpen = ref(false)
 const isNameOpen = ref(false)
+const gridCols = ref(4)
+const sortBy = ref('default')
+const showFilters = ref(false)
+
+import gsap from 'gsap'
+
+const beforeFilterEnter = (el) => {
+  el.style.height = '0'
+  el.style.opacity = '0'
+}
+const filterEnter = (el, done) => {
+  gsap.to(el, {
+    height: 'auto',
+    opacity: 1,
+    duration: 0.6,
+    ease: 'power3.out',
+    onComplete: done
+  })
+}
+const filterLeave = (el, done) => {
+  gsap.to(el, {
+    height: 0,
+    opacity: 0,
+    duration: 0.5,
+    ease: 'power3.inOut',
+    onComplete: done
+  })
+}
 
 const category = computed(() => route.params.category)
 
@@ -301,7 +406,7 @@ const filteredProducts = computed(() => {
   const catFilter = selectedCategory.value?.toLowerCase()
   const nameFilter = selectedProductName.value?.toLowerCase()
   
-  return productStore.products.filter(p => {
+  let result = productStore.products.filter(p => {
     // 1. Discount/Sale Logic
     if (catRoute === 'discount' || catRoute === 'sale offer') {
       if (p.discount <= 0 && !p.category?.toLowerCase().includes('sale') && !p.parentCategory?.toLowerCase().includes('sale')) return false
@@ -331,6 +436,25 @@ const filteredProducts = computed(() => {
     
     return true
   })
+
+  // 7. Advanced Sorting logic
+  if (sortBy.value === 'Price, low to high') {
+    result.sort((a, b) => a.price - b.price)
+  } else if (sortBy.value === 'Price, high to low') {
+    result.sort((a, b) => b.price - a.price)
+  } else if (sortBy.value === 'Date, new to old') {
+    result.sort((a, b) => b.id - a.id)
+  } else if (sortBy.value === 'Date, old to new') {
+    result.sort((a, b) => a.id - b.id)
+  } else if (sortBy.value === 'Alphabetically, A-Z') {
+    result.sort((a, b) => (a.title || a.name).localeCompare(b.title || b.name))
+  } else if (sortBy.value === 'Alphabetically, Z-A') {
+    result.sort((a, b) => (b.title || b.name).localeCompare(a.title || a.name))
+  } else if (sortBy.value === 'Best selling') {
+    result.sort((a, b) => (b.sales || 0) - (a.sales || 0))
+  }
+
+  return result
 })
 
 const totalPages = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
