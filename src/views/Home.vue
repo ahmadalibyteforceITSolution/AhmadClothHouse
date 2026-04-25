@@ -498,41 +498,7 @@
     </section> -->
 
 
-    <section class="patron-stories py-40 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5 relative overflow-hidden">
-      <!-- Pakistani Heritage Accent -->
-      <div class="absolute inset-0 bg-damask opacity-5 pointer-events-none"></div>
-      <div class="absolute -right-20 top-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
-      <div class="absolute -left-20 bottom-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-24 space-y-4">
-          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE PATRONS</div>
-          <h2 class="text-4xl md:text-6xl font-playfair text-[var(--luxury-black)] dark:text-white uppercase">Voices of
-            <span class="italic text-[var(--deep-burgundy)]">Excellence</span>
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-          <div v-for="(patron, i) in patronStories" :key="i" class="patron-card space-y-8">
-            <font-awesome-icon icon="fa-solid fa-quote-left" class="text-[var(--primary-gold)]/20 text-4xl" />
-            <p class="text-lg text-gray-600 dark:text-gray-300 italic font-light leading-relaxed">
-              "{{ patron.quote }}"
-            </p>
-            <div class="flex items-center gap-6 pt-8 border-t border-black/5 dark:border-white/5">
-              <div class="w-12 h-12 rounded-full overflow-hidden">
-                <img :src="patron.avatar" :alt="patron.name" class="w-full h-full object-cover" />
-              </div>
-              <div>
-                <div class="text-xs font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white">{{
-                  patron.name }}</div>
-                <div class="text-[9px] uppercase tracking-[0.2em] text-[var(--primary-gold)] mt-1">{{ patron.role }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
     <!-- ═══════════════════════════════════════════
@@ -579,96 +545,7 @@
     <!-- ═══════════════════════════════════════════
          FAQ SECTION (Content Boost)
     ═══════════════════════════════════════════ -->
-    <section class="faq-section py-32 bg-[#fafaf8] dark:bg-[#050505]">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-16 space-y-4">
-          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">FREQUENTLY ASKED</h3>
-          <h2 class="text-4xl font-playfair italic text-gray-900 dark:text-white">Questions & Answers</h2>
-        </div>
-        
-        <div class="space-y-8">
-          <div v-for="(faq, i) in faqs" :key="i" class="border-b border-black/5 dark:border-white/5 pb-8">
-            <h4 class="text-lg font-playfair text-gray-900 dark:text-white mb-4">{{ faq.q }}</h4>
-            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">{{ faq.a }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="heritage-banner relative py-40 overflow-hidden bg-black text-white">
-
-      <!-- Background Images -->
-      <div class="absolute inset-0">
-
-        <!-- First Image -->
-        <img :src="PakistaniCouture2" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
-
-        <!-- Second Image with blend -->
-        <img :src="PakistaniCouture4" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50"
-          loading="lazy" />
-
-      </div>
-
-      <!-- Softer Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-
-      <!-- Content -->
-      <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        <div class="space-y-8">
-          <p class="heritage-tag text-amber-400">OUR PHILOSOPHY</p>
-
-          <h2 class="heritage-title text-4xl md:text-6xl font-black font-playfair uppercase leading-tight">
-            THE ART OF<br>
-            <span class="italic text-amber-200">COUTURE</span>
-          </h2>
-
-          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-lg font-light">
-            We believe the finest fabrics tell their own story. AHMADCLOTHESFABRICS represents the commitment to quality
-            and the joy of elegance through artisanal craftsmanship. Our collections are designed to make every woman 
-            feel confident and beautiful, blending the rich heritage of Pakistan with modern fashion sensibilities.
-          </p>
-          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-sm font-light">
-            Each season, we bring you new designs that push the boundaries of luxury. From our signature unstitched 
-            collections to our bespoke bridal wear, we are dedicated to providing the highest level of service and 
-            craftsmanship. Join us on this journey of elegance and style.
-          </p>
-          <div class="flex items-center gap-10">
-            <div v-for="stat in brandStats" :key="stat.label">
-              <div class="text-3xl font-black text-amber-400 mb-1">{{ stat.value }}</div>
-              <div class="text-[10px] uppercase tracking-[0.2em] text-gray-400">{{ stat.label }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div class="hidden lg:block relative">
-          <div
-            class="w-full h-[500px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black/30 backdrop-blur-2xl group">
-
-
-            <img :src="PakistaniCouture2" class="img-zoom" alt="Limited Edition" />
-
-
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-
-            <div class="absolute bottom-8 left-8 right-8">
-              <p class="text-xs font-black tracking-widest text-amber-400 mb-2">
-                PRODUCT ARCHIVE
-              </p>
-
-              <h4 class="text-2xl font-black tracking-tight uppercase">
-                TRADITION & TRENDS
-              </h4>
-
-              <div class="h-0.5 w-12 bg-amber-400 mt-4 group-hover:w-full transition-all duration-700"></div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
 
     <!-- ═══════════════════════════════════════════
          IMAGE ZOOM MODAL (Lightbox)
