@@ -718,13 +718,15 @@ const navItems = computed(() => {
       })
     }
   })
-  items.push({ name: 'Discount', path: '/shop/Discount', products: [] })
-  items.push({ name: 'Office', path: '/shop/Office', products: [] })
+  items.push({ name: 'Hero Collection', path: '/shop/hero', products: heroCollectionProducts })
   items.push({ name: 'Sale Offer', path: '/shop/Sale Offer', products: [] })
   items.push({ name: 'About Us', path: '/about', products: [] })
-  items.push({ name: 'Blog', path: '/blog', products: [] })
   items.push({ name: 'Contact Us', path: '/contact', products: [] })
   return items
+})
+
+const heroCollectionProducts = computed(() => {
+  return productStore.products.filter(p => p.id && String(p.id).startsWith('hero-'))
 })
 
 watch(isMenuOpen, (val) => {

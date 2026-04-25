@@ -118,6 +118,28 @@ import aiBrand37 from "../assets/ai_brands/37.jpg";
 import aiBrand38 from "../assets/ai_brands/38.jpg";
 import aiBrand39 from "../assets/ai_brands/39.jpg";
 
+// Hero Assets
+import heroClothe16 from "../assets/hero/clothe16.jpg";
+import heroClothes from "../assets/hero/clothes.jpg";
+import heroClothes1 from "../assets/hero/clothes1.jpg";
+import heroClothes10 from "../assets/hero/clothes10.jpg";
+import heroClothes11 from "../assets/hero/clothes11.jpg";
+import heroClothes12 from "../assets/hero/clothes12.jpg";
+import heroClothes13 from "../assets/hero/clothes13.jpg";
+import heroClothes14 from "../assets/hero/clothes14.jpg";
+import heroClothes15 from "../assets/hero/clothes15.jpg";
+import heroClothes16 from "../assets/hero/clothes16.jpg";
+import heroClothes17 from "../assets/hero/clothes17.jpg";
+import heroClothes2 from "../assets/hero/clothes2.jpg";
+import heroClothes3 from "../assets/hero/clothes3.jpg";
+import heroClothes4 from "../assets/hero/clothes4.jpg";
+import heroClothes5 from "../assets/hero/clothes5.jpg";
+import heroClothes6 from "../assets/hero/clothes6.jpg";
+import heroClothes7 from "../assets/hero/clothes7.jpg";
+import heroClothes8 from "../assets/hero/clothes8.jpg";
+import heroClothes9 from "../assets/hero/clothes9.jpg";
+import heroShopInterior from "../assets/hero/shop_interior.png";
+
 const baseProducts = [
   {
     id: "mariab-001",
@@ -140,6 +162,7 @@ const baseProducts = [
       { color: "Sunset Orange", size: "Unstitched", image: mariabV5 }
     ]
   },
+
   {
     id: "mariab-002",
     name: "m.prints by maria b",
@@ -1030,4 +1053,287 @@ const aiBrandProducts = [
   }
 ];
 
-export const products = [...baseProducts, ...aiBrandProducts];
+const heroProducts = [
+  {
+    id: "hero-1",
+    name: "ahmad luxury lawn edition clothe16",
+    brand: "Ahmadcloths Signature",
+    price: 8500,
+    originalPrice: 12000,
+    discount: 29,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothe16,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-2",
+    name: "ahmad luxury lawn edition clothes",
+    brand: "Ahmadcloths Signature",
+    price: 9200,
+    originalPrice: 14000,
+    discount: 34,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-3",
+    name: "ahmad luxury lawn edition clothes1",
+    brand: "Ahmadcloths Signature",
+    price: 7800,
+    originalPrice: 11000,
+    discount: 29,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes1,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-4",
+    name: "ahmad luxury lawn edition clothes10",
+    brand: "Ahmadcloths Signature",
+    price: 11500,
+    originalPrice: 16000,
+    discount: 28,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes10,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-5",
+    name: "ahmad luxury lawn edition clothes11",
+    brand: "Ahmadcloths Signature",
+    price: 10500,
+    originalPrice: 15000,
+    discount: 30,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes11,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-6",
+    name: "ahmad luxury lawn edition clothes12",
+    brand: "Ahmadcloths Signature",
+    price: 6500,
+    originalPrice: 9000,
+    discount: 27,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes12,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-7",
+    name: "ahmad luxury lawn edition clothes13",
+    brand: "Ahmadcloths Signature",
+    price: 11800,
+    originalPrice: 18000,
+    discount: 34,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes13,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-8",
+    name: "ahmad luxury lawn edition clothes14",
+    brand: "Ahmadcloths Signature",
+    price: 5900,
+    originalPrice: 8500,
+    discount: 30,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes14,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-9",
+    name: "ahmad luxury lawn edition clothes15",
+    brand: "Ahmadcloths Signature",
+    price: 8900,
+    originalPrice: 13000,
+    discount: 31,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes15,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-10",
+    name: "ahmad luxury lawn edition clothes16",
+    brand: "Ahmadcloths Signature",
+    price: 12000,
+    originalPrice: 20000,
+    discount: 40,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes16,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-11",
+    name: "ahmad luxury lawn edition clothes17",
+    brand: "Ahmadcloths Signature",
+    price: 7200,
+    originalPrice: 10000,
+    discount: 28,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes17,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-12",
+    name: "ahmad luxury lawn edition clothes2",
+    brand: "Ahmadcloths Signature",
+    price: 8400,
+    originalPrice: 12000,
+    discount: 30,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes2,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-13",
+    name: "ahmad luxury lawn edition clothes3",
+    brand: "Ahmadcloths Signature",
+    price: 6800,
+    originalPrice: 9500,
+    discount: 28,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes3,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-14",
+    name: "ahmad luxury lawn edition clothes4",
+    brand: "Ahmadcloths Signature",
+    price: 5500,
+    originalPrice: 8000,
+    discount: 31,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes4,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-15",
+    name: "ahmad luxury lawn edition clothes5",
+    brand: "Ahmadcloths Signature",
+    price: 11000,
+    originalPrice: 17000,
+    discount: 35,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes5,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-16",
+    name: "ahmad luxury lawn edition clothes6",
+    brand: "Ahmadcloths Signature",
+    price: 9900,
+    originalPrice: 15000,
+    discount: 34,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes6,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-17",
+    name: "ahmad luxury lawn edition clothes7",
+    brand: "Ahmadcloths Signature",
+    price: 7500,
+    originalPrice: 11000,
+    discount: 31,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes7,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-18",
+    name: "ahmad luxury lawn edition clothes8",
+    brand: "Ahmadcloths Signature",
+    price: 8200,
+    originalPrice: 12000,
+    discount: 31,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes8,
+    nature: "premium",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-19",
+    name: "ahmad luxury lawn edition clothes9",
+    brand: "Ahmadcloths Signature",
+    price: 6300,
+    originalPrice: 9000,
+    discount: 30,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: heroClothes9,
+    nature: "standard",
+    description: "Premium unstitched lawn from our latest hero collection.",
+    details: ["Luxury Fabric", "Exquisite Design", "Ahmad Guaranteed"]
+  },
+  {
+    id: "hero-20",
+    name: "ahmad boutique interior concept",
+    brand: "Ahmadcloths Signature",
+    price: 12000,
+    originalPrice: 15000,
+    discount: 20,
+    category: "Boutique Experience",
+    parentCategory: "Services",
+    image: heroShopInterior,
+    nature: "limited",
+    description: "Experience the ultimate in luxury boutique interiors.",
+    details: ["Exclusive Consultation", "Custom Interior Design"]
+  }
+];
+
+export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts];

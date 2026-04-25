@@ -244,6 +244,9 @@ const displayTitleParts = computed(() => {
     } else if (cat === 'office') {
       main = 'Office'
       accent = 'Corporate Luxe'
+    } else if (cat === 'hero') {
+      main = 'Hero'
+      accent = 'Collection 2026'
     } else {
       const parts = category.value.split('-')
       main = parts[0].toUpperCase()
@@ -263,7 +266,8 @@ const headerImage = computed(() => {
     'm.print': Hero2,
     'discount': Hero1,
     'sale offer': Hero2,
-    'office': Hero4
+    'office': Hero4,
+    'hero': Hero1
   }
   return mapping[cat] || Hero4
 })
@@ -302,6 +306,11 @@ const filteredProducts = computed(() => {
     if (catRoute === 'discount' || catRoute === 'sale offer') {
       if (p.discount <= 0 && !p.category?.toLowerCase().includes('sale') && !p.parentCategory?.toLowerCase().includes('sale')) return false
     }
+
+    // 1b. Hero Collection Logic
+    if (catRoute === 'hero') {
+      if (!p.id || !String(p.id).startsWith('hero-')) return false
+    }
     
     // 2. Search Logic
     if (query && !p.name.toLowerCase().includes(query) && !p.category?.toLowerCase().includes(query)) return false
@@ -310,7 +319,7 @@ const filteredProducts = computed(() => {
     if (nameFilter && !p.name.toLowerCase().includes(nameFilter)) return false
     
     // 4. Category Logic (Normal Categories)
-    if (catRoute && catRoute !== 'discount' && catRoute !== 'sale offer') {
+    if (catRoute && catRoute !== 'discount' && catRoute !== 'sale offer' && catRoute !== 'hero') {
       if (p.category?.toLowerCase() !== catRoute && p.parentCategory?.toLowerCase() !== catRoute) return false
     }
 
@@ -352,7 +361,7 @@ const displayedProducts = computed(() => {
 const resetFilters = () => {
   selectedCategory.value = ''
   selectedProductName.value = ''
-  maxPrice.value = 2000
+  maxPrice.value = 500000
   if (route.query.q) {
     router.push({ path: route.path, query: {} })
   }
