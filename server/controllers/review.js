@@ -1,5 +1,6 @@
 const Review = require('../models/Review');
 const Product = require('../models/Product');
+const mongoose = require('mongoose');
 
 // @desc    Get all approved reviews for a product
 // @route   GET /api/reviews/product/:productId
@@ -12,7 +13,13 @@ exports.getProductReviews = async (req, res) => {
       .sort({ createdAt: -1 });
     res.status(200).json({ success: true, count: reviews.length, data: reviews });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    console.error(`❌ [Review Error]: ${err.message}`);
+    res.status(500).json({ 
+      success: false, 
+      error: 'Failed to fetch reviews',
+      details: err.message,
+      productId: req.params.productId 
+    });
   }
 };
 
@@ -22,10 +29,18 @@ exports.addReview = async (req, res) => {
   try {
     const { productId, rating, comment } = req.body;
     
-    // Check if product exists
-    const product = await Product.findById(productId);
-    if (!product) {
-      return res.status(404).json({ success: false, error: 'Product not found' });
+    // Check if product exists (only if it's a valid MongoDB ObjectId)
+    if (mongoose.Types.ObjectId.isValid(productId)) {
+      const product = await Product.findById(productId);
+      if (!product) {
+        return res.status(404).json({ success: false, error: 'Product not found in database' });
+      }
+    } else {
+      // For hardcoded products, we just verify the ID exists in the request
+      if (!productId) {
+        return res.status(400).json({ success: false, error: 'Product ID is required' });
+      }
+      console.log(`📝 [Review]: Adding review for hardcoded product ${productId}`);
     }
 
     const review = await Review.create({

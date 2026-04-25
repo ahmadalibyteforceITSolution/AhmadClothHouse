@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ReviewSchema = new mongoose.Schema({
   product: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String, // Supports both MongoDB ObjectIds and Hardcoded IDs (e.g. 'mariab-001')
     ref: 'Product',
     required: true
   },
@@ -35,5 +35,10 @@ const ReviewSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
+// Clear existing model to prevent "Cast to ObjectId" errors when schema changes
+if (mongoose.models.Review) {
+  delete mongoose.models.Review;
+}
 
 module.exports = mongoose.model('Review', ReviewSchema);
