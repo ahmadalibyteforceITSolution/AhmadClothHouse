@@ -740,9 +740,9 @@ body {
 /* Back to Top */
 .back-to-top {
   position: fixed;
-  bottom: 170px;
-  left:30px;
-  width: 49px;
+  bottom: 160px; /* Above chatbot on mobile (bottom-24 = 96px) */
+  right: 20px;
+  width: 44px;
   height: 44px;
   background: rgba(212, 175, 55, 0.9);
   backdrop-filter: blur(10px);
@@ -761,7 +761,7 @@ body {
 
 @media (min-width: 640px) {
   .back-to-top {
-    bottom: 40px;
+    bottom: 110px; /* Above chatbot on desktop (bottom-10 = 40px + 50px height + gap) */
     right: 40px;
     width: 50px;
     height: 50px;

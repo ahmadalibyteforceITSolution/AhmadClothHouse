@@ -15,7 +15,9 @@ Disallow: /forgot-password
 
 # Allow all bots to access important public routes explicitly
 Allow: /blog/
+Allow: /blog/*
 Allow: /shop/
+Allow: /shop/*
 Allow: /about
 Allow: /contact
 Allow: /privacy

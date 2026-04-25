@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 export const useAuthStore = defineStore('auth', {
   state: () => {
     const savedTheme = localStorage.getItem('theme')
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
     const storedUser = localStorage.getItem('user')
     const user = (storedUser && storedUser !== 'undefined') ? JSON.parse(storedUser) : null
@@ -13,7 +12,7 @@ export const useAuthStore = defineStore('auth', {
     return {
       user,
       token: localStorage.getItem('token') || null,
-      isDark: savedTheme ? savedTheme === 'dark' : systemDark,
+      isDark: savedTheme ? savedTheme === 'dark' : true, // Default to dark theme
       users: [], // Store all user identities
 
       loading: false,
@@ -247,22 +246,14 @@ export const useAuthStore = defineStore('auth', {
     },
     initializeTheme() {
       const savedTheme = localStorage.getItem('theme')
-      const systemQuery = window.matchMedia('(prefers-color-scheme: dark)')
       
-      // If no manual override, follow system
+      // Force Dark Mode by default if no preference is saved
       if (!savedTheme) {
-        this.isDark = systemQuery.matches
+        this.isDark = true
+        localStorage.setItem('theme', 'dark')
       } else {
         this.isDark = savedTheme === 'dark'
       }
-
-      // Live Listener for OS changes
-      systemQuery.addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-          this.isDark = e.matches
-          this.applyTheme()
-        }
-      })
 
       this.applyTheme()
     },
