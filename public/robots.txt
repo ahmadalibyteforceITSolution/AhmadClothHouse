@@ -21,12 +21,5 @@ Allow: /contact
 Allow: /privacy
 Allow: /terms
 
-# Crawl-delay for non-Google bots
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-
 # Sitemaps
 Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml
