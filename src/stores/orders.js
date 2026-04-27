@@ -11,50 +11,92 @@ export const useOrdersStore = defineStore('orders', {
   }),
   actions: {
     async fetchAllOrders() {
-      // Local mode: already has state.orders
-      return;
+      this.loading = true
+      try {
+        const res = await api.get('/orders')
+        if (res.data.success) {
+          this.orders = res.data.data
+        }
+      } catch (err) {
+        this.error = err.response?.data?.error || 'Failed to fetch orders'
+      } finally {
+        this.loading = false
+      }
     },
     async fetchUserOrders(userId) {
-      // Local mode
-      return;
+      this.loading = true
+      try {
+        const res = await api.get(`/orders/user/${userId}`)
+        if (res.data.success) {
+          this.orders = res.data.data
+        }
+      } catch (err) {
+        this.error = err.response?.data?.error || 'Failed to fetch user orders'
+      } finally {
+        this.loading = false
+      }
     },
     async updateOrderStatus(orderId, status) {
       const auth = useAuthStore()
-      const idx = this.orders.findIndex(o => String(o._id || o.id) === String(orderId))
-      if (idx !== -1) {
-        this.orders[idx].status = status
+      try {
+        await api.patch(`/orders/${orderId}/status`, { status })
+        const idx = this.orders.findIndex(o => String(o._id || o.id) === String(orderId))
+        if (idx !== -1) {
+          this.orders[idx].status = status
+        }
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'AhmadClothes House - Status Updated',
+          text: `Order status moved to ${status}`,
+          showConfirmButton: false,
+          timer: 3000,
+          background: auth.isDark ? '#000' : '#fff',
+          color: auth.isDark ? '#fff' : '#000'
+        })
+        return true
+      } catch (err) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Update Failed',
+          text: err.response?.data?.error || 'Failed to update order status',
+          background: auth.isDark ? '#000' : '#fff',
+          color: auth.isDark ? '#fff' : '#000'
+        })
+        return false
       }
-      Swal.fire({
-        toast: true,
-        position: 'top-end',
-        icon: 'success',
-        title: 'AhmadClothes House - Status Updated',
-        text: `Order status moved to ${status} (Local only)`,
-        showConfirmButton: false,
-        timer: 3000,
-        background: auth.isDark ? '#000' : '#fff',
-        color: auth.isDark ? '#fff' : '#000'
-      })
-      return true
     },
     async updateOrderTracking(orderId, trackingNumber, carrier = 'BlueEx Luxury') {
       const auth = useAuthStore()
-      const idx = this.orders.findIndex(o => String(o._id || o.id) === String(orderId))
-      if (idx !== -1) {
-        this.orders[idx].tracking = { trackingNumber, carrier }
+      try {
+        await api.patch(`/orders/${orderId}/tracking`, { trackingNumber, carrier })
+        const idx = this.orders.findIndex(o => String(o._id || o.id) === String(orderId))
+        if (idx !== -1) {
+          this.orders[idx].tracking = { trackingNumber, carrier }
+        }
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'AhmadClothes House - Tracking Updated',
+          text: `Reference ${trackingNumber} registered`,
+          showConfirmButton: false,
+          timer: 3000,
+          background: auth.isDark ? '#000' : '#fff',
+          color: auth.isDark ? '#fff' : '#000'
+        })
+        return true
+      } catch (err) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Update Failed',
+          text: err.response?.data?.error || 'Failed to update tracking information',
+          background: auth.isDark ? '#000' : '#fff',
+          color: auth.isDark ? '#fff' : '#000'
+        })
+        return false
       }
-      Swal.fire({
-        toast: true,
-        position: 'top-end',
-        icon: 'success',
-        title: 'AhmadClothes House - Tracking Updated',
-        text: `Reference ${trackingNumber} registered (Local only)`,
-        showConfirmButton: false,
-        timer: 3000,
-        background: auth.isDark ? '#000' : '#fff',
-        color: auth.isDark ? '#fff' : '#000'
-      })
-      return true
     },
     async createOrder(orderData) {
       this.loading = true

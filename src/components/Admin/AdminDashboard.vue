@@ -352,7 +352,7 @@ const currentTabProps = computed(() => {
     return {
       products: adminCategoryProducts.value,
       navCategories: allNavCategories.value,
-      isDynamic: (id) => typeof id === 'string' && id.length > 5
+      isDynamic: (id) => !!id // Allow handling all items in admin dashboard
     }
   }
   if (currentTab.value === 'customers') {
