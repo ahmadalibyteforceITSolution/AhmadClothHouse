@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const compression = require("compression");
+mongoose.set('bufferCommands', false);
 
 const path = require("path");
 dotenv.config({ path: path.join(__dirname, ".env") });
@@ -97,27 +98,32 @@ async function connectDB() {
 }
 
 app.use(async (req, res, next) => {
-  // Skip DB connection for notify endpoint to allow emails during DB overload
-  // Skip DB connection for notify/traffic/reviews to allow fast response during DB overload
+  // Skip DB connection ONLY for notify endpoint (purely for email notifications)
   const url = req.url.toLowerCase();
-  const isBypassRoute = url.includes('notify') || url.includes('traffic') || url.includes('auth/login');
+  const isBypassRoute = url.includes('notify');
+  
   if (isBypassRoute) {
     return next();
   }
   
   try {
-    console.log(`📡 [DB_WAIT]: Ensuring connection for ${req.url}...`);
+    // Only log wait for non-static/heartbeat routes to keep logs clean
+    const isQuiet = url.includes('traffic') || url.includes('heartbeat');
+    if (!isQuiet) {
+      console.log(`📡 [DB_WAIT]: Ensuring connection for ${req.url}...`);
+    }
+    
     await connectDB();
     next();
   } catch (err) {
     const errorMsg = err.message || "Unknown Connection Error";
     console.error("💀 [DB_FAILURE]:", errorMsg);
 
-    res.status(500).json({
+    res.status(503).json({ // 503 Service Unavailable is more accurate
       success: false,
       error: "Boutique Database Offline",
       message: errorMsg,
-      remedy: "Check Vercel Env Vars for MONGO_URI"
+      remedy: "Please check your MongoDB connection and IP whitelisting."
     });
   }
 });
