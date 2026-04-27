@@ -6,7 +6,6 @@ exports.getOrders = async (req, res) => {
   try {
     const orders = await Order.find()
       .populate('user', 'name email')
-      .populate('items.product', 'name price views sales') // EXCLUDE 'image' — it's a huge base64 string
       .select('-__v')
       .sort({ createdAt: -1 })
       .limit(200) // cap at 200 most recent orders
@@ -39,7 +38,6 @@ exports.getOrderById = async (req, res) => {
 exports.getUserOrders = async (req, res) => {
   try {
     const orders = await Order.find({ user: req.params.userId })
-      .populate('items.product', 'name price views sales') // EXCLUDE 'image'
       .sort({ createdAt: -1 })
       .limit(50)
       .lean();
@@ -119,12 +117,12 @@ exports.createOrder = async (req, res) => {
     const order = await Order.create(req.body);
 
     // Send notification email to customer
-    if (order.user && order.user.email) {
+    if (order.customerEmail) {
       try {
         await sendEmail({
-          email: order.user.email,
+          email: order.customerEmail,
           subject: 'Order Confirmation - AhmadClothesHouse',
-          message: `Hello ${order.user.name || 'Valued Customer'},\n\nThank you for your order at AhmadClothesHouse.\n\nOrder ID: ${order._id}\nTotal: Rs. ${order.totalAmount}\n\nWe are processing your order and will notify you when it ships.\n\nBest regards,\nAhmadClothesHouse Team`
+          message: `Hello ${order.customerName || 'Valued Customer'},\n\nThank you for your order at AhmadClothesHouse.\n\nOrder ID: ${order._id}\nTotal: Rs. ${order.totalAmount}\n\nWe are processing your order and will notify you when it ships.\n\nBest regards,\nAhmadClothesHouse Team`
         });
       } catch (custMailErr) {
         console.error('AHMADCLOTHS_CUSTOMER_CONFIRMATION_MAIL_ERROR:', custMailErr.message);

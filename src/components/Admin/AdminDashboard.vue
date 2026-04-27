@@ -498,16 +498,22 @@ const monetizationStats = computed(() => {
 
 const transactions = computed(() => {
   return orderStore.orders.map(o => {
-    const items = (o.items || []).map(item => ({
-      name: item.name || item.product?.name || 'Product',
-      price: item.price || 0,
-      quantity: item.quantity || 1,
-      image: item.variant?.image || item.product?.image || '',
-      size: item.variant?.size || '',
-      color: item.variant?.color || '',
-      views: item.product?.views || 0,
-      sales: item.product?.sales || 0
-    }))
+    const items = (o.items || []).map(item => {
+      // Look up product in store to get real-time views/sales
+      const prodId = item.product?._id || item.product
+      const storeProd = productStore.products.find(p => String(p._id || p.id) === String(prodId))
+      
+      return {
+        name: item.name || storeProd?.name || 'Product',
+        price: item.price || 0,
+        quantity: item.quantity || 1,
+        image: item.variant?.image || item.image || storeProd?.image || '',
+        size: item.variant?.size || '',
+        color: item.variant?.color || '',
+        views: storeProd?.views || 0,
+        sales: storeProd?.sales || 0
+      }
+    })
     return {
       id: o._id || o.id,
       user: o.user?.name || 'Client',

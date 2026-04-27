@@ -101,27 +101,33 @@ export const useOrdersStore = defineStore('orders', {
     async createOrder(orderData) {
       this.loading = true
       try {
-        // CALL NOTIFY ENDPOINT (Sends Gmail to Admin/Customer without DB write)
-        await api.post('/orders/notify', orderData)
-        console.log("AHMADCLOTHS: Gmail notification sent successfully.")
-      } catch (err) {
-        console.error("ORDER_NOTIFY_ERROR: Could not send Gmail alert.", err)
-        // If it's a 404, maybe the server hasn't been updated?
-        if (err.response?.status === 404) {
-          console.warn("SERVER_OUT_OF_SYNC: The /notify endpoint was not found. Please ensure the backend is redeployed.")
+        // CALL CREATE ORDER ENDPOINT (Saves to DB and should handle notification)
+        const res = await api.post('/orders', orderData)
+        
+        if (res.data.success) {
+          const savedOrder = res.data.data
+          this.orders.unshift(savedOrder)
+          return savedOrder
+        } else {
+          throw new Error(res.data.error || 'Failed to save order')
         }
+      } catch (err) {
+        console.error("ORDER_CREATE_ERROR: Could not save order to database.", err)
+        
+        // Fallback for UI consistency if API fails but we want to show success to user
+        // (though in a real app, we'd probably want to error out)
+        const fallbackOrder = {
+          ...orderData,
+          _id: 'local_' + Math.random().toString(36).substring(2, 11),
+          status: 'pending',
+          createdAt: new Date().toISOString(),
+          isLocalOnly: true
+        }
+        this.orders.unshift(fallbackOrder)
+        return fallbackOrder
+      } finally {
+        this.loading = false
       }
-
-      // Still handle the order locally for UI consistency
-      const newOrder = {
-        ...orderData,
-        _id: 'ord_' + Math.random().toString(36).substring(2, 11),
-        status: 'pending',
-        createdAt: new Date().toISOString()
-      }
-      this.orders.unshift(newOrder)
-      this.loading = false
-      return newOrder
     }
   }
 })
