@@ -264,6 +264,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import AdSenseUnit from '../components/AdSenseUnit.vue'
+import gsap from 'gsap'
 
 import Hero1 from "../assets/ai_new/hero_collage_1.png"
 import Hero2 from "../assets/ai_new/hero_collage_2.png"
@@ -292,8 +293,6 @@ const isNameOpen = ref(false)
 const gridCols = ref(4)
 const sortBy = ref('default')
 const showFilters = ref(false)
-
-import gsap from 'gsap'
 
 const beforeFilterEnter = (el) => {
   el.style.height = '0'
