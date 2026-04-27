@@ -10,221 +10,6 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
-          SIGNATURE CATALOG & DISCOVERY (TOP LUXURY PLACEMENT)
-    ═══════════════════════════════════════════ -->
-    <section id="discovery" class="filter-section relative pt-24 pb-16 bg-[#fdfdfc] dark:bg-[#050505] transition-colors duration-1000">
-      <!-- Subtle Luxury Accents -->
-      <div class="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden">
-        <div class="absolute -top-1/4 -left-1/4 w-full h-full bg-[radial-gradient(circle_at_center,_#d4af37_1px,_transparent_1px)] bg-[size:60px_60px]"></div>
-        <div class="absolute -bottom-1/4 -right-1/4 w-full h-full border-[1px] border-[var(--primary-gold)]/20 rounded-full blur-[120px]"></div>
-      </div>
-
-      <div class="max-w-[1600px] mx-auto px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div class="space-y-4 animate-reveal">
-            <div class="flex items-center gap-4">
-              <span class="h-[1px] w-12 bg-[var(--primary-gold)]"></span>
-              <p class="text-[9px] font-black tracking-[0.5em] text-[var(--primary-gold)] uppercase">Signature Catalog</p>
-            </div>
-            <div class="relative">
-              <div class="absolute -left-4 -top-6 text-[var(--primary-gold)]/5 text-7xl md:text-9xl font-playfair italic -z-10 select-none">C</div>
-              <h2 class="text-4xl md:text-7xl font-playfair font-light text-gray-900 dark:text-white leading-[0.9] tracking-tight">
-                {{ selectedCategory === 'all' ? 'Curated' : selectedCategory }} <br>
-                <span class="italic font-thin text-stone-400 text-3xl md:text-6xl">Designs</span>
-              </h2>
-            </div>
-          </div>
-          
-          <div class="flex flex-col items-start md:items-end gap-4 animate-reveal w-full md:w-auto">
-            <div class="flex items-center gap-4 md:gap-6 bg-white dark:bg-[#0a0a0a] border border-black/5 dark:border-white/5 px-6 md:px-10 py-4 md:py-6 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl w-full md:w-auto justify-between md:justify-start">
-              <div class="flex flex-col items-center">
-                <span class="text-xl md:text-3xl font-playfair italic text-[var(--primary-gold)] leading-none mb-1">{{ filteredProducts.length }}</span>
-                <span class="text-[6px] md:text-[7px] font-black tracking-[0.4em] text-stone-400 uppercase leading-none">Catalog pieces</span>
-              </div>
-              <div class="w-[1px] h-8 md:h-10 bg-black/5 dark:bg-white/5"></div>
-              <div class="flex flex-col items-center">
-                <span class="text-xl md:text-3xl font-playfair italic text-[var(--primary-gold)] leading-none mb-1">2026</span>
-                <span class="text-[6px] md:text-[7px] font-black tracking-[0.4em] text-stone-400 uppercase leading-none">Current Archive</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- NEW LUXURY TOOLBAR (Show Filters, Switcher, Sort) -->
-        <div class="flex items-center justify-between py-6 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#050505]/80 backdrop-blur-xl sticky top-0 z-[200] transition-colors duration-500">
-          <!-- Left: Show Filters Toggle -->
-          <button @click="showFilters = !showFilters" 
-            class="flex items-center gap-3 group px-4 py-2 hover:bg-stone-50 dark:hover:bg-[#111] transition-all">
-            <font-awesome-icon icon="fa-solid fa-sliders" 
-              :class="showFilters ? 'text-[var(--primary-gold)]' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'"
-              class="text-xs transition-colors" />
-            <span class="text-[10px] font-black tracking-[0.3em] uppercase transition-colors"
-              :class="showFilters ? 'text-black dark:text-white' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'">
-              {{ showFilters ? 'Hide Filters' : "Show Filter's" }}
-            </span>
-          </button>
-
-          <!-- Right: Switcher & Sort -->
-          <div class="flex items-center gap-8">
-            <!-- Grid Switcher -->
-            <div class="hidden sm:flex items-center gap-2">
-              <button @click="gridCols = 2" 
-                :class="gridCols === 2 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
-                class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
-                <div class="flex gap-0.5">
-                  <div class="w-2.5 h-6 border-2 border-current rounded-[1px]"></div>
-                  <div class="w-2.5 h-6 border-2 border-current rounded-[1px]"></div>
-                </div>
-              </button>
-              <button @click="gridCols = 3" 
-                :class="gridCols === 3 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
-                class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
-                <div class="grid grid-cols-2 gap-0.5">
-                  <div v-for="i in 4" :key="i" class="w-2.5 h-2.5 border-2 border-current rounded-[1px]"></div>
-                </div>
-              </button>
-              <button @click="gridCols = 4" 
-                :class="gridCols === 4 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
-                class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
-                <div class="grid grid-cols-3 gap-0.5">
-                  <div v-for="i in 6" :key="i" class="w-2 h-2.5 border-2 border-current rounded-[1px]"></div>
-                </div>
-              </button>
-            </div>
-
-            <!-- Sort Button -->
-            <div class="relative group">
-              <button class="flex items-center gap-4 bg-stone-50 dark:bg-[#111] px-6 py-3 border border-black/5 dark:border-white/5 hover:border-[var(--primary-gold)] transition-all rounded-sm">
-                <font-awesome-icon icon="fa-solid fa-arrow-up-wide-short" class="text-[10px] text-[var(--primary-gold)]" />
-                <span class="text-[9px] font-black tracking-widest uppercase text-[#111] dark:text-white">{{ sortBy === 'default' ? 'Sort' : sortBy }}</span>
-                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
-              </button>
-              <!-- Sort Dropdown -->
-              <div class="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-[#111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] border border-black/10 dark:border-white/10 py-3 z-[300] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <button v-for="option in ['Featured', 'Most relevant', 'Best selling', 'Alphabetically, A-Z', 'Alphabetically, Z-A', 'Price, low to high', 'Price, high to low', 'Date, old to new', 'Date, new to old']"
-                  :key="option"
-                  @click="sortBy = option" 
-                  :class="sortBy === option ? 'bg-stone-100 dark:bg-[#222] text-black dark:text-white font-bold' : 'text-stone-500 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white'"
-                  class="w-full text-left px-6 py-4 text-[10px] tracking-[0.1em] uppercase transition-all duration-200">
-                  {{ option }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- COLLAPSIBLE FILTERS SECTION -->
-        <transition 
-          @before-enter="beforeFilterEnter" 
-          @enter="filterEnter" 
-          @leave="filterLeave">
-          <div v-if="showFilters" class="bg-stone-50 dark:bg-[#080808] border-b border-black/5 dark:border-white/5 overflow-hidden">
-            <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 md:p-12">
-              <!-- Category Filter -->
-              <div class="md:col-span-4 relative group">
-                <div class="flex items-center gap-4 mb-3">
-                  <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
-                  <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Select Category</label>
-                </div>
-                <div class="relative overflow-hidden">
-                  <select v-model="selectedCategory"
-                    class="w-full bg-white dark:bg-[#111] border border-black/5 dark:border-white/5 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:bg-stone-50 dark:hover:bg-[#151515] transition-all appearance-none">
-                    <option value="all">Discover All Collections</option>
-                    <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
-                  </select>
-                  <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
-                    <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[10px] text-[var(--primary-gold)]" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Type Filter -->
-              <div class="md:col-span-4 relative group">
-                <div class="flex items-center gap-4 mb-3">
-                  <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
-                  <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Archive Type</label>
-                </div>
-                <div class="relative overflow-hidden">
-                  <select v-model="selectedNature"
-                    class="w-full bg-white dark:bg-[#111] border border-black/5 dark:border-white/5 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:bg-stone-50 dark:hover:bg-[#151515] transition-all appearance-none">
-                    <option value="all">All Archive Tiers</option>
-                    <option value="standard">Artisanal Ready Wear</option>
-                    <option value="premium">Premium Unstitched</option>
-                    <option value="limited">Limited Edition Couture</option>
-                  </select>
-                  <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
-                    <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[10px] text-[var(--primary-gold)]" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Price Slider -->
-              <div class="md:col-span-4 flex flex-col gap-6 pt-2">
-                <div class="flex justify-between items-center px-1">
-                  <div class="flex items-center gap-4">
-                    <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
-                    <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Investment Limit</label>
-                  </div>
-                  <span class="text-[14px] font-medium font-playfair italic text-[var(--primary-gold)]">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
-                </div>
-                <div class="relative py-4">
-                  <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
-                    class="luxury-home-range w-full cursor-pointer">
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
-      </div>
-    </section>
-
-    <section class="products-section pb-40 bg-[#fdfdfc] dark:bg-[#080808] transition-colors duration-1000 relative">
-      <!-- Luxury Grain/Texture for Grid -->
-      <div class="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/linen.png')]"></div>
-      
-      <div class="max-w-[1700px] mx-auto grid gap-x-8 gap-y-16 px-8 relative z-10"
-        :class="{
-          'grid-cols-1 sm:grid-cols-2': gridCols === 2,
-          'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3': gridCols === 3,
-          'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4': gridCols === 4
-        }">
-        <div v-for="(product, idx) in displayedProducts" :key="product.id" 
-          class="animate-reveal group/grid-item" :style="{ animationDelay: `${idx * 0.12}s` }">
-          <div class="luxury-card-wrapper relative transition-all duration-700">
-            <!-- Decorative Corner Accents -->
-            <div class="absolute -top-2 -left-2 w-4 h-4 border-t border-l border-[var(--primary-gold)] opacity-0 group-hover/grid-item:opacity-100 transition-all duration-500"></div>
-            <div class="absolute -bottom-2 -right-2 w-4 h-4 border-b border-r border-[var(--primary-gold)] opacity-0 group-hover/grid-item:opacity-100 transition-all duration-500"></div>
-            
-            <ProductCard :product="product" @click-product="goToDetail" class="hover-3d-effect" />
-            
-            <!-- Subtle Reflection Overlay -->
-            <div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover/grid-item:opacity-100 transition-opacity duration-1000"></div>
-          </div>
-        </div>
-
-        <!-- Loading State for API -->
-        <div v-if="productStore.loading" class="col-span-full py-20 flex flex-col items-center justify-center space-y-6">
-          <div class="w-16 h-16 border-4 border-gray-100 dark:border-white/5 border-t-[var(--primary-gold)] rounded-full animate-spin"></div>
-          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--primary-gold)] animate-pulse">Syncing with Couture House...</p>
-        </div>
-
-        <!-- Empty State -->
-        <div v-else-if="displayedProducts.length === 0" class="col-span-full py-32 text-center">
-          <font-awesome-icon icon="fa-solid fa-shirt" class="text-4xl mb-6 text-gray-200" />
-          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">No designs found</p>
-        </div>
-      </div>
-
-      <div v-if="hasMore" class="mt-20 flex justify-center">
-        <button @click="loadMore"
-          class="border border-black dark:border-white px-12 py-4 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-          LOAD MORE DESIGNS
-        </button>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
          GSAP LUXURY HERO SECTION
     ═══════════════════════════════════════════ -->
 
@@ -427,7 +212,7 @@
     <!-- ═══════════════════════════════════════════
          HERITAGE & CRAFTSMANSHIP (AdSense Content Boost)
     ═══════════════════════════════════════════ -->
-    <section class="heritage-narrative py-32 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 overflow-hidden">
+    <!-- <section class="heritage-narrative py-32 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 overflow-hidden">
       <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
         <div class="space-y-12 animate-reveal-left">
           <div class="relative">
@@ -479,33 +264,114 @@
           </div>
         </div>
       </div>
+    </section> -->
+
+    <section id="discovery" class="filter-section relative pt-32 pb-16 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-1000">
+      <!-- Subtle Background Accents -->
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/5 dark:from-white/5 to-transparent pointer-events-none"></div>
+
+      <div class="max-w-[1600px] mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-black/10 dark:border-white/10 pb-12">
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="h-[1px] w-8 bg-amber-500"></div>
+              <p class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Signature Catalog</p>
+            </div>
+            <h2 class="text-5xl md:text-7xl font-playfair font-normal text-[#111] dark:text-white leading-none tracking-tight">
+              {{ selectedCategory === 'all' ? 'Curated Designs' : selectedCategory }}
+            </h2>
+          </div>
+          
+          <div class="flex items-center gap-3 bg-white dark:bg-[#0a0a0a] border border-black/5 dark:border-white/5 px-6 py-4 shadow-xl">
+            <span class="text-[16px] font-playfair italic text-amber-500 leading-none">{{ filteredProducts.length }}</span>
+            <span class="text-[8px] font-black tracking-[0.3em] text-[#111] dark:text-gray-400 uppercase leading-none mt-1">Masterpieces</span>
+          </div>
+        </div>
+
+        <!-- Luxury Filter Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-center bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5 relative z-20">
+          
+          <!-- Category Filter -->
+          <div class="relative group">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10 transition-colors group-hover:text-[#111] dark:group-hover:text-white">Category</label>
+            <div class="relative">
+              <select v-model="selectedCategory"
+                class="w-full bg-transparent border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:border-black dark:hover:border-white transition-colors appearance-none relative z-0">
+                <option value="all">All Categories</option>
+                <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
+              </select>
+              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-6 h-6 rounded-full border border-black/5 dark:border-white/10">
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Type Filter -->
+          <div class="relative group">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10 transition-colors group-hover:text-[#111] dark:group-hover:text-white">Collection Type</label>
+            <div class="relative">
+              <select v-model="selectedNature"
+                class="w-full bg-transparent border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:border-black dark:hover:border-white transition-colors appearance-none relative z-0">
+                <option value="all">All Types</option>
+                <option value="standard">Ready to Wear</option>
+                <option value="premium">Luxury Collection</option>
+                <option value="limited">Limited Edition</option>
+              </select>
+              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-6 h-6 rounded-full border border-black/5 dark:border-white/10">
+                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Slider -->
+          <div class="flex flex-col gap-5 pt-2">
+            <div class="flex justify-between items-center px-2">
+              <label class="text-[8px] font-black tracking-widest text-stone-400 uppercase">Limit Strategy</label>
+              <span class="text-[12px] font-normal font-playfair text-[#111] dark:text-white">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
+            </div>
+            <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
+              class="luxury-home-range w-full cursor-pointer">
+          </div>
+        </div>
+      </div>
     </section>
-
-
 
     <!-- ═══════════════════════════════════════════
          PRODUCT GRID
     ═══════════════════════════════════════════ -->
+    <section class="products-section pb-32 bg-white dark:bg-[#080808] min-h-[600px]">
+      <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
+        <ProductCard v-for="product in displayedProducts" :key="product.id" :product="product"
+          @click-product="goToDetail" />
 
+        <!-- Loading State for API -->
+        <div v-if="productStore.loading" class="col-span-full py-20 flex flex-col items-center justify-center space-y-6">
+          <div class="w-16 h-16 border-4 border-gray-100 dark:border-white/5 border-t-[var(--primary-gold)] rounded-full animate-spin"></div>
+          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--primary-gold)] animate-pulse">Syncing with Couture House...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div v-else-if="displayedProducts.length === 0" class="col-span-full py-32 text-center">
+          <font-awesome-icon icon="fa-solid fa-shirt" class="text-4xl mb-6 text-gray-200" />
+          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">No designs found</p>
+        </div>
+      </div>
+
+      <div v-if="hasMore" class="mt-20 flex justify-center">
+        <button @click="loadMore"
+          class="border border-black dark:border-white px-12 py-4 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+          LOAD MORE DESIGNS
+        </button>
+      </div>
+    </section>
     <!-- ═══════════════════════════════════════════
          WHY CHOOSE AHMADCLOTHS (SEO & Value Boost)
     ═══════════════════════════════════════════ -->
    
 
     <!-- Collaboration Slot: Sponsored Brands -->
-    <SponsoredAd 
-      title="Elite Designer Collaborations" 
-      description="Explore our curated selection of premium designer collections from Sana Safinaz, Aneela's Collection, Maria B, and Nishat Brand. Experience the pinnacle of Pakistani fashion with the latest season's highlights." 
-      button-text="VIEW COLLECOTION"
-      :image="PakistaniCouture1"
-      link="/shop"
-      :brands="[
-        { name: 'Sana Safinaz', link: 'https://www.sanasafinaz.com/' },
-        { name: 'Aneelas Collection', link: 'https://www.facebook.com/aneelascollection/' },
-        { name: 'Maria B', link: 'https://www.mariab.pk/' },
-        { name: 'Nishat Brand', link: 'https://nishatlinen.com/' }
-      ]"
-    />
+   
 
     <!-- Google AdSense: Home Page — Slot A (Premium Placement) -->
     <!-- Positioned after product grid/collaborations for high engagement and clear UX structure -->
@@ -620,7 +486,41 @@
     </section> -->
 
 
+    <section class="patron-stories py-40 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5 relative overflow-hidden">
+      <!-- Pakistani Heritage Accent -->
+      <div class="absolute inset-0 bg-damask opacity-5 pointer-events-none"></div>
+      <div class="absolute -right-20 top-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute -left-20 bottom-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-24 space-y-4">
+          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE PATRONS</div>
+          <h2 class="text-4xl md:text-6xl font-playfair text-[var(--luxury-black)] dark:text-white uppercase">Voices of
+            <span class="italic text-[var(--deep-burgundy)]">Excellence</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+          <div v-for="(patron, i) in patronStories" :key="i" class="patron-card space-y-8">
+            <font-awesome-icon icon="fa-solid fa-quote-left" class="text-[var(--primary-gold)]/20 text-4xl" />
+            <p class="text-lg text-gray-600 dark:text-gray-300 italic font-light leading-relaxed">
+              "{{ patron.quote }}"
+            </p>
+            <div class="flex items-center gap-6 pt-8 border-t border-black/5 dark:border-white/5">
+              <div class="w-12 h-12 rounded-full overflow-hidden">
+                <img :src="patron.avatar" :alt="patron.name" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white">{{
+                  patron.name }}</div>
+                <div class="text-[9px] uppercase tracking-[0.2em] text-[var(--primary-gold)] mt-1">{{ patron.role }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
     <!-- ═══════════════════════════════════════════
@@ -667,7 +567,96 @@
     <!-- ═══════════════════════════════════════════
          FAQ SECTION (Content Boost)
     ═══════════════════════════════════════════ -->
+    <section class="faq-section py-32 bg-[#fafaf8] dark:bg-[#050505]">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16 space-y-4">
+          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">FREQUENTLY ASKED</h3>
+          <h2 class="text-4xl font-playfair italic text-gray-900 dark:text-white">Questions & Answers</h2>
+        </div>
+        
+        <div class="space-y-8">
+          <div v-for="(faq, i) in faqs" :key="i" class="border-b border-black/5 dark:border-white/5 pb-8">
+            <h4 class="text-lg font-playfair text-gray-900 dark:text-white mb-4">{{ faq.q }}</h4>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="heritage-banner relative py-40 overflow-hidden bg-black text-white">
+
+      <!-- Background Images -->
+      <div class="absolute inset-0">
+
+        <!-- First Image -->
+        <img :src="PakistaniCouture2" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
+
+        <!-- Second Image with blend -->
+        <img :src="PakistaniCouture4" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50"
+          loading="lazy" />
+
+      </div>
+
+      <!-- Softer Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+
+      <!-- Content -->
+      <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <div class="space-y-8">
+          <p class="heritage-tag text-amber-400">OUR PHILOSOPHY</p>
+
+          <h2 class="heritage-title text-4xl md:text-6xl font-black font-playfair uppercase leading-tight">
+            THE ART OF<br>
+            <span class="italic text-amber-200">COUTURE</span>
+          </h2>
+
+          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-lg font-light">
+            We believe the finest fabrics tell their own story. AHMADCLOTHESFABRICS represents the commitment to quality
+            and the joy of elegance through artisanal craftsmanship. Our collections are designed to make every woman 
+            feel confident and beautiful, blending the rich heritage of Pakistan with modern fashion sensibilities.
+          </p>
+          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-sm font-light">
+            Each season, we bring you new designs that push the boundaries of luxury. From our signature unstitched 
+            collections to our bespoke bridal wear, we are dedicated to providing the highest level of service and 
+            craftsmanship. Join us on this journey of elegance and style.
+          </p>
+          <div class="flex items-center gap-10">
+            <div v-for="stat in brandStats" :key="stat.label">
+              <div class="text-3xl font-black text-amber-400 mb-1">{{ stat.value }}</div>
+              <div class="text-[10px] uppercase tracking-[0.2em] text-gray-400">{{ stat.label }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="hidden lg:block relative">
+          <div
+            class="w-full h-[500px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black/30 backdrop-blur-2xl group">
+
+
+            <img :src="PakistaniCouture2" class="img-zoom" alt="Limited Edition" />
+
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+            <div class="absolute bottom-8 left-8 right-8">
+              <p class="text-xs font-black tracking-widest text-amber-400 mb-2">
+                PRODUCT ARCHIVE
+              </p>
+
+              <h4 class="text-2xl font-black tracking-tight uppercase">
+                TRADITION & TRENDS
+              </h4>
+
+              <div class="h-0.5 w-12 bg-amber-400 mt-4 group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ═══════════════════════════════════════════
          IMAGE ZOOM MODAL (Lightbox)
@@ -988,32 +977,6 @@ const selectedNature = ref('all')
 const maxPrice = ref(500000)
 const isCatOpen = ref(false)
 const isNatureOpen = ref(false)
-const gridCols = ref(4)
-const sortBy = ref('default')
-const showFilters = ref(false)
-
-const beforeFilterEnter = (el) => {
-  el.style.height = '0'
-  el.style.opacity = '0'
-}
-const filterEnter = (el, done) => {
-  gsap.to(el, {
-    height: 'auto',
-    opacity: 1,
-    duration: 0.6,
-    ease: 'power3.out',
-    onComplete: done
-  })
-}
-const filterLeave = (el, done) => {
-  gsap.to(el, {
-    height: 0,
-    opacity: 0,
-    duration: 0.5,
-    ease: 'power3.inOut',
-    onComplete: done
-  })
-}
 
 const brandStats = [
   { label: 'Master Artisans', value: '50+' },
@@ -1140,32 +1103,14 @@ onUnmounted(() => {
 })
 
 // Filtering logic
-const filteredProducts = computed(() => {
-  let result = productStore.products.filter(p => {
+const filteredProducts = computed(() =>
+  productStore.products.filter(p => {
     const matchCat = selectedCategory.value === 'all' || p.category?.toLowerCase() === selectedCategory.value.toLowerCase() || p.parentCategory?.toLowerCase() === selectedCategory.value.toLowerCase()
     const matchNature = selectedNature.value === 'all' || p.nature?.toLowerCase() === selectedNature.value.toLowerCase()
     const matchPrice = p.price <= maxPrice.value
     return matchCat && matchNature && matchPrice
   })
-
-  if (sortBy.value === 'Price, low to high') {
-    result.sort((a, b) => a.price - b.price)
-  } else if (sortBy.value === 'Price, high to low') {
-    result.sort((a, b) => b.price - a.price)
-  } else if (sortBy.value === 'Date, new to old') {
-    result.sort((a, b) => b.id - a.id)
-  } else if (sortBy.value === 'Date, old to new') {
-    result.sort((a, b) => a.id - b.id)
-  } else if (sortBy.value === 'Alphabetically, A-Z') {
-    result.sort((a, b) => (a.title || a.name).localeCompare(b.title || b.name))
-  } else if (sortBy.value === 'Alphabetically, Z-A') {
-    result.sort((a, b) => (b.title || b.name).localeCompare(a.title || a.name))
-  } else if (sortBy.value === 'Best selling') {
-    result.sort((a, b) => (b.sales || 0) - (a.sales || 0))
-  }
-
-  return result
-})
+)
 
 const displayedProducts = computed(() => filteredProducts.value.slice(0, limit.value))
 const hasMore = computed(() => limit.value < filteredProducts.value.length)
@@ -1457,37 +1402,5 @@ const categoryTiles = [
 
 .animate-reveal-left {
   animation: reveal-left 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-.animate-reveal {
-  opacity: 0;
-  animation: reveal-up 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-@keyframes reveal-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hover-grid-effect {
-  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.8s ease;
-}
-
-.luxury-card-wrapper {
-  perspective: 2000px;
-}
-
-.hover-3d-effect {
-  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.8s ease, filter 0.8s ease;
-  transform-style: preserve-3d;
-}
-
-.hover-3d-effect:hover {
-  transform: translateY(-10px) rotateX(4deg) rotateY(-4deg);
-  filter: drop-shadow(0 40px 80px rgba(212, 175, 55, 0.25));
-}
-
-.hover-3d-effect:hover :deep(img) {
-  transform: scale(1.08) translateZ(20px);
 }
 </style>
