@@ -29,7 +29,8 @@ import {
 import { faHeart as farHeart, faStar as farStar, faStar as fasStar } from '@fortawesome/free-regular-svg-icons'
 import { 
   faInstagram, faFacebookF, faCcVisa, faCcMastercard, faCcApplePay, 
-  faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle, faWhatsapp
+  faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle, faWhatsapp,
+  faYoutube, faTiktok
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -53,7 +54,8 @@ library.add(
   faRotate, faCommentSlash, faCommentDots, faCalendarDay, faHouse,
   farHeart, farStar, fasStar,
   faInstagram, faFacebookF, faCcVisa, faCcMastercard, faCcApplePay, 
-  faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle, faWhatsapp
+  faCcAmex, faApplePay, faXTwitter, faLinkedinIn, faGoogle, faWhatsapp,
+  faYoutube, faTiktok
 )
 
 const app = createApp(App)

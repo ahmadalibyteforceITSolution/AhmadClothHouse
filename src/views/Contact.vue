@@ -71,12 +71,24 @@
 
             <div class="flex items-center gap-6 pt-10 border-t border-[#d4af3711]">
                <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank"
-                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2">
-                  <font-awesome-icon icon="fa-brands fa-instagram" class="text-lg" />
+                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2 group">
+                  <font-awesome-icon icon="fa-brands fa-instagram" class="text-lg group-hover:scale-110 transition-transform" />
                </a>
                <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank"
-                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2">
-                  <font-awesome-icon icon="fa-brands fa-facebook-f" class="text-lg" />
+                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2 group">
+                  <font-awesome-icon icon="fa-brands fa-facebook-f" class="text-lg group-hover:scale-110 transition-transform" />
+               </a>
+               <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank"
+                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-red-600 hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-red-600 transform hover:-translate-y-2 group">
+                  <font-awesome-icon icon="fa-brands fa-youtube" class="text-lg group-hover:scale-110 transition-transform" />
+               </a>
+               <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank"
+                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-black hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-black transform hover:-translate-y-2 group">
+                  <font-awesome-icon icon="fa-brands fa-tiktok" class="text-lg group-hover:scale-110 transition-transform" />
+               </a>
+               <a href="#" target="_blank"
+                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-blue-700 hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-blue-700 transform hover:-translate-y-2 group">
+                  <font-awesome-icon icon="fa-brands fa-linkedin-in" class="text-lg group-hover:scale-110 transition-transform" />
                </a>
             </div>
          </div>

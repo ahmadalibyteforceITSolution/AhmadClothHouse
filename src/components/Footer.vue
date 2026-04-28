@@ -48,11 +48,20 @@
             Crafting the finest artisanal apparel and luxury couture with passion and heritage.
           </p>
           <div class="flex gap-4">
-            <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-transparent hover:bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-all duration-500">
-              <font-awesome-icon :icon="['fab', 'instagram']" />
+            <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-transparent hover:bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-all duration-500 group">
+              <font-awesome-icon :icon="['fab', 'instagram']" class="group-hover:scale-110 transition-transform" />
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-blue-600 hover:bg-blue-600 transition-all duration-500">
-              <font-awesome-icon :icon="['fab', 'facebook-f']" />
+            <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-blue-600 hover:bg-blue-600 transition-all duration-500 group">
+              <font-awesome-icon :icon="['fab', 'facebook-f']" class="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-red-600 hover:bg-red-600 transition-all duration-500 group">
+              <font-awesome-icon :icon="['fab', 'youtube']" class="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-black hover:bg-black transition-all duration-500 group">
+              <font-awesome-icon :icon="['fab', 'tiktok']" class="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-blue-700 hover:bg-blue-700 transition-all duration-500 group">
+              <font-awesome-icon :icon="['fab', 'linkedin-in']" class="group-hover:scale-110 transition-transform" />
             </a>
           </div>
         </div>

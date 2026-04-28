@@ -43,6 +43,18 @@
           <a href="https://wa.me/923244902607" target="_blank" class="text-black dark:text-white hover:text-green-600 transition-colors">0324 4902607</a>
         </p>
       </div>
+      <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="text-gray-400 hover:text-red-600 transition-colors">
+          <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
+        </a>
+        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+          <font-awesome-icon :icon="['fab', 'tiktok']" class="text-sm" />
+        </a>
+        <a href="#" target="_blank" class="text-gray-400 hover:text-blue-700 transition-colors">
+          <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-sm" />
+        </a>
+      </div>
     </div>
 
     <!-- Main Header -->
@@ -447,12 +459,21 @@
               </div>
             </div>
 
-            <div class="flex items-center justify-center gap-8 mb-8">
-              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] hover:bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'instagram']" class="text-xl group-hover:scale-110 transition-transform" />
+            <div class="flex items-center justify-center gap-4 mb-8">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 hover:bg-blue-600 transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-xl group-hover:scale-110 transition-transform" />
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-lg group-hover:scale-110 transition-transform" />
+              </a>
+              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-red-600 transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'youtube']" class="text-lg group-hover:scale-110 transition-transform" />
+              </a>
+              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'tiktok']" class="text-lg group-hover:scale-110 transition-transform" />
+              </a>
+              <a href="#" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-700 transition-all duration-500 group">
+                <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
             </div>
 

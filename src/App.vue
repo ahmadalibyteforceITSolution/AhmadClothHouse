@@ -101,6 +101,14 @@
                     <font-awesome-icon :icon="['fab', 'facebook-f']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">Facebook</span>
                   </a>
+                  <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="social-link-panel">
+                    <font-awesome-icon :icon="['fab', 'youtube']" />
+                    <span class="text-[9px] uppercase tracking-widest ml-2">YouTube</span>
+                  </a>
+                  <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="social-link-panel">
+                    <font-awesome-icon :icon="['fab', 'tiktok']" />
+                    <span class="text-[9px] uppercase tracking-widest ml-2">TikTok</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -383,7 +391,9 @@ const getAIResponse = (message) => {
 
   const socialLinks = {
     instagram: "https://www.instagram.com/ahmadclothfabrics_aroma/",
-    facebook: "https://www.facebook.com/profile.php?id=61573629329844"
+    facebook: "https://www.facebook.com/profile.php?id=61573629329844",
+    youtube: "https://www.youtube.com/@ahmadfabrics_aroma",
+    tiktok: "https://www.tiktok.com/@theahmadfabrices_aroma"
   }
 
   // 1. Greetings & Identity
