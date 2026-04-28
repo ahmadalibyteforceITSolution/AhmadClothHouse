@@ -32,6 +32,30 @@ import nishatV2 from "../assets/nishat_v2.webp";
 import nishatV3 from "../assets/nishat_v3.jpg";
 import nishatMain from "../assets/nishat_main.jpg";
 
+// Barque Assets
+import barque1 from "../assets/barque/image1.webp";
+import barque2 from "../assets/barque/image2.webp";
+import barque3 from "../assets/barque/image3.jpg";
+import barque4 from "../assets/barque/image4.jpg";
+import barque5 from "../assets/barque/image5.webp";
+import barque6 from "../assets/barque/image6.jpg";
+import barque7 from "../assets/barque/image7.jpg";
+import barque8 from "../assets/barque/image8.jpg";
+import barque9 from "../assets/barque/image9.jpg";
+import barque11 from "../assets/barque/image11.jpg";
+import barque12 from "../assets/barque/image12.jpg";
+import barque13 from "../assets/barque/image13.jpg";
+import barque14 from "../assets/barque/image14.jpg";
+import barque15 from "../assets/barque/image15.jpg";
+import barque16 from "../assets/barque/image16.jpg";
+import barque17 from "../assets/barque/image17.jpg";
+import barque18 from "../assets/barque/image18.jpg";
+import barque19 from "../assets/barque/image19.jpg";
+import barque20 from "../assets/barque/image20.jpg";
+import barque21 from "../assets/barque/image21.jpg";
+import barque22 from "../assets/barque/image22.jpg";
+import barque23 from "../assets/barque/image23.jpg";
+
 // New Assets
 import bossWash from "../assets/07-boss-wash-wear-light_sky.webp";
 import product3932 from "../assets/3932_4_1800x1800.webp";
@@ -1336,4 +1360,315 @@ const heroProducts = [
   }
 ];
 
-export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts];
+const barqueProducts = [
+  {
+      id: 'barque-1',
+      name: 'Barque Collection Edition 1',
+      brand: 'Barque',
+      price: 4500,
+      originalPrice: 6500,
+      discount: Math.round((2000 / (4500 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque1,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-2',
+      name: 'Barque Collection Edition 2',
+      brand: 'Barque',
+      price: 4571,
+      originalPrice: 6571,
+      discount: Math.round((2000 / (4571 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque2,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-3',
+      name: 'Barque Collection Edition 3',
+      brand: 'Barque',
+      price: 4642,
+      originalPrice: 6642,
+      discount: Math.round((2000 / (4642 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque3,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-4',
+      name: 'Barque Collection Edition 4',
+      brand: 'Barque',
+      price: 4713,
+      originalPrice: 6713,
+      discount: Math.round((2000 / (4713 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque4,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-5',
+      name: 'Barque Collection Edition 5',
+      brand: 'Barque',
+      price: 4784,
+      originalPrice: 6784,
+      discount: Math.round((2000 / (4784 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque5,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-6',
+      name: 'Barque Collection Edition 6',
+      brand: 'Barque',
+      price: 4855,
+      originalPrice: 6855,
+      discount: Math.round((2000 / (4855 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque6,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-7',
+      name: 'Barque Collection Edition 7',
+      brand: 'Barque',
+      price: 4926,
+      originalPrice: 6926,
+      discount: Math.round((2000 / (4926 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque7,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-8',
+      name: 'Barque Collection Edition 8',
+      brand: 'Barque',
+      price: 4997,
+      originalPrice: 6997,
+      discount: Math.round((2000 / (4997 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque8,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-9',
+      name: 'Barque Collection Edition 9',
+      brand: 'Barque',
+      price: 5068,
+      originalPrice: 7068,
+      discount: Math.round((2000 / (5068 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque9,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-11',
+      name: 'Barque Collection Edition 11',
+      brand: 'Barque',
+      price: 5139,
+      originalPrice: 7139,
+      discount: Math.round((2000 / (5139 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque11,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-12',
+      name: 'Barque Collection Edition 12',
+      brand: 'Barque',
+      price: 5210,
+      originalPrice: 7210,
+      discount: Math.round((2000 / (5210 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque12,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-13',
+      name: 'Barque Collection Edition 13',
+      brand: 'Barque',
+      price: 5281,
+      originalPrice: 7281,
+      discount: Math.round((2000 / (5281 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque13,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-14',
+      name: 'Barque Collection Edition 14',
+      brand: 'Barque',
+      price: 5352,
+      originalPrice: 7352,
+      discount: Math.round((2000 / (5352 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque14,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-15',
+      name: 'Barque Collection Edition 15',
+      brand: 'Barque',
+      price: 5423,
+      originalPrice: 7423,
+      discount: Math.round((2000 / (5423 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque15,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-16',
+      name: 'Barque Collection Edition 16',
+      brand: 'Barque',
+      price: 5494,
+      originalPrice: 7494,
+      discount: Math.round((2000 / (5494 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque16,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-17',
+      name: 'Barque Collection Edition 17',
+      brand: 'Barque',
+      price: 5565,
+      originalPrice: 7565,
+      discount: Math.round((2000 / (5565 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque17,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-18',
+      name: 'Barque Collection Edition 18',
+      brand: 'Barque',
+      price: 5636,
+      originalPrice: 7636,
+      discount: Math.round((2000 / (5636 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque18,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-19',
+      name: 'Barque Collection Edition 19',
+      brand: 'Barque',
+      price: 5707,
+      originalPrice: 7707,
+      discount: Math.round((2000 / (5707 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque19,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-20',
+      name: 'Barque Collection Edition 20',
+      brand: 'Barque',
+      price: 5778,
+      originalPrice: 7778,
+      discount: Math.round((2000 / (5778 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque20,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-21',
+      name: 'Barque Collection Edition 21',
+      brand: 'Barque',
+      price: 5849,
+      originalPrice: 7849,
+      discount: Math.round((2000 / (5849 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque21,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-22',
+      name: 'Barque Collection Edition 22',
+      brand: 'Barque',
+      price: 5920,
+      originalPrice: 7920,
+      discount: Math.round((2000 / (5920 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque22,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+  {
+      id: 'barque-23',
+      name: 'Barque Collection Edition 23',
+      brand: 'Barque',
+      price: 5991,
+      originalPrice: 7991,
+      discount: Math.round((2000 / (5991 + 2000)) * 100),
+      category: 'Unstitched Lawn',
+      parentCategory: 'Ladies Wear',
+      image: barque23,
+      nature: 'premium',
+      description: 'Premium Barque collection suit. High quality fabric with intricate design.',
+      details: ['3-Piece Suit', 'Premium Fabric', 'Exclusive Barque Design']
+    },
+];
+
+export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts, ...barqueProducts];
