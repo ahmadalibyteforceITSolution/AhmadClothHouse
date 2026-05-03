@@ -216,75 +216,51 @@
       <!-- Background 8-Video Grid Wall (Unique Collection) -->
       <div class="absolute inset-0 z-0 grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 overflow-hidden bg-black">
         <!-- Video 1 -->
-        <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=fJ5iaQ3zVdo" 
+        <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=fJ5iaQ3zVdo&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 2 -->
-        <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=cjCGjN3iRiU" 
+        <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=cjCGjN3iRiU&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 3 -->
-        <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=NKFgwlpWtWQ" 
+        <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=NKFgwlpWtWQ&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 4 -->
-        <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=DXXXNE3fFpM" 
+        <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=DXXXNE3fFpM&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 5 -->
-        <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=7YFblEOZvxM" 
+        <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=7YFblEOZvxM&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 6 -->
-        <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=1LnECaooLw4" 
+        <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=1LnECaooLw4&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 7 -->
-        <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=dDJmazn51LY" 
+        <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=dDJmazn51LY&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 8 -->
-        <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
-          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
-            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
-          </div>
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=f8hrXf4rLxk" 
+        <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=f8hrXf4rLxk&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
 
