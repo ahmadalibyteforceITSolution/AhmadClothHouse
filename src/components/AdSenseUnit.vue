@@ -57,6 +57,7 @@ onMounted(() => {
 .adsense-wrapper {
   width: 100%;
   min-width: 250px;
+  min-height: 90px; /* Reserve space for standard ad units to prevent CLS */
   overflow: hidden;
   text-align: center;
 }

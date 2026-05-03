@@ -45,13 +45,13 @@
       </div>
       <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
       <div class="hidden sm:flex items-center gap-4">
-        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="text-gray-400 hover:text-red-600 transition-colors">
+        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-red-600 transition-colors">
           <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
         </a>
-        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
           <font-awesome-icon :icon="['fab', 'tiktok']" class="text-sm" />
         </a>
-        <a href="#" target="_blank" class="text-gray-400 hover:text-blue-700 transition-colors">
+        <a href="#" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-700 transition-colors">
           <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-sm" />
         </a>
       </div>

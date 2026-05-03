@@ -245,13 +245,13 @@
 
       <transition-group name="whatsapp-pop">
         <div v-if="isWhatsappOpen" key="menu" class="flex flex-col gap-3 mb-2">
-          <a href="https://wa.me/923416887454" target="_blank" class="whatsapp-sub-btn group">
+          <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="whatsapp-sub-btn group">
             <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
               <font-awesome-icon icon="fa-brands fa-whatsapp" />
             </div>
             <span class="text-[9px] font-black tracking-[0.2em] uppercase bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white">Line 1</span>
           </a>
-          <a href="https://wa.me/923244902607" target="_blank" class="whatsapp-sub-btn group">
+          <a href="https://wa.me/923244902607" target="_blank" rel="noopener" class="whatsapp-sub-btn group">
             <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
               <font-awesome-icon icon="fa-brands fa-whatsapp" />
             </div>

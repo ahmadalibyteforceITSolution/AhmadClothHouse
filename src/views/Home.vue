@@ -195,11 +195,11 @@
           <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-8 border-t border-black/5 dark:border-white/5">
             <div class="flex -space-x-2.5">
               <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" width="32" height="32" />
               <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" width="32" height="32" />
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" width="32" height="32" />
             </div>
             <div>
               <div class="flex gap-0.5 mb-0.5">
@@ -226,7 +226,7 @@
       >
         <div class="relative group cursor-pointer gsap-discount-bubble" @click="goToDetail(featuredDiscountProduct)">
           <div class="w-28 h-28 rounded-full border border-[var(--primary-gold)]/30 p-1 overflow-hidden shadow-2xl group-hover:scale-105 transition-all bg-black/20 backdrop-blur-2xl">
-            <img :src="featuredDiscountProduct.image" class="w-full h-full object-cover rounded-full">
+            <img :src="featuredDiscountProduct.image" class="w-full h-full object-cover rounded-full" width="112" height="112">
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 bg-black/50 rounded-full">
               <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-[0.3em] uppercase mb-0.5">HOT</span>
               <div class="bg-[var(--deep-burgundy)] text-white px-2 py-0.5 rounded-full text-[8px] font-black animate-pulse">
@@ -246,49 +246,49 @@
       <!-- Background 8-Video Grid Wall (Unique Collection) -->
       <div class="absolute inset-0 z-0 grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 overflow-hidden bg-black">
         <!-- Video 1 -->
-        <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=fJ5iaQ3zVdo&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 2 -->
-        <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=cjCGjN3iRiU&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 3 -->
-        <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=NKFgwlpWtWQ&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 4 -->
-        <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=DXXXNE3fFpM&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 5 -->
-        <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=7YFblEOZvxM&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 6 -->
-        <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=1LnECaooLw4&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 7 -->
-        <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=dDJmazn51LY&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 8 -->
-        <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
+        <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=f8hrXf4rLxk&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
@@ -530,7 +530,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <article v-for="blog in homeBlogs" :key="blog.id" class="group cursor-pointer" @click="router.push(`/blog/${blog.slug}`)">
               <div class="relative aspect-[3/4] overflow-hidden mb-8 shadow-2xl">
-                <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" decoding="async" />
+                <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="533" />
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
                 <div class="absolute top-6 left-6 py-1 px-4 bg-white/90 backdrop-blur-md">
                   <span class="text-[8px] font-black text-black uppercase tracking-widest">{{ blog.category }}</span>

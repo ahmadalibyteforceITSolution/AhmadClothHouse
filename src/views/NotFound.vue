@@ -13,10 +13,17 @@
         <h2 class="text-6xl md:text-8xl font-light uppercase tracking-tighter mb-8 font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-[20px] dark:text-white">Design Not Found</h2>
         <p class="text-stone-400 mb-20 max-w-sm mx-auto uppercase text-[10px] font-bold leading-loose tracking-[0.5em] opacity-60">The page you are looking for has been moved or doesn't exist in our fashion catalog.</p>
         
-        <router-link to="/" class="bg-black dark:bg-[var(--primary-gold)] text-white px-16 py-6 text-[11px] font-bold uppercase tracking-[0.4em] shadow-3xl hover:bg-[var(--deep-burgundy)] transition-all active:scale-95 flex items-center gap-6 group mx-auto w-fit">
+        <router-link to="/" class="bg-black dark:bg-[var(--primary-gold)] text-white px-16 py-6 text-[11px] font-bold uppercase tracking-[0.4em] shadow-3xl hover:bg-[var(--deep-burgundy)] transition-all active:scale-95 flex items-center gap-6 group mx-auto w-fit mb-12">
            <span>RETURN TO HOME</span>
            <font-awesome-icon icon="fa-solid fa-arrow-right" class="group-hover:translate-x-3 transition-transform text-[8px]" />
         </router-link>
+
+        <div class="flex flex-wrap justify-center gap-8 opacity-40 hover:opacity-100 transition-opacity duration-500 max-w-lg mx-auto">
+           <router-link to="/shop" class="text-[9px] font-black tracking-widest uppercase hover:text-[var(--primary-gold)] transition-colors">Shop Collection</router-link>
+           <router-link to="/blog" class="text-[9px] font-black tracking-widest uppercase hover:text-[var(--primary-gold)] transition-colors">Fashion Journal</router-link>
+           <router-link to="/about" class="text-[9px] font-black tracking-widest uppercase hover:text-[var(--primary-gold)] transition-colors">Our Heritage</router-link>
+           <router-link to="/contact" class="text-[9px] font-black tracking-widest uppercase hover:text-[var(--primary-gold)] transition-colors">Get in Touch</router-link>
+        </div>
      </div>
 
      <!-- Footer Signature -->
