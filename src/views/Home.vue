@@ -194,11 +194,11 @@
           <!-- Social Proof -->
           <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-8 border-t border-black/5 dark:border-white/5">
             <div class="flex -space-x-2.5">
-              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&h=100&fit=crop&fm=webp"
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
                 class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&h=100&fit=crop&fm=webp"
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
                 class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&fit=crop&fm=webp"
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
                 class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
             </div>
             <div>
@@ -248,49 +248,49 @@
         <!-- Video 1 -->
         <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=fJ5iaQ3zVdo&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=fJ5iaQ3zVdo&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 2 -->
         <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=cjCGjN3iRiU&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=cjCGjN3iRiU&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 3 -->
         <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=NKFgwlpWtWQ&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=NKFgwlpWtWQ&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 4 -->
         <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=DXXXNE3fFpM&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=DXXXNE3fFpM&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 5 -->
         <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=7YFblEOZvxM&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=7YFblEOZvxM&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 6 -->
         <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=1LnECaooLw4&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=1LnECaooLw4&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 7 -->
         <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=dDJmazn51LY&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=dDJmazn51LY&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 8 -->
         <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=f8hrXf4rLxk&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+            src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=f8hrXf4rLxk&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
             frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
 
