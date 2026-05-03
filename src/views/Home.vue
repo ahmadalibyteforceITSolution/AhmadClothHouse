@@ -6,7 +6,37 @@
     ═══════════════════════════════════════════ -->
     <section class="sr-only">
       <h1>Ahmad Cloth House | Premium Pakistani Couture & Luxury Unstitched Fabrics</h1>
-      <p>Ahmad Cloth House is a premier fashion boutique specializing in handcrafted unstitched lawn, luxury pret, and bespoke bridal couture. We combine traditional Pakistani craftsmanship with modern silhouettes to create timeless elegance for our global clientele.</p>
+      <p>Ahmad Cloth House is a premier fashion boutique specializing in handcrafted unstitched lawn, luxury pret, and bespoke bridal couture. We combine traditional Pakistani craftsmanship with modern silhouettes to create timeless elegance for our global clientele. Our Lahore-based atelier is renowned for artisanal excellence and authentic designer wear.</p>
+      
+      <h2>Exclusive Pakistani Apparel & Handcrafted Designer Suits</h2>
+      <p>Our curated selection features premium collections from top-tier brands like Maria B, Sana Safinaz, and Asim Jofa, alongside our own Ahmad Signature line. We specialize in luxury unstitched lawn suits, intricate chiffon ensembles, and handcrafted bridal couture that captures the essence of heritage fashion. Every garment is a testament to the rich textile tradition of Pakistan.</p>
+      
+      <h2>Curated Boutique Fashion Categories & Collections</h2>
+      <p>Discover the perfect ensemble by exploring our diverse range of fashion categories. From daily wear luxury lawn to high-end evening couture, we offer something for every occasion.</p>
+      <ul>
+        <li><a href="/shop?category=Lawn">Luxury Lawn 2026 Collection</a></li>
+        <li><a href="/shop?category=Bridal">Hand-Embroidered Bridal Couture</a></li>
+        <li><a href="/shop?category=Pret">Ready-to-Wear Luxury Pret</a></li>
+        <li><a href="/shop?category=Unstitched">Premium Unstitched Fabrics</a></li>
+        <li><a href="/blog">AhmadCloth Fashion Journal & Trends</a></li>
+        <li><a href="/about">Our Heritage, Craftsmanship & Story</a></li>
+        <li><a href="/contact">Visit Our Flagship Lahore Boutique</a></li>
+      </ul>
+      
+      <h2>Trending Ethnic Wear & Couture Terminology</h2>
+      <p>Stay ahead of the fashion curve with our guide to trending Pakistani suits, designer lawn, and artisanal bridal couture. We utilize premium unstitched fabrics and luxury pret techniques to create Maria B 2026 inspired looks. Our boutique in Lahore is the heart of high-end boutique fashion and authentic couture.</p>
+      
+      <h2>Authorized Designer Archives & Resources</h2>
+      <p>We take pride in our collaborations with the industry's most respected names. For more information on the brands we carry and their design philosophies, explore these high-authority resources:</p>
+      <ul>
+        <li><a href="https://www.mariab.pk/" target="_blank" rel="noopener">Maria B Official - Iconic Luxury Pakistani Fashion</a></li>
+        <li><a href="https://www.sanasafinaz.com/" target="_blank" rel="noopener">Sana Safinaz Official - Elite Designer Lawn & Couture</a></li>
+        <li><a href="https://www.asimjofa.com/" target="_blank" rel="noopener">Asim Jofa - Masterpieces in Premium Unstitched Fabrics</a></li>
+      </ul>
+      
+      <!-- Static images for crawler visibility -->
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Premium Pakistani Designer Suit - Ahmad Cloth House Collection">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="Luxury Bridal Couture - Ahmad Signature Embroidery">
     </section>
 
     <!-- ═══════════════════════════════════════════
@@ -164,12 +194,12 @@
           <!-- Social Proof -->
           <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-8 border-t border-black/5 dark:border-white/5">
             <div class="flex -space-x-2.5">
-              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&h=100&fit=crop"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&h=100&fit=crop"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&fit=crop"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" />
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&h=100&fit=crop&fm=webp"
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&h=100&fit=crop&fm=webp"
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&fit=crop&fm=webp"
+                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" />
             </div>
             <div>
               <div class="flex gap-0.5 mb-0.5">
@@ -219,49 +249,49 @@
         <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=fJ5iaQ3zVdo&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 2 -->
         <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=cjCGjN3iRiU&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 3 -->
         <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=NKFgwlpWtWQ&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 4 -->
         <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=DXXXNE3fFpM&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 5 -->
         <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=7YFblEOZvxM&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 6 -->
         <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=1LnECaooLw4&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 7 -->
         <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=dDJmazn51LY&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
         <!-- Video 8 -->
         <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-black">
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=f8hrXf4rLxk&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
         </div>
 
         <!-- Shared Luxury Overlays (Minimal for visibility) -->
@@ -500,7 +530,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <article v-for="blog in homeBlogs" :key="blog.id" class="group cursor-pointer" @click="router.push(`/blog/${blog.slug}`)">
               <div class="relative aspect-[3/4] overflow-hidden mb-8 shadow-2xl">
-                <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" decoding="async" />
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
                 <div class="absolute top-6 left-6 py-1 px-4 bg-white/90 backdrop-blur-md">
                   <span class="text-[8px] font-black text-black uppercase tracking-widest">{{ blog.category }}</span>
