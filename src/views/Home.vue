@@ -222,7 +222,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=fJ5iaQ3zVdo" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 2 -->
         <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -231,7 +231,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=cjCGjN3iRiU" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 3 -->
         <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -240,7 +240,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=NKFgwlpWtWQ" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 4 -->
         <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -249,7 +249,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=DXXXNE3fFpM" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 5 -->
         <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -258,7 +258,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=7YFblEOZvxM" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 6 -->
         <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -267,7 +267,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=1LnECaooLw4" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 7 -->
         <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -276,7 +276,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=dDJmazn51LY" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
         <!-- Video 8 -->
         <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
@@ -285,7 +285,7 @@
           </div>
           <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
             src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=f8hrXf4rLxk" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen></iframe>
         </div>
 
         <!-- Shared Luxury Overlays (Minimal for visibility) -->
@@ -367,7 +367,7 @@
             class="w-full h-full"
             :src="`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&controls=1&rel=0`"
             frameborder="0"
-            allow="autoplay; encrypted-media"
+            allow="autoplay; encrypted-media; compute-pressure"
             allowfullscreen
           ></iframe>
         </div>
