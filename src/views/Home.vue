@@ -60,7 +60,7 @@
               </div>
               <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.8] cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage3" alt="Intricate Embroidery" loading="eager"
+                <img :src="HeroCollage3" alt="Intricate Hand-Embroidery Detail - Ahmad Cloth House Artisanal Craft" loading="eager"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
@@ -208,6 +208,95 @@
         </div>
       </div>
     </section>
+    
+    <!-- ═══════════════════════════════════════════
+         AI DIGITAL ATELIER: CINEMATIC VIDEO SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-black group">
+      <!-- Background 8-Video Grid Wall (Unique Collection) -->
+      <div class="absolute inset-0 z-0 grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 overflow-hidden bg-black">
+        <!-- Video 1 -->
+        <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=fJ5iaQ3zVdo" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 2 -->
+        <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=cjCGjN3iRiU" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 3 -->
+        <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=NKFgwlpWtWQ" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 4 -->
+        <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=DXXXNE3fFpM" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 5 -->
+        <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=7YFblEOZvxM" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 6 -->
+        <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=1LnECaooLw4" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 7 -->
+        <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=dDJmazn51LY" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <!-- Video 8 -->
+        <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer hover:bg-black/40 transition-colors group/vid">
+          <div class="absolute inset-0 z-10 bg-black/0 group-hover/vid:bg-black/20 transition-all flex items-center justify-center">
+            <font-awesome-icon icon="fa-solid fa-play" class="text-white opacity-0 group-hover/vid:opacity-100 transition-all scale-150" />
+          </div>
+          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[120%] pointer-events-none object-cover opacity-100"
+            src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=f8hrXf4rLxk" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <!-- Shared Luxury Overlays (Minimal for visibility) -->
+        <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
+      </div>
+
+      <!-- Floating Tech Elements (Kept for subtle brand identity) -->
+      <div class="absolute right-10 bottom-10 pointer-events-none opacity-40 z-10">
+        <div class="w-32 h-32 border border-[var(--primary-gold)]/20 rounded-full animate-spin-slow"></div>
+      </div>
+    </section>
 
     <!-- ═══════════════════════════════════════════
          HERITAGE & CRAFTSMANSHIP (AdSense Content Boost)
@@ -265,6 +354,25 @@
         </div>
       </div>
     </section> -->
+
+    <!-- Video Modal -->
+    <Transition name="zoom">
+      <div v-if="activeVideoId" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
+        <div @click="activeVideoId = null" class="absolute inset-0 bg-black/95 backdrop-blur-xl"></div>
+        <div class="relative w-full max-w-lg aspect-[9/16] bg-black shadow-2xl rounded-lg overflow-hidden animate-zoom-in border border-white/10">
+          <button @click="activeVideoId = null" class="absolute top-6 right-6 z-20 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all">
+            <font-awesome-icon icon="fa-solid fa-xmark" class="text-xl" />
+          </button>
+          <iframe 
+            class="w-full h-full"
+            :src="`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&controls=1&rel=0`"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </Transition>
 
     <section id="discovery" class="filter-section relative pt-32 pb-16 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-1000">
       <!-- Subtle Background Accents -->
@@ -1042,6 +1150,11 @@ const faqs = [
   }
 ]
 
+const activeVideoId = ref(null)
+const openVideoModal = (id) => {
+  activeVideoId.value = id
+}
+
 const heroWrapStyle = computed(() => ({
   transform: `translateY(${scrollY.value * 0.35}px) scale(${isExpanded.value ? 1.05 : 1})`,
   filter: isExpanded.value ? 'brightness(0.6) blur(2px)' : 'none'
@@ -1119,6 +1232,66 @@ onMounted(() => {
       }))
     })
   }
+
+  // LocalBusiness & Breadcrumb Schema for Home
+  let homeSchema = document.getElementById('home-schema-json-ld')
+  if (!homeSchema) {
+    homeSchema = document.createElement('script')
+    homeSchema.id = 'home-schema-json-ld'
+    homeSchema.type = 'application/ld+json'
+    document.head.appendChild(homeSchema)
+  }
+  homeSchema.text = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "ClothingStore",
+      "name": "Ahmad Cloth House",
+      "alternateName": "AhmadClothesHouse",
+      "url": "https://ahmad-cloths.vercel.app/",
+      "logo": "https://ahmad-cloths.vercel.app/favicon.svg",
+      "image": "https://ahmad-cloths.vercel.app/og-image.png",
+      "description": "Premium Pakistani fashion boutique specializing in luxury unstitched lawn, bridal couture, and designer pret wear.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wapda Town, Ameer Chowk",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "postalCode": "54000",
+        "addressCountry": "PK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4251,
+        "longitude": 74.2705
+      },
+      "telephone": "+923416887454",
+      "priceRange": "$$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "11:00",
+          "closes": "21:00"
+        }
+      ],
+      "sameAs": [
+        "https://facebook.com/profile.php?id=61573629329844",
+        "https://instagram.com/ahmadclothfabrics_aroma/"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ahmad-cloths.vercel.app/"
+        }
+      ]
+    }
+  ])
 })
 onUnmounted(() => {
   if (heroTimer.value) clearInterval(heroTimer.value)
