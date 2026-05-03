@@ -54,7 +54,7 @@
             <div class="space-y-4 lg:space-y-6">
               <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in aspect-[3/4]">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage1" alt="Luxury Pakistani Suit" fetchpriority="high" loading="eager"
+                <img :src="HeroCollage1" alt="Luxury Pakistani Suit - Designer Unstitched Collection" fetchpriority="high" loading="eager"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
@@ -69,13 +69,13 @@
             <div class="space-y-4 lg:space-y-6 pt-12 lg:pt-20">
               <div ref="colImg1" @click="openZoom(HeroCollage2)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1.2/1] cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage2" alt="Modern Luxury Collection"
+                <img :src="HeroCollage2" alt="Modern Luxury Collection - Maria B Inspired Suits"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
               <div ref="colImg3" @click="openZoom(HeroCollage4)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage4" alt="Premium Fabrics"
+                <img :src="HeroCollage4" alt="Premium Unstitched Pakistani Fabrics - Ahmad Cloth House"
                   class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
@@ -1096,6 +1096,29 @@ onMounted(() => {
   productStore.fetchProducts()
   resetHeroTimer()
   window.addEventListener('scroll', handleScroll, { passive: true })
+
+  // FAQ Schema
+  if (faqs && faqs.length > 0) {
+    let faqSchema = document.getElementById('faq-schema-json-ld')
+    if (!faqSchema) {
+      faqSchema = document.createElement('script')
+      faqSchema.id = 'faq-schema-json-ld'
+      faqSchema.type = 'application/ld+json'
+      document.head.appendChild(faqSchema)
+    }
+    faqSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })
+  }
 })
 onUnmounted(() => {
   if (heroTimer.value) clearInterval(heroTimer.value)
