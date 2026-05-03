@@ -29,7 +29,7 @@ export const useProductsStore = defineStore('products', {
   actions: {
     async fetchProducts(force = false) {
       // Disabled API fetch to prevent database overload
-      console.log("AHMADCLOTHS: Using hardcoded frontend products.");
+
       this.loading = false;
       return;
     },

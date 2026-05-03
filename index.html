@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // Global console suppressor to ensure an "empty" console as requested
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log("Console suppression active. To see logs, remove the suppressor script in index.html.");
+      }
+      const noop = () => {};
+      console.log = noop;
+      console.warn = noop;
+      console.error = noop;
+      console.info = noop;
+      console.debug = noop;
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="icon" type="image/png" href="/favicon.png?v=2" />
