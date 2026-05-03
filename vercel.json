@@ -1,18 +1,5 @@
 {
   "version": 2,
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.ahmad-cloths.vercel.app"
-        }
-      ],
-      "destination": "https://ahmad-cloths.vercel.app/$1",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

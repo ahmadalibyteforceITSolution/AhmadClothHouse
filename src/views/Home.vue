@@ -8,25 +8,25 @@
       <h1>Ahmad Cloth House | Premium Pakistani Couture & Luxury Unstitched Fabrics</h1>
       <p>Ahmad Cloth House is a premier fashion boutique specializing in handcrafted unstitched lawn, luxury pret, and bespoke bridal couture. We combine traditional Pakistani craftsmanship with modern silhouettes to create timeless elegance for our global clientele. Our Lahore-based atelier is renowned for artisanal excellence and authentic designer wear.</p>
       
-      <h2>Exclusive Pakistani Apparel & Handcrafted Designer Suits</h2>
+      <h2>Exclusive Pakistani Apparel &amp; Handcrafted Designer Suits</h2>
       <p>Our curated selection features premium collections from top-tier brands like Maria B, Sana Safinaz, and Asim Jofa, alongside our own Ahmad Signature line. We specialize in luxury unstitched lawn suits, intricate chiffon ensembles, and handcrafted bridal couture that captures the essence of heritage fashion. Every garment is a testament to the rich textile tradition of Pakistan.</p>
       
-      <h2>Curated Boutique Fashion Categories & Collections</h2>
+      <h2>Curated Boutique Fashion Categories &amp; Collections</h2>
       <p>Discover the perfect ensemble by exploring our diverse range of fashion categories. From daily wear luxury lawn to high-end evening couture, we offer something for every occasion.</p>
       <ul>
         <li><a href="/shop?category=Lawn">Luxury Lawn 2026 Collection</a></li>
         <li><a href="/shop?category=Bridal">Hand-Embroidered Bridal Couture</a></li>
         <li><a href="/shop?category=Pret">Ready-to-Wear Luxury Pret</a></li>
         <li><a href="/shop?category=Unstitched">Premium Unstitched Fabrics</a></li>
-        <li><a href="/blog">AhmadCloth Fashion Journal & Trends</a></li>
-        <li><a href="/about">Our Heritage, Craftsmanship & Story</a></li>
+        <li><a href="/blog">AhmadCloth Fashion Journal &amp; Trends</a></li>
+        <li><a href="/about">Our Heritage, Craftsmanship &amp; Story</a></li>
         <li><a href="/contact">Visit Our Flagship Lahore Boutique</a></li>
       </ul>
       
-      <h2>Trending Ethnic Wear & Couture Terminology</h2>
+      <h2>Trending Ethnic Wear &amp; Couture Terminology</h2>
       <p>Stay ahead of the fashion curve with our guide to trending Pakistani suits, designer lawn, and artisanal bridal couture. We utilize premium unstitched fabrics and luxury pret techniques to create Maria B 2026 inspired looks. Our boutique in Lahore is the heart of high-end boutique fashion and authentic couture.</p>
       
-      <h2>Authorized Designer Archives & Resources</h2>
+      <h2>Authorized Designer Archives &amp; Resources</h2>
       <p>We take pride in our collaborations with the industry's most respected names. For more information on the brands we carry and their design philosophies, explore these high-authority resources:</p>
       <ul>
         <li><a href="https://www.mariab.pk/" target="_blank" rel="noopener">Maria B Official - Iconic Luxury Pakistani Fashion</a></li>
@@ -35,8 +35,8 @@
       </ul>
       
       <!-- Static images for crawler visibility -->
-      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Premium Pakistani Designer Suit - Ahmad Cloth House Collection">
-      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="Luxury Bridal Couture - Ahmad Signature Embroidery">
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Premium Pakistani Designer Suit - Ahmad Cloth House Collection" />
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="Luxury Bridal Couture - Ahmad Signature Embroidery" />
     </section>
 
     <!-- ═══════════════════════════════════════════
