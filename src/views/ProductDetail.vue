@@ -314,7 +314,7 @@ watch(product, (p) => {
       setMeta('robots', false, 'index, follow')
       setMeta('og:title', true, pageTitle)
       setMeta('og:description', true, pageDesc)
-      setMeta('og:url', true, pageUrl)
+      setMeta('og:url', true, pageUrl.replace(/\/$/, '') || '/')
       setMeta('og:image', true, pageImage)
       setMeta('og:type', true, 'product')
       setMeta('product:price:amount', true, p.price)
@@ -323,7 +323,7 @@ watch(product, (p) => {
       // Canonical
       let canonical = document.querySelector('link[rel="canonical"]')
       if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
-      canonical.href = pageUrl
+      canonical.href = pageUrl.replace(/\/$/, '') || '/'
 
       // Product & Breadcrumb Schema
       const schemas = [

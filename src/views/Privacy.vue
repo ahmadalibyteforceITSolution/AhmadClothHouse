@@ -179,31 +179,6 @@ const privacySections = [
 
 onMounted(() => {
   window.scrollTo(0, 0)
-
-  // === Inject Privacy Page SEO ===
-  const BASE = 'https://ahmad-cloths.vercel.app'
-  document.title = 'Privacy Policy | Data Protection & Cookies | AhmadClothesHouse'
-
-  const setMeta = (name, isProperty, value) => {
-    const attr = isProperty ? `[property="${name}"]` : `[name="${name}"]`
-    let el = document.querySelector(`meta${attr}`)
-    if (!el) {
-      el = document.createElement('meta')
-      el.setAttribute(isProperty ? 'property' : 'name', name)
-      document.head.appendChild(el)
-    }
-    el.setAttribute('content', value)
-  }
-
-  setMeta('description', false, 'Read the Privacy Policy of AhmadClothesHouse. Learn how we protect your data, our use of cookies for AdSense, and your rights under GDPR and CCPA.')
-  setMeta('robots', false, 'index, follow')
-  setMeta('og:title', true, 'Privacy Policy | AhmadClothesHouse Boutique')
-  setMeta('og:description', true, 'Learn about our commitment to your data privacy and security at AhmadClothesHouse.')
-  setMeta('og:url', true, `${BASE}/privacy`)
-  
-  let canonical = document.querySelector('link[rel="canonical"]')
-  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
-  canonical.href = `${BASE}/privacy`
 })
 </script>
 

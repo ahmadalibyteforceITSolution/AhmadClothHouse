@@ -144,14 +144,14 @@ const injectBlogMeta = (p) => {
   // Open Graph
   setMeta('meta[property="og:title"]', 'content', pageTitle)
   setMeta('meta[property="og:description"]', 'content', pageDesc)
-  setMeta('meta[property="og:url"]', 'content', pageUrl)
+  setMeta('meta[property="og:url"]', 'content', pageUrl.replace(/\/$/, '') || '/')
   setMeta('meta[property="og:image"]', 'content', pageImage)
   setMeta('meta[property="og:type"]', 'content', 'article')
 
   // Twitter
   setMeta('meta[property="twitter:title"]', 'content', pageTitle)
   setMeta('meta[property="twitter:description"]', 'content', pageDesc)
-  setMeta('meta[property="twitter:url"]', 'content', pageUrl)
+  setMeta('meta[property="twitter:url"]', 'content', pageUrl.replace(/\/$/, '') || '/')
   setMeta('meta[property="twitter:image"]', 'content', pageImage)
 
   // Canonical
@@ -161,7 +161,7 @@ const injectBlogMeta = (p) => {
     canonical.rel = 'canonical'
     document.head.appendChild(canonical)
   }
-  canonical.href = pageUrl
+  canonical.href = pageUrl.replace(/\/$/, '') || '/'
 
   // Article JSON-LD Schema
   let schema = document.querySelector('script[id="blog-schema"]')

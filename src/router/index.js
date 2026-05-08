@@ -287,7 +287,9 @@ router.beforeEach((to, from, next) => {
 // Dynamic Meta Tag Guard
 router.afterEach((to) => {
   const BASE_URL = 'https://ahmad-cloths.vercel.app'
-  const canonicalUrl = `${BASE_URL}${to.path}`
+  // Remove trailing slash for consistency (except for root path)
+  const cleanPath = to.path.length > 1 && to.path.endsWith('/') ? to.path.slice(0, -1) : to.path
+  const canonicalUrl = `${BASE_URL}${cleanPath}`
   const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`
 
   // === Title ===
