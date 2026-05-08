@@ -15,7 +15,7 @@
         :alt="product.name + ' | AHMADCLOTHESFABRICS'"
         class="card-img absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out"
         :class="idx === hoverIndex ? 'opacity-100 scale-[1.04] z-0' : 'opacity-0 scale-100 -z-10'"
-        loading="lazy"
+        :loading="loading"
         width="400"
         height="533"
       />
@@ -142,7 +142,10 @@ import { useFavoritesStore } from '../stores/favorites'
 import { useAuthStore } from '../stores/auth'
 import { useProductsStore } from '../stores/products'
 
-const props = defineProps(['product'])
+const props = defineProps({
+  product: { type: Object, required: true },
+  loading: { type: String, default: 'lazy' }
+})
 defineEmits(['click-product'])
 
 const cart = useCartStore()

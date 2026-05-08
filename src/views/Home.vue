@@ -35,8 +35,8 @@
       </ul>
       
       <!-- Static images for crawler visibility -->
-      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Premium Pakistani Designer Suit - Ahmad Cloth House Collection" />
-      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="Luxury Bridal Couture - Ahmad Signature Embroidery" />
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Premium Pakistani Designer Suit - Ahmad Cloth House Collection" width="800" height="1000" />
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="Luxury Bridal Couture - Ahmad Signature Embroidery" width="800" height="1000" />
     </section>
 
     <!-- ═══════════════════════════════════════════
@@ -450,7 +450,8 @@
     ═══════════════════════════════════════════ -->
     <section class="products-section pb-32 bg-white dark:bg-[#080808] min-h-[600px]">
       <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
-        <ProductCard v-for="product in displayedProducts" :key="product.id" :product="product"
+        <ProductCard v-for="(product, index) in displayedProducts" :key="product.id" :product="product"
+          :loading="index < 4 ? 'eager' : 'lazy'"
           @click-product="goToDetail" />
 
         <!-- Loading State for API -->
@@ -579,7 +580,8 @@
           <div v-for="(item, i) in craftItems" :key="i" class="craft-card group">
             <div class="relative overflow-hidden aspect-[3/4] mb-8 bg-gray-100">
               <img :src="item.image" :alt="item.title"
-                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                width="600" height="800" loading="lazy" />
              
             </div>
             <h3

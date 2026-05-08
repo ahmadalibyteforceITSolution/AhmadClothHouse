@@ -25,6 +25,8 @@
            class="w-full h-full object-cover animate-pan"
            alt="Banner"
            fetchpriority="high"
+           width="1920"
+           height="1080"
         />
       </div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/40"></div>
@@ -204,7 +206,7 @@
                <div class="absolute -top-2 -left-2 w-4 h-4 border-t border-l border-[var(--primary-gold)] opacity-0 group-hover/grid-item:opacity-100 transition-all duration-500"></div>
                <div class="absolute -bottom-2 -right-2 w-4 h-4 border-b border-r border-[var(--primary-gold)] opacity-0 group-hover/grid-item:opacity-100 transition-all duration-500"></div>
                
-               <ProductCard :product="product" @click-product="goToDetail" class="hover-3d-effect" />
+               <ProductCard :product="product" :loading="i < 4 ? 'eager' : 'lazy'" @click-product="goToDetail" class="hover-3d-effect" />
                
                <!-- Subtle Reflection Overlay -->
                <div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover/grid-item:opacity-100 transition-opacity duration-1000"></div>

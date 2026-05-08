@@ -1,8 +1,8 @@
 <template>
-  <div v-if="publisherId" class="adsense-wrapper overflow-hidden transition-all duration-700" :class="[wrapperClass, { 'opacity-0 h-0 my-0': !isAdLoaded && !isDevelopment }]">
+  <div v-if="publisherId" class="adsense-wrapper overflow-hidden transition-all duration-700" :class="wrapperClass">
     <ins
       class="adsbygoogle"
-      style="display:block"
+      style="display:block; min-height: 280px;"
       :data-ad-client="publisherId"
       :data-ad-slot="slot"
       :data-ad-format="format"
@@ -10,7 +10,7 @@
     ></ins>
     
     <!-- Development/Empty Placeholder (Branded Ahmad Cloth House) -->
-    <div v-if="isDevelopment && !isAdLoaded" class="flex flex-col items-center justify-center py-12 bg-[#fafaf8] dark:bg-[#080808] border border-dashed border-stone-200 dark:border-white/10 opacity-50">
+    <div v-if="!isAdLoaded" class="flex flex-col items-center justify-center py-12 bg-[#fafaf8] dark:bg-[#080808] border border-dashed border-stone-200 dark:border-white/10 opacity-50">
        <span class="text-[8px] tracking-[0.4em] uppercase text-stone-400 font-bold mb-2">Ahmad Cloth House</span>
        <span class="text-[7px] tracking-[0.2em] italic text-stone-400 uppercase">Premium Editorial Placement</span>
     </div>

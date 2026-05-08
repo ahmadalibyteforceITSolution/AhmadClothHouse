@@ -129,7 +129,7 @@
 
         <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
           <!-- Google Translate (Always Visible) -->
-          <div id="google_translate_element" class="flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500"></div>
+          <div id="google_translate_element" class="flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500 min-w-[140px] min-h-[40px]"></div>
 
           <!-- Search Icon (Always Visible) -->
           <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn" aria-label="Search">
