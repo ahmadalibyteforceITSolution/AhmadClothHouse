@@ -84,13 +84,13 @@
             <div class="space-y-4 lg:space-y-6">
               <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in aspect-[3/4]">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage1" alt="Luxury Pakistani Suit - Designer Unstitched Collection" fetchpriority="high" loading="eager"
+                <img :src="HeroCollage1" alt="Luxury Pakistani Suit - Designer Unstitched Collection" fetchpriority="high" loading="eager" width="800" height="1066"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
               <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.8] cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage3" alt="Intricate Hand-Embroidery Detail - Ahmad Cloth House Artisanal Craft" loading="eager"
+                <img :src="HeroCollage3" alt="Intricate Hand-Embroidery Detail - Ahmad Cloth House Artisanal Craft" loading="eager" width="1000" height="800"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
@@ -99,13 +99,13 @@
             <div class="space-y-4 lg:space-y-6 pt-12 lg:pt-20">
               <div ref="colImg1" @click="openZoom(HeroCollage2)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1.2/1] cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage2" alt="Modern Luxury Collection - Maria B Inspired Suits"
+                <img :src="HeroCollage2" alt="Modern Luxury Collection - Maria B Inspired Suits" loading="eager" width="1200" height="1000"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
               <div ref="colImg3" @click="openZoom(HeroCollage4)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in">
                 <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage4" alt="Premium Unstitched Pakistani Fabrics - Ahmad Cloth House"
+                <img :src="HeroCollage4" alt="Premium Unstitched Pakistani Fabrics - Ahmad Cloth House" loading="eager" width="800" height="1200"
                   class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <div class="collage-gold-border"></div>
               </div>
@@ -173,10 +173,11 @@
               ref="ctaPrimary"
               @click="scrollToDiscovery"
               class="premium-btn primary group"
+              aria-label="Explore Collection"
             >
               <div class="btn-glow"></div>
               <span class="btn-text">EXPLORE COLLECTION</span>
-              <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </button>
@@ -185,6 +186,7 @@
               ref="ctaSecondary"
               @click="router.push('/about')"
               class="premium-btn secondary group"
+              aria-label="Our Heritage"
             >
               <span class="btn-text">OUR HERITAGE</span>
               <div class="btn-border-draw"></div>
@@ -247,51 +249,43 @@
       <div class="absolute inset-0 z-0 grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 overflow-hidden bg-black">
         <!-- Video 1 -->
         <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/fJ5iaQ3zVdo?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=fJ5iaQ3zVdo&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/fJ5iaQ3zVdo/maxresdefault.jpg" alt="Video 1 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 2 -->
         <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/cjCGjN3iRiU?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=cjCGjN3iRiU&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/cjCGjN3iRiU/maxresdefault.jpg" alt="Video 2 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 3 -->
         <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/NKFgwlpWtWQ?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=NKFgwlpWtWQ&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/NKFgwlpWtWQ/maxresdefault.jpg" alt="Video 3 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 4 -->
         <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/DXXXNE3fFpM?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=DXXXNE3fFpM&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/DXXXNE3fFpM/maxresdefault.jpg" alt="Video 4 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 5 -->
         <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/7YFblEOZvxM?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=7YFblEOZvxM&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/7YFblEOZvxM/maxresdefault.jpg" alt="Video 5 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 6 -->
         <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/1LnECaooLw4?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=1LnECaooLw4&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/1LnECaooLw4/maxresdefault.jpg" alt="Video 6 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 7 -->
         <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/dDJmazn51LY?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=dDJmazn51LY&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/dDJmazn51LY/maxresdefault.jpg" alt="Video 7 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
         <!-- Video 8 -->
         <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450%] md:w-[300%] h-[150%] pointer-events-none object-cover opacity-100"
-            src="https://www.youtube.com/embed/f8hrXf4rLxk?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playlist=f8hrXf4rLxk&amp;showinfo=0&amp;iv_load_policy=3&amp;disablekb=1&amp;fs=0" 
-            frameborder="0" allow="autoplay; encrypted-media; compute-pressure" allowfullscreen loading="lazy"></iframe>
+          <img src="https://img.youtube.com/vi/f8hrXf4rLxk/maxresdefault.jpg" alt="Video 8 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
+          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
         </div>
 
         <!-- Shared Luxury Overlays (Minimal for visibility) -->
@@ -366,7 +360,7 @@
       <div v-if="activeVideoId" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
         <div @click="activeVideoId = null" class="absolute inset-0 bg-black/95 backdrop-blur-xl"></div>
         <div class="relative w-full max-w-lg aspect-[9/16] bg-black shadow-2xl rounded-lg overflow-hidden animate-zoom-in border border-white/10">
-          <button @click="activeVideoId = null" class="absolute top-6 right-6 z-20 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all">
+          <button @click="activeVideoId = null" class="absolute top-6 right-6 z-20 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all" aria-label="Close Video">
             <font-awesome-icon icon="fa-solid fa-xmark" class="text-xl" />
           </button>
           <iframe 
@@ -622,7 +616,7 @@
             </p>
             <div class="flex items-center gap-6 pt-8 border-t border-black/5 dark:border-white/5">
               <div class="w-12 h-12 rounded-full overflow-hidden">
-                <img :src="patron.avatar" :alt="patron.name" class="w-full h-full object-cover" />
+                <img :src="patron.avatar" :alt="patron.name" class="w-full h-full object-cover" width="48" height="48" loading="lazy" />
               </div>
               <div>
                 <div class="text-xs font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white">{{
@@ -650,7 +644,7 @@
       <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
         <div v-for="(cat, i) in categoryTiles" :key="cat.name"
           class="relative group cursor-pointer aspect-[3/4] overflow-hidden" @click="router.push(`/shop/${cat.name}`)">
-          <img :src="cat.image" :alt="cat.name"
+          <img :src="cat.image" :alt="cat.name" width="400" height="533" loading="lazy"
             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
           <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
@@ -703,11 +697,11 @@
       <div class="absolute inset-0">
 
         <!-- First Image -->
-        <img :src="PakistaniCouture2" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
+        <img :src="PakistaniCouture2" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" width="1920" height="1080" alt="Heritage Background 1" />
 
         <!-- Second Image with blend -->
         <img :src="PakistaniCouture4" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50"
-          loading="lazy" />
+          loading="lazy" width="1920" height="1080" alt="Heritage Background 2" />
 
       </div>
 
@@ -749,7 +743,7 @@
             class="w-full h-[500px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black/30 backdrop-blur-2xl group">
 
 
-            <img :src="PakistaniCouture2" class="img-zoom" alt="Limited Edition" />
+            <img :src="PakistaniCouture2" class="img-zoom" alt="Limited Edition" loading="lazy" width="800" height="1200" />
 
 
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -780,11 +774,11 @@
         <div class="absolute inset-0 bg-black/95 backdrop-blur-3xl"></div>
         
         <!-- Luxury Close Button -->
-        <button class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[111]">
+        <button class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[111]" aria-label="Close Zoom">
           <font-awesome-icon icon="fa-solid fa-times" class="text-3xl" />
         </button>
 
-        <img :src="zoomImg" class="max-w-full max-h-full object-contain relative z-10 shadow-3xl animate-zoom-in" alt="Zoomed View">
+        <img :src="zoomImg" class="max-w-full max-h-full object-contain relative z-10 shadow-3xl animate-zoom-in" alt="Zoomed View" width="1200" height="1600">
         
         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-[0.6em] text-[var(--primary-gold)] uppercase animate-fade-in">
           AhmadCloth Luxe Gallery
