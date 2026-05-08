@@ -45,13 +45,13 @@
       </div>
       <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
       <div class="hidden sm:flex items-center gap-4">
-        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-red-600 transition-colors">
+        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-red-600 transition-colors" aria-label="YouTube">
           <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
         </a>
-        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors" aria-label="TikTok">
           <font-awesome-icon :icon="['fab', 'tiktok']" class="text-sm" />
         </a>
-        <a href="#" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-700 transition-colors">
+        <a href="#" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-700 transition-colors" aria-label="LinkedIn">
           <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-sm" />
         </a>
       </div>
@@ -66,7 +66,7 @@
         <div class="flex items-center gap-4 flex-1">
           <!-- Logo for Mobile (Left) -->
           <div class="lg:hidden cursor-pointer" @click="goToHome">
-            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" width="80" height="80" />
           </div>
 
           <!-- Back Button (Mobile Only) -->
@@ -124,7 +124,7 @@
 
         <!-- CENTER: Logo (Desktop Only) -->
         <div class="hidden lg:flex flex-shrink-0 cursor-pointer flex-col items-center group px-4" @click="goToHome">
-          <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-24 h-24">
+          <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-24 h-24" width="96" height="96">
         </div>
 
         <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
@@ -307,7 +307,7 @@
         <!-- Modal Content -->
         <div class="relative w-full h-full overflow-y-auto pt-20 pb-32">
           <!-- Close Button -->
-          <button @click="searchOpen = false" 
+          <button @click="searchOpen = false" aria-label="Close Search"
             class="absolute top-8 right-8 text-white/40 hover:text-white transition-all w-12 h-12 flex items-center justify-center rounded-full border border-white/10 hover:border-white/40 group">
             <font-awesome-icon icon="fa-solid fa-xmark" class="text-2xl group-hover:rotate-90 transition-transform duration-500" />
           </button>
@@ -319,7 +319,7 @@
                 class="text-[var(--primary-gold)] text-lg group-hover/search:text-amber-500 transition-colors" />
             </button>
             <input ref="searchInput" v-model="searchQuery" @keyup.enter="handleSearch" type="text"
-              placeholder="What are you looking for today?"
+              placeholder="What are you looking for today?" aria-label="Search Catalog"
               class="search-input flex-grow bg-transparent text-white placeholder-white/20 outline-none text-4xl md:text-6xl font-playfair font-light tracking-tight italic" />
           </div>
 
@@ -460,19 +460,19 @@
             </div>
 
             <div class="flex items-center justify-center gap-4 mb-8">
-              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] transition-all duration-500 group">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 transition-all duration-500 group">
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-red-600 transition-all duration-500 group">
+              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-red-600 transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'youtube']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-500 group">
+              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" aria-label="TikTok" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'tiktok']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" target="_blank" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-700 transition-all duration-500 group">
+              <a href="#" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-700 transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
             </div>

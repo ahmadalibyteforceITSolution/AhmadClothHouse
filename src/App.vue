@@ -201,7 +201,7 @@
               </span>
             </div>
           </div>
-          <button @click="toggleChatbot" class="text-white/50 hover:text-white">
+          <button @click="toggleChatbot" class="text-white/50 hover:text-white" aria-label="Close Chat">
             <font-awesome-icon icon="fa-solid fa-times" />
           </button>
         </div>
@@ -210,7 +210,7 @@
           <div v-for="(msg, idx) in chatMessages" :key="idx"
             :class="['message', msg.role === 'user' ? 'user-message' : 'bot-message']">
             <div class="message-content">{{ msg.text }}</div>
-            <div v-if="msg.role === 'bot' && msg.text" class="tts-btn" @click="speakText(msg.text)">
+            <div v-if="msg.role === 'bot' && msg.text" class="tts-btn" @click="speakText(msg.text)" aria-label="Listen to message">
               <font-awesome-icon icon="fa-solid fa-volume-up" />
             </div>
           </div>
@@ -226,11 +226,11 @@
         <div class="chatbot-input">
           <div class="input-wrapper">
             <input v-model="userInput" @keyup.enter="sendMessage" placeholder="Type a message..." class="chat-input" />
-            <button @click="toggleListening" :class="['stt-btn', { 'listening': isListening }]" title="Voice to Text">
+            <button @click="toggleListening" :class="['stt-btn', { 'listening': isListening }]" title="Voice to Text" aria-label="Voice to Text">
               <font-awesome-icon :icon="isListening ? 'fa-solid fa-microphone' : 'fa-solid fa-microphone-slash'" />
             </button>
           </div>
-          <button @click="sendMessage" class="send-btn">
+          <button @click="sendMessage" class="send-btn" aria-label="Send Message">
             <font-awesome-icon icon="fa-solid fa-paper-plane" />
           </button>
         </div>
@@ -245,13 +245,13 @@
 
       <transition-group name="whatsapp-pop">
         <div v-if="isWhatsappOpen" key="menu" class="flex flex-col gap-3 mb-2">
-          <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="whatsapp-sub-btn group">
+          <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="whatsapp-sub-btn group" aria-label="WhatsApp Line 1">
             <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
               <font-awesome-icon icon="fa-brands fa-whatsapp" />
             </div>
             <span class="text-[9px] font-black tracking-[0.2em] uppercase bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white">Line 1</span>
           </a>
-          <a href="https://wa.me/923244902607" target="_blank" rel="noopener" class="whatsapp-sub-btn group">
+          <a href="https://wa.me/923244902607" target="_blank" rel="noopener" class="whatsapp-sub-btn group" aria-label="WhatsApp Line 2">
             <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
               <font-awesome-icon icon="fa-brands fa-whatsapp" />
             </div>
