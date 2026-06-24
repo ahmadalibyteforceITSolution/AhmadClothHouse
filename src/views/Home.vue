@@ -40,7 +40,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
-         GSAP LUXURY HERO SECTION
+         LUXURY HERO — WORLD-CLASS CINEMATIC EDITION
     ═══════════════════════════════════════════ -->
 
     <!-- Custom Magnetic Cursor -->
@@ -49,130 +49,130 @@
 
     <section
       ref="heroSection"
-      class="gsap-hero min-h-screen relative flex items-center justify-center overflow-hidden"
-      aria-label="Hero"
+      class="luxury-hero-v2 min-h-screen relative flex items-center justify-center overflow-hidden"
+      aria-label="Ahmad Cloth House — Premium Luxury Fashion"
       @mousemove="onHeroMouseMove"
-      :style="{ backgroundImage: `url(${ShopInterior})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
     >
-      <!-- Preload the background image for LCP boost -->
-      <img :src="ShopInterior" class="hidden" fetchpriority="high" aria-hidden="true" />
-      
-      <!-- Premium Dark Overlay for readability -->
-      <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-[1]"></div>
-      
-      <!-- Ambient Glow Background -->
+      <!-- ══ CINEMATIC FULLSCREEN SLIDESHOW BACKGROUND ══ -->
+      <div class="hero-slide-bg absolute inset-0 z-0">
+        <transition-group name="hero-slide-fade" tag="div" class="absolute inset-0">
+          <div
+            v-for="(slide, idx) in heroSlides"
+            :key="idx"
+            v-show="heroFocus === idx"
+            class="absolute inset-0"
+          >
+            <img
+              :src="slide.image"
+              :alt="slide.subtitle"
+              class="w-full h-full object-cover hero-ken-burns"
+              :fetchpriority="idx === 0 ? 'high' : 'auto'"
+              :loading="idx === 0 ? 'eager' : 'lazy'"
+              width="1920" height="1080"
+            />
+          </div>
+        </transition-group>
+      </div>
+
+      <!-- ══ MULTI-LAYER GRADIENT OVERLAYS ══ -->
+      <div class="absolute inset-0 z-[1] bg-gradient-to-r from-black/85 via-black/50 to-black/20 pointer-events-none"></div>
+      <div class="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none"></div>
+      <div class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.5)_100%)] pointer-events-none"></div>
+
+      <!-- ══ GOLDEN GRAIN TEXTURE ══ -->
+      <div class="hero-grain-overlay pointer-events-none z-[2]"></div>
+
+      <!-- ══ AMBIENT GLOW ══ -->
       <div class="hero-ambient-bg z-[2]"></div>
 
-      <!-- Floating Particles Canvas -->
-      <canvas ref="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-[1]"></canvas>
+      <!-- ══ PARTICLE CANVAS ══ -->
+      <canvas ref="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-[3]"></canvas>
 
-      <!-- Mouse Spotlight -->
-      <div ref="spotlight" class="hero-spotlight pointer-events-none z-[2]"></div>
+      <!-- ══ MOUSE SPOTLIGHT ══ -->
+      <div ref="spotlight" class="hero-spotlight pointer-events-none z-[4]"></div>
 
-      <!-- Golden Grain Overlay -->
-      <div class="hero-grain-overlay pointer-events-none z-[3]"></div>
+      <!-- ══ SIDE VERTICAL TEXT (Desktop) ══ -->
+      <div class="absolute left-8 top-1/2 -translate-y-1/2 z-20 hidden xl:flex flex-col items-center gap-6">
+        <div class="w-[1px] h-20 bg-white/20"></div>
+        <span class="vertical-text text-[8px] font-bold tracking-[0.5em] text-white/30 uppercase">Ahmad Cloth House · Est. 2026</span>
+        <div class="w-[1px] h-20 bg-white/20"></div>
+      </div>
 
-      <!-- Main Grid -->
-      <div class="max-w-[1700px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+      <!-- ══ SLIDE PROGRESS DOTS ══ -->
+      <div class="absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-3">
+        <button
+          v-for="(slide, idx) in heroSlides"
+          :key="'dot-'+idx"
+          @click="heroFocus = idx"
+          class="relative w-2 h-2 rounded-full transition-all duration-500"
+          :class="heroFocus === idx ? 'bg-[var(--primary-gold)] scale-150' : 'bg-white/30 hover:bg-white/60'"
+          :aria-label="'Go to slide ' + (idx + 1)"
+        >
+          <span v-if="heroFocus === idx" class="absolute inset-0 rounded-full bg-[var(--primary-gold)]/40 animate-ping"></span>
+        </button>
+      </div>
 
-        <!-- Collage Column -->
-        <div ref="collageCol" class="lg:col-span-7 order-2 lg:order-1 relative">
-          <div class="hero-orb-behind"></div>
+      <!-- ══ MAIN CONTENT ══ -->
+      <div class="max-w-[1500px] mx-auto px-6 lg:px-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center relative z-10 py-24 lg:py-0 min-h-screen">
 
-          <div class="collage-grid grid grid-cols-2 gap-4 lg:gap-6 relative z-10">
-            <!-- Left Column -->
-            <div class="space-y-4 lg:space-y-6">
-              <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in aspect-[3/4]">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage1" alt="Luxury Pakistani Suit - Designer Unstitched Collection" fetchpriority="high" loading="eager" width="800" height="1066"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                <div class="collage-gold-border"></div>
-              </div>
-              <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.8] cursor-zoom-in">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage3" alt="Intricate Hand-Embroidery Detail - Ahmad Cloth House Artisanal Craft" loading="eager" width="1000" height="800"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                <div class="collage-gold-border"></div>
-              </div>
-            </div>
-            <!-- Right Column -->
-            <div class="space-y-4 lg:space-y-6 pt-12 lg:pt-20">
-              <div ref="colImg1" @click="openZoom(HeroCollage2)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1.2/1] cursor-zoom-in">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage2" alt="Modern Luxury Collection - Maria B Inspired Suits" loading="eager" width="1200" height="1000"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                <div class="collage-gold-border"></div>
-              </div>
-              <div ref="colImg3" @click="openZoom(HeroCollage4)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage4" alt="Premium Unstitched Pakistani Fabrics - Ahmad Cloth House" loading="eager" width="800" height="1200"
-                  class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                <div class="collage-gold-border"></div>
-              </div>
-            </div>
-          </div>
+        <!-- LEFT: Typography + CTA -->
+        <div ref="textCol" class="lg:col-span-6 xl:col-span-5 space-y-8 text-center lg:text-left order-1">
 
-          <!-- Floating badge -->
-          <div ref="floatingBadge" class="hero-floating-badge hidden lg:flex">
-            <div class="hero-badge-ring"></div>
-            <div class="hero-badge-content">
-              <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-widest uppercase">EST.</span>
-              <span class="text-white text-lg font-playfair font-bold leading-none">2026</span>
-              <span class="text-gray-400 text-[7px] font-bold tracking-widest uppercase">LAHORE</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Text Column -->
-        <div ref="textCol" class="lg:col-span-5 space-y-8 order-1 lg:order-2 text-center lg:text-left z-10">
-
-          <!-- Label -->
+          <!-- Eyebrow label -->
           <div ref="heroLabel" class="flex items-center justify-center lg:justify-start gap-4">
-            <span class="h-[1px] w-8 bg-[var(--primary-gold)] hero-line-left"></span>
-            <span class="text-[10px] font-bold tracking-[0.6em] text-[var(--primary-gold)] uppercase hero-eyebrow">
-              AhmadCloths Luxe
-            </span>
-            <span class="h-[1px] w-8 bg-[var(--primary-gold)] hero-line-right"></span>
+            <span class="h-px w-10 bg-[var(--primary-gold)]"></span>
+            <span class="text-[9px] font-black tracking-[0.7em] text-[var(--primary-gold)] uppercase">AhmadCloths Luxe · 2026</span>
+            <span class="h-px w-10 bg-[var(--primary-gold)]"></span>
           </div>
 
-          <!-- Split Title -->
-          <h1 ref="heroTitle" class="hero-main-title font-playfair text-white dark:text-white leading-[0.9] overflow-hidden drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+          <!-- Main Title — Character Split -->
+          <h1 ref="heroTitle" class="hero-main-title font-playfair text-white leading-[0.88] overflow-hidden drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
             <span class="hero-char-line block">
               <span
                 v-for="(ch, i) in titleLine1"
                 :key="'t'+i"
-                class="hero-char inline-block"
-                :style="ch === ' ' ? 'margin-right:0.5rem; font-size:clamp(3rem,8vw,7rem); font-style:italic; font-weight:300;' : 'font-size:clamp(3rem,8vw,7rem); font-style:italic; font-weight:300;'"
+                class="hero-char inline-block will-change-transform"
+                :style="'font-size:clamp(3.2rem,8.5vw,7.5rem); font-style:italic; font-weight:300; letter-spacing:-0.01em;'"
               >{{ ch === ' ' ? '\u00a0' : ch }}</span>
             </span>
-            <span class="hero-char-line block -mt-2">
+            <span class="hero-char-line block">
               <span
                 v-for="(ch, i) in titleLine2"
                 :key="'c'+i"
-                class="hero-char inline-block"
-                :style="'font-size:clamp(3.5rem,10vw,9rem); font-weight:900; letter-spacing:-0.04em; color:var(--primary-gold); text-shadow: 0 0 40px rgba(212,175,55,0.3);'"
+                class="hero-char inline-block will-change-transform"
+                :style="'font-size:clamp(3.8rem,11vw,9.5rem); font-weight:900; letter-spacing:-0.04em; color:var(--primary-gold); text-shadow: 0 0 60px rgba(212,175,55,0.4), 0 0 120px rgba(212,175,55,0.15);'"
               >{{ ch === ' ' ? '\u00a0' : ch }}</span>
             </span>
           </h1>
 
-          <!-- Ornament -->
-          <div ref="heroOrnament" class="flex items-center justify-center lg:justify-start gap-3">
-            <span class="w-8 h-[1px] bg-[var(--primary-gold)]/40"></span>
-            <span class="text-[var(--primary-gold)]/60 text-lg">✦</span>
-            <span class="w-8 h-[1px] bg-[var(--primary-gold)]/40"></span>
+          <!-- Divider ornament -->
+          <div ref="heroOrnament" class="flex items-center justify-center lg:justify-start gap-4">
+            <span class="w-12 h-px bg-[var(--primary-gold)]/50"></span>
+            <span class="text-[var(--primary-gold)] text-xl tracking-widest">✦ ✦ ✦</span>
+            <span class="w-12 h-px bg-[var(--primary-gold)]/50"></span>
           </div>
 
           <!-- Description -->
-          <p ref="heroDesc" class="hero-description text-white dark:text-white text-sm sm:text-base max-w-md mx-auto lg:mx-0 font-medium tracking-wide leading-relaxed drop-shadow-md">
-            A masterpiece of hand-embroidered artisanal couture. Discover the soul of traditional Pakistani textiles revived for the modern woman.
+          <p ref="heroDesc" class="hero-description text-white/80 text-sm sm:text-base max-w-md mx-auto lg:mx-0 leading-relaxed font-light tracking-wide">
+            A masterpiece of hand-embroidered artisanal couture. Discover the soul of traditional Pakistani textiles — revived, refined, and delivered worldwide.
           </p>
 
-          <!-- CTA Buttons -->
-          <div ref="heroCta" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-6">
+          <!-- ══ ANIMATED STAT COUNTERS ══ -->
+          <div ref="heroStats" class="grid grid-cols-3 gap-4 py-6 border-y border-white/10">
+            <div v-for="stat in heroLiveStats" :key="stat.label" class="text-center lg:text-left group">
+              <div class="font-playfair font-black text-2xl xl:text-3xl leading-none text-white group-hover:text-[var(--primary-gold)] transition-colors duration-500">
+                <span class="hero-stat-val">{{ stat.display }}</span>
+              </div>
+              <div class="text-white/40 text-[8px] uppercase tracking-[0.25em] mt-1.5 font-bold">{{ stat.label }}</div>
+            </div>
+          </div>
+
+          <!-- ══ CTA BUTTONS ══ -->
+          <div ref="heroCta" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
             <button
               ref="ctaPrimary"
               @click="scrollToDiscovery"
-              class="premium-btn primary group"
+              class="premium-btn primary group w-full sm:w-auto justify-center"
               aria-label="Explore Collection"
             >
               <div class="btn-glow"></div>
@@ -185,7 +185,7 @@
             <button
               ref="ctaSecondary"
               @click="router.push('/about')"
-              class="premium-btn secondary group"
+              class="premium-btn secondary group w-full sm:w-auto justify-center"
               aria-label="Our Heritage"
             >
               <span class="btn-text">OUR HERITAGE</span>
@@ -194,49 +194,121 @@
           </div>
 
           <!-- Social Proof -->
-          <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-8 border-t border-black/5 dark:border-white/5">
+          <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-6 border-t border-white/10">
             <div class="flex -space-x-2.5">
-              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" width="32" height="32" />
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" width="32" height="32" />
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=100&amp;h=100&amp;fit=crop&amp;fm=webp"
-                class="w-8 h-8 rounded-full border-2 border-white dark:border-black object-cover" loading="lazy" decoding="async" width="32" height="32" />
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&h=100&fit=crop&fm=webp"
+                class="w-9 h-9 rounded-full border-2 border-[var(--primary-gold)]/60 object-cover" loading="lazy" width="36" height="36" alt="patron" />
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&h=100&fit=crop&fm=webp"
+                class="w-9 h-9 rounded-full border-2 border-[var(--primary-gold)]/60 object-cover" loading="lazy" width="36" height="36" alt="patron" />
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&fit=crop&fm=webp"
+                class="w-9 h-9 rounded-full border-2 border-[var(--primary-gold)]/60 object-cover" loading="lazy" width="36" height="36" alt="patron" />
             </div>
             <div>
-              <div class="flex gap-0.5 mb-0.5">
-                <span v-for="s in 5" :key="s" class="text-[var(--primary-gold)] text-[10px]">★</span>
+              <div class="flex gap-0.5 mb-1">
+                <span v-for="s in 5" :key="s" class="text-[var(--primary-gold)] text-[11px]">★</span>
               </div>
-              <span class="text-[9px] font-bold tracking-widest uppercase text-gray-400">Trusted by 10k+ Patrons</span>
+              <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-white/50">Trusted by <strong class="text-white">10,000+</strong> Patrons Worldwide</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Collage Grid -->
+        <div ref="collageCol" class="lg:col-span-6 xl:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end items-center">
+          <div class="hero-orb-behind"></div>
+
+          <div class="collage-grid grid grid-cols-2 gap-4 lg:gap-5 relative z-10 w-full max-w-lg lg:max-w-none">
+            <!-- Left Col -->
+            <div class="space-y-4 lg:space-y-5">
+              <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] cursor-zoom-in aspect-[3/4] rounded-sm border border-white/5">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage1" alt="Luxury Pakistani Suit — Designer Unstitched Collection" fetchpriority="high" loading="eager" width="800" height="1066"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+                <div class="collage-gold-border"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p class="text-white text-[8px] font-bold tracking-widest uppercase">Premium Lawn</p>
+                </div>
+              </div>
+              <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.85] cursor-zoom-in rounded-sm border border-white/5">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage3" alt="Intricate Hand-Embroidery Detail" loading="eager" width="1000" height="850"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+                <div class="collage-gold-border"></div>
+              </div>
+            </div>
+            <!-- Right Col (offset down) -->
+            <div class="space-y-4 lg:space-y-5 pt-14 lg:pt-24">
+              <div ref="colImg1" @click="openZoom(HeroCollage2)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1.15/1] cursor-zoom-in rounded-sm border border-white/5">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage2" alt="Modern Luxury Collection" loading="eager" width="1150" height="1000"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+                <div class="collage-gold-border"></div>
+              </div>
+              <div ref="colImg3" @click="openZoom(HeroCollage4)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in rounded-sm border border-white/5">
+                <div class="gsap-collage-shimmer"></div>
+                <img :src="HeroCollage4" alt="Premium Unstitched Fabrics" loading="eager" width="800" height="1200"
+                  class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+                <div class="collage-gold-border"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p class="text-white text-[8px] font-bold tracking-widest uppercase">Bridal Couture</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badge -->
+          <div ref="floatingBadge" class="hero-floating-badge hidden lg:flex">
+            <div class="hero-badge-ring"></div>
+            <div class="hero-badge-content">
+              <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-widest uppercase">EST.</span>
+              <span class="text-white text-lg font-playfair font-bold leading-none">2026</span>
+              <span class="text-gray-400 text-[7px] font-bold tracking-widest uppercase">LAHORE · PK</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
-      <div ref="scrollIndicator" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-3">
-        <span class="text-[8px] font-bold tracking-[0.4em] uppercase text-gray-400">SCROLL</span>
-        <div class="w-[1px] h-14 bg-black/10 dark:bg-white/10 relative overflow-hidden">
+      <!-- ══ SCROLL INDICATOR ══ -->
+      <div ref="scrollIndicator" class="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-3">
+        <span class="text-[8px] font-bold tracking-[0.5em] uppercase text-white/40">DISCOVER</span>
+        <div class="w-px h-12 bg-white/10 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1/2 bg-[var(--primary-gold)] animate-scroll-line"></div>
         </div>
       </div>
 
-      <!-- Floating Discount Badge -->
+      <!-- ══ FLOATING DISCOUNT BADGE ══ -->
       <div v-if="featuredDiscountProduct"
-        class="absolute right-12 bottom-12 z-[100] hidden xl:block"
+        class="absolute right-12 bottom-20 z-[100] hidden xl:block"
         ref="discountBubble"
       >
         <div class="relative group cursor-pointer gsap-discount-bubble" @click="goToDetail(featuredDiscountProduct)">
-          <div class="w-28 h-28 rounded-full border border-[var(--primary-gold)]/30 p-1 overflow-hidden shadow-2xl group-hover:scale-105 transition-all bg-black/20 backdrop-blur-2xl">
-            <img :src="featuredDiscountProduct.image" class="w-full h-full object-cover rounded-full" width="112" height="112">
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 bg-black/50 rounded-full">
+          <div class="w-28 h-28 rounded-full border border-[var(--primary-gold)]/40 p-1 overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.3)] group-hover:scale-110 transition-all duration-500 bg-black/30 backdrop-blur-2xl">
+            <img :src="featuredDiscountProduct.image" class="w-full h-full object-cover rounded-full" width="112" height="112" alt="sale product">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 bg-black/60 rounded-full">
               <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-[0.3em] uppercase mb-0.5">HOT</span>
               <div class="bg-[var(--deep-burgundy)] text-white px-2 py-0.5 rounded-full text-[8px] font-black animate-pulse">
                 -{{ featuredDiscountProduct.discount }}%
               </div>
             </div>
           </div>
-          <span class="absolute -top-3 -right-3 w-7 h-7 bg-[var(--primary-gold)] rounded-full flex items-center justify-center text-black text-[8px] font-black animate-bounce">✦</span>
+          <span class="absolute -top-3 -right-3 w-7 h-7 bg-[var(--primary-gold)] rounded-full flex items-center justify-center text-black text-[9px] font-black animate-bounce shadow-lg">✦</span>
+        </div>
+      </div>
+
+      <!-- ══ LUXURY MARQUEE TICKER STRIP ══ -->
+      <div class="absolute bottom-0 left-0 right-0 z-30 overflow-hidden border-t border-white/10 bg-black/50 backdrop-blur-lg py-3">
+        <div class="hero-marquee-track flex whitespace-nowrap">
+          <span v-for="n in 4" :key="'mq'+n" class="inline-flex items-center gap-10 pr-10 text-[8px] font-black tracking-[0.45em] uppercase text-white/50 shrink-0">
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Maria B 2026 Lawn
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Bin Saeed Premium
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Sana Safinaz Summer
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Gul Ahmed Luxury
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Worldwide Shipping
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Bridal Couture
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> H&amp;M Fabrics
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Custom Stitching
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Burewala Latha
+            <span class="text-[var(--primary-gold)] text-xs">✦</span> Unstitched Silk
+          </span>
         </div>
       </div>
     </section>
@@ -1073,10 +1145,20 @@ function initScrollAnimations() {
 }
 
 const heroSlides = [
-  { image: PakistaniCouture2, subtitle: 'LUXURY BRIDAL', title1: 'TIMLESS', titleHighlight: 'COUTURE', title2: '2026', description: 'A masterpiece of hand-embroidered artisanal couture.' },
+  { image: PakistaniCouture2, subtitle: 'LUXURY BRIDAL', title1: 'TIMELESS', titleHighlight: 'COUTURE', title2: '2026', description: 'A masterpiece of hand-embroidered artisanal couture.' },
   { image: PakistaniCouture3, subtitle: 'PREMIUM LAWN', title1: 'HERITAGE', titleHighlight: 'UNSTITCHED', title2: 'COLLECTION', description: 'Traditional weaving with modern aesthetics and graceful designs.' },
   { image: PakistaniCouture1, subtitle: 'DESIGNER PRET', title1: 'PURE', titleHighlight: 'LUXURY', title2: 'ELEGANCE', description: 'Delicate, stylish, and packed with grace for the modern woman.' },
   { image: PakistaniCouture4, subtitle: 'M.PRINT', title1: 'CHIC', titleHighlight: 'STYLE', title2: 'PRINTS', description: 'We believe the finest fabrics tell their own story.' }
+]
+
+// Hero slideshow active index
+const heroFocus = ref(0)
+
+// Animated stat counters
+const heroLiveStats = [
+  { label: 'Products', display: '300+' },
+  { label: 'Patrons', display: '10K+' },
+  { label: 'Countries', display: '25+' }
 ]
 
 const router = useRouter()
@@ -1212,6 +1294,13 @@ onMounted(() => {
   resetHeroTimer()
   window.addEventListener('scroll', handleScroll, { passive: true })
 
+  // Hero slideshow auto-rotation — switch every 5 seconds
+  const heroSlideTimer = setInterval(() => {
+    heroFocus.value = (heroFocus.value + 1) % heroSlides.length
+  }, 5000)
+  // Store timer on window for cleanup (simple approach avoiding extra ref)
+  window.__heroSlideTimer = heroSlideTimer
+
   // FAQ Schema
   if (faqs && faqs.length > 0) {
     let faqSchema = document.getElementById('faq-schema-json-ld')
@@ -1297,6 +1386,7 @@ onMounted(() => {
 })
 onUnmounted(() => {
   if (heroTimer.value) clearInterval(heroTimer.value)
+  if (window.__heroSlideTimer) clearInterval(window.__heroSlideTimer)
   window.removeEventListener('scroll', handleScroll)
 })
 
@@ -1600,5 +1690,68 @@ const categoryTiles = [
 
 .animate-reveal-left {
   animation: reveal-left 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* ══ LUXURY HERO V2 STYLES ══ */
+
+/* Ken Burns zoom-pan on slideshow background images */
+.hero-ken-burns {
+  animation: heroKenBurns 12s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes heroKenBurns {
+  0%   { transform: scale(1.08) translate(0, 0); }
+  33%  { transform: scale(1.12) translate(-1%, -0.5%); }
+  66%  { transform: scale(1.06) translate(0.5%, 1%); }
+  100% { transform: scale(1.1)  translate(-0.5%, -1%); }
+}
+
+/* Slide crossfade transition */
+.hero-slide-fade-enter-active,
+.hero-slide-fade-leave-active {
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide-fade-enter-from,
+.hero-slide-fade-leave-to {
+  opacity: 0;
+}
+
+.hero-slide-fade-enter-to,
+.hero-slide-fade-leave-from {
+  opacity: 1;
+}
+
+/* Marquee continuous scroll */
+@keyframes heroMarquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hero-marquee-track {
+  animation: heroMarquee 35s linear infinite;
+  will-change: transform;
+}
+
+.hero-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* luxury-hero-v2 section base */
+.luxury-hero-v2 {
+  background: #000;
+}
+
+/* Stat value hover glow */
+.hero-stat-val {
+  display: inline-block;
+  transition: text-shadow 0.4s ease;
+}
+
+.hero-stat-val:hover {
+  text-shadow: 0 0 20px rgba(212,175,55,0.6);
 }
 </style>

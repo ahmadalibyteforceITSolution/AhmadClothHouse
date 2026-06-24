@@ -23,6 +23,28 @@ import mariabV4 from "../assets/mariab_v4.jpg";
 import mariabV5 from "../assets/mariab_v5.jpg";
 import shopHeader from "../assets/ai_new/shop_header.png";
 import shopInterior from "../assets/ai_new/shop_interior.png";
+
+// New Maria B and Bin Saeed 2026 Launches
+import mb2026_1 from "../assets/ai_new/mb_2026_1.png";
+import mb2026_2 from "../assets/ai_new/mb_2026_2.png";
+import mb2026_3 from "../assets/ai_new/mb_2026_3.png";
+import mb2026_4 from "../assets/ai_new/mb_2026_4.png";
+import mb2026_5 from "../assets/ai_new/mb_2026_5.png";
+import bs2026_1 from "../assets/ai_new/bs_2026_1.png";
+import bs2026_2 from "../assets/ai_new/bs_2026_2.png";
+import bs2026_3 from "../assets/ai_new/bs_2026_3.png";
+import bs2026_4 from "../assets/ai_new/bs_2026_4.png";
+import bs2026_5 from "../assets/ai_new/bs_2026_5.png";
+import summerLawn1 from "../assets/ai_new/summer_lawn_1.png";
+
+// New Men's Unstitched Fabrics
+import menFabric1 from "../assets/ai_new/men_fabric_1.png";
+import menFabric2 from "../assets/ai_new/men_fabric_2.png";
+import menFabric3 from "../assets/ai_new/men_fabric_3.png";
+import menFabric4 from "../assets/ai_new/men_fabric_4.png";
+import menFabric5 from "../assets/ai_new/men_fabric_5.png";
+import menFabric6 from "../assets/ai_new/men_fabric_6.png";
+
 import hero1 from "../assets/ai/hero_1.png";
 import hero2 from "../assets/ai/hero_2.png";
 import hero3 from "../assets/ai/hero_3.png";
@@ -165,6 +187,186 @@ import heroClothes9 from "../assets/hero/clothes9.jpg";
 import heroShopInterior from "../assets/hero/shop_interior.png";
 
 const baseProducts = [
+  {
+    id: "mariab-2026-001",
+    name: "maria b premium lawn d-931 (2026)",
+    brand: "Maria B",
+    price: 8400,
+    originalPrice: 11000,
+    discount: 23,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: mb2026_1,
+    nature: "premium",
+    description: "Viral D-931 luxury embroidered lawn collection featuring delicate pastel floral threads, hand-embellished mirror work, and a premium printed organza dupatta.",
+    details: ["3-Piece Suit", "Premium Lawn Front & Back", "Embroidered Neck Patch", "Organza Dupatta"],
+    variants: [
+      { color: "Mint Pink", size: "Unstitched", image: mb2026_1 },
+      { color: "Peach Coral", size: "Unstitched", image: mb2026_1 }
+    ]
+  },
+  {
+    id: "mariab-2026-002",
+    name: "maria b viral block print lawn (2026)",
+    brand: "Maria B",
+    price: 7200,
+    originalPrice: 9000,
+    discount: 20,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: mb2026_2,
+    nature: "premium",
+    description: "Elegant crimson red block printed lawn with heavy embroidered patches and a zari borders chiffon dupatta.",
+    details: ["3-Piece Suit", "Block-Printed Lawn Shirt", "Zari Border Chiffon Dupatta", "Dyed Trouser"],
+    variants: [
+      { color: "Crimson Red", size: "Unstitched", image: mb2026_2 },
+      { color: "Royal Blue", size: "Unstitched", image: mb2026_2 }
+    ]
+  },
+  {
+    id: "mariab-2026-003",
+    name: "maria b digital jacquard lawn (2026)",
+    brand: "Maria B",
+    price: 9200,
+    originalPrice: 12000,
+    discount: 23,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: mb2026_3,
+    nature: "premium",
+    description: "Premium jacquard weave with beautiful floral digital print overlays. Perfect for formal summer events.",
+    details: ["3-Piece Suit", "Jacquard Weft Shirt", "Embroidered Borders", "Pure Silk Dupatta"],
+    variants: [
+      { color: "Emerald Gold", size: "Unstitched", image: mb2026_3 },
+      { color: "Ivory Gold", size: "Unstitched", image: mb2026_3 }
+    ]
+  },
+  {
+    id: "mariab-2026-004",
+    name: "maria b pastel organza festive (2026)",
+    brand: "Maria B",
+    price: 14500,
+    originalPrice: 18000,
+    discount: 19,
+    category: "Unstitched Organza",
+    parentCategory: "Ladies Wear",
+    image: mb2026_4,
+    nature: "limited",
+    description: "Beautifully styled pastel organza dress with intricate tilla embroidery, cutwork sleeves, and sequence details.",
+    details: ["3-Piece Festive Set", "Embroidered Organza Front", "Inner Slip Included", "Embellished Dupatta"],
+    variants: [
+      { color: "Orchid Lilac", size: "Unstitched", image: mb2026_4 },
+      { color: "Blossom Pink", size: "Unstitched", image: mb2026_4 }
+    ]
+  },
+  {
+    id: "mariab-2026-005",
+    name: "maria b m.prints classic daily (2026)",
+    brand: "Maria B",
+    price: 5800,
+    originalPrice: 7000,
+    discount: 17,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: mb2026_5,
+    nature: "standard",
+    description: "Comfortable and breathable casual wear lawn suit featuring a contemporary abstract and floral mix design.",
+    details: ["3-Piece Suit", "Digital Printed Lawn Shirt", "Soft Voile Dupatta", "Dyed Trouser"],
+    variants: [
+      { color: "Sky Blue", size: "Unstitched", image: mb2026_5 },
+      { color: "Sunny Yellow", size: "Unstitched", image: mb2026_5 }
+    ]
+  },
+  {
+    id: "binsaeed-2026-001",
+    name: "bin saeed viral print lawn (2026)",
+    brand: "Bin Saeed",
+    price: 3400,
+    originalPrice: 4500,
+    discount: 24,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: bs2026_1,
+    nature: "standard",
+    description: "Highly demanded Bin Saeed digital print lawn suit with premium heavy embroidered neckline patch.",
+    details: ["3-Piece Suit", "90/70 Pure Lawn", "Embroidered Neck Patch", "Lawn Dupatta"],
+    variants: [
+      { color: "Mustard Orange", size: "Unstitched", image: bs2026_1 },
+      { color: "Teal Green", size: "Unstitched", image: bs2026_1 }
+    ]
+  },
+  {
+    id: "binsaeed-2026-002",
+    name: "bin saeed elegant jacquard (2026)",
+    brand: "Bin Saeed",
+    price: 4100,
+    originalPrice: 5200,
+    discount: 21,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: bs2026_2,
+    nature: "standard",
+    description: "Beautiful self-jacquard weave lawn suit with classical borders and light sequence details on dupatta.",
+    details: ["3-Piece Suit", "Jacquard Lawn Shirt", "Chiffon Dupatta", "Dyed Cambric Trouser"],
+    variants: [
+      { color: "Royal Gold", size: "Unstitched", image: bs2026_2 },
+      { color: "Magenta Pink", size: "Unstitched", image: bs2026_2 }
+    ]
+  },
+  {
+    id: "binsaeed-2026-003",
+    name: "bin saeed chikankari classic (2026)",
+    brand: "Bin Saeed",
+    price: 5400,
+    originalPrice: 6800,
+    discount: 20,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: bs2026_3,
+    nature: "premium",
+    description: "Exquisite chikankari embroidered front panel on premium lawn with soft floral printed back and sleeves.",
+    details: ["3-Piece Suit", "Chikankari Lawn Front", "Printed Chiffon Dupatta", "Dyed Trouser"],
+    variants: [
+      { color: "Peach Blossom", size: "Unstitched", image: bs2026_3 },
+      { color: "Mint Green", size: "Unstitched", image: bs2026_3 }
+    ]
+  },
+  {
+    id: "binsaeed-2026-004",
+    name: "bin saeed signature block print (2026)",
+    brand: "Bin Saeed",
+    price: 3200,
+    originalPrice: 4000,
+    discount: 20,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: bs2026_4,
+    nature: "standard",
+    description: "Traditional hand block print design with metallic gold highlights. Classic aesthetic for daily wear.",
+    details: ["3-Piece Suit", "Block-Printed Lawn Shirt", "Lawn Dupatta", "Dyed Trouser"],
+    variants: [
+      { color: "Rust Orange", size: "Unstitched", image: bs2026_4 },
+      { color: "Navy Blue", size: "Unstitched", image: bs2026_4 }
+    ]
+  },
+  {
+    id: "binsaeed-2026-005",
+    name: "bin saeed cotton satin festival (2026)",
+    brand: "Bin Saeed",
+    price: 4800,
+    originalPrice: 6000,
+    discount: 20,
+    category: "Unstitched Lawn",
+    parentCategory: "Ladies Wear",
+    image: bs2026_5,
+    nature: "premium",
+    description: "Premium cotton satin fabric with neat heavy embroidery work on daman and sleeves.",
+    details: ["3-Piece Suit", "Cotton Satin Shirt", "Digital Printed Silk Dupatta", "Dyed Trouser"],
+    variants: [
+      { color: "Mint Beige", size: "Unstitched", image: bs2026_5 },
+      { color: "Soft Lavender", size: "Unstitched", image: bs2026_5 }
+    ]
+  },
   {
     id: "mariab-001",
     name: "maria b luxury lawn collection",
@@ -1671,4 +1873,603 @@ const barqueProducts = [
     },
 ];
 
-export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts, ...barqueProducts];
+// Helper to generate Men's Unstitched Products dynamically
+const generateMenProducts = () => {
+  const brands = [
+    "Burewala Latha", "Grace Fabrics", "Ahmadcloths Signature", 
+    "J. Junaid Jamshed", "Gul Ahmed Men", "Pasha Fabrics", "Dynasty Fabrics"
+  ];
+  const stuffs = ["Wash & Wear", "Premium Cotton", "Burewala Latha", "Boski Silk", "Soft Linen", "Royal Khaddar"];
+  const descriptions = [
+    "Premium quality unstitched suit fabric for men's traditional wear, soft finish and durable texture.",
+    "Royal luxury unstitched fabric, perfect for formal occasions, wrinkle-resistant with a smooth feel.",
+    "Exclusive traditional unstitched fabric from the premium collection, breathable and highly comfortable.",
+    "High-grade wash & wear fabric, classic fall and easy iron, designed for everyday style.",
+    "Traditional pure finish cotton/latha fabric, clean crisp look with high durability."
+  ];
+
+  const images = [menFabric1, menFabric2, menFabric3, menFabric4, menFabric5, menFabric6];
+
+  const colorPalettes = [
+    ["Pure White", "Off-White", "Cream", "Ivory", "Soft Beige"],
+    ["Sky Blue", "Royal Blue", "Navy Blue", "Slate Blue", "Ocean Blue"],
+    ["Charcoal", "Jet Black", "Midnight Gray", "Lead Gray", "Ash Gray"],
+    ["Olive Green", "Forest Green", "Mint Green", "Sage Green", "Khaki Green"],
+    ["Camel Brown", "Cocoa Brown", "Chestnut", "Tan Brown", "Coffee Brown"]
+  ];
+
+  const items = [];
+  for (let i = 1; i <= 50; i++) {
+    const brand = brands[i % brands.length];
+    const stuff = stuffs[i % stuffs.length];
+    const desc = descriptions[i % descriptions.length];
+    const basePrice = 2800 + (i * 120) % 4500;
+    const discountPercent = 10 + (i * 3) % 25;
+    const originalPrice = Math.round(basePrice / (1 - discountPercent / 100));
+    
+    // Choose one of the 6 generated images based on the index
+    const mainImage = images[i % images.length];
+    
+    // Determine main color palette for this product
+    const palette = colorPalettes[i % colorPalettes.length];
+    
+    items.push({
+      id: `men-unst-${i}`,
+      name: `${brand} ${stuff} ${2026 + (i % 2)} Edition Vol-${i}`,
+      brand: brand,
+      price: basePrice,
+      originalPrice: originalPrice,
+      discount: discountPercent,
+      category: `Men's Unstitched ${stuff}`,
+      parentCategory: "Men's Wear",
+      image: mainImage,
+      nature: i % 3 === 0 ? "premium" : (i % 5 === 0 ? "limited" : "standard"),
+      description: `${brand} brings you the viral 2026 launch of ${stuff} unstitched fabric. ${desc}`,
+      details: ["4.5 Meters Fabric Length", "Width: 54 Inches", "Genuine Brand Packing", "Premium Fabric Finish"],
+      variants: palette.map((color) => ({
+        color: color,
+        size: "4.5 Meters",
+        image: mainImage
+      }))
+    });
+  }
+  return items;
+};
+
+const menUnstitchedProducts = generateMenProducts();
+
+// Helper to generate Ladies Summer Collection Products dynamically
+const generateSummerProducts = () => {
+  const brands = ["Sapphire", "Sana Safinaz", "Alkaram Studio", "Gul Ahmed", "Nishat Linen"];
+  const stuffs = ["Digital Printed Lawn", "Embroidered Swiss Lawn", "Luxury Jacquard Summer", "Chiffon Summer Glow"];
+  const images = [summerLawn1, mb2026_1, mb2026_3, mb2026_5, bs2026_1, bs2026_3, bs2026_5];
+  
+  const colorPalettes = [
+    ["Coral Pink", "Mint Green", "Lemon Yellow", "Peach Fuzz", "Sky Blue"],
+    ["Lavender", "Orchid Purple", "Blossom Pink", "Soft Ivory", "Aqua Blue"],
+    ["Marigold", "Tangerine", "Sand Beige", "Warm Terracotta", "Olive Green"]
+  ];
+
+  const descriptions = [
+    "Vibrant summer colors featuring gorgeous floral designs and breathable lightweight lawn fabric.",
+    "Premium Swiss lawn with exquisite embroidery details on the neckline and sleeves, ideal for hot summer afternoons.",
+    "Luxury jacquard summer collection with self-weave patterns and a lightweight printed chiffon dupatta.",
+    "Festive summer collection featuring a soft summer glow chiffon shirt with digital printed silk dupatta."
+  ];
+
+  const items = [];
+  for (let i = 1; i <= 20; i++) {
+    const brand = brands[i % brands.length];
+    const stuff = stuffs[i % stuffs.length];
+    const desc = descriptions[i % descriptions.length];
+    const image = images[i % images.length];
+    const basePrice = 3500 + (i * 150) % 3500;
+    const discountPercent = 15 + (i * 2) % 20;
+    const originalPrice = Math.round(basePrice / (1 - discountPercent / 100));
+    const palette = colorPalettes[i % colorPalettes.length];
+
+    items.push({
+      id: `summer-2026-${i}`,
+      name: `${brand} Summer ${stuff} Vol-${i}`,
+      brand: brand,
+      price: basePrice,
+      originalPrice: originalPrice,
+      discount: discountPercent,
+      category: "Unstitched Lawn",
+      parentCategory: "Ladies Wear",
+      image: image,
+      nature: i % 2 === 0 ? "premium" : "standard",
+      description: `${brand}'s highly anticipated summer collection launch. ${desc}`,
+      details: ["3-Piece Suit (Shirt, Dupatta, Trouser)", "Airjet Premium Lawn Quality", "Length: 3 Meters Shirt, 2.5 Meters Dupatta"],
+      variants: palette.map((color) => ({
+        color: color,
+        size: "Unstitched",
+        image: image
+      }))
+    });
+  }
+  return items;
+};
+
+const summerCollectionProducts = generateSummerProducts();
+
+// Helper to generate Men's Summer Collection Products dynamically
+const generateMenSummerProducts = () => {
+  const brands = ["Dynasty Fabrics", "Grace Fabrics", "Pasha Fabrics", "J. Junaid Jamshed", "Gul Ahmed Men"];
+  const stuffs = ["Egyptian Summer Cotton", "Super Fine Latha", "Liquid Wash & Wear", "Cool Cotton Linen"];
+  const images = [menFabric1, menFabric2, menFabric3, menFabric4, menFabric5, menFabric6];
+  
+  const colorPalettes = [
+    ["Off-White", "Cream", "Sky Blue", "Slate Gray", "Soft Mint"],
+    ["Pure White", "Ivory", "Sandy Beige", "Light Olive", "Cloud Gray"],
+    ["Peach Cream", "Caramel", "Airforce Blue", "Steel Gray", "Charcoal"]
+  ];
+
+  const descriptions = [
+    "Lightweight and breathable Egyptian cotton, woven perfectly for scorching summer days.",
+    "Super fine premium latha fabric, double finish for a crisp traditional look.",
+    "Soft liquid finish wash & wear fabric, sweat-absorbent and wrinkle-free, perfect for daily summer wear.",
+    "Cool linen-cotton blend fabric with a soft, breezy drape that keeps you comfortable all day."
+  ];
+
+  const items = [];
+  for (let i = 1; i <= 20; i++) {
+    const brand = brands[i % brands.length];
+    const stuff = stuffs[i % stuffs.length];
+    const desc = descriptions[i % descriptions.length];
+    const image = images[i % images.length];
+    const basePrice = 2900 + (i * 130) % 3000;
+    const discountPercent = 12 + (i * 2) % 18;
+    const originalPrice = Math.round(basePrice / (1 - discountPercent / 100));
+    const palette = colorPalettes[i % colorPalettes.length];
+
+    items.push({
+      id: `men-summer-${i}`,
+      name: `${brand} Men Summer ${stuff} Vol-${i}`,
+      brand: brand,
+      price: basePrice,
+      originalPrice: originalPrice,
+      discount: discountPercent,
+      category: `Men's Unstitched ${stuff}`,
+      parentCategory: "Men's Wear",
+      image: image,
+      nature: i % 2 === 0 ? "premium" : "standard",
+      description: `${brand}'s new summer launch for men. ${desc}`,
+      details: ["4.5 Meters Fabric Length", "Width: 54 Inches", "Genuine Brand Wrapping", "Soft Summer Finish"],
+      variants: palette.map((color) => ({
+        color: color,
+        size: "4.5 Meters",
+        image: image
+      }))
+    });
+  }
+  return items;
+};
+
+const menSummerProducts = generateMenSummerProducts();
+
+// H&M Fabrics Collection — 20 products
+const hmProducts = [
+  {
+    id: "hm-001",
+    name: "H&M Regular Fit Oxford Cotton Shirt",
+    brand: "H&M",
+    price: 2800,
+    originalPrice: 4200,
+    discount: 33,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric1,
+    nature: "standard",
+    description: "H&M's classic Oxford weave cotton fabric. Breathable, soft-touch and perfect for formal or smart-casual daily wear.",
+    details: ["100% Combed Cotton", "4.5 Meters Length", "Machine Washable", "Wrinkle Resistant"],
+    variants: [
+      { color: "Pure White", size: "4.5 Meters", image: menFabric1 },
+      { color: "Sky Blue", size: "4.5 Meters", image: menFabric2 },
+      { color: "Pale Pink", size: "4.5 Meters", image: menFabric3 },
+      { color: "Light Gray", size: "4.5 Meters", image: menFabric4 },
+      { color: "Navy Stripe", size: "4.5 Meters", image: menFabric5 }
+    ]
+  },
+  {
+    id: "hm-002",
+    name: "H&M Slim Fit Stretch Poplin",
+    brand: "H&M",
+    price: 3100,
+    originalPrice: 4500,
+    discount: 31,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric2,
+    nature: "standard",
+    description: "Slim fit stretch poplin from H&M. Soft fine weave with subtle sheen, perfect for business formal looks.",
+    details: ["97% Cotton 3% Elastane", "4.5 Meters Length", "Easy Iron Finish", "Slim Profile"],
+    variants: [
+      { color: "Crisp White", size: "4.5 Meters", image: menFabric2 },
+      { color: "Soft Cream", size: "4.5 Meters", image: menFabric1 },
+      { color: "Ice Blue", size: "4.5 Meters", image: menFabric3 },
+      { color: "Dusty Rose", size: "4.5 Meters", image: menFabric6 },
+      { color: "Charcoal", size: "4.5 Meters", image: menFabric4 }
+    ]
+  },
+  {
+    id: "hm-003",
+    name: "H&M Linen Blend Summer Fabric",
+    brand: "H&M",
+    price: 3400,
+    originalPrice: 4800,
+    discount: 29,
+    category: "Men's Unstitched Linen",
+    parentCategory: "Men's Wear",
+    image: menFabric3,
+    nature: "premium",
+    description: "H&M summer linen blend — airy, lightweight and naturally textured. Ideal for hot summer season traditional wear.",
+    details: ["55% Linen 45% Cotton", "4.5 Meters Length", "Naturally Textured", "Breathable Summer Weave"],
+    variants: [
+      { color: "Natural Ecru", size: "4.5 Meters", image: menFabric3 },
+      { color: "Sand Beige", size: "4.5 Meters", image: menFabric2 },
+      { color: "Olive Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Terracotta", size: "4.5 Meters", image: menFabric4 },
+      { color: "Sky Blue", size: "4.5 Meters", image: menFabric1 }
+    ]
+  },
+  {
+    id: "hm-004",
+    name: "H&M Regular Fit Twill Fabric",
+    brand: "H&M",
+    price: 2950,
+    originalPrice: 4200,
+    discount: 30,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric4,
+    nature: "standard",
+    description: "Classic twill weave cotton fabric from H&M. Strong diagonal ribbing pattern, smooth on the inside for all-day comfort.",
+    details: ["100% Cotton Twill", "4.5 Meters Length", "Diagonal Weave", "Durable & Soft"],
+    variants: [
+      { color: "Dark Navy", size: "4.5 Meters", image: menFabric4 },
+      { color: "Forest Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Burgundy", size: "4.5 Meters", image: menFabric5 },
+      { color: "Charcoal Gray", size: "4.5 Meters", image: menFabric3 },
+      { color: "Tan Brown", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-005",
+    name: "H&M Premium Flannel Casual",
+    brand: "H&M",
+    price: 3200,
+    originalPrice: 4600,
+    discount: 30,
+    category: "Men's Unstitched Flannel",
+    parentCategory: "Men's Wear",
+    image: menFabric5,
+    nature: "standard",
+    description: "Warm and soft flannel fabric for casual everyday outfits. Brushed surface with a cozy texture.",
+    details: ["100% Brushed Cotton", "4.5 Meters Length", "Soft Flannel Finish", "Winter Casual Wear"],
+    variants: [
+      { color: "Red Plaid", size: "4.5 Meters", image: menFabric5 },
+      { color: "Blue Plaid", size: "4.5 Meters", image: menFabric4 },
+      { color: "Black Check", size: "4.5 Meters", image: menFabric3 },
+      { color: "Green Tartan", size: "4.5 Meters", image: menFabric6 },
+      { color: "Gray Heather", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-006",
+    name: "H&M Relaxed Fit Seersucker",
+    brand: "H&M",
+    price: 2700,
+    originalPrice: 3800,
+    discount: 29,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric6,
+    nature: "standard",
+    description: "Breezy seersucker weave with natural puckered texture, ideal for casual summer traditional wear.",
+    details: ["100% Cotton Seersucker", "4.5 Meters Length", "Puckered Texture", "Summer Breathable"],
+    variants: [
+      { color: "White & Blue Stripe", size: "4.5 Meters", image: menFabric6 },
+      { color: "White & Navy", size: "4.5 Meters", image: menFabric4 },
+      { color: "Pink & White", size: "4.5 Meters", image: menFabric1 },
+      { color: "Green & White", size: "4.5 Meters", image: menFabric3 },
+      { color: "Gray & White", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-007",
+    name: "H&M Modern Fit Chino Fabric",
+    brand: "H&M",
+    price: 3600,
+    originalPrice: 5000,
+    discount: 28,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric1,
+    nature: "premium",
+    description: "Structured chino fabric for a modern formal look. Smooth tight weave with great wrinkle resistance.",
+    details: ["98% Cotton 2% Elastane", "4.5 Meters Length", "Tight Chino Weave", "Easy Care"],
+    variants: [
+      { color: "Khaki", size: "4.5 Meters", image: menFabric1 },
+      { color: "Stone Beige", size: "4.5 Meters", image: menFabric2 },
+      { color: "Olive", size: "4.5 Meters", image: menFabric6 },
+      { color: "Navy", size: "4.5 Meters", image: menFabric4 },
+      { color: "Black", size: "4.5 Meters", image: menFabric3 }
+    ]
+  },
+  {
+    id: "hm-008",
+    name: "H&M Jersey Knit Fabric Roll",
+    brand: "H&M",
+    price: 2500,
+    originalPrice: 3600,
+    discount: 31,
+    category: "Men's Unstitched Jersey",
+    parentCategory: "Men's Wear",
+    image: menFabric2,
+    nature: "standard",
+    description: "Lightweight jersey knit fabric from H&M. Stretchy and comfortable, great for casual kurtas.",
+    details: ["95% Cotton 5% Elastane", "4.5 Meters Length", "4-Way Stretch", "Casual Knit Wear"],
+    variants: [
+      { color: "Heather Gray", size: "4.5 Meters", image: menFabric2 },
+      { color: "Black", size: "4.5 Meters", image: menFabric3 },
+      { color: "White", size: "4.5 Meters", image: menFabric1 },
+      { color: "Navy Marl", size: "4.5 Meters", image: menFabric4 },
+      { color: "Burgundy", size: "4.5 Meters", image: menFabric5 }
+    ]
+  },
+  {
+    id: "hm-009",
+    name: "H&M Slim Chino Stretch Blend",
+    brand: "H&M",
+    price: 3300,
+    originalPrice: 4700,
+    discount: 30,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric3,
+    nature: "standard",
+    description: "Slim-fit stretch chino blend fabric by H&M, designed for a flattering silhouette with all-day comfort.",
+    details: ["96% Cotton 4% Elastane", "4.5 Meters Length", "Slim Drape", "Wrinkle Resistant"],
+    variants: [
+      { color: "Light Khaki", size: "4.5 Meters", image: menFabric3 },
+      { color: "Mid Grey", size: "4.5 Meters", image: menFabric2 },
+      { color: "Dark Navy", size: "4.5 Meters", image: menFabric4 },
+      { color: "Bottle Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Rust Brown", size: "4.5 Meters", image: menFabric5 }
+    ]
+  },
+  {
+    id: "hm-010",
+    name: "H&M Structured Gabardine Fabric",
+    brand: "H&M",
+    price: 4100,
+    originalPrice: 5800,
+    discount: 29,
+    category: "Men's Unstitched Gabardine",
+    parentCategory: "Men's Wear",
+    image: menFabric4,
+    nature: "premium",
+    description: "Premium structured gabardine weave from H&M. Firm hand-feel, ideal for formal shalwar kameez.",
+    details: ["100% Wool-Touch Polyester", "4.5 Meters Length", "Firm Structured Weave", "Formal Wear"],
+    variants: [
+      { color: "Charcoal", size: "4.5 Meters", image: menFabric4 },
+      { color: "Jet Black", size: "4.5 Meters", image: menFabric3 },
+      { color: "Dark Navy", size: "4.5 Meters", image: menFabric5 },
+      { color: "Steel Gray", size: "4.5 Meters", image: menFabric2 },
+      { color: "Midnight Blue", size: "4.5 Meters", image: menFabric1 }
+    ]
+  },
+  {
+    id: "hm-011",
+    name: "H&M Soft Touch Viscose Fabric",
+    brand: "H&M",
+    price: 2600,
+    originalPrice: 3800,
+    discount: 32,
+    category: "Men's Unstitched Viscose",
+    parentCategory: "Men's Wear",
+    image: menFabric5,
+    nature: "standard",
+    description: "Silky soft viscose fabric from H&M for a luxurious drape and breathable feel in summer.",
+    details: ["100% Viscose", "4.5 Meters Length", "Silky Drape", "Cool & Lightweight"],
+    variants: [
+      { color: "Ivory White", size: "4.5 Meters", image: menFabric5 },
+      { color: "Powder Blue", size: "4.5 Meters", image: menFabric1 },
+      { color: "Dusty Rose", size: "4.5 Meters", image: menFabric2 },
+      { color: "Sage Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Sand", size: "4.5 Meters", image: menFabric3 }
+    ]
+  },
+  {
+    id: "hm-012",
+    name: "H&M Casual Chambray Fabric",
+    brand: "H&M",
+    price: 2900,
+    originalPrice: 4100,
+    discount: 29,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric6,
+    nature: "standard",
+    description: "Lightweight chambray woven cotton — a denim-look without the weight. Perfect for casual daily shalwar kameez.",
+    details: ["100% Cotton Chambray", "4.5 Meters Length", "Denim-Look Weave", "Light & Casual"],
+    variants: [
+      { color: "Light Indigo", size: "4.5 Meters", image: menFabric6 },
+      { color: "Washed Blue", size: "4.5 Meters", image: menFabric4 },
+      { color: "Gray", size: "4.5 Meters", image: menFabric3 },
+      { color: "White", size: "4.5 Meters", image: menFabric1 },
+      { color: "Pink", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-013",
+    name: "H&M Dobby Weave Premium Fabric",
+    brand: "H&M",
+    price: 3800,
+    originalPrice: 5200,
+    discount: 27,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric1,
+    nature: "premium",
+    description: "Sophisticated dobby woven cotton with an elegant raised pattern. Great for formal occasions.",
+    details: ["100% Dobby Cotton", "4.5 Meters Length", "Textured Raised Pattern", "Formal Occasion Wear"],
+    variants: [
+      { color: "White Dobby", size: "4.5 Meters", image: menFabric1 },
+      { color: "Blue Dobby", size: "4.5 Meters", image: menFabric4 },
+      { color: "Gray Dobby", size: "4.5 Meters", image: menFabric3 },
+      { color: "Black Dobby", size: "4.5 Meters", image: menFabric5 },
+      { color: "Beige Dobby", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-014",
+    name: "H&M Waffle Knit Texture Fabric",
+    brand: "H&M",
+    price: 2750,
+    originalPrice: 3900,
+    discount: 29,
+    category: "Men's Unstitched Knit",
+    parentCategory: "Men's Wear",
+    image: menFabric2,
+    nature: "standard",
+    description: "Cozy waffle-knit textured cotton fabric for casual wear. Adds dimension and style to traditional cuts.",
+    details: ["100% Cotton Waffle Knit", "4.5 Meters Length", "3D Texture Weave", "Casual Relaxed Fit"],
+    variants: [
+      { color: "Off White", size: "4.5 Meters", image: menFabric2 },
+      { color: "Oatmeal", size: "4.5 Meters", image: menFabric1 },
+      { color: "Slate Blue", size: "4.5 Meters", image: menFabric4 },
+      { color: "Moss Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Warm Brown", size: "4.5 Meters", image: menFabric3 }
+    ]
+  },
+  {
+    id: "hm-015",
+    name: "H&M Microfiber Performance Fabric",
+    brand: "H&M",
+    price: 3500,
+    originalPrice: 4900,
+    discount: 29,
+    category: "Men's Unstitched Microfiber",
+    parentCategory: "Men's Wear",
+    image: menFabric3,
+    nature: "premium",
+    description: "H&M's performance microfiber — moisture-wicking, quick-dry, and ultra-smooth for active comfort.",
+    details: ["100% Polyester Microfiber", "4.5 Meters Length", "Moisture Wicking", "Quick Dry Technology"],
+    variants: [
+      { color: "Cool Gray", size: "4.5 Meters", image: menFabric3 },
+      { color: "Navy", size: "4.5 Meters", image: menFabric4 },
+      { color: "Royal Blue", size: "4.5 Meters", image: menFabric5 },
+      { color: "Black", size: "4.5 Meters", image: menFabric2 },
+      { color: "White", size: "4.5 Meters", image: menFabric1 }
+    ]
+  },
+  {
+    id: "hm-016",
+    name: "H&M Herringbone Wool Blend",
+    brand: "H&M",
+    price: 4800,
+    originalPrice: 6500,
+    discount: 26,
+    category: "Men's Unstitched Wool Blend",
+    parentCategory: "Men's Wear",
+    image: menFabric4,
+    nature: "limited",
+    description: "Classic herringbone pattern in a warm wool-blend fabric. Perfect for winter formal kurtas.",
+    details: ["70% Wool 30% Polyester", "4.5 Meters Length", "Herringbone Pattern", "Winter Formal Wear"],
+    variants: [
+      { color: "Gray Herringbone", size: "4.5 Meters", image: menFabric4 },
+      { color: "Navy Herringbone", size: "4.5 Meters", image: menFabric5 },
+      { color: "Camel Herringbone", size: "4.5 Meters", image: menFabric2 },
+      { color: "Black Herringbone", size: "4.5 Meters", image: menFabric3 },
+      { color: "Brown Herringbone", size: "4.5 Meters", image: menFabric6 }
+    ]
+  },
+  {
+    id: "hm-017",
+    name: "H&M Printed Voile Kurta Fabric",
+    brand: "H&M",
+    price: 2400,
+    originalPrice: 3400,
+    discount: 29,
+    category: "Men's Unstitched Voile",
+    parentCategory: "Men's Wear",
+    image: menFabric5,
+    nature: "standard",
+    description: "Ultra-sheer printed voile fabric by H&M — lightweight and airy for summer traditional wear.",
+    details: ["100% Cotton Voile", "4.5 Meters Length", "Sheer Light Weave", "Printed Summer Design"],
+    variants: [
+      { color: "White Print", size: "4.5 Meters", image: menFabric5 },
+      { color: "Blue Print", size: "4.5 Meters", image: menFabric4 },
+      { color: "Green Print", size: "4.5 Meters", image: menFabric6 },
+      { color: "Gray Print", size: "4.5 Meters", image: menFabric3 },
+      { color: "Peach Print", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-018",
+    name: "H&M Fine Cord Fabric",
+    brand: "H&M",
+    price: 3100,
+    originalPrice: 4400,
+    discount: 30,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric6,
+    nature: "standard",
+    description: "Fine wale corduroy fabric from H&M. Soft ribbed texture for a stylish casual look.",
+    details: ["100% Cotton Cord", "4.5 Meters Length", "Fine Wale Ribbing", "Stylish Casual Texture"],
+    variants: [
+      { color: "Tan Cord", size: "4.5 Meters", image: menFabric6 },
+      { color: "Bottle Green Cord", size: "4.5 Meters", image: menFabric3 },
+      { color: "Navy Cord", size: "4.5 Meters", image: menFabric4 },
+      { color: "Rust Cord", size: "4.5 Meters", image: menFabric5 },
+      { color: "Dark Gray Cord", size: "4.5 Meters", image: menFabric2 }
+    ]
+  },
+  {
+    id: "hm-019",
+    name: "H&M Organic Cotton Fabric",
+    brand: "H&M",
+    price: 3900,
+    originalPrice: 5400,
+    discount: 28,
+    category: "Men's Unstitched Organic Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric1,
+    nature: "premium",
+    description: "H&M CONSCIOUS collection — 100% GOTS-certified organic cotton, ethically sourced and eco-friendly.",
+    details: ["100% Organic Cotton GOTS", "4.5 Meters Length", "Eco-Friendly Production", "H&M Conscious Collection"],
+    variants: [
+      { color: "Natural White", size: "4.5 Meters", image: menFabric1 },
+      { color: "Stone Gray", size: "4.5 Meters", image: menFabric2 },
+      { color: "Sage Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Warm Oat", size: "4.5 Meters", image: menFabric3 },
+      { color: "Indigo Blue", size: "4.5 Meters", image: menFabric4 }
+    ]
+  },
+  {
+    id: "hm-020",
+    name: "H&M Premium Pique Polo Fabric",
+    brand: "H&M",
+    price: 2850,
+    originalPrice: 4000,
+    discount: 29,
+    category: "Men's Unstitched Pique Cotton",
+    parentCategory: "Men's Wear",
+    image: menFabric2,
+    nature: "standard",
+    description: "Classic pique textured cotton fabric by H&M — a timeless textile with mesh-like texture for cool summer wear.",
+    details: ["100% Pique Cotton", "4.5 Meters Length", "Textured Mesh Weave", "Cool Summer Classic"],
+    variants: [
+      { color: "Classic White", size: "4.5 Meters", image: menFabric2 },
+      { color: "Navy Blue", size: "4.5 Meters", image: menFabric4 },
+      { color: "Bottle Green", size: "4.5 Meters", image: menFabric6 },
+      { color: "Burgundy", size: "4.5 Meters", image: menFabric5 },
+      { color: "Heather Gray", size: "4.5 Meters", image: menFabric3 }
+    ]
+  }
+];
+
+export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts, ...barqueProducts, ...menUnstitchedProducts, ...summerCollectionProducts, ...menSummerProducts, ...hmProducts];
