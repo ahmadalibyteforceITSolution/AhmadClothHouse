@@ -446,11 +446,11 @@
       </div>
     </Transition>
 
-    <section id="discovery" class="filter-section relative pt-32 pb-16 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-1000">
+    <section id="discovery" class="filter-section relative pt-32 pb-16 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-1000" style="z-index: 100; isolation: isolate;">
       <!-- Subtle Background Accents -->
       <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/5 dark:from-white/5 to-transparent pointer-events-none"></div>
 
-      <div class="max-w-[1600px] mx-auto px-6 relative z-10">
+      <div class="max-w-[1600px] mx-auto px-6 relative" style="z-index: 110;">
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-black/10 dark:border-white/10 pb-12">
           <div class="space-y-4">
@@ -470,57 +470,98 @@
         </div>
 
         <!-- Luxury Filter Bar -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-center bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-center bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5" style="position: relative; z-index: 120; overflow: visible;">
           
-          <!-- Category Filter -->
-          <div class="relative group">
-            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10 transition-colors group-hover:text-[#111] dark:group-hover:text-white">Category</label>
-            <div class="relative">
-              <select v-model="selectedCategory"
-                class="w-full bg-transparent border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:border-black dark:hover:border-white transition-colors appearance-none relative z-0">
-                <option value="all">All Categories</option>
-                <option v-for="cat in productStore.categories" :key="cat" :value="cat">{{ cat }}</option>
-              </select>
-              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-6 h-6 rounded-full border border-black/5 dark:border-white/10">
-                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+          <!-- CATEGORY CUSTOM DROPDOWN -->
+          <div class="relative" id="cat-dropdown-wrap">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10">Category</label>
+            <button
+              @click="isCatOpen = !isCatOpen"
+              class="w-full flex items-center justify-between border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-[#0a0a0a] cursor-pointer"
+              type="button"
+            >
+              <span class="truncate mr-2">{{ selectedCategory === 'all' ? 'All Categories' : selectedCategory }}</span>
+              <font-awesome-icon icon="fa-solid fa-chevron-down"
+                class="text-[8px] text-stone-400 flex-shrink-0 transition-transform duration-300"
+                :class="isCatOpen ? 'rotate-180 text-amber-500' : ''" />
+            </button>
+            <Transition name="dropdown-slide">
+              <div v-if="isCatOpen"
+                class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#111111] border border-black/10 dark:border-white/10 shadow-2xl overflow-y-auto"
+                style="z-index: 9999; max-height: 260px;"
+              >
+                <button
+                  @click="selectedCategory = 'all'; isCatOpen = false"
+                  class="w-full text-left px-6 py-3.5 text-[10px] font-bold tracking-widest uppercase border-b border-black/5 dark:border-white/5 transition-colors"
+                  :class="selectedCategory === 'all' ? 'bg-amber-500 text-black' : 'text-[#111] dark:text-white hover:bg-amber-50 dark:hover:bg-white/5'"
+                  type="button"
+                >All Categories</button>
+                <button
+                  v-for="cat in productStore.categories" :key="cat"
+                  @click="selectedCategory = cat; isCatOpen = false"
+                  class="w-full text-left px-6 py-3.5 text-[10px] font-bold tracking-widest uppercase border-b border-black/5 dark:border-white/5 last:border-0 transition-colors"
+                  :class="selectedCategory === cat ? 'bg-amber-500 text-black' : 'text-[#111] dark:text-white hover:bg-amber-50 dark:hover:bg-white/5'"
+                  type="button"
+                >{{ cat }}</button>
               </div>
-            </div>
+            </Transition>
           </div>
 
-          <!-- Type Filter -->
-          <div class="relative group">
-            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10 transition-colors group-hover:text-[#111] dark:group-hover:text-white">Collection Type</label>
-            <div class="relative">
-              <select v-model="selectedNature"
-                class="w-full bg-transparent border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:border-black dark:hover:border-white transition-colors appearance-none relative z-0">
-                <option value="all">All Types</option>
-                <option value="standard">Ready to Wear</option>
-                <option value="premium">Luxury Collection</option>
-                <option value="limited">Limited Edition</option>
-              </select>
-              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-6 h-6 rounded-full border border-black/5 dark:border-white/10">
-                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
+          <!-- COLLECTION TYPE CUSTOM DROPDOWN -->
+          <div class="relative" id="nature-dropdown-wrap">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10">Collection Type</label>
+            <button
+              @click="isNatureOpen = !isNatureOpen"
+              class="w-full flex items-center justify-between border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-[#0a0a0a] cursor-pointer"
+              type="button"
+            >
+              <span class="truncate mr-2">{{
+                selectedNature === 'all' ? 'All Types' :
+                selectedNature === 'standard' ? 'Ready to Wear' :
+                selectedNature === 'premium' ? 'Luxury Collection' : 'Limited Edition'
+              }}</span>
+              <font-awesome-icon icon="fa-solid fa-chevron-down"
+                class="text-[8px] text-stone-400 flex-shrink-0 transition-transform duration-300"
+                :class="isNatureOpen ? 'rotate-180 text-amber-500' : ''" />
+            </button>
+            <Transition name="dropdown-slide">
+              <div v-if="isNatureOpen"
+                class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#111111] border border-black/10 dark:border-white/10 shadow-2xl"
+                style="z-index: 9999;"
+              >
+                <button v-for="opt in [
+                  { value: 'all',      label: 'All Types' },
+                  { value: 'standard', label: 'Ready to Wear' },
+                  { value: 'premium',  label: 'Luxury Collection' },
+                  { value: 'limited',  label: 'Limited Edition' }
+                ]" :key="opt.value"
+                  @click="selectedNature = opt.value; isNatureOpen = false"
+                  class="w-full text-left px-6 py-3.5 text-[10px] font-bold tracking-widest uppercase border-b border-black/5 dark:border-white/5 last:border-0 transition-colors"
+                  :class="selectedNature === opt.value ? 'bg-amber-500 text-black' : 'text-[#111] dark:text-white hover:bg-amber-50 dark:hover:bg-white/5'"
+                  type="button"
+                >{{ opt.label }}</button>
               </div>
-            </div>
+            </Transition>
           </div>
 
           <!-- Price Slider -->
           <div class="flex flex-col gap-5 pt-2">
             <div class="flex justify-between items-center px-2">
-              <label class="text-[8px] font-black tracking-widest text-stone-400 uppercase">Limit Strategy</label>
+              <label class="text-[8px] font-black tracking-widest text-stone-400 uppercase">Price Limit</label>
               <span class="text-[12px] font-normal font-playfair text-[#111] dark:text-white">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
             </div>
             <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
               class="luxury-home-range w-full cursor-pointer">
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
          PRODUCT GRID
     ═══════════════════════════════════════════ -->
-    <section class="products-section pb-32 bg-white dark:bg-[#080808] min-h-[600px]">
+    <section class="products-section pb-32 bg-white dark:bg-[#080808] min-h-[600px]" style="position: relative; z-index: 1;">
       <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
         <ProductCard v-for="(product, index) in displayedProducts" :key="product.id" :product="product"
           :loading="index < 4 ? 'eager' : 'lazy'"
@@ -1298,8 +1339,17 @@ onMounted(() => {
   const heroSlideTimer = setInterval(() => {
     heroFocus.value = (heroFocus.value + 1) % heroSlides.length
   }, 5000)
-  // Store timer on window for cleanup (simple approach avoiding extra ref)
   window.__heroSlideTimer = heroSlideTimer
+
+  // Close dropdowns when clicking outside them
+  const closeDropdowns = (e) => {
+    const catWrap = document.getElementById('cat-dropdown-wrap')
+    const natWrap = document.getElementById('nature-dropdown-wrap')
+    if (catWrap && !catWrap.contains(e.target)) isCatOpen.value = false
+    if (natWrap && !natWrap.contains(e.target)) isNatureOpen.value = false
+  }
+  document.addEventListener('mousedown', closeDropdowns)
+  window.__closeDropdowns = closeDropdowns
 
   // FAQ Schema
   if (faqs && faqs.length > 0) {
@@ -1387,6 +1437,7 @@ onMounted(() => {
 onUnmounted(() => {
   if (heroTimer.value) clearInterval(heroTimer.value)
   if (window.__heroSlideTimer) clearInterval(window.__heroSlideTimer)
+  if (window.__closeDropdowns) document.removeEventListener('mousedown', window.__closeDropdowns)
   window.removeEventListener('scroll', handleScroll)
 })
 
@@ -1753,5 +1804,23 @@ const categoryTiles = [
 
 .hero-stat-val:hover {
   text-shadow: 0 0 20px rgba(212,175,55,0.6);
+}
+
+/* ══ CUSTOM DROPDOWN SLIDE ANIMATION ══ */
+.dropdown-slide-enter-active {
+  transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown-slide-leave-active {
+  transition: opacity 0.12s ease, transform 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown-slide-enter-from,
+.dropdown-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+.dropdown-slide-enter-to,
+.dropdown-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
