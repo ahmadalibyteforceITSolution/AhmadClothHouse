@@ -32,7 +32,8 @@
 .body {
   background-color: var(--bg-light);
   color: var(--luxury-black);
-  font-family: 'Jost', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
   transition: background-color 0.3s ease;
 }
 
@@ -43,11 +44,14 @@
 
 
 .font-playfair {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .font-montserrat {
-  font-family: 'Jost', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
 }
 
 /* Maria B & Warda Inspired Patterns */
@@ -65,8 +69,10 @@ h2,
 h3,
 h4,
 .font-luxury {
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 0.05em;
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  letter-spacing: 0.03em;
 }
 
 .section-title {
@@ -128,7 +134,7 @@ h4,
   cursor: pointer !important;
   height: 38px !important;
   padding: 0 20px !important;
-  font-family: 'Jost', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
 }
@@ -248,7 +254,7 @@ iframe.goog-te-menu-frame,
 .goog-te-menu2-item:active div {
   color: rgba(255, 255, 255, 0.8) !important;
   background-color: transparent !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 12px !important;
   padding: 8px 16px !important;
   border-radius: 6px !important;

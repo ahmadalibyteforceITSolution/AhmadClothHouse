@@ -1,10 +1,24 @@
-# robots.txt - AhmadClothesHouse
-# https://ahmad-cloths.vercel.app
+# ===========================================================================
+#  robots.txt — AhmadClothesHouse | Premium Pakistani Fashion
+#  Website : https://ahmad-cloths.vercel.app
+#  Updated : 2026-07-01
+#  Purpose : Control search engine crawling for maximum SEO visibility
+#            while protecting private user-specific routes.
+# ===========================================================================
 
-User-agent: *
+# ---------------------------------------------------------------------------
+# 1. GOOGLE — Primary Search Crawler
+# ---------------------------------------------------------------------------
+User-agent: Googlebot
 Allow: /
-
-# Block private/user-specific pages
+Allow: /blog
+Allow: /shop
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /cookies
+Allow: /sitemap.xml
 Disallow: /admin/
 Disallow: /checkout
 Disallow: /cart
@@ -12,14 +26,288 @@ Disallow: /dashboard
 Disallow: /track-order
 Disallow: /reset-password
 Disallow: /forgot-password
+Disallow: /login
+Disallow: /signup
+Crawl-delay: 1
 
-# Allow all bots to access important public routes explicitly
+# ---------------------------------------------------------------------------
+# 2. GOOGLE IMAGE CRAWLER
+# ---------------------------------------------------------------------------
+User-agent: Googlebot-Image
+Allow: /
+Allow: /src/assets/
+Allow: /public/assets/
+Allow: /og-image.png
+Allow: /favicon.svg
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 3. GOOGLE VIDEO CRAWLER
+# ---------------------------------------------------------------------------
+User-agent: Googlebot-Video
+Allow: /
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 4. GOOGLE ADS BOT
+# ---------------------------------------------------------------------------
+User-agent: AdsBot-Google
+Allow: /
+Allow: /shop
+Allow: /blog
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+
+# ---------------------------------------------------------------------------
+# 5. GOOGLE SHOPPING
+# ---------------------------------------------------------------------------
+User-agent: Googlebot-Product
+Allow: /
+Allow: /shop
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 6. BING / MICROSOFT SEARCH
+# ---------------------------------------------------------------------------
+User-agent: Bingbot
+Allow: /
+Allow: /blog
+Allow: /shop
+Allow: /about
+Allow: /contact
+Allow: /sitemap.xml
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /dashboard
+Disallow: /track-order
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /login
+Disallow: /signup
+Crawl-delay: 2
+
+User-agent: msnbot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: msnbot-media
+Allow: /
+Allow: /src/assets/
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 7. YANDEX (Russia & CIS Markets)
+# ---------------------------------------------------------------------------
+User-agent: YandexBot
+Allow: /
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /dashboard
+Disallow: /login
+Disallow: /signup
+Crawl-delay: 3
+
+User-agent: YandexImages
+Allow: /
+Allow: /src/assets/
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 8. BAIDU (China Market)
+# ---------------------------------------------------------------------------
+User-agent: Baiduspider
+Allow: /
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /login
+Disallow: /signup
+Crawl-delay: 3
+
+# ---------------------------------------------------------------------------
+# 9. DUCKDUCKGO
+# ---------------------------------------------------------------------------
+User-agent: DuckDuckBot
+Allow: /
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+Crawl-delay: 2
+
+# ---------------------------------------------------------------------------
+# 10. APPLE / APPLEBOT (Siri & Spotlight)
+# ---------------------------------------------------------------------------
+User-agent: Applebot
+Allow: /
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /login
+
+# ---------------------------------------------------------------------------
+# 11. TWITTER / X CARD BOT (Social Sharing Previews)
+# ---------------------------------------------------------------------------
+User-agent: Twitterbot
+Allow: /
+Allow: /og-image.png
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 12. FACEBOOK / META SCRAPER (Open Graph Previews)
+# ---------------------------------------------------------------------------
+User-agent: facebookexternalhit
+Allow: /
+Allow: /og-image.png
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 13. LINKEDIN BOT (Professional Network Sharing)
+# ---------------------------------------------------------------------------
+User-agent: LinkedInBot
+Allow: /
+Allow: /og-image.png
+Allow: /blog
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 14. PINTEREST CRAWLER
+# ---------------------------------------------------------------------------
+User-agent: Pinterestbot
+Allow: /
+Allow: /src/assets/
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 15. SLACK (Link Unfurling)
+# ---------------------------------------------------------------------------
+User-agent: Slackbot
+Allow: /
+Allow: /og-image.png
+Allow: /blog
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 16. WHATSAPP (Link Preview)
+# ---------------------------------------------------------------------------
+User-agent: WhatsApp
+Allow: /
+Allow: /og-image.png
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+
+# ---------------------------------------------------------------------------
+# 17. AI CRAWLERS — Beneficial for AI-generated referrals
+# ---------------------------------------------------------------------------
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+Allow: /blog
+Allow: /shop
+Allow: /about
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /dashboard
+Disallow: /login
+Disallow: /signup
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Allow: /blog
+Allow: /shop
+Allow: /about
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Allow: /
+Allow: /blog
+Allow: /shop
+Allow: /about
+Disallow: /admin/
+Disallow: /checkout
+
+# Common Crawl (Research dataset — builds AI training data)
+User-agent: CCBot
+Allow: /blog
+Allow: /shop
+Allow: /about
+Allow: /contact
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /dashboard
+Disallow: /login
+Disallow: /signup
+
+# ---------------------------------------------------------------------------
+# 18. ARCHIVE / RESEARCH BOTS
+# ---------------------------------------------------------------------------
+User-agent: ia_archiver
+Allow: /
+Allow: /blog
+Allow: /shop
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /cart
+
+# ---------------------------------------------------------------------------
+# 19. ALL OTHER BOTS — Default Open Policy
+# ---------------------------------------------------------------------------
+User-agent: *
+Allow: /
 Allow: /blog
 Allow: /shop
 Allow: /about
 Allow: /contact
 Allow: /privacy
 Allow: /terms
+Allow: /cookies
+Allow: /sitemap.xml
 
-# Sitemaps
+# Block private/user-specific routes
+Disallow: /admin/
+Disallow: /admin
+Disallow: /checkout
+Disallow: /cart
+Disallow: /dashboard
+Disallow: /track-order
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /login
+Disallow: /signup
+Disallow: /*.json$
+Disallow: /api/
+Disallow: /node_modules/
+
+# ---------------------------------------------------------------------------
+# 20. SITEMAPS — Register all sitemap locations
+# ---------------------------------------------------------------------------
 Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml
+
+# ---------------------------------------------------------------------------
+# END OF robots.txt
+# AhmadClothesHouse — Premium Pakistani Fashion Boutique
+# Serving Pakistan, UK, UAE, USA, Canada, Australia & Worldwide
+# ===========================================================================
