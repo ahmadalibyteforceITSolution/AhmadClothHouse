@@ -97,13 +97,13 @@
               Ahmad Cloth House is the sole architect of your data journey. Our encryption protocols mirror the complexity of our finest embroideries—beautifully secure, absolutely reliable.
             </p>
             <div class="flex gap-4 pt-4">
-              <a href="https://wa.me/923416887454" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all group/icon">
+              <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all group/icon">
                 <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-xl group-hover/icon:scale-125 transition-transform" />
               </a>
-              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all group/icon">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all group/icon">
                 <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg group-hover/icon:scale-125 transition-transform" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all group/icon">
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[var(--primary-gold)] hover:border-[var(--primary-gold)] transition-all group/icon">
                 <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-lg group-hover/icon:scale-125 transition-transform" />
               </a>
             </div>
@@ -114,9 +114,9 @@
 
     <!-- ═══════════════════════════════════════════
          FLOATING ACTION BUTTON
-    ═══════════════════════════════════════════ -->
+     ═══════════════════════════════════════════ -->
     <div class="fixed bottom-10 right-10 z-[100] flex flex-col gap-4 animate-reveal-delay">
-      <a href="https://wa.me/923416887454" target="_blank" 
+      <a href="https://wa.me/923416887454" target="_blank" rel="noopener"
          class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all group relative">
         <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-2xl" />
         <span class="absolute right-20 bg-white text-black px-4 py-2 text-[8px] font-bold tracking-widest uppercase shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">

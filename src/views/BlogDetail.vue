@@ -46,9 +46,9 @@
         <div class="flex gap-6">
           <span class="text-[9px] font-bold uppercase tracking-widest text-stone-300">Share This Story</span>
           <div class="flex gap-4 text-stone-400">
-            <a href="#" class="hover:text-amber-500 transition-colors"><font-awesome-icon :icon="['fab', 'facebook-f']" /></a>
-            <a href="#" class="hover:text-amber-500 transition-colors"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
-            <a href="#" class="hover:text-amber-500 transition-colors"><font-awesome-icon :icon="['fab', 'whatsapp']" /></a>
+            <a :href="getShareLink('facebook')" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" aria-label="Share on Facebook"><font-awesome-icon :icon="['fab', 'facebook-f']" /></a>
+            <a :href="getShareLink('instagram')" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" aria-label="Visit Instagram"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
+            <a :href="getShareLink('whatsapp')" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" aria-label="Share on WhatsApp"><font-awesome-icon :icon="['fab', 'whatsapp']" /></a>
           </div>
         </div>
       </div>
@@ -223,6 +223,16 @@ const relatedPosts = computed(() => {
 const navigateTo = (slug) => {
   router.push(`/blog/${slug}`)
   window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+const getShareLink = (platform) => {
+  if (typeof window === 'undefined') return '#'
+  const url = encodeURIComponent(window.location.href)
+  const title = encodeURIComponent(post.value?.title || '')
+  if (platform === 'facebook') return `https://www.facebook.com/sharer/sharer.php?u=${url}`
+  if (platform === 'whatsapp') return `https://api.whatsapp.com/send?text=${title}%20${url}`
+  if (platform === 'instagram') return 'https://instagram.com/ahmadclothfabrics_aroma/'
+  return '#'
 }
 </script>
 

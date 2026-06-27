@@ -60,9 +60,6 @@
             <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-black hover:bg-black transition-all duration-500 group">
               <font-awesome-icon :icon="['fab', 'tiktok']" class="group-hover:scale-110 transition-transform" />
             </a>
-            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-blue-700 hover:bg-blue-700 transition-all duration-500 group">
-              <font-awesome-icon :icon="['fab', 'linkedin-in']" class="group-hover:scale-110 transition-transform" />
-            </a>
           </div>
         </div>
 

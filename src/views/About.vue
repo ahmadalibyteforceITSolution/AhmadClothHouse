@@ -241,11 +241,11 @@
       <div class="max-w-7xl mx-auto px-8 py-10 flex flex-col items-center">
          <h3 class="text-xl font-bold font-playfair mb-6 text-gray-900 dark:text-white">Follow Us</h3>
          <div class="flex items-center gap-6 text-3xl">
-            <a href="https://facebook.com/profile.php?id=61573629329844" target="_blank" class="text-blue-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'facebook']" /></a>
-            <a href="https://instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="text-pink-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
-            <a href="#" target="_blank" class="text-black dark:text-white hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'tiktok']" /></a>
-            <a href="#" target="_blank" class="text-red-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'youtube']" /></a>
-            <a href="https://wa.me/923416887454" target="_blank" class="text-green-500 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'whatsapp']" /></a>
+            <a href="https://facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="text-blue-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'facebook']" /></a>
+            <a href="https://instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" class="text-pink-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
+            <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-black dark:text-white hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'tiktok']" /></a>
+            <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-red-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'youtube']" /></a>
+            <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-green-500 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'whatsapp']" /></a>
          </div>
       </div>
 

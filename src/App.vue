@@ -93,19 +93,19 @@
               <div class="col-span-2 space-y-6">
                 <h4 class="text-[11px] font-black text-white uppercase tracking-[0.3em] border-b border-white/10 pb-4">Connect With Us</h4>
                 <div class="flex gap-6">
-                  <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="social-link-panel">
+                  <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" class="social-link-panel">
                     <font-awesome-icon :icon="['fab', 'instagram']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">Instagram</span>
                   </a>
-                  <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" class="social-link-panel">
+                  <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="social-link-panel">
                     <font-awesome-icon :icon="['fab', 'facebook-f']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">Facebook</span>
                   </a>
-                  <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" class="social-link-panel">
+                  <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="social-link-panel">
                     <font-awesome-icon :icon="['fab', 'youtube']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">YouTube</span>
                   </a>
-                  <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" class="social-link-panel">
+                  <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="social-link-panel">
                     <font-awesome-icon :icon="['fab', 'tiktok']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">TikTok</span>
                   </a>

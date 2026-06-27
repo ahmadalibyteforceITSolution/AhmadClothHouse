@@ -29,7 +29,7 @@
         </div>
         <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
           <span class="text-[#25D366] uppercase mr-1">Inquiry:</span> 
-          <a href="https://wa.me/923416887454" target="_blank" class="text-black dark:text-white hover:text-green-600 transition-colors">0341 6887454</a>
+          <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-black dark:text-white hover:text-green-600 transition-colors">0341 6887454</a>
         </p>
       </div>
       <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
@@ -40,7 +40,7 @@
         </div>
         <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
           <span class="text-[#25D366] uppercase mr-1">Support:</span> 
-          <a href="https://wa.me/923244902607" target="_blank" class="text-black dark:text-white hover:text-green-600 transition-colors">0324 4902607</a>
+          <a href="https://wa.me/923244902607" target="_blank" rel="noopener" class="text-black dark:text-white hover:text-green-600 transition-colors">0324 4902607</a>
         </p>
       </div>
       <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
@@ -50,9 +50,6 @@
         </a>
         <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors" aria-label="TikTok">
           <font-awesome-icon :icon="['fab', 'tiktok']" class="text-sm" />
-        </a>
-        <a href="#" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-700 transition-colors" aria-label="LinkedIn">
-          <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-sm" />
         </a>
       </div>
     </div>
@@ -93,7 +90,7 @@
               <div class="bg-gradient-to-b from-amber-50/50 to-white dark:from-amber-950/20 dark:to-[#0A0A0A] p-5">
                 <p class="text-[8px] font-black text-amber-600/50 uppercase tracking-[0.4em] mb-4">Personal Styling & Help</p>
                 <div class="space-y-1">
-                  <a href="https://wa.me/923416887454" target="_blank" class="flex items-center justify-between p-3 bg-white dark:bg-white/5 border border-amber-500/10 hover:border-amber-500/40 transition-all group/wa">
+                  <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="flex items-center justify-between p-3 bg-white dark:bg-white/5 border border-amber-500/10 hover:border-amber-500/40 transition-all group/wa">
                     <div class="flex items-center gap-3">
                       <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-green-500 text-sm" />
                       <div>
@@ -460,20 +457,17 @@
             </div>
 
             <div class="flex items-center justify-center gap-4 mb-8">
-              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] transition-all duration-500 group">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 transition-all duration-500 group">
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-red-600 transition-all duration-500 group">
+              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-red-600 transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'youtube']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" aria-label="TikTok" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-500 group">
+              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-500 group">
                 <font-awesome-icon :icon="['fab', 'tiktok']" class="text-lg group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="#" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-700 transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'linkedin-in']" class="text-lg group-hover:scale-110 transition-transform" />
               </a>
             </div>
 
