@@ -28,8 +28,8 @@ Disallow: /reset-password
 Disallow: /forgot-password
 Disallow: /login
 Disallow: /signup
-Crawl-delay: 1
-
+Disallow: /*?search=
+Disallow: /*?q=
 # ---------------------------------------------------------------------------
 # 2. GOOGLE IMAGE CRAWLER
 # ---------------------------------------------------------------------------
@@ -86,12 +86,10 @@ Disallow: /reset-password
 Disallow: /forgot-password
 Disallow: /login
 Disallow: /signup
-Crawl-delay: 2
 
 User-agent: msnbot
 Allow: /
 Disallow: /admin/
-Crawl-delay: 2
 
 User-agent: msnbot-media
 Allow: /
@@ -111,7 +109,6 @@ Disallow: /cart
 Disallow: /dashboard
 Disallow: /login
 Disallow: /signup
-Crawl-delay: 3
 
 User-agent: YandexImages
 Allow: /
@@ -130,7 +127,6 @@ Disallow: /checkout
 Disallow: /cart
 Disallow: /login
 Disallow: /signup
-Crawl-delay: 3
 
 # ---------------------------------------------------------------------------
 # 9. DUCKDUCKGO
@@ -142,7 +138,6 @@ Allow: /shop
 Disallow: /admin/
 Disallow: /checkout
 Disallow: /cart
-Crawl-delay: 2
 
 # ---------------------------------------------------------------------------
 # 10. APPLE / APPLEBOT (Siri & Spotlight)
@@ -297,6 +292,8 @@ Disallow: /reset-password
 Disallow: /forgot-password
 Disallow: /login
 Disallow: /signup
+Disallow: /*?search=
+Disallow: /*?q=
 Disallow: /*.json$
 Disallow: /api/
 Disallow: /node_modules/
