@@ -1186,10 +1186,10 @@ function initScrollAnimations() {
 }
 
 const heroSlides = [
-  { image: PakistaniCouture2, subtitle: 'LUXURY BRIDAL', title1: 'TIMELESS', titleHighlight: 'COUTURE', title2: '2026', description: 'A masterpiece of hand-embroidered artisanal couture.' },
-  { image: PakistaniCouture3, subtitle: 'PREMIUM LAWN', title1: 'HERITAGE', titleHighlight: 'UNSTITCHED', title2: 'COLLECTION', description: 'Traditional weaving with modern aesthetics and graceful designs.' },
-  { image: PakistaniCouture1, subtitle: 'DESIGNER PRET', title1: 'PURE', titleHighlight: 'LUXURY', title2: 'ELEGANCE', description: 'Delicate, stylish, and packed with grace for the modern woman.' },
-  { image: PakistaniCouture4, subtitle: 'M.PRINT', title1: 'CHIC', titleHighlight: 'STYLE', title2: 'PRINTS', description: 'We believe the finest fabrics tell their own story.' }
+  { image: PakistaniCouture2, subtitle: 'LUXURY BRIDAL', title1: 'PAKISTANI', titleHighlight: 'BRIDAL', title2: 'COUTURE', description: 'Masterpieces of hand-embroidered Pakistani bridal couture. Intricate zardozi and gold tilla work handcrafted by Lahores finest master artisans.' },
+  { image: PakistaniCouture3, subtitle: 'PREMIUM LAWN', title1: 'LAHORE', titleHighlight: 'UNSTITCHED', title2: 'HERITAGE', description: 'Authentic Pakistani summer lawn collection. Experience the finest high-thread count combed cotton, digital prints, and ethnic embroidery.' },
+  { image: PakistaniCouture1, subtitle: 'DESIGNER PRET', title1: 'ROYAL', titleHighlight: 'PREMIUM', title2: 'LUXURY', description: 'Exquisite ready-to-wear kurtas celebrating the spirit of South Asian fashion, styled for modern elegance worldwide.' },
+  { image: PakistaniCouture4, subtitle: 'M.PRINT', title1: 'CHIC', titleHighlight: 'ETHNIC', title2: 'ARTISTRY', description: 'Signature Pakistani digital prints and block-printed lawn, showcasing centuries of textile artistry and color heritage.' }
 ]
 
 // Hero slideshow active index

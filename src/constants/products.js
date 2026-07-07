@@ -37,6 +37,18 @@ import bs2026_4 from "../assets/ai_new/bs_2026_4.png";
 import bs2026_5 from "../assets/ai_new/bs_2026_5.png";
 import summerLawn1 from "../assets/ai_new/summer_lawn_1.png";
 
+// New 10 Realistic Products for Men and Women
+import blogJulySummerLawn from "../assets/ai_new/blog_july_summer_lawn.png";
+import blogMonsoonFashion from "../assets/ai_new/blog_monsoon_fashion.png";
+import blogEidCollection from "../assets/ai_new/blog_eid_collection.png";
+import blogMenKurtaJuly from "../assets/ai_new/blog_men_kurta_july.png";
+import blogBridalJuly from "../assets/ai_new/blog_bridal_july.png";
+import menKurtaEmerald from "../assets/ai_new/men_kurta_emerald.jpg";
+import menSherwaniBlack from "../assets/ai_new/men_sherwani_black.jpg";
+import womenPishwasPeach from "../assets/ai_new/women_pishwas_peach.jpg";
+import womenPretBlue from "../assets/ai_new/women_pret_blue.jpg";
+import womenLawnYellow from "../assets/ai_new/women_lawn_yellow.jpg";
+
 // New Men's Unstitched Fabrics
 import menFabric1 from "../assets/ai_new/men_fabric_1.png";
 import menFabric2 from "../assets/ai_new/men_fabric_2.png";
@@ -2472,4 +2484,177 @@ const hmProducts = [
   }
 ];
 
-export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts, ...barqueProducts, ...menUnstitchedProducts, ...summerCollectionProducts, ...menSummerProducts, ...hmProducts];
+export const realisticTenProducts = [
+  {
+    id: "real-001",
+    name: "Ahmad Premium Lawn - Crimson Summer",
+    brand: "Ahmad Couture",
+    price: 6500,
+    originalPrice: 7650,
+    discount: 15,
+    category: "Unstitched",
+    parentCategory: "Women's Wear",
+    image: blogJulySummerLawn,
+    nature: "premium",
+    description: "Vibrant screen-printed summer lawn suit set in crimson red, complete with delicate cotton inner and light lawn border patch.",
+    details: ["100% Cotton Lawn", "3-Piece Unstitched Suit", "Breathable Material", "Crimson Red Tone"],
+    variants: [
+      { color: "Crimson Red", size: "3-Piece", image: blogJulySummerLawn }
+    ]
+  },
+  {
+    id: "real-002",
+    name: "Monsoon Elegance Chiffon Suite",
+    brand: "Ahmad Couture",
+    price: 8200,
+    originalPrice: 10250,
+    discount: 20,
+    category: "Pret",
+    parentCategory: "Women's Wear",
+    image: blogMonsoonFashion,
+    nature: "premium",
+    description: "Emerald green sheer chiffon dupatta paired with straight embroidered trousers and soft lawn inner lining for monsoon elegance.",
+    details: ["Pure Silk Chiffon", "Stitched 2-Piece Set", "Delicate Floral Embroidery", "Emerald Green"],
+    variants: [
+      { color: "Emerald Green", size: "Medium", image: blogMonsoonFashion }
+    ]
+  },
+  {
+    id: "real-003",
+    name: "Royal Eid Zardozi Maroon Suit",
+    brand: "Ahmad Couture",
+    price: 14500,
+    originalPrice: 16100,
+    discount: 10,
+    category: "Bridal",
+    parentCategory: "Women's Wear",
+    image: blogEidCollection,
+    nature: "couture",
+    description: "Heavy hand-embellished velvet maroon kurta set with elaborate metallic zardozi, kora, and dabka work, designed for festive royalty.",
+    details: ["Royal Micro Velvet", "Handcrafted Zardozi Work", "Dupatta Included", "Maroon Gold"],
+    variants: [
+      { color: "Maroon Gold", size: "Tailored Fit", image: blogEidCollection }
+    ]
+  },
+  {
+    id: "real-004",
+    name: "Lahore Heritage Premium Kurta",
+    brand: "Ahmad Men",
+    price: 5200,
+    originalPrice: 5900,
+    discount: 12,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: blogMenKurtaJuly,
+    nature: "standard",
+    description: "Pure combed cotton unstitched kurta fabric in pristine white. Ideal for daily smart wear and traditional gatherings.",
+    details: ["100% Combed Cotton", "4.5 Meters Length", "Bright Pristine White", "Breathable Structure"],
+    variants: [
+      { color: "Pristine White", size: "4.5 Meters", image: blogMenKurtaJuly }
+    ]
+  },
+  {
+    id: "real-005",
+    name: "Crimson Bloom Bridal Lehenga",
+    brand: "Ahmad Couture",
+    price: 95000,
+    originalPrice: 103000,
+    discount: 8,
+    category: "Bridal",
+    parentCategory: "Women's Wear",
+    image: blogBridalJuly,
+    nature: "couture",
+    description: "Intricately embroidered crimson red silk bridal lehenga set featuring master-crafted traditional floral designs and heavy borders.",
+    details: ["Pure Raw Silk", "Intricate Hand-Embroidery", "Dupatta & Bodice Included", "Crimson Red & Gold"],
+    variants: [
+      { color: "Crimson Red", size: "Bespoke Fitting", image: blogBridalJuly }
+    ]
+  },
+  {
+    id: "real-006",
+    name: "Emerald Green Festive Kurta Set",
+    brand: "Ahmad Men",
+    price: 5800,
+    originalPrice: 6800,
+    discount: 15,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menKurtaEmerald,
+    nature: "standard",
+    description: "Premium cotton wash-and-wear kurta fabric in a deep festive emerald green shade, complete with matching threadwork neck panel.",
+    details: ["Cotton Polyester Blend", "Wrinkle-Resistant Finish", "4.5 Meters Length", "Emerald Green"],
+    variants: [
+      { color: "Emerald Green", size: "4.5 Meters", image: menKurtaEmerald }
+    ]
+  },
+  {
+    id: "real-007",
+    name: "Royal Black Velvet Sherwani Cut",
+    brand: "Ahmad Men",
+    price: 42000,
+    originalPrice: 46600,
+    discount: 10,
+    category: "Men's Unstitched Cotton",
+    parentCategory: "Men's Wear",
+    image: menSherwaniBlack,
+    nature: "couture",
+    description: "Rich micro-velvet fabric cut for a formal sherwani, highlighting delicate gold wire embroidery on collar and sleeve hems.",
+    details: ["Premium Micro Velvet", "Royal Gold Hand-Embroidery", "Bespoke Cut Length", "Jet Black & Gold"],
+    variants: [
+      { color: "Jet Black", size: "Sherwani Cut", image: menSherwaniBlack }
+    ]
+  },
+  {
+    id: "real-008",
+    name: "Peach Silk Regal Pishwas Dress",
+    brand: "Ahmad Couture",
+    price: 28000,
+    originalPrice: 31800,
+    discount: 12,
+    category: "Bridal",
+    parentCategory: "Women's Wear",
+    image: womenPishwasPeach,
+    nature: "couture",
+    description: "An elegant ankle-length flared silk pishwas dress in soft peach, featuring delicate silver zari floral patterns on the bodice and hemline.",
+    details: ["Regal Silk Blends", "Flared Ankle-Length Skirt", "Silver Zari Embroidery", "Soft Peach"],
+    variants: [
+      { color: "Soft Peach", size: "Medium Stitched", image: womenPishwasPeach }
+    ]
+  },
+  {
+    id: "real-009",
+    name: "Midnight Blue Velvet Pret Kurta",
+    brand: "Ahmad Couture",
+    price: 12500,
+    originalPrice: 14700,
+    discount: 15,
+    category: "Pret",
+    parentCategory: "Women's Wear",
+    image: womenPretBlue,
+    nature: "premium",
+    description: "A comfortable, ready-to-wear midnight blue velvet kurta with intricate white floral thread embroidery, suitable for evening occasions.",
+    details: ["Soft Premium Velvet", "Stitched Straight Kurta", "Floral Threadwork Hems", "Midnight Blue"],
+    variants: [
+      { color: "Midnight Blue", size: "Medium", image: womenPretBlue }
+    ]
+  },
+  {
+    id: "real-010",
+    name: "Mustard Blossom Premium Screen Print",
+    brand: "Ahmad Couture",
+    price: 4800,
+    originalPrice: 6000,
+    discount: 20,
+    category: "Unstitched",
+    parentCategory: "Women's Wear",
+    image: womenLawnYellow,
+    nature: "standard",
+    description: "Lightweight summer cotton lawn suit set in bright mustard yellow, finished with screen-printed ethnic motifs and a soft neck patch.",
+    details: ["100% Lightweight Cotton", "3-Piece Unstitched Set", "Mustard Yellow Blossom", "Traditional Patterns"],
+    variants: [
+      { color: "Mustard Yellow", size: "3-Piece", image: womenLawnYellow }
+    ]
+  }
+];
+
+export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts, ...barqueProducts, ...menUnstitchedProducts, ...summerCollectionProducts, ...menSummerProducts, ...hmProducts, ...realisticTenProducts];

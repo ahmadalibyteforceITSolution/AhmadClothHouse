@@ -5,9 +5,9 @@ export const useThemeStore = defineStore("theme", {
     const saved = localStorage.getItem("theme");
     if (saved) return { isDark: saved === "dark" };
 
-    // Check for system preference if no user choice exists
+    // Default to light mode (white)
     return {
-      isDark: window.matchMedia("(prefers-color-scheme: dark)").matches,
+      isDark: false,
     };
   },
 

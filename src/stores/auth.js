@@ -245,12 +245,19 @@ export const useAuthStore = defineStore('auth', {
       this.applyTheme()
     },
     initializeTheme() {
+      // Reset any old forced dark mode settings for existing visitors
+      const migrationKey = 'theme_migration_light_2026'
+      if (!localStorage.getItem(migrationKey)) {
+        localStorage.setItem('theme', 'light')
+        localStorage.setItem(migrationKey, 'true')
+      }
+
       const savedTheme = localStorage.getItem('theme')
       
-      // Force Dark Mode by default if no preference is saved
+      // Default to Light Mode (white) by default if no preference is saved
       if (!savedTheme) {
-        this.isDark = true
-        localStorage.setItem('theme', 'dark')
+        this.isDark = false
+        localStorage.setItem('theme', 'light')
       } else {
         this.isDark = savedTheme === 'dark'
       }

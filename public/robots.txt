@@ -1,7 +1,7 @@
 # ===========================================================================
 #  robots.txt — AhmadClothesHouse | Premium Pakistani Fashion
 #  Website : https://ahmad-cloths.vercel.app
-#  Updated : 2026-07-01
+#  Updated : 2026-07-07
 #  Purpose : Control search engine crawling for maximum SEO visibility
 #            while protecting private user-specific routes.
 # ===========================================================================
