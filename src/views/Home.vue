@@ -2,44 +2,6 @@
   <div class="luxury-home overflow-x-hidden">
 
     <!-- ═══════════════════════════════════════════
-         SEO CONTENT (VISUALLY HIDDEN)
-    ═══════════════════════════════════════════ -->
-    <section class="sr-only">
-      <h1>Ahmad Cloth House | Premium Pakistani Couture & Luxury Unstitched Fabrics</h1>
-      <p>Ahmad Cloth House is a premier fashion boutique specializing in handcrafted unstitched lawn, luxury pret, and bespoke bridal couture. We combine traditional Pakistani craftsmanship with modern silhouettes to create timeless elegance for our global clientele. Our Lahore-based atelier is renowned for artisanal excellence and authentic designer wear.</p>
-      
-      <h2>Exclusive Pakistani Apparel &amp; Handcrafted Designer Suits</h2>
-      <p>Our curated selection features premium collections from top-tier brands like Maria B, Sana Safinaz, and Asim Jofa, alongside our own Ahmad Signature line. We specialize in luxury unstitched lawn suits, intricate chiffon ensembles, and handcrafted bridal couture that captures the essence of heritage fashion. Every garment is a testament to the rich textile tradition of Pakistan.</p>
-      
-      <h2>Curated Boutique Fashion Categories &amp; Collections</h2>
-      <p>Discover the perfect ensemble by exploring our diverse range of fashion categories. From daily wear luxury lawn to high-end evening couture, we offer something for every occasion.</p>
-      <ul>
-        <li><a href="/shop?category=Lawn">Luxury Lawn 2026 Collection</a></li>
-        <li><a href="/shop?category=Bridal">Hand-Embroidered Bridal Couture</a></li>
-        <li><a href="/shop?category=Pret">Ready-to-Wear Luxury Pret</a></li>
-        <li><a href="/shop?category=Unstitched">Premium Unstitched Fabrics</a></li>
-        <li><a href="/blog">AhmadCloth Fashion Journal &amp; Trends</a></li>
-        <li><a href="/about">Our Heritage, Craftsmanship &amp; Story</a></li>
-        <li><a href="/contact">Visit Our Flagship Lahore Boutique</a></li>
-      </ul>
-      
-      <h2>Trending Ethnic Wear &amp; Couture Terminology</h2>
-      <p>Stay ahead of the fashion curve with our guide to trending Pakistani suits, designer lawn, and artisanal bridal couture. We utilize premium unstitched fabrics and luxury pret techniques to create Maria B 2026 inspired looks. Our boutique in Lahore is the heart of high-end boutique fashion and authentic couture.</p>
-      
-      <h2>Authorized Designer Archives &amp; Resources</h2>
-      <p>We take pride in our collaborations with the industry's most respected names. For more information on the brands we carry and their design philosophies, explore these high-authority resources:</p>
-      <ul>
-        <li><a href="https://www.mariab.pk/" target="_blank" rel="noopener">Maria B Official - Iconic Luxury Pakistani Fashion</a></li>
-        <li><a href="https://www.sanasafinaz.com/" target="_blank" rel="noopener">Sana Safinaz Official - Elite Designer Lawn & Couture</a></li>
-        <li><a href="https://www.asimjofa.com/" target="_blank" rel="noopener">Asim Jofa - Masterpieces in Premium Unstitched Fabrics</a></li>
-      </ul>
-      
-      <!-- Static images for crawler visibility -->
-      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Premium Pakistani Designer Suit - Ahmad Cloth House Collection" width="800" height="1000" />
-      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="Luxury Bridal Couture - Ahmad Signature Embroidery" width="800" height="1000" />
-    </section>
-
-    <!-- ═══════════════════════════════════════════
          LUXURY HERO — WORLD-CLASS CINEMATIC EDITION
     ═══════════════════════════════════════════ -->
 
@@ -127,7 +89,7 @@
 
           <!-- Main Title — Character Split -->
           <h1 ref="heroTitle" class="hero-main-title font-playfair text-white leading-[0.88] overflow-hidden drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-            <span class="hero-char-line block">
+            <span class="hero-char-line block whitespace-nowrap">
               <span
                 v-for="(ch, i) in titleLine1"
                 :key="'t'+i"
@@ -135,7 +97,7 @@
                 :style="'font-size:clamp(3.2rem,8.5vw,7.5rem); font-style:italic; font-weight:300; letter-spacing:-0.01em;'"
               >{{ ch === ' ' ? '\u00a0' : ch }}</span>
             </span>
-            <span class="hero-char-line block">
+            <span class="hero-char-line block whitespace-nowrap">
               <span
                 v-for="(ch, i) in titleLine2"
                 :key="'c'+i"
@@ -313,62 +275,7 @@
       </div>
     </section>
     
-    <!-- ═══════════════════════════════════════════
-         AI DIGITAL ATELIER: CINEMATIC VIDEO SECTION
-    ═══════════════════════════════════════════ -->
-    <section class="relative min-h-screen flex items-center overflow-hidden bg-black group">
-      <!-- Background 8-Video Grid Wall (Unique Collection) -->
-      <div class="absolute inset-0 z-0 grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 overflow-hidden bg-black">
-        <!-- Video 1 -->
-        <div @click="openVideoModal('fJ5iaQ3zVdo')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/fJ5iaQ3zVdo/maxresdefault.jpg" alt="Video 1 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 2 -->
-        <div @click="openVideoModal('cjCGjN3iRiU')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/cjCGjN3iRiU/maxresdefault.jpg" alt="Video 2 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 3 -->
-        <div @click="openVideoModal('NKFgwlpWtWQ')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/NKFgwlpWtWQ/maxresdefault.jpg" alt="Video 3 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 4 -->
-        <div @click="openVideoModal('DXXXNE3fFpM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/DXXXNE3fFpM/maxresdefault.jpg" alt="Video 4 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 5 -->
-        <div @click="openVideoModal('7YFblEOZvxM')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/7YFblEOZvxM/maxresdefault.jpg" alt="Video 5 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 6 -->
-        <div @click="openVideoModal('1LnECaooLw4')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/1LnECaooLw4/maxresdefault.jpg" alt="Video 6 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 7 -->
-        <div @click="openVideoModal('dDJmazn51LY')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/dDJmazn51LY/maxresdefault.jpg" alt="Video 7 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
-        <!-- Video 8 -->
-        <div @click="openVideoModal('f8hrXf4rLxk')" class="relative overflow-hidden border-0 cursor-pointer transition-colors group/vid bg-stone-900 aspect-video md:aspect-auto">
-          <img src="https://img.youtube.com/vi/f8hrXf4rLxk/maxresdefault.jpg" alt="Video 8 thumbnail" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70 group-hover/vid:opacity-100 transition-opacity" loading="lazy" width="640" height="360" />
-          <div class="absolute inset-0 flex items-center justify-center"><div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"><div class="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div></div></div>
-        </div>
 
-        <!-- Shared Luxury Overlays (Minimal for visibility) -->
-        <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
-      </div>
-
-      <!-- Floating Tech Elements (Kept for subtle brand identity) -->
-      <div class="absolute right-10 bottom-10 pointer-events-none opacity-40 z-10">
-        <div class="w-32 h-32 border border-[var(--primary-gold)]/20 rounded-full animate-spin-slow"></div>
-      </div>
-    </section>
 
     <!-- ═══════════════════════════════════════════
          HERITAGE & CRAFTSMANSHIP (AdSense Content Boost)
@@ -595,16 +502,7 @@
     <!-- Collaboration Slot: Sponsored Brands -->
    
 
-    <!-- Google AdSense: Home Page — Slot A (Premium Placement) -->
-    <!-- Positioned after product grid/collaborations for high engagement and clear UX structure -->
-    <section class="adsense-container py-16 bg-[#fafaf8] dark:bg-[#050505] border-y border-black/5 dark:border-white/5 relative flex justify-center w-full">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#d4af3711_0%,_transparent_70%)] pointer-events-none"></div>
-      <div class="w-full max-w-6xl px-6 relative z-10 text-center">
-        <!-- Subtle Ad Labeling per AdSense Policy -->
-        <p class="text-[7px] tracking-[0.4em] uppercase text-stone-400 mb-6 font-bold">Advertisement</p>
-        <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" wrapper-class="min-h-[100px] sm:min-h-[250px] shadow-sm bg-white dark:bg-[#080808]" />
-      </div>
-    </section>
+
 
 
 
@@ -778,12 +676,70 @@
 
 
    
-    <!-- Google AdSense: Home Page — Slot B (Editorial Placement) -->
-    <!-- Strategically placed before FAQs to capture engaged readers scrolling down -->
-    <section class="adsense-container py-16 bg-[#fafaf8] dark:bg-[#080808] border-t border-black/5 dark:border-white/5 relative flex justify-center w-full mt-20">
-      <div class="w-full max-w-6xl px-6 relative z-10 text-center">
-        <p class="text-[7px] tracking-[0.4em] uppercase text-stone-400 mb-6 font-bold">Advertisement</p>
-        <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" wrapper-class="min-h-[100px] sm:min-h-[250px] rounded-lg overflow-hidden bg-white dark:bg-[#050505] shadow-xl border border-black/5 dark:border-white/5" />
+    <!-- ═══════════════════════════════════════════
+         WHITE BOX SEO & LAHORE BOUTIQUE PICKUP GUIDE
+    ═══════════════════════════════════════════ -->
+    <section class="py-24 bg-[#F9F9F7] dark:bg-[#111111] transition-colors duration-1000 border-t border-black/5 dark:border-white/5">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="bg-white dark:bg-[#0A0A0A] p-8 md:p-16 border border-black/5 dark:border-white/5 shadow-2xl rounded-none grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
+          <!-- Left: Lahore Boutique Pickup Instructions -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="flex items-center gap-3">
+              <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span class="text-[9px] font-black tracking-[0.4em] text-stone-400 uppercase">Self-Pickup Service</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-playfair font-normal text-black dark:text-white leading-tight">
+              Order Online &amp; Pickup at <br> Our <span class="italic text-amber-500">Lahore Boutique</span>
+            </h2>
+            <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed font-light">
+              To provide maximum convenience and save on shipping times, Ahmad Cloth House offers an exclusive 
+              <strong>Boutique Pickup</strong> service for all domestic orders. You can browse our online catalog, select your favorite unstitched designer lawn, luxury pret, or men’s fabrics, and check out securely.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-black/5 dark:border-white/5">
+              <div class="space-y-2">
+                <span class="text-xs font-black text-amber-500">01. Order Online</span>
+                <p class="text-[10px] text-stone-400 leading-normal">Choose your favorites, select "Boutique Pickup" during checkout, and pay securely.</p>
+              </div>
+              <div class="space-y-2">
+                <span class="text-xs font-black text-amber-500">02. Await Notification</span>
+                <p class="text-[10px] text-stone-400 leading-normal">Our team prepares your package. You will receive a WhatsApp/SMS alert once it's ready.</p>
+              </div>
+              <div class="space-y-2">
+                <span class="text-xs font-black text-amber-500">03. Fast Pickup</span>
+                <p class="text-[10px] text-stone-400 leading-normal">Visit our Ameer Chowk flagship boutique in Wapda Town, Lahore, and collect your order.</p>
+              </div>
+            </div>
+            <div class="p-4 bg-stone-50 dark:bg-white/5 border-l-2 border-amber-500 text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              <strong>Boutique Address:</strong> Wapda Town, Ameer Chowk, Lahore, Pakistan.<br>
+              <strong>Pickup Hours:</strong> Monday – Saturday: 11:00 AM – 9:00 PM.<br>
+              <strong>Support Hotline:</strong> <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-amber-500 font-bold hover:underline">0341 6887454</a> (Concierge Desk).
+            </div>
+          </div>
+
+          <!-- Right: White Box SEO & Keywords -->
+          <div class="lg:col-span-5 space-y-6 lg:border-l lg:border-black/10 lg:dark:border-white/10 lg:pl-12">
+            <h3 class="text-xs font-black tracking-[0.3em] text-stone-400 uppercase">Ahmad Cloth House SEO Index</h3>
+            <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+              We are Pakistan's premium destination for authentic unstitched designer lawn, chiffon shirts, and heavy bridal wear. Partnering with top brands like Maria B, Sana Safinaz, Bin Saeed, and Gul Ahmed, we bring Lahore's finest artisan-crafted fashion to a global audience.
+            </p>
+            <div class="space-y-3 pt-4 border-t border-black/5 dark:border-white/5">
+              <span class="text-[9px] font-black tracking-[0.2em] text-[#111] dark:text-white uppercase block">Target Search Keywords:</span>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="tag in ['Lawn Suits 2026', 'Maria B Lahore', 'Unstitched Cotton', 'Burewala Latha', 'Bridal Lehenga', 'Pakistani Pret', 'Self-Pickup Lahore']" :key="tag" class="text-[8px] font-bold tracking-wider uppercase px-2.5 py-1 bg-stone-100 dark:bg-white/5 text-stone-500 dark:text-gray-400">
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+            <nav class="pt-4" aria-label="SEO Quick Links">
+              <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-[10px] font-black uppercase tracking-wider">
+                <li><router-link to="/shop/Unstitched" class="text-stone-400 hover:text-amber-500">Unstitched Fabrics</router-link></li>
+                <li><router-link to="/shop/Pret" class="text-stone-400 hover:text-amber-500">Ready-To-Wear</router-link></li>
+                <li><router-link to="/shop/Bridal" class="text-stone-400 hover:text-amber-500">Bridal Couture</router-link></li>
+                <li><router-link to="/blog" class="text-stone-400 hover:text-amber-500">Fashion Blog</router-link></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -928,8 +884,6 @@ import ShopInterior from "../assets/ai_new/shop_interior.png"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
-import SponsoredAd from '../components/Home/SponsoredAd.vue'
-import AdSenseUnit from '../components/AdSenseUnit.vue'
 import JewelrySponsored from "../assets/ai_new/bridal_highlight.png"
 import { blogs as allBlogs } from '../data/blogs'
 

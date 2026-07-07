@@ -249,17 +249,12 @@
          </div>
       </div>
 
-      <!-- Google AdSense: About Page — Slot C (unique to this page) -->
-      <div class="max-w-7xl mx-auto px-8 py-20">
-         <AdSenseUnit slot="7312321912" format="auto" :full-width-responsive="true" />
-      </div>
 
    </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
-import AdSenseUnit from '../components/AdSenseUnit.vue'
 
 import Hero1 from "../assets/ai/hero_1.png"
 import Hero2 from "../assets/ai/hero_2.png"

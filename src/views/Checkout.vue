@@ -47,7 +47,19 @@
 
                <!-- Section 1: Identity & Delivery -->
                <section class="space-y-12">
-                  <h2 class="text-lg font-playfair italic underline decoration-black/10 dark:decoration-white/10 underline-offset-8">1. Delivery Destination</h2>
+                  <h2 class="text-lg font-playfair italic underline decoration-black/10 dark:decoration-white/10 underline-offset-8 mb-6">1. Delivery Destination</h2>
+
+                  <!-- Delivery Method Selection -->
+                  <div class="grid grid-cols-2 gap-4 mb-8">
+                     <div @click="deliveryMethod = 'ship'" :class="['border p-4 cursor-pointer transition-all duration-300', deliveryMethod === 'ship' ? 'border-amber-500 bg-amber-500/5' : 'border-black/10 dark:border-white/10 bg-transparent']">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] block text-center" :class="deliveryMethod === 'ship' ? 'text-black dark:text-white' : 'text-stone-500'">Standard Delivery</span>
+                        <p class="text-[8px] text-center text-stone-500 leading-relaxed font-medium mt-1">Ship to my Address</p>
+                     </div>
+                     <div @click="deliveryMethod = 'pickup'" :class="['border p-4 cursor-pointer transition-all duration-300', deliveryMethod === 'pickup' ? 'border-amber-500 bg-amber-500/5' : 'border-black/10 dark:border-white/10 bg-transparent']">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] block text-center" :class="deliveryMethod === 'pickup' ? 'text-black dark:text-white' : 'text-stone-500'">Boutique Pickup</span>
+                        <p class="text-[8px] text-center text-stone-500 leading-relaxed font-medium mt-1">Collect at Lahore Flagship</p>
+                     </div>
+                  </div>
 
                   <div class="flex flex-col md:grid md:grid-cols-2 gap-x-8 gap-y-10">
                      <div class="col-span-2 relative group">
@@ -58,18 +70,35 @@
                         <input v-model="customer.email" type="email" id="femail" placeholder=" " class="mariab-input w-full lowercase peer">
                         <label for="femail" class="mariab-label">Email Address</label>
                      </div>
-                     <div class="col-span-2 relative group">
-                        <input v-model="customer.address" type="text" id="faddress" placeholder=" " class="mariab-input w-full peer">
-                        <label for="faddress" class="mariab-label">Complete Shipping Address</label>
+
+                     <!-- Shipping-only Address Fields -->
+                     <template v-if="deliveryMethod === 'ship'">
+                        <div class="col-span-2 relative group">
+                           <input v-model="customer.address" type="text" id="faddress" placeholder=" " class="mariab-input w-full peer">
+                           <label for="faddress" class="mariab-label">Complete Shipping Address</label>
+                        </div>
+                        <div class="relative group">
+                           <input v-model="customer.zip" type="text" id="fzip" placeholder=" " class="mariab-input w-full peer">
+                           <label for="fzip" class="mariab-label">Postal Code</label>
+                        </div>
+                        <div class="relative group">
+                           <input v-model="customer.city" type="text" id="fcity" placeholder=" " class="mariab-input w-full peer">
+                           <label for="fcity" class="mariab-label">City</label>
+                        </div>
+                     </template>
+
+                     <!-- Self-Pickup Premium Information Banner -->
+                     <div v-else class="col-span-2 p-6 bg-amber-500/5 border border-amber-500/20 text-xs text-stone-600 dark:text-stone-400 space-y-2 text-left">
+                        <p class="font-bold text-[#d4af37] uppercase tracking-wider text-[10px]">Flagship Boutique Self-Pickup Info:</p>
+                        <p class="leading-relaxed">Your order will be prepared and held for pickup at our Flagship Lahore Boutique:</p>
+                        <p class="font-medium text-black dark:text-white bg-stone-100 dark:bg-white/5 p-3 border-l-2 border-amber-500 leading-normal">
+                           <strong>Ahmad Cloth House Flagship Boutique</strong><br>
+                           Wapda Town, Ameer Chowk, Lahore, Pakistan.<br>
+                           Hours: Mon - Sat, 11:00 AM - 9:00 PM
+                        </p>
+                        <p class="leading-relaxed">We will contact you via WhatsApp/SMS at your phone number once your package is prepared and ready for collection.</p>
                      </div>
-                     <div class="relative group">
-                        <input v-model="customer.zip" type="text" id="fzip" placeholder=" " class="mariab-input w-full peer">
-                        <label for="fzip" class="mariab-label">Postal Code</label>
-                     </div>
-                     <div class="relative group">
-                        <input v-model="customer.city" type="text" id="fcity" placeholder=" " class="mariab-input w-full peer">
-                        <label for="fcity" class="mariab-label">City</label>
-                     </div>
+
                      <div class="relative group col-span-2 md:col-span-1">
                         <input v-model="customer.phone" type="tel" id="fphone" placeholder=" " class="mariab-input w-full peer">
                         <label for="fphone" class="mariab-label">Contact Number (03XX)</label>
@@ -190,7 +219,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted, computed, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import api from '../api'
 import Swal from 'sweetalert2'
@@ -210,9 +239,24 @@ const success = ref(false)
 const isProcessing = ref(false)
 const paymentMethod = ref('easypaisa')
 const transactionId = ref('')
+const deliveryMethod = ref('ship') // 'ship' or 'pickup'
+
+// Watch delivery method to prepopulate/clear pickup fields automatically
+watch(deliveryMethod, (newMethod) => {
+   if (newMethod === 'pickup') {
+      customer.city = 'Lahore'
+      customer.address = 'Flagship Boutique Self-Pickup (Wapda Town, Lahore)'
+      customer.zip = '54000'
+   } else {
+      customer.city = ''
+      customer.address = ''
+      customer.zip = ''
+   }
+})
 
 // Dynamic Delivery Charge Logic
 const deliveryCharge = computed(() => {
+   if (deliveryMethod.value === 'pickup') return 0
    if (cart.totalPrice >= 5000 && paymentMethod.value !== 'cod') return 0
    
    const city = customer.city.toLowerCase().trim()
