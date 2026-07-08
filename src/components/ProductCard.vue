@@ -55,11 +55,7 @@
       </div>
 
       <!-- ── Quick Action Buttons ── -->
-      <div
-        class="card-quick-actions absolute bottom-6 left-0 right-0 flex justify-center gap-3
-               opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0
-               transition-all duration-400 ease-out z-20"
-      >
+      <div class="card-quick-actions">
         <!-- Wishlist -->
         <button
           @click.stop="favorites.toggleFavorite(product)"
@@ -270,6 +266,34 @@ function handleDelete() {
 }
 
 /* ── Quick Action Buttons ───────────────────────────── */
+.card-quick-actions {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 20;
+}
+
+.group:hover .card-quick-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1023px) {
+  .card-quick-actions {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    bottom: 12px;
+  }
+}
+
+
 .action-btn {
   width: 42px;
   height: 42px;
@@ -286,6 +310,15 @@ function handleDelete() {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
+
+@media (max-width: 1023px) {
+  .action-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+}
+
 .dark .action-btn {
   background: rgba(15, 15, 15, 0.88);
   border-color: rgba(255, 255, 255, 0.08);

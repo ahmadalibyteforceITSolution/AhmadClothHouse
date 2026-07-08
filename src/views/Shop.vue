@@ -123,23 +123,22 @@
       @enter="filterEnter" 
       @leave="filterLeave">
       <div v-if="showFilters" class="bg-stone-50 dark:bg-[#080808] border-b border-black/5 dark:border-white/5 overflow-hidden">
-        <div class="max-w-[1700px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 md:p-12">
+        <div class="max-w-[1700px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-end p-8 md:p-12">
           
-          <!-- Product Name Search -->
+          <!-- Product Name Search (Text Input) -->
           <div class="md:col-span-3 relative group">
             <div class="flex items-center gap-4 mb-3">
               <span class="w-2 h-2 rounded-full border border-[var(--primary-gold)]"></span>
-              <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Item Name</label>
+              <label class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Search Name</label>
             </div>
-            <div class="relative overflow-hidden">
-              <select v-model="selectedProductName"
-                class="w-full bg-white dark:bg-[#111] border border-black/5 dark:border-white/5 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none cursor-pointer hover:bg-stone-50 dark:hover:bg-[#151515] transition-all appearance-none">
-                <option value="">All Masterpieces</option>
-                <option v-for="name in uniqueProductNames" :key="name" :value="name">{{ name }}</option>
-              </select>
-              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
-                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[10px] text-[var(--primary-gold)]" />
-              </div>
+            <div class="relative overflow-hidden flex items-center">
+              <input 
+                v-model="selectedProductName" 
+                type="text" 
+                placeholder="Search by title..." 
+                class="w-full bg-white dark:bg-[#111] border border-black/5 dark:border-white/5 pl-6 pr-12 py-4.5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white outline-none hover:bg-stone-50 dark:hover:bg-[#151515] transition-all"
+              />
+              <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="absolute right-6 text-stone-400 text-xs pointer-events-none" />
             </div>
           </div>
 
@@ -161,10 +160,19 @@
             </div>
           </div>
 
-          <!-- Result Info -->
-          <div class="md:col-span-2 flex flex-col items-center justify-center p-4 bg-white dark:bg-[#111] border border-black/5 dark:border-white/5">
-            <span class="text-2xl font-playfair italic text-[var(--primary-gold)]">{{ filteredProducts.length }}</span>
-            <span class="text-[7px] font-black tracking-[0.2em] text-stone-400 uppercase mt-1">Masterpieces Found</span>
+          <!-- Result Info & Reset button -->
+          <div class="md:col-span-2 flex flex-col gap-3">
+            <div class="flex flex-col items-center justify-center py-2 bg-white dark:bg-[#111] border border-black/5 dark:border-white/5">
+              <span class="text-xl font-playfair italic text-[var(--primary-gold)]">{{ filteredProducts.length }}</span>
+              <span class="text-[7px] font-black tracking-[0.2em] text-stone-400 uppercase mt-0.5">Found</span>
+            </div>
+            <button 
+              @click="selectedCategory = ''; selectedProductName = ''; maxPrice = 500000"
+              class="w-full py-2.5 text-[9px] font-bold tracking-widest uppercase border border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all cursor-pointer"
+              type="button"
+            >
+              Reset
+            </button>
           </div>
 
           <!-- Price Slider -->

@@ -376,42 +376,42 @@
           </div>
         </div>
 
+        <!-- Visual Category Tabs (Pills) -->
+        <div class="flex items-center gap-3 overflow-x-auto pb-6 scrollbar-none mb-8 border-b border-black/5 dark:border-white/5">
+          <button 
+            @click="selectedCategory = 'all'"
+            class="px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border cursor-pointer whitespace-nowrap"
+            :class="selectedCategory === 'all' ? 'bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/20' : 'bg-transparent text-stone-600 dark:text-stone-400 border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white'"
+            type="button"
+          >
+            All Categories
+          </button>
+          <button 
+            v-for="cat in productStore.categories" :key="cat"
+            @click="selectedCategory = cat"
+            class="px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border cursor-pointer whitespace-nowrap"
+            :class="selectedCategory === cat ? 'bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/20' : 'bg-transparent text-stone-600 dark:text-stone-400 border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white'"
+            type="button"
+          >
+            {{ cat }}
+          </button>
+        </div>
+
         <!-- Luxury Filter Bar -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-center bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5" style="position: relative; z-index: 120; overflow: visible;">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5 relative z-[120] overflow-visible">
           
-          <!-- CATEGORY CUSTOM DROPDOWN -->
-          <div class="relative" id="cat-dropdown-wrap">
-            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10">Category</label>
-            <button
-              @click="isCatOpen = !isCatOpen"
-              class="w-full flex items-center justify-between border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-[#0a0a0a] cursor-pointer"
-              type="button"
-            >
-              <span class="truncate mr-2">{{ selectedCategory === 'all' ? 'All Categories' : selectedCategory }}</span>
-              <font-awesome-icon icon="fa-solid fa-chevron-down"
-                class="text-[8px] text-stone-400 flex-shrink-0 transition-transform duration-300"
-                :class="isCatOpen ? 'rotate-180 text-amber-500' : ''" />
-            </button>
-            <Transition name="dropdown-slide">
-              <div v-if="isCatOpen"
-                class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#111111] border border-black/10 dark:border-white/10 shadow-2xl overflow-y-auto"
-                style="z-index: 9999; max-height: 260px;"
-              >
-                <button
-                  @click="selectedCategory = 'all'; isCatOpen = false"
-                  class="w-full text-left px-6 py-3.5 text-[10px] font-bold tracking-widest uppercase border-b border-black/5 dark:border-white/5 transition-colors"
-                  :class="selectedCategory === 'all' ? 'bg-amber-500 text-black' : 'text-[#111] dark:text-white hover:bg-amber-50 dark:hover:bg-white/5'"
-                  type="button"
-                >All Categories</button>
-                <button
-                  v-for="cat in productStore.categories" :key="cat"
-                  @click="selectedCategory = cat; isCatOpen = false"
-                  class="w-full text-left px-6 py-3.5 text-[10px] font-bold tracking-widest uppercase border-b border-black/5 dark:border-white/5 last:border-0 transition-colors"
-                  :class="selectedCategory === cat ? 'bg-amber-500 text-black' : 'text-[#111] dark:text-white hover:bg-amber-50 dark:hover:bg-white/5'"
-                  type="button"
-                >{{ cat }}</button>
-              </div>
-            </Transition>
+          <!-- LIVE NAME SEARCH -->
+          <div class="relative">
+            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10">Search Designs</label>
+            <div class="relative flex items-center">
+              <input 
+                v-model="searchQuery" 
+                type="text" 
+                placeholder="Search by name, fabric..." 
+                class="w-full border border-black/10 dark:border-white/10 pl-6 pr-12 py-[17px] text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white placeholder-stone-400 outline-none focus:border-amber-500 bg-white dark:bg-[#0a0a0a] transition-all"
+              />
+              <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="absolute right-6 text-stone-400 text-xs pointer-events-none" />
+            </div>
           </div>
 
           <!-- COLLECTION TYPE CUSTOM DROPDOWN -->
@@ -452,13 +452,26 @@
           </div>
 
           <!-- Price Slider -->
-          <div class="flex flex-col gap-5 pt-2">
+          <div class="flex flex-col gap-4">
             <div class="flex justify-between items-center px-2">
               <label class="text-[8px] font-black tracking-widest text-stone-400 uppercase">Price Limit</label>
               <span class="text-[12px] font-normal font-playfair text-[#111] dark:text-white">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
             </div>
-            <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
-              class="luxury-home-range w-full cursor-pointer">
+            <div class="py-2.5">
+              <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
+                class="luxury-home-range w-full cursor-pointer">
+            </div>
+          </div>
+
+          <!-- Actions: Reset Filters -->
+          <div class="flex">
+            <button 
+              @click="resetFilters" 
+              class="w-full py-4 border border-black dark:border-white text-black dark:text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all cursor-pointer"
+              type="button"
+            >
+              Reset Filters
+            </button>
           </div>
         </div>
 
@@ -1162,8 +1175,16 @@ const limit = ref(12)
 const selectedCategory = ref('all')
 const selectedNature = ref('all')
 const maxPrice = ref(500000)
+const searchQuery = ref('')
 const isCatOpen = ref(false)
 const isNatureOpen = ref(false)
+
+const resetFilters = () => {
+  selectedCategory.value = 'all'
+  selectedNature.value = 'all'
+  maxPrice.value = 500000
+  searchQuery.value = ''
+}
 
 const brandStats = [
   { label: 'Master Artisans', value: '50+' },
@@ -1401,14 +1422,16 @@ const filteredProducts = computed(() =>
     const matchCat = selectedCategory.value === 'all' || p.category?.toLowerCase() === selectedCategory.value.toLowerCase() || p.parentCategory?.toLowerCase() === selectedCategory.value.toLowerCase()
     const matchNature = selectedNature.value === 'all' || p.nature?.toLowerCase() === selectedNature.value.toLowerCase()
     const matchPrice = p.price <= maxPrice.value
-    return matchCat && matchNature && matchPrice
+    const q = searchQuery.value.trim().toLowerCase()
+    const matchSearch = !q || p.name?.toLowerCase().includes(q) || p.category?.toLowerCase().includes(q) || p.parentCategory?.toLowerCase().includes(q)
+    return matchCat && matchNature && matchPrice && matchSearch
   })
 )
 
 const displayedProducts = computed(() => filteredProducts.value.slice(0, limit.value))
 const hasMore = computed(() => limit.value < filteredProducts.value.length)
 const loadMore = () => limit.value += 12
-watch([selectedCategory, selectedNature, maxPrice], () => limit.value = 12)
+watch([selectedCategory, selectedNature, maxPrice, searchQuery], () => limit.value = 12)
 const goToDetail = product => router.push(`/product/${product.id}`)
 
 const featuredDiscountProduct = computed(() => {
