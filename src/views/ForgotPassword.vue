@@ -78,8 +78,8 @@ import api from '../api'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../stores/auth'
 import * as yup from 'yup'
-import BrandShowcase from '../assets/ai_new/shop_header.png'
-import CoutureDisplay from '../assets/ai_new/hero_collage_4.png'
+import BrandShowcase from '../assets/ai_new/shop_header.jpg'
+import CoutureDisplay from '../assets/ai_new/hero_collage_4.jpg'
 
 const auth = useAuthStore()
 const email = ref('')

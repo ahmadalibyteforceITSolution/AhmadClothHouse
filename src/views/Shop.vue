@@ -265,10 +265,10 @@ import ProductCard from '../components/ProductCard.vue'
 
 import gsap from 'gsap'
 
-import Hero1 from "../assets/ai_new/hero_collage_1.png"
-import Hero2 from "../assets/ai_new/hero_collage_2.png"
-import Hero4 from "../assets/ai_new/hero_collage_4.png"
-import BridalHighlight from "../assets/ai_new/bridal_highlight.png"
+import Hero1 from "../assets/ai_new/hero_collage_1.jpg"
+import Hero2 from "../assets/ai_new/hero_collage_2.jpg"
+import Hero4 from "../assets/ai_new/hero_collage_4.jpg"
+import BridalHighlight from "../assets/ai_new/bridal_highlight.jpg"
 
 const route = useRoute()
 const router = useRouter()

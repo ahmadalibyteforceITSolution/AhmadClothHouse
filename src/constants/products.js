@@ -1,12 +1,12 @@
-import heroCollage1 from "../assets/ai_new/hero_collage_1.png";
-import heroCollage2 from "../assets/ai_new/hero_collage_2.png";
-import heroCollage3 from "../assets/ai_new/hero_collage_3.png";
-import heroCollage4 from "../assets/ai_new/hero_collage_4.png";
+import heroCollage1 from "../assets/ai_new/hero_collage_1.jpg";
+import heroCollage2 from "../assets/ai_new/hero_collage_2.jpg";
+import heroCollage3 from "../assets/ai_new/hero_collage_3.jpg";
+import heroCollage4 from "../assets/ai_new/hero_collage_4.jpg";
 import highlight1 from "../assets/highlight_1.png";
 import highlight2 from "../assets/highlight_2.png";
 import highlight3 from "../assets/highlight_3.png";
 import highlight4 from "../assets/highlight_4.png";
-import bridalAi1 from "../assets/ai_new/bridal_highlight.png";
+import bridalAi1 from "../assets/ai_new/bridal_highlight.jpg";
 import bridalAi2 from "../assets/ai/bridal_highlight.png";
 import ladiesV1 from "../assets/ladies_v1.jpg";
 import ladiesV2 from "../assets/ladies_v2.jpg";
@@ -21,28 +21,28 @@ import mariabV2 from "../assets/mariab_v2.jpg";
 import mariabV3 from "../assets/mariab_v3.jpg";
 import mariabV4 from "../assets/mariab_v4.jpg";
 import mariabV5 from "../assets/mariab_v5.jpg";
-import shopHeader from "../assets/ai_new/shop_header.png";
-import shopInterior from "../assets/ai_new/shop_interior.png";
+import shopHeader from "../assets/ai_new/shop_header.jpg";
+import shopInterior from "../assets/ai_new/shop_interior.jpg";
 
 // New Maria B and Bin Saeed 2026 Launches
-import mb2026_1 from "../assets/ai_new/mb_2026_1.png";
-import mb2026_2 from "../assets/ai_new/mb_2026_2.png";
-import mb2026_3 from "../assets/ai_new/mb_2026_3.png";
-import mb2026_4 from "../assets/ai_new/mb_2026_4.png";
-import mb2026_5 from "../assets/ai_new/mb_2026_5.png";
-import bs2026_1 from "../assets/ai_new/bs_2026_1.png";
-import bs2026_2 from "../assets/ai_new/bs_2026_2.png";
-import bs2026_3 from "../assets/ai_new/bs_2026_3.png";
-import bs2026_4 from "../assets/ai_new/bs_2026_4.png";
-import bs2026_5 from "../assets/ai_new/bs_2026_5.png";
-import summerLawn1 from "../assets/ai_new/summer_lawn_1.png";
+import mb2026_1 from "../assets/ai_new/mb_2026_1.jpg";
+import mb2026_2 from "../assets/ai_new/mb_2026_2.jpg";
+import mb2026_3 from "../assets/ai_new/mb_2026_3.jpg";
+import mb2026_4 from "../assets/ai_new/mb_2026_4.jpg";
+import mb2026_5 from "../assets/ai_new/mb_2026_5.jpg";
+import bs2026_1 from "../assets/ai_new/bs_2026_1.jpg";
+import bs2026_2 from "../assets/ai_new/bs_2026_2.jpg";
+import bs2026_3 from "../assets/ai_new/bs_2026_3.jpg";
+import bs2026_4 from "../assets/ai_new/bs_2026_4.jpg";
+import bs2026_5 from "../assets/ai_new/bs_2026_5.jpg";
+import summerLawn1 from "../assets/ai_new/summer_lawn_1.jpg";
 
 // New 10 Realistic Products for Men and Women
-import blogJulySummerLawn from "../assets/ai_new/blog_july_summer_lawn.png";
-import blogMonsoonFashion from "../assets/ai_new/blog_monsoon_fashion.png";
-import blogEidCollection from "../assets/ai_new/blog_eid_collection.png";
-import blogMenKurtaJuly from "../assets/ai_new/blog_men_kurta_july.png";
-import blogBridalJuly from "../assets/ai_new/blog_bridal_july.png";
+import blogJulySummerLawn from "../assets/ai_new/blog_july_summer_lawn.jpg";
+import blogMonsoonFashion from "../assets/ai_new/blog_monsoon_fashion.jpg";
+import blogEidCollection from "../assets/ai_new/blog_eid_collection.jpg";
+import blogMenKurtaJuly from "../assets/ai_new/blog_men_kurta_july.jpg";
+import blogBridalJuly from "../assets/ai_new/blog_bridal_july.jpg";
 import menKurtaEmerald from "../assets/ai_new/men_kurta_emerald.jpg";
 import menSherwaniBlack from "../assets/ai_new/men_sherwani_black.jpg";
 import womenPishwasPeach from "../assets/ai_new/women_pishwas_peach.jpg";
@@ -54,12 +54,12 @@ import ajReplica1 from "../assets/ai_new/aj_replica_1.jpg";
 import ajReplica2 from "../assets/ai_new/aj_replica_2.jpg";
 
 // New Men's Unstitched Fabrics
-import menFabric1 from "../assets/ai_new/men_fabric_1.png";
-import menFabric2 from "../assets/ai_new/men_fabric_2.png";
-import menFabric3 from "../assets/ai_new/men_fabric_3.png";
-import menFabric4 from "../assets/ai_new/men_fabric_4.png";
-import menFabric5 from "../assets/ai_new/men_fabric_5.png";
-import menFabric6 from "../assets/ai_new/men_fabric_6.png";
+import menFabric1 from "../assets/ai_new/men_fabric_1.jpg";
+import menFabric2 from "../assets/ai_new/men_fabric_2.jpg";
+import menFabric3 from "../assets/ai_new/men_fabric_3.jpg";
+import menFabric4 from "../assets/ai_new/men_fabric_4.jpg";
+import menFabric5 from "../assets/ai_new/men_fabric_5.jpg";
+import menFabric6 from "../assets/ai_new/men_fabric_6.jpg";
 
 import hero1 from "../assets/ai/hero_1.png";
 import hero2 from "../assets/ai/hero_2.png";

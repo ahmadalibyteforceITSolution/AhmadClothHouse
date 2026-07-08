@@ -121,7 +121,7 @@ import { reactive, onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { googleTokenLogin, decodeCredential } from 'vue3-google-login'
-import BridalShowcase from '../assets/ai_new/bridal_highlight.png'
+import BridalShowcase from '../assets/ai_new/bridal_highlight.jpg'
 import * as yup from 'yup'
 
 const isDev = import.meta.env.DEV

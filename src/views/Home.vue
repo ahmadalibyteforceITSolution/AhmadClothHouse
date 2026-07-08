@@ -865,26 +865,26 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 
-import PakistaniCouture3 from "../assets/ai_new/hero_collage_3.png"
-import PakistaniCouture2 from "../assets/ai_new/hero_collage_2.png"
-import BridalHeritage from "../assets/ai_new/bridal_highlight.png"
-import PakistaniCouture1 from "../assets/ai_new/hero_collage_1.png"
-import PakistaniCouture4 from "../assets/ai_new/hero_collage_4.png"
+import PakistaniCouture3 from "../assets/ai_new/hero_collage_3.jpg"
+import PakistaniCouture2 from "../assets/ai_new/hero_collage_2.jpg"
+import BridalHeritage from "../assets/ai_new/bridal_highlight.jpg"
+import PakistaniCouture1 from "../assets/ai_new/hero_collage_1.jpg"
+import PakistaniCouture4 from "../assets/ai_new/hero_collage_4.jpg"
 
-import HeroCollage1 from "../assets/ai_new/hero_collage_1.png"
-import HeroCollage2 from "../assets/ai_new/hero_collage_2.png"
-import HeroCollage3 from "../assets/ai_new/hero_collage_3.png"
-import HeroCollage4 from "../assets/ai_new/hero_collage_4.png"
+import HeroCollage1 from "../assets/ai_new/hero_collage_1.jpg"
+import HeroCollage2 from "../assets/ai_new/hero_collage_2.jpg"
+import HeroCollage3 from "../assets/ai_new/hero_collage_3.jpg"
+import HeroCollage4 from "../assets/ai_new/hero_collage_4.jpg"
 
-import Highlight1 from "../assets/ai_new/bridal_highlight.png"
-import Highlight2 from "../assets/ai_new/hero_collage_2.png"
-import Highlight3 from "../assets/ai_new/hero_collage_3.png"
-import Highlight4 from "../assets/ai_new/hero_collage_4.png"
-import ShopInterior from "../assets/ai_new/shop_interior.png"
+import Highlight1 from "../assets/ai_new/bridal_highlight.jpg"
+import Highlight2 from "../assets/ai_new/hero_collage_2.jpg"
+import Highlight3 from "../assets/ai_new/hero_collage_3.jpg"
+import Highlight4 from "../assets/ai_new/hero_collage_4.jpg"
+import ShopInterior from "../assets/ai_new/shop_interior.jpg"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
-import JewelrySponsored from "../assets/ai_new/bridal_highlight.png"
+import JewelrySponsored from "../assets/ai_new/bridal_highlight.jpg"
 import { blogs as allBlogs } from '../data/blogs'
 
 import { gsap } from 'gsap'

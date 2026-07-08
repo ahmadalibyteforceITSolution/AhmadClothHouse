@@ -35,14 +35,14 @@ import { computed } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 
 // Import AI assets for brand backgrounds
-import mbImg from '../../assets/ai_new/hero_collage_1.png';
+import mbImg from '../../assets/ai_new/hero_collage_1.jpg';
 import nlImg from '../../assets/ai/hero_3.png';
-import abImg from '../../assets/ai_new/shop_header.png';
+import abImg from '../../assets/ai_new/shop_header.jpg';
 import jjImg from '../../assets/junaid.jpg';
 import acImg from '../../assets/ai/hero_2.png';
 import wImg from '../../assets/ai/hero_4.png';
-import ssImg from '../../assets/ai_new/hero_collage_2.png';
-import gaImg from '../../assets/ai_new/hero_collage_4.png';
+import ssImg from '../../assets/ai_new/hero_collage_2.jpg';
+import gaImg from '../../assets/ai_new/hero_collage_4.jpg';
 
 const authStore = useAuthStore();
 const isDark = computed(() => authStore.isDark);
