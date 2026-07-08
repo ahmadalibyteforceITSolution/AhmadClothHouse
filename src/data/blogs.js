@@ -9,6 +9,346 @@ export const blogs = [
   //  JULY 2026 — 20 ADDITIONAL SEO BLOGS (BATCH 2)
   // ══════════════════════════════════════════
   {
+    id: 193,
+    slug: 'rise-of-marina-fabric-pakistani-winter-fashion',
+    title: 'The Rise of Marina Fabric in Pakistani Winter Fashion: 2026 Analysis',
+    date: 'July 28, 2026',
+    author: 'Ahmad Cloth House Trend Analysts',
+    category: 'Fabric Guide',
+    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['marina fabric Pakistan', 'marina winter suits 2026', 'best warm fabrics Pakistan', 'premium winter lawn marina'],
+    summary: 'A deep dive into why Marina fabric is dominating the pre-winter 2026 collections in Pakistan, offering soft cotton-wool warmth with high-end print canvases.',
+    content: `When the temperature begins to dip in Pakistan, fashion brands rapidly transition their collection lineups from lightweight summer lawns to warmer textiles. Among these winter fabrics, **Marina fabric** has risen to become a premier choice. Crafted from a specialized blend of cotton and fine wool fibers, Marina offers a brushed surface that provides cozy insulation while retaining a light, comfortable drape.
+
+### Why Marina is Preferred for Winter Prints
+Unlike heavy woolens or coarse khaddar, Marina has a remarkably smooth texture. This makes it an ideal canvas for digital printing and intricate embroidery. Leading designers, including [Maria B Official](https://www.mariab.pk/), regularly incorporate Marina into their winter unstitched collections. The fabric holds color beautifully, allowing rich jewel tones like deep plums, emeralds, and mustard yellows to pop. At **Ahmad Cloth House**, we are launching our exclusive pre-winter Marina suits tailored to perfection.`
+  },
+  {
+    id: 192,
+    slug: 'how-to-apply-clothes-patches-unstitched-suits',
+    title: 'How to Apply Clothes Patches to Unstitched Suits: The Complete Tailoring Guide',
+    date: 'July 27, 2026',
+    author: 'Ahmad Cloth House Tailoring Atelier',
+    category: 'Tailoring Hacks',
+    image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['embroidered clothes patches', 'how to apply clothes patches', 'designer patches Pakistan', 'applique patches lawn suits'],
+    summary: 'Step-by-step tutorial on applying designer clothes patches and embroidered motifs onto your unstitched lawn or chiffon suits for a high-end couture finish.',
+    content: `Unstitched designer suits often come with a bundle of separate organza and silk **clothes patches** — embroidered borders, neckline motifs, and sleeve patches. For many buyers, figuring out how to attach these patches seamlessly can be a daunting task. Professional tailors use special techniques to ensure the edges do not fray and the applique sits flat.
+
+### Step-by-Step Applique Technique
+1. **Positioning & Pinning:** Lay the base shirt flat and position the embroidered clothes patches exactly where you want them. Use fine dressmaker pins to secure the patch in place.
+2. **Fabric Glue Basting:** Apply a tiny amount of water-soluble fabric glue along the back center of the patch. Press lightly with a warm iron to cure.
+3. **Machine Satin Stitch:** Use a narrow, dense zigzag stitch (satin stitch) on your sewing machine, matching the thread color perfectly to the edge of the patch.
+4. **Burning Excess Organza:** If the patch has an organza border, use a specialized soldering iron or a hot wood-burning tool to carefully melt away the excess backing organza, leaving a clean embroidery-only edge.
+
+Explore our collection of custom borders and laces at [Ahmad Cloth House](/shop) to personalize your next suit!`
+  },
+  {
+    id: 191,
+    slug: 'maria-b-luxury-replica-trends-july-2026',
+    title: 'Maria B Luxury Replica Trends: What to Look for in July 2026',
+    date: 'July 26, 2026',
+    author: 'Ahmad Cloth House Brand Review',
+    category: 'Brand Review',
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['Maria B replica suits', 'Maria B luxury lawn replica', 'premium replicas Lahore', 'best master copies Pakistan'],
+    summary: 'A critical buyer\'s guide to Maria B luxury replica suits in 2026. Learn how to distinguish a premium master copy from a low-grade imitation.',
+    content: `Maria B remains a titan in Pakistan's luxury fashion sector. Because her original lawn and bridal couture collections sell out in minutes, a massive market for high-quality **Maria B replicas** has emerged. For smart shoppers, buying a premium replica offers the same high-end aesthetic at a fraction of the designer price.
+
+### Finding a High-Quality Master Copy
+When inspecting a replica, check the thread density of the embroidery and the quality of the base fabric. Premium replicas use 100% combed cotton lawn or pure Chinese silk, matching the texture of the original. Lower-grade copies often substitute poly-blends. At Ahmad Cloth House, we curate and supply only premium, high-density replicas that look and feel identical to the originals. For collections, visit our [Maria B Collection](/shop?search=Maria+B).`
+  },
+  {
+    id: 190,
+    slug: 'marina-vs-linen-choosing-best-warm-weave',
+    title: 'Marina vs. Linen: Choosing the Best Warm Weave for Pre-Winter Wear',
+    date: 'July 25, 2026',
+    author: 'Ahmad Cloth House Fabric Experts',
+    category: 'Fabric Guide',
+    image: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['marina vs linen fabric', 'pakistani winter lawn marina', 'premium winter fabrics', 'warm unstitched suits'],
+    summary: 'Comparing Marina fabric with traditional linen. Discover which weave offers the best insulation, drape, and breathability for Pakistani pre-winter weather.',
+    content: `As the summer heat dissipates, choosing between **Marina fabric** and traditional linen becomes a common styling dilemma. Both fabrics are highly popular for unstitched pre-winter collections, but they offer distinct characteristics in terms of warmth, weave, and maintenance.
+
+### Marina Fabric Characteristics
+Marina is a cotton-wool blend characterized by a brushed finish. This weave creates micro-air pockets that trap body heat, making it warmer than linen. It is highly resistant to creasing, making it ideal for daily office wear and casual winter events.
+
+### Linen Fabric Characteristics
+Linen is made from flax fibers and offers a crisp, textured look. While linen is highly breathable, it wrinkles easily and has less thermal insulation compared to Marina.
+
+*Our Verdict:* Choose Marina for cozy pre-winter comfort and crease-resistance, and linen for structured, lightweight transitions.`
+  },
+  {
+    id: 189,
+    slug: 'art-of-clothes-patches-elevating-simple-kurtis',
+    title: 'The Art of Clothes Patches: Elevating Simple Kurtis on a Budget',
+    date: 'July 24, 2026',
+    author: 'Ahmad Cloth House Style Studio',
+    category: 'Style Tips',
+    image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['fancy clothes patches', 'embroidered motifs Pakistan', 'unstitched suit patches', 'diy kurti embellishment'],
+    summary: 'Learn how to transform a plain solid-colored kurti into a statement designer piece using luxury embroidered clothes patches, beads, and lace borders.',
+    content: `You don't need to spend tens of thousands on high-end designer wear to look fashionable. One of the most popular styling hacks in Lahore is buying solid, high-quality cotton or linen fabrics and embellishing them with **clothes patches** and local laces.
+
+### Design Ideas for Solids
+* **Mirror-Work Necklines:** Add a heavy mirror-work patch to the neckline of a solid black or white kurti.
+* **Organza Sleeve Borders:** Applique a 4-inch floral organza patch to your sleeve cuffs.
+* **Tassels & Daman Laces:** Finish the look with gold tilla tassels on the daman border.
+
+By combining plain fabrics with custom clothes patches, you can create a unique outfit that matches your personal taste. Shop our premium unstitched fabrics at [Ahmad Cloth House Shop](/shop).`
+  },
+  {
+    id: 188,
+    slug: 'maria-b-bridal-replica-master-copies-guide',
+    title: 'Maria B Bridal Replica: Master Copies under Budget',
+    date: 'July 23, 2026',
+    author: 'Ahmad Cloth House Bridal Desk',
+    category: 'Bridal Wear',
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['Maria B bridal replica', 'affordable bridal replica Lahore', 'zardozi replica dresses', 'wedding master copy Pakistan'],
+    summary: 'A look into the world of Maria B bridal replicas. Find out how custom tailors replicate complex zardozi and hand embroidery at an affordable price.',
+    content: `A designer wedding dress from Maria B can cost upwards of Rs. 500,000. For many brides, this is a significant portion of their wedding budget. This has led to the popularity of **Maria B bridal replicas**, where local artisans recreate the complex hand-embroidery patterns at a fraction of the cost.
+
+### Replicating Zardozi & Tilla
+Skilled craftsmen in Lahore's embroidery bazaars study the original designs and replicate the patterns on premium chiffon, net, and velvet bases. They use similar metallic wire, beads, and sequins to ensure the replica catches the light just like the original. We offer bridal consulting and custom stitching services to help you secure the perfect wedding look without breaking the bank.`
+  },
+  {
+    id: 187,
+    slug: 'top-marina-print-designs-pre-winter',
+    title: 'Top Marina Print Designs for the Pre-Winter Season 2026',
+    date: 'July 22, 2026',
+    author: 'Ahmad Cloth House Creative Team',
+    category: 'Fabric Guide',
+    image: 'https://images.unsplash.com/photo-1524295981977-62f5a6fe9a5a?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['printed marina suits', 'marina fabric collection 2026', 'Ahmad Cloth House winter', 'warm printed clothes'],
+    summary: 'Preview the upcoming printed Marina collection trends. Learn about the geometric, floral, and vintage motifs that will define winter 2026.',
+    content: `As we prepare for the winter of 2026, **Marina fabric** collections are starting to arrive in stores. This season, designers are moving away from simple solid colors and embracing bold, expressive prints that stand out in cold weather.
+
+### Prominent Print Trends
+* **Vintage Mughal Florals:** Intricate vine and border patterns inspired by royal Mughal art.
+* **Abstract Geometrics:** Earthy block patterns in terracotta, slate grey, and olive green.
+* **Kashmiri Shawl Motifs:** Paisley designs that replicate the look of traditional hand-woven shawls.
+
+At Ahmad Cloth House, we carry a wide range of printed Marina fabrics, allowing you to stay warm and stylish. Check our catalog for the latest arrivals.`
+  },
+  {
+    id: 186,
+    slug: 'why-clothes-patches-hottest-trend-custom-couture',
+    title: 'Why Clothes Patches Are the Hottest Trend in Custom Couture',
+    date: 'July 21, 2026',
+    author: 'Ahmad Cloth House Fashion Journal',
+    category: 'Style Tips',
+    image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['custom clothes patches', 'applique patch designs', 'tailoring patches Pakistan', 'embroidery trends 2026'],
+    summary: 'Explore why separate embroidered clothes patches have become a staple in Pakistani designer collections, allowing for custom placement and personalization.',
+    content: `The inclusion of separate **clothes patches** in unstitched suits is more than just a passing trend; it is a design choice that empowers the buyer. Instead of offering pre-made shirts, designers provide embroidered panels that can be placed to suit your body type and personal style.
+
+### Infinite Styling Possibilities
+With loose clothes patches, you can decide whether to put the embroidery on the front panel, the sleeve cuffs, or the trousers. You can also mix patches from different collections to create a truly unique look. This versatility has made clothes patches a hit among custom couture enthusiasts in Pakistan.`
+  },
+  {
+    id: 185,
+    slug: 'maria-b-mprints-vs-luxury-lawn-comparison',
+    title: 'Maria B M.Prints vs. Luxury Lawn: The Ultimate Comparison 2026',
+    date: 'July 20, 2026',
+    author: 'Ahmad Cloth House Brand Review',
+    category: 'Brand Review',
+    image: 'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['Maria B Mprints 2026', 'luxury lawn vs Mprints', 'designer cotton suits', 'unstitched lawn review'],
+    summary: 'A detailed breakdown comparing Maria B\'s affordable M.Prints line with her premium Luxury Lawn collections. Find out which fits your budget and style.',
+    content: `Maria B caters to different market segments through her distinct product lines. Her **M.Prints** collection is designed for everyday wear, offering stylish prints at an accessible price point. On the other hand, her **Luxury Lawn** collections feature heavy embroidery, silk dupattas, and intricate hand-embellishments.
+
+### Fabric & Price Comparison
+While M.Prints utilizes premium cotton lawn with basic thread embroidery, the Luxury Lawn collections include organza patches, chiffon dupattas, and elaborate sleeve borders. If you need a stylish daily outfit, M.Prints is a great option. For formal summer events, investing in the Luxury Lawn series is highly recommended. View our collection of both lines in our shop catalog.`
+  },
+  {
+    id: 184,
+    slug: 'washing-maintenance-guidelines-marina-fabric',
+    title: 'Washing & Maintenance Guidelines for Marina Fabric: Avoid Shrinkage',
+    date: 'July 19, 2026',
+    author: 'Ahmad Cloth House Care Specialists',
+    category: 'Care Guide',
+    image: 'https://images.unsplash.com/photo-1545173168-9f1947eebd01?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['how to wash marina fabric', 'shrinkage in marina suits', 'caring for warm cotton', 'textile care tips'],
+    summary: 'Follow our laundry guide to wash, dry, and iron your Marina cotton-wool suits without losing softness, colors, or experiencing fabric shrinkage.',
+    content: `Because **Marina fabric** contains a delicate blend of cotton and wool, it requires careful laundering. Washing Marina suits like standard cotton can lead to shrinkage, color bleeding, and pilling.
+
+### Safe Washing Routine
+1. **Shrinking before Tailoring:** Always soak the unstitched Marina fabric in cold water for 30 minutes before taking it to your tailor. This allows initial shrinkage to occur beforehand.
+2. **Mild Detergent Only:** Use a wool-friendly liquid detergent. Avoid bleach and harsh powders.
+3. **Gentle Cycle:** Hand wash or use the delicate cycle on your washing machine with cold water.
+4. **Air Drying:** Lay the fabric flat on a towel in the shade to dry. Never use a tumble dryer.
+
+By following these care steps, your Marina suits will remain soft and vibrant for years.`
+  },
+  {
+    id: 183,
+    slug: 'sourcing-premium-clothes-patches-lahore-wholesale',
+    title: 'Sourcing Premium Clothes Patches in Lahores Wholesale Markets',
+    date: 'July 18, 2026',
+    author: 'Ahmad Cloth House Sourcing Team',
+    category: 'Shopping Guide',
+    image: 'https://images.unsplash.com/photo-1505330622279-bf7d7fc9d8f4?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['clothes patches wholesale Lahore', 'embroidery patches Shah Alam market', 'lace and patch designs', 'boutique sourcing Lahore'],
+    summary: 'A local guide to finding high-quality embroidered clothes patches, necklines, and borders in Lahores famous Shah Alam and Ichhra markets.',
+    content: `Lahore is the textile hub of Pakistan, and its wholesale markets are filled with design treasures. If you are a boutique owner or a fashion enthusiast looking for unique **clothes patches** and laces, visiting local markets can save you a significant amount of money.
+
+### Best Markets for Patches
+* **Shah Alam Market (Shalmi):** The ultimate destination for wholesale laces, embroidered patches, and tailoring accessories.
+* **Ichhra Bazaar:** Famous for traditional gota work, mirror patches, and embroidered borders.
+* **Kinari Bazaar (Anarkali):** Best for vintage gold tilla patches and handcrafted wedding embellishments.
+
+At Ahmad Cloth House, we maintain relationships with wholesale suppliers in these markets, allowing us to bring you the best designs at competitive prices.`
+  },
+  {
+    id: 182,
+    slug: 'master-copy-phenomenon-maria-b-replica',
+    title: 'The Master Copy Phenomenon: Inside Maria B Replica Production',
+    date: 'July 17, 2026',
+    author: 'Ahmad Cloth House Industry Insights',
+    category: 'Brand Review',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['Maria B master copy replica', 'replica manufacturers Lahore', 'how replicas are made', 'clothing replicas Pakistan'],
+    summary: 'An industry report on how high-end manufacturers produce Maria B replicas. We analyze the machines, embroidery digitizing, and fabric sourcing.',
+    content: `The production of high-end **Maria B replicas** is a sophisticated manufacturing process. Local factories utilize modern multi-head embroidery machines and advanced digital scanning technology to replicate the designer prints.
+
+### Replicating Complex Embroidery
+Manufacturers hire digitizers to convert the original dress designs into machine-readable embroidery files. They source base fabrics from local mills, ensuring the cotton lawn or chiffon matches the original thread count. This attention to detail has made master copies a viable option for fashion-conscious buyers on a budget.`
+  },
+  {
+    id: 181,
+    slug: 'why-marina-fabric-perfect-mens-shalwar-kameez',
+    title: 'Why Marina Fabric is the Perfect Choice for Mens Winter Shalwar Kameez',
+    date: 'July 16, 2026',
+    author: 'Ahmad Cloth House Menswear Team',
+    category: 'Mens Fashion',
+    image: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['mens marina suit Pakistan', 'mens winter fabrics Lahore', 'warm cotton shalwar kameez', 'mens traditional wear'],
+    summary: 'Explain why Marina fabric is a top choice for mens winter shalwar kameez. We discuss warmth, comfort, and color options for classic mens fashion.',
+    content: `When it comes to men's traditional wear for winter, finding a fabric that is both warm and structured can be challenging. Heavy woolen fabrics can feel stiff, while thin cotton fails to insulate. This is where **Marina fabric** offers the perfect solution.
+
+### Benefits for Menswear
+Marina is soft to the touch, has a comfortable weight, and drapes cleanly. It is highly crease-resistant, allowing you to maintain a neat appearance throughout the day. Popular colors for men include charcoal grey, navy blue, forest green, and classic black. Explore our unstitched menswear fabrics at [Ahmad Cloth House](/shop).`
+  },
+  {
+    id: 180,
+    slug: 'embellishing-kids-outfits-cute-clothes-patches',
+    title: 'Embellishing Kids Outfits with Cute Clothes Patches: DIY Guide',
+    date: 'July 15, 2026',
+    author: 'Ahmad Cloth House Style Studio',
+    category: 'Style Tips',
+    image: 'https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['kids clothes patches', 'cartoon embroidery patches', 'custom kids wear Pakistan', 'diy kids fashion'],
+    summary: 'A fun guide to updating your childrens wardrobes using colorful clothes patches, custom initial embroidery, and playful animal shapes.',
+    content: `Children's clothes often wear out quickly, especially around the knees and elbows. Instead of throwing them away, you can use colorful **clothes patches** to cover wear and tear while adding a playful element to their outfits.
+
+### Creative Customization Ideas
+* **Animal Appliques:** Add a soft teddy bear or bunny patch to plain sweatpants.
+* **Custom Initials:** Applique your child's first initial onto the chest of a plain t-shirt.
+* **Denim Fun:** Add star or rainbow patches to the back pockets of their jeans.
+
+This simple DIY project is a fun way to refresh their wardrobe on a budget.`
+  },
+  {
+    id: 179,
+    slug: 'maria-b-coco-collection-casual-chic-elegance',
+    title: 'Maria B Coco Collection: Casual Chic for Everyday Elegance 2026',
+    date: 'July 14, 2026',
+    author: 'Ahmad Cloth House Brand Review',
+    category: 'Brand Review',
+    image: 'https://images.unsplash.com/photo-1493655161922-ef98929de9d8?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['Maria B Coco pret 2026', 'coco lawn collection', 'designer pret under 10000', 'casual designer wear'],
+    summary: 'Reviewing the latest Maria B Coco line, designed for casual everyday wear. We examine the prints, colors, and overall value of the collection.',
+    content: `Maria B's **Coco Collection** is a favorite among women who want designer style for their daily routines. Unlike her heavy formal lines, Coco focuses on comfortable fabrics, minimal embroidery, and trendy cuts.
+
+### Design Elements
+The collection features a mix of soft pastel tones and earthy prints, with subtle lace trims and minimal embellishments. It is highly wearable and easy to maintain, making it perfect for office wear or casual outings. Shop the collection at [Ahmad Cloth House](/shop).`
+  },
+  {
+    id: 178,
+    slug: 'marina-cotton-wool-blends-fabric-engineering',
+    title: 'Marina Cotton-Wool Blends: A Deep Dive into Fabric Engineering',
+    date: 'July 13, 2026',
+    author: 'Ahmad Cloth House Fabric Analysts',
+    category: 'Fabric Guide',
+    image: 'https://images.unsplash.com/photo-1576016770956-debb63d900cc?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['marina fabric composition', 'cotton wool blend textiles', 'pakistani winter fabric grades', 'textile engineering'],
+    summary: 'An technical look at the weave structure of Marina fabric. We explain the ratio of cotton to wool fibers and how it balances insulation and breathability.',
+    content: `From a textile perspective, **Marina fabric** is an engineered blend of fibers. It typically features a ratio of 80% long-staple cotton and 20% merino wool. This composition is selected to balance warmth and breathability.
+
+### Fiber Properties
+The cotton fibers provide softness and absorbency, while the wool fibers trap air to keep you warm. This blend is highly durable, resistant to pilling, and retains its shape after washing. At Ahmad Cloth House, we source Marina fabric from top-tier mills to ensure quality and comfort.`
+  },
+  {
+    id: 177,
+    slug: 'transforming-old-dresses-recycled-clothes-patches',
+    title: 'Transforming Old Dresses Using Recycled Clothes Patches',
+    date: 'July 12, 2026',
+    author: 'Ahmad Cloth House Eco-Fashion Desk',
+    category: 'Style Tips',
+    image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['diy clothes patches', 'recycle old clothes embroidery', 'eco friendly fashion hacks', 'sustainable styling'],
+    summary: 'Learn how to give new life to pre-loved clothing by harvesting and reapplying embroidered patches, borders, and motifs from older worn-out designer suits.',
+    content: `Fashion sustainability is about making the most of what you have. If you have an old designer suit that is worn out, you can harvest the embroidered **clothes patches** and apply them to a new dress.
+
+### Harvesting Guide
+1. **Careful Unpicking:** Use a seam ripper to gently detach the patch from the old fabric.
+2. **Cleaning & Pressing:** Hand wash the patch and iron it flat on a low setting.
+3. **Reapplying:** Applique the patch onto a new solid-colored suit to create a fresh designer look.
+
+This simple recycling project is a great way to save money and reduce waste.`
+  },
+  {
+    id: 176,
+    slug: 'maria-b-silk-velvet-replica-winter-festive',
+    title: 'Maria B Silk Velvet Replica: Winter Festive Glamour 2026',
+    date: 'July 11, 2026',
+    author: 'Ahmad Cloth House Brand Review',
+    category: 'Brand Review',
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['Maria B velvet replica', 'velvet shawls replica Lahore', 'embroidered velvet suits', 'winter festive replicas'],
+    summary: 'A review of the upcoming Maria B velvet replica series. We examine the plush silk-mix velvet base, micro-tilla embroidery, and luxury replica shawls.',
+    content: `Winter weddings in Pakistan are synonymous with velvet. Maria B's winter velvet collections are highly anticipated, featuring plush fabrics, rich colors, and elaborate gold embroidery.
+
+### Replica Velvet Features
+Premium replicas use high-density silk-mix velvet that has a soft sheen and a heavy drape. They replicate the gold tilla embroidery on the neckline and sleeve cuffs, often pairing the suit with a digital print velvet shawl. Shop our winter formal wear at [Ahmad Cloth House](/shop).`
+  },
+  {
+    id: 175,
+    slug: 'ahmad-cloth-house-custom-dyeing-marina-launch',
+    title: 'Ahmad Cloth House Custom Dyeing & Marina Collection Launch',
+    date: 'July 10, 2026',
+    author: 'Ahmad Cloth House Corporate Desk',
+    category: 'Boutique News',
+    image: 'https://images.unsplash.com/photo-1505330622279-bf7d7fc9d8f4?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['custom dyed marina fabric', 'Ahmad Cloth House winter collection', 'tailored winter suits', 'lahore boutique news'],
+    summary: 'Announcing our in-house custom dyeing facility in Lahore, offering bespoke color matching on Marina and cotton-wool fabrics for winter 2026.',
+    content: `We are excited to announce the launch of our custom dyeing service at our Lahore flagship boutique. Customers can now select any shade from the Pantone color chart, and we will dye premium **Marina fabric** to match.
+
+### Bespoke Tailoring Services
+Along with custom dyeing, we offer in-house stitching and design consulting to help you create your dream winter outfit. Our tailors are experienced in working with warm fabrics, ensuring a perfect fit and clean borders. Visit us at Ameer Chowk, Wapda Town, Lahore, to explore the collection.`
+  },
+  {
+    id: 174,
+    slug: 'complete-az-glossary-clothes-patches-lace',
+    title: 'The Complete A-Z Glossary of Clothes Patches & Lace Terminology',
+    date: 'July 9, 2026',
+    author: 'Ahmad Cloth House Sourcing Desk',
+    category: 'Fabric Guide',
+    image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&q=80&w=1200',
+    seoKeywords: ['lace and patches glossary', 'organza patches definition', 'grafting clothes patches', 'embroidery terminology'],
+    summary: 'A reference glossary defining terms like organza applique, tilla patches, laser-cut borders, crochet lace, and multi-head embroidery.',
+    content: `Understanding fashion terminology can help you make better decisions when shopping for unstitched suits. This glossary defines key terms related to **clothes patches** and laces.
+
+### Key Glossary Terms
+* **Organza Applique:** Embroidered designs on sheer organza fabric, designed to be stitched onto a base fabric.
+* **Laser-Cut Borders:** Patches with borders cut using lasers for clean, melt-sealed edges.
+* **Tilla Patch:** Embroidery done using metallic gold or silver threads.
+* **Crochet Lace:** Heavy, cotton-knit lace borders, popular for casual lawn collections.
+
+Use this glossary to guide your next custom tailoring project at Ahmad Cloth House.`
+  },
+  {
     id: 173,
     slug: 'pakistans-textile-heritage-history-lawn-fabric',
     title: 'Pakistans Textile Heritage: A Rich History of Lawn Fabric',
