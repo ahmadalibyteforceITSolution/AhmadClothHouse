@@ -228,16 +228,6 @@ const routes = [
     }
   },
   {
-    path: '/collaborations',
-    name: 'collaborations',
-    component: () => import('../views/Collaborations.vue'),
-    meta: {
-      title: 'Press, Partnerships & Backlinks | AhmadClothesHouse',
-      description: 'Official media kit, link resources, and brand guidelines for Ahmad Fabrics & Ahmad Cloth House. Copy pre-formatted HTML links with optimized anchor text mappings.',
-      robots: 'index, follow'
-    }
-  },
-  {
     path: '/:pathMatch(.*)*',
     name: 'notfound',
     component: () => import('../views/NotFound.vue'),
