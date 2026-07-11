@@ -1,254 +1,222 @@
 <template>
-   <div
-      class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 font-sans selection:bg-amber-500/30">
+   <div class="min-h-screen bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-700 font-sans selection:bg-amber-500/30">
 
-      <!-- SEO CONTENT (VISUALLY HIDDEN) -->
+      <!-- ══════════ SEO HEADING BLOCK (VISUALLY HIDDEN) ══════════ -->
       <section class="sr-only">
-         <h2>About Ahmad Cloth House | Artisanal Mastery & Fashion Heritage</h2>
-         <p>Learn about Ahmad Cloth House and our commitment to artisanal excellence, ethical fashion, and design innovation. Since our inception, we have been dedicated to reviving traditional embroidery techniques and using premium fabrics for our luxury collections.</p>
+         <h1>About Ahmad Cloth House | Premium Pakistani Unstitched Fabrics & Bridal Couture</h1>
+         <h2>Lahore's Flagship Fashion Sanctuary for Swiss Lawn, Chiffon, and Silk Collections</h2>
+         <p>
+            Established in Lahore, Pakistan, Ahmad Cloth House is a premier boutique specializing in premium unstitched lawn, designer ready-to-wear pret, and bespoke handcrafted bridal couture. Our collections feature raw silk, pure chiffon, Swiss cotton, and traditional hand-embroidery including zardozi, tilla, and gotta work. We ship worldwide to fashion patrons in the USA, UK, UAE, and beyond.
+         </p>
+         <meta name="keywords" content="Ahmad Cloth House, unstitched lawn Pakistan, bridal couture Lahore, Pakistani designer replica, Maria B lawn, Gul Ahmed unstitched, Wapda Town clothing boutique, designer pret Lahore, pure chiffon dupatta, luxury unstitched fabrics" />
       </section>
 
-      <!-- Premium Cinematic About Hero -->
-      <section class="relative h-[80vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-black">
-         <!-- Dynamic Background -->
+      <!-- ══════════ CINEMATIC HERO BANNER ══════════ -->
+      <section class="relative h-[70vh] min-h-[550px] flex items-center justify-center overflow-hidden bg-[#fafaf8] dark:bg-[#050505]">
          <div class="absolute inset-0 z-0">
-            <img :src="Hero1" class="w-full h-full object-cover opacity-60 animate-slow-zoom" 
-                 alt="AHMADCLOTHESFABRICS Fashion Heritage" />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-[#fafaf8] dark:to-[#050505]"></div>
+            <img :src="Hero1" class="w-full h-full object-cover opacity-100 animate-slow-zoom" 
+                 alt="Ahmad Cloth House - Luxury Pakistani Unstitched Fabrics & Couture Heritage" />
+            <!-- Soft bottom gradient transition -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#fafaf8] via-transparent to-transparent dark:from-[#050505]"></div>
          </div>
 
-         <div class="max-w-7xl mx-auto px-8 w-full relative z-10 flex flex-col items-center text-center">
-            <div class="flex items-center gap-4 mb-10 animate-reveal">
-               <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-               <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">SINCE MMXXVI</span>
-               <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-            </div>
+         <div class="max-w-4xl mx-auto px-6 w-full relative z-10 flex flex-col items-center">
+            <!-- Luxury Glass Title Card -->
+            <div class="w-full bg-black/40 backdrop-blur-md border border-white/10 p-10 md:p-14 text-center rounded-sm shadow-2xl animate-reveal">
+               <div class="flex items-center justify-center gap-4 mb-6">
+                  <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+                  <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">ESTABLISHED MMXXVI</span>
+                  <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+               </div>
 
-            <h1 class="text-6xl md:text-9xl font-playfair italic text-white leading-none tracking-tighter mb-14 drop-shadow-2xl animate-reveal">
-               Artisanal <br>
-               <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light">EXCELLENCE</span>
-            </h1>
+               <h1 class="text-4xl md:text-7xl font-playfair italic text-white leading-none tracking-tight mb-8">
+                  Artisanal <br>
+                  <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light text-2xl md:text-4xl block mt-2">HERITAGE</span>
+               </h1>
 
-            <div class="max-w-2xl bg-white/5 backdrop-blur-3xl border border-white/10 p-8 md:p-12 animate-reveal-delay">
-               <p class="text-[11px] md:text-sm text-white/70 font-medium uppercase tracking-[0.4em] leading-loose italic">
-                  "A journey from artisanal passion to global couture excellence. We craft the elegant moments of tomorrow with every thread."
+               <p class="text-xs md:text-sm text-white/95 font-light tracking-[0.15em] max-w-xl mx-auto leading-relaxed">
+                  Reviving ancestral Pakistani weaving, hand-embroidery, and textile artistry to orchestrate the luxury wear of tomorrow.
                </p>
             </div>
          </div>
-
-         <!-- Scroll Indicator -->
-         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 opacity-30">
-            <div class="w-[1px] h-20 bg-gradient-to-b from-[var(--primary-gold)] to-transparent"></div>
-            <span class="text-[8px] font-bold uppercase tracking-[0.6em] text-white">THE PERSPECTIVE</span>
-         </div>
       </section>
 
-      <!-- Narrative Section -->
-      <section class="max-w-7xl mx-auto py-40 px-8 grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-         <div class="space-y-16 animate-reveal-left">
+      <!-- ══════════ BRAND NARRATIVE SECTION ══════════ -->
+      <section class="max-w-7xl mx-auto py-24 px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+         <div class="space-y-10 animate-reveal-left">
             <div class="relative">
-               <div class="absolute -left-12 top-0 text-[var(--primary-gold)]/10 text-9xl font-playfair italic -z-10 select-none">F
-               </div>
-               <h2
-                  class="text-4xl md:text-5xl font-light uppercase tracking-tighter text-gray-900 dark:text-white mb-8 font-playfair italic">
-                  Born from Passion</h2>
-               <p
-                  class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light transition-all first-letter:text-5xl first-letter:font-playfair first-letter:text-[var(--primary-gold)] first-letter:mr-3 first-letter:float-left">
-                  Founded in 2026, AhmadClothesFabrics was materialized to bridge the void between mass-produced apparel and the
-                  artisanal soul of traditional craftsmanship. We believe every moment deserves an ensemble that
-                  mirrors your unique style and elegance. Our journey began with a single vision: to revive the intricate weaving and embroidery techniques that have defined our cultural heritage for generations.
+               <span class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.3em] uppercase block mb-3">OUR ORIGIN STORY</span>
+               <h2 class="text-3xl md:text-5xl font-playfair italic text-stone-900 dark:text-white leading-tight">
+                  Born from Textile Passion
+               </h2>
+               <p class="text-stone-600 dark:text-stone-400 leading-relaxed text-sm font-light mt-6">
+                  Headquartered in Wapda Town, Lahore, <strong>Ahmad Cloth House</strong> was founded with a singular mission: to bring premium unstitched Pakistani fabrics and luxury bridal attire to discerning buyers worldwide. We curate the highest thread-count Swiss lawns, luxurious pure silk chiffons, and heavy organzas, hand-finished by master artisans representing centuries of embroidery techniques.
                </p>
-               <p class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light mt-8">
-                  At AhmadClothesFabrics, we don't just create clothes; we weave stories. Each piece in our collection is a testament to the dedication of our master artisans who spend hundreds of hours perfecting every stitch. From the selection of the finest silks and cottons to the final hand-finished detail, our commitment to quality is unwavering.
+               <p class="text-stone-600 dark:text-stone-400 leading-relaxed text-sm font-light mt-4">
+                  Whether you are seeking timeless daily unstitched linen, festive luxury lawn with intricate tilla work, or bespoke bridal couture fit for royalty, our boutique represents the apex of South Asian fashion craftsmanship.
                </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-12 pt-10 border-t border-[#d4af3711]">
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-3 gap-8 pt-8 border-t border-stone-200 dark:border-white/5">
                <div class="group">
-                  <h4
-                     class="text-5xl font-light text-[var(--primary-gold)] font-playfair italic mb-3 group-hover:scale-105 transition-transform duration-700 inline-block pointer-events-none">
-                     5k+</h4>
-                  <p
-                     class="text-[9px] uppercase font-bold text-stone-400 dark:text-stone-500 tracking-[0.4em] leading-tight">
-                     EXCLUSIVE DESIGNS</p>
+                  <h4 class="text-3xl font-playfair italic text-[#c9973a] mb-1">5,000+</h4>
+                  <p class="text-[8px] font-bold text-stone-400 dark:text-stone-500 tracking-[0.2em] uppercase">Unique Designs</p>
                </div>
                <div class="group">
-                  <h4
-                     class="text-5xl font-light text-[var(--primary-gold)] font-playfair italic mb-3 group-hover:scale-105 transition-transform duration-700 inline-block pointer-events-none">
-                     100k</h4>
-                  <p
-                     class="text-[9px] uppercase font-bold text-stone-400 dark:text-stone-500 tracking-[0.4em] leading-tight">
-                     LOYAL PATRONS</p>
+                  <h4 class="text-3xl font-playfair italic text-[#c9973a] mb-1">100k+</h4>
+                  <p class="text-[8px] font-bold text-stone-400 dark:text-stone-500 tracking-[0.2em] uppercase">Loyal Patrons</p>
+               </div>
+               <div class="group">
+                  <h4 class="text-3xl font-playfair italic text-[#c9973a] mb-1">25+</h4>
+                  <p class="text-[8px] font-bold text-stone-400 dark:text-stone-500 tracking-[0.2em] uppercase">Countries Served</p>
                </div>
             </div>
          </div>
 
-         <div class="relative aspect-[4/5] shadow-3xl group overflow-hidden animate-reveal-right">
-            <div class="absolute inset-0 bg-[var(--primary-gold)]/10 mix-blend-overlay z-10 pointer-events-none"></div>
-            <div
-               class="absolute inset-0 border border-white/10 group-hover:border-[var(--primary-gold)]/20 transition-colors duration-700 z-20 pointer-events-none m-8">
-            </div>
+         <!-- Narrative Image -->
+         <div class="relative aspect-[4/5] overflow-hidden rounded-sm shadow-xl group border border-stone-200 dark:border-white/5 animate-reveal-right">
+            <div class="absolute inset-0 bg-stone-900/5 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
             <img :src="Hero2"
-               class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
-               alt="Artisan Tailoring at AHMADCLOTHESFABRICS Studio">
+               class="w-full h-full object-cover transition-transform duration-[4s] ease-out group-hover:scale-105"
+               alt="Ahmad Cloth House - Master Weaving and Handcrafted Embroidery in Lahore Studio"
+               loading="lazy">
          </div>
       </section>
 
-      <!-- Mission & Values Section -->
-      <section class="bg-white dark:bg-[#0a0a0a] py-40 px-8 transition-colors duration-700">
+      <!-- ══════════ CORE MISSION & VISION ══════════ -->
+      <section class="bg-white dark:bg-[#0a0a0a] py-24 px-8 border-y border-stone-100 dark:border-white/5 transition-colors duration-500">
          <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
-               <div class="space-y-8 animate-reveal">
-                  <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR MISSION</h3>
-                  <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Empowering Elegance</h4>
-                  <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-                     Our mission is to empower individuals through fashion that speaks of heritage and modern elegance. We strive to provide accessible luxury without compromising on the artisanal quality that makes each garment unique.
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+               <div class="space-y-4">
+                  <span class="text-[9px] font-bold text-[#c9973a] tracking-[0.3em] uppercase">OUR MISSION</span>
+                  <h4 class="text-2xl font-playfair italic text-stone-900 dark:text-white">Empowering Elegance</h4>
+                  <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed font-light">
+                     To present Pakistan's rich textile legacy through premium quality fabrics, combining traditional artisanal values with modern silhouettes for our global clientele.
                   </p>
                </div>
-               <div class="space-y-8 animate-reveal" style="animation-delay: 0.2s">
-                  <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR VISION</h3>
-                  <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Global Heritage</h4>
-                  <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-                     We envision AHMADCLOTHESFABRICS as a global symbol of Pakistani craftsmanship, bringing the beauty of our traditional textiles to the international stage while fostering a sustainable and ethical fashion ecosystem.
+               <div class="space-y-4">
+                  <span class="text-[9px] font-bold text-[#c9973a] tracking-[0.3em] uppercase">OUR VISION</span>
+                  <h4 class="text-2xl font-playfair italic text-stone-900 dark:text-white">Global Ambassador</h4>
+                  <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed font-light">
+                     To establish Ahmad Cloth House as a premium household name for unstitched couture internationally, promoting ethical artisan wages and sustainable design.
                   </p>
                </div>
-               <div class="space-y-8 animate-reveal" style="animation-delay: 0.4s">
-                  <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">OUR VALUES</h3>
-                  <h4 class="text-3xl font-playfair italic text-gray-900 dark:text-white">Ethical Mastery</h4>
-                  <p class="text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-                     Integrity, craftsmanship, and sustainability are at the core of everything we do. We ensure fair wages for our artisans and prioritize eco-friendly practices in our production line to protect the heritage we cherish.
+               <div class="space-y-4">
+                  <span class="text-[9px] font-bold text-[#c9973a] tracking-[0.3em] uppercase">OUR VALUES</span>
+                  <h4 class="text-2xl font-playfair italic text-stone-900 dark:text-white">Ethical Artistry</h4>
+                  <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed font-light">
+                     We guarantee fair trade principles for our local Lahori artisans, ensuring ancient techniques like zardozi tilla and handblock printing survive for generations.
                   </p>
                </div>
             </div>
          </div>
       </section>
 
-      <!-- Artisan Spotlight -->
-      <section class="py-40 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-         <div class="order-2 lg:order-1 relative aspect-square group overflow-hidden animate-reveal-left">
+      <!-- ══════════ ARTISAN SPOTLIGHT ══════════ -->
+      <section class="py-24 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+         <div class="order-2 lg:order-1 relative aspect-square overflow-hidden rounded-sm shadow-xl group border border-stone-200 dark:border-white/5 animate-reveal-left">
             <img :src="Hero3"
                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
-               alt="Artisan Craftsmanship">
+               alt="Traditional Embroidery Artistry at Ahmad Cloth House Studio"
+               loading="lazy">
          </div>
-         <div class="order-1 lg:order-2 space-y-12 animate-reveal-right">
-            <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">THE CRAFT</h3>
-            <h2 class="text-5xl font-playfair italic text-gray-900 dark:text-white leading-tight">Mastery in Every Thread</h2>
-            <p class="text-stone-500 dark:text-stone-400 leading-loose text-lg font-light">
-               Our artisans are the heart of AHMADCLOTHESFABRICS. With decades of experience passed down through generations, they possess an intuitive understanding of fabric and form. Every embroidery pattern is meticulously planned and executed, ensuring that the final garment is not just a piece of clothing, but a work of art.
+         <div class="order-1 lg:order-2 space-y-8 animate-reveal-right">
+            <span class="text-[9px] font-bold text-[#c9973a] tracking-[0.3em] uppercase">THE CRAFT</span>
+            <h2 class="text-4xl font-playfair italic text-stone-900 dark:text-white leading-tight">Mastery in Every Single Thread</h2>
+            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed font-light">
+               Each embroidered motif in our unstitched chiffon and lawn suits is handcrafted by local artisans. Our designs utilize traditional Pakistani craft styles, including intricate hand-cut work, shadow work, sequins applique, and heavy gold tilla. 
             </p>
-            <router-link to="/shop" class="inline-block border-b border-[var(--primary-gold)] pb-2 text-[10px] font-bold tracking-[0.5em] text-gray-900 dark:text-white hover:text-[var(--primary-gold)] transition-colors">
-               EXPLORE THE COLLECTIONS
-            </router-link>
+            <div class="pt-4">
+               <router-link to="/shop" class="inline-flex items-center gap-3 border border-stone-900 dark:border-white text-stone-900 dark:text-white hover:bg-stone-900 hover:text-white dark:hover:bg-white dark:hover:text-black px-6 py-3 text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-300 group">
+                  Explore Catalog
+                  <span class="group-hover:translate-x-1 transition-transform">→</span>
+               </router-link>
+            </div>
          </div>
       </section>
 
-      <!-- Ethos Divider -->
-      <section class="bg-black py-48 px-8 relative overflow-hidden border-t border-white/5">
+      <!-- ══════════ SUSTAINABILITY & ETHOS BANNER ══════════ -->
+      <section class="bg-black py-32 px-8 relative overflow-hidden border-t border-white/5">
          <div class="absolute inset-0 opacity-10">
-            <div
-               class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#d4af3711_1px,_transparent_1px)] bg-[size:40px_40px]">
-            </div>
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#d4af3711_1px,_transparent_1px)] bg-[size:40px_40px]"></div>
          </div>
-         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div class="flex items-center justify-center gap-6 mb-16">
-               <div class="h-[1px] w-12 bg-[var(--primary-gold)]/30"></div>
-               <h2 class="text-[10px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.6em]">Sustainability & Ethos</h2>
-               <div class="h-[1px] w-12 bg-[var(--primary-gold)]/30"></div>
+         <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="flex items-center justify-center gap-4 mb-10">
+               <div class="h-px w-10 bg-[var(--primary-gold)]/30"></div>
+               <h2 class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.5em]">Heritage & Value</h2>
+               <div class="h-px w-10 bg-[var(--primary-gold)]/30"></div>
             </div>
-            <p
-               class="text-2xl md:text-5xl font-light text-white leading-snug italic font-playfair transition-all transform hover:scale-[1.02] duration-700 px-6">
-               "Our vision is a world where fashion does not sacrifice quality. We utilize premium fabrics
-               ensuring your look is as elegant as your occasion."
+            <p class="text-xl md:text-4xl font-light text-white leading-relaxed italic font-playfair px-6">
+               "A couture experience should not sacrifice quality. We prioritize organic Swiss lawn cotton, luxury raw silk, and hand-embroidered details to ensure your attire is fit for your most precious moments."
             </p>
-            <div class="mt-20">
-               <span class="text-[var(--primary-gold)] font-serif italic text-2xl">— Lead Designer of AHMADCLOTHESFABRICS</span>
+            <div class="mt-12">
+               <span class="text-[var(--primary-gold)] font-serif italic text-lg">— Creative Team, Ahmad Cloth House</span>
             </div>
          </div>
       </section>
 
-      <!-- Philosophy Grid -->
-      <section class="max-w-7xl mx-auto py-40 px-8">
-         <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
-            <div v-for="(p, i) in philosophy" :key="i" class="space-y-8 animate-reveal"
-               :style="{ animationDelay: `${i * 0.2}s` }">
-               <div
-                  class="w-16 h-16 rounded-full border border-[var(--primary-gold)]/20 bg-[var(--primary-gold)]/5 flex items-center justify-center text-[var(--primary-gold)] text-2xl group transition-all duration-700 hover:bg-[var(--primary-gold)] hover:text-white">
-                  <font-awesome-icon :icon="p.icon" class="transition-transform group-hover:rotate-[15deg]" />
-               </div>
-               <h3
-                  class="text-xl font-light uppercase tracking-tight dark:text-white font-playfair italic underline decoration-[var(--primary-gold)]/10 underline-offset-8">
-                  {{ p.title }}</h3>
-               <p class="text-stone-500 dark:text-stone-400 text-sm font-light leading-relaxed tracking-wide">{{ p.desc
-                  }}</p>
-            </div>
-         </div>
-      </section>
-
-      <!-- ═══════════════════════════════════════════
-           THE ARTISAN PROCESS (NEW)
-      ═══════════════════════════════════════════ -->
-      <section class="bg-white dark:bg-[#080808] py-40 px-8">
+      <!-- ══════════ ARTISAN CREATION PROCESS ══════════ -->
+      <section class="bg-white dark:bg-[#080808] py-24 px-8 border-b border-stone-100 dark:border-white/5">
          <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
-               <div class="space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+               <div class="space-y-4">
                   <div class="flex items-center gap-3">
-                     <div class="h-[1px] w-8 bg-amber-400"></div>
-                     <span class="text-amber-500 font-black text-[9px] uppercase tracking-[0.5em]">THE METHOD</span>
+                     <div class="h-[1px] w-6 bg-amber-400"></div>
+                     <span class="text-amber-500 font-bold text-[9px] uppercase tracking-[0.4em]">THE PROCESS</span>
                   </div>
-                  <h2 class="text-4xl md:text-6xl font-black font-playfair uppercase text-gray-900 dark:text-white italic">
-                     Choreography of <br> <span class="text-amber-500 not-italic font-sans tracking-widest">CREATION</span>
+                  <h2 class="text-3xl md:text-5xl font-playfair uppercase text-stone-900 dark:text-white italic">
+                     Creation Method
                   </h2>
                </div>
-               <p class="text-stone-500 dark:text-stone-400 max-w-sm text-sm leading-loose font-light">
-                  From the first sketch to the final stitch, our process is a symphony of design, fabric selection, and craftsmanship.
+               <p class="text-stone-500 dark:text-stone-400 max-w-sm text-xs leading-relaxed font-light">
+                  From fabric thread sourcing to design plotting and hand-finishing, explore our traditional production methods.
                </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-               <div v-for="(step, i) in artisanProcess" :key="i" class="group relative pt-12 border-t border-gray-100 dark:border-white/5">
-                  <span class="absolute top-0 left-0 text-5xl font-black text-amber-500/10 group-hover:text-amber-500/20 transition-colors">0{{ i + 1 }}</span>
-                  <h3 class="text-lg font-black uppercase tracking-tighter text-gray-900 dark:text-white mb-4 font-playfair italic underline decoration-amber-500/10 underline-offset-8">{{ step.title }}</h3>
+               <div v-for="(step, i) in artisanProcess" :key="i" class="group relative pt-10 border-t border-stone-100 dark:border-white/5">
+                  <span class="absolute top-0 left-0 text-3xl font-black text-amber-500/10 group-hover:text-amber-500/20 transition-colors">0{{ i + 1 }}</span>
+                  <h3 class="text-base font-bold uppercase tracking-wide text-stone-800 dark:text-white mb-3 font-playfair italic">{{ step.title }}</h3>
                   <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed font-light">{{ step.desc }}</p>
                </div>
             </div>
          </div>
       </section>
 
-      <!-- ═══════════════════════════════════════════
-           GLOBAL SOURCING (NEW)
-      ═══════════════════════════════════════════ -->
-      <section class="relative py-40 bg-black overflow-hidden">
+      <!-- ══════════ GLOBAL SOURCE MAPPING ══════════ -->
+      <section class="relative py-32 bg-black overflow-hidden">
          <div class="absolute inset-0 opacity-20 bg-cover bg-center" :style="{ backgroundImage: `url(${Hero4})` }"></div>
-         <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+         <div class="absolute inset-0 bg-gradient-to-b from-black via-black/85 to-black"></div>
          
          <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
-            <div class="inline-block px-8 py-3 border border-amber-500/20 backdrop-blur-3xl mb-12">
-               <span class="text-amber-500 font-black text-[9px] uppercase tracking-[0.6em]">PREMIUM FABRICS</span>
+            <div class="inline-block px-6 py-2.5 border border-amber-500/20 backdrop-blur-md mb-8">
+               <span class="text-amber-500 font-bold text-[9px] uppercase tracking-[0.5em]">FABRICS SOURCING</span>
             </div>
-            <h2 class="text-5xl md:text-8xl font-black font-playfair italic text-white mb-20">Sourced from the <span class="text-amber-500">Source</span></h2>
+            <h2 class="text-3xl md:text-6xl font-playfair italic text-white mb-16">Global Sourcing, <span class="text-amber-500">Local Artistry</span></h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
-               <div v-for="source in globalSources" :key="source.ingredient" class="space-y-4">
-                  <div class="text-amber-500 font-playfair italic text-3xl">{{ source.origin }}</div>
-                  <div class="text-white font-black text-[10px] uppercase tracking-[0.4em]">{{ source.ingredient }}</div>
-                  <div class="h-[1px] w-8 bg-amber-500/30 mx-auto mt-4"></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+               <div v-for="source in globalSources" :key="source.ingredient" class="space-y-3">
+                  <div class="text-amber-500 font-playfair italic text-2xl">{{ source.origin }}</div>
+                  <div class="text-white font-bold text-[9px] uppercase tracking-[0.3em]">{{ source.ingredient }}</div>
+                  <div class="h-[1px] w-6 bg-amber-500/20 mx-auto mt-3"></div>
                </div>
             </div>
          </div>
       </section>
 
-      <!-- Social Media Icons -->
-      <div class="max-w-7xl mx-auto px-8 py-10 flex flex-col items-center">
-         <h3 class="text-xl font-bold font-playfair mb-6 text-gray-900 dark:text-white">Follow Us</h3>
-         <div class="flex items-center gap-6 text-3xl">
-            <a href="https://facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="text-blue-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'facebook']" /></a>
-            <a href="https://instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" class="text-pink-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
-            <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-black dark:text-white hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'tiktok']" /></a>
-            <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-red-600 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'youtube']" /></a>
-            <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-green-500 hover:scale-110 transition-transform"><font-awesome-icon :icon="['fab', 'whatsapp']" /></a>
+      <!-- ══════════ SOCIAL & COMMUNITY CONNECT ══════════ -->
+      <div class="max-w-7xl mx-auto px-8 py-20 flex flex-col items-center">
+         <span class="text-[9px] font-bold text-[#c9973a] tracking-[0.3em] uppercase block mb-3">STAY CONNECTED</span>
+         <h3 class="text-2xl font-playfair italic mb-8 text-stone-900 dark:text-white">Follow the House</h3>
+         <div class="flex items-center gap-5 text-2xl">
+            <a href="https://facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="text-stone-400 hover:text-[#1877F2] hover:scale-110 transition-all duration-300" aria-label="Facebook"><font-awesome-icon :icon="['fab', 'facebook-f']" /></a>
+            <a href="https://instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" class="text-stone-400 hover:text-[#E1306C] hover:scale-110 transition-all duration-300" aria-label="Instagram"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
+            <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-stone-400 hover:text-[#000000] dark:hover:text-[#ffffff] hover:scale-110 transition-all duration-300" aria-label="TikTok"><font-awesome-icon :icon="['fab', 'tiktok']" /></a>
+            <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-stone-400 hover:text-[#FF0000] hover:scale-110 transition-all duration-300" aria-label="YouTube"><font-awesome-icon :icon="['fab', 'youtube']" /></a>
+            <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-stone-400 hover:text-[#25D366] hover:scale-110 transition-all duration-300" aria-label="WhatsApp"><font-awesome-icon :icon="['fab', 'whatsapp']" /></a>
          </div>
       </div>
-
 
    </div>
 </template>
@@ -261,8 +229,6 @@ import Hero2 from "../assets/ai/hero_2.png"
 import Hero3 from "../assets/ai/hero_3.png"
 import Hero4 from "../assets/ai/hero_4.png"
 
-
-
 const philosophy = [
    { title: 'Artisanal Mastery', icon: 'fa-solid fa-gem', desc: 'Every creation is handcrafted with precision, ensuring a perfect balance of design and quality in every stitch.' },
    { title: 'Fashion Innovation', icon: 'fa-solid fa-vest', desc: 'Bridging traditional craftsmanship with modern silhouettes. Our designs are created to evoke elegance while surprising your style.' },
@@ -270,17 +236,17 @@ const philosophy = [
 ]
 
 const artisanProcess = [
-   { title: 'Curation', desc: 'Selection of ultra-premium fabrics from certified sustainable sources.' },
-   { title: 'Designing', desc: 'Meticulous sketching and pattern making to achieve the perfect structural silhouette.' },
-   { title: 'Embroidery', desc: 'Hand-crafted intricate details using traditional techniques passed down through generations.' },
-   { title: 'Tailoring', desc: 'Precision stitching and final quality inspection by our master designers.' }
+   { title: 'Curation', desc: 'Selection of ultra-premium lawn cotton and raw silk from certified premium sources.' },
+   { title: 'Designing', desc: 'Meticulous sketching, cataloging, and pattern mapping to achieve unique silhouettes.' },
+   { title: 'Embroidery', desc: 'Hand-crafting zardozi, gold tilla, and shadow work threads via master artisans.' },
+   { title: 'Finishing', desc: 'Precision double-stitching and final boutique quality audit before delivery.' }
 ]
 
 const globalSources = [
    { origin: 'Switzerland', ingredient: 'Lawn Cotton' },
    { origin: 'China', ingredient: 'Pure Silk' },
    { origin: 'Italy', ingredient: 'Premium Velvet' },
-   { origin: 'Pakistan', ingredient: 'Traditional Hand-embroidery' }
+   { origin: 'Pakistan', ingredient: 'Handcrafted Tilla work' }
 ]
 
 onMounted(() => {
@@ -297,9 +263,8 @@ onMounted(() => {
    from {
       transform: scale(1);
    }
-
    to {
-      transform: scale(1.15);
+      transform: scale(1.1);
    }
 }
 
@@ -325,7 +290,6 @@ onMounted(() => {
       opacity: 0;
       transform: translateY(40px);
    }
-
    to {
       opacity: 1;
       transform: translateY(0);
@@ -337,7 +301,6 @@ onMounted(() => {
       opacity: 0;
       transform: translateX(-40px);
    }
-
    to {
       opacity: 1;
       transform: translateX(0);
@@ -349,19 +312,14 @@ onMounted(() => {
       opacity: 0;
       transform: translateX(40px);
    }
-
    to {
       opacity: 1;
       transform: translateX(0);
    }
 }
 
-.shadow-3xl {
-   box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.2);
-}
-
-.dark .shadow-3xl {
-   box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6);
+.shadow-xl {
+   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
 }
 
 .font-playfair {
