@@ -620,71 +620,7 @@
     </section> -->
 
 
-    <section class="patron-stories py-40 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5 relative overflow-hidden">
-      <!-- Pakistani Heritage Accent -->
-      <div class="absolute inset-0 bg-damask opacity-5 pointer-events-none"></div>
-      <div class="absolute -right-20 top-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
-      <div class="absolute -left-20 bottom-0 w-96 h-96 bg-[var(--primary-gold)]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-24 space-y-4">
-          <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE PATRONS</div>
-          <h2 class="text-4xl md:text-6xl font-playfair text-[var(--luxury-black)] dark:text-white uppercase">Voices of
-            <span class="italic text-[var(--deep-burgundy)]">Excellence</span>
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-          <div v-for="(patron, i) in patronStories" :key="i" class="patron-card space-y-8">
-            <font-awesome-icon icon="fa-solid fa-quote-left" class="text-[var(--primary-gold)]/20 text-4xl" />
-            <p class="text-lg text-gray-600 dark:text-gray-300 italic font-light leading-relaxed">
-              "{{ patron.quote }}"
-            </p>
-            <div class="flex items-center gap-6 pt-8 border-t border-black/5 dark:border-white/5">
-              <div class="w-12 h-12 rounded-full overflow-hidden">
-                <img :src="patron.avatar" :alt="patron.name" class="w-full h-full object-cover" width="48" height="48" loading="lazy" />
-              </div>
-              <div>
-                <div class="text-xs font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white">{{
-                  patron.name }}</div>
-                <div class="text-[9px] uppercase tracking-[0.2em] text-[var(--primary-gold)] mt-1">{{ patron.role }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════
-         CATEGORY TILES
-    ═══════════════════════════════════════════ -->
-    <section class="categories-section bg-[var(--luxury-cream)] dark:bg-black py-32" aria-label="Shop Categories">
-      <div class="text-center mb-16">
-        <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">COLLECTIONS</div>
-        <h2 class="text-4xl md:text-5xl font-playfair italic text-[var(--luxury-black)] dark:text-white">SHOP BY
-          CATEGORY</h2>
-      </div>
-
-      <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
-        <div v-for="(cat, i) in categoryTiles" :key="cat.name"
-          class="relative group cursor-pointer aspect-[3/4] overflow-hidden" @click="router.push(`/shop/${cat.name}`)">
-          <img :src="cat.image" :alt="cat.name" width="400" height="533" loading="lazy"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-          <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-            <p class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase mb-2">{{ cat.sub }}
-            </p>
-            <h3 class="text-white text-3xl font-playfair italic mb-6">{{ cat.name }}</h3>
-            <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-              <font-awesome-icon icon="fa-solid fa-arrow-right" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
 
