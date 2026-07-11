@@ -1,7 +1,7 @@
 # ===========================================================================
 #  robots.txt — AhmadClothesHouse | Premium Pakistani Fashion
 #  Website : https://ahmad-cloths.vercel.app
-#  Updated : 2026-07-07
+#  Updated : 2026-07-11
 #  Purpose : Control search engine crawling for maximum SEO visibility
 #            while protecting private user-specific routes.
 # ===========================================================================
@@ -12,6 +12,7 @@
 User-agent: Googlebot
 Allow: /
 Allow: /blog
+Allow: /collaborations
 Allow: /shop
 Allow: /about
 Allow: /contact
@@ -73,6 +74,7 @@ Disallow: /admin/
 User-agent: Bingbot
 Allow: /
 Allow: /blog
+Allow: /collaborations
 Allow: /shop
 Allow: /about
 Allow: /contact
@@ -102,6 +104,7 @@ Disallow: /admin/
 User-agent: YandexBot
 Allow: /
 Allow: /blog
+Allow: /collaborations
 Allow: /shop
 Disallow: /admin/
 Disallow: /checkout
@@ -273,6 +276,7 @@ Disallow: /cart
 User-agent: *
 Allow: /
 Allow: /blog
+Allow: /collaborations
 Allow: /shop
 Allow: /about
 Allow: /contact

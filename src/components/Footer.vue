@@ -119,6 +119,7 @@ const footerLinks = {
     { name: 'Our Story', path: '/about' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Fashion Blog', path: '/blog' },
+    { name: 'Collaborations & Media Kit', path: '/collaborations' },
     { name: 'Shipping Policy', path: '/terms' },
     { name: 'Privacy Policy', path: '/privacy' },
     { name: 'Cookies Policy', path: '/cookies' }

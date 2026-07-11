@@ -29,10 +29,7 @@
 
       <!-- Content Section -->
       <div class="prose prose-stone dark:prose-invert max-w-none">
-        <div class="text-stone-600 dark:text-stone-300 leading-relaxed space-y-8 first-letter:text-5xl first-letter:font-playfair first-letter:mr-3 first-letter:float-left first-letter:text-amber-500">
-          <p v-for="(paragraph, i) in paragraphs" :key="i" class="text-lg">
-            {{ paragraph }}
-          </p>
+        <div v-html="parsedContent" class="text-stone-600 dark:text-stone-300 leading-relaxed space-y-4 first-letter:text-5xl first-letter:font-playfair first-letter:mr-3 first-letter:float-left first-letter:text-amber-500">
         </div>
       </div>
 
@@ -202,9 +199,147 @@ const injectBlogMeta = (p) => {
 
 watch(post, (p) => { if (p) injectBlogMeta(p) }, { immediate: true })
 
-const paragraphs = computed(() => {
-  if (!post.value) return []
-  return post.value.content.split('\n\n')
+const parsedContent = computed(() => {
+  if (!post.value) return ''
+  const rawContent = post.value.content
+  
+  // Split content by lines
+  const lines = rawContent.split('\n')
+  let html = []
+  let inList = false
+  let listType = null // 'ul' or 'ol'
+  let inTable = false
+  let tableRows = []
+
+  const closeList = () => {
+    if (inList) {
+      html.push(`</${listType}>`)
+      inList = false
+      listType = null
+    }
+  }
+
+  const closeTable = () => {
+    if (inTable) {
+      if (tableRows.length > 0) {
+        html.push('<div class="overflow-x-auto my-8 border border-stone-200 dark:border-stone-800 rounded-lg">')
+        html.push('<table class="min-w-full divide-y divide-stone-200 dark:divide-stone-800 text-sm">')
+        
+        // Render header
+        const headerCells = tableRows[0]
+        html.push('<thead class="bg-stone-50 dark:bg-stone-900/50"><tr>')
+        headerCells.forEach(cell => {
+          html.push(`<th class="px-6 py-4 text-left font-bold text-stone-700 dark:text-stone-300 uppercase tracking-wider">${cell}</th>`)
+        })
+        html.push('</tr></thead>')
+        
+        // Render body
+        html.push('<tbody class="divide-y divide-stone-100 dark:divide-stone-900 bg-white dark:bg-black/20 text-xs">')
+        for (let i = 1; i < tableRows.length; i++) {
+          if (tableRows[i].some(cell => cell.trim().startsWith('---') || cell.trim().endsWith('---'))) {
+            continue
+          }
+          html.push('<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-900/30 transition-colors">')
+          tableRows[i].forEach(cell => {
+            html.push(`<td class="px-6 py-4 text-stone-600 dark:text-stone-400">${cell}</td>`)
+          })
+          html.push('</tr>')
+        }
+        html.push('</tbody></table></div>')
+      }
+      tableRows = []
+      inTable = false
+    }
+  }
+
+  const parseInline = (text) => {
+    let parsed = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    parsed = parsed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+      const isInternal = url.startsWith('/')
+      if (isInternal) {
+        return `<a href="${url}" class="text-amber-500 hover:text-amber-600 underline font-semibold transition-colors">${linkText}</a>`
+      } else {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 underline font-semibold transition-colors">${linkText}</a>`
+      }
+    })
+    return parsed
+  }
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim()
+
+    if (!line) {
+      closeList()
+      closeTable()
+      continue
+    }
+
+    if (line.startsWith('### ')) {
+      closeList()
+      closeTable()
+      html.push(`<h3 class="text-xl font-playfair font-semibold text-[var(--luxury-black)] dark:text-white mt-10 mb-4 tracking-tight">${parseInline(line.substring(4))}</h3>`)
+      continue
+    }
+    if (line.startsWith('## ')) {
+      closeList()
+      closeTable()
+      html.push(`<h2 class="text-2xl font-playfair font-semibold text-[var(--luxury-black)] dark:text-white mt-12 mb-6 tracking-tight">${parseInline(line.substring(3))}</h2>`)
+      continue
+    }
+    if (line.startsWith('# ')) {
+      closeList()
+      closeTable()
+      html.push(`<h1 class="text-3xl font-playfair font-semibold text-[var(--luxury-black)] dark:text-white mt-16 mb-8 tracking-tight">${parseInline(line.substring(2))}</h1>`)
+      continue
+    }
+
+    if (line.startsWith('|')) {
+      closeList()
+      inTable = true
+      const cells = line.split('|').map(c => c.trim()).filter((c, idx, arr) => idx > 0 && idx < arr.length - 1)
+      tableRows.push(cells.map(c => parseInline(c)))
+      continue
+    } else {
+      closeTable()
+    }
+
+    const unorderedMatch = line.match(/^[-*]\s+(.*)/)
+    if (unorderedMatch) {
+      if (inList && listType !== 'ul') {
+        closeList()
+      }
+      if (!inList) {
+        inList = true
+        listType = 'ul'
+        html.push('<ul class="list-disc pl-6 my-6 space-y-3 text-stone-600 dark:text-stone-300">')
+      }
+      html.push(`<li>${parseInline(unorderedMatch[1])}</li>`)
+      continue
+    }
+
+    const orderedMatch = line.match(/^(\d+)\.\s+(.*)/)
+    if (orderedMatch) {
+      if (inList && listType !== 'ol') {
+        closeList()
+      }
+      if (!inList) {
+        inList = true
+        listType = 'ol'
+        html.push('<ol class="list-decimal pl-6 my-6 space-y-3 text-stone-600 dark:text-stone-300">')
+      }
+      html.push(`<li>${parseInline(orderedMatch[2])}</li>`)
+      continue
+    }
+
+    closeList()
+    closeTable()
+    html.push(`<p class="text-lg text-stone-600 dark:text-stone-300 leading-relaxed my-4">${parseInline(line)}</p>`)
+  }
+
+  closeList()
+  closeTable()
+
+  return html.join('\n')
 })
 
 const relatedPosts = computed(() => {
