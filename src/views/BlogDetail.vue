@@ -3,23 +3,23 @@
     <div class="max-w-4xl mx-auto px-6">
       <!-- Post Meta Header -->
       <div class="text-center mb-16">
-        <div class="flex items-center justify-center gap-4 text-[9px] text-amber-500 font-bold uppercase tracking-[0.4em] mb-6">
+        <div class="flex items-center justify-center gap-4 text-[9px] text-[#c9973a] font-bold uppercase tracking-[0.4em] mb-6">
           <span>{{ post.category }}</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-800"></span>
           <span>{{ post.date }}</span>
         </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-playfair text-[var(--luxury-black)] dark:text-white leading-tight mb-8">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-playfair font-normal text-stone-900 dark:text-white leading-tight mb-8">
           {{ post.title }}
         </h1>
         <div class="flex items-center justify-center gap-3">
-          <div class="w-10 h-[1px] bg-stone-200"></div>
+          <div class="w-10 h-[1px] bg-stone-200 dark:bg-stone-800"></div>
           <span class="text-[10px] text-stone-400 uppercase tracking-widest italic">By {{ post.author }}</span>
-          <div class="w-10 h-[1px] bg-stone-200"></div>
+          <div class="w-10 h-[1px] bg-stone-200 dark:bg-stone-800"></div>
         </div>
       </div>
 
       <!-- Featured Image -->
-      <div class="relative aspect-video overflow-hidden mb-16 bg-stone-100 dark:bg-white/5">
+      <div class="relative aspect-video overflow-hidden mb-16 bg-stone-100 dark:bg-white/5 rounded-sm">
         <img 
           :src="post.image || 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1200'" 
           :alt="post.title"
@@ -29,19 +29,19 @@
 
       <!-- Content Section -->
       <div class="prose prose-stone dark:prose-invert max-w-none">
-        <div v-html="parsedContent" class="text-stone-600 dark:text-stone-300 leading-relaxed space-y-4 first-letter:text-5xl first-letter:font-playfair first-letter:mr-3 first-letter:float-left first-letter:text-amber-500">
+        <div v-html="parsedContent" class="text-stone-700 dark:text-stone-300 leading-relaxed text-sm md:text-base space-y-6 first-letter:text-6xl first-letter:font-playfair first-letter:mr-3.5 first-letter:float-left first-letter:text-[#c9973a]">
         </div>
       </div>
 
       <!-- Footer / Share -->
-      <div class="mt-20 pt-10 border-t border-stone-100 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-        <button @click="router.back()" class="text-[10px] font-black uppercase tracking-widest text-stone-400 hover:text-amber-500 flex items-center gap-2 transition-all">
-          <font-awesome-icon icon="fa-solid fa-arrow-left" />
-          Back to Journal
+      <div class="mt-20 pt-10 border-t border-stone-100 dark:border-stone-800 flex flex-col md:flex-row items-center justify-between gap-8">
+        <button @click="router.back()" class="text-[10px] font-black uppercase tracking-widest text-stone-500 hover:text-[#c9973a] flex items-center gap-2 transition-all group">
+          <span class="group-hover:-translate-x-1 transition-transform">←</span>
+          Return to Journal
         </button>
         
-        <div class="flex gap-6">
-          <span class="text-[9px] font-bold uppercase tracking-widest text-stone-300">Share This Story</span>
+        <div class="flex items-center gap-4">
+          <span class="text-[9px] font-bold uppercase tracking-widest text-stone-400">Share This Story</span>
           <div class="flex gap-4 text-stone-400">
             <a :href="getShareLink('facebook')" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" aria-label="Share on Facebook"><font-awesome-icon :icon="['fab', 'facebook-f']" /></a>
             <a :href="getShareLink('instagram')" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors" aria-label="Visit Instagram"><font-awesome-icon :icon="['fab', 'instagram']" /></a>

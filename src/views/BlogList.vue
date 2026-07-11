@@ -2,27 +2,29 @@
   <div class="blog-list-page bg-[#fafaf8] dark:bg-[#050505] min-h-screen pb-32 transition-colors duration-700">
     
     <!-- Cinematic Blog Hero -->
-    <section class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black mb-20">
+    <section class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-[#fafaf8] dark:bg-[#050505] mb-20">
       <div class="absolute inset-0 z-0">
-        <img :src="Hero4" alt="AhmadClothesHouse Fashion Journal" 
-             class="w-full h-full object-cover opacity-50 animate-slow-zoom" />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-[#fafaf8] dark:to-[#050505]"></div>
+        <img :src="Hero4" alt="Ahmad Clothes House Fashion Journal" 
+             class="w-full h-full object-cover opacity-100 animate-slow-zoom" />
+        <!-- Subtle bottom gradient transition -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#fafaf8] via-transparent to-transparent dark:from-[#050505]"></div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-8 w-full relative z-10 flex flex-col items-center text-center">
-        <div class="flex items-center gap-4 mb-6 animate-reveal">
-          <div class="h-[1px] w-12 bg-amber-500"></div>
-          <span class="text-amber-500 font-bold text-[10px] uppercase tracking-[0.6em]">THE HOUSE JOURNAL</span>
-          <div class="h-[1px] w-12 bg-amber-500"></div>
-        </div>
+      <div class="max-w-4xl mx-auto px-6 w-full relative z-10 flex flex-col items-center">
+        <!-- Glass Card for Title -->
+        <div class="w-full bg-black/40 backdrop-blur-md border border-white/10 p-10 md:p-14 text-center rounded-sm shadow-2xl animate-reveal">
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+            <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">THE HOUSE JOURNAL</span>
+            <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+          </div>
 
-        <h1 class="text-6xl md:text-9xl font-playfair italic text-white leading-none tracking-tighter mb-10 drop-shadow-2xl animate-reveal-delay">
-          Couture <br>
-          <span class="text-stone-400 not-italic font-sans tracking-[0.2em] font-light">COLLECTIVE</span>
-        </h1>
+          <h1 class="text-4xl md:text-7xl font-playfair italic text-white leading-none tracking-tight mb-8">
+            Couture <br>
+            <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light text-2xl md:text-4xl block mt-2">COLLECTIVE</span>
+          </h1>
 
-        <div class="max-w-xl bg-white/5 backdrop-blur-3xl border border-white/10 p-6 md:p-8 animate-reveal-delay" style="animation-delay: 0.4s">
-          <p class="text-[10px] md:text-xs text-white/60 font-medium uppercase tracking-[0.4em] leading-loose italic">
+          <p class="text-xs md:text-sm text-white/95 font-light tracking-[0.15em] max-w-xl mx-auto leading-relaxed">
             Exploring the artistry, deep-rooted heritage, and modern evolution of Pakistani high fashion.
           </p>
         </div>
@@ -32,60 +34,66 @@
     <div class="max-w-7xl mx-auto px-6">
 
       <!-- Categories Filter -->
-      <div class="flex flex-wrap justify-center gap-4 mb-16">
+      <div class="flex flex-wrap justify-center gap-3 mb-16">
         <button 
           v-for="cat in categories" 
           :key="cat"
           @click="selectedCategory = cat"
-          :class="['px-6 py-2 text-[10px] font-bold tracking-widest uppercase border transition-all', 
-                   selectedCategory === cat ? 'bg-amber-500 border-amber-500 text-black' : 'border-stone-200 dark:border-white/10 text-stone-500 hover:border-amber-500/50']"
+          :class="['px-6 py-2.5 text-[10px] font-bold tracking-[0.15em] uppercase border transition-all duration-300 rounded-sm', 
+                   selectedCategory === cat 
+                     ? 'bg-[#1a1a1a] dark:bg-white text-white dark:text-black border-[#1a1a1a] dark:border-white shadow-md' 
+                     : 'bg-white dark:bg-transparent border-stone-200 dark:border-stone-800 text-stone-500 hover:border-[#c9973a] hover:text-[#c9973a]']"
         >
           {{ cat }}
         </button>
       </div>
 
       <!-- Blog Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         <article 
           v-for="(post, index) in filteredBlogs" 
           :key="post.id" 
-          class="group cursor-pointer"
+          class="group cursor-pointer flex flex-col bg-white dark:bg-[#0c0c0c] border border-stone-100 dark:border-white/5 p-4 rounded-sm transition-all duration-500 hover:shadow-xl"
           @click="router.push(`/blog/${post.slug}`)"
         >
-          <div class="relative aspect-[4/5] overflow-hidden mb-6 bg-stone-100 dark:bg-white/5">
+          <div class="relative aspect-[4/5] overflow-hidden mb-6 bg-stone-100 dark:bg-white/5 rounded-sm">
             <img 
               :src="post.image || 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800'" 
               :alt="post.title"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              loading="lazy"
             />
-            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1">
-              <span class="text-[8px] font-black uppercase text-black tracking-widest">{{ post.category }}</span>
+            <div class="absolute top-4 left-4 bg-white/90 dark:bg-[#111]/90 backdrop-blur-sm px-3.5 py-1.5 border border-stone-200/20">
+              <span class="text-[8px] font-black uppercase text-stone-800 dark:text-stone-200 tracking-widest">{{ post.category }}</span>
             </div>
           </div>
-          <div class="space-y-3">
-            <div class="flex items-center gap-4 text-[8px] text-stone-400 uppercase tracking-widest">
+          <div class="space-y-3 flex-1 flex flex-col px-2 pb-2">
+            <div class="flex items-center gap-3 text-[9px] text-stone-400 uppercase tracking-widest">
               <span>{{ post.date }}</span>
-              <span class="w-4 h-[1px] bg-amber-500/30"></span>
+              <span class="w-3 h-[1px] bg-[#c9973a]/30"></span>
               <span>{{ post.author }}</span>
             </div>
-            <h2 class="text-xl font-playfair text-[var(--luxury-black)] dark:text-white group-hover:text-amber-500 transition-colors leading-tight">
+            <h2 class="text-lg md:text-xl font-playfair font-normal text-stone-900 dark:text-white group-hover:text-[#c9973a] transition-colors leading-snug">
               {{ post.title }}
             </h2>
-            <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-2">
+            <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-2 font-light">
               {{ post.summary }}
             </p>
-            <div class="pt-2">
-              <span class="text-[9px] font-black text-amber-500 uppercase tracking-widest border-b border-amber-500/0 group-hover:border-amber-500/50 transition-all">Read Journal</span>
+            <div class="pt-4 mt-auto">
+              <span class="inline-flex items-center gap-2 text-[9px] font-bold text-[#c9973a] uppercase tracking-widest group-hover:underline">
+                Read Journal
+                <span>→</span>
+              </span>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Pagination/More (Simple for now) -->
+      <!-- Pagination/More -->
       <div v-if="displayLimit < totalFiltered" class="mt-20 text-center">
         <button 
           @click="displayLimit += 12"
-          class="px-10 py-4 bg-[var(--luxury-black)] dark:bg-white text-white dark:text-black text-[10px] font-black tracking-[0.3em] uppercase hover:bg-amber-500 dark:hover:bg-amber-500 transition-all"
+          class="px-10 py-4 bg-[#1a1a1a] dark:bg-white text-white dark:text-black text-[10px] font-black tracking-[0.25em] uppercase hover:bg-[#c9973a] dark:hover:bg-[#c9973a] dark:hover:text-white transition-all duration-300 rounded-sm"
         >
           Load More Entries
         </button>
