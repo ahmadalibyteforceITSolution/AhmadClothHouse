@@ -52,8 +52,13 @@
         </a>
       </div>
 
-      <!-- Right: Theme toggle -->
+      <!-- Right: Google Translate + Theme toggle -->
       <div class="flex items-center gap-3">
+        <!-- Google Translate -->
+        <div id="google_translate_element" class="hidden lg:flex items-center"></div>
+        <!-- Separator -->
+        <span class="w-px h-4 bg-stone-200 dark:bg-stone-700 hidden lg:block"></span>
+        <!-- Theme Toggle -->
         <button @click="themeStore.toggleTheme" class="text-stone-400 hover:text-stone-700 dark:hover:text-white transition-colors" aria-label="Toggle Theme">
           <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" class="text-sm" />
         </button>
@@ -145,9 +150,6 @@
 
         <!-- RIGHT: Search, Translate, Icons, Account -->
         <div class="flex items-center gap-3 sm:gap-4 w-[220px] justify-end">
-
-          <!-- Google Translate -->
-          <div id="google_translate_element" class="hidden lg:flex items-center scale-90 origin-right min-w-[120px]"></div>
 
           <!-- Search -->
           <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn" aria-label="Search">
