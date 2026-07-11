@@ -1,291 +1,249 @@
 <template>
-  <header class="w-full" :class="{ 'header-scrolled': isScrolled }">
-    <div class="bg-[var(--deep-burgundy)] text-white py-1.5 px-4 text-center overflow-hidden relative group border-b border-white/10">
-      <div class="animate-marquee whitespace-nowrap inline-block">
-        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
-          ✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
-        </span>
-        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
-          🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚
-        </span>
-      </div>
-      <!-- Duplicate for seamless loop -->
-      <div class="animate-marquee whitespace-nowrap inline-block absolute top-1.5 left-full">
-        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
-          ✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨ 
-        </span>
-        <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-10">
-          🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚
+  <header class="w-full sticky top-0 z-[9999]" :class="{ 'header-scrolled': isScrolled }">
+
+    <!-- ══════════ TIER 1 — Promo Marquee ══════════ -->
+    <div class="bg-[#1a1a1a] text-white py-2 px-4 overflow-hidden relative">
+      <div class="marquee-track flex whitespace-nowrap">
+        <span class="marquee-inner">
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-16">✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨</span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-16">🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚</span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-16">✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨</span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] mx-16">🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚</span>
         </span>
       </div>
     </div>
-    
-    <!-- WhatsApp Support Bar -->
-    <div class="bg-white dark:bg-[#0A0A0A] py-2 px-4 border-b border-black/5 dark:border-white/5 flex items-center justify-center gap-6 overflow-hidden">
-      <div class="flex items-center gap-2 group/wa">
-        <div class="relative">
-          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-base group-hover/wa:scale-110 transition-transform" />
-          <span class="absolute inset-0 bg-[#25D366] rounded-full blur-[4px] opacity-0 group-hover/wa:opacity-40 transition-opacity"></span>
-        </div>
-        <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
-          <span class="text-[#25D366] uppercase mr-1">Inquiry:</span> 
-          <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-black dark:text-white hover:text-green-600 transition-colors">0341 6887454</a>
-        </p>
-      </div>
-      <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
-      <div class="flex items-center gap-2 group/wa2">
-        <div class="relative">
-          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-base group-hover/wa2:scale-110 transition-transform" />
-          <span class="absolute inset-0 bg-[#25D366] rounded-full blur-[4px] opacity-0 group-hover/wa2:opacity-40 transition-opacity"></span>
-        </div>
-        <p class="text-[10px] sm:text-[11px] font-bold tracking-wide">
-          <span class="text-[#25D366] uppercase mr-1">Support:</span> 
-          <a href="https://wa.me/923244902607" target="_blank" rel="noopener" class="text-black dark:text-white hover:text-green-600 transition-colors">0324 4902607</a>
-        </p>
-      </div>
-      <div class="w-[1px] h-3 bg-black/10 dark:bg-white/10 hidden sm:block"></div>
+
+    <!-- ══════════ TIER 2 — Contact & Social Bar ══════════ -->
+    <div class="bg-white dark:bg-[#0d0d0d] border-b border-stone-100 dark:border-white/5 px-6 lg:px-16 py-2.5 flex items-center justify-between">
+      <!-- Left: Social Icons -->
       <div class="hidden sm:flex items-center gap-4">
-        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-red-600 transition-colors" aria-label="YouTube">
+        <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" aria-label="Instagram"
+          class="text-stone-400 hover:text-[#E1306C] transition-colors">
+          <font-awesome-icon :icon="['fab', 'instagram']" class="text-sm" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" aria-label="Facebook"
+          class="text-stone-400 hover:text-[#1877F2] transition-colors">
+          <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-sm" />
+        </a>
+        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube"
+          class="text-stone-400 hover:text-[#FF0000] transition-colors">
           <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
         </a>
-        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok"
+          class="text-stone-400 hover:text-black dark:hover:text-white transition-colors">
           <font-awesome-icon :icon="['fab', 'tiktok']" class="text-sm" />
         </a>
       </div>
+
+      <!-- Center: Contact Numbers -->
+      <div class="flex items-center gap-6 mx-auto sm:mx-0 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+        <a href="https://wa.me/923416887454" target="_blank" rel="noopener"
+          class="flex items-center gap-2 group">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-xs group-hover:scale-110 transition-transform" />
+          <span class="text-[10px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest">Inquiry:</span>
+          <span class="text-[10px] font-bold text-stone-800 dark:text-stone-200 hover:text-[#25D366] transition-colors">0341 6887454</span>
+        </a>
+        <span class="w-px h-3 bg-stone-200 dark:bg-stone-700 hidden sm:block"></span>
+        <a href="https://wa.me/923244902607" target="_blank" rel="noopener"
+          class="hidden sm:flex items-center gap-2 group">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-[#25D366] text-xs group-hover:scale-110 transition-transform" />
+          <span class="text-[10px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-widest">Support:</span>
+          <span class="text-[10px] font-bold text-stone-800 dark:text-stone-200 hover:text-[#25D366] transition-colors">0324 4902607</span>
+        </a>
+      </div>
+
+      <!-- Right: Theme toggle -->
+      <div class="flex items-center gap-3">
+        <button @click="themeStore.toggleTheme" class="text-stone-400 hover:text-stone-700 dark:hover:text-white transition-colors" aria-label="Toggle Theme">
+          <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" class="text-sm" />
+        </button>
+      </div>
     </div>
 
-    <!-- Main Header -->
-    <div class="main-header px-4 sm:px-8 lg:px-16 flex flex-col items-center transition-all duration-500"
-      :class="isScrolled ? 'py-0 shadow-lg' : 'py-0'">
-      <!-- Top Row: Actions Left, Logo Center, Actions Right -->
-      <div class="w-full flex items-center justify-between">
-        <!-- LEFT: Logo (Mobile) + Actions (Desktop/Mobile) -->
-        <div class="flex items-center gap-4 flex-1">
-          <!-- Logo for Mobile (Left) -->
-          <div class="lg:hidden cursor-pointer" @click="goToHome">
-            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" width="80" height="80" />
-          </div>
+    <!-- ══════════ TIER 3 — Main Header ══════════ -->
+    <div class="main-header bg-white dark:bg-[#0d0d0d] border-b border-stone-100 dark:border-white/5 px-6 lg:px-16 py-0 transition-all duration-300"
+      :class="isScrolled ? 'shadow-md' : ''">
 
-          <!-- Back Button (Mobile Only) -->
-          <button v-if="route.path !== '/' && isMobile" @click="router.back()" class="icon-btn" aria-label="Back">
-            <font-awesome-icon icon="fa-solid fa-arrow-left" />
-          </button>
+      <div class="flex items-center justify-between h-[72px]">
 
+        <!-- LEFT: Concierge (Desktop) + Hamburger (Mobile) -->
+        <div class="flex items-center gap-3 w-[220px]">
 
-
-          <!-- Luxury Concierge (Desktop) -->
-          <div class="relative group ml-1 sm:ml-4 hidden lg:block">
-            <button class="concierge-btn flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/10 transition-all duration-500 group/btn shadow-[0_0_15px_rgba(245,158,11,0.1)] hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-              <div class="relative">
-                <font-awesome-icon icon="fa-solid fa-headset" class="text-[11px] text-amber-500" />
-                <span class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-black animate-pulse"></span>
-                <span class="absolute inset-0 bg-amber-500 rounded-full blur-[6px] animate-pulse opacity-40"></span>
+          <!-- Desktop Concierge -->
+          <div class="relative group hidden lg:block">
+            <button class="flex items-center gap-2 border border-[#d4af37]/40 bg-[#d4af37]/5 hover:bg-[#d4af37]/10 px-4 py-2 transition-all duration-300 group/btn">
+              <div class="relative flex-shrink-0">
+                <font-awesome-icon icon="fa-solid fa-headset" class="text-[11px] text-[#c9973a]" />
+                <span class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
               </div>
-              <span class="text-[9px] sm:text-[10px] font-black tracking-[0.3em] text-amber-600 dark:text-amber-500 uppercase flex items-center gap-1">
-                Concierge
-                <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] opacity-40 group-hover/btn:rotate-180 transition-transform duration-500" />
-              </span>
+              <span class="text-[10px] font-black tracking-[0.25em] text-[#c9973a] uppercase">Concierge</span>
+              <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[7px] text-[#c9973a]/60 group-hover/btn:rotate-180 transition-transform duration-300" />
             </button>
-            <div class="dropdown-menu left-0 w-64 mt-3 rounded-none border-amber-500/10 shadow-[0_20px_50px_rgba(212,175,55,0.15)] overflow-hidden">
-              <div class="bg-gradient-to-b from-amber-50/50 to-white dark:from-amber-950/20 dark:to-[#0A0A0A] p-5">
-                <p class="text-[8px] font-black text-amber-600/50 uppercase tracking-[0.4em] mb-4">Personal Styling & Help</p>
+
+            <!-- Dropdown -->
+            <div class="absolute top-full left-0 mt-1 w-64 bg-white dark:bg-[#111] border border-stone-100 dark:border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              <div class="p-5">
+                <p class="text-[8px] font-black text-[#c9973a]/60 uppercase tracking-[0.4em] mb-4">Personal Styling & Help</p>
                 <div class="space-y-1">
-                  <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="flex items-center justify-between p-3 bg-white dark:bg-white/5 border border-amber-500/10 hover:border-amber-500/40 transition-all group/wa">
+                  <a href="https://wa.me/923416887454" target="_blank" rel="noopener"
+                    class="flex items-center justify-between p-3 hover:bg-stone-50 dark:hover:bg-white/5 border border-transparent hover:border-[#d4af37]/30 transition-all group/wa">
                     <div class="flex items-center gap-3">
-                      <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-green-500 text-sm" />
+                      <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-green-500" />
                       <div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-[#111] dark:text-white">WhatsApp Live</p>
-                        <p class="text-[8px] text-stone-400">Response in < 5 mins</p>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-stone-800 dark:text-white">WhatsApp Live</p>
+                        <p class="text-[8px] text-stone-400">Response in &lt; 5 mins</p>
                       </div>
                     </div>
-                    <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[8px] text-amber-500 -translate-x-2 opacity-0 group-hover/wa:translate-x-0 group-hover/wa:opacity-100 transition-all" />
+                    <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[8px] text-[#c9973a] -translate-x-2 opacity-0 group-hover/wa:translate-x-0 group-hover/wa:opacity-100 transition-all" />
                   </a>
-                  <a href="tel:+923416887454" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
-                    <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
+                  <a href="tel:+923416887454" class="flex items-center gap-3 p-3 hover:bg-stone-50 dark:hover:bg-white/5 transition-all">
+                    <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-[#c9973a]" />
                     <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0341 6887454</span>
                   </a>
-                  <a href="tel:+923244902607" class="flex items-center gap-3 p-3 hover:bg-amber-500/5 transition-all">
-                    <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-amber-600" />
+                  <a href="tel:+923244902607" class="flex items-center gap-3 p-3 hover:bg-stone-50 dark:hover:bg-white/5 transition-all">
+                    <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px] text-[#c9973a]" />
                     <span class="text-[10px] font-bold text-stone-600 dark:text-stone-300 tracking-widest">0324 4902607</span>
                   </a>
                 </div>
-                <div class="mt-4 pt-4 border-t border-amber-500/10">
-                  <button @click="isQueryModalOpen = true" class="w-full py-3 bg-[#111] dark:bg-amber-500 text-white dark:text-black font-black text-[9px] uppercase tracking-[0.3em] hover:bg-amber-600 transition-all">
+                <div class="mt-4 pt-4 border-t border-stone-100 dark:border-white/10">
+                  <button @click="isQueryModalOpen = true"
+                    class="w-full py-3 bg-[#1a1a1a] dark:bg-[#d4af37] text-white dark:text-black font-black text-[9px] uppercase tracking-[0.3em] hover:bg-[#d4af37] hover:text-black transition-all duration-300">
                     Leave a Message
                   </button>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Mobile: Back + Hamburger -->
+          <div class="lg:hidden flex items-center gap-2">
+            <button v-if="route.path !== '/'" @click="router.back()" class="icon-btn" aria-label="Back">
+              <font-awesome-icon icon="fa-solid fa-arrow-left" />
+            </button>
+            <button @click="isQueryModalOpen = true" class="icon-btn" aria-label="Concierge">
+              <font-awesome-icon icon="fa-solid fa-headset" class="text-[#c9973a]" />
+            </button>
+            <button v-if="route.path === '/'" @click="isMenuOpen = !isMenuOpen" class="hamburger-btn" aria-label="Menu">
+              <span class="hamburger-line bg-[var(--luxury-black)] dark:bg-white"></span>
+              <span class="hamburger-line bg-[var(--luxury-black)] dark:bg-white"></span>
+              <span class="hamburger-line bg-[var(--luxury-black)] dark:bg-white"></span>
+            </button>
+          </div>
         </div>
 
-        <!-- CENTER: Logo (Desktop Only) -->
-        <div class="hidden lg:flex flex-shrink-0 cursor-pointer flex-col items-center group px-4" @click="goToHome">
-          <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-24 h-24" width="96" height="96">
+        <!-- CENTER: Logo -->
+        <div class="flex-1 flex justify-center items-center cursor-pointer" @click="goToHome">
+          <!-- Mobile Logo (left) -->
+          <div class="lg:hidden">
+            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-14 h-14 object-contain" width="56" height="56" />
+          </div>
+          <!-- Desktop Logo (center) -->
+          <div class="hidden lg:block">
+            <img :src="ahmadlogo" alt="Ahmad Cloth House" class="w-20 h-20 object-contain hover:scale-105 transition-transform duration-500" width="80" height="80" />
+          </div>
         </div>
 
-        <div class="flex items-center gap-2 sm:gap-5 flex-1 justify-end">
-          <!-- Google Translate (Always Visible) -->
-          <div id="google_translate_element" class="flex items-center justify-center scale-90 sm:scale-100 mx-1 transition-all duration-500 min-w-[140px] min-h-[40px]"></div>
+        <!-- RIGHT: Search, Translate, Icons, Account -->
+        <div class="flex items-center gap-3 sm:gap-4 w-[220px] justify-end">
 
-          <!-- Search Icon (Always Visible) -->
+          <!-- Google Translate -->
+          <div id="google_translate_element" class="hidden lg:flex items-center scale-90 origin-right min-w-[120px]"></div>
+
+          <!-- Search -->
           <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="icon-btn" aria-label="Search">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
           </button>
 
-          <!-- Mobile Only Actions -->
-          <div class="lg:hidden flex items-center gap-2">
-            <button @click="isQueryModalOpen = true" class="icon-btn" aria-label="Concierge">
-              <font-awesome-icon icon="fa-solid fa-headset" class="text-amber-500" />
-            </button>
-            <button v-if="route.path === '/'" @click="isMenuOpen = !isMenuOpen" class="hamburger-btn" aria-label="Menu">
-              <span class="hamburger-line bg-[var(--luxury-black)]"></span>
-              <span class="hamburger-line bg-[var(--luxury-black)]"></span>
-              <span class="hamburger-line bg-[var(--luxury-black)]"></span>
-            </button>
-          </div>
+          <!-- Favorites (authenticated desktop) -->
+          <button v-if="auth.isAuthenticated && !auth.isAdmin"
+            class="icon-btn relative hidden sm:flex" @click="router.push('/dashboard')" aria-label="Favorites">
+            <font-awesome-icon icon="fa-regular fa-heart" />
+            <span v-if="favorites.totalFavorites > 0" class="badge">{{ favorites.totalFavorites }}</span>
+          </button>
 
-          <!-- Desktop Only Actions -->
-          <div class="hidden sm:flex items-center gap-2 sm:gap-5">
-            <!-- Theme Toggle -->
-            <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
-              <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
+          <!-- Cart (authenticated desktop) -->
+          <button v-if="auth.isAuthenticated && !auth.isAdmin"
+            class="icon-btn relative hidden sm:flex" @click="router.push('/cart')" aria-label="Cart">
+            <font-awesome-icon icon="fa-solid fa-bag-shopping" />
+            <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
+          </button>
+
+          <!-- Account dropdown (authenticated, desktop) -->
+          <div v-if="auth.isAuthenticated" class="relative group hidden lg:block">
+            <button class="luxury-action-btn flex items-center gap-2">
+              <font-awesome-icon icon="fa-solid fa-user" class="text-[10px]" />
+              <span class="text-[10px] font-black uppercase tracking-widest">Account</span>
             </button>
-
-            <!-- Favorites -->
-            <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-              @click="router.push('/dashboard')" aria-label="Favorites">
-              <font-awesome-icon icon="fa-regular fa-heart" />
-              <span v-if="favorites.totalFavorites > 0" class="badge">{{ favorites.totalFavorites }}</span>
-            </button>
-
-            <!-- Cart -->
-            <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-              @click="router.push('/cart')" aria-label="Cart">
-              <font-awesome-icon icon="fa-solid fa-bag-shopping" />
-              <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
-            </button>
-          </div>
-
-
-          <!-- User Account Actions -->
-          <template v-if="auth.isAuthenticated">
-            <!-- User (Desktop Dropdown) -->
-            <div class="relative group hidden lg:block">
-              <button class="luxury-action-btn flex items-center gap-3">
-                <font-awesome-icon icon="fa-solid fa-user" class="text-[10px]" />
-                <span class="text-[10px] font-black uppercase tracking-widest">ACCOUNT</span>
-              </button>
-              <div class="dropdown-menu right-0 w-64">
-                <div class="px-5 py-4 border-b border-black/5">
-                  <p class="text-[9px] uppercase tracking-widest opacity-50 mb-1">Signed in as</p>
-                  <p class="text-xs font-semibold truncate text-[var(--luxury-black)]">{{ auth.user?.email }}</p>
-                </div>
-                <div class="p-2">
-                  <router-link v-if="auth.isAdmin" to="/admin/dashboard" class="dropdown-item">
-                    Admin Dashboard
-                  </router-link>
-                  <router-link v-else to="/dashboard" class="dropdown-item">
-                    My Account
-                  </router-link>
-                  <button @click="handleLogout" class="dropdown-item text-rose-600">
-                    Sign Out
-                  </button>
-                </div>
+            <div class="dropdown-menu right-0 w-56">
+              <div class="px-4 py-3 border-b border-stone-100 dark:border-white/5">
+                <p class="text-[9px] uppercase tracking-widest text-stone-400 mb-1">Signed in as</p>
+                <p class="text-xs font-semibold truncate text-stone-800 dark:text-white">{{ auth.user?.email }}</p>
+              </div>
+              <div class="p-2">
+                <router-link v-if="auth.isAdmin" to="/admin/dashboard" class="dropdown-item">Admin Dashboard</router-link>
+                <router-link v-else to="/dashboard" class="dropdown-item">My Account</router-link>
+                <button @click="handleLogout" class="dropdown-item text-rose-500">Sign Out</button>
               </div>
             </div>
+          </div>
 
-            <!-- User Icon (Mobile) -->
-            <div class="lg:hidden">
-              <button @click="isMenuOpen = true" class="icon-btn" aria-label="Account">
-                <font-awesome-icon icon="fa-solid fa-user" />
-              </button>
-            </div>
-          </template>
-
-          <div v-else class="hidden lg:flex items-center gap-3">
-            <router-link to="/login" class="luxury-action-btn flex items-center gap-3 group">
-              <font-awesome-icon icon="fa-solid fa-user" class="text-[10px] group-hover:text-amber-500 transition-colors" />
-              <span class="text-[10px] font-black uppercase tracking-widest">LOGIN</span>
+          <!-- Login / Join (unauthenticated, desktop) -->
+          <div v-else class="hidden lg:flex items-center gap-2">
+            <router-link to="/login" class="luxury-action-btn flex items-center gap-2 group">
+              <font-awesome-icon icon="fa-solid fa-user" class="text-[10px] group-hover:text-[#c9973a] transition-colors" />
+              <span class="text-[10px] font-black uppercase tracking-widest">Account</span>
             </router-link>
-            <router-link to="/signup" class="luxury-action-btn border-amber-500/20 hover:border-amber-500">
-              <span class="text-[10px] font-black uppercase tracking-widest text-[#d4af37]">JOIN HOUSE</span>
+          </div>
+
+          <!-- Mobile user icon -->
+          <div v-if="auth.isAuthenticated" class="lg:hidden">
+            <button @click="isMenuOpen = true" class="icon-btn" aria-label="Account">
+              <font-awesome-icon icon="fa-solid fa-user" />
+            </button>
+          </div>
+          <div v-else class="lg:hidden flex items-center gap-2">
+            <router-link to="/login" class="icon-btn" aria-label="Login">
+              <font-awesome-icon icon="fa-solid fa-user" />
             </router-link>
           </div>
         </div>
       </div>
 
-      <!-- Mobile Actions Row (Theme, Favorites, Cart, Login) - Below Logo -->
-      <div class="flex sm:hidden w-full items-center justify-center gap-4 mt-4 pt-2 border-t border-black/5 dark:border-white/5">
-        <!-- Theme Toggle -->
-        <button @click="themeStore.toggleTheme" class="icon-btn" aria-label="Toggle Theme">
-          <font-awesome-icon :icon="themeStore.isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
-        </button>
-
-        <!-- Auth Action for Mobile (When not logged in) -->
-        <template v-if="!auth.isAuthenticated">
-          <router-link to="/login" class="luxury-action-btn py-2 px-6">
-            <span class="text-[9px] font-black tracking-widest">LOGIN</span>
-          </router-link>
-          <router-link to="/signup" class="luxury-action-btn py-2 px-6 border-amber-500/20">
-            <span class="text-[9px] font-black tracking-widest text-[#d4af37]">JOIN</span>
-          </router-link>
-        </template>
-
-        <!-- Auth Action for Mobile (When LOGGED IN) -->
-        <template v-else>
-          <router-link :to="auth.isAdmin ? '/admin/dashboard' : '/dashboard'" class="luxury-action-btn py-2 px-6">
-            <span class="text-[9px] font-black tracking-widest text-amber-500">ACCOUNT</span>
-          </router-link>
-          <button @click="handleLogout" class="luxury-action-btn py-2 px-6 border-rose-500/20">
-            <span class="text-[9px] font-black tracking-widest text-rose-500">LOGOUT</span>
-          </button>
-        </template>
-
-        <!-- Favorites -->
-        <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-          @click="router.push('/dashboard')" aria-label="Favorites">
-          <font-awesome-icon icon="fa-regular fa-heart" />
-          <span v-if="favorites.totalFavorites > 0" class="badge">{{ favorites.totalFavorites }}</span>
-        </button>
-
-        <!-- Cart -->
-        <button v-if="auth.isAuthenticated && !auth.isAdmin" class="icon-btn relative"
-          @click="router.push('/cart')" aria-label="Cart">
-          <font-awesome-icon icon="fa-solid fa-bag-shopping" />
-          <span v-if="cart.totalItems > 0" class="badge">{{ cart.totalItems }}</span>
-        </button>
-      </div>
-
-      <!-- Bottom Row: Navigation (Visible on Desktop) -->
-      <nav class="hidden lg:flex items-center gap-12 mt-6 w-full justify-center border-t border-black/5 dark:border-white/5 pt-4">
-        <div v-for="item in navItems" :key="item.name" class="relative group/nav">
-          <router-link :to="item.path" class="nav-link-premium">
+      <!-- ══════════ NAVIGATION BAR (Desktop) ══════════ -->
+      <nav class="hidden lg:flex items-center justify-center gap-10 border-t border-stone-100 dark:border-white/5 h-11">
+        <div v-for="item in navItems" :key="item.name" class="relative group/nav h-full flex items-center">
+          <router-link :to="item.path"
+            class="nav-link-premium text-[11px] font-bold uppercase tracking-[0.18em] text-stone-600 dark:text-stone-300 hover:text-[#1a1a1a] dark:hover:text-white transition-colors duration-200 h-full flex items-center relative"
+            :class="route.path === item.path || route.path.startsWith(item.path + '/') ? 'text-[#1a1a1a] dark:text-white' : ''">
             {{ item.name }}
+            <!-- Active / hover underline -->
+            <span class="absolute bottom-0 left-0 h-[2px] bg-[#c9973a] transition-all duration-300"
+              :class="route.path === item.path ? 'w-full' : 'w-0 group-hover/nav:w-full'"></span>
           </router-link>
-          
-          <!-- Category Dropdown (Mega Menu) -->
-          <div v-if="item.products && item.products.length > 0" 
-            class="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white dark:bg-[#0A0A0A] border border-black/5 dark:border-white/5 shadow-2xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-500 z-[110] p-8 grid grid-cols-2 gap-8">
-            <div class="space-y-4">
-              <h3 class="text-[9px] font-black text-[var(--primary-gold)] uppercase tracking-[0.4em] mb-6">Signature Pieces</h3>
-              <div v-for="p in item.products.slice(0, 4)" :key="p.id" 
+
+          <!-- Mega Dropdown -->
+          <div v-if="item.products && item.products.length > 0"
+            class="absolute top-full left-1/2 -translate-x-1/2 w-[560px] bg-white dark:bg-[#111] border border-stone-100 dark:border-white/5 shadow-2xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-400 z-[110] p-7 grid grid-cols-2 gap-7">
+            <div class="space-y-3">
+              <h3 class="text-[9px] font-black text-[#c9973a] uppercase tracking-[0.4em] mb-4">Signature Pieces</h3>
+              <div v-for="p in item.products.slice(0, 4)" :key="p.id"
                 @click="goToLiveProduct(p)"
-                class="flex items-center gap-4 p-3 hover:bg-stone-50 dark:hover:bg-white/5 cursor-pointer transition-all group/item">
-                <div class="w-12 h-14 bg-stone-100 dark:bg-stone-900 border border-black/5 shrink-0 overflow-hidden">
-                  <img :src="p.image" class="w-full h-full object-cover transition-all duration-700" />
+                class="flex items-center gap-3 p-2.5 hover:bg-stone-50 dark:hover:bg-white/5 cursor-pointer transition-all group/item">
+                <div class="w-11 h-13 bg-stone-100 dark:bg-stone-900 shrink-0 overflow-hidden">
+                  <img :src="p.image" class="w-full h-full object-cover transition-all duration-500 group-hover/item:scale-110" />
                 </div>
                 <div>
-                  <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--luxury-black)] dark:text-white line-clamp-1">{{ p.name }}</p>
-                  <p class="text-[9px] font-medium text-[var(--primary-gold)]">Rs. {{ p.price.toLocaleString() }}</p>
+                  <p class="text-[10px] font-bold uppercase tracking-widest text-stone-800 dark:text-white line-clamp-1">{{ p.name }}</p>
+                  <p class="text-[9px] font-medium text-[#c9973a]">Rs. {{ p.price?.toLocaleString() }}</p>
                 </div>
               </div>
             </div>
-            <div class="bg-stone-50 dark:bg-stone-900/40 p-6 flex flex-col justify-center text-center space-y-4">
+            <div class="bg-stone-50 dark:bg-stone-900/40 p-5 flex flex-col justify-center text-center space-y-3">
               <p class="text-[8px] font-black text-stone-400 uppercase tracking-[0.4em]">The {{ item.name }} Collection</p>
-              <h4 class="text-xl font-playfair italic text-[var(--luxury-black)] dark:text-white">Curated Luxury</h4>
-              <p class="text-[10px] text-stone-500 italic leading-relaxed">Discover our most sought-after pieces from the signature {{ item.name }} archives.</p>
-              <button @click="router.push(item.path)" class="mx-auto mt-4 px-8 py-3 bg-[var(--luxury-black)] dark:bg-white text-white dark:text-black text-[9px] font-bold uppercase tracking-widest hover:bg-[var(--primary-gold)] transition-colors">
+              <h4 class="text-xl font-playfair italic text-stone-800 dark:text-white">Curated Luxury</h4>
+              <p class="text-[11px] text-stone-500 italic leading-relaxed">Discover our most sought-after pieces from the {{ item.name }} archives.</p>
+              <button @click="router.push(item.path)"
+                class="mx-auto mt-3 px-7 py-2.5 bg-[#1a1a1a] dark:bg-white text-white dark:text-black text-[9px] font-bold uppercase tracking-widest hover:bg-[#c9973a] dark:hover:bg-[#c9973a] dark:hover:text-white transition-colors">
                 View All
               </button>
             </div>
@@ -293,7 +251,7 @@
         </div>
       </nav>
     </div>
-    
+
 
     <!-- Search Bar Dropdown -->
     <transition name="modal-fade">
@@ -815,23 +773,33 @@ const goToHome = () => {
 
 /* Main Header */
 .main-header {
-  background: var(--luxury-cream);
-  color: var(--luxury-black);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: sticky;
-  top: 0;
-  z-index: 10000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: #fff;
+  color: #1a1a1a;
+  transition: all 0.4s ease;
 }
 
 .dark .main-header {
-  background: #0A0A0A;
-  color: #F5F5F5;
-  border-bottom-color: rgba(255, 255, 255, 0.05);
+  background: #0d0d0d;
+  color: #f5f5f5;
 }
 
-.header-scrolled {
-  transform: translateY(-5px);
+.header-scrolled .main-header {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  overflow: hidden;
+}
+.marquee-inner {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeScroll 30s linear infinite;
+}
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Logo */
@@ -844,39 +812,31 @@ const goToHome = () => {
 /* Nav Links */
 .nav-link-premium {
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--luxury-black);
+  color: #555;
   position: relative;
   padding: 4px 0;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .dark .nav-link-premium {
-  color: #F5F5F5;
+  color: #aaa;
 }
 
-.nav-link-premium::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: var(--deep-burgundy);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+.nav-link-premium:hover,
+.nav-link-premium.router-link-active {
+  color: #1a1a1a;
 }
 
-.nav-link-premium:hover::after,
-.nav-link-premium.router-link-active::after {
-  width: 100%;
-}
-
-.nav-link-premium:hover {
-  color: var(--deep-burgundy);
+.dark .nav-link-premium:hover,
+.dark .nav-link-premium.router-link-active {
+  color: #fff;
 }
 
 /* Icon Buttons */
