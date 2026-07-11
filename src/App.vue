@@ -266,6 +266,104 @@
       :style="{ width: scrollProgress + '%' }"></div>
 
     <BottomNav v-if="showHeaderFooter" />
+
+    <!-- ═══════════ Login Prompt Modal ═══════════ -->
+    <transition name="modal-fade">
+      <div v-if="showLoginPrompt"
+        class="fixed inset-0 z-[999999] flex items-center justify-center p-4"
+        @click.self="closeLoginPrompt">
+
+        <!-- Blurred backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+        <!-- Modal Card -->
+        <div class="relative z-10 w-full max-w-md bg-white dark:bg-[#0d0d0d] shadow-2xl animate-modal-pop overflow-hidden">
+
+          <!-- Gold top accent bar -->
+          <div class="h-1 w-full bg-gradient-to-r from-[#c9973a] via-[#f0d080] to-[#c9973a]"></div>
+
+          <!-- Close button -->
+          <button @click="closeLoginPrompt"
+            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-stone-400 hover:text-stone-700 dark:hover:text-white transition-colors z-10"
+            aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+
+          <div class="px-8 pt-8 pb-8">
+
+            <!-- Icon & Header -->
+            <div class="flex flex-col items-center text-center mb-6">
+              <!-- Ornate lock icon -->
+              <div class="w-16 h-16 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#c9973a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25-2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                </svg>
+              </div>
+
+              <p class="text-[10px] font-bold uppercase tracking-[0.35em] text-[#c9973a] mb-2">Member Access Required</p>
+              <h2 class="text-2xl font-playfair font-normal text-[#1a1a1a] dark:text-white mb-3 leading-snug">
+                Please Login to Add<br>Items to Your Cart
+              </h2>
+
+              <!-- Gold divider -->
+              <div class="flex items-center gap-2 mb-4">
+                <div class="h-px w-8 bg-[#d4af37]/60"></div>
+                <svg width="16" height="8" viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M30 12C30 12 20 2 10 12C20 22 30 12 30 12Z" fill="#d4af37" opacity="0.7"/>
+                  <path d="M30 12C30 12 40 2 50 12C40 22 30 12 30 12Z" fill="#d4af37" opacity="0.7"/>
+                  <circle cx="30" cy="12" r="3" fill="#d4af37"/>
+                </svg>
+                <div class="h-px w-8 bg-[#d4af37]/60"></div>
+              </div>
+
+              <p class="text-[13px] text-stone-500 dark:text-stone-400 leading-relaxed max-w-xs">
+                Create a free account or sign in to enjoy exclusive collections, save your wishlist, and complete your purchase seamlessly.
+              </p>
+            </div>
+
+            <!-- Benefits row -->
+            <div class="grid grid-cols-3 gap-3 mb-7">
+              <div v-for="b in loginModalBenefits" :key="b.label"
+                class="flex flex-col items-center gap-1.5 text-center p-3 bg-stone-50 dark:bg-white/5 rounded">
+                <div class="text-[#c9973a]" v-html="b.icon"></div>
+                <p class="text-[9px] font-bold uppercase tracking-[0.1em] text-stone-500 dark:text-stone-400 leading-tight">{{ b.label }}</p>
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="space-y-3">
+              <router-link
+                to="/login"
+                @click="closeLoginPrompt"
+                class="flex items-center justify-center gap-2 w-full bg-[#1a1a1a] dark:bg-white text-white dark:text-[#1a1a1a] py-3.5 text-[11px] font-bold uppercase tracking-[0.35em] hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 group">
+                <span>Sign In to Your Account</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </router-link>
+
+              <router-link
+                to="/signup"
+                @click="closeLoginPrompt"
+                class="flex items-center justify-center gap-2 w-full border border-[#1a1a1a] dark:border-white text-[#1a1a1a] dark:text-white py-3.5 text-[11px] font-bold uppercase tracking-[0.35em] hover:bg-[#1a1a1a] hover:text-white dark:hover:bg-white dark:hover:text-[#1a1a1a] transition-all duration-300 group">
+                <span>Create Free Account</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </router-link>
+            </div>
+
+            <!-- Skip -->  
+            <p class="text-center mt-5">
+              <button @click="closeLoginPrompt"
+                class="text-[10px] text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 uppercase tracking-widest transition-colors underline underline-offset-2">
+                Continue browsing without login
+              </button>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </transition>
+
   </div>
 
 </template>
@@ -304,6 +402,43 @@ watch(() => route.name, (newName) => {
     isPanelOpen.value = true
   }
 })
+
+// ─── Login Prompt Modal ───────────────────────────────────────────────
+const showLoginPrompt = ref(false)
+
+const closeLoginPrompt = () => {
+  showLoginPrompt.value = false
+}
+
+const loginModalBenefits = [
+  {
+    label: 'Add to Cart',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/></svg>`
+  },
+  {
+    label: 'Save Wishlist',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>`
+  },
+  {
+    label: 'Track Orders',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>`
+  }
+]
+
+// Show modal after 1.2s every time an unauthenticated user is on home
+watch(
+  () => route.name,
+  (newName) => {
+    if (newName === 'home' && !auth.isAuthenticated) {
+      setTimeout(() => {
+        if (!auth.isAuthenticated) {
+          showLoginPrompt.value = true
+        }
+      }, 1200)
+    }
+  },
+  { immediate: true }
+)
 
 const handleScroll = () => {
   scrollY.value = window.scrollY
@@ -1060,6 +1195,26 @@ body {
 .fade-scale-leave-to {
   opacity: 0;
   transform: translateY(40px) scale(0.7);
+}
+
+/* Login Prompt Modal Transition */
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.35s ease;
+}
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+/* Modal card pop-in animation */
+@keyframes modalPop {
+  0%   { opacity: 0; transform: scale(0.88) translateY(24px); }
+  70%  { transform: scale(1.02) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-modal-pop {
+  animation: modalPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* WhatsApp Left FAB Styling */
