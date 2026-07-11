@@ -1,15 +1,6 @@
 <template>
   <div class="h-screen flex items-center justify-center p-8 relative overflow-hidden bg-white dark:bg-[#050505] transition-colors duration-1000 selection:bg-black/10 dark:selection:bg-white/10 font-sans text-[#111] dark:text-[#eee]">
     
-    <!-- Ultra Cinematic Background -->
-    <div class="absolute inset-0 group">
-       <div class="absolute inset-0 bg-white/90 dark:bg-black/90 z-10 backdrop-blur-[2px]"></div>
-       <img 
-          :src="CoutureDisplay" 
-          class="w-full h-full object-cover scale-110 animate-slow-zoom grayscale opacity-20 dark:opacity-40"
-          alt="Luxury Abstract"
-       >
-    </div>
 
     <!-- Centered Reset Card (Minimalist) -->
     <div class="max-w-md w-full bg-white dark:bg-[#050505] p-12 sm:p-16 border border-black/10 dark:border-white/10 shadow-2xl relative z-20 animate-fade-in-up">

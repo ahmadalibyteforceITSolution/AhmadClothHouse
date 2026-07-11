@@ -4,11 +4,10 @@
     <!-- Cinematic Left Panel -->
     <div class="hidden lg:flex w-1/2 relative overflow-hidden group border-r border-black/5 dark:border-white/5">
       <img :src="BridalShowcase"
-        class="absolute inset-0 w-full h-full object-cover grayscale opacity-90 transition-all duration-[20s] ease-out group-hover:scale-105 group-hover:grayscale-0"
+        class="absolute inset-0 w-full h-full object-cover transition-all duration-[20s] ease-out group-hover:scale-105"
         alt="Couture Experience">
       
       <!-- Minimalist Overlay Elements -->
-      <div class="absolute inset-0 bg-black/10 dark:bg-black/40 mix-blend-multiply"></div>
       
       <div class="absolute inset-x-12 bottom-20 z-20 space-y-4">
         <h2 class="text-4xl lg:text-5xl font-light text-white uppercase tracking-widest font-playfair leading-tight drop-shadow-lg">
