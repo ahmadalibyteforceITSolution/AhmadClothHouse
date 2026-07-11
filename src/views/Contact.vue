@@ -8,83 +8,79 @@
       </section>
 
       <!-- Premium Cinematic Contact Hero -->
-      <section class="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
+      <section class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-[#fafaf8] dark:bg-[#050505]">
         <!-- Background with slow pan animation -->
         <div class="absolute inset-0 z-0">
           <img :src="BridalHighlight" alt="Contact AhmadClothesHouse - Luxury Fashion Consulting" 
-               class="w-full h-full object-cover opacity-60 animate-slow-zoom" />
-          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-[#fafaf8] dark:to-[#050505]"></div>
+               class="w-full h-full object-cover opacity-100 animate-slow-zoom" />
+          <!-- Very subtle fade to match page background at the bottom -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#fafaf8] via-transparent to-transparent dark:from-[#050505]"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-8 w-full relative z-10 flex flex-col items-center text-center">
-          <div class="flex items-center gap-4 mb-8 animate-reveal">
-            <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-            <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">GET IN TOUCH</span>
-            <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-          </div>
+        <div class="max-w-4xl mx-auto px-6 w-full relative z-10 flex flex-col items-center">
+          <!-- Glass Card for Text -->
+          <div class="w-full bg-black/40 backdrop-blur-md border border-white/10 p-10 md:p-14 text-center rounded-sm shadow-2xl animate-reveal">
+            <div class="flex items-center justify-center gap-4 mb-6">
+              <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+              <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">GET IN TOUCH</span>
+              <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+            </div>
 
-          <h1 class="text-6xl md:text-9xl font-playfair italic text-white leading-none tracking-tighter mb-12 drop-shadow-2xl">
-            Couture <br>
-            <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light">CONSULTATION</span>
-          </h1>
+            <h1 class="text-4xl md:text-7xl font-playfair italic text-white leading-none tracking-tight mb-8">
+              Couture <br>
+              <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light text-2xl md:text-4xl block mt-2">CONSULTATION</span>
+            </h1>
 
-          <div class="max-w-xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 animate-reveal-delay">
-            <p class="text-[11px] md:text-sm text-white/70 font-medium uppercase tracking-[0.4em] leading-loose italic">
+            <p class="text-xs md:text-sm text-white/90 font-light tracking-[0.15em] max-w-xl mx-auto leading-relaxed">
               Reach our exclusive design hub for custom bridal orders, bespoke couture consultations, or collection inquiries.
             </p>
           </div>
         </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
-           <div class="w-[1px] h-16 bg-gradient-to-b from-[var(--primary-gold)] to-transparent"></div>
-           <span class="text-[8px] font-bold uppercase tracking-[0.6em] text-white">ORCHESTRATE YOUR LOOK</span>
-        </div>
       </section>
 
-      <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-32 pb-48 relative">
+      <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-20 py-24 relative">
 
          <!-- Details & Identity -->
-         <div class="space-y-24 animate-reveal-left">
+         <div class="space-y-16 animate-reveal-left">
 
             <div class="group">
-               <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-[var(--primary-gold)] mb-8 flex items-center gap-3">
+               <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-[var(--primary-gold)] mb-6 flex items-center gap-3">
                   <font-awesome-icon icon="fa-solid fa-paper-plane" class="text-[7px]" />
                   FASHION SUPPORT
                </h3>
                <p
-                  class="text-2xl font-light uppercase tracking-tighter text-gray-900 dark:text-white leading-tight font-playfair italic group-hover:pl-4 transition-all duration-700 border-l-0 group-hover:border-l border-[var(--primary-gold)]/40">
-                  +92 341 6887454<br>+92 324 4902607<br>ahmadalihafeez24@gmail.com
+                  class="text-xl font-light uppercase tracking-wide text-gray-900 dark:text-white leading-relaxed font-sans group-hover:pl-4 transition-all duration-700 border-l-0 group-hover:border-l border-[var(--primary-gold)]/40">
+                  +92 341 6887454<br>+92 324 4902607<br><span class="lowercase">ahmadalihafeez24@gmail.com</span>
                </p>
             </div>
 
             <div class="group">
-               <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-[var(--primary-gold)] mb-8 flex items-center gap-3">
+               <h3 class="text-[9px] font-bold uppercase tracking-[0.5em] text-[var(--primary-gold)] mb-6 flex items-center gap-3">
                   <font-awesome-icon icon="fa-solid fa-location-dot" class="text-[7px]" />
                   FLAGSHIP STUDIO
                </h3>
                <p
-                  class="text-2xl font-light uppercase tracking-tighter text-gray-900 dark:text-white leading-tight font-playfair italic group-hover:pl-4 transition-all duration-700 border-l-0 group-hover:border-l border-[var(--primary-gold)]/40">
+                  class="text-xl font-light uppercase tracking-wide text-gray-900 dark:text-white leading-relaxed font-sans group-hover:pl-4 transition-all duration-700 border-l-0 group-hover:border-l border-[var(--primary-gold)]/40">
                   Wapda Town, Ameer Chowk<br>Lahore, Pakistan
                </p>
             </div>
 
-            <div class="flex items-center gap-6 pt-10 border-t border-[#d4af3711]">
+            <div class="flex items-center gap-4 pt-6 border-t border-stone-200 dark:border-white/5">
                <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener"
-                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2 group">
-                  <font-awesome-icon icon="fa-brands fa-instagram" class="text-lg group-hover:scale-110 transition-transform" />
+                  class="w-12 h-12 rounded-full border border-stone-200 dark:border-white/10 flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-500 cursor-pointer hover:border-[var(--primary-gold)] transform hover:-translate-y-1 group">
+                  <font-awesome-icon icon="fa-brands fa-instagram" class="text-base group-hover:scale-115 transition-transform" />
                </a>
                <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener"
-                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-[var(--primary-gold)] transform hover:-translate-y-2 group">
-                  <font-awesome-icon icon="fa-brands fa-facebook-f" class="text-lg group-hover:scale-110 transition-transform" />
+                  class="w-12 h-12 rounded-full border border-stone-200 dark:border-white/10 flex items-center justify-center text-[var(--primary-gold)] hover:bg-[var(--primary-gold)] hover:text-white transition-all duration-500 cursor-pointer hover:border-[var(--primary-gold)] transform hover:-translate-y-1 group">
+                  <font-awesome-icon icon="fa-brands fa-facebook-f" class="text-base group-hover:scale-115 transition-transform" />
                </a>
                <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener"
-                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-red-600 hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-red-600 transform hover:-translate-y-2 group">
-                  <font-awesome-icon icon="fa-brands fa-youtube" class="text-lg group-hover:scale-110 transition-transform" />
+                  class="w-12 h-12 rounded-full border border-stone-200 dark:border-white/10 flex items-center justify-center text-[var(--primary-gold)] hover:bg-red-600 hover:text-white transition-all duration-500 cursor-pointer hover:border-red-600 transform hover:-translate-y-1 group">
+                  <font-awesome-icon icon="fa-brands fa-youtube" class="text-base group-hover:scale-115 transition-transform" />
                </a>
                <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener"
-                  class="w-14 h-14 rounded-full border border-[#d4af3711] flex items-center justify-center text-[var(--primary-gold)] hover:bg-black hover:text-white transition-all duration-700 cursor-pointer shadow-none hover:shadow-2xl hover:border-black transform hover:-translate-y-2 group">
-                  <font-awesome-icon icon="fa-brands fa-tiktok" class="text-lg group-hover:scale-110 transition-transform" />
+                  class="w-12 h-12 rounded-full border border-stone-200 dark:border-white/10 flex items-center justify-center text-[var(--primary-gold)] hover:bg-black hover:text-white transition-all duration-500 cursor-pointer hover:border-black transform hover:-translate-y-1 group">
+                  <font-awesome-icon icon="fa-brands fa-tiktok" class="text-base group-hover:scale-115 transition-transform" />
                </a>
             </div>
          </div>
@@ -96,45 +92,45 @@
             </div>
 
             <form @submit.prevent="transmitIntent"
-               class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 relative z-10">
-               <div class="space-y-4">
+               class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 relative z-10">
+               <div class="space-y-2">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">YOUR NAME</label>
-                  <input v-model="form.name" type="text" placeholder="E.G. JULIAN VANCE" class="luxury-input"
+                  <input v-model="form.name" type="text" placeholder="e.g. Julian Vance" class="luxury-input"
                     :class="{ 'border-red-500/60': errors.name }">
-                  <p v-if="errors.name" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.name }}</p>
+                  <p v-if="errors.name" class="text-[8px] text-red-500 font-semibold uppercase tracking-[0.1em] pt-1">{{ errors.name }}</p>
                </div>
-               <div class="space-y-4">
+               <div class="space-y-2">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">EMAIL ADDRESS</label>
-                  <input v-model="form.email" type="email" placeholder="HELLO@AHMADCLOTHS.COM"
-                     class="luxury-input lowercase" :class="{ 'border-red-500/60': errors.email }">
-                  <p v-if="errors.email" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.email }}</p>
+                  <input v-model="form.email" type="email" placeholder="hello@ahmadcloths.com"
+                     class="luxury-input" :class="{ 'border-red-500/60': errors.email }">
+                  <p v-if="errors.email" class="text-[8px] text-red-500 font-semibold uppercase tracking-[0.1em] pt-1">{{ errors.email }}</p>
                </div>
-               <div class="col-span-1 md:col-span-2 space-y-4">
+               <div class="col-span-1 md:col-span-2 space-y-2">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">SUBJECT</label>
-                  <input v-model="form.subject" type="text" placeholder="BRIDAL / COUTURE / COLLECTION INQUIRY"
+                  <input v-model="form.subject" type="text" placeholder="Bridal / Couture / Collection Inquiry"
                      class="luxury-input" :class="{ 'border-red-500/60': errors.subject }">
-                  <p v-if="errors.subject" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.subject }}</p>
+                  <p v-if="errors.subject" class="text-[8px] text-red-500 font-semibold uppercase tracking-[0.1em] pt-1">{{ errors.subject }}</p>
                </div>
-               <div class="col-span-1 md:col-span-2 space-y-4">
+               <div class="col-span-1 md:col-span-2 space-y-2">
                   <label class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em]">YOUR STORY (MESSAGE)</label>
-                  <textarea v-model="form.message" rows="6" placeholder="TELL US ABOUT YOUR STYLE REQUIREMENTS..."
-                     class="luxury-input min-h-[150px] resize-none" :class="{ 'border-red-500/60': errors.message }"></textarea>
-                  <p v-if="errors.message" class="text-[8px] text-red-500 font-black uppercase tracking-[0.3em] pt-1">{{ errors.message }}</p>
+                  <textarea v-model="form.message" rows="5" placeholder="Tell us about your style requirements..."
+                     class="luxury-input min-h-[120px] resize-none" :class="{ 'border-red-500/60': errors.message }"></textarea>
+                  <p v-if="errors.message" class="text-[8px] text-red-500 font-semibold uppercase tracking-[0.1em] pt-1">{{ errors.message }}</p>
                </div>
 
-               <div class="col-span-1 md:col-span-2 flex flex-col items-center md:items-start pt-10">
+               <div class="col-span-1 md:col-span-2 flex flex-col items-center md:items-start pt-6">
                   <transition name="fade">
-                     <p v-if="status.message" :class="status.success ? 'text-emerald-500' : 'text-red-500'"
-                        class="text-[10px] font-bold uppercase tracking-[0.3em] mb-10 px-6 py-3 border border-current bg-current/5 animate-reveal">
+                     <p v-if="status.message" :class="status.success ? 'text-emerald-500 border-emerald-500/30 bg-emerald-500/5' : 'text-red-500 border-red-500/30 bg-red-500/5'"
+                        class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 px-4 py-2 border rounded">
                         {{ status.message }}
-                     </p>
+                      </p>
                   </transition>
 
                   <button type="submit" :disabled="status.loading"
-                     class="bg-black dark:bg-[var(--primary-gold)] text-white px-20 py-6 rounded-none font-bold text-[10px] uppercase tracking-[0.5em] shadow-3xl hover:bg-[var(--deep-burgundy)] active:scale-95 transition-all duration-700 disabled:opacity-20 flex items-center gap-6 group">
+                     class="bg-black dark:bg-white text-white dark:text-black px-12 py-4 font-bold text-[10px] uppercase tracking-[0.4em] hover:bg-[var(--deep-burgundy)] dark:hover:bg-[var(--primary-gold)] transition-all duration-300 disabled:opacity-20 flex items-center gap-4 group">
                      <span>{{ status.loading ? 'SENDING...' : 'SEND INQUIRY' }}</span>
                      <font-awesome-icon icon="fa-solid fa-arrow-right"
-                        class="text-[8px] group-hover:translate-x-2 transition-transform" />
+                        class="text-[8px] group-hover:translate-x-1 transition-transform" />
                   </button>
                </div>
             </form>
@@ -338,38 +334,40 @@ onMounted(() => {
 
 <style scoped>
 .luxury-input {
-   width: 100%;
-   background: transparent;
-   border: none;
-   border-bottom: 1px solid #d4af3722;
-   padding: 20px 0;
-   font-size: 14px;
-   font-weight: 800;
-   text-transform: uppercase;
-   letter-spacing: 0.15em;
-   outline: none;
-   transition: all 0.5s ease;
-   color: #1a1a1a;
-}
-
-.dark .luxury-input {
-   color: white;
-}
-
-.luxury-input:focus {
-   border-color: #d4af37;
-   padding-left: 12px;
+  width: 100%;
+  border: 1px solid #e2e0dc;
+  border-radius: 3px;
+  padding: 13px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .luxury-input::placeholder {
-   color: #ccc;
-   font-weight: 400;
-   font-size: 10px;
-   letter-spacing: 0.3em;
+  color: #aaa;
+}
+
+.luxury-input:focus {
+  border-color: #c9973a;
+  box-shadow: 0 0 0 3px rgba(201, 151, 58, 0.08);
+}
+
+.dark .luxury-input {
+  background: #111;
+  border-color: #333;
+  color: #eee;
 }
 
 .dark .luxury-input::placeholder {
-   color: #222;
+  color: #555;
+}
+
+.dark .luxury-input:focus {
+  border-color: #c9973a;
+  box-shadow: 0 0 0 3px rgba(201, 151, 58, 0.12);
 }
 
 .shadow-3xl {

@@ -166,20 +166,19 @@
 
     <Footer v-if="showHeaderFooter" />
 
-    <!-- Back to Top -->
+    <!-- Unified Floating Action Panel (Right Side) -->
     <transition name="fade-scale">
-      <button v-if="scrollY > 500" class="back-to-top" @click="scrollToTop" aria-label="Back to Top">
-        <font-awesome-icon icon="fa-solid fa-arrow-up" />
-      </button>
-    </transition>
+      <div v-if="scrollY > 500" class="fixed bottom-24 right-5 sm:bottom-10 sm:right-10 flex flex-col gap-3 z-[9999] items-center">
+        <!-- Back to Top Button -->
+        <button class="back-to-top-circle" @click="scrollToTop" aria-label="Back to Top">
+          <font-awesome-icon icon="fa-solid fa-arrow-up" />
+        </button>
 
-    <!-- Floating Contact Buttons -->
-    <transition name="fade-scale">
-      <div v-if="scrollY > 500" class="fixed bottom-24 right-5 sm:bottom-10 sm:right-10 flex flex-col gap-4 z-[9999]">
+        <!-- Chatbot Button -->
         <button @click="toggleChatbot" class="contact-btn chatbot-btn" aria-label="Chat with AI">
           <div class="relative">
             <font-awesome-icon :icon="isChatbotOpen ? 'fa-solid fa-times' : 'fa-solid fa-robot'" />
-            <span v-if="!isChatbotOpen" class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-black animate-pulse"></span>
+            <span v-if="!isChatbotOpen" class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-black animate-pulse"></span>
           </div>
         </button>
       </div>
@@ -888,40 +887,28 @@ body {
 }
 
 /* Back to Top */
-.back-to-top {
-  position: fixed;
-  bottom: 160px; /* Above chatbot on mobile (bottom-24 = 96px) */
-  right: 20px;
-  width: 44px;
-  height: 44px;
+/* Back to Top Circle */
+.back-to-top-circle {
+  width: 42px;
+  height: 42px;
   background: rgba(212, 175, 55, 0.9);
   backdrop-filter: blur(10px);
   color: black;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-@media (min-width: 640px) {
-  .back-to-top {
-    bottom: 110px; /* Above chatbot on desktop (bottom-10 = 40px + 50px height + gap) */
-    right: 40px;
-    width: 50px;
-    height: 50px;
-  }
-}
-
-.back-to-top:hover {
-  transform: translateY(-8px) scale(1.1);
+.back-to-top-circle:hover {
+  transform: translateY(-3px) scale(1.08);
   background: white;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
 /* Contact Buttons */
