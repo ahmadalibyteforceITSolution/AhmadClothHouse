@@ -69,7 +69,7 @@
         <!-- Add to Bag (non-admin) -->
         <button
           v-if="!auth.isAdmin"
-          @click.stop="cart.addToCart(product)"
+          @click.stop="handleAddToCart"
           class="action-btn"
           aria-label="Add to bag"
         >
@@ -205,6 +205,16 @@ function formatPrice(val) {
 // ── Admin ─────────────────────────────────────────────────
 function handleDelete() {
   productStore.removeProduct(props.product.id)
+}
+
+// ── Add to Cart (auth-guarded) ────────────────────────────
+function handleAddToCart() {
+  if (!auth.isAuthenticated) {
+    // Fire a global event that App.vue listens to
+    window.dispatchEvent(new CustomEvent('acl:show-login-modal'))
+    return
+  }
+  cart.addToCart(props.product)
 }
 </script>
 

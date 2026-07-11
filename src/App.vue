@@ -410,6 +410,9 @@ const closeLoginPrompt = () => {
   showLoginPrompt.value = false
 }
 
+// Listen for cart-click trigger from ProductCard (unauthenticated)
+const onCartLoginRequired = () => { showLoginPrompt.value = true }
+
 const loginModalBenefits = [
   {
     label: 'Add to Cart',
@@ -696,6 +699,7 @@ onMounted(() => {
   auth.initializeTheme()
   productStore.fetchProducts()
   window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('acl:show-login-modal', onCartLoginRequired)
   
   // Start traffic tracking
   trackTraffic()
@@ -704,6 +708,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('acl:show-login-modal', onCartLoginRequired)
   if (trafficInterval) clearInterval(trafficInterval)
 })
 </script>
