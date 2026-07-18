@@ -155,9 +155,20 @@ router.afterEach((to) => {
   upsertHeadTag('meta[property="twitter:url"]',   'content', canonicalUrl)
   upsertHeadTag('meta[property="twitter:title"]', 'content', title)
 
-  // 6. Robots — block private routes, allow everything else
   const isPrivate = PRIVATE_PATHS.some(p => path.startsWith(p))
   upsertHeadTag('meta[name="robots"]', 'content', isPrivate ? 'noindex, nofollow' : 'index, follow')
 })
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  REGISTER SERVICE WORKER FOR MOBILE APP INSTALLATION (PWA)
+// ═══════════════════════════════════════════════════════════════════════════
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .catch(err => {
+        // Silent failure in production console suppression is fine
+      });
+  });
+}
 
 app.mount('#app')

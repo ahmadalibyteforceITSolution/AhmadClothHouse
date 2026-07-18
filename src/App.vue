@@ -363,6 +363,29 @@
       </div>
     </transition>
 
+    <!-- PWA Installation Banner -->
+    <transition name="fade-scale">
+      <div v-if="installPrompt" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 bg-white dark:bg-[#0d0d0d] border border-[#c9973a]/30 p-5 rounded shadow-2xl z-[999999] flex flex-col gap-4">
+        <div class="flex items-start justify-between">
+          <div class="space-y-1">
+            <h4 class="text-xs font-bold text-stone-900 dark:text-white uppercase tracking-wider">Ahmad Cloth House App</h4>
+            <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">Install our app on your mobile screen for instant access to our catalog and faster checkout.</p>
+          </div>
+          <button @click="dismissInstall" class="text-stone-400 hover:text-stone-600 dark:hover:text-white text-xs p-1" aria-label="Close Banner">
+            <font-awesome-icon icon="fa-solid fa-times" />
+          </button>
+        </div>
+        <div class="flex gap-3">
+          <button @click="triggerInstall" class="flex-1 bg-[#1a1a1a] dark:bg-white text-white dark:text-black py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-[#c9973a] dark:hover:bg-[#c9973a] dark:hover:text-white transition-all duration-300 rounded-sm">
+            Install App
+          </button>
+          <button @click="dismissInstall" class="px-4 border border-stone-200 dark:border-stone-800 text-stone-500 dark:text-stone-400 py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-50 dark:hover:bg-white/5 transition-all duration-300 rounded-sm">
+            Not Now
+          </button>
+        </div>
+      </div>
+    </transition>
+
   </div>
 
 </template>
@@ -401,6 +424,20 @@ watch(() => route.name, (newName) => {
     isPanelOpen.value = true
   }
 })
+
+// ─── PWA Mobile App Download Prompt ────────────────────────────────────
+const installPrompt = ref(null)
+
+const triggerInstall = async () => {
+  if (!installPrompt.value) return
+  installPrompt.value.prompt()
+  await installPrompt.value.userChoice
+  installPrompt.value = null
+}
+
+const dismissInstall = () => {
+  installPrompt.value = null
+}
 
 // ─── Login Prompt Modal ───────────────────────────────────────────────
 const showLoginPrompt = ref(false)
@@ -694,11 +731,19 @@ const trackTraffic = async () => {
 
 let trafficInterval = null
 
+const onBeforeInstallPrompt = (e) => {
+  e.preventDefault()
+  if (!window.matchMedia('(display-mode: standalone)').matches) {
+    installPrompt.value = e
+  }
+}
+
 onMounted(() => {
   auth.initializeTheme()
   productStore.fetchProducts()
   window.addEventListener('scroll', handleScroll, { passive: true })
   window.addEventListener('acl:show-login-modal', onCartLoginRequired)
+  window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt)
   
   // Start traffic tracking
   trackTraffic()
@@ -708,6 +753,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('acl:show-login-modal', onCartLoginRequired)
+  window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt)
   if (trafficInterval) clearInterval(trafficInterval)
 })
 </script>
