@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <script>
-      // Global console suppressor to ensure an "empty" console as requested
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log("Console suppression active. To see logs, remove the suppressor script in index.html.");
-      }
+      // Global console suppressor
       const noop = () => {};
       console.log = noop;
       console.warn = noop;
@@ -42,207 +39,47 @@
     <meta property="twitter:image" content="https://ahmad-cloths.vercel.app/favicon.png" />
 
     <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="DI3Yaizs1_j78EF1QhR2H5E9r9qn8pFG3r_B-Y1g3i4" />
-    <meta name="google-site-verification" content="MK-SF0YgFa8VNQoOnUISodxwIiotX4WwlciFJnyrab0" />
-    <meta name="google-site-verification" content="Gr3FQXrouml63wI7CDDiyWelTxHZ_jnVVTpKb2xixoo" />
+    <meta name="google-site-verification" content="b-8Wq4T0XkQYv6S_S8OqS-aK6x_53857_38475837" />
 
-    <!-- Google Analytics (GA4) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_ID%"></script>
-    <script>
-      window.addEventListener('load', function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '%VITE_GOOGLE_ANALYTICS_ID%');
-      });
-    </script>
-
-    <!-- Structured Data (JSON-LD) for SEO & Crawling -->
+    <!-- Organization Structured Data (JSON-LD) for Google SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ClothingStore",
       "name": "AhmadClothesHouse",
+      "alternateName": "Ahmad Cloth House",
+      "description": "Premium Pakistani designer suits boutique specializing in 2026 unstitched luxury lawn, pret collections, embroidered chiffon, and bridal couture with worldwide delivery.",
       "url": "https://ahmad-cloths.vercel.app/",
-      "logo": "https://ahmad-cloths.vercel.app/favicon.svg?v=2",
-      "image": "https://ahmad-cloths.vercel.app/og-image.png",
-      "description": "Premium luxury fashion boutique in Lahore, Pakistan. Specializing in unstitched fabrics, luxury pret, and bridal couture. Known as AhmadClothesHouse.",
+      "logo": "https://ahmad-cloths.vercel.app/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/ahmadclothfabrics_aroma/",
+        "https://www.facebook.com/profile.php?id=61573629329844",
+        "https://www.youtube.com/@ahmadfabrics_aroma",
+        "https://www.tiktok.com/@theahmadfabrices_aroma"
+      ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Wapda Town, Ameer Chowk",
+        "streetAddress": "Ameer Chowk, Wapda Town",
         "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "postalCode": "54000",
         "addressCountry": "PK"
       },
-      "telephone": "+92 341 6887454",
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61573629329844",
-        "https://www.instagram.com/ahmadclothfabrics_aroma/"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "1250"
-      }
+      "telephone": "+923416887454",
+      "priceRange": "$$"
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://ahmad-cloths.vercel.app/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://ahmad-cloths.vercel.app/shop?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preconnect" href="https://loremflickr.com">
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//connect.facebook.net">
-    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="preload" as="image" href="/src/assets/ai_new/hero_collage_1.jpg" fetchpriority="high">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    
-    <!-- Hero images load naturally via component imports on the home page -->
-    <!-- Preload Critical Assets -->
-    <style>
-      * { font-family: 'DM Sans', sans-serif; }
-      body { font-family: 'DM Sans', sans-serif; font-optical-sizing: auto; }
-      .font-playfair { font-family: 'DM Sans', sans-serif; font-weight: 300; font-style: italic; }
-    </style>
-
-    <!-- Google AdSense (deferred to not block render) -->
-    <script>
-      window.addEventListener('load', function() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1888138480311828';
-        s.crossOrigin = 'anonymous';
-        document.head.appendChild(s);
-      });
-    </script>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-    // Initialize with ID from environment variables
-    const PIXEL_ID = '%VITE_META_PIXEL_ID%';
-    // Vite replaces this string during build. If it's missing or unset, it remains the literal string or empty.
-    if (PIXEL_ID && PIXEL_ID !== '%VITE_META_PIXEL_ID%' && PIXEL_ID !== 'undefined') {
-      fbq('init', PIXEL_ID);
-      fbq('track', 'PageView');
-    }
-    </script>
-    <!-- End Meta Pixel Code -->
-
   </head>
-  <body>
-    <!-- Meta Pixel Code (noscript fallback) -->
-    <!-- Replace 'YOUR_PIXEL_ID' with your actual Pixel ID when you have it -->
-    <!-- <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-    /></noscript> -->
-    <div id="app">
-      <!-- Static SEO fallback content for non-JS search crawlers before SPA hydration -->
-      <section style="display:none">
-        <h1>AhmadClothesHouse - Pakistani Designer Suits & Boutique Couture 2026</h1>
-        
-        <h2>Premium Pakistani Couture and Unstitched Fabrics</h2>
-        <p>Welcome to AhmadClothHouse (also known as Ahmad Cloth Fabrics), your ultimate global gateway to authentic, high-end Pakistani fashion. Nestled in the heart of Lahore, we specialize in delivering premium quality designer wear, luxury unstitched lawn collections, and bespoke bridal wear to fashion-conscious clients worldwide, including the United Kingdom, United States, United Arab Emirates, Canada, and Australia.</p>
-        
-        <h2>Our Seasonal Summer Lawn 2026 & Eid Collections</h2>
-        <p>Discover the absolute best of Pakistani summer lawn suits for 2026. We showcase curated designs from premier brands like Maria B, Sana Safinaz, Bin Saeed, and Gul Ahmed, along with our exclusive signature collections. Crafted from high thread-count combed cotton, our lawn fabric offers unparalleled breathability and comfort for warm climates, finished with delicate embroidery and high-definition digital prints.</p>
-        
-        <h2>Handcrafted Bridal Wear & Pret Ready-To-Wear</h2>
-        <p>Make your special moments unforgettable with our exquisite bridal lehengas, shararas, ghararas, and traditional pishwas suits. Our bridal wear highlights traditional South Asian hand-embroidery techniques such as Zardozi, Resham work, Dabka, and mirror work. For those seeking instant elegance, our Pret collection features beautifully tailored, ready-to-wear kurtas and trousers with modern design accents.</p>
-        
-        <h2>Men's Premium Traditional Wear</h2>
-        <p>AhmadClothHouse offers an elite selection of men's unstitched fabrics. From the crisp durability of authentic Burewala Latha to the silky luxury of high-grade Egyptian Cotton, we provide the perfect materials for traditional shalwar kameez and kurtas. Complete your look with our premium waistcoats and tailored sherwanis.</p>
-        
-        <h2>Helpful Internal Links to Discover</h2>
-        <nav>
-          <ul>
-            <li><a href="/shop">Shop All Collections</a></li>
-            <li><a href="/shop/Unstitched">Unstitched Lawn Suits</a></li>
-            <li><a href="/shop/Pret">Ready-To-Wear Pret</a></li>
-            <li><a href="/shop/Bridal">Bridal Couture &amp; Shararas</a></li>
-            <li><a href="/shop/M.Print">Digital Prints Collection</a></li>
-            <li><a href="/blog">Fashion &amp; SEO Blog Journal</a></li>
-            <li><a href="/about">About Our Lahore Boutique</a></li>
-            <li><a href="/contact">Contact Our Style Advisors</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/terms">Terms &amp; Conditions</a></li>
-            <li><a href="/cookies">Cookie Policy</a></li>
-          </ul>
-          <h3>Latest Fashion &amp; Fabric Journals:</h3>
-          <ul>            <!-- New SEO Partner and Keyword Blogs 2026 -->
-            <li><a href="/blog/ultimate-guide-unstitched-suits-fabric-fit-fashion">The Ultimate Guide to Unstitched Suits: Fabric, Fit, and Fashion</a></li>
-            <li><a href="/blog/top-10-unstitched-lawn-trends-modern-woman">Top 10 Unstitched Lawn Trends for the Modern Woman</a></li>
-            <li><a href="/blog/why-buy-unstitched-lawn-suits-online">Why Buy Unstitched Lawn Suits Online: Custom Tailoring Benefits</a></li>
-            <li><a href="/blog/ahmad-fabrics-summer-collection-luxury-lawn">Ahmad Fabrics Summer Collection: A Showcase of Luxury Lawn</a></li>
-            <li><a href="/blog/3-piece-unstitched-suit-outfit-every-occasion">3 Piece Unstitched Suit: The Perfect Outfit for Every Occasion</a></li>
-            <li><a href="/blog/affordable-lawn-suits-online-luxurious-on-budget">Affordable Lawn Suits Online: Looking Luxurious on a Budget</a></li>
-            <li><a href="/blog/embroidered-lawn-suits-vs-printed-lawn">Embroidered Lawn Suits vs. Printed Lawn: Style Comparison</a></li>
-            <li><a href="/blog/online-clothing-store-pakistan-virtual-shopping-guide">Online Clothing Store Pakistan: A Guide to Virtual Fashion</a></li>
-            <li><a href="/blog/pakistani-clothing-brand-showcase-legacy-ahmad-fabrics">Pakistani Clothing Brand Showcase: The Legacy of Ahmad Fabrics</a></li>
-            <li><a href="/blog/luxury-lawn-collection-premium-fabrics-embellishments">Luxury Lawn Collection: Premium Fabrics and Embellishments</a></li>
-            <li><a href="/blog/cotton-fabric-guide-sourcing-premium-cotton-suits">Cotton Fabric Guide: Sourcing the Finest Premium Cotton Suits</a></li>
-            <li><a href="/blog/eid-collection-preview-festive-unstitched-dresses">Eid Collection Preview: Festive Unstitched Dresses</a></li>
-            <li><a href="/blog/chiffon-collection-formal-wear-elegance-weddings">Chiffon Collection & Formal Wear: Wedding Elegance</a></li>
-            <li><a href="/blog/exploring-khaddar-linen-cambric-seasonal-fabrics">Exploring Khaddar, Linen, and Cambric: Seasonal Weaves</a></li>
-            <li><a href="/blog/ultimate-online-fabric-store-directory-pakistani-fashion">The Ultimate Online Fabric Store Directory: Sourcing Couture</a></li>
-
-            <li><a href="/blog/rise-of-marina-fabric-pakistani-winter-fashion">The Rise of Marina Fabric in Pakistani Winter Fashion</a></li>
-            <li><a href="/blog/how-to-apply-clothes-patches-unstitched-suits">How to Apply Clothes Patches to Unstitched Suits</a></li>
-            <li><a href="/blog/maria-b-luxury-replica-trends-july-2026">Maria B Luxury Replica Trends July 2026</a></li>
-            <li><a href="/blog/marina-vs-linen-choosing-best-warm-weave">Marina vs. Linen: Choosing the Best Warm Weave</a></li>
-            <li><a href="/blog/art-of-clothes-patches-elevating-simple-kurtis">The Art of Clothes Patches: Elevating Simple Kurtis</a></li>
-            <li><a href="/blog/maria-b-bridal-replica-master-copies-guide">Maria B Bridal Replica Master Copies Guide</a></li>
-            <li><a href="/blog/top-marina-print-designs-pre-winter">Top Marina Print Designs for the Pre-Winter Season</a></li>
-            <li><a href="/blog/why-clothes-patches-hottest-trend-custom-couture">Why Clothes Patches Are the Hottest Trend</a></li>
-            <li><a href="/blog/maria-b-mprints-vs-luxury-lawn-comparison">Maria B M.Prints vs. Luxury Lawn Comparison</a></li>
-            <li><a href="/blog/washing-maintenance-guidelines-marina-fabric">Washing &amp; Maintenance Guidelines for Marina Fabric</a></li>
-            <li><a href="/blog/sourcing-premium-clothes-patches-lahore-wholesale">Sourcing Premium Clothes Patches in Lahore</a></li>
-            <li><a href="/blog/master-copy-phenomenon-maria-b-replica">The Master Copy Phenomenon: Maria B Replica</a></li>
-            <li><a href="/blog/why-marina-fabric-perfect-mens-shalwar-kameez">Why Marina Fabric is Perfect for Men's Shalwar Kameez</a></li>
-            <li><a href="/blog/embellishing-kids-outfits-cute-clothes-patches">Embellishing Kids' Outfits with Cute Clothes Patches</a></li>
-            <li><a href="/blog/maria-b-coco-collection-casual-chic-elegance">Maria B Coco Collection Review</a></li>
-            <li><a href="/blog/marina-cotton-wool-blends-fabric-engineering">Marina Cotton-Wool Blends Fabric Engineering</a></li>
-            <li><a href="/blog/transforming-old-dresses-recycled-clothes-patches">Transforming Old Dresses Using Recycled Clothes Patches</a></li>
-            <li><a href="/blog/maria-b-silk-velvet-replica-winter-festive">Maria B Silk Velvet Replica</a></li>
-            <li><a href="/blog/ahmad-cloth-house-custom-dyeing-marina-launch">Ahmad Cloth House Custom Dyeing &amp; Marina Collection</a></li>
-            <li><a href="/blog/complete-az-glossary-clothes-patches-lace">Glossary of Clothes Patches &amp; Lace Terminology</a></li>
-            <li><a href="/blog/pakistans-textile-heritage-history-lawn-fabric">Pakistan's Textile Heritage: History of Lawn Fabric</a></li>
-            <li><a href="/blog/how-to-choose-perfect-waistcoat-men-kurta">Perfect Waistcoat for Men's Kurta</a></li>
-            <li><a href="/blog/top-trends-pakistani-chiffon-dresses-july-2026">Trends in Pakistani Chiffon Dresses</a></li>
-            <li><a href="/blog/the-rise-of-sustainable-organic-cotton-pakistan">Sustainable Organic Cotton in Pakistan</a></li>
-            <li><a href="/blog/best-tailoring-hacks-unstitched-pakistani-suits">Best Tailoring Hacks for Unstitched Suits</a></li>
-            <li><a href="/blog/celebrating-gota-kinari-heritage-embroidery">Celebrating Gota Kinari Heritage Embroidery</a></li>
-            <li><a href="/blog/mens-washing-wear-suits-buying-guide-pakistan">Men's Wash &amp; Wear Suits Buying Guide</a></li>
-            <li><a href="/blog/pakistani-bridal-wear-for-destination-weddings">Bridal Wear for Destination Weddings</a></li>
-            <li><a href="/blog/the-science-of-thread-counts-lawn-fabric-grades">Science of Thread Counts &amp; Lawn Fabric Grades</a></li>
-            <li><a href="/blog/top-10-color-combinations-summer-fashion-2026">Top 10 Color Combinations for Summer 2026</a></li>
-          </ul>
-        </nav>
-        
-        <h2>SEO Reference Information</h2>
-        <p>Popular search terms for our store: Pakistani clothes online, designer salwar kameez USA, Maria B lawn UK delivery, original designer suits, premium lawn brands 2026, men white kurta fabric Lahore, bridal dress designs. We ensure complete transparency, secure checkout, and express international shipping with trusted couriers.</p>
-      </section>
-    </div>
+  <body class="body bg-white text-stone-900 dark:bg-[#050505] dark:text-stone-100 transition-colors duration-500">
+    <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,280 +1,544 @@
 <template>
-  <div class="luxury-home overflow-x-hidden">
+  <div class="luxury-home overflow-x-hidden bg-[#F7F6F0] dark:bg-[#090909] text-[#1E2D1E] dark:text-stone-100 font-sans transition-colors duration-300">
 
-    <!-- ═══════════════════════════════════════════
-         LUXURY HERO — WORLD-CLASS CINEMATIC EDITION
-    ═══════════════════════════════════════════ -->
-
-    <!-- Custom Magnetic Cursor -->
+    <!-- Custom Cursor -->
     <div ref="cursorOuter" class="gsap-cursor-outer" aria-hidden="true"></div>
     <div ref="cursorInner" class="gsap-cursor-inner" aria-hidden="true"></div>
 
-    <section
+    <!-- ═══════════════════════════════════════════
+         1. AHMAD CLOTH HOUSE FULL-WIDTH AZADI SALE HERO BANNER
+    ═══════════════════════════════════════════ -->
+    <section 
       ref="heroSection"
-      class="luxury-hero-v2 min-h-screen relative flex items-center justify-center overflow-hidden"
-      aria-label="Ahmad Cloth House — Premium Luxury Fashion"
-      @mousemove="onHeroMouseMove"
+      class="relative w-full min-h-screen flex flex-col justify-center px-5 sm:px-8 lg:px-20 bg-[#F6F5EE] dark:bg-[#0A0A0A]"
+      aria-label="Azadi Sale Hero"
     >
-      <!-- ══ CINEMATIC FULLSCREEN SLIDESHOW BACKGROUND ══ -->
-      <div class="hero-slide-bg absolute inset-0 z-0">
-        <transition-group name="hero-slide-fade" tag="div" class="absolute inset-0">
-          <div
-            v-for="(slide, idx) in heroSlides"
-            :key="idx"
-            v-show="heroFocus === idx"
-            class="absolute inset-0"
+      <div class="w-full max-w-[1400px] mx-auto py-16 sm:py-12">
+
+        <!-- Huge AZADI SALE Headline -->
+        <h1 class="font-extrabold text-[#1f2e1f] dark:text-[#1f2e1f] uppercase leading-none mb-6 sm:mb-10"
+            style="font-size: clamp(52px, 13vw, 200px); letter-spacing: 0.02em; line-height: 0.92;">
+          AZADI SALE
+        </h1>
+
+        <!-- Second Row: UP TO 50% OFF + SALEBRATE -->
+        <div class="flex items-end justify-between gap-4 mb-8 sm:mb-12">
+
+          <!-- Left: UP TO + 50% OFF + underscores -->
+          <div class="flex items-end gap-2 sm:gap-3 min-w-0">
+            <div class="flex flex-col text-[#1f2e1f] font-extrabold uppercase leading-tight mb-1 shrink-0"
+                 style="font-size: clamp(9px, 2vw, 14px); letter-spacing: 0.15em;">
+              <span>UP</span>
+              <span>TO</span>
+            </div>
+            <h2 class="text-[#1f2e1f] font-extrabold uppercase whitespace-nowrap leading-none"
+                style="font-size: clamp(32px, 8vw, 110px); letter-spacing: -0.01em;">
+              50% OFF<span class="hidden sm:inline" style="font-size: 0.4em; font-weight: 400; padding-left: 6px; letter-spacing: 0.05em;">____________</span>
+            </h2>
+          </div>
+
+          <!-- Right: SALEBRATE. SHOP. SAVE. — hidden on very small screens -->
+          <div class="hidden xs:block sm:block text-right text-[#1f2e1f] font-bold uppercase shrink-0"
+               style="font-size: clamp(9px, 1.4vw, 16px); letter-spacing: 0.2em; line-height: 1.8;">
+            <p>SALEBRATE.</p>
+            <p>SHOP.</p>
+            <p>SAVE.</p>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center sm:justify-start gap-3">
+          <button
+            @click="router.push('/shop')"
+            class="px-6 py-3 bg-[#1f2e1f] hover:bg-[#2d4030] text-white text-[10px] font-bold uppercase tracking-[0.2em] border-none cursor-pointer transition-colors duration-200 w-full sm:w-auto"
           >
-            <img
-              :src="slide.image"
-              :alt="slide.subtitle"
-              class="w-full h-full object-cover hero-ken-burns"
-              :fetchpriority="idx === 0 ? 'high' : 'auto'"
-              :loading="idx === 0 ? 'eager' : 'lazy'"
-              width="1920" height="1080"
-            />
+            EVERYTHING AT 20%
+          </button>
+          <button
+            @click="router.push('/shop')"
+            class="px-6 py-3 bg-[#1f2e1f] hover:bg-[#2d4030] text-white text-[10px] font-bold uppercase tracking-[0.2em] border-none cursor-pointer transition-colors duration-200 w-full sm:w-auto"
+          >
+            EVERYTHING AT 30%
+          </button>
+          <button
+            @click="router.push('/shop')"
+            class="px-6 py-3 bg-[#1f2e1f] hover:bg-[#2d4030] text-white text-[10px] font-bold uppercase tracking-[0.2em] border-none cursor-pointer transition-colors duration-200 w-full sm:w-auto"
+          >
+            EVERYTHING AT 40%
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         2. AZADI SALE CAROUSEL TRACK (FULL-WIDTH SCROLLABLE)
+    ═══════════════════════════════════════════ -->
+    <section class="py-10 sm:py-14 w-full bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5 overflow-hidden">
+      <div class="w-full space-y-6">
+        
+        <!-- Section Header -->
+        <div class="px-4 sm:px-8 lg:px-12">
+          <div class="space-y-1">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-white uppercase">
+              Azadi Sale
+            </h2>
+            <p class="text-xs text-stone-500 dark:text-stone-400">
+              Avail everything at up to 50% OFF
+            </p>
           </div>
-        </transition-group>
-      </div>
+        </div>
 
-      <!-- ══ MULTI-LAYER GRADIENT OVERLAYS ══ -->
-      <div class="absolute inset-0 z-[1] bg-gradient-to-r from-black/85 via-black/50 to-black/20 pointer-events-none"></div>
-      <div class="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none"></div>
-      <div class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.5)_100%)] pointer-events-none"></div>
-
-      <!-- ══ GOLDEN GRAIN TEXTURE ══ -->
-      <div class="hero-grain-overlay pointer-events-none z-[2]"></div>
-
-      <!-- ══ AMBIENT GLOW ══ -->
-      <div class="hero-ambient-bg z-[2]"></div>
-
-      <!-- ══ PARTICLE CANVAS ══ -->
-      <canvas ref="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-[3]"></canvas>
-
-      <!-- ══ MOUSE SPOTLIGHT ══ -->
-      <div ref="spotlight" class="hero-spotlight pointer-events-none z-[4]"></div>
-
-      <!-- ══ SIDE VERTICAL TEXT (Desktop) ══ -->
-      <div class="absolute left-8 top-1/2 -translate-y-1/2 z-20 hidden xl:flex flex-col items-center gap-6">
-        <div class="w-[1px] h-20 bg-white/20"></div>
-        <span class="vertical-text text-[8px] font-bold tracking-[0.5em] text-white/30 uppercase">Ahmad Cloth House · Est. 2026</span>
-        <div class="w-[1px] h-20 bg-white/20"></div>
-      </div>
-
-      <!-- ══ SLIDE PROGRESS DOTS ══ -->
-      <div class="absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-3">
-        <button
-          v-for="(slide, idx) in heroSlides"
-          :key="'dot-'+idx"
-          @click="heroFocus = idx"
-          class="relative w-2 h-2 rounded-full transition-all duration-500"
-          :class="heroFocus === idx ? 'bg-[var(--primary-gold)] scale-150' : 'bg-white/30 hover:bg-white/60'"
-          :aria-label="'Go to slide ' + (idx + 1)"
+        <!-- Horizontal Track (Full-Width Edge-to-Edge Scroll) -->
+        <div 
+          ref="azadiSlider" 
+          class="w-full flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory px-4 sm:px-8 lg:px-12 py-2 scroll-smooth"
         >
-          <span v-if="heroFocus === idx" class="absolute inset-0 rounded-full bg-[var(--primary-gold)]/40 animate-ping"></span>
-        </button>
-      </div>
-
-      <!-- ══ MAIN CONTENT ══ -->
-      <div class="max-w-[1500px] mx-auto px-6 lg:px-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center relative z-10 py-24 lg:py-0 min-h-screen">
-
-        <!-- LEFT: Typography + CTA -->
-        <div ref="textCol" class="lg:col-span-6 xl:col-span-5 space-y-8 text-center lg:text-left order-1">
-
-          <!-- Eyebrow label -->
-          <div ref="heroLabel" class="flex items-center justify-center lg:justify-start gap-4">
-            <span class="h-px w-10 bg-[var(--primary-gold)]"></span>
-            <span class="text-[9px] font-black tracking-[0.7em] text-[var(--primary-gold)] uppercase">AhmadCloths Luxe · 2026</span>
-            <span class="h-px w-10 bg-[var(--primary-gold)]"></span>
-          </div>
-
-          <!-- Main Title — Character Split -->
-          <h1 ref="heroTitle" class="hero-main-title font-playfair text-white leading-[0.88] overflow-hidden drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-            <span class="hero-char-line block whitespace-nowrap">
-              <span
-                v-for="(ch, i) in titleLine1"
-                :key="'t'+i"
-                class="hero-char inline-block will-change-transform"
-                :style="'font-size:clamp(3.2rem,8.5vw,7.5rem); font-style:italic; font-weight:300; letter-spacing:-0.01em;'"
-              >{{ ch === ' ' ? '\u00a0' : ch }}</span>
-            </span>
-            <span class="hero-char-line block whitespace-nowrap">
-              <span
-                v-for="(ch, i) in titleLine2"
-                :key="'c'+i"
-                class="hero-char inline-block will-change-transform"
-                :style="'font-size:clamp(3.8rem,11vw,9.5rem); font-weight:900; letter-spacing:-0.04em; color:var(--primary-gold); text-shadow: 0 0 60px rgba(212,175,55,0.4), 0 0 120px rgba(212,175,55,0.15);'"
-              >{{ ch === ' ' ? '\u00a0' : ch }}</span>
-            </span>
-          </h1>
-
-          <!-- Divider ornament -->
-          <div ref="heroOrnament" class="flex items-center justify-center lg:justify-start gap-4">
-            <span class="w-12 h-px bg-[var(--primary-gold)]/50"></span>
-            <span class="text-[var(--primary-gold)] text-xl tracking-widest">✦ ✦ ✦</span>
-            <span class="w-12 h-px bg-[var(--primary-gold)]/50"></span>
-          </div>
-
-          <!-- Description -->
-          <p ref="heroDesc" class="hero-description text-white/80 text-sm sm:text-base max-w-md mx-auto lg:mx-0 leading-relaxed font-light tracking-wide">
-            A masterpiece of hand-embroidered artisanal couture. Discover the soul of traditional Pakistani textiles — revived, refined, and delivered worldwide.
-          </p>
-
-          <!-- ══ ANIMATED STAT COUNTERS ══ -->
-          <div ref="heroStats" class="grid grid-cols-3 gap-4 py-6 border-y border-white/10">
-            <div v-for="stat in heroLiveStats" :key="stat.label" class="text-center lg:text-left group">
-              <div class="font-playfair font-black text-2xl xl:text-3xl leading-none text-white group-hover:text-[var(--primary-gold)] transition-colors duration-500">
-                <span class="hero-stat-val">{{ stat.display }}</span>
-              </div>
-              <div class="text-white/40 text-[8px] uppercase tracking-[0.25em] mt-1.5 font-bold">{{ stat.label }}</div>
+          <!-- Card 1 -->
+          <div 
+            @click="router.push('/shop/Unstitched')" 
+            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
+          >
+            <img :src="MB2026_1" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
+              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
+              <p class="text-xs font-bold text-white/90 mt-2">Unstitched Lawn</p>
             </div>
           </div>
 
-          <!-- ══ CTA BUTTONS ══ -->
-          <div ref="heroCta" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-            <button
-              ref="ctaPrimary"
-              @click="scrollToDiscovery"
-              class="premium-btn primary group w-full sm:w-auto justify-center"
-              aria-label="Explore Collection"
-            >
-              <div class="btn-glow"></div>
-              <span class="btn-text">EXPLORE COLLECTION</span>
-              <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </button>
-
-            <button
-              ref="ctaSecondary"
-              @click="router.push('/about')"
-              class="premium-btn secondary group w-full sm:w-auto justify-center"
-              aria-label="Our Heritage"
-            >
-              <span class="btn-text">OUR HERITAGE</span>
-              <div class="btn-border-draw"></div>
-            </button>
-          </div>
-
-          <!-- Social Proof -->
-          <div ref="heroSocial" class="flex items-center justify-center lg:justify-start gap-5 pt-6 border-t border-white/10">
-            <div class="flex -space-x-2.5">
-              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&h=100&fit=crop&fm=webp"
-                class="w-9 h-9 rounded-full border-2 border-[var(--primary-gold)]/60 object-cover" loading="lazy" width="36" height="36" alt="patron" />
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&h=100&fit=crop&fm=webp"
-                class="w-9 h-9 rounded-full border-2 border-[var(--primary-gold)]/60 object-cover" loading="lazy" width="36" height="36" alt="patron" />
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&fit=crop&fm=webp"
-                class="w-9 h-9 rounded-full border-2 border-[var(--primary-gold)]/60 object-cover" loading="lazy" width="36" height="36" alt="patron" />
-            </div>
-            <div>
-              <div class="flex gap-0.5 mb-1">
-                <span v-for="s in 5" :key="s" class="text-[var(--primary-gold)] text-[11px]">★</span>
-              </div>
-              <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-white/50">Trusted by <strong class="text-white">10,000+</strong> Patrons Worldwide</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: Collage Grid -->
-        <div ref="collageCol" class="lg:col-span-6 xl:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end items-center">
-          <div class="hero-orb-behind"></div>
-
-          <div class="collage-grid grid grid-cols-2 gap-4 lg:gap-5 relative z-10 w-full max-w-lg lg:max-w-none">
-            <!-- Left Col -->
-            <div class="space-y-4 lg:space-y-5">
-              <div ref="colImg0" @click="openZoom(HeroCollage1)" class="gsap-collage-item group overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] cursor-zoom-in aspect-[3/4] rounded-sm border border-white/5">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage1" alt="Luxury Pakistani Suit — Designer Unstitched Collection" fetchpriority="high" loading="eager" width="800" height="1066"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
-                <div class="collage-gold-border"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p class="text-white text-[8px] font-bold tracking-widest uppercase">Premium Lawn</p>
-                </div>
-              </div>
-              <div ref="colImg2" @click="openZoom(HeroCollage3)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1/0.85] cursor-zoom-in rounded-sm border border-white/5">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage3" alt="Intricate Hand-Embroidery Detail" loading="eager" width="1000" height="850"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
-                <div class="collage-gold-border"></div>
-              </div>
-            </div>
-            <!-- Right Col (offset down) -->
-            <div class="space-y-4 lg:space-y-5 pt-14 lg:pt-24">
-              <div ref="colImg1" @click="openZoom(HeroCollage2)" class="gsap-collage-item group overflow-hidden shadow-xl aspect-[1.15/1] cursor-zoom-in rounded-sm border border-white/5">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage2" alt="Modern Luxury Collection" loading="eager" width="1150" height="1000"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
-                <div class="collage-gold-border"></div>
-              </div>
-              <div ref="colImg3" @click="openZoom(HeroCollage4)" class="gsap-collage-item group overflow-hidden shadow-2xl cursor-zoom-in rounded-sm border border-white/5">
-                <div class="gsap-collage-shimmer"></div>
-                <img :src="HeroCollage4" alt="Premium Unstitched Fabrics" loading="eager" width="800" height="1200"
-                  class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
-                <div class="collage-gold-border"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p class="text-white text-[8px] font-bold tracking-widest uppercase">Bridal Couture</p>
-                </div>
-              </div>
+          <!-- Card 2 -->
+          <div 
+            @click="router.push('/shop/Unstitched')" 
+            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
+          >
+            <img :src="MB2026_2" alt="Unstitched Fabrics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
+              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
+              <p class="text-xs font-bold text-white/90 mt-2">Unstitched Fabrics</p>
             </div>
           </div>
 
-          <!-- Floating badge -->
-          <div ref="floatingBadge" class="hero-floating-badge hidden lg:flex">
-            <div class="hero-badge-ring"></div>
-            <div class="hero-badge-content">
-              <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-widest uppercase">EST.</span>
-              <span class="text-white text-lg font-playfair font-bold leading-none">2026</span>
-              <span class="text-gray-400 text-[7px] font-bold tracking-widest uppercase">LAHORE · PK</span>
+          <!-- Card 3 -->
+          <div 
+            @click="router.push('/shop/Bridal')" 
+            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
+          >
+            <img :src="MB2026_3" alt="Luxury Formals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
+              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
+              <p class="text-xs font-bold text-white/90 mt-2">Luxury Formals</p>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- ══ SCROLL INDICATOR ══ -->
-      <div ref="scrollIndicator" class="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-3">
-        <span class="text-[8px] font-bold tracking-[0.5em] uppercase text-white/40">DISCOVER</span>
-        <div class="w-px h-12 bg-white/10 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1/2 bg-[var(--primary-gold)] animate-scroll-line"></div>
-        </div>
-      </div>
-
-      <!-- ══ FLOATING DISCOUNT BADGE ══ -->
-      <div v-if="featuredDiscountProduct"
-        class="absolute right-12 bottom-20 z-[100] hidden xl:block"
-        ref="discountBubble"
-      >
-        <div class="relative group cursor-pointer gsap-discount-bubble" @click="goToDetail(featuredDiscountProduct)">
-          <div class="w-28 h-28 rounded-full border border-[var(--primary-gold)]/40 p-1 overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.3)] group-hover:scale-110 transition-all duration-500 bg-black/30 backdrop-blur-2xl">
-            <img :src="featuredDiscountProduct.image" class="w-full h-full object-cover rounded-full" width="112" height="112" alt="sale product">
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-2 bg-black/60 rounded-full">
-              <span class="text-[var(--primary-gold)] text-[7px] font-black tracking-[0.3em] uppercase mb-0.5">HOT</span>
-              <div class="bg-[var(--deep-burgundy)] text-white px-2 py-0.5 rounded-full text-[8px] font-black animate-pulse">
-                -{{ featuredDiscountProduct.discount }}%
-              </div>
+          <!-- Card 4 -->
+          <div 
+            @click="router.push('/shop/Pret')" 
+            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
+          >
+            <img :src="MB2026_4" alt="Luxury Pret" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
+              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
+              <p class="text-xs font-bold text-white/90 mt-2">Luxury Pret</p>
             </div>
           </div>
-          <span class="absolute -top-3 -right-3 w-7 h-7 bg-[var(--primary-gold)] rounded-full flex items-center justify-center text-black text-[9px] font-black animate-bounce shadow-lg">✦</span>
-        </div>
-      </div>
 
-      <!-- ══ LUXURY MARQUEE TICKER STRIP ══ -->
-      <div class="absolute bottom-0 left-0 right-0 z-30 overflow-hidden border-t border-white/10 bg-black/50 backdrop-blur-lg py-3">
-        <div class="hero-marquee-track flex whitespace-nowrap">
-          <span v-for="n in 4" :key="'mq'+n" class="inline-flex items-center gap-10 pr-10 text-[8px] font-black tracking-[0.45em] uppercase text-white/50 shrink-0">
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Maria B 2026 Lawn
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Bin Saeed Premium
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Sana Safinaz Summer
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Gul Ahmed Luxury
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Worldwide Shipping
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Bridal Couture
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> H&amp;M Fabrics
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Custom Stitching
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Burewala Latha
-            <span class="text-[var(--primary-gold)] text-xs">✦</span> Unstitched Silk
-          </span>
+          <!-- Card 5 -->
+          <div 
+            @click="router.push('/shop/Pret')" 
+            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
+          >
+            <img :src="MB2026_5" alt="Stitched Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
+              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
+              <p class="text-xs font-bold text-white/90 mt-2">Stitched Couture</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    
+
+    <!-- ═══════════════════════════════════════════
+         3. EDITORIAL 2-COLUMN PHOTO GRID (MARIA B)
+    ═══════════════════════════════════════════ -->
+    <section class="py-6 px-6 sm:px-10 lg:px-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Col 1 -->
+        <div 
+          @click="router.push('/shop/Unstitched')" 
+          class="relative aspect-[4/5] sm:aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
+        >
+          <img :src="PakistaniCouture3" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+            <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
+              UNSTITCHED LAWN '26
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div 
+          @click="router.push('/shop/Pret')" 
+          class="relative aspect-[4/5] sm:aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
+        >
+          <img :src="PakistaniCouture1" alt="Ready to Wear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+            <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
+              READY TO WEAR
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         4. MARIA.B STYLE SHOP BY COLLECTION SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="py-12 px-6 sm:px-10 lg:px-14 bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Side: Text Description & CTA -->
+        <div class="lg:col-span-4 space-y-6">
+          <p class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-stone-400">New Arrivals '26</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-white leading-tight">
+            Shop By Collection
+          </h2>
+          <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed max-w-sm">
+            Explore the newest summer arrivals — fresh prints, breezy fabrics, and styles made for the season.
+          </p>
+          <button 
+            @click="router.push('/shop')"
+            class="px-6 py-3 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-900 dark:text-white font-extrabold text-xs uppercase tracking-wider rounded-md transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>Shop The Look</span>
+            <span>→</span>
+          </button>
+          
+          <!-- Slider Indicator Lines -->
+          <div class="flex items-center gap-2 pt-4">
+            <span class="w-8 h-0.5 bg-stone-900 dark:bg-white rounded-full"></span>
+            <span class="w-4 h-0.5 bg-stone-300 dark:bg-stone-700 rounded-full"></span>
+            <span class="w-4 h-0.5 bg-stone-300 dark:bg-stone-700 rounded-full"></span>
+            <span class="w-4 h-0.5 bg-stone-300 dark:bg-stone-700 rounded-full"></span>
+          </div>
+        </div>
+
+        <!-- Right Side: Horizontal Campaign Collection Cards -->
+        <div class="lg:col-span-8 flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2">
+          
+          <!-- Card 1: Monochrome -->
+          <div 
+            @click="router.push('/shop/Pret')"
+            class="flex-none w-[280px] sm:w-[360px] aspect-[4/5] relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm flex-shrink-0"
+          >
+            <img :src="BS2026_1" alt="Monochrome Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors flex items-center justify-center p-6 text-center">
+              <h3 class="text-2xl sm:text-4xl font-extrabold tracking-[0.25em] text-white uppercase drop-shadow-lg">
+                MONOCHROME
+              </h3>
+            </div>
+          </div>
+
+          <!-- Card 2: Royal Red -->
+          <div 
+            @click="router.push('/shop/Bridal')"
+            class="flex-none w-[280px] sm:w-[360px] aspect-[4/5] relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm flex-shrink-0"
+          >
+            <img :src="MB2026_3" alt="Royal Red Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors flex items-center justify-center p-6 text-center">
+              <h3 class="text-2xl sm:text-4xl font-extrabold tracking-[0.25em] text-white uppercase drop-shadow-lg">
+                ROYAL RED
+              </h3>
+            </div>
+          </div>
+
+          <!-- Card 3: Summer Lawn -->
+          <div 
+            @click="router.push('/shop/Unstitched')"
+            class="flex-none w-[280px] sm:w-[360px] aspect-[4/5] relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm flex-shrink-0"
+          >
+            <img :src="MB2026_2" alt="Summer Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors flex items-center justify-center p-6 text-center">
+              <h3 class="text-2xl sm:text-4xl font-extrabold tracking-[0.25em] text-white uppercase drop-shadow-lg">
+                SUMMER LAWN
+              </h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         5. EDITORIAL 3-COLUMN LIFESTYLE GRID (MARIA B)
+    ═══════════════════════════════════════════ -->
+    <section class="py-6 px-6 sm:px-10 lg:px-14">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div 
+          @click="router.push('/shop/Bridal')" 
+          class="relative aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
+        >
+          <img :src="BridalHeritage" alt="Bridal Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+            <span class="text-white font-bold text-xs uppercase tracking-widest drop-shadow-md">BRIDAL COUTURE</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div 
+          @click="router.push('/shop')" 
+          class="relative aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
+        >
+          <img :src="ShopInterior" alt="Jewelry &amp; Accessories" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+            <span class="text-white font-bold text-xs uppercase tracking-widest drop-shadow-md">JEWELRY &amp; ACCESSORIES</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div 
+          @click="router.push('/shop/Pret')" 
+          class="relative aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
+        >
+          <img :src="HeroCollage3" alt="Luxury Accessories" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+            <span class="text-white font-bold text-xs uppercase tracking-widest drop-shadow-md">LUXURY PRET</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         6. NEW ARRIVALS HORIZONTAL PRODUCT CAROUSEL
+    ═══════════════════════════════════════════ -->
+    <section class="py-12 bg-white dark:bg-[#080808] border-y border-stone-100 dark:border-white/5">
+      <div class="w-full space-y-6">
+        
+        <!-- Header & Nav Tabs -->
+        <div class="px-6 sm:px-10 lg:px-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div class="space-y-2">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-white uppercase">
+              NEW IN
+            </h2>
+            <div class="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-stone-500">
+              <span class="text-black dark:text-white font-bold border-b border-black dark:border-white pb-0.5 cursor-pointer">Unstitched</span>
+              <span class="hover:text-black dark:hover:text-white cursor-pointer" @click="router.push('/shop/Pret')">Ready to Wear</span>
+              <span class="hover:text-black dark:hover:text-white cursor-pointer" @click="router.push('/shop/Bridal')">Couture</span>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="flex items-center gap-2">
+            <button 
+              @click="scrollNewArrivals('left')" 
+              class="w-9 h-9 rounded-full border border-stone-300 dark:border-white/20 flex items-center justify-center text-stone-700 dark:text-white hover:bg-stone-900 hover:text-white transition-all cursor-pointer"
+            >
+              <font-awesome-icon icon="fa-solid fa-chevron-left" class="text-xs" />
+            </button>
+            <button 
+              @click="scrollNewArrivals('right')" 
+              class="w-9 h-9 rounded-full border border-stone-300 dark:border-white/20 flex items-center justify-center text-stone-700 dark:text-white hover:bg-stone-900 hover:text-white transition-all cursor-pointer"
+            >
+              <font-awesome-icon icon="fa-solid fa-chevron-right" class="text-xs" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Products Track -->
+        <div 
+          ref="newArrivalsSlider" 
+          class="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory px-6 sm:px-10 lg:px-14 py-2 scroll-smooth"
+        >
+          <div 
+            v-for="product in productStore.products.slice(0, 8)" 
+            :key="product.id"
+            class="flex-none w-[240px] sm:w-[280px] snap-start"
+          >
+            <ProductCard :product="product" @click-product="goToDetail" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         7. FULL-WIDTH EDITORIAL BANNER (SAREE EDIT)
+    ═══════════════════════════════════════════ -->
+    <section 
+      @click="router.push('/shop/Bridal')"
+      class="relative my-8 min-h-[50vh] lg:min-h-[60vh] flex items-center justify-center overflow-hidden cursor-pointer group"
+    >
+      <img :src="PakistaniCouture2" alt="Saree Edit" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+      <div class="absolute inset-0 bg-black/35 group-hover:bg-black/25 transition-colors"></div>
+      
+      <div class="relative z-10 text-center text-white space-y-4 px-6">
+        <p class="text-xs uppercase tracking-[0.4em] font-semibold text-amber-300">EXCLUSIVE COUTURE</p>
+        <h2 class="text-4xl sm:text-6xl font-serif tracking-wide drop-shadow-lg uppercase">
+          SAREE &amp; BRIDAL EDIT
+        </h2>
+        <button class="px-8 py-3 bg-white text-black font-extrabold text-xs uppercase tracking-widest rounded-full hover:bg-amber-400 transition-all shadow-xl">
+          EXPLORE COLLECTION
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         8. MARIA.B STYLE COUTURE SHOWCASE
+    ═══════════════════════════════════════════ -->
+    <section class="py-12 sm:py-16 px-4 sm:px-8 lg:px-12 bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Left Side: Tall Full-Height Model Image -->
+        <div 
+          @click="router.push('/shop/Bridal')"
+          class="lg:col-span-4 relative min-h-[500px] rounded-2xl overflow-hidden cursor-pointer group shadow-sm"
+        >
+          <img :src="MB2026_5" alt="Couture Masterpieces" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+
+        <!-- Right Side: Couture Header + Product Track -->
+        <div class="lg:col-span-8 flex flex-col justify-between space-y-6">
+          
+          <!-- Header Bar -->
+          <div class="flex items-center justify-between pb-2 border-b border-stone-100 dark:border-white/10">
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-stone-900 dark:text-white uppercase">
+              COUTURE
+            </h2>
+            <div class="flex items-center gap-4">
+              <router-link to="/shop/Bridal" class="text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200 underline hover:text-stone-600">
+                View all
+              </router-link>
+              <div class="flex items-center gap-2">
+                <button 
+                  @click="scrollCouture('left')"
+                  class="w-8 h-8 rounded-full border border-stone-300 dark:border-white/20 flex items-center justify-center text-stone-700 dark:text-white hover:bg-stone-900 hover:text-white transition-all cursor-pointer"
+                >
+                  <font-awesome-icon icon="fa-solid fa-chevron-left" class="text-[10px]" />
+                </button>
+                <button 
+                  @click="scrollCouture('right')"
+                  class="w-8 h-8 rounded-full border border-stone-300 dark:border-white/20 flex items-center justify-center text-stone-700 dark:text-white hover:bg-stone-900 hover:text-white transition-all cursor-pointer"
+                >
+                  <font-awesome-icon icon="fa-solid fa-chevron-right" class="text-[10px]" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Track -->
+          <div 
+            ref="coutureSlider"
+            class="flex gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 scroll-smooth"
+          >
+            <!-- Card 1 -->
+            <div @click="router.push('/shop/Bridal')" class="flex-none w-[230px] sm:w-[260px] snap-start space-y-3 cursor-pointer group">
+              <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F2F1EC] dark:bg-stone-900">
+                <span class="absolute top-3 left-3 bg-white/90 dark:bg-black/90 text-stone-800 dark:text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-sm z-10">PRE ORDER</span>
+                <img :src="MB2026_1" alt="Bazif Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute bottom-3 left-3 right-3 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-2 rounded-md flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-stone-800 dark:text-white">View Details →</span>
+                  <font-awesome-icon icon="fa-regular fa-heart" class="text-xs text-stone-600 dark:text-stone-300" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Bazif</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.250,000</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div @click="router.push('/shop/Bridal')" class="flex-none w-[230px] sm:w-[260px] snap-start space-y-3 cursor-pointer group">
+              <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F2F1EC] dark:bg-stone-900">
+                <span class="absolute top-3 left-3 bg-white/90 dark:bg-black/90 text-stone-800 dark:text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-sm z-10">PRE ORDER</span>
+                <img :src="MB2026_3" alt="Marjan Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute bottom-3 left-3 right-3 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-2 rounded-md flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-stone-800 dark:text-white">View Details →</span>
+                  <font-awesome-icon icon="fa-regular fa-heart" class="text-xs text-stone-600 dark:text-stone-300" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Marjan</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.195,000</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div @click="router.push('/shop/Bridal')" class="flex-none w-[230px] sm:w-[260px] snap-start space-y-3 cursor-pointer group">
+              <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F2F1EC] dark:bg-stone-900">
+                <span class="absolute top-3 left-3 bg-white/90 dark:bg-black/90 text-stone-800 dark:text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-sm z-10">PRE ORDER</span>
+                <img :src="BS2026_1" alt="Velmira Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute bottom-3 left-3 right-3 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-2 rounded-md flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span class="text-[10px] uppercase font-bold tracking-wider text-stone-800 dark:text-white">View Details →</span>
+                  <font-awesome-icon icon="fa-regular fa-heart" class="text-xs text-stone-600 dark:text-stone-300" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Velmira</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.250,000</p>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div @click="router.push('/shop/Bridal')" class="flex-none w-[230px] sm:w-[260px] snap-start space-y-3 cursor-pointer group">
+              <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F2F1EC] dark:bg-stone-900">
+                <span class="absolute top-3 left-3 bg-white/90 dark:bg-black/90 text-stone-800 dark:text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-sm z-10">PRE ORDER</span>
+                <img :src="MB2026_4" alt="Yarizeh Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute bottom-3 left-3 right-3 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-2 rounded-md flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-stone-800 dark:text-white">View Details →</span>
+                  <font-awesome-icon icon="fa-regular fa-heart" class="text-xs text-stone-600 dark:text-stone-300" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Yarizeh</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.150,000</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         8. MARIA IS LOVED ❤️ — SOCIAL / INSTAGRAM FEED
+    ═══════════════════════════════════════════ -->
+    <section class="py-16 bg-[#F8F7F3] dark:bg-[#0A0A0A] border-t border-stone-200/60 dark:border-white/10">
+      <div class="max-w-[1600px] mx-auto px-6 space-y-8 text-center">
+        
+        <div class="space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 dark:text-white flex items-center justify-center gap-2">
+            Maria is Loved <span class="text-red-500">❤️</span>
+          </h2>
+          <p class="text-xs text-stone-500 dark:text-stone-400">
+            Tag us on Instagram <a href="https://instagram.com/ahmadclothfabrics_aroma/" target="_blank" class="font-bold underline text-stone-800 dark:text-stone-200">@ahmadclothfabrics_aroma</a> to be featured
+          </p>
+        </div>
+
+        <!-- 5 Portrait Social Feed Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div 
+            v-for="(img, idx) in [HeroCollage1, HeroCollage2, HeroCollage3, HeroCollage4, PakistaniCouture3]" 
+            :key="idx" 
+            @click="openZoom(img)"
+            class="aspect-[3/4] relative rounded-xl overflow-hidden cursor-pointer group shadow-sm border border-stone-200/60 dark:border-white/10"
+          >
+            <img :src="img" :alt="'Patron Look ' + (idx + 1)" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <font-awesome-icon :icon="['fab', 'instagram']" class="text-2xl" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
 
 
     <!-- ═══════════════════════════════════════════
@@ -353,438 +617,7 @@
       </div>
     </Transition>
 
-    <section id="discovery" class="filter-section relative pt-32 pb-16 bg-[#fafaf8] dark:bg-[#050505] transition-colors duration-1000" style="z-index: 100; isolation: isolate;">
-      <!-- Subtle Background Accents -->
-      <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/5 dark:from-white/5 to-transparent pointer-events-none"></div>
-
-      <div class="max-w-[1600px] mx-auto px-6 relative" style="z-index: 110;">
-        <!-- Section Header -->
-        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-black/10 dark:border-white/10 pb-12">
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <div class="h-[1px] w-8 bg-amber-500"></div>
-              <p class="text-[8px] font-black tracking-[0.4em] text-stone-400 uppercase">Signature Catalog</p>
-            </div>
-            <h2 class="text-5xl md:text-7xl font-playfair font-normal text-[#111] dark:text-white leading-none tracking-tight">
-              {{ selectedCategory === 'all' ? 'Curated Designs' : selectedCategory }}
-            </h2>
-          </div>
-          
-          <div class="flex items-center gap-3 bg-white dark:bg-[#0a0a0a] border border-black/5 dark:border-white/5 px-6 py-4 shadow-xl">
-            <span class="text-[16px] font-playfair italic text-amber-500 leading-none">{{ filteredProducts.length }}</span>
-            <span class="text-[8px] font-black tracking-[0.3em] text-[#111] dark:text-gray-400 uppercase leading-none mt-1">Masterpieces</span>
-          </div>
-        </div>
-
-        <!-- Visual Category Tabs (Pills) -->
-        <div class="flex items-center gap-3 overflow-x-auto pb-6 scrollbar-none mb-8 border-b border-black/5 dark:border-white/5">
-          <button 
-            @click="selectedCategory = 'all'"
-            class="px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border cursor-pointer whitespace-nowrap"
-            :class="selectedCategory === 'all' ? 'bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/20' : 'bg-transparent text-stone-600 dark:text-stone-400 border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white'"
-            type="button"
-          >
-            All Categories
-          </button>
-          <button 
-            v-for="cat in productStore.categories" :key="cat"
-            @click="selectedCategory = cat"
-            class="px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border cursor-pointer whitespace-nowrap"
-            :class="selectedCategory === cat ? 'bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/20' : 'bg-transparent text-stone-600 dark:text-stone-400 border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white'"
-            type="button"
-          >
-            {{ cat }}
-          </button>
-        </div>
-
-        <!-- Luxury Filter Bar -->
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end bg-white dark:bg-[#0a0a0a] p-8 md:p-12 shadow-2xl border border-black/5 dark:border-white/5 relative z-[120] overflow-visible">
-          
-          <!-- LIVE NAME SEARCH -->
-          <div class="relative">
-            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10">Search Designs</label>
-            <div class="relative flex items-center">
-              <input 
-                v-model="searchQuery" 
-                type="text" 
-                placeholder="Search by name, fabric..." 
-                class="w-full border border-black/10 dark:border-white/10 pl-6 pr-12 py-[17px] text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white placeholder-stone-400 outline-none focus:border-amber-500 bg-white dark:bg-[#0a0a0a] transition-all"
-              />
-              <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="absolute right-6 text-stone-400 text-xs pointer-events-none" />
-            </div>
-          </div>
-
-          <!-- COLLECTION TYPE CUSTOM DROPDOWN -->
-          <div class="relative" id="nature-dropdown-wrap">
-            <label class="absolute -top-3 left-4 bg-white dark:bg-[#0a0a0a] px-2 text-[8px] font-black tracking-[0.3em] text-stone-400 uppercase z-10">Collection Type</label>
-            <button
-              @click="isNatureOpen = !isNatureOpen"
-              class="w-full flex items-center justify-between border border-black/10 dark:border-white/10 px-6 py-5 text-[10px] font-bold tracking-widest uppercase text-[#111] dark:text-white hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-[#0a0a0a] cursor-pointer"
-              type="button"
-            >
-              <span class="truncate mr-2">{{
-                selectedNature === 'all' ? 'All Types' :
-                selectedNature === 'standard' ? 'Ready to Wear' :
-                selectedNature === 'premium' ? 'Luxury Collection' : 'Limited Edition'
-              }}</span>
-              <font-awesome-icon icon="fa-solid fa-chevron-down"
-                class="text-[8px] text-stone-400 flex-shrink-0 transition-transform duration-300"
-                :class="isNatureOpen ? 'rotate-180 text-amber-500' : ''" />
-            </button>
-            <Transition name="dropdown-slide">
-              <div v-if="isNatureOpen"
-                class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#111111] border border-black/10 dark:border-white/10 shadow-2xl"
-                style="z-index: 9999;"
-              >
-                <button v-for="opt in [
-                  { value: 'all',      label: 'All Types' },
-                  { value: 'standard', label: 'Ready to Wear' },
-                  { value: 'premium',  label: 'Luxury Collection' },
-                  { value: 'limited',  label: 'Limited Edition' }
-                ]" :key="opt.value"
-                  @click="selectedNature = opt.value; isNatureOpen = false"
-                  class="w-full text-left px-6 py-3.5 text-[10px] font-bold tracking-widest uppercase border-b border-black/5 dark:border-white/5 last:border-0 transition-colors"
-                  :class="selectedNature === opt.value ? 'bg-amber-500 text-black' : 'text-[#111] dark:text-white hover:bg-amber-50 dark:hover:bg-white/5'"
-                  type="button"
-                >{{ opt.label }}</button>
-              </div>
-            </Transition>
-          </div>
-
-          <!-- Price Slider -->
-          <div class="flex flex-col gap-4">
-            <div class="flex justify-between items-center px-2">
-              <label class="text-[8px] font-black tracking-widest text-stone-400 uppercase">Price Limit</label>
-              <span class="text-[12px] font-normal font-playfair text-[#111] dark:text-white">Rs. {{ Number(maxPrice).toLocaleString() }}</span>
-            </div>
-            <div class="py-2.5">
-              <input type="range" min="0" max="500000" step="1000" v-model="maxPrice"
-                class="luxury-home-range w-full cursor-pointer">
-            </div>
-          </div>
-
-          <!-- Actions: Reset Filters -->
-          <div class="flex">
-            <button 
-              @click="resetFilters" 
-              class="w-full py-4 border border-black dark:border-white text-black dark:text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all cursor-pointer"
-              type="button"
-            >
-              Reset Filters
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         PRODUCT GRID
-    ═══════════════════════════════════════════ -->
-    <section class="products-section pb-32 bg-white dark:bg-[#080808] min-h-[600px]" style="position: relative; z-index: 1;">
-      <div class="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
-        <ProductCard v-for="(product, index) in displayedProducts" :key="product.id" :product="product"
-          :loading="index < 4 ? 'eager' : 'lazy'"
-          @click-product="goToDetail" />
-
-        <!-- Loading State for API -->
-        <div v-if="productStore.loading" class="col-span-full py-20 flex flex-col items-center justify-center space-y-6">
-          <div class="w-16 h-16 border-4 border-gray-100 dark:border-white/5 border-t-[var(--primary-gold)] rounded-full animate-spin"></div>
-          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--primary-gold)] animate-pulse">Syncing with Couture House...</p>
-        </div>
-
-        <!-- Empty State -->
-        <div v-else-if="displayedProducts.length === 0" class="col-span-full py-32 text-center">
-          <font-awesome-icon icon="fa-solid fa-shirt" class="text-4xl mb-6 text-gray-200" />
-          <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">No designs found</p>
-        </div>
-      </div>
-
-      <div v-if="hasMore" class="mt-20 flex justify-center">
-        <button @click="loadMore"
-          class="border border-black dark:border-white px-12 py-4 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-          LOAD MORE DESIGNS
-        </button>
-      </div>
-    </section>
-    <!-- ═══════════════════════════════════════════
-         WHY CHOOSE AHMADCLOTHS (SEO & Value Boost)
-    ═══════════════════════════════════════════ -->
-   
-
-    <!-- Collaboration Slot: Sponsored Brands -->
-   
-
-
-
-
-
-
-
-    <!-- ═══════════════════════════════════════════
-           LATEST FROM THE JOURNAL (FOR ADSENSE & SEO)
-    ═══════════════════════════════════════════ -->
-    <section class="py-32 bg-[#fafaf8] dark:bg-[#080808] border-b border-black/5 dark:border-white/5 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#d4af37_1px,_transparent_1px)] bg-[size:100px_100px]"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-          <div class="flex flex-col md:flex-row justify-between items-end gap-12 mb-20 animate-reveal">
-            <div>
-              <div class="flex items-center gap-3 mb-6">
-                <div class="h-[1px] w-12 bg-amber-500"></div>
-                <span class="text-amber-500 font-bold text-[10px] uppercase tracking-[0.5em]">Editorial</span>
-              </div>
-              <h2 class="text-5xl md:text-7xl font-playfair font-bold text-black dark:text-white leading-none">
-                THE HOUSE <br> <span class="text-stone-400 italic font-thin">JOURNAL</span>
-              </h2>
-            </div>
-            <router-link to="/blog" class="group flex items-center gap-6 px-10 py-5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.4em] transition-all hover:bg-amber-500 dark:hover:bg-amber-500 hover:text-black">
-              View All Entries
-              <font-awesome-icon icon="fa-solid fa-arrow-right" class="group-hover:translate-x-2 transition-transform" />
-            </router-link>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <article v-for="blog in homeBlogs" :key="blog.id" class="group cursor-pointer" @click="router.push(`/blog/${blog.slug}`)">
-              <div class="relative aspect-[3/4] overflow-hidden mb-8 shadow-2xl">
-                <img :src="blog.image" :alt="blog.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" decoding="async" width="400" height="533" />
-                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
-                <div class="absolute top-6 left-6 py-1 px-4 bg-white/90 backdrop-blur-md">
-                  <span class="text-[8px] font-black text-black uppercase tracking-widest">{{ blog.category }}</span>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="flex items-center gap-3 text-stone-400 text-[8px] font-bold uppercase tracking-widest">
-                  <span>{{ blog.date }}</span>
-                  <span class="w-4 h-[1px] bg-amber-500/20"></span>
-                  <span>By {{ blog.author }}</span>
-                </div>
-                <h3 class="text-2xl font-playfair text-black dark:text-white group-hover:text-amber-500 transition-colors leading-tight">
-                  {{ blog.title }}
-                </h3>
-                <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-3">
-                  {{ blog.summary }}
-                </p>
-                <div class="pt-4 overflow-hidden">
-                  <span class="text-[9px] font-black text-amber-500 uppercase tracking-widest block transition-transform group-hover:-translate-x-2">Read Entry —</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-    </section>
-
-
-
-
-
-
-    <!-- ═══════════════════════════════════════════
-         THE ESSENCE OF CRAFT
-    ═══════════════════════════════════════════ -->
-    <!-- <section class="craft-essence-section py-40 bg-[var(--luxury-cream)] dark:bg-[#050505] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
-          <div class="max-w-2xl space-y-6">
-            <div class="text-[var(--primary-gold)] text-[10px] font-bold tracking-[0.3em] uppercase">THE CRAFT</div>
-            <h2
-              class="text-5xl md:text-7xl font-playfair italic text-[var(--luxury-black)] dark:text-white leading-tight">
-              Alchemy of <span class="text-[var(--deep-burgundy)]">Pure</span> Artistry
-            </h2>
-          </div>
-          <p class="text-gray-500 dark:text-gray-400 max-w-sm text-sm leading-relaxed pb-2">
-            Every creation begins with a selection of the world's finest raw materials, transformed through time-honored
-            techniques.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div v-for="(item, i) in craftItems" :key="i" class="craft-card group">
-            <div class="relative overflow-hidden aspect-[3/4] mb-8 bg-gray-100">
-              <img :src="item.image" :alt="item.title"
-                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-                width="600" height="800" loading="lazy" />
-             
-            </div>
-            <h3
-              class="text-xl font-playfair italic text-[var(--luxury-black)] dark:text-white mb-4 uppercase tracking-wider">
-              {{ item.title }}</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed tracking-wide">{{ item.desc }}</p>
-            <div class="h-[1px] w-0 bg-[var(--deep-burgundy)] mt-6 group-hover:w-full transition-all duration-700">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-
-
-
-
-   
-    <!-- ═══════════════════════════════════════════
-         WHITE BOX SEO & LAHORE BOUTIQUE PICKUP GUIDE
-    ═══════════════════════════════════════════ -->
-    <section class="py-24 bg-[#F9F9F7] dark:bg-[#111111] transition-colors duration-1000 border-t border-black/5 dark:border-white/5">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="bg-white dark:bg-[#0A0A0A] p-8 md:p-16 border border-black/5 dark:border-white/5 shadow-2xl rounded-none grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
-          <!-- Left: Lahore Boutique Pickup Instructions -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="flex items-center gap-3">
-              <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-              <span class="text-[9px] font-black tracking-[0.4em] text-stone-400 uppercase">Self-Pickup Service</span>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-playfair font-normal text-black dark:text-white leading-tight">
-              Order Online &amp; Pickup at <br> Our <span class="italic text-amber-500">Lahore Boutique</span>
-            </h2>
-            <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed font-light">
-              To provide maximum convenience and save on shipping times, Ahmad Cloth House offers an exclusive 
-              <strong>Boutique Pickup</strong> service for all domestic orders. You can browse our online catalog, select your favorite unstitched designer lawn, luxury pret, or men’s fabrics, and check out securely.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-black/5 dark:border-white/5">
-              <div class="space-y-2">
-                <span class="text-xs font-black text-amber-500">01. Order Online</span>
-                <p class="text-[10px] text-stone-400 leading-normal">Choose your favorites, select "Boutique Pickup" during checkout, and pay securely.</p>
-              </div>
-              <div class="space-y-2">
-                <span class="text-xs font-black text-amber-500">02. Await Notification</span>
-                <p class="text-[10px] text-stone-400 leading-normal">Our team prepares your package. You will receive a WhatsApp/SMS alert once it's ready.</p>
-              </div>
-              <div class="space-y-2">
-                <span class="text-xs font-black text-amber-500">03. Fast Pickup</span>
-                <p class="text-[10px] text-stone-400 leading-normal">Visit our Ameer Chowk flagship boutique in Wapda Town, Lahore, and collect your order.</p>
-              </div>
-            </div>
-            <div class="p-4 bg-stone-50 dark:bg-white/5 border-l-2 border-amber-500 text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-              <strong>Boutique Address:</strong> Wapda Town, Ameer Chowk, Lahore, Pakistan.<br>
-              <strong>Pickup Hours:</strong> Monday – Saturday: 11:00 AM – 9:00 PM.<br>
-              <strong>Support Hotline:</strong> <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="text-amber-500 font-bold hover:underline">0341 6887454</a> (Concierge Desk).
-            </div>
-          </div>
-
-          <!-- Right: White Box SEO & Keywords -->
-          <div class="lg:col-span-5 space-y-6 lg:border-l lg:border-black/10 lg:dark:border-white/10 lg:pl-12">
-            <h3 class="text-xs font-black tracking-[0.3em] text-stone-400 uppercase">Ahmad Cloth House SEO Index</h3>
-            <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-              We are Pakistan's premium destination for authentic unstitched designer lawn, chiffon shirts, and heavy bridal wear. Partnering with top brands like Maria B, Sana Safinaz, Bin Saeed, and Gul Ahmed, we bring Lahore's finest artisan-crafted fashion to a global audience.
-            </p>
-            <div class="space-y-3 pt-4 border-t border-black/5 dark:border-white/5">
-              <span class="text-[9px] font-black tracking-[0.2em] text-[#111] dark:text-white uppercase block">Target Search Keywords:</span>
-              <div class="flex flex-wrap gap-2">
-                <span v-for="tag in ['Lawn Suits 2026', 'Maria B Lahore', 'Unstitched Cotton', 'Burewala Latha', 'Bridal Lehenga', 'Pakistani Pret', 'Self-Pickup Lahore']" :key="tag" class="text-[8px] font-bold tracking-wider uppercase px-2.5 py-1 bg-stone-100 dark:bg-white/5 text-stone-500 dark:text-gray-400">
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
-            <nav class="pt-4" aria-label="SEO Quick Links">
-              <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-[10px] font-black uppercase tracking-wider">
-                <li><router-link to="/shop/Unstitched" class="text-stone-400 hover:text-amber-500">Unstitched Fabrics</router-link></li>
-                <li><router-link to="/shop/Pret" class="text-stone-400 hover:text-amber-500">Ready-To-Wear</router-link></li>
-                <li><router-link to="/shop/Bridal" class="text-stone-400 hover:text-amber-500">Bridal Couture</router-link></li>
-                <li><router-link to="/blog" class="text-stone-400 hover:text-amber-500">Fashion Blog</router-link></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         FAQ SECTION (Content Boost)
-    ═══════════════════════════════════════════ -->
-    <section class="faq-section py-32 bg-[#fafaf8] dark:bg-[#050505]">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-16 space-y-4">
-          <h3 class="text-[10px] font-bold text-[var(--primary-gold)] tracking-[0.5em] uppercase">FREQUENTLY ASKED</h3>
-          <h2 class="text-4xl font-playfair italic text-gray-900 dark:text-white">Questions & Answers</h2>
-        </div>
-        
-        <div class="space-y-8">
-          <div v-for="(faq, i) in faqs" :key="i" class="border-b border-black/5 dark:border-white/5 pb-8">
-            <h4 class="text-lg font-playfair text-gray-900 dark:text-white mb-4">{{ faq.q }}</h4>
-            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed font-light">{{ faq.a }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="heritage-banner relative py-40 overflow-hidden bg-black text-white">
-
-      <!-- Background Images -->
-      <div class="absolute inset-0">
-
-        <!-- First Image -->
-        <img :src="PakistaniCouture2" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" width="1920" height="1080" alt="Heritage Background 1" />
-
-        <!-- Second Image with blend -->
-        <img :src="PakistaniCouture4" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50"
-          loading="lazy" width="1920" height="1080" alt="Heritage Background 2" />
-
-      </div>
-
-      <!-- Softer Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-
-      <!-- Content -->
-      <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        <div class="space-y-8">
-          <p class="heritage-tag text-amber-400">OUR PHILOSOPHY</p>
-
-          <h2 class="heritage-title text-4xl md:text-6xl font-black font-playfair uppercase leading-tight">
-            THE ART OF<br>
-            <span class="italic text-amber-200">COUTURE</span>
-          </h2>
-
-          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-lg font-light">
-            We believe the finest fabrics tell their own story. AHMADCLOTHESFABRICS represents the commitment to quality
-            and the joy of elegance through artisanal craftsmanship. Our collections are designed to make every woman 
-            feel confident and beautiful, blending the rich heritage of Pakistan with modern fashion sensibilities.
-          </p>
-          <p class="heritage-desc text-gray-300 max-w-lg leading-relaxed text-sm font-light">
-            Each season, we bring you new designs that push the boundaries of luxury. From our signature unstitched 
-            collections to our bespoke bridal wear, we are dedicated to providing the highest level of service and 
-            craftsmanship. Join us on this journey of elegance and style.
-          </p>
-          <div class="flex items-center gap-10">
-            <div v-for="stat in brandStats" :key="stat.label">
-              <div class="text-3xl font-black text-amber-400 mb-1">{{ stat.value }}</div>
-              <div class="text-[10px] uppercase tracking-[0.2em] text-gray-400">{{ stat.label }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div class="hidden lg:block relative">
-          <div
-            class="w-full h-[500px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black/30 backdrop-blur-2xl group">
-
-
-            <img :src="PakistaniCouture2" class="img-zoom" alt="Limited Edition" loading="lazy" width="800" height="1200" />
-
-
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-
-            <div class="absolute bottom-8 left-8 right-8">
-              <p class="text-xs font-black tracking-widest text-amber-400 mb-2">
-                PRODUCT ARCHIVE
-              </p>
-
-              <h4 class="text-2xl font-black tracking-tight uppercase">
-                TRADITION & TRENDS
-              </h4>
-
-              <div class="h-0.5 w-12 bg-amber-400 mt-4 group-hover:w-full transition-all duration-700"></div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
+    <!-- (Curated catalog filter section removed per user request) -->
 
     <!-- ═══════════════════════════════════════════
          IMAGE ZOOM MODAL (Lightbox)
@@ -820,6 +653,14 @@ import BridalHeritage from "../assets/ai_new/bridal_highlight.jpg"
 import PakistaniCouture1 from "../assets/ai_new/hero_collage_1.jpg"
 import PakistaniCouture4 from "../assets/ai_new/hero_collage_4.jpg"
 
+import MB2026_1 from "../assets/ai_new/mb_2026_1.jpg"
+import MB2026_2 from "../assets/ai_new/mb_2026_2.jpg"
+import MB2026_3 from "../assets/ai_new/mb_2026_3.jpg"
+import MB2026_4 from "../assets/ai_new/mb_2026_4.jpg"
+import MB2026_5 from "../assets/ai_new/mb_2026_5.jpg"
+import BS2026_1 from "../assets/ai_new/bs_2026_1.jpg"
+import BS2026_3 from "../assets/ai_new/bs_2026_3.jpg"
+
 import HeroCollage1 from "../assets/ai_new/hero_collage_1.jpg"
 import HeroCollage2 from "../assets/ai_new/hero_collage_2.jpg"
 import HeroCollage3 from "../assets/ai_new/hero_collage_3.jpg"
@@ -830,6 +671,7 @@ import Highlight2 from "../assets/ai_new/hero_collage_2.jpg"
 import Highlight3 from "../assets/ai_new/hero_collage_3.jpg"
 import Highlight4 from "../assets/ai_new/hero_collage_4.jpg"
 import ShopInterior from "../assets/ai_new/shop_interior.jpg"
+import shopHeader from "../assets/ai_new/shop_header.jpg"
 
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
@@ -871,11 +713,56 @@ const scrollIndicator = ref(null)
 const isZoomOpen = ref(false)
 const zoomImg = ref('')
 
+const currentBgSlide = ref(0)
+const bgSlides = [
+  { image: HeroCollage1, title: 'Unstitched Lawn 2026' },
+  { image: HeroCollage2, title: 'Luxury Pret Collection' },
+  { image: HeroCollage3, title: 'Hand-Embroidered Fabrics' },
+  { image: HeroCollage4, title: 'Bespoke Bridal Wear' }
+]
+
+let bgSliderInterval = null
+
+onMounted(() => {
+  bgSliderInterval = setInterval(() => {
+    currentBgSlide.value = (currentBgSlide.value + 1) % bgSlides.length
+  }, 4500)
+})
+
+onUnmounted(() => {
+  if (bgSliderInterval) clearInterval(bgSliderInterval)
+})
+
 const isExpanded = ref(false)
 const isExiting = ref(false)
 const currentHeroIndex = ref(0)
 const scrollY = ref(0)
 const heroTimer = ref(null)
+
+const azadiSlider = ref(null)
+const newArrivalsSlider = ref(null)
+const coutureSlider = ref(null)
+
+const scrollAzadi = (direction) => {
+  if (azadiSlider.value) {
+    const dist = direction === 'left' ? -340 : 340
+    azadiSlider.value.scrollBy({ left: dist, behavior: 'smooth' })
+  }
+}
+
+const scrollNewArrivals = (direction) => {
+  if (newArrivalsSlider.value) {
+    const dist = direction === 'left' ? -340 : 340
+    newArrivalsSlider.value.scrollBy({ left: dist, behavior: 'smooth' })
+  }
+}
+
+const scrollCouture = (direction) => {
+  if (coutureSlider.value) {
+    const dist = direction === 'left' ? -300 : 300
+    coutureSlider.value.scrollBy({ left: dist, behavior: 'smooth' })
+  }
+}
 
 const homeBlogs = computed(() => {
   return (allBlogs || []).slice(0, 3)

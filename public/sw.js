@@ -1,40 +1,41 @@
-const CACHE_NAME = 'ahmad-cloth-v1';
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/logo.png'
-];
+const CACHE_NAME = 'ahmad-cloth-v3';
 
-// Install Event
 self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
-    })
-  );
+  self.skipWaiting();
 });
 
-// Activate Event
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((keys) => {
-      return Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
-      );
-    })
+      return Promise.all(keys.map((key) => caches.delete(key)));
+    }).then(() => self.clients.claim())
   );
 });
 
-// Fetch Event (Required to trigger Mobile Install prompt)
+// Fetch Event - bypass service worker for dev / dynamic requests to prevent failed fetch errors
 self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((cachedResponse) => {
-      return cachedResponse || fetch(e.request);
-    })
-  );
+  const url = new URL(e.request.url);
+
+  // Skip non-GET, cross-origin, extension, and dev server requests
+  if (e.request.method !== 'GET') return;
+  if (url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith('/@') || url.pathname.startsWith('/src') || url.pathname.startsWith('/node_modules')) return;
+
+  // Cache static image & asset files only
+  if (/\.(png|jpg|jpeg|svg|gif|webp|ico|css|js|json)$/i.test(url.pathname)) {
+    e.respondWith(
+      caches.match(e.request).then((cachedResponse) => {
+        if (cachedResponse) return cachedResponse;
+        return fetch(e.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, responseClone));
+          }
+          return networkResponse;
+        }).catch(() => {
+          return new Response('Asset offline', { status: 404 });
+        });
+      })
+    );
+  }
 });

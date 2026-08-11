@@ -1,10 +1,11 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @theme {
   --color-primary-gold: #B8860B;
-  --color-deep-burgundy: #4A0E0E;
-  --color-luxury-cream: #FDFBF7;
-  --color-luxury-black: #1A1A1A;
+  --color-deep-burgundy: #1a1a1a;
+  --color-luxury-cream: #FAFAFA;
+  --color-luxury-black: #111111;
   --color-amber-400: #B8860B;
   --color-amber-500: #8B6508;
   --color-amber-600: #735307;
@@ -12,118 +13,285 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+/* ═══════════════════════════════════════
+   SHOPIFY-STYLE DESIGN TOKENS
+═══════════════════════════════════════ */
 :root {
-  --primary-gold: #B8860B;
-  /* Muted Luxurious Gold (Maria B) */
-  --deep-burgundy: #4A0E0E;
-  /* Deep Royal Maroon */
-  --luxury-cream: #FDFBF7;
-  /* Elegant Off-White */
-  --luxury-black: #1A1A1A;
-  /* Soft Black for text */
-  --accent-maroon: #2D0808;
-  --bg-light: #FFFFFF;
+  /* Primary Colors */
+  --sh-black:       #111111;
+  --sh-white:       #FFFFFF;
+  --sh-gray-50:     #FAFAFA;
+  --sh-gray-100:    #F4F4F4;
+  --sh-gray-200:    #E5E7EB;
+  --sh-gray-400:    #9CA3AF;
+  --sh-gray-500:    #6B7280;
+  --sh-gray-700:    #374151;
+
+  /* Brand Accent */
+  --primary-gold:   #B8860B;
+  --gold-light:     #D4AF37;
+
+  /* Legacy compat */
+  --deep-burgundy:  #1a1a1a;
+  --luxury-cream:   #FAFAFA;
+  --luxury-black:   #111111;
+  --accent-maroon:  #2D0808;
+  --bg-light:       #FFFFFF;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
+/* ═══════════════════════════════════════
+   DARK MODE TOKENS
+═══════════════════════════════════════ */
+.dark {
+  --sh-black:       #FFFFFF;
+  --sh-white:       #111111;
+  --sh-gray-50:     #0A0A0A;
+  --sh-gray-100:    #111111;
+  --sh-gray-200:    #1F1F1F;
+  --sh-gray-400:    #6B7280;
+  --sh-gray-500:    #9CA3AF;
+  --sh-gray-700:    #D1D5DB;
+  --luxury-black:   #F5F5F5;
+  --bg-light:       #0A0A0A;
 }
 
-.body {
-  background-color: var(--bg-light);
-  color: var(--luxury-black);
-  font-family: 'DM Sans', sans-serif;
-  font-optical-sizing: auto;
-  transition: background-color 0.3s ease;
+/* ═══════════════════════════════════════
+   GLOBAL RESET & BASE
+═══════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.dark .body {
+body {
+  font-family: var(--font-sans);
+  background-color: var(--sh-white);
+  color: var(--sh-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  top: 0 !important;
+  position: static !important;
+}
+
+.dark body {
   background-color: #0A0A0A;
   color: #F5F5F5;
 }
 
+/* ═══════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6,
+.font-luxury {
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
 
 .font-playfair {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-weight: 600;
 }
 
 .font-montserrat {
-  font-family: 'DM Sans', sans-serif;
-  font-optical-sizing: auto;
+  font-family: var(--font-sans);
 }
 
-/* Maria B & Warda Inspired Patterns */
-.bg-damask {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.03'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.dark .bg-damask {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.05'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* Global Typography Refinement */
-h1,
-h2,
-h3,
-h4,
-.font-luxury {
-  font-family: 'DM Sans', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  letter-spacing: 0.03em;
+/* ═══════════════════════════════════════
+   SHOPIFY-STYLE SECTION LABELS
+═══════════════════════════════════════ */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sh-gray-500);
 }
 
 .section-title {
-  @apply text-3xl md:text-5xl font-light text-center mb-12 uppercase tracking-[0.2em];
-  color: var(--luxury-black);
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sh-black);
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .dark .section-title {
   color: #F5F5F5;
 }
 
+/* ═══════════════════════════════════════
+   SHOPIFY-STYLE BUTTONS
+═══════════════════════════════════════ */
+.btn-shopify {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px;
+  height: 48px;
+  background: #111111;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-shopify:hover {
+  background: #333333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.btn-shopify:active {
+  transform: translateY(0);
+}
+
+.dark .btn-shopify {
+  background: #ffffff;
+  color: #111111;
+}
+
+.dark .btn-shopify:hover {
+  background: #E5E7EB;
+}
+
+.btn-shopify-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px;
+  height: 48px;
+  background: transparent;
+  color: #111111;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1.5px solid #111111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-shopify-outline:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.dark .btn-shopify-outline {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.dark .btn-shopify-outline:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+/* Legacy compat */
 .btn-premium {
-  @apply px-8 py-3 bg-[var(--deep-burgundy)] text-white uppercase tracking-[0.2em] text-xs font-bold transition-all duration-500 hover:bg-[var(--accent-maroon)] hover:shadow-xl active:scale-95 disabled:opacity-50;
+  @apply px-8 py-3 bg-[#111] text-white uppercase tracking-[0.12em] text-xs font-bold transition-all duration-300 hover:bg-[#333] active:scale-95 disabled:opacity-50;
 }
 
 .btn-outline-gold {
-  @apply px-8 py-3 border border-[var(--primary-gold)] text-[var(--primary-gold)] uppercase tracking-[0.2em] text-xs font-bold transition-all duration-500 hover:bg-[var(--primary-gold)] hover:text-white;
+  @apply px-8 py-3 border border-[var(--primary-gold)] text-[var(--primary-gold)] uppercase tracking-[0.12em] text-xs font-bold transition-all duration-300 hover:bg-[var(--primary-gold)] hover:text-white;
 }
 
-/* Luxury Input */
+/* ═══════════════════════════════════════
+   SHOPIFY-STYLE INPUTS
+═══════════════════════════════════════ */
+.input-shopify {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #D1D5DB;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-shopify:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(17,17,17,0.08);
+}
+
+/* Legacy */
 .input-premium {
-  @apply w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[var(--primary-gold)] transition-colors duration-300;
+  @apply w-full bg-white border border-gray-200 px-4 py-3 text-sm rounded focus:outline-none focus:border-[#111] focus:ring-2 focus:ring-black/8 transition-all duration-200;
 }
 
 .dark .input-premium {
-  @apply bg-black/40 border-white/10 text-white;
+  @apply bg-[#111] border-white/10 text-white focus:border-white/30;
 }
 
-/* Luxury Card Shadow */
+/* ═══════════════════════════════════════
+   SHOPIFY CARD SHADOW
+═══════════════════════════════════════ */
 .luxury-shadow {
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
 }
 
 .dark .luxury-shadow {
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
 }
 
+/* ═══════════════════════════════════════
+   ANNOUNCEMENT BAR
+═══════════════════════════════════════ */
 .luxury-banner {
-  background: var(--deep-burgundy);
+  background: #111111;
   color: white;
 }
 
 .dark .luxury-banner {
-  background: #1A0000;
+  background: #000000;
 }
 
+/* ═══════════════════════════════════════
+   SCROLLBAR UTILITIES
+═══════════════════════════════════════ */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═══════════════════════════════════════
+   DAMASK PATTERN (kept for hero sections)
+═══════════════════════════════════════ */
+.bg-damask {
+  background-image: none;
+}
+
+.dark .bg-damask {
+  background-image: none;
+}
+
+/* ═══════════════════════════════════════
+   GOOGLE TRANSLATE (unchanged)
+═══════════════════════════════════════ */
 .goog-te-gadget-simple {
-  background-color: #000 !important;
+  background-color: #111 !important;
   border: 1px solid rgba(212, 175, 55, 0.3) !important;
   border-radius: 4px !important;
-  /* Sharp sharp corners or very soft? Let's go with slightly rounded luxury pill */
   font-size: 10px !important;
   font-weight: 700 !important;
   letter-spacing: 0.15em !important;
@@ -134,16 +302,16 @@ h4,
   cursor: pointer !important;
   height: 38px !important;
   padding: 0 20px !important;
-  font-family: 'DM Sans', sans-serif !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  font-family: var(--font-sans) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
 }
 
 .goog-te-gadget-simple:hover {
   background-color: #d4af37 !important;
   border-color: #d4af37 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3) !important;
 }
 
 .goog-te-gadget-simple:hover * {
@@ -171,28 +339,16 @@ h4,
   text-transform: uppercase !important;
 }
 
-.goog-te-menu-value span:nth-child(2) {
-  display: none !important;
-}
+.goog-te-menu-value span:nth-child(2) { display: none !important; }
+.goog-te-menu-value span:nth-child(3) { display: none !important; }
+.goog-te-menu-value span:nth-child(4) { display: none !important; }
 
-.goog-te-menu-value span:nth-child(3) {
-  display: none !important;
-}
-
-.goog-te-menu-value span:nth-child(4) {
-  display: none !important;
-}
-
-/* Premium Globe Icon before the text */
 .goog-te-gadget-simple::before {
   content: '🌐';
   font-size: 14px;
   margin-right: 8px;
-  filter: sepia(1) saturate(5) hue-rotate(-10deg);
-  /* Make it look golden */
 }
 
-/* Ensure the first child (Language Name) is visible and styled properly */
 .goog-te-menu-value span:first-child {
   display: inline-block !important;
   color: #d4af37 !important;
@@ -202,7 +358,6 @@ h4,
   letter-spacing: 0.1em !important;
 }
 
-/* Custom Dropdown Arrow */
 .goog-te-menu-value::after {
   content: '▼';
   font-size: 7px;
@@ -216,36 +371,26 @@ h4,
   color: #000;
 }
 
-#google_translate_element:hover .goog-te-menu-value::after,
-#google_translate_element_mobile:hover .goog-te-menu-value::after {
-  color: #fff;
-}
-
-/* Dropdown Menu Styling */
 .goog-te-menu-frame,
 iframe.goog-te-menu-frame,
 .goog-te-menu2-container,
-.goog-te-menu-frame.skiptranslate,
-[id^=":0.targetLanguage"],
-[id^=":1.targetLanguage"],
-[id^=":2.targetLanguage"] {
+.goog-te-menu-frame.skiptranslate {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
-  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 8px !important;
   border: 1px solid rgba(212, 175, 55, 0.2) !important;
-  background: #0a0a0a !important;
+  background: #111 !important;
   z-index: 2147483647 !important;
   pointer-events: auto !important;
 }
 
 .goog-te-menu2 {
-  background-color: #0a0a0a !important;
+  background-color: #111 !important;
   border: none !important;
-  padding: 10px !important;
-  border-radius: 12px !important;
-  overflow: visible !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
 }
 
 .goog-te-menu2-item div,
@@ -254,11 +399,11 @@ iframe.goog-te-menu-frame,
 .goog-te-menu2-item:active div {
   color: rgba(255, 255, 255, 0.8) !important;
   background-color: transparent !important;
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-sans) !important;
   font-size: 12px !important;
-  padding: 8px 16px !important;
-  border-radius: 6px !important;
-  transition: all 0.2s ease !important;
+  padding: 8px 14px !important;
+  border-radius: 4px !important;
+  transition: all 0.15s ease !important;
 }
 
 .goog-te-menu2-item:hover div {
@@ -273,7 +418,7 @@ iframe.goog-te-menu-frame,
   font-weight: 700 !important;
 }
 
-/* Hide Google Translate Banner & Floating Widgets */
+/* Hide Google Translate Banner */
 .goog-te-banner-frame.skiptranslate,
 .goog-te-banner-frame,
 .goog-te-banner,
@@ -296,14 +441,10 @@ iframe.goog-te-banner-frame {
   border-bottom: none !important;
 }
 
-body {
-  top: 0 !important;
-  position: static !important;
-}
-
-/* Mobile adjustments */
+/* ═══════════════════════════════════════
+   MOBILE ADJUSTMENTS
+═══════════════════════════════════════ */
 @media (max-width: 640px) {
-
   #google_translate_element,
   #google_translate_element_mobile {
     min-width: 100px !important;

@@ -17,54 +17,34 @@
       </ul>
     </section>
 
-    <!-- Cinematic Category Header -->
-    <div class="relative h-[60vh] min-h-[450px] overflow-hidden bg-black flex items-center px-6">
-      <div class="absolute inset-0 opacity-40">
-        <img 
-           :src="headerImage" 
-           class="w-full h-full object-cover animate-pan"
-           alt="Banner"
-           fetchpriority="high"
-           width="1920"
-           height="1080"
-        />
-      </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/40"></div>
-      
-      <div class="max-w-7xl mx-auto w-full relative z-10">
-        <div class="flex items-center gap-4 mb-6 animate-reveal">
-          <div class="h-[1px] w-12 bg-[var(--primary-gold)]"></div>
-          <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.5em] block">PAKISTANI DESIGNER SUITS</span>
-        </div>
+    <!-- Maria B Style Category Header -->
+    <div class="relative pt-44 sm:pt-52 pb-16 sm:pb-24 px-6 sm:px-12 text-center bg-[#F6F5EE] dark:bg-[#0D0D0D] border-b border-stone-200/80 dark:border-white/10 w-full">
+      <div class="max-w-4xl mx-auto space-y-4">
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-[#334433] dark:text-stone-300">
+          PAKISTANI DESIGNER COLLECTION
+        </p>
         
-        <h1 class="text-5xl md:text-8xl font-light uppercase tracking-tighter leading-none mb-8 text-white transition-all font-playfair italic">
-          {{ displayTitleParts.main }}<br>
-          <span class="text-[var(--primary-gold)] font-sans tracking-widest font-light ml-2 uppercase">LUXURY UNSTITCHED</span>
+        <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight text-[#203220] dark:text-amber-400 uppercase leading-none">
+          {{ displayTitleParts.main || 'WOMEN\'S WEAR' }}
         </h1>
         
-        <p class="text-[9px] font-black tracking-[0.4em] text-white/40 uppercase max-w-xs leading-relaxed animate-reveal-delay">
-          Discover a curated selection of luxury apparel and timeless couture.
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-stone-600 dark:text-stone-400 pt-2">
+          LUXURY UNSTITCHED &amp; PRET COUTURE
         </p>
-      </div>
-
-      <!-- Scroll Cue -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
-         <div class="w-[1px] h-12 bg-gradient-to-b from-amber-400 to-transparent"></div>
-         <span class="text-[7px] font-black uppercase tracking-[0.4em] text-white">DISCOVER</span>
       </div>
     </div>
 
     <!-- NEW LUXURY TOOLBAR (Show Filters, Switcher, Sort) -->
-    <div class="flex items-center justify-between py-6 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#050505]/80 backdrop-blur-xl sticky top-0 z-[200] transition-colors duration-500">
+    <div class="flex items-center justify-between py-6 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-white/90 dark:bg-[#050505]/90 backdrop-blur-xl sticky top-0 z-[200] transition-colors duration-500">
       <!-- Left: Show Filters Toggle -->
       <button @click="showFilters = !showFilters" 
         class="flex items-center gap-3 group px-4 py-2 hover:bg-stone-50 dark:hover:bg-[#111] transition-all">
         <font-awesome-icon icon="fa-solid fa-sliders" 
           :class="showFilters ? 'text-[var(--primary-gold)]' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'"
           class="text-xs transition-colors" />
-        <span class="text-[10px] font-black tracking-[0.3em] uppercase transition-colors"
-          :class="showFilters ? 'text-black dark:text-white' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'">
-          {{ showFilters ? 'Hide Filters' : "Show Filter's" }}
+        <span class="text-[11px] font-bold tracking-wider uppercase transition-colors"
+          :class="showFilters ? 'text-black dark:text-white' : 'text-stone-500 group-hover:text-black dark:group-hover:text-white'">
+          {{ showFilters ? 'Hide Filters' : 'Filter' }}
         </span>
       </button>
 

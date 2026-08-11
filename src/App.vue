@@ -1,6 +1,6 @@
 <template>
 
-  <div class="min-h-screen overflow-x-hidden relative bg-[#050505] bg-damask">
+  <div class="min-h-screen relative bg-[#050505] bg-damask">
     <!-- Global Premium Loader -->
     <transition name="fade">
       <div v-if="loading.isLoading"
@@ -130,36 +130,36 @@
       </transition>
     </router-view>
 
-    <!-- Trust Promotion Bar -->
-    <section v-if="showHeaderFooter" class="py-16 bg-white dark:bg-[#080808] border-y border-black/5 dark:border-white/5">
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-        <div class="space-y-4 group">
-          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+    <!-- Trust Promotion Bar — Shopify Minimal Style -->
+    <section v-if="showHeaderFooter" class="py-10 bg-[#FAFAFA] dark:bg-[#0A0A0A] border-y border-[#E5E7EB] dark:border-white/10">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="text-[#111] dark:text-white text-xl group-hover:scale-110 transition-transform">
             <font-awesome-icon icon="fa-solid fa-earth-americas" />
           </div>
-          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Worldwide Shipping</h4>
-          <p class="text-[8px] text-stone-500 uppercase tracking-widest">Global Couture Delivered</p>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[#111] dark:text-white">Worldwide Shipping</h4>
+          <p class="text-[11px] text-stone-500 font-normal">Global couture delivered</p>
         </div>
-        <div class="space-y-4 group">
-          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="text-[#111] dark:text-white text-xl group-hover:scale-110 transition-transform">
             <font-awesome-icon icon="fa-solid fa-gem" />
           </div>
-          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Premium Quality</h4>
-          <p class="text-[8px] text-stone-500 uppercase tracking-widest">Finest Artisanal Fabrics</p>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[#111] dark:text-white">Premium Quality</h4>
+          <p class="text-[11px] text-stone-500 font-normal">Finest artisanal fabrics</p>
         </div>
-        <div class="space-y-4 group">
-          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="text-[#111] dark:text-white text-xl group-hover:scale-110 transition-transform">
             <font-awesome-icon icon="fa-solid fa-hand-holding-heart" />
           </div>
-          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Handcrafted</h4>
-          <p class="text-[8px] text-stone-500 uppercase tracking-widest"> Lahore's Master Artisans</p>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[#111] dark:text-white">Handcrafted</h4>
+          <p class="text-[11px] text-stone-500 font-normal">Lahore's master artisans</p>
         </div>
-        <div class="space-y-4 group">
-          <div class="text-[var(--primary-gold)] text-2xl group-hover:scale-110 transition-transform">
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="text-[#111] dark:text-white text-xl group-hover:scale-110 transition-transform">
             <font-awesome-icon icon="fa-solid fa-shield-halved" />
           </div>
-          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--luxury-black)] dark:text-white">Secure Checkout</h4>
-          <p class="text-[8px] text-stone-500 uppercase tracking-widest">Protected Transactions</p>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[#111] dark:text-white">Secure Checkout</h4>
+          <p class="text-[11px] text-stone-500 font-normal">Protected transactions</p>
         </div>
       </div>
     </section>
@@ -715,6 +715,9 @@ const scrollToTop = () => {
 
 // Traffic Heartbeat
 const trackTraffic = async () => {
+  // Skip pinging backend on localhost when offline to prevent console noise
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return
+
   try {
     let sessionId = localStorage.getItem('traffic_session_id')
     if (!sessionId) {
@@ -722,7 +725,7 @@ const trackTraffic = async () => {
       localStorage.setItem('traffic_session_id', sessionId)
     }
 
-    await api.post('/traffic/ping', { sessionId })
+    await api.post('/traffic/ping', { sessionId }, { timeout: 3000 })
   } catch (err) {
     // Silently fail traffic tracking
   }
@@ -766,7 +769,9 @@ onUnmounted(() => {
   --app-bottom-height: 70px;
 }
 
+html,
 body {
+  overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
 }

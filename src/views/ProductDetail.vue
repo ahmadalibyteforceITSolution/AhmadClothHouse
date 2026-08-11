@@ -105,21 +105,32 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-col gap-4 mb-16">
+            <div class="flex flex-col gap-3 mb-12">
+               <!-- Add to Cart -->
                <button 
                  @click="handleAddToCart"
-                 class="w-full bg-black dark:bg-white text-white dark:text-black py-4 md:py-5 text-[11px] font-bold uppercase tracking-[0.4em] transition-transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-4 group"
+                 class="btn-shopify w-full !h-14 !text-sm flex items-center justify-center gap-2"
                >
-                 <span>ADD TO CART</span>
-                 <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[10px] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                 <span>Add to Cart</span>
+                 <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
+               </button>
+
+               <!-- Instant Buy Now -->
+               <button 
+                 @click="handleBuyNow"
+                 class="w-full h-14 bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2 shadow-sm"
+               >
+                 <span>Buy Now • Instant Checkout</span>
+                 <font-awesome-icon icon="fa-solid fa-bolt" class="text-xs" />
                </button>
                
+               <!-- Wishlist -->
                <button 
                  @click="favorites.toggleFavorite(product)"
-                 class="w-full bg-transparent border border-black dark:border-white text-black dark:text-white py-4 md:py-5 text-[11px] font-bold uppercase tracking-[0.4em] transition-colors hover:bg-stone-50 dark:hover:bg-stone-900 flex items-center justify-center gap-4"
+                 class="btn-shopify-outline w-full !h-14 !text-sm flex items-center justify-center gap-2"
                >
-                 <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" :class="favorites.isFavorite(product.id) ? 'text-[#d4af37]' : ''" />
-                 <span>{{ favorites.isFavorite(product.id) ? 'SAVED TO WISHLIST' : 'ADD TO WISHLIST' }}</span>
+                 <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" :class="favorites.isFavorite(product.id) ? 'text-[#E8232A]' : ''" />
+                 <span>{{ favorites.isFavorite(product.id) ? 'Saved to Wishlist' : 'Add to Wishlist' }}</span>
                </button>
             </div>
 
@@ -200,6 +211,7 @@
 </template>
 
 <script setup>
+import Swal from 'sweetalert2'
 import { computed, watch, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useProductsStore } from '../stores/products'
@@ -416,6 +428,22 @@ const handleAddToCart = () => {
   } else {
     cart.addToCart(product.value)
   }
+
+  Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Added to Cart',
+    text: product.value.name,
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true
+  })
+}
+
+const handleBuyNow = () => {
+  handleAddToCart()
+  router.push('/checkout')
 }
 
 const relatedProducts = computed(() => {

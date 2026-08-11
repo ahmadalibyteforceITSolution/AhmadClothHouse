@@ -30,102 +30,80 @@
         />
       </div>
 
-      <!-- Subtle dark gradient at bottom -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[6]" />
+      <!-- Subtle overlay on hover -->
+      <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none z-[6]" />
 
       <!-- ── Badges (top-left) ── -->
       <div class="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
         <span v-if="discountPercent" class="badge-discount">{{ discountPercent }}% OFF</span>
-        <span v-if="product.isNew && !discountPercent" class="badge-new">NEW ARRIVAL</span>
-        <span v-if="product.nature === 'limited'" class="badge-limited">LIMITED EDITION</span>
+        <span v-if="product.isNew && !discountPercent" class="badge-new">NEW</span>
+        <span v-if="product.nature === 'limited'" class="badge-limited">LIMITED</span>
       </div>
+
+      <!-- ── Wishlist button top-right (Shopify style) ── -->
+      <button
+        @click.stop="favorites.toggleFavorite(product)"
+        class="wishlist-btn"
+        :class="{ 'wishlist-btn--active': favorites.isFavorite(product.id) }"
+        aria-label="Wishlist"
+      >
+        <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" />
+      </button>
 
       <!-- ── Variant dot indicators (bottom-center) ── -->
       <div
         v-if="displayImages.length > 1"
-        class="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10 pointer-events-none
+        class="absolute bottom-14 left-0 right-0 flex justify-center gap-1.5 z-[7] pointer-events-none
                opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
         <span
           v-for="(_, idx) in displayImages"
           :key="'dot' + idx"
-          class="block rounded-full bg-white shadow transition-all duration-400"
+          class="block rounded-full bg-white shadow transition-all duration-300"
           :class="idx === hoverIndex ? 'w-5 h-[3px] opacity-100' : 'w-2 h-[3px] opacity-50'"
         />
       </div>
 
-      <!-- ── Quick Action Buttons ── -->
-      <div class="card-quick-actions">
-        <!-- Wishlist -->
-        <button
-          @click.stop="favorites.toggleFavorite(product)"
-          class="action-btn"
-          :class="{ 'action-btn--active': favorites.isFavorite(product.id) }"
-          aria-label="Wishlist"
-        >
-          <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" />
-        </button>
-
-        <!-- Add to Bag (non-admin) -->
+      <!-- ── Add to Cart — Shopify full-width slide-up ── -->
+      <div class="card-atc-wrap">
         <button
           v-if="!auth.isAdmin"
           @click.stop="handleAddToCart"
-          class="action-btn"
-          aria-label="Add to bag"
+          class="card-atc-btn"
+          aria-label="Add to cart"
         >
-          <font-awesome-icon icon="fa-solid fa-bag-shopping" />
+          <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-[11px]" />
+          <span>Add to Cart</span>
         </button>
 
-        <!-- Admin Delete -->
         <button
           v-if="auth.isAdmin"
           @click.stop="handleDelete"
-          class="action-btn action-btn--danger"
+          class="card-atc-btn card-atc-btn--danger"
           aria-label="Delete product"
         >
-          <font-awesome-icon icon="fa-solid fa-trash-can" />
+          <font-awesome-icon icon="fa-solid fa-trash-can" class="text-[11px]" />
+          <span>Delete</span>
         </button>
       </div>
     </div>
 
     <!-- ─── Info Area ─── -->
-    <div class="card-info flex flex-col pt-4 pb-2 bg-transparent">
-
-      <!-- Category + dot -->
-      <div class="flex items-center justify-between mb-1">
-        <p class="card-category">{{ product.category }}</p>
-        <span v-if="product.nature" class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700" />
-      </div>
+    <div class="card-info flex flex-col pt-3 pb-1 bg-transparent">
+      <!-- Category -->
+      <p class="card-category">{{ product.category }}</p>
 
       <!-- Product Name -->
-      <h3 class="card-name group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+      <h3 class="card-name">
         {{ product.name }}
       </h3>
 
-      <!-- Price row + Explore link -->
-      <div class="flex items-end justify-between pt-3 mt-auto border-t border-black/8 dark:border-white/8">
-
-        <!-- Price block -->
-        <div class="flex flex-col gap-0.5">
-          <!-- Sale / current price -->
-          <div class="flex items-baseline gap-1">
-            <span class="price-label">RS.</span>
-            <span class="price-current">{{ formatPrice(effectivePrice) }}</span>
-          </div>
-          <!-- Original (crossed out) — only when discount exists -->
-          <p v-if="discountPercent && product.originalPrice > effectivePrice" class="price-original">
-            Rs. {{ formatPrice(product.originalPrice) }}
-          </p>
-        </div>
-
-        <!-- Explore -->
-        <div class="explore-link group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
-          <span>EXPLORE</span>
-          <font-awesome-icon
-            icon="fa-solid fa-arrow-right"
-            class="text-[8px] -translate-x-1 group-hover:translate-x-0 transition-transform duration-400"
-          />
-        </div>
+      <!-- Price row -->
+      <div class="flex items-center gap-2 mt-1.5">
+        <span class="price-current">Rs. {{ formatPrice(effectivePrice) }}</span>
+        <span v-if="discountPercent && product.originalPrice > effectivePrice" class="price-original">
+          Rs. {{ formatPrice(product.originalPrice) }}
+        </span>
       </div>
     </div>
   </div>
@@ -137,6 +115,8 @@ import { useCartStore } from '../stores/cart'
 import { useFavoritesStore } from '../stores/favorites'
 import { useAuthStore } from '../stores/auth'
 import { useProductsStore } from '../stores/products'
+
+import Swal from 'sweetalert2'
 
 const props = defineProps({
   product: { type: Object, required: true },
@@ -207,14 +187,24 @@ function handleDelete() {
   productStore.removeProduct(props.product.id)
 }
 
-// ── Add to Cart (auth-guarded) ────────────────────────────
+// ── Add to Cart (auth-guarded with instant feedback) ──────
 function handleAddToCart() {
   if (!auth.isAuthenticated) {
-    // Fire a global event that App.vue listens to
     window.dispatchEvent(new CustomEvent('acl:show-login-modal'))
     return
   }
   cart.addToCart(props.product)
+
+  Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Added to Cart',
+    text: props.product.name,
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true
+  })
 }
 </script>
 
@@ -229,205 +219,227 @@ function handleAddToCart() {
 /* ── Image Wrapper ──────────────────────────────────── */
 .card-image-wrap {
   aspect-ratio: 3 / 4;
-  background: #fafaf8;
+  background: #F4F4F4;
 }
 .dark .card-image-wrap {
-  background: #080808;
+  background: #111111;
 }
 
 /* ── Badges ─────────────────────────────────────────── */
 .badge-discount {
   display: inline-block;
   align-self: flex-start;
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 4px 9px;
-  background: #E8232A;   /* bold red — matches reference */
+  padding: 3px 8px;
+  background: #E8232A;
   color: #ffffff;
-  line-height: 1;
+  line-height: 1.4;
+  border-radius: 2px;
 }
 
 .badge-new {
   display: inline-block;
   align-self: flex-start;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 4px 9px;
+  padding: 3px 8px;
   background: #111111;
   color: #ffffff;
-  line-height: 1;
+  line-height: 1.4;
+  border-radius: 2px;
 }
 
 .badge-limited {
   display: inline-block;
   align-self: flex-start;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 4px 9px;
-  background: #3B1E1E;
-  color: #E2D3B8;
-  line-height: 1;
+  padding: 3px 8px;
+  background: #B8860B;
+  color: #fff;
+  line-height: 1.4;
+  border-radius: 2px;
 }
 
-/* ── Quick Action Buttons ───────────────────────────── */
-.card-quick-actions {
+/* ── Wishlist Button (top-right, Shopify style) ──────── */
+.wishlist-btn {
   position: absolute;
-  bottom: 24px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+  top: 10px;
+  right: 10px;
   z-index: 20;
-}
-
-.group:hover .card-quick-actions {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 1023px) {
-  .card-quick-actions {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    bottom: 12px;
-  }
-}
-
-
-.action-btn {
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   font-size: 14px;
-  background: rgba(255, 255, 255, 0.93);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  color: #111;
-  transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  color: #555;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   cursor: pointer;
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.group:hover .wishlist-btn {
+  opacity: 1;
+  transform: scale(1);
 }
 
 @media (max-width: 1023px) {
-  .action-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 12px;
+  .wishlist-btn {
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 }
 
-.dark .action-btn {
-  background: rgba(15, 15, 15, 0.88);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #fff;
+.dark .wishlist-btn {
+  background: rgba(20, 20, 20, 0.92);
+  border-color: rgba(255,255,255,0.08);
+  color: #ccc;
 }
-.action-btn:hover {
-  background: #B8860B;
-  border-color: #B8860B;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(184, 134, 11, 0.32);
-}
-.action-btn--active {
+
+.wishlist-btn:hover {
+  background: #fff;
   color: #E8232A;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
-.action-btn--danger:hover {
+
+.wishlist-btn--active {
+  color: #E8232A;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* ── Add to Cart — Shopify full-width slide-up ───────── */
+.card-atc-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .card-atc-wrap {
+  transform: translateY(0);
+}
+
+@media (max-width: 1023px) {
+  .card-atc-wrap {
+    transform: translateY(0) !important;
+  }
+}
+
+.card-atc-btn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #111111;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.card-atc-btn:hover {
+  background: #333333;
+}
+
+.dark .card-atc-btn {
+  background: #ffffff;
+  color: #111111;
+}
+
+.dark .card-atc-btn:hover {
+  background: #E5E7EB;
+}
+
+.card-atc-btn--danger {
   background: #E8232A;
-  border-color: #E8232A;
-  box-shadow: 0 14px 36px rgba(232, 35, 42, 0.28);
+}
+
+.card-atc-btn--danger:hover {
+  background: #c81e24;
 }
 
 /* ── Info Area ──────────────────────────────────────── */
 .card-info {
-  padding-top: 14px;
-  padding-bottom: 8px;
+  padding-top: 12px;
+  padding-bottom: 6px;
 }
 
 .card-category {
-  font-size: 8px;
-  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: #9ca3af;
+  letter-spacing: 0.1em;
+  color: #9CA3AF;
+  margin-bottom: 4px;
 }
 .dark .card-category {
   color: #6b7280;
 }
 
 .card-name {
-  font-family: 'Jost', sans-serif;
-  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  line-height: 1.45;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: #111;
   margin-bottom: 0;
-  margin-top: 4px;
 }
 .dark .card-name {
-  color: #f5f5f5;
+  color: #F5F5F5;
 }
 
 /* ── Price ──────────────────────────────────────────── */
-.price-label {
-  font-size: 8px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: #B8860B;
-}
-
 .price-current {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: #111;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
   line-height: 1;
 }
 .dark .price-current {
-  color: #f5f5f5;
+  color: #F5F5F5;
 }
 
 .price-original {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 10px;
-  font-style: italic;
-  color: #9ca3af;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #9CA3AF;
   text-decoration: line-through;
-  margin-top: 1px;
   line-height: 1;
-}
-
-/* ── Explore link ───────────────────────────────────── */
-.explore-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #9ca3af;
-}
-.dark .explore-link {
-  color: #6b7280;
 }
 </style>

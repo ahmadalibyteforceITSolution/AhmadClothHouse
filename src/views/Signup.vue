@@ -165,9 +165,9 @@
             <!-- Submit Button -->
             <button
               :disabled="auth.loading"
-              class="w-full bg-[#1a1a1a] dark:bg-white text-white dark:text-[#1a1a1a] py-4 text-[11px] font-bold uppercase tracking-[0.35em] flex items-center justify-center gap-3 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/20 active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group">
-              <span>{{ auth.loading ? 'Creating Account...' : 'Become a Member' }}</span>
-              <span class="group-hover:translate-x-1 transition-transform">→</span>
+              class="btn-shopify w-full !h-12 flex items-center justify-center gap-2">
+              <span>{{ auth.loading ? 'Creating Account...' : 'Create Account' }}</span>
+              <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-xs" />
             </button>
 
             <!-- OR Divider -->
