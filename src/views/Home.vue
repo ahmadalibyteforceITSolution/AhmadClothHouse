@@ -6,162 +6,166 @@
     <div ref="cursorInner" class="gsap-cursor-inner" aria-hidden="true"></div>
 
     <!-- ═══════════════════════════════════════════
-         1. AHMAD CLOTH HOUSE FULL-WIDTH AZADI SALE HERO BANNER
+         1. AHMAD CLOTH HOUSE — LUXURY EDITORIAL HERO
     ═══════════════════════════════════════════ -->
-    <section 
+    <section
       ref="heroSection"
-      class="relative w-full min-h-screen flex flex-col justify-center px-5 sm:px-8 lg:px-20 bg-[#F6F5EE] dark:bg-[#0A0A0A]"
-      aria-label="Azadi Sale Hero"
+      class="relative w-full min-h-screen flex flex-col justify-center px-5 sm:px-12 lg:px-24 bg-[#F6F5EE] dark:bg-[#0A0A0A] overflow-hidden"
+      aria-label="Luxury Hero"
     >
-      <div class="w-full max-w-[1400px] mx-auto py-16 sm:py-12">
+      <!-- Background subtle pattern overlay -->
+      <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
+           style="background-image: repeating-linear-gradient(45deg, #1f2e1f 0, #1f2e1f 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
 
-        <!-- Huge AZADI SALE Headline -->
-        <h1 class="font-extrabold text-[#1f2e1f] dark:text-[#1f2e1f] uppercase leading-none mb-6 sm:mb-10"
-            style="font-size: clamp(52px, 13vw, 200px); letter-spacing: 0.02em; line-height: 0.92;">
-          AZADI SALE
+      <div class="relative w-full max-w-[1400px] mx-auto py-20 sm:py-16 z-10">
+
+        <!-- Eyebrow Label -->
+        <div class="flex items-center gap-4 mb-8 sm:mb-10">
+          <div class="w-8 sm:w-12 h-px bg-[#C9973A]"></div>
+          <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">
+            Ahmad Cloth House · Est. 2020
+          </p>
+        </div>
+
+        <!-- Main Editorial Headline -->
+        <h1 class="font-extralight text-[#1f2e1f] dark:text-stone-100 uppercase leading-none mb-6 sm:mb-8"
+            style="font-size: clamp(44px, 9.5vw, 155px); letter-spacing: 0.04em; line-height: 0.88;">
+          THE ART<br/><span style="padding-left: clamp(20px, 4vw, 70px);">OF COUTURE</span>
         </h1>
 
-        <!-- Second Row: UP TO 50% OFF + SALEBRATE -->
-        <div class="flex items-end justify-between gap-4 mb-8 sm:mb-12">
-
-          <!-- Left: UP TO + 50% OFF + underscores -->
-          <div class="flex items-end gap-2 sm:gap-3 min-w-0">
-            <div class="flex flex-col text-[#1f2e1f] font-extrabold uppercase leading-tight mb-1 shrink-0"
-                 style="font-size: clamp(9px, 2vw, 14px); letter-spacing: 0.15em;">
-              <span>UP</span>
-              <span>TO</span>
-            </div>
-            <h2 class="text-[#1f2e1f] font-extrabold uppercase whitespace-nowrap leading-none"
-                style="font-size: clamp(32px, 8vw, 110px); letter-spacing: -0.01em;">
-              50% OFF<span class="hidden sm:inline" style="font-size: 0.4em; font-weight: 400; padding-left: 6px; letter-spacing: 0.05em;">____________</span>
-            </h2>
-          </div>
-
-          <!-- Right: SALEBRATE. SHOP. SAVE. — hidden on very small screens -->
-          <div class="hidden xs:block sm:block text-right text-[#1f2e1f] font-bold uppercase shrink-0"
-               style="font-size: clamp(9px, 1.4vw, 16px); letter-spacing: 0.2em; line-height: 1.8;">
-            <p>SALEBRATE.</p>
-            <p>SHOP.</p>
-            <p>SAVE.</p>
-          </div>
+        <!-- Thin Gold Divider -->
+        <div class="flex items-center gap-4 mb-8 sm:mb-10">
+          <div class="w-20 sm:w-32 h-px bg-[#C9973A]"></div>
+          <span class="text-[#C9973A] text-xs">✦</span>
         </div>
+
+        <!-- Subtitle -->
+        <p class="text-[10px] sm:text-xs text-[#1f2e1f]/50 dark:text-stone-500 font-light uppercase tracking-[0.4em] mb-10 sm:mb-14 max-w-[280px] sm:max-w-sm leading-loose">
+          Artisanal Unstitched &nbsp;·&nbsp; Luxury Pret &nbsp;·&nbsp; Bridal Couture
+        </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row flex-wrap justify-center sm:justify-start gap-3">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
           <button
             @click="router.push('/shop')"
-            class="px-6 py-3 bg-[#1f2e1f] hover:bg-[#2d4030] text-white text-[10px] font-bold uppercase tracking-[0.2em] border-none cursor-pointer transition-colors duration-200 w-full sm:w-auto"
+            class="group px-8 sm:px-10 py-4 bg-[#1f2e1f] hover:bg-[#C9973A] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em] cursor-pointer transition-all duration-500 w-full sm:w-auto flex items-center justify-center gap-3"
           >
-            EVERYTHING AT 20%
+            <span>EXPLORE COLLECTIONS</span>
+            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </button>
           <button
-            @click="router.push('/shop')"
-            class="px-6 py-3 bg-[#1f2e1f] hover:bg-[#2d4030] text-white text-[10px] font-bold uppercase tracking-[0.2em] border-none cursor-pointer transition-colors duration-200 w-full sm:w-auto"
+            @click="router.push('/shop/Bridal')"
+            class="group px-8 sm:px-10 py-4 border border-[#1f2e1f]/40 dark:border-stone-600 text-[#1f2e1f] dark:text-stone-300 hover:border-[#C9973A] hover:text-[#C9973A] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em] cursor-pointer transition-all duration-300 w-full sm:w-auto"
           >
-            EVERYTHING AT 30%
-          </button>
-          <button
-            @click="router.push('/shop')"
-            class="px-6 py-3 bg-[#1f2e1f] hover:bg-[#2d4030] text-white text-[10px] font-bold uppercase tracking-[0.2em] border-none cursor-pointer transition-colors duration-200 w-full sm:w-auto"
-          >
-            EVERYTHING AT 40%
+            BRIDAL COUTURE
           </button>
         </div>
 
+        <!-- Stats Row -->
+        <div class="flex items-center gap-8 sm:gap-12 mt-14 sm:mt-16 pt-10 sm:pt-12 border-t border-[#1f2e1f]/10 dark:border-white/10">
+          <div>
+            <p class="text-xl sm:text-2xl font-extralight text-[#1f2e1f] dark:text-white">5K+</p>
+            <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-[#1f2e1f]/40 dark:text-stone-600 mt-1">Designs</p>
+          </div>
+          <div class="w-px h-8 bg-[#1f2e1f]/10 dark:bg-white/10"></div>
+          <div>
+            <p class="text-xl sm:text-2xl font-extralight text-[#1f2e1f] dark:text-white">100K+</p>
+            <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-[#1f2e1f]/40 dark:text-stone-600 mt-1">Patrons</p>
+          </div>
+          <div class="w-px h-8 bg-[#1f2e1f]/10 dark:bg-white/10"></div>
+          <div>
+            <p class="text-xl sm:text-2xl font-extralight text-[#1f2e1f] dark:text-white">Global</p>
+            <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-[#1f2e1f]/40 dark:text-stone-600 mt-1">Shipping</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Decorative vertical text (desktop) -->
+      <div class="hidden lg:flex absolute right-10 xl:right-16 top-1/2 -translate-y-1/2 items-center gap-3 z-10">
+        <span class="text-[8px] font-light tracking-[0.6em] text-[#1f2e1f]/20 dark:text-white/20 uppercase"
+              style="writing-mode: vertical-rl; transform: rotate(180deg);">Luxury · Heritage · Craftsmanship</span>
+        <div class="w-px h-28 bg-gradient-to-b from-transparent via-[#C9973A]/50 to-transparent"></div>
       </div>
     </section>
-
 
     <!-- ═══════════════════════════════════════════
-         2. AZADI SALE CAROUSEL TRACK (FULL-WIDTH SCROLLABLE)
+         2. FEATURED COLLECTIONS — LUXURY CAROUSEL
     ═══════════════════════════════════════════ -->
-    <section class="py-10 sm:py-14 w-full bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5 overflow-hidden">
-      <div class="w-full space-y-6">
-        
+    <section class="py-14 sm:py-20 w-full bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5 overflow-hidden">
+      <div class="w-full space-y-10">
+
         <!-- Section Header -->
-        <div class="px-4 sm:px-8 lg:px-12">
-          <div class="space-y-1">
-            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-white uppercase">
-              Azadi Sale
+        <div class="px-5 sm:px-10 lg:px-14 flex items-end justify-between">
+          <div class="space-y-2">
+            <p class="text-[9px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">Curated for You</p>
+            <h2 class="text-xl sm:text-2xl font-light tracking-[0.25em] text-stone-900 dark:text-white uppercase">
+              Featured Collections
             </h2>
-            <p class="text-xs text-stone-500 dark:text-stone-400">
-              Avail everything at up to 50% OFF
-            </p>
           </div>
+          <router-link to="/shop" class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 hover:text-[#C9973A] transition-colors pb-0.5 border-b border-stone-200 hover:border-[#C9973A]">
+            View All →
+          </router-link>
         </div>
 
-        <!-- Horizontal Track (Full-Width Edge-to-Edge Scroll) -->
-        <div 
-          ref="azadiSlider" 
-          class="w-full flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory px-4 sm:px-8 lg:px-12 py-2 scroll-smooth"
+        <!-- Horizontal Track -->
+        <div
+          ref="azadiSlider"
+          class="w-full flex gap-3 sm:gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory px-5 sm:px-10 lg:px-14 py-2 scroll-smooth"
         >
-          <!-- Card 1 -->
-          <div 
-            @click="router.push('/shop/Unstitched')" 
-            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
-          >
+          <div @click="router.push('/shop/Unstitched')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
             <img :src="MB2026_1" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
-              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
-              <p class="text-xs font-bold text-white/90 mt-2">Unstitched Lawn</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">New Arrival</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Unstitched Lawn</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Collection 2026</p>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div 
-            @click="router.push('/shop/Unstitched')" 
-            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
-          >
-            <img :src="MB2026_2" alt="Unstitched Fabrics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
-              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
-              <p class="text-xs font-bold text-white/90 mt-2">Unstitched Fabrics</p>
+          <div @click="router.push('/shop/Unstitched')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
+            <img :src="MB2026_2" alt="Luxury Fabrics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Signature</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Luxury Fabrics</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Premium Artisan</p>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div 
-            @click="router.push('/shop/Bridal')" 
-            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
-          >
-            <img :src="MB2026_3" alt="Luxury Formals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
-              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
-              <p class="text-xs font-bold text-white/90 mt-2">Luxury Formals</p>
+          <div @click="router.push('/shop/Bridal')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
+            <img :src="MB2026_3" alt="Formal Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Exclusive</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Formal Couture</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Heritage Craft</p>
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div 
-            @click="router.push('/shop/Pret')" 
-            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
-          >
+          <div @click="router.push('/shop/Pret')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
             <img :src="MB2026_4" alt="Luxury Pret" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
-              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
-              <p class="text-xs font-bold text-white/90 mt-2">Luxury Pret</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Ready to Wear</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Luxury Pret</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Modern Elegance</p>
             </div>
           </div>
 
-          <!-- Card 5 -->
-          <div 
-            @click="router.push('/shop/Pret')" 
-            class="flex-none w-[270px] sm:w-[330px] md:w-[370px] aspect-[3/4] snap-start group relative rounded-xl overflow-hidden cursor-pointer shadow-sm border border-stone-200/80 dark:border-white/10"
-          >
+          <div @click="router.push('/shop/Pret')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
             <img :src="MB2026_5" alt="Stitched Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">UP TO</span>
-              <h3 class="text-3xl font-extrabold tracking-tight text-white">50% OFF</h3>
-              <p class="text-xs font-bold text-white/90 mt-2">Stitched Couture</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Bespoke</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Stitched Couture</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Master Crafted</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- ═══════════════════════════════════════════
          3. EDITORIAL 2-COLUMN PHOTO GRID (MARIA B)

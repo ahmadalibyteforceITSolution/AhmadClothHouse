@@ -1,14 +1,14 @@
 <template>
   <header class="site-header w-full sticky top-0 z-[9999]" :class="{ 'header-scrolled': isScrolled }">
 
-    <!-- ══════════ TIER 1 — Promo Marquee ══════════ -->
+    <!-- ══════════ TIER 1 — Luxury Promo Marquee ══════════ -->
     <div class="announcement-bar">
       <div class="marquee-track flex whitespace-nowrap">
         <span class="marquee-inner">
-          <span class="ann-text mx-16">✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨</span>
-          <span class="ann-text mx-16">🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚</span>
-          <span class="ann-text mx-16">✨ BIG EID OFFER: FLAT 20% OFF ON ALL NEW ARRIVALS ✨</span>
-          <span class="ann-text mx-16">🚚 FREE WORLDWIDE SHIPPING ON ORDERS OVER RS. 15,000 🚚</span>
+          <span class="ann-text mx-16">✦ NEW COLLECTION 2026 — ARTISANAL COUTURE NOW AVAILABLE ✦</span>
+          <span class="ann-text mx-16">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
+          <span class="ann-text mx-16">✦ BESPOKE BRIDAL CONSULTATIONS — BOOK YOUR APPOINTMENT ✦</span>
+          <span class="ann-text mx-16">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
         </span>
       </div>
     </div>
