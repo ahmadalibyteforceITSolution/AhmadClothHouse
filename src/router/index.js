@@ -227,6 +227,86 @@ const routes = [
       robots: 'index, follow'
     }
   },
+  // ══════════════════════════════════════════════
+  // SEO LANDING PAGES — Collection, Fabric, Occasion, Lookbook, etc.
+  // ══════════════════════════════════════════════
+  {
+    path: '/collection/:slug',
+    name: 'collection',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Luxury Collection | Ahmad Cloth House — Pakistani Couture',
+      description: 'Explore our exclusive curated collections featuring artisanal Pakistani fashion, luxury fabrics, and bespoke couture. Available with worldwide shipping.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/fabric/:slug',
+    name: 'fabric',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Premium Fabric Guide | Ahmad Cloth House — Pakistani Textiles',
+      description: 'Discover the finest Pakistani fabrics — lawn, silk, chiffon, khaddar and more. Expert styling and buying guides at Ahmad Cloth House.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/occasion/:slug',
+    name: 'occasion',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Occasion Wear | Ahmad Cloth House — Bridal, Formal & Party',
+      description: 'Find the perfect outfit for every occasion — bridal, mehndi, barat, walima, eid, party and formal events. Pakistani luxury fashion at its finest.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/lookbook/:slug',
+    name: 'lookbook',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Style Lookbook | Ahmad Cloth House — Fashion Inspiration',
+      description: 'Explore curated style lookbooks for every season, occasion and colour palette. Pakistani luxury fashion inspiration at Ahmad Cloth House.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/size-guide/:slug?',
+    name: 'size-guide',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Size Guide & Measurement Chart | Ahmad Cloth House',
+      description: 'Complete size guide for Pakistani suits, kurtas, shalwar kameez, bridal wear and more. Find your perfect fit with our detailed measurement charts.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/care/:slug',
+    name: 'care-guide',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Fabric Care Guide | Ahmad Cloth House — Clothing Care Tips',
+      description: 'Expert fabric care instructions for Pakistani suits, embroidered clothes, silk, lawn and more. Keep your luxury garments looking perfect.',
+      robots: 'index, follow'
+    }
+  },
+  {
+    path: '/shop-in/:city',
+    name: 'shop-in-city',
+    component: () => import('../views/SEOLandingPage.vue'),
+    props: true,
+    meta: {
+      title: 'Shop Pakistani Fashion Online | Ahmad Cloth House — Worldwide Delivery',
+      description: 'Order authentic Pakistani luxury suits, bridal wear and couture with fast delivery worldwide. Ahmad Cloth House ships globally.',
+      robots: 'index, follow'
+    }
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'notfound',
