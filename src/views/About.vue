@@ -26,7 +26,7 @@
           Pakistani Textiles, Delivered Worldwide
         </h2>
         <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-          Headquartered in Wapda Town, Lahore, <strong>Ahmad Cloth House</strong> was founded with a singular mission: to bring premium unstitched Pakistani fabrics and luxury bridal attire to discerning buyers worldwide. We curate the highest thread-count Swiss lawns, luxurious pure silk chiffons, and heavy organzas, hand-finished by master artisans.
+          Headquartered at Bagrian Chowk, Lahore, <strong>Ahmad Cloth House</strong> was founded with a singular mission: to bring premium unstitched Pakistani fabrics and luxury bridal attire to discerning buyers worldwide. We curate the highest thread-count Swiss lawns, luxurious pure silk chiffons, and heavy organzas, hand-finished by master artisans.
         </p>
         <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
           Whether you are seeking timeless daily unstitched linen, festive luxury lawn with intricate tilla work, or bespoke bridal couture fit for royalty, our boutique represents the apex of South Asian fashion craftsmanship.

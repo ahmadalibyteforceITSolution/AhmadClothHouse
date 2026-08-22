@@ -162,6 +162,6 @@ const isStepReached = (stepLabel) => {
 }
 
 const googleMapUrl = computed(() => {
-  return "https://maps.google.com/maps?q=Wapda%20Town%20Lahore&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  return "https://maps.google.com/maps?q=Bagrian%20Chowk%20Lahore&t=&z=14&ie=UTF8&iwloc=&output=embed"
 })
 </script>

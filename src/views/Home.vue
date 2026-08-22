@@ -142,7 +142,7 @@
       <!-- Map / Store Location Tab (Rounded Bottom Corner) -->
       <div class="relative group/map w-11">
         <a 
-          href="https://maps.google.com/?q=Ameer+Chowk,+Wapda+Town,+Lahore" 
+          href="https://maps.google.com/?q=Ahmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore" 
           target="_blank" 
           rel="noopener"
           class="w-11 h-11 bg-[#EA4335] hover:bg-[#d93025] text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
@@ -1357,7 +1357,7 @@ onMounted(() => {
       "description": "Premium Pakistani fashion boutique specializing in luxury unstitched lawn, bridal couture, and designer pret wear.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Wapda Town, Ameer Chowk",
+        "streetAddress": "Bagrian Chowk, Near Afzal Electronics (Front)",
         "addressLocality": "Lahore",
         "addressRegion": "Punjab",
         "postalCode": "54000",

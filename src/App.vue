@@ -545,7 +545,7 @@ const getAIResponse = (message) => {
   const brand = {
     name: "Ahmad Cloth House",
     established: "2026",
-    location: "Wapda Town, Ameer Chowk, Lahore, Pakistan",
+    location: "Bagrian Chowk, Near Afzal Electronics (Front), Lahore, Pakistan",
     contact: "0341 6887454",
     whatsapp: "+92 341 6887454",
     email: "ahmadalihafeez24@gmail.com",

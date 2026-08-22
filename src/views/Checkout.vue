@@ -120,7 +120,7 @@
 
               <div v-else class="md:col-span-2 p-4 bg-stone-50 dark:bg-white/5 border border-stone-200 dark:border-white/10 rounded-md text-xs space-y-1">
                 <p class="font-bold text-[#111] dark:text-white">Pickup Location:</p>
-                <p class="text-stone-500">Ahmad Cloth House Flagship Boutique, Wapda Town, Ameer Chowk, Lahore.</p>
+                <p class="text-stone-500">Ahmad Cloth House Flagship Boutique, Bagrian Chowk, Near Afzal Electronics (Front), Lahore.</p>
                 <p class="text-[11px] text-amber-600">Hours: Mon-Sat 11:00 AM - 9:00 PM</p>
               </div>
 
@@ -270,7 +270,7 @@ const deliveryMethod = ref('ship')
 watch(deliveryMethod, (newMethod) => {
   if (newMethod === 'pickup') {
     customer.city = 'Lahore'
-    customer.address = 'Ahmad Cloth House Flagship Boutique, Wapda Town, Lahore'
+    customer.address = 'Ahmad Cloth House Flagship Boutique, Bagrian Chowk, Near Afzal Electronics (Front), Lahore'
     customer.zip = '54000'
   } else {
     customer.city = ''

@@ -54,8 +54,12 @@
           </div>
           <h3 class="text-sm font-bold text-[#111111] dark:text-white">Flagship Boutique</h3>
           <p class="text-xs text-stone-500 leading-relaxed">
-            Wapda Town, Ameer Chowk, Lahore, Pakistan.
+            Bagrian Chowk, Near Afzal Electronics (Front), Lahore, Pakistan.
           </p>
+          <a href="https://maps.google.com/?q=Ahmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs text-[#c9973a] font-bold hover:underline">
+            <span>View on Google Maps</span>
+            <span>&rarr;</span>
+          </a>
           <p class="text-[11px] text-stone-400">Store Hours: Mon - Sat 11:00 AM - 9:00 PM</p>
         </div>
       </div>
@@ -107,6 +111,27 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Google Map Embed Section -->
+    <div class="mt-14 rounded-2xl overflow-hidden border border-[#E5E7EB] dark:border-white/10 shadow-sm">
+      <div class="p-4 bg-stone-50 dark:bg-white/5 border-b border-[#E5E7EB] dark:border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-2 text-xs font-bold text-stone-900 dark:text-white">
+          <font-awesome-icon icon="fa-solid fa-map-location-dot" class="text-[#c9973a]" />
+          <span>Ahmad Clothes Boutique Location — Bagrian Chowk, Lahore</span>
+        </div>
+        <a href="https://maps.google.com/?q=Ahmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore" target="_blank" rel="noopener" class="text-xs font-bold text-[#c9973a] hover:underline">
+          Open in Maps &rarr;
+        </a>
+      </div>
+      <iframe 
+        title="Ahmad Clothes Boutique Location"
+        src="https://maps.google.com/maps?q=Bagrian%20Chowk%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        class="w-full h-[360px] border-0" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
 
   </div>

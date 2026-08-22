@@ -16,7 +16,7 @@
 
           <!-- Address & Contact Details -->
           <div class="space-y-1.5 text-xs text-stone-500 dark:text-stone-400 font-medium leading-relaxed">
-            <p>Wapda Town, Ameer Chowk,</p>
+            <p>Bagrian Chowk, Near Afzal Electronics (Front),</p>
             <p>Lahore, Pakistan.</p>
             <p class="pt-2">Call / WhatsApp: <a href="https://wa.me/923416887454" target="_blank" class="hover:text-stone-900 dark:hover:text-white transition-colors">0341 6887454</a> / <a href="https://wa.me/923244902607" target="_blank" class="hover:text-stone-900 dark:hover:text-white transition-colors">0324 4902607</a></p>
             <p>Email: <a href="mailto:ahmadalihafeez24@gmail.com" class="hover:text-stone-900 dark:hover:text-white transition-colors">ahmadalihafeez24@gmail.com</a></p>
