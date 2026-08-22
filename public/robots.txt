@@ -37,7 +37,6 @@ Disallow: /login
 Disallow: /signup
 Disallow: /*?search=
 Disallow: /*?q=
-Crawl-delay: 1
 
 # ---------------------------------------------------------------------------
 # 2. GOOGLE IMAGE CRAWLER
