@@ -17,81 +17,79 @@
       </ul>
     </section>
 
-    <!-- Maria B Style Category Header -->
-    <div class="relative pt-44 sm:pt-52 pb-16 sm:pb-24 px-6 sm:px-12 text-center bg-[#F6F5EE] dark:bg-[#0D0D0D] border-b border-stone-200/80 dark:border-white/10 w-full">
-      <div class="max-w-4xl mx-auto space-y-4">
-        <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-[#334433] dark:text-stone-300">
-          PAKISTANI DESIGNER COLLECTION
-        </p>
-        
-        <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight text-[#203220] dark:text-amber-400 uppercase leading-none">
-          {{ displayTitleParts.main || 'WOMEN\'S WEAR' }}
-        </h1>
-        
-        <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-stone-600 dark:text-stone-400 pt-2">
-          LUXURY UNSTITCHED &amp; PRET COUTURE
-        </p>
-      </div>
-    </div>
-
-    <!-- NEW LUXURY TOOLBAR (Show Filters, Switcher, Sort) -->
-    <div class="flex items-center justify-between py-6 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-white/90 dark:bg-[#050505]/90 backdrop-blur-xl sticky top-0 z-[200] transition-colors duration-500">
-      <!-- Left: Show Filters Toggle -->
-      <button @click="showFilters = !showFilters" 
-        class="flex items-center gap-3 group px-4 py-2 hover:bg-stone-50 dark:hover:bg-[#111] transition-all">
-        <font-awesome-icon icon="fa-solid fa-sliders" 
-          :class="showFilters ? 'text-[var(--primary-gold)]' : 'text-stone-400 group-hover:text-black dark:group-hover:text-white'"
-          class="text-xs transition-colors" />
-        <span class="text-[11px] font-bold tracking-wider uppercase transition-colors"
-          :class="showFilters ? 'text-black dark:text-white' : 'text-stone-500 group-hover:text-black dark:group-hover:text-white'">
-          {{ showFilters ? 'Hide Filters' : 'Filter' }}
+    <!-- Clean Minimalist Category Header Matching Reference Design -->
+    <div class="max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 pb-2">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 font-normal mb-5">
+        <router-link to="/" class="hover:text-black dark:hover:text-white transition-colors">Home</router-link>
+        <span class="text-neutral-400">&gt;</span>
+        <span class="text-neutral-800 dark:text-neutral-200 font-medium capitalize">
+          {{ displayTitle }}
         </span>
-      </button>
+      </nav>
 
-      <!-- Right: Switcher & Sort -->
-      <div class="flex items-center gap-8">
-        <!-- Grid Switcher -->
-        <div class="hidden sm:flex items-center gap-2">
-          <button @click="gridCols = 2" 
-            :class="gridCols === 2 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
-            class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
-            <div class="flex gap-0.5">
-              <div class="w-2.5 h-6 border-2 border-current rounded-[1px]"></div>
-              <div class="w-2.5 h-6 border-2 border-current rounded-[1px]"></div>
-            </div>
-          </button>
-          <button @click="gridCols = 3" 
-            :class="gridCols === 3 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
-            class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
-            <div class="grid grid-cols-2 gap-0.5">
-              <div v-for="i in 4" :key="i" class="w-2.5 h-2.5 border-2 border-current rounded-[1px]"></div>
-            </div>
-          </button>
-          <button @click="gridCols = 4" 
-            :class="gridCols === 4 ? 'bg-stone-100 dark:bg-[#222] text-[var(--primary-gold)]' : 'text-stone-300 dark:text-stone-600 hover:text-black dark:hover:text-white'"
-            class="w-10 h-10 flex items-center justify-center rounded-sm transition-all">
-            <div class="grid grid-cols-3 gap-0.5">
-              <div v-for="i in 6" :key="i" class="w-2 h-2.5 border-2 border-current rounded-[1px]"></div>
-            </div>
-          </button>
-        </div>
+      <!-- Large Page Title -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white capitalize mb-8">
+        {{ displayTitle }}
+      </h1>
 
-        <!-- Sort Button -->
-        <div class="relative group">
-          <button class="flex items-center gap-4 bg-stone-50 dark:bg-[#111] px-6 py-3 border border-black/5 dark:border-white/5 hover:border-[var(--primary-gold)] transition-all rounded-sm">
-            <font-awesome-icon icon="fa-solid fa-arrow-up-wide-short" class="text-[10px] text-[var(--primary-gold)]" />
-            <span class="text-[9px] font-black tracking-widest uppercase text-[#111] dark:text-white">{{ sortBy === 'default' ? 'Sort' : sortBy }}</span>
-            <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-stone-400" />
-          </button>
-          <!-- Sort Dropdown -->
-          <div class="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-[#111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] border border-black/10 dark:border-white/10 py-3 z-[300] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            <button v-for="option in ['Featured', 'Most relevant', 'Best selling', 'Alphabetically, A-Z', 'Alphabetically, Z-A', 'Price, low to high', 'Price, high to low', 'Date, old to new', 'Date, new to old']"
-              :key="option"
-              @click="sortBy = option" 
-              :class="sortBy === option ? 'bg-stone-100 dark:bg-[#222] text-black dark:text-white font-bold' : 'text-stone-500 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white'"
-              class="w-full text-left px-6 py-4 text-[10px] tracking-[0.1em] uppercase transition-all duration-200">
-              {{ option }}
+      <!-- Controls Toolbar (Show Filters, Switcher, Sort) -->
+      <div class="flex items-center justify-between pb-6 border-b border-neutral-200 dark:border-neutral-800">
+        <!-- Left: Show Filters Toggle -->
+        <button @click="showFilters = !showFilters" 
+          class="flex items-center gap-2.5 px-3 py-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-semibold tracking-wide transition-all">
+          <font-awesome-icon icon="fa-solid fa-sliders" class="text-xs text-neutral-600 dark:text-neutral-300" />
+          <span>{{ showFilters ? 'Hide Filters' : "Show Filter's" }}</span>
+        </button>
+
+        <!-- Right: Switcher & Sort -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <!-- Grid Switcher -->
+          <div class="hidden sm:flex items-center gap-1.5 text-neutral-400">
+            <button @click="gridCols = 2" 
+              :class="gridCols === 2 ? 'text-black dark:text-white font-bold' : 'text-neutral-400 hover:text-black dark:hover:text-white'"
+              class="w-7 h-7 flex items-center justify-center transition-colors"
+              title="2 Columns">
+              <div class="flex gap-0.5">
+                <div class="w-2 h-4 border border-current rounded-[1px]"></div>
+                <div class="w-2 h-4 border border-current rounded-[1px]"></div>
+              </div>
             </button>
+            <button @click="gridCols = 3" 
+              :class="gridCols === 3 ? 'text-black dark:text-white font-bold' : 'text-neutral-400 hover:text-black dark:hover:text-white'"
+              class="w-7 h-7 flex items-center justify-center transition-colors"
+              title="3 Columns">
+              <div class="grid grid-cols-2 gap-0.5">
+                <div v-for="i in 4" :key="i" class="w-1.5 h-1.5 border border-current rounded-[1px]"></div>
+              </div>
+            </button>
+            <button @click="gridCols = 4" 
+              :class="gridCols === 4 ? 'text-black dark:text-white font-bold' : 'text-neutral-400 hover:text-black dark:hover:text-white'"
+              class="w-7 h-7 flex items-center justify-center transition-colors"
+              title="4 Columns">
+              <div class="grid grid-cols-3 gap-0.5">
+                <div v-for="i in 6" :key="i" class="w-1 h-1.5 border border-current rounded-[1px]"></div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Sort Button -->
+          <div class="relative group">
+            <button class="flex items-center gap-2 px-3.5 py-1.5 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded text-xs font-semibold tracking-wide transition-all">
+              <font-awesome-icon icon="fa-solid fa-arrow-up-wide-short" class="text-xs text-neutral-500" />
+              <span>{{ sortBy === 'default' ? 'Sort' : sortBy }}</span>
+              <font-awesome-icon icon="fa-solid fa-chevron-down" class="text-[8px] text-neutral-400 ml-1" />
+            </button>
+            <!-- Sort Dropdown -->
+            <div class="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-neutral-900 shadow-xl rounded border border-neutral-200 dark:border-neutral-800 py-2 z-[300] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <button v-for="option in ['Featured', 'Most relevant', 'Best selling', 'Alphabetically, A-Z', 'Alphabetically, Z-A', 'Price, low to high', 'Price, high to low', 'Date, old to new', 'Date, new to old']"
+                :key="option"
+                @click="sortBy = option" 
+                :class="sortBy === option ? 'bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white font-bold' : 'text-neutral-600 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/60'"
+                class="w-full text-left px-4 py-2.5 text-xs tracking-wide transition-colors">
+                {{ option }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -199,37 +197,17 @@
           </div>
         </div>
         
-        <!-- Pagination - Luxury Style -->
-        <div v-if="totalPages > 1" class="mt-32 pt-16 border-t border-[#d4af3711] flex flex-wrap items-center justify-center gap-6">
-           <button 
-             @click="currentPage > 1 && (currentPage--)" 
-             :disabled="currentPage === 1"
-             class="pagination-step-btn"
-           >
-              <font-awesome-icon icon="fa-solid fa-arrow-left" />
-           </button>
- 
-           <div class="flex items-center gap-4">
-              <template v-for="(page, index) in displayedPages" :key="index">
-                <button 
-                  v-if="page !== '...'"
-                  @click="currentPage = page"
-                  class="w-10 h-10 flex items-center justify-center rounded-full text-[10px] font-black transition-all duration-500"
-                  :class="currentPage === page ? 'bg-amber-500 text-white shadow-xl shadow-amber-500/20 scale-110' : 'text-stone-400 hover:text-amber-500'"
-                >
-                   {{ page }}
-                </button>
-                <span v-else class="text-stone-300 font-black px-4">...</span>
-              </template>
-           </div>
- 
-           <button 
-             @click="currentPage < totalPages && (currentPage++)" 
-             :disabled="currentPage === totalPages"
-              class="pagination-step-btn"
-           >
-              <font-awesome-icon icon="fa-solid fa-arrow-right" />
-           </button>
+        <!-- Infinite Scroll Sentinel & Loading Indicator -->
+        <div id="scroll-sentinel" class="mt-20 py-8 flex flex-col items-center justify-center">
+          <div v-if="hasMoreProducts" class="flex flex-col items-center gap-3">
+            <div class="w-8 h-8 border-2 border-neutral-900 dark:border-white border-t-transparent rounded-full animate-spin"></div>
+            <span class="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 font-medium">Loading more designs...</span>
+          </div>
+          <div v-else-if="filteredProducts.length > 0" class="text-center py-6 border-t border-neutral-200 dark:border-neutral-800 w-full max-w-md mx-auto">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 font-medium">
+              Showing all {{ filteredProducts.length }} products
+            </span>
+          </div>
         </div>
       </div>
 
@@ -246,7 +224,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
@@ -262,12 +240,8 @@ const route = useRoute()
 const router = useRouter()
 const productStore = useProductsStore()
 
-onMounted(() => {
-  productStore.fetchProducts()
-})
-
-const currentPage = ref(1)
-const itemsPerPage = 8
+const visibleCount = ref(16)
+const isLoadingMore = ref(false)
 
 const viewMode = ref('grid')
 
@@ -307,7 +281,7 @@ const filterLeave = (el, done) => {
 const category = computed(() => route.params.category)
 
 watch([selectedCategory, category, () => route.query.q], () => {
-  currentPage.value = 1
+  visibleCount.value = 16
   const activeCat = selectedCategory.value || category.value || 'All Collections'
   document.title = `${activeCat} | Shop Pakistani Designer Suits 2026 - AhmadClothesHouse`
   
@@ -346,6 +320,23 @@ const displayTitleParts = computed(() => {
   }
   
   return { main, accent }
+})
+
+const displayTitle = computed(() => {
+  if (route.query.q) {
+    return `Search: "${route.query.q}"`
+  }
+  if (category.value) {
+    const cat = category.value.toLowerCase()
+    if (cat === 'discount' || cat === 'sale offer' || cat === 'sale' || cat === 'sale-view-all' || cat === 'all') return 'Sale View All'
+    if (cat === 'unstitched-lawn' || cat === 'unstitched') return 'Unstitched Lawn'
+    if (cat === 'pret') return 'Luxury Pret'
+    if (cat === 'bridal') return 'Bridal Collection'
+    if (cat === 'eid-collection') return 'Eid Collection'
+    if (cat === 'luxury-formals') return 'Luxury Formals'
+    return category.value.replace(/-/g, ' ')
+  }
+  return selectedCategory.value ? selectedCategory.value : 'Sale View All'
 })
 
 const headerImage = computed(() => {
@@ -443,29 +434,39 @@ const filteredProducts = computed(() => {
   return result
 })
 
-const totalPages = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
-
-const displayedPages = computed(() => {
-  const pages = []
-  if (totalPages.value <= 5) {
-    for (let i = 1; i <= totalPages.value; i++) pages.push(i)
-    return pages
-  }
-  pages.push(1)
-  let start = Math.max(2, currentPage.value - 1)
-  let end = Math.min(totalPages.value - 1, currentPage.value + 1)
-  if (currentPage.value <= 2) end = 4
-  else if (currentPage.value >= totalPages.value - 1) start = totalPages.value - 3
-  if (start > 2) pages.push('...')
-  for (let i = start; i <= end; i++) pages.push(i)
-  if (end < totalPages.value - 1) pages.push('...')
-  pages.push(totalPages.value)
-  return pages
+const displayedProducts = computed(() => {
+  return filteredProducts.value.slice(0, visibleCount.value)
 })
 
-const displayedProducts = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage
-  return filteredProducts.value.slice(start, start + itemsPerPage)
+const hasMoreProducts = computed(() => {
+  return visibleCount.value < filteredProducts.value.length
+})
+
+const loadMore = () => {
+  if (isLoadingMore.value || !hasMoreProducts.value) return
+  isLoadingMore.value = true
+  setTimeout(() => {
+    visibleCount.value += 12
+    isLoadingMore.value = false
+  }, 200)
+}
+
+const handleScroll = () => {
+  if (!hasMoreProducts.value || isLoadingMore.value) return
+  const scrollPosition = window.innerHeight + window.scrollY
+  const threshold = document.documentElement.offsetHeight - 850
+  if (scrollPosition >= threshold) {
+    loadMore()
+  }
+}
+
+onMounted(() => {
+  productStore.fetchProducts()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 
 const resetFilters = () => {
