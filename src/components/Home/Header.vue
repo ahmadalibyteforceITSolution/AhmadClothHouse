@@ -229,98 +229,98 @@
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="isMenuOpen = false"></div>
         <div class="drawer-panel">
           <!-- Header -->
-          <div class="flex items-center justify-between p-6 border-b border-white/5">
+          <div class="flex items-center justify-between p-6 border-b border-stone-200 dark:border-white/10 bg-stone-50 dark:bg-white/5">
             <div class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity" @click="goToHome(); isMenuOpen = false">
-              <h1 class="text-lg font-playfair tracking-[0.2em] font-light text-white uppercase">AHMAD CLOTHS</h1>
-              <span class="text-[7px] tracking-[0.3em] text-[var(--primary-gold)] uppercase">House of Couture</span>
+              <h1 class="text-lg font-playfair tracking-[0.2em] font-bold text-stone-900 dark:text-white uppercase">AHMAD CLOTHS</h1>
+              <span class="text-[8px] tracking-[0.3em] text-[#c9973a] uppercase font-bold">House of Couture</span>
             </div>
             <button @click="isMenuOpen = false"
-              class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+              class="w-10 h-10 rounded-full bg-stone-200/60 dark:bg-white/10 text-stone-700 dark:text-stone-300 hover:bg-stone-300 dark:hover:bg-white/20 flex items-center justify-center transition-colors">
               <font-awesome-icon icon="fa-solid fa-xmark" />
             </button>
           </div>
 
           <!-- Nav Links -->
-          <nav class="flex-1 overflow-y-auto p-6 space-y-1">
+          <nav class="flex-1 overflow-y-auto p-6 space-y-1 bg-white dark:bg-[#111111]">
             <router-link v-for="(item, i) in navItems" :key="item.name" :to="item.path" @click="isMenuOpen = false"
-              class="mobile-nav-link group">
+              class="mobile-nav-link group text-stone-800 dark:text-stone-200 hover:text-black dark:hover:text-white">
           
-              <span class="flex-1 text-xs uppercase tracking-widest font-semibold">{{ item.name }}</span>
+              <span class="flex-1 text-xs uppercase tracking-widest font-bold">{{ item.name }}</span>
               <font-awesome-icon icon="fa-solid fa-arrow-right"
                 class="text-[10px] opacity-0 group-hover:opacity-60 translate-x-0 group-hover:translate-x-1 transition-all duration-300" />
             </router-link>
 
             <!-- Feature Banner -->
-            <div class="feature-promo mt-6">
-              <p class="text-[9px] uppercase tracking-[0.3em] text-[var(--primary-gold)] mb-2">Seasonal Specials</p>
-              <h4 class="text-xl font-black leading-tight mb-4">HERITAGE<br>COLLECTION 2026</h4>
-              <button @click="router.push('/shop'); isMenuOpen = false" class="promo-btn">
+            <div class="feature-promo mt-6 p-5 rounded-lg bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
+              <p class="text-[9px] uppercase tracking-[0.3em] text-[#c9973a] font-bold mb-2">Seasonal Specials</p>
+              <h4 class="text-xl font-extrabold leading-tight text-stone-900 dark:text-white mb-4">HERITAGE<br>COLLECTION 2026</h4>
+              <button @click="router.push('/shop'); isMenuOpen = false" class="promo-btn bg-stone-900 text-white dark:bg-white dark:text-black px-4 py-2 text-xs font-bold uppercase tracking-wider rounded">
                 Discover Now
               </button>
             </div>
           </nav>
 
           <!-- Footer -->
-          <div class="p-6 border-t border-white/5">
+          <div class="p-6 border-t border-stone-200 dark:border-white/10 bg-stone-50 dark:bg-stone-950">
             <!-- Quick Contact -->
-            <div class="mb-8">
-              <p class="text-[8px] text-white/30 uppercase tracking-[0.3em] text-center mb-4">Official Concierge</p>
-              <div class="space-y-2">
+            <div class="mb-6">
+              <p class="text-[9px] text-stone-500 dark:text-stone-400 uppercase tracking-[0.3em] font-bold text-center mb-3">Official Concierge</p>
+              <div class="space-y-2.5">
                 <a href="tel:+923416887454"
-                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
+                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 text-stone-900 dark:text-white hover:border-[#c9973a] transition-all no-underline shadow-sm">
                   <font-awesome-icon icon="fa-solid fa-phone"
-                    class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
-                  <span class="text-[10px] font-black uppercase tracking-[0.2em]">0341 6887454</span>
+                    class="text-xs text-[#c9973a]" />
+                  <span class="text-xs font-bold tracking-wider text-stone-900 dark:text-white">0341 6887454</span>
                 </a>
                 <a href="tel:+923244902607"
-                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-[var(--primary-gold)] hover:border-[var(--primary-gold)]/30 transition-all no-underline group/phone-m">
+                  class="flex items-center justify-center gap-3 py-3 px-6 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 text-stone-900 dark:text-white hover:border-[#c9973a] transition-all no-underline shadow-sm">
                   <font-awesome-icon icon="fa-solid fa-phone"
-                    class="text-[10px] text-[var(--primary-gold)] group-hover/phone-m:rotate-12 transition-transform" />
-                  <span class="text-[10px] font-black uppercase tracking-[0.2em]">0324 4902607</span>
+                    class="text-xs text-[#c9973a]" />
+                  <span class="text-xs font-bold tracking-wider text-stone-900 dark:text-white">0324 4902607</span>
                 </a>
                 <button @click="isQueryModalOpen = true; isMenuOpen = false"
-                  class="w-full py-4 mt-4 bg-white/5 border border-[var(--primary-gold)]/30 text-[var(--primary-gold)] font-black text-[10px] uppercase tracking-[0.3em] rounded-xl hover:bg-[var(--primary-gold)] hover:text-black transition-all">
+                  class="w-full py-3.5 mt-3 bg-stone-900 dark:bg-[var(--primary-gold)] text-white dark:text-black font-extrabold text-[10px] uppercase tracking-[0.25em] rounded-xl hover:bg-[#c9973a] transition-all shadow-md">
                   Send Quick Query
                 </button>
               </div>
             </div>
 
-            <div class="flex items-center justify-center gap-4 mb-8">
-              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-[var(--primary-gold)] transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'instagram']" class="text-lg group-hover:scale-110 transition-transform" />
+            <div class="flex items-center justify-center gap-3 mb-6">
+              <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] transition-all duration-300 shadow-sm">
+                <font-awesome-icon :icon="['fab', 'instagram']" class="text-sm" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-blue-600 transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-lg group-hover:scale-110 transition-transform" />
+              <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-[#1877F2] transition-all duration-300 shadow-sm">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-sm" />
               </a>
-              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-red-600 transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'youtube']" class="text-lg group-hover:scale-110 transition-transform" />
+              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-red-600 transition-all duration-300 shadow-sm">
+                <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
               </a>
-              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-500 group">
-                <font-awesome-icon :icon="['fab', 'tiktok']" class="text-lg group-hover:scale-110 transition-transform" />
+              <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-black transition-all duration-300 shadow-sm">
+                <font-awesome-icon :icon="['fab', 'tiktok']" class="text-sm" />
               </a>
             </div>
 
             <div v-if="auth.isAuthenticated" class="space-y-3">
-              <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
-                <div class="avatar">{{ auth.user?.name?.substring(0, 2).toUpperCase() || 'AH' }}</div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
+                <div class="avatar bg-amber-500 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-xs">{{ auth.user?.name?.substring(0, 2).toUpperCase() || 'AH' }}</div>
                 <div>
-                  <p class="text-[9px] text-white/40 uppercase tracking-widest">Authenticated</p>
-                  <p class="text-xs font-semibold">{{ auth.user?.name }}</p>
+                  <p class="text-[9px] text-stone-500 uppercase tracking-widest font-bold">Authenticated</p>
+                  <p class="text-xs font-semibold text-stone-900 dark:text-white">{{ auth.user?.name }}</p>
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <router-link :to="auth.isAdmin ? '/admin/dashboard' : '/dashboard'" @click="isMenuOpen = false"
-                  class="mobile-action-btn bg-amber-500/10 text-amber-400">
+                  class="mobile-action-btn bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-center py-2.5 rounded font-bold text-xs">
                   {{ auth.isAdmin ? 'Admin' : 'Dashboard' }}
                 </router-link>
-                <button @click="handleLogout" class="mobile-action-btn border border-rose-500/20 text-rose-400">
+                <button @click="handleLogout" class="mobile-action-btn border border-rose-500/30 text-rose-600 dark:text-rose-400 py-2.5 rounded font-bold text-xs">
                   Sign Out
                 </button>
               </div>
             </div>
             <div v-else>
               <router-link to="/login" @click="isMenuOpen = false"
-                class="block text-center py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all">
+                class="block text-center py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all">
                 Enter the House
               </router-link>
             </div>

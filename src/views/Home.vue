@@ -6,6 +6,105 @@
     <div ref="cursorInner" class="gsap-cursor-inner" aria-hidden="true"></div>
 
     <!-- ═══════════════════════════════════════════
+         LEFT CORNER HERO SOCIAL FLOATING DOCK (Matching Reference Screenshot)
+    ═══════════════════════════════════════════ -->
+    <aside 
+      class="fixed left-0 top-1/2 -translate-y-1/2 z-[999] flex flex-col items-start transition-transform duration-300 select-none drop-shadow-2xl"
+      :class="isSocialDockOpen ? 'translate-x-0' : '-translate-x-[calc(100%-12px)]'"
+      aria-label="Quick Social & Contact Dock"
+    >
+      <!-- Top Toggle Button -->
+      <button 
+        @click="isSocialDockOpen = !isSocialDockOpen"
+        class="w-11 h-8 bg-black text-white rounded-tr-md flex items-center justify-center cursor-pointer transition-all hover:bg-neutral-800 focus:outline-none shadow-md"
+        :title="isSocialDockOpen ? 'Collapse' : 'Expand'"
+      >
+        <span class="text-xs font-bold transition-transform duration-300" :class="{ 'rotate-180': !isSocialDockOpen }">
+          &larr;
+        </span>
+      </button>
+
+      <!-- Vertical Contact Us Tab -->
+      <div class="relative group/contact w-11">
+        <router-link 
+          to="/contact"
+          class="w-11 py-5 bg-[#6C5CE7] hover:bg-[#5b4bc4] text-white flex flex-col items-center justify-center gap-2 transition-all duration-300 cursor-pointer shadow-md no-underline"
+        >
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span class="text-[10px] font-bold tracking-wider uppercase whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+            Contact Us
+          </span>
+        </router-link>
+
+        <!-- Slideout Badge / Content on Hover -->
+        <div class="absolute left-full top-0 ml-1.5 hidden group-hover/contact:flex flex-col bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white p-3.5 rounded-r-xl shadow-2xl border border-neutral-200 dark:border-neutral-800 min-w-[220px] z-50">
+          <p class="text-xs font-bold uppercase tracking-wider text-[#6C5CE7] mb-1">Direct Assistance</p>
+          <p class="text-[11px] text-neutral-500 dark:text-neutral-400 mb-2.5">Concierge &amp; Order Support</p>
+          <a href="https://wa.me/923416887454" target="_blank" class="flex items-center gap-2 text-xs font-semibold p-2 rounded bg-neutral-100 dark:bg-neutral-800 hover:bg-[#25D366] hover:text-white transition-colors">
+            <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-sm" />
+            <span>0341 6887454</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Facebook Tab -->
+      <div class="relative group/fb w-11">
+        <a 
+          href="https://www.facebook.com/profile.php?id=61573629329844" 
+          target="_blank" 
+          rel="noopener"
+          class="w-11 h-11 bg-[#1877F2] hover:bg-[#1464cc] text-white flex items-center justify-center transition-all duration-300 shadow-md"
+          title="Facebook"
+        >
+          <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-base" />
+        </a>
+        <!-- Slideout Badge -->
+        <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/fb:flex items-center gap-2 bg-[#1877F2] text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50">
+          <span>Facebook</span>
+          <span class="text-[10px] opacity-80">&rarr;</span>
+        </div>
+      </div>
+
+      <!-- Instagram Tab (With Rounded Bottom Corner) -->
+      <div class="relative group/insta w-11">
+        <a 
+          href="https://www.instagram.com/ahmadclothfabrics_aroma/" 
+          target="_blank" 
+          rel="noopener"
+          class="w-11 h-11 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
+          title="Instagram"
+        >
+          <font-awesome-icon :icon="['fab', 'instagram']" class="text-base" />
+        </a>
+        <!-- Slideout Badge -->
+        <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/insta:flex items-center gap-2 bg-gradient-to-r from-[#dc2743] to-[#bc1888] text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50">
+          <span>Instagram</span>
+          <span class="text-[10px] opacity-80">&rarr;</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp Tab -->
+      <div class="relative group/wa w-11 mt-0.5">
+        <a 
+          href="https://wa.me/923416887454" 
+          target="_blank" 
+          rel="noopener"
+          class="w-11 h-11 bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
+          title="WhatsApp"
+        >
+          <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-base" />
+        </a>
+        <!-- Slideout Badge -->
+        <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/wa:flex items-center gap-2 bg-[#25D366] text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50">
+          <span>WhatsApp Chat</span>
+          <span class="text-[10px] opacity-80">&rarr;</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════════════════════════════
          1. AHMAD CLOTH HOUSE — LUXURY EDITORIAL HERO
     ═══════════════════════════════════════════ -->
     <section
@@ -737,6 +836,7 @@ onUnmounted(() => {
   if (bgSliderInterval) clearInterval(bgSliderInterval)
 })
 
+const isSocialDockOpen = ref(true)
 const isExpanded = ref(false)
 const isExiting = ref(false)
 const currentHeroIndex = ref(0)
