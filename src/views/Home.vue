@@ -103,13 +103,13 @@
         </div>
       </div>
 
-      <!-- WhatsApp Tab (Rounded Bottom Corner) -->
-      <div class="relative group/wa w-11 mt-0.5">
+      <!-- WhatsApp Tab -->
+      <div class="relative group/wa w-11">
         <a 
           href="https://wa.me/923416887454" 
           target="_blank" 
           rel="noopener"
-          class="w-11 h-11 bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
+          class="w-11 h-11 bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center transition-all duration-300 shadow-md"
           title="WhatsApp"
         >
           <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-base" />
@@ -117,6 +117,45 @@
         <!-- Slideout Badge -->
         <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/wa:flex items-center gap-2 bg-[#25D366] text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50">
           <span>WhatsApp Chat</span>
+          <span class="text-[10px] opacity-80">&rarr;</span>
+        </div>
+      </div>
+
+      <!-- TikTok Tab -->
+      <div class="relative group/tiktok w-11">
+        <a 
+          href="https://www.tiktok.com/@theahmadfabrices_aroma" 
+          target="_blank" 
+          rel="noopener"
+          class="w-11 h-11 bg-[#010101] hover:bg-[#1f1f1f] text-white flex items-center justify-center transition-all duration-300 shadow-md"
+          title="TikTok"
+        >
+          <font-awesome-icon :icon="['fab', 'tiktok']" class="text-base" />
+        </a>
+        <!-- Slideout Badge -->
+        <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/tiktok:flex items-center gap-2 bg-black text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50 border border-white/10">
+          <span>TikTok</span>
+          <span class="text-[10px] opacity-80">&rarr;</span>
+        </div>
+      </div>
+
+      <!-- Map / Store Location Tab (Rounded Bottom Corner) -->
+      <div class="relative group/map w-11">
+        <a 
+          href="https://maps.google.com/?q=Ameer+Chowk,+Wapda+Town,+Lahore" 
+          target="_blank" 
+          rel="noopener"
+          class="w-11 h-11 bg-[#EA4335] hover:bg-[#d93025] text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
+          title="Store Location on Google Maps"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </a>
+        <!-- Slideout Badge -->
+        <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/map:flex items-center gap-2 bg-[#EA4335] text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50">
+          <span>Store Map (Lahore)</span>
           <span class="text-[10px] opacity-80">&rarr;</span>
         </div>
       </div>
