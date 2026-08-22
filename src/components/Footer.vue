@@ -84,7 +84,7 @@
         
         <!-- Social Icons Row -->
         <div class="flex items-center gap-5 text-base text-stone-600 dark:text-stone-300">
-          <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" aria-label="YouTube" class="hover:text-red-600 transition-colors">
+          <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" aria-label="YouTube" class="hover:text-red-600 transition-colors">
             <font-awesome-icon :icon="['fab', 'youtube']" />
           </a>
           <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" aria-label="Instagram" class="hover:text-pink-600 transition-colors">

@@ -67,13 +67,31 @@
         </div>
       </div>
 
-      <!-- Instagram Tab (With Rounded Bottom Corner) -->
+      <!-- YouTube Tab -->
+      <div class="relative group/yt w-11">
+        <a 
+          href="https://www.youtube.com/@ahmadClothesfabrics_aroma" 
+          target="_blank" 
+          rel="noopener"
+          class="w-11 h-11 bg-[#FF0000] hover:bg-[#cc0000] text-white flex items-center justify-center transition-all duration-300 shadow-md"
+          title="YouTube"
+        >
+          <font-awesome-icon :icon="['fab', 'youtube']" class="text-base" />
+        </a>
+        <!-- Slideout Badge -->
+        <div class="absolute left-full top-1/2 -translate-y-1/2 ml-1.5 hidden group-hover/yt:flex items-center gap-2 bg-[#FF0000] text-white px-3 py-1.5 rounded-r-md shadow-xl text-xs font-bold tracking-wide whitespace-nowrap z-50">
+          <span>YouTube</span>
+          <span class="text-[10px] opacity-80">&rarr;</span>
+        </div>
+      </div>
+
+      <!-- Instagram Tab -->
       <div class="relative group/insta w-11">
         <a 
           href="https://www.instagram.com/ahmadclothfabrics_aroma/" 
           target="_blank" 
           rel="noopener"
-          class="w-11 h-11 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
+          class="w-11 h-11 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white flex items-center justify-center transition-all duration-300 shadow-md"
           title="Instagram"
         >
           <font-awesome-icon :icon="['fab', 'instagram']" class="text-base" />
@@ -85,7 +103,7 @@
         </div>
       </div>
 
-      <!-- WhatsApp Tab -->
+      <!-- WhatsApp Tab (Rounded Bottom Corner) -->
       <div class="relative group/wa w-11 mt-0.5">
         <a 
           href="https://wa.me/923416887454" 

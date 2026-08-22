@@ -28,7 +28,7 @@
         <span class="text-stone-700">|</span>
         <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="hover:text-white transition-colors">FACEBOOK</a>
         <span class="text-stone-700">|</span>
-        <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="hover:text-white transition-colors">YOUTUBE</a>
+        <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" rel="noopener" class="hover:text-white transition-colors">YOUTUBE</a>
       </div>
     </div>
 
@@ -292,7 +292,7 @@
               <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-[#1877F2] transition-all duration-300 shadow-sm">
                 <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-sm" />
               </a>
-              <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-red-600 transition-all duration-300 shadow-sm">
+              <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-red-600 transition-all duration-300 shadow-sm">
                 <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
               </a>
               <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-black transition-all duration-300 shadow-sm">

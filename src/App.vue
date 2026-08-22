@@ -101,7 +101,7 @@
                     <font-awesome-icon :icon="['fab', 'facebook-f']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">Facebook</span>
                   </a>
-                  <a href="https://www.youtube.com/@ahmadfabrics_aroma" target="_blank" rel="noopener" class="social-link-panel">
+                  <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" rel="noopener" class="social-link-panel">
                     <font-awesome-icon :icon="['fab', 'youtube']" />
                     <span class="text-[9px] uppercase tracking-widest ml-2">YouTube</span>
                   </a>
@@ -566,7 +566,7 @@ const getAIResponse = (message) => {
   const socialLinks = {
     instagram: "https://www.instagram.com/ahmadclothfabrics_aroma/",
     facebook: "https://www.facebook.com/profile.php?id=61573629329844",
-    youtube: "https://www.youtube.com/@ahmadfabrics_aroma",
+    youtube: "https://www.youtube.com/@ahmadClothesfabrics_aroma",
     tiktok: "https://www.tiktok.com/@theahmadfabrices_aroma"
   }
 
