@@ -333,8 +333,8 @@
           @click="router.push('/shop/Unstitched')" 
           class="relative aspect-[4/5] sm:aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
         >
-          <img :src="PakistaniCouture3" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+          <img :src="NewSuitOffWhite" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-8">
             <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
               UNSTITCHED LAWN '26
             </span>
@@ -346,8 +346,8 @@
           @click="router.push('/shop/Pret')" 
           class="relative aspect-[4/5] sm:aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
         >
-          <img :src="PakistaniCouture1" alt="Ready to Wear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+          <img :src="NewSuitGreen" alt="Ready to Wear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-8">
             <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
               READY TO WEAR
             </span>
@@ -806,6 +806,10 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
+
+import NewSuitOffWhite from "../assets/dw_ef26_201_offwhite.jpg"
+import NewSuitGreen from "../assets/dw_ef22_09r1_green.jpg"
+import NewSuitBlack from "../assets/dw_ef26_14_black.webp"
 
 import PakistaniCouture3 from "../assets/ai_new/hero_collage_3.jpg"
 import PakistaniCouture2 from "../assets/ai_new/hero_collage_2.jpg"
