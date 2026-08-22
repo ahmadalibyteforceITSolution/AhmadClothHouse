@@ -1,212 +1,441 @@
 <template>
-  <div v-if="product" class="min-h-screen bg-white dark:bg-[#050505] transition-colors duration-1000 pb-40 text-[#1a1a1a] dark:text-[#f9f9f9]">
+  <div v-if="product" class="min-h-screen bg-white dark:bg-[#0a0a0a] transition-colors duration-300 pb-32 text-neutral-900 dark:text-neutral-100">
     
-    <!-- Ultra-Luxury Top Banner -->
-    <div class="w-full h-12 bg-black dark:bg-[#1a1a1a] flex items-center justify-center overflow-hidden mb-12">
-       <span class="text-[8px] md:text-[9px] font-medium tracking-[0.4em] text-white uppercase animate-pulse">
-         COMPLIMENTARY NATIONWIDE SHIPPING ON LUXURY ATELIERS
-       </span>
+    <!-- Top Bar / Breadcrumbs -->
+    <div class="max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-12 pt-6 pb-4">
+      <nav class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 font-normal">
+        <router-link to="/" class="hover:text-black dark:hover:text-white transition-colors">Home</router-link>
+        <span class="text-neutral-400">&gt;</span>
+        <router-link :to="`/shop/${product.parentCategory || 'Ladies Wear'}`" class="hover:text-black dark:hover:text-white transition-colors">
+          {{ product.parentCategory || 'Luxury Formals' }}
+        </router-link>
+        <span class="text-neutral-400">&gt;</span>
+        <router-link :to="`/shop/${product.category || 'Eid Collection'}`" class="hover:text-black dark:hover:text-white transition-colors">
+          {{ product.category || 'Eid Collection' }}
+        </router-link>
+        <span class="text-neutral-400">&gt;</span>
+        <span class="text-neutral-800 dark:text-neutral-200 font-medium truncate max-w-[200px] sm:max-w-none">
+          {{ product.name }}
+        </span>
+      </nav>
     </div>
 
-    <div class="max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
-       
-       <!-- Left Side: Grand Image Presentation (Maria B Style) -->
-       <div class="lg:col-span-7 flex flex-col gap-6">
-         <!-- Main Hero Image -->
-         <div class="relative w-full overflow-hidden bg-[#fafaf8] dark:bg-[#080808] aspect-[3/4] group mb-4">
-           <!-- Subtle zoom effect on hover -->
-           <img 
-             :src="currentDisplayImage" 
-             :alt="product.name" 
-             class="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-110 ease-out"
-           />
-           <!-- Minimalist Watermark -->
-           <div class="absolute inset-0 border border-black/5 dark:border-white/5 pointer-events-none"></div>
-           <div class="absolute bottom-6 left-6 rotate-[-90deg] origin-bottom-left text-[8px] font-black tracking-[0.5em] text-black/30 dark:text-white/30 uppercase mix-blend-difference">
-              MARIA.B INSPIRED
-           </div>
-         </div>
-         
-         <!-- Thumbnail Grid -->
-         <div v-if="allImages.length > 1" class="grid grid-cols-4 gap-4">
-           <button 
-             v-for="(img, idx) in allImages" :key="idx"
-             @click="selectImage(img)"
-             class="aspect-[3/4] overflow-hidden relative group transition-opacity duration-500"
-             :class="currentDisplayImage === img ? 'opacity-100 ring-1 ring-black dark:ring-white ring-offset-2 dark:ring-offset-[#050505]' : 'opacity-50 hover:opacity-100'"
-           >
-             <img :src="img" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-           </button>
-         </div>
-       </div>
-
-       <!-- Right Side: Clean Minimalist Details -->
-       <div class="lg:col-span-5 flex flex-col relative">
-         <div class="lg:sticky lg:top-10 animate-fade-in-up">
+    <!-- Main 3-Column Layout Container -->
+    <div class="max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-12 pt-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-start">
+        
+        <!-- ========================================== -->
+        <!-- COLUMN 1 (LEFT): PRODUCT CARE & FABRIC     -->
+        <!-- ========================================== -->
+        <div class="lg:col-span-3 order-3 lg:order-1 flex flex-col gap-6 pt-2">
+          <div>
+            <h2 class="text-xl font-semibold tracking-tight text-neutral-900 dark:text-white mb-4">
+              Product Care
+            </h2>
             
-            <!-- Breadcrumb -->
-            <nav class="flex items-center gap-2 text-[9px] font-black tracking-[0.3em] uppercase text-stone-400 mb-8">
-               <router-link to="/" class="hover:text-black dark:hover:text-white transition-colors">Home</router-link>
-               <span class="opacity-50">/</span>
-               <router-link :to="`/shop/${product.category}`" class="hover:text-black dark:hover:text-white transition-colors">{{ product.category }}</router-link>
-               <span class="opacity-50">/</span>
-               <span class="text-black dark:text-white line-clamp-1 max-w-[150px]">{{ product.name }}</span>
-            </nav>
-
-            <!-- Title & Price Block -->
-            <div class="border-b border-black/10 dark:border-white/10 pb-8 mb-8">
-              <h1 class="text-3xl md:text-5xl font-playfair font-normal leading-[1.1] mb-6 tracking-tight text-[#111] dark:text-[#fff]">
-                 {{ product.name }}
-              </h1>
-              <div class="flex items-baseline gap-4">
-                 <span class="text-2xl font-light tracking-wide">PKR {{ product.price.toLocaleString() }}</span>
-                 <span v-if="product.originalPrice && product.originalPrice > product.price" class="text-sm text-stone-400 line-through opacity-70">
-                   PKR {{ product.originalPrice.toLocaleString() }}
-                 </span>
-              </div>
-              <p class="text-[10px] font-medium uppercase tracking-[0.2em] text-[#d4af37] mt-3">Inclusive of all taxes</p>
+            <!-- Fabric Section -->
+            <div class="mb-5">
+              <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-1">
+                Fabric
+              </h3>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                {{ product.fabric || 'Mix Fabric Handle with care while cleaning' }}
+              </p>
             </div>
 
-            <!-- Interactivity (Variants) -->
-            <div class="space-y-8 mb-12">
-              <div v-if="uniqueColors.length > 0">
-                <div class="flex justify-between items-center mb-4">
-                   <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#111] dark:text-[#eee]">Color</h3>
-                   <span class="text-[9px] font-medium text-stone-400 uppercase tracking-widest">{{ selectedColor || 'Select' }}</span>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                  <button 
-                    v-for="color in uniqueColors" :key="color"
-                    @click="selectColor(color)"
-                    class="relative px-6 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors border"
-                    :class="selectedColor === color ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white' : 'border-stone-200 dark:border-stone-800 text-stone-500 hover:border-black dark:hover:border-white'"
-                  >
-                    {{ color }}
-                  </button>
-                </div>
-              </div>
+            <!-- Care Section -->
+            <div>
+              <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-3">
+                Care
+              </h3>
               
-              <div v-if="uniqueSizes.length > 0">
-                <div class="flex justify-between items-center mb-4">
-                   <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#111] dark:text-[#eee]">Size</h3>
-                   <span class="text-[9px] cursor-pointer font-medium border-b border-black dark:border-white uppercase tracking-widest hover:text-[#d4af37] hover:border-[#d4af37] transition-colors">Size Guide</span>
+              <div class="space-y-3">
+                <!-- Care Card 1: Wash / Dry Clean -->
+                <div class="flex items-center gap-3.5 p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 shadow-sm transition-all hover:border-neutral-300 dark:hover:border-neutral-700">
+                  <div class="w-9 h-9 rounded-md bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center shrink-0 text-neutral-600 dark:text-neutral-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                    Don't wash dry clean only
+                  </span>
                 </div>
-                <div class="flex flex-wrap gap-3">
-                  <button 
-                    v-for="size in uniqueSizes" :key="size"
-                    @click="selectSize(size)"
-                    class="w-12 h-12 flex items-center justify-center text-[10px] font-bold uppercase tracking-widest border transition-all"
-                    :class="selectedSize === size ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white' : 'border-stone-200 dark:border-stone-800 text-stone-500 hover:border-black dark:hover:border-white'"
-                  >
-                    {{ size }}
-                  </button>
+
+                <!-- Care Card 2: Iron -->
+                <div class="flex items-center gap-3.5 p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 shadow-sm transition-all hover:border-neutral-300 dark:hover:border-neutral-700">
+                  <div class="w-9 h-9 rounded-md bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center shrink-0 text-neutral-600 dark:text-neutral-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                    Can be ironed on low heat
+                  </span>
+                </div>
+
+                <!-- Care Card 3: Bleach -->
+                <div class="flex items-center gap-3.5 p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 shadow-sm transition-all hover:border-neutral-300 dark:hover:border-neutral-700">
+                  <div class="w-9 h-9 rounded-md bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center shrink-0 text-neutral-600 dark:text-neutral-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                    Don't use too much bleach
+                  </span>
                 </div>
               </div>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col gap-3 mb-12">
-               <!-- Add to Cart -->
-               <button 
-                 @click="handleAddToCart"
-                 class="btn-shopify w-full !h-14 !text-sm flex items-center justify-center gap-2"
-               >
-                 <span>Add to Cart</span>
-                 <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
-               </button>
+            <!-- Additional Guarantee Note -->
+            <div class="mt-8 p-4 rounded-lg bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-[11px] text-neutral-500 leading-relaxed">
+              <span class="font-semibold text-neutral-800 dark:text-neutral-200">100% Authentic Guaranteed:</span> 
+              Direct from artisan looms and verified luxury fabric stockists.
+            </div>
+          </div>
+        </div>
 
-               <!-- Instant Buy Now -->
-               <button 
-                 @click="handleBuyNow"
-                 class="w-full h-14 bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2 shadow-sm"
-               >
-                 <span>Buy Now • Instant Checkout</span>
-                 <font-awesome-icon icon="fa-solid fa-bolt" class="text-xs" />
-               </button>
-               
-               <!-- Wishlist -->
-               <button 
-                 @click="favorites.toggleFavorite(product)"
-                 class="btn-shopify-outline w-full !h-14 !text-sm flex items-center justify-center gap-2"
-               >
-                 <font-awesome-icon :icon="favorites.isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" :class="favorites.isFavorite(product.id) ? 'text-[#E8232A]' : ''" />
-                 <span>{{ favorites.isFavorite(product.id) ? 'Saved to Wishlist' : 'Add to Wishlist' }}</span>
-               </button>
+        <!-- ========================================== -->
+        <!-- COLUMN 2 (CENTER): MAIN GALLERY & THUMBS   -->
+        <!-- ========================================== -->
+        <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center">
+          <!-- Main Showcase Image -->
+          <div class="w-full relative bg-neutral-100 dark:bg-neutral-900 rounded-sm overflow-hidden shadow-sm group">
+            <img 
+              :src="currentDisplayImage" 
+              :alt="product.name" 
+              class="w-full h-auto max-h-[700px] object-cover mx-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            
+            <!-- Floating Zoom or Watermark indicator -->
+            <div class="absolute top-3 left-3 bg-black/40 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-sm">
+              Original Atelier
+            </div>
+          </div>
+
+          <!-- Thumbnail Gallery Row -->
+          <div class="w-full mt-4 flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none">
+            <button 
+              v-for="(img, idx) in allImages" 
+              :key="idx"
+              @click="selectImage(img)"
+              class="w-16 h-20 sm:w-20 sm:h-24 rounded-sm overflow-hidden shrink-0 border-2 transition-all duration-200"
+              :class="currentDisplayImage === img ? 'border-black dark:border-white shadow-md scale-95' : 'border-transparent opacity-60 hover:opacity-100 hover:border-neutral-300'"
+            >
+              <img :src="img" :alt="product.name" class="w-full h-full object-cover" />
+            </button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 3 (RIGHT): TITLE, PRICE & ADD CART  -->
+        <!-- ========================================== -->
+        <div class="lg:col-span-4 order-2 lg:order-3 flex flex-col pt-1">
+          
+          <!-- Top Title & In Stock Badge -->
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white capitalize">
+              {{ product.name }}
+            </h1>
+            <span class="shrink-0 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs px-3 py-1 rounded font-medium border border-neutral-200 dark:border-neutral-700">
+              In Stock
+            </span>
+          </div>
+
+          <!-- SKU / Dynamic Code -->
+          <div class="text-xs text-neutral-500 dark:text-neutral-400 mb-6 font-mono">
+            {{ currentSku }}
+          </div>
+
+          <!-- Price Section -->
+          <div class="flex items-baseline justify-between py-3 border-y border-neutral-200 dark:border-neutral-800 mb-5">
+            <span class="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+              Price
+            </span>
+            <div class="flex items-baseline gap-3">
+              <span v-if="product.originalPrice && product.originalPrice > product.price" class="text-sm text-neutral-400 line-through">
+                Rs.{{ product.originalPrice.toLocaleString() }}
+              </span>
+              <span class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
+                Rs.{{ product.price.toLocaleString() }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Shipping Notice -->
+          <div class="flex items-center justify-between text-xs py-2 mb-6">
+            <span class="font-semibold uppercase tracking-wider text-neutral-500 text-[11px]">
+              SHIPPING TIME
+            </span>
+            <span class="font-semibold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 text-[11px]">
+              3-5 BUSINESS DAYS
+            </span>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+                SIZE
+              </span>
+              <button 
+                @click="showSizeModal = true" 
+                class="flex items-center gap-1.5 text-xs text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white font-medium transition-colors uppercase tracking-wider"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+                <span>SIZE CHART</span>
+              </button>
             </div>
 
-            <!-- Accordion Details (Maria B Style) -->
-            <div class="border-t border-black/10 dark:border-white/10">
-               <!-- Accordion Item 1 -->
-               <div class="py-6 border-b border-black/10 dark:border-white/10 group cursor-pointer" @click="activeAccordion = activeAccordion === 1 ? 0 : 1">
-                  <div class="flex justify-between items-center">
-                     <span class="text-[11px] font-black uppercase tracking-[0.3em]">Description</span>
-                     <span class="text-lg font-light transition-transform duration-300" :class="{'rotate-45': activeAccordion === 1}">+</span>
-                  </div>
-                  <div class="overflow-hidden transition-all duration-500 max-h-0" :class="{'max-h-[500px] mt-6': activeAccordion === 1}">
-                     <p class="text-[13px] text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-                        {{ product.description || 'Elevate your wardrobe with our latest unstitched ensemble. An exquisite curation of fine fabric and precise embroidery detailing.' }}
-                     </p>
-                  </div>
-               </div>
+            <!-- Size Buttons: XS, S, M, L, XL -->
+            <div class="flex flex-wrap gap-2.5">
+              <button 
+                v-for="size in availableSizes" 
+                :key="size"
+                @click="selectSize(size)"
+                class="min-w-[48px] px-3.5 h-10 flex items-center justify-center text-xs font-semibold uppercase tracking-wider border rounded-sm transition-all duration-200"
+                :class="selectedSize === size 
+                  ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white shadow-sm' 
+                  : 'border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:border-black dark:hover:border-white bg-white dark:bg-neutral-900'"
+              >
+                {{ size }}
+              </button>
+            </div>
+          </div>
 
-               <!-- Accordion Item 2 -->
-               <div v-if="product.details && product.details.length" class="py-6 border-b border-black/10 dark:border-white/10 group cursor-pointer" @click="activeAccordion = activeAccordion === 2 ? 0 : 2">
-                  <div class="flex justify-between items-center">
-                     <span class="text-[11px] font-black uppercase tracking-[0.3em]">Fabric Details</span>
-                     <span class="text-lg font-light transition-transform duration-300" :class="{'rotate-45': activeAccordion === 2}">+</span>
-                  </div>
-                  <div class="overflow-hidden transition-all duration-500 max-h-0" :class="{'max-h-[500px] mt-6': activeAccordion === 2}">
-                     <ul class="space-y-3">
-                        <li v-for="detail in product.details" :key="detail" class="text-[12px] text-stone-600 dark:text-stone-400 font-light flex items-start gap-4">
-                           <span class="w-1 h-1 rounded-full bg-black dark:bg-white mt-1.5 shrink-0"></span>
-                           <span class="tracking-wide">{{ detail }}</span>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               
-               <!-- Accordion Item 3 -->
-               <div class="py-6 border-b border-black/10 dark:border-white/10 group cursor-pointer" @click="activeAccordion = activeAccordion === 3 ? 0 : 3">
-                  <div class="flex justify-between items-center">
-                     <span class="text-[11px] font-black uppercase tracking-[0.3em]">Delivery & Returns</span>
-                     <span class="text-lg font-light transition-transform duration-300" :class="{'rotate-45': activeAccordion === 3}">+</span>
-                  </div>
-                  <div class="overflow-hidden transition-all duration-500 max-h-0" :class="{'max-h-[500px] mt-6': activeAccordion === 3}">
-                     <p class="text-[12px] text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-                        Orders are dispatched within 24-48 hours. Express delivery across Pakistan takes 2-4 working days. International delivery takes 5-10 working days. Unstitched items can be exchanged within 7 days of purchase.
-                     </p>
-                  </div>
-               </div>
+          <!-- Color Selector (if available) -->
+          <div v-if="uniqueColors.length > 1" class="mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+                COLOR: <span class="text-neutral-500 font-normal">{{ selectedColor }}</span>
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <button 
+                v-for="col in uniqueColors" 
+                :key="col"
+                @click="selectColor(col)"
+                class="px-4 py-2 text-xs font-semibold uppercase tracking-wider border rounded-sm transition-all"
+                :class="selectedColor === col 
+                  ? 'bg-black text-white border-black dark:bg-white dark:text-black' 
+                  : 'border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-black'"
+              >
+                {{ col }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="mb-6">
+            <span class="block text-xs font-bold uppercase tracking-wider text-neutral-900 dark:text-neutral-100 mb-2.5">
+              QUANTITY
+            </span>
+            <div class="flex items-center">
+              <button 
+                @click="decreaseQty" 
+                class="w-10 h-10 flex items-center justify-center bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold transition-colors rounded-l-sm"
+              >
+                &minus;
+              </button>
+              <div class="w-12 h-10 flex items-center justify-center border-y border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 font-medium text-xs text-neutral-900 dark:text-white">
+                {{ quantity }}
+              </div>
+              <button 
+                @click="increaseQty" 
+                class="w-10 h-10 flex items-center justify-center bg-black hover:bg-neutral-800 text-white font-bold transition-colors rounded-r-sm"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons: ADD TO WISHLIST & ADD TO CART -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+            <!-- Wishlist Button -->
+            <button 
+              @click="favorites.toggleFavorite(product)"
+              class="h-12 border border-black dark:border-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-sm text-neutral-900 dark:text-white"
+            >
+              <svg 
+                class="w-4 h-4" 
+                :class="favorites.isFavorite(product.id) ? 'text-red-600 fill-current' : 'text-neutral-700 dark:text-neutral-200'"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span>{{ favorites.isFavorite(product.id) ? 'IN WISHLIST' : 'ADD TO WISHLIST' }}</span>
+            </button>
+
+            <!-- Add To Cart Button -->
+            <button 
+              @click="handleAddToCart"
+              class="h-12 bg-black dark:bg-white text-white dark:text-black font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all hover:bg-neutral-800 dark:hover:bg-neutral-200 rounded-sm shadow-sm"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span>ADD TO CART</span>
+            </button>
+          </div>
+
+          <!-- Instant Buy Now Button -->
+          <button 
+            @click="handleBuyNow"
+            class="w-full h-11 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs uppercase tracking-widest rounded-sm transition-colors flex items-center justify-center gap-2 mb-8 shadow-sm"
+          >
+            <font-awesome-icon icon="fa-solid fa-bolt" class="text-xs" />
+            <span>BUY NOW &bull; INSTANT CHECKOUT</span>
+          </button>
+
+          <!-- Accordion Details -->
+          <div class="border-t border-neutral-200 dark:border-neutral-800">
+            <!-- Accordion 1: Description -->
+            <div class="py-4 border-b border-neutral-200 dark:border-neutral-800 cursor-pointer" @click="activeAccordion = activeAccordion === 1 ? 0 : 1">
+              <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-800 dark:text-neutral-200">
+                <span>Description</span>
+                <span class="text-base font-light transition-transform duration-200" :class="{'rotate-45': activeAccordion === 1}">+</span>
+              </div>
+              <div v-show="activeAccordion === 1" class="pt-3 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <p>{{ product.description || 'Elevate your wardrobe with this exquisite luxury ensemble. Crafted from high-density fabric with refined artistic embroidery detailing and immaculate tailoring.' }}</p>
+              </div>
             </div>
 
-         </div>
-       </div>
+            <!-- Accordion 2: Fabric Details -->
+            <div v-if="product.details && product.details.length" class="py-4 border-b border-neutral-200 dark:border-neutral-800 cursor-pointer" @click="activeAccordion = activeAccordion === 2 ? 0 : 2">
+              <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-800 dark:text-neutral-200">
+                <span>Fabric & Inclusions</span>
+                <span class="text-base font-light transition-transform duration-200" :class="{'rotate-45': activeAccordion === 2}">+</span>
+              </div>
+              <div v-show="activeAccordion === 2" class="pt-3 text-xs text-neutral-600 dark:text-neutral-400">
+                <ul class="space-y-2">
+                  <li v-for="d in product.details" :key="d" class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+                    <span>{{ d }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Accordion 3: Delivery & Returns -->
+            <div class="py-4 border-b border-neutral-200 dark:border-neutral-800 cursor-pointer" @click="activeAccordion = activeAccordion === 3 ? 0 : 3">
+              <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-800 dark:text-neutral-200">
+                <span>Delivery & Returns</span>
+                <span class="text-base font-light transition-transform duration-200" :class="{'rotate-45': activeAccordion === 3}">+</span>
+              </div>
+              <div v-show="activeAccordion === 3" class="pt-3 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <p>Standard Pakistan delivery within 3-5 business days. Express worldwide shipping available. 7-day hassle-free exchange on unused items in original packaging.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    
-    <!-- Guest Reviews Section Container -->
-    <div class="max-w-[1800px] mx-auto px-6 sm:px-12 mt-32">
-       <div class="py-16 border-t border-black/10 dark:border-white/10">
-         <ReviewSection :product-id="product?.id || product?._id" />
-       </div>
+
+    <!-- Size Chart Modal -->
+    <div v-if="showSizeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in" @click.self="showSizeModal = false">
+      <div class="bg-white dark:bg-neutral-900 rounded-lg max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-neutral-200 dark:border-neutral-800 relative">
+        <button @click="showSizeModal = false" class="absolute top-5 right-5 text-neutral-400 hover:text-black dark:hover:text-white text-lg">
+          &times;
+        </button>
+        <h3 class="text-lg font-semibold uppercase tracking-wider text-neutral-900 dark:text-white mb-2">
+          Standard Women's Size Guide
+        </h3>
+        <p class="text-xs text-neutral-500 mb-6">All measurements are in inches.</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700 text-neutral-500 uppercase tracking-wider text-[10px]">
+                <th class="py-2.5 px-3">Size</th>
+                <th class="py-2.5 px-3">Chest</th>
+                <th class="py-2.5 px-3">Waist</th>
+                <th class="py-2.5 px-3">Hip</th>
+                <th class="py-2.5 px-3">Shirt Length</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-100 dark:divide-neutral-800 text-neutral-800 dark:text-neutral-200 font-medium">
+              <tr>
+                <td class="py-2.5 px-3 font-bold">XS</td>
+                <td class="py-2.5 px-3">36"</td>
+                <td class="py-2.5 px-3">32"</td>
+                <td class="py-2.5 px-3">38"</td>
+                <td class="py-2.5 px-3">38"</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold">S</td>
+                <td class="py-2.5 px-3">38"</td>
+                <td class="py-2.5 px-3">34"</td>
+                <td class="py-2.5 px-3">40"</td>
+                <td class="py-2.5 px-3">39"</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold">M</td>
+                <td class="py-2.5 px-3">41"</td>
+                <td class="py-2.5 px-3">37"</td>
+                <td class="py-2.5 px-3">43"</td>
+                <td class="py-2.5 px-3">40"</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold">L</td>
+                <td class="py-2.5 px-3">44"</td>
+                <td class="py-2.5 px-3">40"</td>
+                <td class="py-2.5 px-3">46"</td>
+                <td class="py-2.5 px-3">41"</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold">XL</td>
+                <td class="py-2.5 px-3">47"</td>
+                <td class="py-2.5 px-3">43"</td>
+                <td class="py-2.5 px-3">49"</td>
+                <td class="py-2.5 px-3">42"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button @click="showSizeModal = false" class="w-full mt-6 py-2.5 bg-black text-white dark:bg-white dark:text-black font-semibold text-xs uppercase tracking-wider rounded">
+          Close Guide
+        </button>
+      </div>
+    </div>
+
+    <!-- Guest Reviews Section -->
+    <div class="max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-12 mt-24">
+      <div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+        <ReviewSection :product-id="product?.id || product?._id" />
+      </div>
     </div>
 
     <!-- Related Products -->
-    <div class="bg-stone-50 dark:bg-[#0a0a0a] py-32 mt-12 w-full">
-       <div class="max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-20">
-          <div class="flex items-center gap-6 mb-16">
-             <h2 class="text-3xl font-playfair uppercase tracking-widest dark:text-white">Complete The Look</h2>
-             <div class="h-[1px] flex-grow bg-black/10 dark:bg-white/10"></div>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-             <ProductCard v-for="p in relatedProducts" :key="p.id" :product="p" @click-product="goToDetail" />
-          </div>
-       </div>
+    <div class="bg-neutral-50 dark:bg-neutral-900/40 py-20 mt-12 w-full">
+      <div class="max-w-[1750px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div class="flex items-center gap-6 mb-10">
+          <h2 class="text-2xl font-playfair font-medium uppercase tracking-widest dark:text-white">
+            Complete The Look
+          </h2>
+          <div class="h-[1px] flex-grow bg-neutral-200 dark:bg-neutral-800"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ProductCard v-for="p in relatedProducts" :key="p.id" :product="p" @click-product="goToDetail" />
+        </div>
+      </div>
     </div>
 
   </div>
-  <div v-else class="h-screen flex flex-col items-center justify-center bg-white dark:bg-[#050505] gap-10">
-     <div class="w-12 h-12 border border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
-     <span class="text-[10px] font-black text-black dark:text-white tracking-[0.5em] uppercase">Curating Detail...</span>
+
+  <!-- Loading State -->
+  <div v-else class="h-screen flex flex-col items-center justify-center bg-white dark:bg-[#050505] gap-6">
+    <div class="w-10 h-10 border-2 border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
+    <span class="text-xs font-semibold tracking-widest uppercase text-neutral-600 dark:text-neutral-400">
+      Loading Atelier Details...
+    </span>
   </div>
 </template>
 
@@ -217,7 +446,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { useProductsStore } from '../stores/products'
 import { useCartStore } from '../stores/cart'
 import { useFavoritesStore } from '../stores/favorites'
-import { useAuthStore } from '../stores/auth'
 import ProductCard from '../components/ProductCard.vue'
 import ReviewSection from '../components/ReviewSection.vue'
 
@@ -226,7 +454,6 @@ const route = useRoute()
 const router = useRouter()
 const cart = useCartStore()
 const favorites = useFavoritesStore()
-const auth = useAuthStore()
 const productStore = useProductsStore()
 
 const product = computed(() => {
@@ -234,36 +461,40 @@ const product = computed(() => {
   return productStore.products.find(p => String(p.id) === targetId || String(p._id) === targetId)
 })
 
-onMounted(async () => {
-  window.scrollTo(0, 0)
-  const targetId = String(props.id || route.params.id)
-  if (targetId) {
-    // Fetch full details if variants are missing
-    const existing = productStore.products.find(p => String(p.id) === targetId || String(p._id) === targetId)
-    if (!existing || !existing.variants || existing.variants.length === 0) {
-      await productStore.fetchProductById(targetId)
-    }
-    if (product.value?.id || product.value?._id) {
-       productStore.incrementView(product.value.id || product.value._id)
-       // Track Meta ViewContent Event
-       if (typeof window !== 'undefined' && window.fbq) {
-         window.fbq('track', 'ViewContent', {
-           content_name: product.value.name,
-           content_ids: [product.value.id || product.value._id],
-           content_type: 'product',
-           value: product.value.price,
-           currency: 'PKR'
-         })
-       }
-    }
-  }
-})
-
+const quantity = ref(1)
+const showSizeModal = ref(false)
+const activeAccordion = ref(1)
 const selectedVariant = ref(null)
 const selectedColor = ref(null)
-const selectedSize = ref(null)
+const selectedSize = ref('L')
 const manuallySelectedImage = ref(null)
-const activeAccordion = ref(1) // Controls the accordion state
+
+const standardSizes = ['XS', 'S', 'M', 'L', 'XL']
+
+const availableSizes = computed(() => {
+  if (product.value?.variants && product.value.variants.length > 0) {
+    const rawSizes = [...new Set(product.value.variants.map(v => v.size).filter(Boolean))]
+    if (rawSizes.length > 0 && !rawSizes.includes('Unstitched')) {
+      return rawSizes
+    }
+  }
+  return standardSizes
+})
+
+const uniqueColors = computed(() => {
+  if (!product.value?.variants) return []
+  return [...new Set(product.value.variants.map(v => v.color).filter(Boolean))]
+})
+
+const currentSku = computed(() => {
+  if (product.value?.sku) {
+    const baseSku = product.value.sku.split('-').slice(0, 2).join('-') || product.value.sku
+    const color = selectedColor.value || 'Off White'
+    const size = selectedSize.value || 'Large'
+    return `${baseSku}-${color.replace(/\s+/g, '')}-${size}`
+  }
+  return `DW-EF26-201-${selectedColor.value || 'Off White'}-${selectedSize.value || 'Large'}`
+})
 
 const currentDisplayImage = computed(() => {
   if (manuallySelectedImage.value) return manuallySelectedImage.value
@@ -285,28 +516,109 @@ const allImages = computed(() => {
   return Array.from(images)
 })
 
-const uniqueColors = computed(() => {
-  if (!product.value?.variants) return []
-  return [...new Set(product.value.variants.map(v => v.color))]
+const increaseQty = () => {
+  quantity.value++
+}
+
+const decreaseQty = () => {
+  if (quantity.value > 1) {
+    quantity.value--
+  }
+}
+
+const selectSize = (size) => {
+  selectedSize.value = size
+  updateSelectedVariant()
+}
+
+const selectColor = (color) => {
+  selectedColor.value = color
+  updateSelectedVariant()
+}
+
+const selectImage = (img) => {
+  manuallySelectedImage.value = img
+  if (product.value?.variants) {
+    const matchedVariant = product.value.variants.find(v => v.image === img)
+    if (matchedVariant) {
+      if (matchedVariant.color) selectedColor.value = matchedVariant.color
+      if (matchedVariant.size) selectedSize.value = matchedVariant.size
+      selectedVariant.value = matchedVariant
+    }
+  }
+}
+
+const updateSelectedVariant = () => {
+  if (!product.value?.variants || !product.value.variants.length) return
+  let variant = product.value.variants.find(v => v.color === selectedColor.value && v.size === selectedSize.value)
+  if (!variant && selectedColor.value) {
+    variant = product.value.variants.find(v => v.color === selectedColor.value)
+  }
+  if (!variant && selectedSize.value) {
+    variant = product.value.variants.find(v => v.size === selectedSize.value)
+  }
+  if (variant) {
+    selectedVariant.value = variant
+  }
+}
+
+const handleAddToCart = () => {
+  if (!product.value) return
+  const variantToAdd = selectedVariant.value || {
+    color: selectedColor.value || 'Standard',
+    size: selectedSize.value || 'L',
+    image: currentDisplayImage.value
+  }
+
+  cart.addToCart(product.value, variantToAdd, quantity.value)
+
+  Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Added to Bag',
+    text: `${quantity.value}x ${product.value.name} (${selectedSize.value || 'L'})`,
+    showConfirmButton: false,
+    timer: 2200,
+    timerProgressBar: true
+  })
+}
+
+const handleBuyNow = () => {
+  handleAddToCart()
+  router.push('/checkout')
+}
+
+const relatedProducts = computed(() => {
+  return productStore.products
+    .filter(p => (p.id || p._id) !== (product.value?.id || product.value?._id))
+    .slice(0, 4)
 })
 
-const uniqueSizes = computed(() => {
-  if (!product.value?.variants) return []
-  return [...new Set(product.value.variants.map(v => v.size))]
-})
+const goToDetail = (nextProduct) => {
+  const nid = nextProduct.id || nextProduct._id
+  router.push({ name: 'product-detail', params: { id: nid } })
+}
 
 watch(product, (p) => {
+  quantity.value = 1
   selectedVariant.value = null
-  selectedColor.value = null
-  selectedSize.value = null
   manuallySelectedImage.value = null
+  if (p) {
+    if (p.variants && p.variants.length > 0) {
+      selectedColor.value = p.variants[0].color || null
+      selectedSize.value = p.variants[0].size || 'L'
+      selectedVariant.value = p.variants[0]
+    } else {
+      selectedColor.value = null
+      selectedSize.value = 'L'
+    }
 
-    // Advanced SEO Injection (Maria B Style Editorial Meta)
-    if (typeof document !== 'undefined' && p) {
+    if (typeof document !== 'undefined') {
       const BASE = 'https://ahmad-cloths.vercel.app'
       const pageUrl = `${BASE}${route.path}`
       const pageTitle = `${p.name} | Pakistani Designer 2026 | AhmadClothesHouse`
-      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} from AhmadClothesHouse 2026 Collection. Premium luxury unstitched lawn and handcrafted Pakistani couture with worldwide shipping.`
+      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} from AhmadClothesHouse 2026 Collection.`
       const pageImage = p.image || `${BASE}/og-image.png`
 
       document.title = pageTitle
@@ -331,167 +643,38 @@ watch(product, (p) => {
       setMeta('og:type', true, 'product')
       setMeta('product:price:amount', true, p.price)
       setMeta('product:price:currency', true, 'PKR')
-
-      // Canonical
-      let canonical = document.querySelector('link[rel="canonical"]')
-      if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
-      canonical.href = pageUrl.replace(/\/$/, '') || '/'
-
-      // Product & Breadcrumb Schema
-      const schemas = [
-        {
-          "@context": "https://schema.org/",
-          "@type": "Product",
-          "name": p.name,
-          "image": [p.image],
-          "description": pageDesc,
-          "sku": p.sku || p.id || p._id,
-          "brand": { "@type": "Brand", "name": "AhmadClothesHouse" },
-          "offers": {
-            "@type": "Offer",
-            "url": pageUrl,
-            "priceCurrency": "PKR",
-            "price": p.price,
-            "itemCondition": "https://schema.org/NewCondition",
-            "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "AhmadClothesHouse" }
-          }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE },
-            { "@type": "ListItem", "position": 2, "name": p.category, "item": `${BASE}/shop/${p.category}` },
-            { "@type": "ListItem", "position": 3, "name": p.name, "item": pageUrl }
-          ]
-        }
-      ]
-
-      let script = document.getElementById('product-schema-json-ld')
-      if (!script) {
-        script = document.createElement('script')
-        script.id = 'product-schema-json-ld'
-        script.type = 'application/ld+json'
-        document.head.appendChild(script)
-      }
-      script.text = JSON.stringify(schemas)
-    }
-  }, { immediate: true })
-
-const selectImage = (img) => {
-  manuallySelectedImage.value = img
-  if (product.value?.variants) {
-    const matchedVariant = product.value.variants.find(v => v.image === img)
-    if (matchedVariant) {
-      selectedColor.value = matchedVariant.color
-      selectedSize.value = matchedVariant.size
-      selectedVariant.value = matchedVariant
     }
   }
-}
+}, { immediate: true })
 
-const selectColor = (color) => {
-  selectedColor.value = color
-  updateSelectedVariant()
-}
-
-const selectSize = (size) => {
-  selectedSize.value = size
-  updateSelectedVariant()
-}
-
-const updateSelectedVariant = () => {
-  manuallySelectedImage.value = null
-  if (!product.value?.variants || !product.value.variants.length) return
-  let variant = product.value.variants.find(v => v.color === selectedColor.value && v.size === selectedSize.value)
-  if (!variant && selectedColor.value) {
-    variant = product.value.variants.find(v => v.color === selectedColor.value)
-    if (variant) selectedSize.value = variant.size
-  }
-  if (variant) {
-    selectedVariant.value = variant
-  }
-}
-
-const handleAddToCart = () => {
-  if (product.value.variants && product.value.variants.length > 0) {
-    let variantToAdd = selectedVariant.value
-    if (!variantToAdd) {
-      const randomIndex = Math.floor(Math.random() * product.value.variants.length)
-      variantToAdd = product.value.variants[randomIndex]
-      selectedColor.value = variantToAdd.color
-      selectedSize.value = variantToAdd.size
-      selectedVariant.value = variantToAdd
-    }
-    cart.addToCart(product.value, variantToAdd)
-  } else {
-    cart.addToCart(product.value)
-  }
-
-  Swal.fire({
-    toast: true,
-    position: 'top-end',
-    icon: 'success',
-    title: 'Added to Cart',
-    text: product.value.name,
-    showConfirmButton: false,
-    timer: 2000,
-    timerProgressBar: true
-  })
-}
-
-const handleBuyNow = () => {
-  handleAddToCart()
-  router.push('/checkout')
-}
-
-const relatedProducts = computed(() => {
-  return productStore.products.filter(p => (p.id || p._id) !== (product.value?.id || product.value?._id)).slice(0, 4)
-})
-
-const goToDetail = (nextProduct) => {
-  const nid = nextProduct.id || nextProduct._id
-  router.push({ name: 'product-detail', params: { id: nid } })
-}
-
-watch(() => route.params.id, (newId) => {
-  if (newId) {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    const pid = product.value?.id || product.value?._id
-    if (pid) {
-      productStore.incrementView(pid)
-      // Track Meta ViewContent Event on route change
-      if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'ViewContent', {
-          content_name: product.value.name,
-          content_ids: [pid],
-          content_type: 'product',
-          value: product.value.price,
-          currency: 'PKR'
-        })
-      }
-    }
+onMounted(() => {
+  window.scrollTo(0, 0)
+  const targetId = String(props.id || route.params.id)
+  if (targetId && product.value?.id) {
+    productStore.incrementView(product.value.id || product.value._id)
   }
 })
-
-
 </script>
 
 <style scoped>
-/* Ultra-Luxury Maria B Styles */
-.font-playfair { font-family: 'Playfair Display', serif; }
-
-.animate-fade-in-up {
-  animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+.font-playfair {
+  font-family: 'Playfair Display', serif;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Hide scrollbar for cleaner look if needed on specific elements */
-.scrollbar-none::-webkit-scrollbar { display: none; }
-.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
 </style>

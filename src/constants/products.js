@@ -1,3 +1,6 @@
+import dwEf22Green from "../assets/dw_ef22_09r1_green.jpg";
+import dwEf26Black from "../assets/dw_ef26_14_black.webp";
+import dwEf26OffWhite from "../assets/dw_ef26_201_offwhite.jpg";
 import heroCollage1 from "../assets/ai_new/hero_collage_1.jpg";
 import heroCollage2 from "../assets/ai_new/hero_collage_2.jpg";
 import heroCollage3 from "../assets/ai_new/hero_collage_3.jpg";
@@ -203,6 +206,118 @@ import heroClothes9 from "../assets/hero/clothes9.jpg";
 import heroShopInterior from "../assets/hero/shop_interior.png";
 
 const baseProducts = [
+  {
+    id: "dw-ef26-201",
+    name: "3 Piece Embroidered Lawn Suit",
+    brand: "Ahmadcloths Signature",
+    sku: "DW-EF26-201-Off White-Large",
+    price: 25990,
+    originalPrice: 29990,
+    discount: 13,
+    category: "Eid Collection",
+    parentCategory: "Luxury Formals",
+    image: dwEf26OffWhite,
+    nature: "luxury",
+    description: "Exquisite 3 Piece Embroidered Lawn Suit in soft off-white and blush floral hues. Adorned with delicate neckline embroidery, scalloped lace tassels, and intricately embroidered organza cuffs paired with a pure organza dupatta.",
+    fabric: "Mix Fabric Handle with care while cleaning",
+    care: [
+      "Don't wash dry clean only",
+      "Can be ironed on low heat",
+      "Don't use too much bleach"
+    ],
+    details: ["3-Piece Suit", "Embroidered Lawn Shirt", "Embroidered Organza Neckline & Cuffs", "Dyed Trousers", "Embroidered Pure Lawn/Organza Dupatta"],
+    variants: [
+      { color: "Off White", size: "XS", image: dwEf26OffWhite },
+      { color: "Off White", size: "S", image: dwEf26OffWhite },
+      { color: "Off White", size: "M", image: dwEf26OffWhite },
+      { color: "Off White", size: "L", image: dwEf26OffWhite },
+      { color: "Off White", size: "XL", image: dwEf26OffWhite }
+    ]
+  },
+  {
+    id: "dw-ef22-09r1",
+    name: "3 Piece Embroidered Lawn Suit",
+    brand: "Ahmadcloths Signature",
+    sku: "DW-EF22-09R1-Green-Ex Small",
+    price: 18000,
+    originalPrice: 22000,
+    discount: 18,
+    category: "Eid Collection",
+    parentCategory: "Luxury Formals",
+    image: dwEf22Green,
+    nature: "luxury",
+    description: "Rich emerald green 3-piece embroidered lawn suit with exquisite schiffli cutwork motifs, contrast black neckline embroidery, sleeve lace borders, tailored trouser and matching dupatta.",
+    fabric: "Mix Fabric Handle with care while cleaning",
+    care: [
+      "Don't wash dry clean only",
+      "Can be ironed on low heat",
+      "Don't use too much bleach"
+    ],
+    details: ["3-Piece Suit", "Embroidered Lawn Shirt", "Intricate Cutwork Lace Borders", "Dyed Trouser", "Embroidered Dupatta"],
+    variants: [
+      { color: "Green", size: "XS", image: dwEf22Green },
+      { color: "Green", size: "S", image: dwEf22Green },
+      { color: "Green", size: "M", image: dwEf22Green },
+      { color: "Green", size: "L", image: dwEf22Green },
+      { color: "Green", size: "XL", image: dwEf22Green }
+    ]
+  },
+  {
+    id: "dw-ef26-14",
+    name: "2 Piece Embroidered Raw Silk Suit",
+    brand: "Ahmadcloths Signature",
+    sku: "DW-EF26-14-Black-Ex Small",
+    price: 15500,
+    originalPrice: 19500,
+    discount: 20,
+    category: "Luxury Pret",
+    parentCategory: "Ladies Wear",
+    image: dwEf26Black,
+    nature: "luxury",
+    description: "Contemporary monochrome statement 2-Piece Raw Silk ensemble. Styled with abstract zebra-inspired patterns, black floral resham threadwork across neckline and statement sleeve cuffs.",
+    fabric: "Pure Raw Silk - Handle with care while cleaning",
+    care: [
+      "Don't wash dry clean only",
+      "Can be ironed on low heat",
+      "Don't use too much bleach"
+    ],
+    details: ["2-Piece Raw Silk Set", "Abstract Pattern Long Shirt", "Embroidered Cuffs & Neckline", "Dyed Raw Silk Cigarette Pants"],
+    variants: [
+      { color: "Black", size: "XS", image: dwEf26Black },
+      { color: "Black", size: "S", image: dwEf26Black },
+      { color: "Black", size: "M", image: dwEf26Black },
+      { color: "Black", size: "L", image: dwEf26Black },
+      { color: "Black", size: "XL", image: dwEf26Black }
+    ]
+  },
+  {
+    id: "dw-ea26-12",
+    name: "3 Piece Embroidered Dobby Jacquard Suit",
+    brand: "Ahmadcloths Signature",
+    sku: "DW-EA26-12-BEIGE-Ex Small",
+    price: 18194,
+    originalPrice: 27990,
+    discount: 35,
+    category: "Eid Collection",
+    parentCategory: "Luxury Formals",
+    image: dwEf26OffWhite,
+    nature: "luxury",
+    description: "Luxury 3-Piece Dobby Jacquard suit in rich neutral beige. Intricate tonal embroidery on shirt panel, detailed daman embellishments, paired with a self-jacquard dupatta.",
+    fabric: "Mix Fabric Handle with care while cleaning",
+    care: [
+      "Don't wash dry clean only",
+      "Can be ironed on low heat",
+      "Don't use too much bleach"
+    ],
+    details: ["3-Piece Suit", "Embroidered Dobby Jacquard Shirt", "Dyed Trousers", "Jacquard Dupatta"],
+    variants: [
+      { color: "Beige", size: "XS", image: dwEf26OffWhite },
+      { color: "Beige", size: "S", image: dwEf26OffWhite },
+      { color: "Beige", size: "M", image: dwEf26OffWhite },
+      { color: "Beige", size: "L", image: dwEf26OffWhite },
+      { color: "Beige", size: "XL", image: dwEf26OffWhite }
+    ]
+  },
   {
     id: "mariab-2026-001",
     name: "maria b premium lawn d-931 (2026)",

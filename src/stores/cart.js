@@ -9,18 +9,18 @@ export const useCartStore = defineStore('cart', {
     totalPrice: (state) => state.items.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2),
   },
   actions: {
-    addToCart(product, variant = null) {
+    addToCart(product, variant = null, quantity = 1) {
       const cartId = variant ? `${product.id}-${variant.color}-${variant.size}` : String(product.id)
       const existing = this.items.find(i => (i.cartId || String(i.id)) === cartId)
       if (existing) {
-        existing.quantity++
+        existing.quantity += quantity
       } else {
         this.items.push({ 
           ...product, 
           cartId: cartId,
           selectedVariant: variant,
           cartImage: variant?.image || product.image,
-          quantity: 1 
+          quantity: quantity 
         })
       }
       this.sync()
