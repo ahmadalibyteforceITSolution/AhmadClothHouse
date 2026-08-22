@@ -162,6 +162,6 @@ const isStepReached = (stepLabel) => {
 }
 
 const googleMapUrl = computed(() => {
-  return "https://maps.google.com/maps?q=Bagrian%20Chowk%20Lahore&t=&z=14&ie=UTF8&iwloc=&output=embed"
+  return "https://maps.google.com/maps?q=31.4263668,74.2971543&t=&z=16&ie=UTF8&iwloc=&output=embed"
 })
 </script>

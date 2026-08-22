@@ -142,7 +142,7 @@
       <!-- Map / Store Location Tab (Rounded Bottom Corner) -->
       <div class="relative group/map w-11">
         <a 
-          href="https://maps.google.com/?q=Ahmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore" 
+          href="https://www.google.com/maps/place/Bagrian+Lahore,+Pakistan/@31.4239636,74.2874076,16z/data=!3m1!4b1!4m9!1m2!2m1!1sAhmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore!3m5!1s0x3919012778655ebf:0x124fbfb4935dddf4!8m2!3d31.4263668!4d74.2971543!16s%2Fg%2F11c6_6shnr" 
           target="_blank" 
           rel="noopener"
           class="w-11 h-11 bg-[#EA4335] hover:bg-[#d93025] text-white flex items-center justify-center transition-all duration-300 rounded-br-lg shadow-md"
@@ -1365,8 +1365,8 @@ onMounted(() => {
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 31.4251,
-        "longitude": 74.2705
+        "latitude": 31.4263668,
+        "longitude": 74.2971543
       },
       "telephone": "+923416887454",
       "priceRange": "$$$",

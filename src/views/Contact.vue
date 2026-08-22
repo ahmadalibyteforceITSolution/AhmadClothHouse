@@ -56,7 +56,7 @@
           <p class="text-xs text-stone-500 leading-relaxed">
             Bagrian Chowk, Near Afzal Electronics (Front), Lahore, Pakistan.
           </p>
-          <a href="https://maps.google.com/?q=Ahmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs text-[#c9973a] font-bold hover:underline">
+          <a href="https://www.google.com/maps/place/Bagrian+Lahore,+Pakistan/@31.4239636,74.2874076,16z/data=!3m1!4b1!4m9!1m2!2m1!1sAhmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore!3m5!1s0x3919012778655ebf:0x124fbfb4935dddf4!8m2!3d31.4263668!4d74.2971543!16s%2Fg%2F11c6_6shnr" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs text-[#c9973a] font-bold hover:underline">
             <span>View on Google Maps</span>
             <span>&rarr;</span>
           </a>
@@ -120,13 +120,13 @@
           <font-awesome-icon icon="fa-solid fa-map-location-dot" class="text-[#c9973a]" />
           <span>Ahmad Clothes Boutique Location — Bagrian Chowk, Lahore</span>
         </div>
-        <a href="https://maps.google.com/?q=Ahmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore" target="_blank" rel="noopener" class="text-xs font-bold text-[#c9973a] hover:underline">
-          Open in Maps &rarr;
+        <a href="https://www.google.com/maps/place/Bagrian+Lahore,+Pakistan/@31.4239636,74.2874076,16z/data=!3m1!4b1!4m9!1m2!2m1!1sAhmad+Clothes+Bagrian+Chowk+Near+Afzal+Electronics+Lahore!3m5!1s0x3919012778655ebf:0x124fbfb4935dddf4!8m2!3d31.4263668!4d74.2971543!16s%2Fg%2F11c6_6shnr" target="_blank" rel="noopener" class="text-xs font-bold text-[#c9973a] hover:underline">
+          Open in Google Maps &rarr;
         </a>
       </div>
       <iframe 
         title="Ahmad Clothes Boutique Location"
-        src="https://maps.google.com/maps?q=Bagrian%20Chowk%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        src="https://maps.google.com/maps?q=31.4263668,74.2971543&t=&z=16&ie=UTF8&iwloc=&output=embed" 
         class="w-full h-[360px] border-0" 
         allowfullscreen="" 
         loading="lazy" 
