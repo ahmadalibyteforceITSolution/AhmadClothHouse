@@ -78,6 +78,39 @@
 
       </div>
 
+      <!-- Sponsored Partner Ad Section -->
+      <div class="my-10 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-stone-50 via-stone-100 to-amber-50/40 dark:from-[#111] dark:via-[#161616] dark:to-stone-900 border border-stone-200 dark:border-white/10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-300">
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[9px] font-black uppercase tracking-[0.25em] text-[#c9973a] bg-[#c9973a]/15 px-2 py-0.5 rounded">Sponsored Partner</span>
+              <span class="text-[10px] text-stone-400 dark:text-stone-500 font-semibold">· Architecture &amp; 3D Design</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-stone-900 dark:text-white tracking-tight">
+              H&amp;Q Design Services
+            </h4>
+            <p class="text-xs text-stone-600 dark:text-stone-400 max-w-xl leading-relaxed mt-0.5 font-normal">
+              Bespoke Architectural Plans, Photorealistic 3D Interior &amp; Exterior Renderings, and Structural Visualizations.
+            </p>
+          </div>
+        </div>
+
+        <a 
+          href="https://h-q-design-services.vercel.app/" 
+          target="_blank" 
+          rel="noopener sponsored"
+          class="shrink-0 inline-flex items-center gap-3 px-6 py-3 bg-stone-900 hover:bg-[#c9973a] text-white dark:bg-white dark:text-black dark:hover:bg-[#c9973a] dark:hover:text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md group no-underline"
+        >
+          <span>Visit H&amp;Q Design</span>
+          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+        </a>
+      </div>
+
       <!-- Bottom Sub-Footer Bar -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 dark:text-stone-500 font-medium">
         <p>© 2026, Ahmad Cloth House Designs (PK) Powered by ByteForce</p>
