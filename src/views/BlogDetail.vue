@@ -113,7 +113,7 @@ const injectBlogMeta = (p) => {
   const BASE_URL = 'https://ahmad-cloths.vercel.app'
   const pageUrl = `${BASE_URL}/blog/${p.slug}`
   const pageTitle = `${p.title} | AhmadClothesHouse Fashion Blog`
-  const pageDesc = p.summary || `Read about ${p.title} on the AhmadClothesHouse fashion blog. Expert insights into Pakistani couture, luxury fabric trends, and bridal wear.`
+  const pageDesc = p.summary || `Read about ${p.title} on the Ahmad Clothes House fashion blog. Expert insights into Pakistani couture, luxury fabric trends, and bridal wear.`
   const pageImage = typeof p.image === 'string' && p.image.startsWith('http') 
     ? p.image 
     : `${BASE_URL}/og-image.png`

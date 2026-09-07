@@ -287,7 +287,7 @@ watch([selectedCategory, category, () => route.query.q], () => {
   
   const metaDescription = document.querySelector('meta[name="description"]')
   if (metaDescription) {
-    metaDescription.setAttribute('content', `Browse our latest ${activeCat} Pakistani designer suits 2026 at AhmadClothesHouse. Premium unstitched fabrics, luxury pret, and bridal wear shipping to USA, UK, and worldwide.`)
+    metaDescription.setAttribute('content', `Browse our latest ${activeCat} Pakistani designer suits 2026 at Ahmad Clothes House. Premium unstitched fabrics, luxury pret, and bridal wear shipping to USA, UK, and worldwide.`)
   }
 }, { immediate: true })
 

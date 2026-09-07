@@ -8,7 +8,7 @@
       <img
         :src="BridalShowcase"
         class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[25s] ease-out hover:scale-105"
-        alt="Ahmad Cloth House Bridal Couture"
+        alt="Ahmad Clothes House Bridal Couture"
       >
 
       <!-- Subtle gradient at bottom for text legibility only -->
@@ -193,7 +193,7 @@
 
           <!-- New Account Section -->
           <div class="mt-8 pt-6 border-t border-stone-100 dark:border-stone-800">
-            <h3 class="text-[16px] font-playfair font-normal text-[#1a1a1a] dark:text-white mb-2">New to Ahmad Cloth House?</h3>
+            <h3 class="text-[16px] font-playfair font-normal text-[#1a1a1a] dark:text-white mb-2">New to Ahmad Clothes House?</h3>
             <p class="text-[12px] text-stone-500 dark:text-stone-400 leading-relaxed mb-5">
               Create your account today and unlock exclusive collections, early access to new arrivals, personalized recommendations, and special member-only promotions.
             </p>

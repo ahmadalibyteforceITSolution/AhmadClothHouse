@@ -179,7 +179,7 @@
         <div class="flex items-center gap-4 mb-8 sm:mb-10">
           <div class="w-8 sm:w-12 h-px bg-[#C9973A]"></div>
           <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">
-            Ahmad Cloth House · Est. 2020
+            Ahmad Clothes House · Est. 2020
           </p>
         </div>
 
@@ -1349,8 +1349,8 @@ onMounted(() => {
     {
       "@context": "https://schema.org",
       "@type": "ClothingStore",
-      "name": "Ahmad Cloth House",
-      "alternateName": "AhmadClothesHouse",
+      "name": "Ahmad Clothes House",
+      "alternateName": ["Ahmad Clothes House", "AhmadClothHouse", "Ahmad Cloth House"],
       "url": "https://ahmad-cloths.vercel.app/",
       "logo": "https://ahmad-cloths.vercel.app/favicon.svg",
       "image": "https://ahmad-cloths.vercel.app/og-image.png",

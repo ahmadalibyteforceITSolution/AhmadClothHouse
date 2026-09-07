@@ -14,7 +14,7 @@
 
             <h1
               class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] animate-float uppercase">
-              AHMADCLOTHESFABRICS</h1>
+              AHMAD CLOTHES HOUSE</h1>
           </div>
 
           <!-- Text -->
@@ -50,7 +50,7 @@
                 <div class="w-20 h-[1px] bg-[var(--primary-gold)]"></div>
               </div>
               <p class="text-sm text-stone-400 font-light leading-relaxed max-w-md">
-                Ahmad Cloth House stands as a beacon of luxury in Pakistan's fashion landscape. 
+                Ahmad Clothes House stands as a beacon of luxury in Pakistan's fashion landscape. 
                 Our artisanal unstitched fabrics and bridal couture celebrate centuries of heritage 
                 reimagined for the contemporary woman.
               </p>
@@ -119,7 +119,7 @@
         <div class="panel-bottom-bar cursor-pointer" @click="closeAhmadMenu">
           <h1
             class="text-3xl font-playfair tracking-[0.3em] font-light text-yellow-500 animate-float uppercase">
-            AHMADCLOTHESFABRICS</h1>
+            AHMAD CLOTHES HOUSE</h1>
         </div>
       </div>
     </div>
@@ -368,7 +368,7 @@
       <div v-if="installPrompt" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 bg-white dark:bg-[#0d0d0d] border border-[#c9973a]/30 p-5 rounded shadow-2xl z-[999999] flex flex-col gap-4">
         <div class="flex items-start justify-between">
           <div class="space-y-1">
-            <h4 class="text-xs font-bold text-stone-900 dark:text-white uppercase tracking-wider">Ahmad Cloth House App</h4>
+            <h4 class="text-xs font-bold text-stone-900 dark:text-white uppercase tracking-wider">Ahmad Clothes House App</h4>
             <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">Install our app on your mobile screen for instant access to our catalog and faster checkout.</p>
           </div>
           <button @click="dismissInstall" class="text-stone-400 hover:text-stone-600 dark:hover:text-white text-xs p-1" aria-label="Close Banner">
@@ -502,7 +502,7 @@ const isTyping = ref(false)
 const isListening = ref(false)
 const messageContainer = ref(null)
 const chatMessages = ref([
-  { role: 'bot', text: 'Welcome to Ahmad Cloth House! I am your luxury fashion assistant. How can I help you explore our collections, find a boutique, or arrange a bespoke consultation today?' }
+  { role: 'bot', text: 'Welcome to Ahmad Clothes House! I am your luxury fashion assistant. How can I help you explore our collections, find a boutique, or arrange a bespoke consultation today?' }
 ])
 
 const toggleChatbot = () => {
@@ -543,7 +543,7 @@ const getAIResponse = (message) => {
   // BRAND KNOWLEDGE BASE (COMPREHENSIVE)
   // ═══════════════════════════════════════════
   const brand = {
-    name: "Ahmad Cloth House",
+    name: "Ahmad Clothes House",
     established: "2026",
     location: "Bagrian Chowk, Near Afzal Electronics (Front), Lahore, Pakistan",
     contact: "0341 6887454",

@@ -36,7 +36,7 @@
             </div>
 
             <p class="text-[13px] text-stone-500 dark:text-stone-400 leading-relaxed max-w-sm">
-              Join Ahmad Cloth House and unlock exclusive collections, early access to new arrivals, personalized recommendations, and member-only promotions.
+              Join Ahmad Clothes House and unlock exclusive collections, early access to new arrivals, personalized recommendations, and member-only promotions.
             </p>
           </div>
 
@@ -227,7 +227,7 @@
       <img
         :src="BridalShowcase"
         class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[25s] ease-out hover:scale-105"
-        alt="Ahmad Cloth House Bridal Couture"
+        alt="Ahmad Clothes House Bridal Couture"
       >
 
       <!-- Subtle gradient at bottom for text legibility -->
@@ -253,7 +253,7 @@
         </div>
 
         <p class="text-white/70 text-[12px] leading-relaxed max-w-[300px] ml-auto">
-          Begin your journey within the luxury realms of Ahmad Cloth House. Exclusive collections crafted for the discerning woman.
+          Begin your journey within the luxury realms of Ahmad Clothes House. Exclusive collections crafted for the discerning woman.
         </p>
       </div>
     </div>

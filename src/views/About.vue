@@ -3,8 +3,8 @@
 
     <!-- SEO Content (Visually Hidden) -->
     <section class="sr-only">
-      <h1>About Ahmad Cloth House | Premium Pakistani Unstitched Fabrics & Bridal Couture</h1>
-      <p>Established in Lahore, Pakistan, Ahmad Cloth House is a premier boutique specializing in unstitched lawn, designer ready-to-wear pret, and handcrafted bridal couture. Worldwide shipping to USA, UK, UAE and beyond.</p>
+      <h1>About Ahmad Clothes House | Premium Pakistani Unstitched Fabrics & Bridal Couture</h1>
+      <p>Established in Lahore, Pakistan, Ahmad Clothes House is a premier boutique specializing in unstitched lawn, designer ready-to-wear pret, and handcrafted bridal couture. Worldwide shipping to USA, UK, UAE and beyond.</p>
     </section>
 
     <!-- Header / Banner -->
@@ -26,7 +26,7 @@
           Pakistani Textiles, Delivered Worldwide
         </h2>
         <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-          Headquartered at Bagrian Chowk, Lahore, <strong>Ahmad Cloth House</strong> was founded with a singular mission: to bring premium unstitched Pakistani fabrics and luxury bridal attire to discerning buyers worldwide. We curate the highest thread-count Swiss lawns, luxurious pure silk chiffons, and heavy organzas, hand-finished by master artisans.
+          Headquartered at Bagrian Chowk, Lahore, <strong>Ahmad Clothes House</strong> was founded with a singular mission: to bring premium unstitched Pakistani fabrics and luxury bridal attire to discerning buyers worldwide. We curate the highest thread-count Swiss lawns, luxurious pure silk chiffons, and heavy organzas, hand-finished by master artisans.
         </p>
         <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
           Whether you are seeking timeless daily unstitched linen, festive luxury lawn with intricate tilla work, or bespoke bridal couture fit for royalty, our boutique represents the apex of South Asian fashion craftsmanship.
@@ -70,7 +70,7 @@
           <font-awesome-icon icon="fa-solid fa-earth-americas" class="text-amber-600 text-xl" />
           <h3 class="text-base font-bold text-[#111111] dark:text-white">Our Vision</h3>
           <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
-            To establish Ahmad Cloth House as a household name for unstitched couture internationally, promoting ethical artisan wages and sustainable design.
+            To establish Ahmad Clothes House as a household name for unstitched couture internationally, promoting ethical artisan wages and sustainable design.
           </p>
         </div>
 

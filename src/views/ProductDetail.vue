@@ -618,7 +618,7 @@ watch(product, (p) => {
       const BASE = 'https://ahmad-cloths.vercel.app'
       const pageUrl = `${BASE}${route.path}`
       const pageTitle = `${p.name} | Pakistani Designer 2026 | AhmadClothesHouse`
-      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} from AhmadClothesHouse 2026 Collection.`
+      const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} from Ahmad Clothes House 2026 Collection.`
       const pageImage = p.image || `${BASE}/og-image.png`
 
       document.title = pageTitle

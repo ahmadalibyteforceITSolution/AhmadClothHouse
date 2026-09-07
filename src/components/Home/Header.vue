@@ -52,7 +52,7 @@
         <div class="flex-1 flex justify-center items-center cursor-pointer" @click="goToHome">
           <div class="text-center">
             <h1 class="text-[11px] sm:text-sm lg:text-base font-extrabold tracking-[0.15em] sm:tracking-[0.25em] lg:tracking-[0.35em] uppercase whitespace-nowrap transition-colors duration-300 text-[#203220] dark:text-white">
-              AHMAD CLOTH HOUSE
+              AHMAD CLOTHES HOUSE
             </h1>
           </div>
         </div>
@@ -298,7 +298,7 @@
           <!-- Header -->
           <div class="flex items-center justify-between p-6 border-b border-stone-200 dark:border-white/10 bg-stone-50 dark:bg-white/5">
             <div class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity" @click="goToHome(); isMenuOpen = false">
-              <h1 class="text-lg font-playfair tracking-[0.2em] font-bold text-stone-900 dark:text-white uppercase">AHMAD CLOTHS</h1>
+              <h1 class="text-lg font-playfair tracking-[0.2em] font-bold text-stone-900 dark:text-white uppercase">AHMAD CLOTHES HOUSE</h1>
               <span class="text-[8px] tracking-[0.3em] text-[#c9973a] uppercase font-bold">House of Couture</span>
             </div>
             <button @click="isMenuOpen = false"

@@ -8,7 +8,7 @@
     >
       <!-- Brand Header -->
       <div class="mb-12 flex flex-col gap-1 cursor-pointer" @click="router.push('/')">
-        <h1 class="text-lg font-bold tracking-tight text-[#111] dark:text-white uppercase">AHMAD CLOTH HOUSE</h1>
+        <h1 class="text-lg font-bold tracking-tight text-[#111] dark:text-white uppercase">AHMAD CLOTHES HOUSE</h1>
         <p class="text-[10px] text-stone-400 uppercase font-semibold">Customer Portal</p>
       </div>
 

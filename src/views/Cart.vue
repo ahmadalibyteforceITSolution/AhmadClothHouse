@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] transition-colors duration-300 pb-32 font-sans">
     
     <!-- SEO Heading (Visually Hidden) -->
-    <h1 class="sr-only">Your Shopping Cart | Ahmad Cloth House</h1>
+    <h1 class="sr-only">Your Shopping Cart | Ahmad Clothes House</h1>
 
     <div class="max-w-7xl mx-auto px-6 py-12">
 

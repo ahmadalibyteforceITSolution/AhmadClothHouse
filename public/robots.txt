@@ -1,5 +1,5 @@
 # ===========================================================================
-#  robots.txt — AhmadClothHouse | Premium Pakistani Fashion & Couture
+#  robots.txt — Ahmad Clothes House | Premium Pakistani Fashion & Couture
 #  Website : https://ahmad-cloths.vercel.app
 #  Updated : 2026-08-21
 #  Total sitemap URLs: 1040
@@ -155,6 +155,7 @@ Disallow: /track-order
 Crawl-delay: 5
 
 # ---------------------------------------------------------------------------
-# SITEMAPS
+# SITEMAPS & BACKLINK DIRECTORY
 # ---------------------------------------------------------------------------
+Allow: /backlinks.html
 Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml

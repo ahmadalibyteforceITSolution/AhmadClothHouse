@@ -120,7 +120,7 @@
                 SEO Linking &amp; Anchor Text Distribution Guide
               </h3>
               <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
-                If you are a fashion blogger, directory moderator, or guest writer reviewing the **Ahmad Fabrics Unstitched Collection** or **Ahmad Cloth House**, use our optimized anchor text mix. This ensures search engines index link citations naturally.
+                If you are a fashion blogger, directory moderator, or guest writer reviewing the **Ahmad Clothes House Unstitched Collection** or **Ahmad Clothes House**, use our optimized anchor text mix. This ensures search engines index link citations naturally.
               </p>
             </div>
 
@@ -236,10 +236,10 @@ const showPartnerPortal = ref(false)
 const BASE_URL = 'https://ahmad-cloths.vercel.app'
 
 const brandedLinks = [
-  { anchor: 'Ahmad Fabrics Unstitched Collection', url: `${BASE_URL}/shop/Unstitched` },
-  { anchor: 'Ahmad Fabrics Lawn Collection', url: `${BASE_URL}/shop/Lawn` },
-  { anchor: 'Ahmad Fabrics Summer Collection', url: `${BASE_URL}/shop` },
-  { anchor: 'Ahmad Fabrics Luxury Lawn', url: `${BASE_URL}/shop/Lawn` }
+  { anchor: 'Ahmad Clothes House Online Boutique', url: `${BASE_URL}/` },
+  { anchor: 'Ahmad Clothes House Unstitched Collection', url: `${BASE_URL}/shop/Unstitched` },
+  { anchor: 'Ahmad Clothes House Luxury Lawn 2026', url: `${BASE_URL}/shop/Lawn` },
+  { anchor: 'Ahmad Clothes House Bridal Couture', url: `${BASE_URL}/shop/Bridal` }
 ]
 
 const partialLinks = [

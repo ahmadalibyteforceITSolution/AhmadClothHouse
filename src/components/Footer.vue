@@ -10,7 +10,7 @@
           <!-- Brand Logo Header -->
           <div @click="$router.push('/')" class="cursor-pointer">
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-[0.2em] text-stone-900 dark:text-white uppercase font-sans">
-              AHMAD CLOTH HOUSE
+              AHMAD CLOTHES HOUSE
             </h2>
           </div>
 
@@ -60,7 +60,7 @@
             </h3>
             <ul class="space-y-2.5 text-xs font-medium text-stone-500 dark:text-stone-400">
               <li>
-                <router-link to="/about" class="hover:text-stone-900 dark:hover:text-white transition-colors">About Ahmad Cloth House</router-link>
+                <router-link to="/about" class="hover:text-stone-900 dark:hover:text-white transition-colors">About Ahmad Clothes House</router-link>
               </li>
               <li>
                 <router-link to="/contact" class="hover:text-stone-900 dark:hover:text-white transition-colors">Contact Us</router-link>
@@ -70,6 +70,9 @@
               </li>
               <li>
                 <router-link to="/terms" class="hover:text-stone-900 dark:hover:text-white transition-colors">Terms and Conditions</router-link>
+              </li>
+              <li>
+                <a href="/backlinks.html" class="hover:text-stone-900 dark:hover:text-white transition-colors">SEO &amp; Backlinks Directory</a>
               </li>
             </ul>
           </div>
@@ -113,7 +116,7 @@
 
       <!-- Bottom Sub-Footer Bar -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 dark:text-stone-500 font-medium">
-        <p>© 2026, Ahmad Cloth House Designs (PK) Powered by ByteForce</p>
+        <p>© 2026, Ahmad Clothes House Designs (PK) Powered by ByteForce</p>
         
         <!-- Social Icons Row -->
         <div class="flex items-center gap-5 text-base text-stone-600 dark:text-stone-300">

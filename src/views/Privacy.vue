@@ -94,7 +94,7 @@
             </div>
             <h3 class="text-4xl font-playfair italic">Elite Safeguarding</h3>
             <p class="max-w-2xl text-stone-400 text-sm font-light leading-loose tracking-wide">
-              Ahmad Cloth House is the sole architect of your data journey. Our encryption protocols mirror the complexity of our finest embroideries—beautifully secure, absolutely reliable.
+              Ahmad Clothes House is the sole architect of your data journey. Our encryption protocols mirror the complexity of our finest embroideries—beautifully secure, absolutely reliable.
             </p>
             <div class="flex gap-4 pt-4">
               <a href="https://wa.me/923416887454" target="_blank" rel="noopener" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all group/icon">
@@ -137,11 +137,11 @@ import { onMounted } from 'vue'
 const privacySections = [
   {
     title: "Data Stewardship",
-    content: "Ahmad Cloth House, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
+    content: "Ahmad Clothes House, operating at ahmad-cloths.vercel.app, is committed to safeguarding your personal data. We act as the sole controller of information collected through our boutique. This includes identifiers like your name, email address, shipping details, and browsing behavior, which we use to refine your experience and fulfill your sartorial desires."
   },
   {
     title: "Log Files & Analytics",
-    content: "Ahmad Cloth House follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information."
+    content: "Ahmad Clothes House follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information."
   },
   {
     title: "Monetization & Advertising Ecosystem",
@@ -153,11 +153,11 @@ const privacySections = [
   },
   {
     title: "Third Party Privacy Policies",
-    content: "Ahmad Cloth House's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You can choose to disable cookies through your individual browser options."
+    content: "Ahmad Clothes House's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You can choose to disable cookies through your individual browser options."
   },
   {
     title: "Children's Information",
-    content: "Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Ahmad Cloth House does not knowingly collect any Personal Identifiable Information from children under the age of 13."
+    content: "Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Ahmad Clothes House does not knowingly collect any Personal Identifiable Information from children under the age of 13."
   },
   {
     title: "GDPR & CCPA Compliance",

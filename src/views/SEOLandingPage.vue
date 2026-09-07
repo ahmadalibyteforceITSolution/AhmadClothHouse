@@ -146,14 +146,14 @@ const pageTitle = computed(() => {
 const pageDescription = computed(() => {
   const t = pathType.value
   const s = formatSlug(slug.value)
-  if (t === 'collection') return `Discover the ${s} at Ahmad Cloth House — meticulously crafted Pakistani couture featuring hand-embroidered textiles, premium fabrics, and bespoke designs. Each piece is a testament to generations of artisanal skill. Available with express worldwide shipping.`
-  if (t === 'fabric') return `Explore everything about ${s} fabric — its origin, weave, styling potential, and care instructions. Ahmad Cloth House offers an exclusive range of the finest Pakistani textiles, available in hundreds of designs and colourways, delivered worldwide.`
-  if (t === 'occasion') return `Find the perfect ${s} outfit at Ahmad Cloth House. From intricately embroidered bridal ensembles to effortlessly elegant casuals, our curated selection spans every dress code and occasion with authentic Pakistani craftsmanship.`
-  if (t === 'lookbook') return `Explore the ${s} from Ahmad Cloth House — seasonal styling inspiration drawn from the rich heritage of Pakistani fashion. Discover colour combinations, silhouette guides, and complete outfit ideas.`
-  if (t === 'size-guide') return `Ahmad Cloth House complete sizing reference — detailed measurement guides for women's suits, kurtas, shalwar kameez, bridal wear, and men's ethnic wear. Find your perfect fit with our international size conversion charts.`
-  if (t === 'care') return `Protect your investment with expert fabric care advice from Ahmad Cloth House. Detailed instructions for washing, ironing, storing, and preserving the quality and colour of your luxury Pakistani garments.`
-  if (t === 'shop-in') return `Ahmad Cloth House delivers authentic Pakistani luxury fashion to ${s} and worldwide. Browse our full catalog of unstitched suits, bridal couture, luxury pret, and more — with fast, tracked international shipping.`
-  return `Explore Ahmad Cloth House — Pakistan's premier destination for luxury fashion, artisanal couture, and premium textiles.`
+  if (t === 'collection') return `Discover the ${s} at Ahmad Clothes House — meticulously crafted Pakistani couture featuring hand-embroidered textiles, premium fabrics, and bespoke designs. Each piece is a testament to generations of artisanal skill. Available with express worldwide shipping.`
+  if (t === 'fabric') return `Explore everything about ${s} fabric — its origin, weave, styling potential, and care instructions. Ahmad Clothes House offers an exclusive range of the finest Pakistani textiles, available in hundreds of designs and colourways, delivered worldwide.`
+  if (t === 'occasion') return `Find the perfect ${s} outfit at Ahmad Clothes House. From intricately embroidered bridal ensembles to effortlessly elegant casuals, our curated selection spans every dress code and occasion with authentic Pakistani craftsmanship.`
+  if (t === 'lookbook') return `Explore the ${s} from Ahmad Clothes House — seasonal styling inspiration drawn from the rich heritage of Pakistani fashion. Discover colour combinations, silhouette guides, and complete outfit ideas.`
+  if (t === 'size-guide') return `Ahmad Clothes House complete sizing reference — detailed measurement guides for women's suits, kurtas, shalwar kameez, bridal wear, and men's ethnic wear. Find your perfect fit with our international size conversion charts.`
+  if (t === 'care') return `Protect your investment with expert fabric care advice from Ahmad Clothes House. Detailed instructions for washing, ironing, storing, and preserving the quality and colour of your luxury Pakistani garments.`
+  if (t === 'shop-in') return `Ahmad Clothes House delivers authentic Pakistani luxury fashion to ${s} and worldwide. Browse our full catalog of unstitched suits, bridal couture, luxury pret, and more — with fast, tracked international shipping.`
+  return `Explore Ahmad Clothes House — Pakistan's premier destination for luxury fashion, artisanal couture, and premium textiles.`
 })
 
 const infoCards = computed(() => {

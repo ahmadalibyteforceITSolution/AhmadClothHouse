@@ -3,8 +3,8 @@
 
     <!-- SEO Content (Visually Hidden) -->
     <section class="sr-only">
-      <h2>Contact Ahmad Cloth House | Global Customer Support & Consultations</h2>
-      <p>Get in touch with Ahmad Cloth House for custom bridal orders, fashion consultations, or international order support. Reach us at 0341 6887454 or 0324 4902607.</p>
+      <h2>Contact Ahmad Clothes House | Global Customer Support & Consultations</h2>
+      <p>Get in touch with Ahmad Clothes House for custom bridal orders, fashion consultations, or international order support. Reach us at 0341 6887454 or 0324 4902607.</p>
     </section>
 
     <!-- Header Banner -->

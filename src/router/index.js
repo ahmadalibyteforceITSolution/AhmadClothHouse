@@ -8,12 +8,12 @@ const routes = [
     component: () => import('../views/Home.vue'),
     meta: {
       title: 'AhmadClothesHouse | Pakistani Designer Suits 2026 | Luxury Lawn & Bridal Couture',
-      description: 'Shop latest 2026 Pakistani luxury lawn, unstitched suits, and premium bridal couture at AhmadClothesHouse. Authentic Maria B & Sana Safinaz designs with global shipping.',
+      description: 'Shop latest 2026 Pakistani luxury lawn, unstitched suits, and premium bridal couture at Ahmad Clothes House. Authentic Maria B & Sana Safinaz designs with global shipping.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "AhmadClothesHouse",
+        "name": "Ahmad Clothes House",
         "url": "https://ahmad-cloths.vercel.app"
       }
     }
@@ -25,7 +25,7 @@ const routes = [
     props: true,
     meta: {
       title: 'Premium Pakistani Couture | Product Detail | AhmadClothesHouse',
-      description: 'Explore our selected premium fashion pieces crafted with passion at AhmadClothesHouse. Order handcrafted Pakistani dresses with express shipping to USA, UK, and Europe.',
+      description: 'Explore our selected premium fashion pieces crafted with passion at Ahmad Clothes House. Order handcrafted Pakistani dresses with express shipping to USA, UK, and Europe.',
       robots: 'index, follow'
     }
   },
@@ -36,13 +36,13 @@ const routes = [
     props: true,
     meta: {
       title: 'Shop Pakistani Designer Suits Online 2026 | Unstitched & Luxury Pret | AhmadClothesHouse',
-      description: 'Browse the newest 2026 Pakistani summer lawn, luxury silk collections, and bridal wear. Express shipping for designer suits to USA, UK, Canada, UAE, and Europe.',
+      description: 'Browse the newest 2026 Pakistani summer lawn, luxury silk collections, and bridal wear at Ahmad Clothes House. Express shipping for designer suits to USA, UK, Canada, UAE, and Europe.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Shop Luxury Pakistani Designer Suits - AhmadClothesHouse",
-        "description": "Browse our exclusive catalog of unstitched, pret, and luxury bridal couture at AhmadClothesHouse with international delivery.",
+        "name": "Shop Luxury Pakistani Designer Suits - Ahmad Clothes House",
+        "description": "Browse our exclusive catalog of unstitched, pret, and luxury bridal couture at Ahmad Clothes House with international delivery.",
         "url": "https://ahmad-cloths.vercel.app/shop"
       }
     }
@@ -53,7 +53,7 @@ const routes = [
     component: () => import('../views/Cart.vue'),
     meta: {
       title: 'My Bag | AhmadClothesHouse | Secure Global Checkout',
-      description: 'Review your selected fashion pieces. We offer secure payments and worldwide shipping for all Pakistani luxury couture.',
+      description: 'Review your selected fashion pieces at Ahmad Clothes House. We offer secure payments and worldwide shipping for all Pakistani luxury couture.',
       robots: 'noindex, nofollow'
     }
   },
@@ -63,7 +63,7 @@ const routes = [
     component: () => import('../views/Favorites.vue'),
     meta: {
       title: 'My Saved Couture | AhmadClothesHouse Favorites',
-      description: 'Your curated selection of favorite unstitched suites and luxury fashion pieces from AhmadClothesHouse.',
+      description: 'Your curated selection of favorite unstitched suites and luxury fashion pieces from Ahmad Clothes House.',
       robots: 'noindex, nofollow'
     }
   },
@@ -73,7 +73,7 @@ const routes = [
     component: () => import('../views/Checkout.vue'),
     meta: {
       title: 'Secure Global Checkout | AhmadClothesHouse Premium Fashion',
-      description: 'Complete your purchase securely. We ship our handcrafted Pakistani suits and bridal wear to USA, UK, Canada, UAE and more.',
+      description: 'Complete your purchase securely at Ahmad Clothes House. We ship our handcrafted Pakistani suits and bridal wear to USA, UK, Canada, UAE and more.',
       robots: 'noindex, nofollow'
     }
   },
@@ -83,13 +83,13 @@ const routes = [
     component: () => import('../views/About.vue'),
     meta: {
       title: 'Our Heritage & Design Philosophy | AhmadClothesHouse | Global Pakistani Fashion',
-      description: 'Discover the story of AhmadClothesHouse. Traditional Lahore craftsmanship meets modern luxury. Delivering authentic Pakistani fashion to women worldwide.',
+      description: 'Discover the story of Ahmad Clothes House. Traditional Lahore craftsmanship meets modern luxury. Delivering authentic Pakistani fashion to women worldwide.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "name": "Our Story - AhmadClothesHouse",
-        "description": "Learn about AhmadClothesHouse mission to bridge artisanal craftsmanship and luxury fashion globally.",
+        "name": "Our Story - Ahmad Clothes House",
+        "description": "Learn about Ahmad Clothes House mission to bridge artisanal craftsmanship and luxury fashion globally.",
         "url": "https://ahmad-cloths.vercel.app/about"
       }
     }
@@ -100,7 +100,7 @@ const routes = [
     component: () => import('../views/Contact.vue'),
     meta: {
       title: 'Contact Our Boutique | AhmadClothesHouse Lahore | Global Support',
-      description: 'Get in touch for inquiries, bridal consultations, and international order support. Visit our luxury boutique in Lahore or contact our global team.',
+      description: 'Get in touch with Ahmad Clothes House for inquiries, bridal consultations, and international order support. Visit our luxury boutique in Lahore or contact our global team.',
       robots: 'index, follow'
     }
   },
@@ -110,7 +110,7 @@ const routes = [
     component: () => import('../views/Privacy.vue'),
     meta: {
       title: 'Privacy Policy | AhmadClothesHouse Data Protection',
-      description: 'Learn how AhmadClothesHouse House protects your personal information and ensures a secure luxury shopping experience.',
+      description: 'Learn how Ahmad Clothes House protects your personal information and ensures a secure luxury shopping experience.',
       robots: 'index, follow'
     }
   },
@@ -120,7 +120,7 @@ const routes = [
     component: () => import('../views/Terms.vue'),
     meta: {
       title: 'Terms of Service | AhmadClothesHouse Client Agreement',
-      description: 'Read the terms and conditions for shopping at AhmadClothesHouse House, Pakistans leading luxury fashion boutique.',
+      description: 'Read the terms and conditions for shopping at Ahmad Clothes House, Pakistans leading luxury fashion boutique.',
       robots: 'index, follow'
     }
   },
@@ -130,7 +130,7 @@ const routes = [
     component: () => import('../views/Cookies.vue'),
     meta: {
       title: 'Cookie Policy | AhmadClothesHouse Digital Experience',
-      description: 'Information about how AhmadClothesHouse House uses cookies to enhance your luxury online shopping experience.',
+      description: 'Information about how Ahmad Clothes House uses cookies to enhance your luxury online shopping experience.',
       robots: 'index, follow'
     }
   },
@@ -140,7 +140,7 @@ const routes = [
     component: () => import('../views/Login.vue'),
     meta: {
       title: 'Enter the House | AhmadClothesHouse Login',
-      description: 'Access your AhmadClothesHouse member account to view orders and saved couture.',
+      description: 'Access your Ahmad Clothes House member account to view orders and saved couture.',
       robots: 'index, follow'
     }
   },
@@ -150,7 +150,7 @@ const routes = [
     component: () => import('../views/Signup.vue'),
     meta: {
       title: 'Join the Inner Circle | AhmadClothesHouse Signup',
-      description: 'Create your AhmadClothesHouse account for early access to lawn launches and exclusive bridal previews.',
+      description: 'Create your Ahmad Clothes House account for early access to lawn launches and exclusive bridal previews.',
       robots: 'index, follow'
     }
   },
@@ -160,7 +160,7 @@ const routes = [
     component: () => import('../views/ForgotPassword.vue'),
     meta: {
       title: 'Reset Access | AhmadClothesHouse',
-      description: 'Recover your AhmadClothesHouse account access safely.',
+      description: 'Recover your Ahmad Clothes House account access safely.',
       robots: 'noindex, nofollow'
     }
   },
@@ -170,7 +170,7 @@ const routes = [
     component: () => import('../views/ResetPassword.vue'),
     meta: {
       title: 'Update Password | AhmadClothesHouse',
-      description: 'Set a new secure password for your AhmadClothesHouse boutique account.',
+      description: 'Set a new secure password for your Ahmad Clothes House boutique account.',
       robots: 'noindex, nofollow'
     }
   },
@@ -181,7 +181,7 @@ const routes = [
     meta: { 
       requiresAdmin: true,
       title: 'Couture Management | AhmadClothesHouse Admin',
-      description: 'AhmadClothesHouse administrative portal for collection management.',
+      description: 'Ahmad Clothes House administrative portal for collection management.',
       robots: 'noindex, nofollow'
     }
   },
@@ -191,7 +191,7 @@ const routes = [
     component: () => import('../views/TrackOrder.vue'),
     meta: {
       title: 'Track Your Couture | AhmadClothesHouse Real-time Tracking',
-      description: 'Track the delivery status of your luxury apparel from AhmadClothesHouse House in real-time.',
+      description: 'Track the delivery status of your luxury apparel from Ahmad Clothes House in real-time.',
       robots: 'noindex, nofollow'
     }
   },
@@ -201,7 +201,7 @@ const routes = [
     component: () => import('../views/UserDashboard.vue'),
     meta: {
       title: 'Client Dashboard - AhmadClothesHouse',
-      description: 'Manage your luxury orders and preferences at AhmadClothesHouse.',
+      description: 'Manage your luxury orders and preferences at Ahmad Clothes House.',
       robots: 'noindex, nofollow',
       requiresAuth: true
     }
@@ -212,7 +212,7 @@ const routes = [
     component: () => import('../views/BlogList.vue'),
     meta: {
       title: 'Fashion Journal | Pakistani Luxury Lawn Trends 2026 | Style Guides | AhmadClothesHouse',
-      description: 'Expert insights on Pakistani fashion, 2026 bridal collection trends, lawn shopping guides, and luxury couture styling at the AhmadClothesHouse Journal.',
+      description: 'Expert insights on Pakistani fashion, 2026 bridal collection trends, lawn shopping guides, and luxury couture styling at the Ahmad Clothes House Journal.',
       robots: 'index, follow'
     }
   },
@@ -223,7 +223,7 @@ const routes = [
     props: true,
     meta: {
       title: 'Luxury Fashion Insights | AhmadClothesHouse Blog',
-      description: 'Deep dive into the world of Pakistani craftsmanship, high-end design, and luxury fashion storytelling.',
+      description: 'Deep dive into the world of Pakistani craftsmanship, high-end design, and luxury fashion storytelling at Ahmad Clothes House.',
       robots: 'index, follow'
     }
   },
@@ -236,8 +236,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Luxury Collection | Ahmad Cloth House — Pakistani Couture',
-      description: 'Explore our exclusive curated collections featuring artisanal Pakistani fashion, luxury fabrics, and bespoke couture. Available with worldwide shipping.',
+      title: 'Luxury Collection | Ahmad Clothes House — Pakistani Couture',
+      description: 'Explore our exclusive curated collections featuring artisanal Pakistani fashion, luxury fabrics, and bespoke couture at Ahmad Clothes House. Available with worldwide shipping.',
       robots: 'index, follow'
     }
   },
@@ -247,8 +247,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Premium Fabric Guide | Ahmad Cloth House — Pakistani Textiles',
-      description: 'Discover the finest Pakistani fabrics — lawn, silk, chiffon, khaddar and more. Expert styling and buying guides at Ahmad Cloth House.',
+      title: 'Premium Fabric Guide | Ahmad Clothes House — Pakistani Textiles',
+      description: 'Discover the finest Pakistani fabrics — lawn, silk, chiffon, khaddar and more. Expert styling and buying guides at Ahmad Clothes House.',
       robots: 'index, follow'
     }
   },
@@ -258,8 +258,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Occasion Wear | Ahmad Cloth House — Bridal, Formal & Party',
-      description: 'Find the perfect outfit for every occasion — bridal, mehndi, barat, walima, eid, party and formal events. Pakistani luxury fashion at its finest.',
+      title: 'Occasion Wear | Ahmad Clothes House — Bridal, Formal & Party',
+      description: 'Find the perfect outfit for every occasion — bridal, mehndi, barat, walima, eid, party and formal events at Ahmad Clothes House. Pakistani luxury fashion at its finest.',
       robots: 'index, follow'
     }
   },
@@ -269,8 +269,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Style Lookbook | Ahmad Cloth House — Fashion Inspiration',
-      description: 'Explore curated style lookbooks for every season, occasion and colour palette. Pakistani luxury fashion inspiration at Ahmad Cloth House.',
+      title: 'Style Lookbook | Ahmad Clothes House — Fashion Inspiration',
+      description: 'Explore curated style lookbooks for every season, occasion and colour palette. Pakistani luxury fashion inspiration at Ahmad Clothes House.',
       robots: 'index, follow'
     }
   },
@@ -280,8 +280,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Size Guide & Measurement Chart | Ahmad Cloth House',
-      description: 'Complete size guide for Pakistani suits, kurtas, shalwar kameez, bridal wear and more. Find your perfect fit with our detailed measurement charts.',
+      title: 'Size Guide & Measurement Chart | Ahmad Clothes House',
+      description: 'Complete size guide for Pakistani suits, kurtas, shalwar kameez, bridal wear and more at Ahmad Clothes House. Find your perfect fit with our detailed measurement charts.',
       robots: 'index, follow'
     }
   },
@@ -291,8 +291,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Fabric Care Guide | Ahmad Cloth House — Clothing Care Tips',
-      description: 'Expert fabric care instructions for Pakistani suits, embroidered clothes, silk, lawn and more. Keep your luxury garments looking perfect.',
+      title: 'Fabric Care Guide | Ahmad Clothes House — Clothing Care Tips',
+      description: 'Expert fabric care instructions for Pakistani suits, embroidered clothes, silk, lawn and more. Keep your luxury garments looking perfect with Ahmad Clothes House.',
       robots: 'index, follow'
     }
   },
@@ -302,8 +302,8 @@ const routes = [
     component: () => import('../views/SEOLandingPage.vue'),
     props: true,
     meta: {
-      title: 'Shop Pakistani Fashion Online | Ahmad Cloth House — Worldwide Delivery',
-      description: 'Order authentic Pakistani luxury suits, bridal wear and couture with fast delivery worldwide. Ahmad Cloth House ships globally.',
+      title: 'Shop Pakistani Fashion Online | Ahmad Clothes House — Worldwide Delivery',
+      description: 'Order authentic Pakistani luxury suits, bridal wear and couture with fast delivery worldwide. Ahmad Clothes House ships globally.',
       robots: 'index, follow'
     }
   },
@@ -313,7 +313,7 @@ const routes = [
     component: () => import('../views/NotFound.vue'),
     meta: {
       title: 'Undiscovered Design | AhmadClothesHouse',
-      description: 'The requested fashion page could not be located in our House of Couture.',
+      description: 'The requested fashion page could not be located at Ahmad Clothes House.',
       robots: 'noindex, nofollow'
     }
   }

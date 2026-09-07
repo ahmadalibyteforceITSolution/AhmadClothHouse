@@ -89,18 +89,18 @@ app.use(vue3GoogleLogin, {
 
 const SITE_BASE   = 'https://ahmad-cloths.vercel.app'
 const DFLT_TITLE  = 'AhmadClothesHouse | Premium Pakistani Designer Suits & Couture 2026'
-const DFLT_DESC   = 'Discover luxury Pakistani fashion at AhmadClothesHouse. Unstitched suits, luxury pret, and bridal wear shipping to USA, UK, Canada & UAE.'
+const DFLT_DESC   = 'Discover luxury Pakistani fashion at Ahmad Clothes House. Unstitched suits, luxury pret, and bridal wear shipping to USA, UK, Canada & UAE.'
 
 // Per-route title + description for the pages Google actually crawls
 const PAGE_META = {
-  '/':        { title: 'AhmadClothesHouse | Boutique Pakistani Designer Suits 2026',          desc: 'Shop exclusive 2026 designer suits, luxury unstitched lawn & bridal wear. Worldwide delivery from Lahore.' },
-  '/shop':    { title: 'Shop Pakistani Designer Suits & Fabrics | AhmadClothesHouse',         desc: 'Browse our full collection of unstitched lawn, pret, bridal & mens kurta fabric. Fast delivery worldwide.' },
-  '/blog':    { title: 'Pakistani Fashion Blog 2026 | Trends & Style | AhmadClothesHouse',    desc: 'Expert fashion guides, lawn reviews, bridal trends, and July 2026 collection highlights from Ahmad Cloth House.' },
-  '/about':   { title: 'About AhmadClothesHouse | Lahores Premier Fashion Boutique',          desc: 'Our heritage, mission, and commitment to authentic Pakistani luxury fashion.' },
-  '/contact': { title: 'Contact AhmadClothesHouse | WhatsApp & Email',                        desc: 'Contact Ahmad Cloth House for orders, custom requests, or enquiries.' },
-  '/privacy': { title: 'Privacy Policy | AhmadClothesHouse',                                  desc: 'How Ahmad Cloth House collects, uses and protects your personal data.' },
-  '/terms':   { title: 'Terms & Conditions | AhmadClothesHouse',                              desc: 'Terms and conditions governing your use of AhmadClothesHouse.' },
-  '/cookies': { title: 'Cookie Policy | AhmadClothesHouse',                                   desc: 'How AhmadClothesHouse uses cookies to improve your experience.' },
+  '/':        { title: 'AhmadClothesHouse | Boutique Pakistani Designer Suits 2026',          desc: 'Shop exclusive 2026 designer suits, luxury unstitched lawn & bridal wear at Ahmad Clothes House. Worldwide delivery from Lahore.' },
+  '/shop':    { title: 'Shop Pakistani Designer Suits & Fabrics | AhmadClothesHouse',         desc: 'Browse our full collection of unstitched lawn, pret, bridal & mens kurta fabric at Ahmad Clothes House. Fast delivery worldwide.' },
+  '/blog':    { title: 'Pakistani Fashion Blog 2026 | Trends & Style | AhmadClothesHouse',    desc: 'Expert fashion guides, lawn reviews, bridal trends, and July 2026 collection highlights from Ahmad Clothes House.' },
+  '/about':   { title: 'About AhmadClothesHouse | Lahores Premier Fashion Boutique',          desc: 'Our heritage, mission, and commitment to authentic Pakistani luxury fashion at Ahmad Clothes House.' },
+  '/contact': { title: 'Contact AhmadClothesHouse | WhatsApp & Email',                        desc: 'Contact Ahmad Clothes House for orders, custom requests, or enquiries.' },
+  '/privacy': { title: 'Privacy Policy | AhmadClothesHouse',                                  desc: 'How Ahmad Clothes House collects, uses and protects your personal data.' },
+  '/terms':   { title: 'Terms & Conditions | AhmadClothesHouse',                              desc: 'Terms and conditions governing your use of Ahmad Clothes House.' },
+  '/cookies': { title: 'Cookie Policy | AhmadClothesHouse',                                   desc: 'How Ahmad Clothes House uses cookies to improve your experience.' },
 }
 
 /** Create or update a single <meta> or <link> tag in document.head */
@@ -152,8 +152,9 @@ router.afterEach((to) => {
   upsertHeadTag('meta[name="description"]',        'content', desc)
 
   // 5. Twitter / X Card
-  upsertHeadTag('meta[property="twitter:url"]',   'content', canonicalUrl)
-  upsertHeadTag('meta[property="twitter:title"]', 'content', title)
+  upsertHeadTag('meta[property="twitter:url"]',         'content', canonicalUrl)
+  upsertHeadTag('meta[property="twitter:title"]',       'content', title)
+  upsertHeadTag('meta[property="twitter:description"]', 'content', desc)
 
   const isPrivate = PRIVATE_PATHS.some(p => path.startsWith(p))
   upsertHeadTag('meta[name="robots"]', 'content', isPrivate ? 'noindex, nofollow' : 'index, follow')

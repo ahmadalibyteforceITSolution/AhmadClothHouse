@@ -4,13 +4,13 @@
     <!-- HEADER -->
     <header class="w-full py-6 px-8 border-b border-[#E5E7EB] dark:border-white/10 flex flex-col items-center gap-1 mb-12 bg-white dark:bg-[#111111] sticky top-0 z-[100]">
        <h1 class="text-xl md:text-2xl font-bold tracking-tight text-[#111111] dark:text-white uppercase cursor-pointer" @click="router.push('/')">
-         AHMAD CLOTH HOUSE
+         AHMAD CLOTHES HOUSE
        </h1>
        <span class="text-[10px] tracking-wider text-stone-500 uppercase font-semibold">Order Tracking & Logistics</span>
     </header>
 
     <!-- SEO Heading (Visually Hidden) -->
-    <h1 class="sr-only">Track Your Order | Ahmad Cloth House</h1>
+    <h1 class="sr-only">Track Your Order | Ahmad Clothes House</h1>
 
     <div class="max-w-4xl mx-auto px-6">
       <!-- Search Section -->
