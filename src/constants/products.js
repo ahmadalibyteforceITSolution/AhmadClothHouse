@@ -55,6 +55,18 @@ import bsWinterPlum from "../assets/binsaeed_winter/bs_winter_11_plum.jpg";
 import bsWinterPeacock from "../assets/binsaeed_winter/bs_winter_12_peacock.jpg";
 import bsWinterCopper from "../assets/binsaeed_winter/bs_winter_13_copper.jpg";
 
+// Maria.B Viral Winter & Velvet Couture Collection 2026
+import mbWinterEmerald from "../assets/mariab_winter/mb_winter_01_emerald.jpg";
+import mbWinterRuby from "../assets/mariab_winter/mb_winter_02_ruby.jpg";
+import mbWinterNoirGold from "../assets/mariab_winter/mb_winter_03_noir_gold.jpg";
+import mbWinterPlum from "../assets/mariab_winter/mb_winter_04_plum.jpg";
+import mbWinterSapphire from "../assets/mariab_winter/mb_winter_05_sapphire.jpg";
+import mbWinterIvory from "../assets/mariab_winter/mb_winter_06_ivory.jpg";
+import mbWinterTerracotta from "../assets/mariab_winter/mb_winter_07_terracotta.jpg";
+import mbWinterTeal from "../assets/mariab_winter/mb_winter_08_teal.jpg";
+import mbWinterDustyRose from "../assets/mariab_winter/mb_winter_09_dusty_rose.jpg";
+import mbWinterOlive from "../assets/mariab_winter/mb_winter_10_olive.jpg";
+
 // New 10 Realistic Products for Men and Women
 import blogJulySummerLawn from "../assets/ai_new/blog_july_summer_lawn.jpg";
 import blogMonsoonFashion from "../assets/ai_new/blog_monsoon_fashion.jpg";
@@ -3319,6 +3331,180 @@ export const binSaeedWinterProducts = [
   }
 ];
 
+export const mariaBWinterProducts = [
+  {
+    id: "mb-wint-001",
+    name: "Maria.B Luxury Velvet Couture 3pc - Royal Emerald",
+    brand: "Maria B",
+    price: 18500,
+    originalPrice: 22500,
+    discount: 18,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterEmerald,
+    nature: "couture",
+    description: "Maria.B's viral winter velvet couture 3-piece suit in royal emerald green. Handcrafted with antique gold zardozi, dabka, and pearl work on the neckline, sleeves, and hemline. Finished with an opulent micro-velvet embroidered shawl with heavy embroidered borders.",
+    details: ["Pure Micro Velvet Stitched/Unstitched Shirt (3.25m)", "Handcrafted Zardozi & Dabka Embellished Neckline", "Heavy Embroidered Velvet Shawl with Four-Side Borders", "Dyed Raw Silk Trousers with Embroidered Patti", "Color: Royal Emerald Green"],
+    variants: [
+      { color: "Royal Emerald", size: "3-Piece Unstitched", image: mbWinterEmerald },
+      { color: "Royal Emerald", size: "Stitched Medium", image: mbWinterEmerald }
+    ]
+  },
+  {
+    id: "mb-wint-002",
+    name: "Maria.B Heritage Velvet Formal 3pc - Deep Ruby Maroon",
+    brand: "Maria B",
+    price: 19500,
+    originalPrice: 24000,
+    discount: 19,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterRuby,
+    nature: "couture",
+    description: "Rich crimson ruby maroon micro-velvet luxury ensemble by Maria.B. Features antique gold tilla and zardozi hand embroidery on gala with hanging pearl droplet accents, paired with a heavily embroidered velvet shawl.",
+    details: ["Pure Royal Velvet Shirt with Zardozi Work", "Handcrafted Pearl Drop Embellishments", "Full Embroidered Velvet Shawl (2.75m)", "Solid Raw Silk Trousers", "Color: Deep Ruby Maroon"],
+    variants: [
+      { color: "Deep Ruby Maroon", size: "3-Piece Unstitched", image: mbWinterRuby }
+    ]
+  },
+  {
+    id: "mb-wint-003",
+    name: "Maria.B Velvet Noir Luxe 3pc - Jet Black & Dull Gold",
+    brand: "Maria B",
+    price: 17900,
+    originalPrice: 21500,
+    discount: 17,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterNoirGold,
+    nature: "couture",
+    description: "The iconic Maria.B black velvet winter statement suit. Adorned with dull gold and copper tilla threadwork on front, sleeves, and daman, paired with a lavish tissue embroidered border winter shawl.",
+    details: ["100% Pure Micro Velvet Shirt", "Antique Dull Gold & Copper Tilla Hand Embroidery", "Tissue Border Embroidered Velvet Shawl", "Dyed Velvet Finish Trousers", "Color: Jet Black & Dull Gold"],
+    variants: [
+      { color: "Jet Black & Dull Gold", size: "3-Piece Unstitched", image: mbWinterNoirGold }
+    ]
+  },
+  {
+    id: "mb-wint-004",
+    name: "Maria.B Regal Velvet Edition - Royal Plum Violet",
+    brand: "Maria B",
+    price: 16500,
+    originalPrice: 19900,
+    discount: 17,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterPlum,
+    nature: "premium",
+    description: "Regal royal plum purple micro-velvet 3-piece suit by Maria.B featuring intricate kora dabka and threadwork gala embroidery with scalloped daman, paired with a multi-head embroidered jacquard winter shawl with tassels.",
+    details: ["Pure Micro Velvet Winter Fabric", "Scalloped Cutwork Embroidered Daman & Sleeves", "Multi-Head Embroidered Jacquard Shawl with Tassels", "Dyed Raw Silk Trousers", "Color: Royal Plum Violet"],
+    variants: [
+      { color: "Royal Plum Violet", size: "3-Piece Unstitched", image: mbWinterPlum }
+    ]
+  },
+  {
+    id: "mb-wint-005",
+    name: "Maria.B Crystal Velvet Formal - Sapphire Frost",
+    brand: "Maria B",
+    price: 18900,
+    originalPrice: 23000,
+    discount: 18,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterSapphire,
+    nature: "couture",
+    description: "Trending viral winter formal suit in midnight sapphire blue micro velvet. Adorned with frosty silver tilla and genuine Swarovski crystal embellishments, paired with a frosty metallic woven winter shawl with tassel fringes.",
+    details: ["Midnight Sapphire Micro Velvet Shirt", "Silver Tilla & Swarovski Crystal Embellishments", "Frosty Metallic Woven Winter Shawl with Tassels", "Dyed Velvet Trousers", "Color: Sapphire Frost"],
+    variants: [
+      { color: "Sapphire Frost", size: "3-Piece Unstitched", image: mbWinterSapphire }
+    ]
+  },
+  {
+    id: "mb-wint-006",
+    name: "Maria.B Kashmiri Pashmina Karandi - Warm Ivory & Multi",
+    brand: "Maria B",
+    price: 14500,
+    originalPrice: 17500,
+    discount: 17,
+    category: "Karandi",
+    parentCategory: "Women's Wear",
+    image: mbWinterIvory,
+    nature: "premium",
+    description: "Maria.B luxury winter karandi & slub linen collection in warm ivory cream. Featuring delicate pastel threadwork embroidery with laser cutwork scalloped lace daman, draped with an authentic embroidered Kashmiri pashmina wool shawl.",
+    details: ["Pure Woven Winter Karandi Shirt", "Intricate Pastel Threadwork with Laser Cutwork Daman", "Authentic Embroidered Kashmiri Pashmina Wool Shawl", "Dyed Karandi Trouser with Cutwork Hem", "Color: Warm Ivory & Multi"],
+    variants: [
+      { color: "Warm Ivory & Multi", size: "3-Piece Unstitched", image: mbWinterIvory }
+    ]
+  },
+  {
+    id: "mb-wint-007",
+    name: "Maria.B Heritage Karandi Winter - Burnt Terracotta",
+    brand: "Maria B",
+    price: 13800,
+    originalPrice: 16800,
+    discount: 18,
+    category: "Karandi",
+    parentCategory: "Women's Wear",
+    image: mbWinterTerracotta,
+    nature: "premium",
+    description: "Burnt terracotta rust winter luxury karandi 3-piece suit by Maria.B. Features antique gold and teal Kashmiri resham thread embroidery on neck and sleeves, paired with an artisanal digital printed wool shawl with fringe tassels.",
+    details: ["Pure Heavy Winter Karandi Fabric", "Teal & Antique Gold Kashmiri Resham Embroidery", "Artisanal Digital Printed Wool Shawl with Tassels", "Dyed Solid Karandi Trouser", "Color: Burnt Terracotta Rust"],
+    variants: [
+      { color: "Burnt Terracotta", size: "3-Piece Unstitched", image: mbWinterTerracotta }
+    ]
+  },
+  {
+    id: "mb-wint-008",
+    name: "Maria.B Festive Velvet Scallop - Deep Peacock Teal",
+    brand: "Maria B",
+    price: 17500,
+    originalPrice: 21000,
+    discount: 17,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterTeal,
+    nature: "couture",
+    description: "Showstopping deep peacock teal micro-velvet 3-piece formal suit. Features heavy antique gold badla and sequin hand embroidery on gala with scalloped daman, paired with a foil printed scalloped tissue and velvet shawl with tassels.",
+    details: ["Pure Soft Micro Velvet Shirt", "Antique Gold Badla & Sequin Handwork", "Scalloped Foil Printed Tissue & Velvet Shawl", "Dyed Raw Silk Trousers", "Color: Deep Peacock Teal"],
+    variants: [
+      { color: "Deep Peacock Teal", size: "3-Piece Unstitched", image: mbWinterTeal }
+    ]
+  },
+  {
+    id: "mb-wint-009",
+    name: "Maria.B Pastel Cashmere Slub Linen - Dusty Tea Rose",
+    brand: "Maria B",
+    price: 14200,
+    originalPrice: 17200,
+    discount: 17,
+    category: "Linen",
+    parentCategory: "Women's Wear",
+    image: mbWinterDustyRose,
+    nature: "premium",
+    description: "Viral Pinterest favorite: dusty tea rose pink slub linen 3-piece suit by Maria.B. Embellished with heavy tone-on-tone resham and pearl embroidery on neckline with scalloped organza borders, draped with an oversized printed plush cashmere shawl.",
+    details: ["Premium Slub Winter Linen Fabric", "Tone-on-Tone Resham & Pearl Embellishments", "Scalloped Organza Hem & Sleeve Border Patti", "Oversized Printed Plush Cashmere Winter Shawl", "Color: Dusty Tea Rose Pink"],
+    variants: [
+      { color: "Dusty Tea Rose", size: "3-Piece Unstitched", image: mbWinterDustyRose }
+    ]
+  },
+  {
+    id: "mb-wint-010",
+    name: "Maria.B Mughal Velvet Couture - Vintage Olive Green",
+    brand: "Maria B",
+    price: 18800,
+    originalPrice: 23500,
+    discount: 20,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: mbWinterOlive,
+    nature: "couture",
+    description: "Opulent vintage olive green micro-velvet 3-piece couture ensemble from Maria.B. Features intricate antique dull gold tilla and zardozi Mughal floral embroidery on neck and borders, paired with a lavish embroidered velvet shawl with scalloped borders.",
+    details: ["100% Pure Micro Velvet Shirt (3m)", "Antique Dull Gold Tilla & Zardozi Mughal Embroidery", "Heavily Embroidered Velvet Shawl with Scalloped Borders", "Dyed Velvet Finish Trousers", "Color: Vintage Olive Green"],
+    variants: [
+      { color: "Vintage Olive Green", size: "3-Piece Unstitched", image: mbWinterOlive }
+    ]
+  }
+];
+
 export const products = [
   ...baseProducts,
   ...aiBrandProducts,
@@ -3330,5 +3516,6 @@ export const products = [
   ...hmProducts,
   ...realisticTenProducts,
   ...asimJofaReplicaProducts,
-  ...binSaeedWinterProducts
+  ...binSaeedWinterProducts,
+  ...mariaBWinterProducts
 ];
