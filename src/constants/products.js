@@ -40,6 +40,21 @@ import bs2026_4 from "../assets/ai_new/bs_2026_4.jpg";
 import bs2026_5 from "../assets/ai_new/bs_2026_5.jpg";
 import summerLawn1 from "../assets/ai_new/summer_lawn_1.jpg";
 
+// Bin Saeed Viral Winter Collection 2026
+import bsWinterMaroon from "../assets/binsaeed_winter/bs_winter_01_maroon.jpg";
+import bsWinterEmerald from "../assets/binsaeed_winter/bs_winter_02_emerald.jpg";
+import bsWinterMustard from "../assets/binsaeed_winter/bs_winter_03_mustard.jpg";
+import bsWinterSapphire from "../assets/binsaeed_winter/bs_winter_04_sapphire.jpg";
+import bsWinterNoirGold from "../assets/binsaeed_winter/bs_winter_05_noir_gold.jpg";
+import bsWinterRubyWine from "../assets/binsaeed_winter/bs_winter_06_ruby_wine.jpg";
+import bsWinterTerracotta from "../assets/binsaeed_winter/bs_winter_07_terracotta.jpg";
+import bsWinterLilac from "../assets/binsaeed_winter/bs_winter_08_lilac.jpg";
+import bsWinterForestGreen from "../assets/binsaeed_winter/bs_winter_09_forest_green.jpg";
+import bsWinterIvory from "../assets/binsaeed_winter/bs_winter_10_ivory.jpg";
+import bsWinterPlum from "../assets/binsaeed_winter/bs_winter_11_plum.jpg";
+import bsWinterPeacock from "../assets/binsaeed_winter/bs_winter_12_peacock.jpg";
+import bsWinterCopper from "../assets/binsaeed_winter/bs_winter_13_copper.jpg";
+
 // New 10 Realistic Products for Men and Women
 import blogJulySummerLawn from "../assets/ai_new/blog_july_summer_lawn.jpg";
 import blogMonsoonFashion from "../assets/ai_new/blog_monsoon_fashion.jpg";
@@ -3079,4 +3094,241 @@ export const asimJofaReplicaProducts = [
   }
 ];
 
-export const products = [...baseProducts, ...aiBrandProducts, ...heroProducts, ...barqueProducts, ...menUnstitchedProducts, ...summerCollectionProducts, ...menSummerProducts, ...hmProducts, ...realisticTenProducts, ...asimJofaReplicaProducts];
+export const binSaeedWinterProducts = [
+  {
+    id: "bs-wint-001",
+    name: "Bin Saeed Embroidered Heavy Khaddar 3pc - Royal Maroon",
+    brand: "Bin Saeed",
+    price: 5450,
+    originalPrice: 6800,
+    discount: 20,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: bsWinterMaroon,
+    nature: "premium",
+    description: "Authentic Bin Saeed Winter Collection 3-piece heavy khaddar unstitched suit in royal maroon. Features intricate Kashmiri resham embroidery on the neckline, sleeves, and daman with an exclusive warm digital printed woolen shawl and matching dyed khaddar trousers.",
+    details: ["100% Pure Heavy Winter Khaddar Shirt (3m)", "Embroidered Neckline & Daman Resham Border", "Digital Printed Warm Woolen Shawl (2.5m)", "Dyed Solid Winter Khaddar Trouser (2.5m)", "Color: Royal Maroon"],
+    variants: [
+      { color: "Royal Maroon", size: "3-Piece Unstitched", image: bsWinterMaroon },
+      { color: "Royal Maroon", size: "Stitched Medium", image: bsWinterMaroon }
+    ]
+  },
+  {
+    id: "bs-wint-002",
+    name: "Bin Saeed Luxury Winter Marina 3pc - Emerald Royale",
+    brand: "Bin Saeed",
+    price: 5850,
+    originalPrice: 7200,
+    discount: 19,
+    category: "Marina",
+    parentCategory: "Women's Wear",
+    image: bsWinterEmerald,
+    nature: "premium",
+    description: "Rich emerald green pure winter marina 3-piece suit by Bin Saeed. Designed with delicate gold zari and tonal resham threadwork across the neckline and sleeve cuffs, finished with a printed marina warm shawl and solid trousers.",
+    details: ["Premium Soft Winter Marina Shirt (3m)", "Subtle Gold Zari Embroidered Neckline & Cuffs", "Warm Digital Printed Marina Shawl (2.5m)", "Dyed Marina Trouser (2.5m)", "Color: Emerald Royale"],
+    variants: [
+      { color: "Emerald Royale", size: "3-Piece Unstitched", image: bsWinterEmerald }
+    ]
+  },
+  {
+    id: "bs-wint-003",
+    name: "Bin Saeed Slub Linen Winter Edition - Mustard Ochre",
+    brand: "Bin Saeed",
+    price: 4950,
+    originalPrice: 6200,
+    discount: 20,
+    category: "Linen",
+    parentCategory: "Women's Wear",
+    image: bsWinterMustard,
+    nature: "standard",
+    description: "Vibrant mustard ochre heavy slub linen 3-piece suit from Bin Saeed's trending winter lookbook. Detailed ethnic floral thread embroidery on the shirt front and neckline with a matching printed warm winter shawl.",
+    details: ["Heavy Slub Winter Linen Fabric", "Ethnic Floral Neckline & Daman Embroidery", "Artisanal Printed Winter Linen Shawl", "Solid Dyed Linen Trouser", "Color: Mustard Ochre"],
+    variants: [
+      { color: "Mustard Ochre", size: "3-Piece Unstitched", image: bsWinterMustard }
+    ]
+  },
+  {
+    id: "bs-wint-004",
+    name: "Bin Saeed Luxury Karandi Cutwork Suit - Midnight Sapphire",
+    brand: "Bin Saeed",
+    price: 6750,
+    originalPrice: 8500,
+    discount: 21,
+    category: "Karandi",
+    parentCategory: "Women's Wear",
+    image: bsWinterSapphire,
+    nature: "limited",
+    description: "Ultra viral midnight sapphire blue karandi 3-piece suit featuring ornate antique gold tilla embroidery on the gala, sleeves, and cutwork organza daman lace. Finished with an opulent woven jacquard winter shawl with fringe tassels.",
+    details: ["Pure Woven Winter Karandi Shirt", "Intricate Antique Gold Tilla & Cutwork Lace Daman", "Heavy Jacquard Woven Shawl with Tassels", "Dyed Karandi Trouser with Embroidered Motif", "Color: Midnight Sapphire"],
+    variants: [
+      { color: "Midnight Sapphire", size: "3-Piece Unstitched", image: bsWinterSapphire }
+    ]
+  },
+  {
+    id: "bs-wint-005",
+    name: "Bin Saeed Velvet Touch Winter Royale - Jet Black & Gold",
+    brand: "Bin Saeed",
+    price: 7450,
+    originalPrice: 9500,
+    discount: 22,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: bsWinterNoirGold,
+    nature: "limited",
+    description: "Viral trending Pakistani winter fashion: deep jet black velvet-touch 3-piece luxury suit with regal antique gold and copper tilla gala embroidery and an oversized warm Kashmiri jacquard shawl with paisley motifs.",
+    details: ["Regal Micro Velvet / Winter Dhanak Shirt", "Antique Gold & Copper Tilla Hand-look Embroidery", "Oversized Kashmiri Jacquard Shawl (2.75m)", "Solid Black Velvet Finish Trousers", "Color: Jet Black & Metallic Gold"],
+    variants: [
+      { color: "Jet Black & Gold", size: "3-Piece Unstitched", image: bsWinterNoirGold }
+    ]
+  },
+  {
+    id: "bs-wint-006",
+    name: "Bin Saeed Embroidered Winter Marina - Deep Ruby Wine",
+    brand: "Bin Saeed",
+    price: 5950,
+    originalPrice: 7500,
+    discount: 21,
+    category: "Marina",
+    parentCategory: "Women's Wear",
+    image: bsWinterRubyWine,
+    nature: "premium",
+    description: "Viral Pinterest favorite: deep ruby wine red winter marina 3-piece suit featuring tone-on-tone resham embroidery with delicate gold accents, paired with a lavish printed velvet-touch warm shawl with tassel borders.",
+    details: ["Pure Winter Marina Shirt", "Resham & Fine Gold Embroidered Neckline & Daman", "Velvet-Touch Printed Winter Shawl with Tassels", "Dyed Marina Trouser", "Color: Ruby Wine Red"],
+    variants: [
+      { color: "Ruby Wine Red", size: "3-Piece Unstitched", image: bsWinterRubyWine }
+    ]
+  },
+  {
+    id: "bs-wint-007",
+    name: "Bin Saeed Ethnic Khaddar Winter Edition - Burnt Terracotta",
+    brand: "Bin Saeed",
+    price: 5250,
+    originalPrice: 6500,
+    discount: 19,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: bsWinterTerracotta,
+    nature: "standard",
+    description: "Authentic courtyard aesthetic winter khaddar 3-piece suit in burnt terracotta rust. Features contemporary floral threadwork embroidery on neckline, sleeves, and trousers, paired with a vibrant teal & indigo printed woolen shawl.",
+    details: ["Premium Winter Khaddar Shirt (3m)", "Contemporary Kashmiri Threadwork Embroidery", "Vibrant Contrast Printed Woolen Shawl", "Embroidered Border Khaddar Trouser", "Color: Burnt Terracotta Rust"],
+    variants: [
+      { color: "Burnt Terracotta", size: "3-Piece Unstitched", image: bsWinterTerracotta }
+    ]
+  },
+  {
+    id: "bs-wint-008",
+    name: "Bin Saeed Pastel Cashmere Winter Suit - Dusty Lilac",
+    brand: "Bin Saeed",
+    price: 6250,
+    originalPrice: 7800,
+    discount: 20,
+    category: "Linen",
+    parentCategory: "Women's Wear",
+    image: bsWinterLilac,
+    nature: "premium",
+    description: "Trending pastel winter collection 3-piece suit in soft dusty lilac mauve slub linen. Delicately adorned with ivory threadwork, pearl beads, and scalloped organza borders, draped with a plush printed cashmere woolen shawl.",
+    details: ["Premium Slub Winter Linen Fabric", "Ivory Threadwork & Pearl Bead Gala Embellishment", "Scalloped Embroidered Organza Border Patti", "Plush Printed Cashmere Woolen Shawl", "Color: Dusty Lilac Mauve"],
+    variants: [
+      { color: "Dusty Lilac", size: "3-Piece Unstitched", image: bsWinterLilac }
+    ]
+  },
+  {
+    id: "bs-wint-009",
+    name: "Bin Saeed Royal Karandi Jacquard Suit - Deep Forest Moss",
+    brand: "Bin Saeed",
+    price: 6850,
+    originalPrice: 8600,
+    discount: 20,
+    category: "Karandi",
+    parentCategory: "Women's Wear",
+    image: bsWinterForestGreen,
+    nature: "premium",
+    description: "Exquisite deep forest moss green winter karandi 3-piece luxury suit with antique gold tilla and threadwork embroidery, detailed scalloped hem lace, and an opulent jacquard woven winter shawl.",
+    details: ["Heavy Woven Winter Karandi Shirt", "Intricate Antique Gold & Resham Threadwork", "Scalloped Cutwork Hem & Sleeve Borders", "Heavy Jacquard Woven Winter Shawl", "Color: Deep Forest Moss Green"],
+    variants: [
+      { color: "Deep Forest Moss", size: "3-Piece Unstitched", image: bsWinterForestGreen }
+    ]
+  },
+  {
+    id: "bs-wint-010",
+    name: "Bin Saeed Bohemian Kashmiri Khaddar - Warm Ivory & Bronze",
+    brand: "Bin Saeed",
+    price: 5650,
+    originalPrice: 7100,
+    discount: 20,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: bsWinterIvory,
+    nature: "premium",
+    description: "Viral editorial lookbook suit in warm ivory cream heavy winter khaddar. Embellished with monochrome black and bronze Bohemian Kashmiri embroidery, paired with a statement multi-tonal printed winter woolen shawl with fringe tassels.",
+    details: ["100% Pure Heavy Winter Khaddar (3m)", "Bohemian Kashmiri Black & Bronze Embroidery", "Statement Multi-tonal Printed Woolen Shawl with Fringes", "Solid Warm Ivory Khaddar Trouser", "Color: Warm Ivory Cream"],
+    variants: [
+      { color: "Warm Ivory Cream", size: "3-Piece Unstitched", image: bsWinterIvory }
+    ]
+  },
+  {
+    id: "bs-wint-011",
+    name: "Bin Saeed Velvet Touch Regal Formal - Royal Plum Violet",
+    brand: "Bin Saeed",
+    price: 7950,
+    originalPrice: 9900,
+    discount: 20,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: bsWinterPlum,
+    nature: "limited",
+    description: "Royal plum violet micro-velvet winter kurta and culottes 3-piece suit by Bin Saeed. Adorned with antique gold pita and tilla embroidery on neckline and daman, draped with an opulent printed cashmere winter shawl.",
+    details: ["Luxurious Micro Velvet Winter Fabric", "Antique Gold Pita & Tilla Hand Embroidery", "Plush Printed Cashmere Winter Shawl (2.5m)", "Coordinated Velvet Finish Trouser", "Color: Royal Plum Violet"],
+    variants: [
+      { color: "Royal Plum Violet", size: "3-Piece Unstitched", image: bsWinterPlum }
+    ]
+  },
+  {
+    id: "bs-wint-012",
+    name: "Bin Saeed Embroidered Winter Linen - Royal Peacock Blue",
+    brand: "Bin Saeed",
+    price: 5350,
+    originalPrice: 6700,
+    discount: 20,
+    category: "Linen",
+    parentCategory: "Women's Wear",
+    image: bsWinterPeacock,
+    nature: "standard",
+    description: "Vibrant royal peacock cyan blue winter slub linen 3-piece suit featuring contrasting mustard ochre and copper Kashmiri resham embroidery on neck and sleeves, paired with an artistic printed winter woolen shawl.",
+    details: ["Fine Winter Slub Linen Shirt (3m)", "Contrasting Mustard & Copper Kashmiri Resham Embroidery", "Artisanal Printed Winter Woolen Shawl", "Solid Peacock Blue Dyed Trouser", "Color: Royal Peacock Blue"],
+    variants: [
+      { color: "Royal Peacock Blue", size: "3-Piece Unstitched", image: bsWinterPeacock }
+    ]
+  },
+  {
+    id: "bs-wint-013",
+    name: "Bin Saeed Cinnamon Karandi Cutwork Suit - Burnt Copper",
+    brand: "Bin Saeed",
+    price: 6450,
+    originalPrice: 8200,
+    discount: 21,
+    category: "Karandi",
+    parentCategory: "Women's Wear",
+    image: bsWinterCopper,
+    nature: "limited",
+    description: "Rich burnt copper cinnamon karandi winter suit featuring delicate antique gold threadwork embroidery and laser cutwork lace daman, paired with a luxurious contrast moss green jacquard woven winter shawl.",
+    details: ["Pure Woven Winter Karandi Shirt", "Delicate Gold Threadwork & Laser Cutwork Daman", "Contrasting Deep Moss Green Jacquard Woven Shawl", "Dyed Cinnamon Karandi Trouser", "Color: Burnt Copper Cinnamon"],
+    variants: [
+      { color: "Burnt Copper", size: "3-Piece Unstitched", image: bsWinterCopper }
+    ]
+  }
+];
+
+export const products = [
+  ...baseProducts,
+  ...aiBrandProducts,
+  ...heroProducts,
+  ...barqueProducts,
+  ...menUnstitchedProducts,
+  ...summerCollectionProducts,
+  ...menSummerProducts,
+  ...hmProducts,
+  ...realisticTenProducts,
+  ...asimJofaReplicaProducts,
+  ...binSaeedWinterProducts
+];
