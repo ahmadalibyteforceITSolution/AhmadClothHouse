@@ -254,9 +254,9 @@
         <!-- Section Header -->
         <div class="px-5 sm:px-10 lg:px-14 flex items-end justify-between">
           <div class="space-y-2">
-            <p class="text-[9px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">Curated for You</p>
+            <p class="text-[9px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">Coming Soon · Winter Collection 2026</p>
             <h2 class="text-xl sm:text-2xl font-light tracking-[0.25em] text-stone-900 dark:text-white uppercase">
-              Featured Collections
+              Featured Winter Collections
             </h2>
           </div>
           <router-link to="/shop" class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 hover:text-[#C9973A] transition-colors pb-0.5 border-b border-stone-200 hover:border-[#C9973A]">
@@ -269,53 +269,91 @@
           ref="azadiSlider"
           class="w-full flex gap-3 sm:gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory px-5 sm:px-10 lg:px-14 py-2 scroll-smooth"
         >
-          <div @click="router.push('/shop/Unstitched')"
+          <!-- Card 1: Maria B Velvet Couture -->
+          <div @click="router.push('/shop/Velvet')"
             class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
-            <img :src="MB2026_1" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img :src="mbWinterEmerald" alt="Winter Velvet Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
-              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">New Arrival</p>
-              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Unstitched Lawn</h3>
-              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Collection 2026</p>
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Winter Coming Soon</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Velvet Couture</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Maria.B Winter 2026</p>
             </div>
           </div>
 
-          <div @click="router.push('/shop/Unstitched')"
+          <!-- Card 2: Bin Saeed Heavy Khaddar -->
+          <div @click="router.push('/shop/Khaddar')"
             class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
-            <img :src="MB2026_2" alt="Luxury Fabrics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img :src="bsWinterMaroon" alt="Heavy Winter Khaddar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
-              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Signature</p>
-              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Luxury Fabrics</h3>
-              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Premium Artisan</p>
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Winter Arrival</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Heavy Khaddar</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Bin Saeed Kashmiri Shawl</p>
             </div>
           </div>
 
-          <div @click="router.push('/shop/Bridal')"
+          <!-- Card 3: Maria B Velvet Noir -->
+          <div @click="router.push('/shop/Velvet')"
             class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
-            <img :src="MB2026_3" alt="Formal Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img :src="mbWinterNoirGold" alt="Velvet Noir & Gold" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
-              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Exclusive</p>
-              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Formal Couture</h3>
-              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Heritage Craft</p>
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Signature Launch</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Velvet Noir &amp; Gold</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Maria.B Antique Tilla</p>
             </div>
           </div>
 
-          <div @click="router.push('/shop/Pret')"
+          <!-- Card 4: Maria B Kashmiri Pashmina -->
+          <div @click="router.push('/shop/Karandi')"
             class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
-            <img :src="MB2026_4" alt="Luxury Pret" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img :src="mbWinterIvory" alt="Kashmiri Pashmina Karandi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
-              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Ready to Wear</p>
-              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Luxury Pret</h3>
-              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Modern Elegance</p>
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Signature Pashmina</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Pashmina Karandi</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Laser Cutwork Daman</p>
             </div>
           </div>
 
-          <div @click="router.push('/shop/Pret')"
+          <!-- Card 5: Bin Saeed Winter Marina -->
+          <div @click="router.push('/shop/Marina')"
             class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
-            <img :src="MB2026_5" alt="Stitched Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img :src="bsWinterEmerald" alt="Winter Marina Royale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
-              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Bespoke</p>
-              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Stitched Couture</h3>
-              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Master Crafted</p>
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Warm Marina</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Winter Marina 3pc</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Bin Saeed Warm Edition</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Sapphire Frost Velvet -->
+          <div @click="router.push('/shop/Velvet')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
+            <img :src="coutureMidnightBlue" alt="Sapphire Frost Velvet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Festive Velvet</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Sapphire Frost</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Metallic Jacquard Shawl</p>
+            </div>
+          </div>
+
+          <!-- Card 7: Terracotta Khaddar -->
+          <div @click="router.push('/shop/Khaddar')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
+            <img :src="coutureBurntOrange" alt="Terracotta Rust Khaddar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Trending Lookbook</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Terracotta Rust</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Courtyard Khaddar Craft</p>
+            </div>
+          </div>
+
+          <!-- Card 8: Pastel Lilac Slub Linen -->
+          <div @click="router.push('/shop/Linen')"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
+            <img :src="coutureDustyMauve" alt="Dusty Lilac Slub Linen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <p class="text-[8px] uppercase font-bold tracking-[0.5em] text-[#C9973A] mb-2">Pastel Cashmere</p>
+              <h3 class="text-base sm:text-lg font-light tracking-[0.2em] text-white uppercase">Dusty Lilac Linen</h3>
+              <p class="text-[9px] text-white/50 mt-1 tracking-wider">Pearl &amp; Cashmere Shawl</p>
             </div>
           </div>
         </div>
@@ -324,33 +362,39 @@
 
 
     <!-- ═══════════════════════════════════════════
-         3. EDITORIAL 2-COLUMN PHOTO GRID (MARIA B)
+         3. EDITORIAL 2-COLUMN PHOTO GRID (MARIA B & BIN SAEED WINTER)
     ═══════════════════════════════════════════ -->
     <section class="py-6 px-6 sm:px-10 lg:px-14">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Col 1 -->
         <div 
-          @click="router.push('/shop/Unstitched')" 
+          @click="router.push('/shop/Velvet')" 
           class="relative aspect-[4/5] sm:aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
         >
-          <img :src="NewSuitOffWhite" alt="Unstitched Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img :src="mbWinterRuby" alt="Winter Velvet Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-8">
-            <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
-              UNSTITCHED LAWN '26
-            </span>
+            <div>
+              <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-[#C9973A] mb-1">Coming Soon</p>
+              <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
+                WINTER VELVET COUTURE '26
+              </span>
+            </div>
           </div>
         </div>
 
         <!-- Col 2 -->
         <div 
-          @click="router.push('/shop/Pret')" 
+          @click="router.push('/shop/Khaddar')" 
           class="relative aspect-[4/5] sm:aspect-[3/4] group overflow-hidden rounded-xl cursor-pointer shadow-sm border border-stone-200/60 dark:border-white/10"
         >
-          <img :src="NewSuitGreen" alt="Ready to Wear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img :src="bsWinterMaroon" alt="Bin Saeed Winter Khaddar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-8">
-            <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
-              READY TO WEAR
-            </span>
+            <div>
+              <p class="text-[9px] font-bold uppercase tracking-[0.4em] text-[#C9973A] mb-1">Coming Soon</p>
+              <span class="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase drop-shadow-md">
+                BIN SAEED WINTER KHADDAR '26
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -364,12 +408,12 @@
         
         <!-- Left Side: Text Description & CTA -->
         <div class="lg:col-span-4 space-y-6">
-          <p class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-stone-400">New Arrivals '26</p>
+          <p class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-[#C9973A]">Winter Edition '26</p>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-white leading-tight">
-            Shop By Collection
+            Shop Winter Collection
           </h2>
           <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed max-w-sm">
-            Explore the newest summer arrivals — fresh prints, breezy fabrics, and styles made for the season.
+            Explore the newest winter arrivals — rich micro-velvet, pure khaddar, warm marina shawls, and handcrafted winter couture.
           </p>
           <button 
             @click="router.push('/shop')"
@@ -391,41 +435,41 @@
         <!-- Right Side: Horizontal Campaign Collection Cards -->
         <div class="lg:col-span-8 flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2">
           
-          <!-- Card 1: Monochrome -->
+          <!-- Card 1: Velvet Noir -->
           <div 
-            @click="router.push('/shop/Pret')"
+            @click="router.push('/shop/Velvet')"
             class="flex-none w-[280px] sm:w-[360px] aspect-[4/5] relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm flex-shrink-0"
           >
-            <img :src="BS2026_1" alt="Monochrome Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors flex items-center justify-center p-6 text-center">
+            <img :src="coutureBlackTilla" alt="Velvet Noir Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center p-6 text-center">
               <h3 class="text-2xl sm:text-4xl font-extrabold tracking-[0.25em] text-white uppercase drop-shadow-lg">
-                MONOCHROME
+                VELVET NOIR
               </h3>
             </div>
           </div>
 
-          <!-- Card 2: Royal Red -->
+          <!-- Card 2: Royal Burgundy -->
           <div 
-            @click="router.push('/shop/Bridal')"
+            @click="router.push('/shop/Velvet')"
             class="flex-none w-[280px] sm:w-[360px] aspect-[4/5] relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm flex-shrink-0"
           >
-            <img :src="MB2026_3" alt="Royal Red Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors flex items-center justify-center p-6 text-center">
+            <img :src="coutureBurgundyVelvet" alt="Royal Burgundy Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center p-6 text-center">
               <h3 class="text-2xl sm:text-4xl font-extrabold tracking-[0.25em] text-white uppercase drop-shadow-lg">
-                ROYAL RED
+                ROYAL BURGUNDY
               </h3>
             </div>
           </div>
 
-          <!-- Card 3: Summer Lawn -->
+          <!-- Card 3: Ivory Pashmina -->
           <div 
-            @click="router.push('/shop/Unstitched')"
+            @click="router.push('/shop/Karandi')"
             class="flex-none w-[280px] sm:w-[360px] aspect-[4/5] relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm flex-shrink-0"
           >
-            <img :src="MB2026_2" alt="Summer Lawn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors flex items-center justify-center p-6 text-center">
+            <img :src="coutureIvoryGold" alt="Ivory Pashmina Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center p-6 text-center">
               <h3 class="text-2xl sm:text-4xl font-extrabold tracking-[0.25em] text-white uppercase drop-shadow-lg">
-                SUMMER LAWN
+                IVORY PASHMINA
               </h3>
             </div>
           </div>
@@ -824,6 +868,22 @@ import MB2026_4 from "../assets/ai_new/mb_2026_4.jpg"
 import MB2026_5 from "../assets/ai_new/mb_2026_5.jpg"
 import BS2026_1 from "../assets/ai_new/bs_2026_1.jpg"
 import BS2026_3 from "../assets/ai_new/bs_2026_3.jpg"
+
+// Newly Created Winter Coming Collection Imports
+import mbWinterEmerald from "../assets/mariab_winter/mb_winter_01_emerald.jpg"
+import mbWinterRuby from "../assets/mariab_winter/mb_winter_02_ruby.jpg"
+import mbWinterNoirGold from "../assets/mariab_winter/mb_winter_03_noir_gold.jpg"
+import mbWinterSapphire from "../assets/mariab_winter/mb_winter_05_sapphire.jpg"
+import mbWinterIvory from "../assets/mariab_winter/mb_winter_06_ivory.jpg"
+import bsWinterMaroon from "../assets/binsaeed_winter/bs_winter_01_maroon.jpg"
+import bsWinterEmerald from "../assets/binsaeed_winter/bs_winter_02_emerald.jpg"
+import bsWinterTerracotta from "../assets/binsaeed_winter/bs_winter_07_terracotta.jpg"
+import coutureMidnightBlue from "../assets/winter_couture/couture_02_midnight_blue.jpg"
+import coutureBlackTilla from "../assets/winter_couture/couture_04_black_tilla.jpg"
+import coutureBurntOrange from "../assets/winter_couture/couture_06_burnt_orange.jpg"
+import coutureDustyMauve from "../assets/winter_couture/couture_07_dusty_mauve.jpg"
+import coutureBurgundyVelvet from "../assets/winter_couture/couture_01_burgundy_velvet.jpg"
+import coutureIvoryGold from "../assets/winter_couture/couture_09_ivory_gold.jpg"
 
 import HeroCollage1 from "../assets/ai_new/hero_collage_1.jpg"
 import HeroCollage2 from "../assets/ai_new/hero_collage_2.jpg"
