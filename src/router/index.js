@@ -141,7 +141,7 @@ const routes = [
     meta: {
       title: 'Enter the House | AhmadClothesHouse Login',
       description: 'Access your Ahmad Clothes House member account to view orders and saved couture.',
-      robots: 'index, follow'
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -151,7 +151,7 @@ const routes = [
     meta: {
       title: 'Join the Inner Circle | AhmadClothesHouse Signup',
       description: 'Create your Ahmad Clothes House account for early access to lawn launches and exclusive bridal previews.',
-      robots: 'index, follow'
+      robots: 'noindex, nofollow'
     }
   },
   {
@@ -372,8 +372,19 @@ router.afterEach((to) => {
   const canonicalUrl = `${BASE_URL}${cleanPath}`
   const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`
 
-  // === Title ===
-  document.title = to.meta.title || 'AhmadClothesHouse | Premium Pakistani Fashion'
+  // Private routes that must never be indexed
+  const PRIVATE_PATHS = [
+    '/admin', '/checkout', '/cart', '/dashboard',
+    '/track-order', '/reset-password', '/forgot-password', '/login', '/signup'
+  ]
+  const isPrivate = PRIVATE_PATHS.some(p => cleanPath.startsWith(p))
+  const robotsSetting = to.meta.robots || (isPrivate ? 'noindex, nofollow' : 'index, follow')
+
+  // === Title & Description Fallbacks ===
+  const title = to.meta.title || 'AhmadClothesHouse | Premium Pakistani Designer Suits & Couture 2026'
+  const description = to.meta.description || to.meta.desc || 'Discover luxury Pakistani fashion at Ahmad Clothes House. Unstitched suits, luxury pret, and bridal wear shipping to USA, UK, Canada & UAE.'
+
+  document.title = title
 
   // === Helper to set any meta tag ===
   const setMeta = (attrName, attrVal, contentVal) => {
@@ -387,21 +398,22 @@ router.afterEach((to) => {
   }
 
   // === Standard Meta ===
-  if (to.meta.description) setMeta('name', 'description', to.meta.description)
-  if (to.meta.robots)      setMeta('name', 'robots',      to.meta.robots)
+  setMeta('name', 'description', description)
+  setMeta('name', 'robots', robotsSetting)
 
   // === Open Graph ===
-  if (to.meta.title)       setMeta('property', 'og:title',       to.meta.title)
-  if (to.meta.description) setMeta('property', 'og:description', to.meta.description)
-  setMeta('property', 'og:url',   canonicalUrl)
+  setMeta('property', 'og:title', title)
+  setMeta('property', 'og:description', description)
+  setMeta('property', 'og:url', canonicalUrl)
   setMeta('property', 'og:image', DEFAULT_IMAGE)
-  setMeta('property', 'og:type',  to.path.startsWith('/blog/') ? 'article' : 'website')
+  setMeta('property', 'og:type', to.path.startsWith('/blog/') ? 'article' : 'website')
 
   // === Twitter ===
-  if (to.meta.title)       setMeta('property', 'twitter:title',       to.meta.title)
-  if (to.meta.description) setMeta('property', 'twitter:description', to.meta.description)
-  setMeta('property', 'twitter:url',   canonicalUrl)
-  setMeta('property', 'twitter:image', DEFAULT_IMAGE)
+  setMeta('name', 'twitter:card', 'summary_large_image')
+  setMeta('name', 'twitter:title', title)
+  setMeta('name', 'twitter:description', description)
+  setMeta('name', 'twitter:url', canonicalUrl)
+  setMeta('name', 'twitter:image', DEFAULT_IMAGE)
 
   // === Canonical ===
   let canonical = document.querySelector('link[rel="canonical"]')
@@ -410,7 +422,7 @@ router.afterEach((to) => {
     canonical.rel = 'canonical'
     document.head.appendChild(canonical)
   }
-  canonical.href = canonicalUrl
+  canonical.setAttribute('href', canonicalUrl)
 
   // === Page JSON-LD Schema (from route meta) ===
   let schemaElement = document.querySelector('script[id="dynamic-schema"]')

@@ -1,8 +1,8 @@
 # ===========================================================================
 #  robots.txt — Ahmad Clothes House | Premium Pakistani Fashion & Couture
 #  Website : https://ahmad-cloths.vercel.app
-#  Updated : 2026-08-21
-#  Total sitemap URLs: 1040
+#  Updated : 2026-09-21
+#  Total sitemap URLs: 760 (100% unique, verified live routes)
 # ===========================================================================
 
 # ---------------------------------------------------------------------------
@@ -25,6 +25,7 @@ Allow: /contact
 Allow: /privacy
 Allow: /terms
 Allow: /cookies
+Allow: /backlinks.html
 Allow: /sitemap.xml
 Disallow: /admin/
 Disallow: /checkout
@@ -43,10 +44,10 @@ Disallow: /*?q=
 # ---------------------------------------------------------------------------
 User-agent: Googlebot-Image
 Allow: /
-Allow: /src/assets/
-Allow: /public/assets/
+Allow: /assets/
 Allow: /og-image.png
 Allow: /logo.png
+Allow: /favicon.svg
 
 # ---------------------------------------------------------------------------
 # 3. BING / MSNBOT
@@ -60,11 +61,14 @@ Allow: /fabric/
 Allow: /occasion/
 Allow: /lookbook/
 Allow: /product/
+Allow: /backlinks.html
 Disallow: /admin/
 Disallow: /checkout
 Disallow: /cart
 Disallow: /login
 Disallow: /signup
+Disallow: /dashboard
+Disallow: /track-order
 Crawl-delay: 2
 
 # ---------------------------------------------------------------------------
@@ -72,11 +76,14 @@ Crawl-delay: 2
 # ---------------------------------------------------------------------------
 User-agent: Yandex
 Allow: /
+Allow: /backlinks.html
 Disallow: /admin/
 Disallow: /checkout
 Disallow: /cart
 Disallow: /login
 Disallow: /signup
+Disallow: /dashboard
+Disallow: /track-order
 Crawl-delay: 2
 
 # ---------------------------------------------------------------------------
@@ -117,7 +124,7 @@ Allow: /lookbook/
 Allow: /collection/
 
 # ---------------------------------------------------------------------------
-# 9. AI / LLM CRAWLERS (opt-in for fashion discovery)
+# 9. AI / LLM CRAWLERS (Opt-in for fashion discovery)
 # ---------------------------------------------------------------------------
 User-agent: GPTBot
 Allow: /blog/
@@ -145,6 +152,7 @@ Allow: /blog/
 Allow: /shop/
 Allow: /collection/
 Allow: /product/
+Allow: /backlinks.html
 Disallow: /admin/
 Disallow: /checkout
 Disallow: /cart
@@ -155,7 +163,6 @@ Disallow: /track-order
 Crawl-delay: 5
 
 # ---------------------------------------------------------------------------
-# SITEMAPS & BACKLINK DIRECTORY
+# SITEMAP DIRECTIVE
 # ---------------------------------------------------------------------------
-Allow: /backlinks.html
 Sitemap: https://ahmad-cloths.vercel.app/sitemap.xml

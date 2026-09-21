@@ -72,8 +72,23 @@
       </div>
     </div>
   </div>
-  <div v-else class="min-h-screen flex items-center justify-center">
-     <p class="text-stone-400 animate-pulse tracking-widest">TRANSLATING MANUSCRIPT...</p>
+
+  <!-- Article Not Found State -->
+  <div v-else class="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-[#050505] px-6 text-center">
+    <div class="w-12 h-px bg-[#C9973A] mb-6"></div>
+    <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-[#C9973A] mb-3">404 &bull; Journal Manuscript</span>
+    <h1 class="text-2xl sm:text-3xl font-playfair font-normal text-stone-900 dark:text-white uppercase tracking-wider mb-4">
+      Article Not Found
+    </h1>
+    <p class="text-xs text-stone-500 dark:text-stone-400 max-w-md leading-relaxed mb-8">
+      The journal story or fashion guide you are searching for is no longer available or the link has changed.
+    </p>
+    <router-link 
+      to="/blog" 
+      class="px-8 py-3.5 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#C9973A] transition-all"
+    >
+      Browse All Articles
+    </router-link>
   </div>
 </template>
 
@@ -184,7 +199,7 @@ const injectBlogMeta = (p) => {
       "name": "AhmadClothesHouse",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ahmad-cloths.vercel.app/favicon.svg"
+        "url": "https://ahmad-cloths.vercel.app/logo.png"
       }
     },
     "mainEntityOfPage": {
@@ -197,7 +212,22 @@ const injectBlogMeta = (p) => {
   document.head.appendChild(schema)
 }
 
-watch(post, (p) => { if (p) injectBlogMeta(p) }, { immediate: true })
+watch(post, (p) => {
+  if (p) {
+    injectBlogMeta(p)
+  } else {
+    if (typeof document !== 'undefined') {
+      document.title = 'Article Not Found | Ahmad Clothes House'
+      let robots = document.querySelector('meta[name="robots"]')
+      if (!robots) {
+        robots = document.createElement('meta')
+        robots.setAttribute('name', 'robots')
+        document.head.appendChild(robots)
+      }
+      robots.setAttribute('content', 'noindex, nofollow')
+    }
+  }
+}, { immediate: true })
 
 const parsedContent = computed(() => {
   if (!post.value) return ''

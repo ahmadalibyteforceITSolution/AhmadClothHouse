@@ -78,7 +78,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
@@ -222,4 +222,62 @@ const relatedLinks = computed(() => {
     { to: '/contact', label: 'Contact Us' }
   ]
 })
+
+// === Dynamic SEO per landing page ===
+const updateSEOTags = () => {
+  if (typeof document === 'undefined') return
+  const BASE_URL = 'https://ahmad-cloths.vercel.app'
+  const cleanPath = route.path.length > 1 && route.path.endsWith('/') ? route.path.slice(0, -1) : route.path
+  const canonicalUrl = `${BASE_URL}${cleanPath}`
+  const fullTitle = `${pageTitle.value} | Ahmad Clothes House`
+  const desc = pageDescription.value
+
+  document.title = fullTitle
+
+  const setMeta = (selector, attr, value) => {
+    let el = document.querySelector(selector)
+    if (!el) {
+      el = document.createElement('meta')
+      const match = selector.match(/\[(name|property)="([^"]+)"\]/)
+      if (match) el.setAttribute(match[1], match[2])
+      document.head.appendChild(el)
+    }
+    el.setAttribute(attr, value)
+  }
+
+  setMeta('meta[name="description"]', 'content', desc)
+  setMeta('meta[name="robots"]', 'content', 'index, follow')
+  setMeta('meta[property="og:title"]', 'content', fullTitle)
+  setMeta('meta[property="og:description"]', 'content', desc)
+  setMeta('meta[property="og:url"]', 'content', canonicalUrl)
+  setMeta('meta[name="twitter:title"]', 'content', fullTitle)
+  setMeta('meta[name="twitter:description"]', 'content', desc)
+  setMeta('meta[name="twitter:url"]', 'content', canonicalUrl)
+
+  // Canonical link tag
+  let canonical = document.querySelector('link[rel="canonical"]')
+  if (!canonical) {
+    canonical = document.createElement('link')
+    canonical.rel = 'canonical'
+    document.head.appendChild(canonical)
+  }
+  canonical.setAttribute('href', canonicalUrl)
+
+  // WebPage Schema
+  let schemaElement = document.querySelector('script[id="seo-landing-schema"]')
+  if (schemaElement) schemaElement.remove()
+  schemaElement = document.createElement('script')
+  schemaElement.id = 'seo-landing-schema'
+  schemaElement.type = 'application/ld+json'
+  schemaElement.text = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: fullTitle,
+    description: desc,
+    url: canonicalUrl
+  })
+  document.head.appendChild(schemaElement)
+}
+
+watch([pageTitle, pageDescription, () => route.path], updateSEOTags, { immediate: true })
 </script>

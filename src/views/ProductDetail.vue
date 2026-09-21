@@ -430,12 +430,22 @@
 
   </div>
 
-  <!-- Loading State -->
-  <div v-else class="h-screen flex flex-col items-center justify-center bg-white dark:bg-[#050505] gap-6">
-    <div class="w-10 h-10 border-2 border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
-    <span class="text-xs font-semibold tracking-widest uppercase text-neutral-600 dark:text-neutral-400">
-      Loading Atelier Details...
-    </span>
+  <!-- Not Found State -->
+  <div v-else class="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-[#050505] px-6 text-center">
+    <div class="w-12 h-px bg-[#C9973A] mb-6"></div>
+    <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-[#C9973A] mb-3">404 &bull; Atelier Catalog</span>
+    <h1 class="text-2xl sm:text-3xl font-playfair font-normal text-stone-900 dark:text-white uppercase tracking-wider mb-4">
+      Product Not Found
+    </h1>
+    <p class="text-xs text-stone-500 dark:text-stone-400 max-w-md leading-relaxed mb-8">
+      The couture piece you are looking for is not in our active collection or the reference link has changed.
+    </p>
+    <router-link 
+      to="/shop" 
+      class="px-8 py-3.5 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#C9973A] transition-all"
+    >
+      Explore All Collections
+    </router-link>
   </div>
 </template>
 
@@ -643,6 +653,17 @@ watch(product, (p) => {
       setMeta('og:type', true, 'product')
       setMeta('product:price:amount', true, p.price)
       setMeta('product:price:currency', true, 'PKR')
+    }
+  } else {
+    if (typeof document !== 'undefined') {
+      document.title = 'Product Not Found | Ahmad Clothes House'
+      let robots = document.querySelector('meta[name="robots"]')
+      if (!robots) {
+        robots = document.createElement('meta')
+        robots.setAttribute('name', 'robots')
+        document.head.appendChild(robots)
+      }
+      robots.setAttribute('content', 'noindex, nofollow')
     }
   }
 }, { immediate: true })
