@@ -593,6 +593,125 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
+         7B. ROYAL BRIDAL COUTURE 2026 (RS. 10K - 90K)
+    ═══════════════════════════════════════════ -->
+    <section class="py-14 sm:py-20 px-4 sm:px-8 lg:px-12 bg-[#FAF8F5] dark:bg-[#070707] border-b border-stone-200/70 dark:border-white/10">
+      <div class="max-w-[1700px] mx-auto space-y-8">
+        
+        <!-- Header with Luxury Branding & Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-amber-950/10 dark:border-white/10">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-amber-600 text-white shadow-sm">
+                EXCLUSIVE 2026 EDIT
+              </span>
+              <span class="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                Maria.B &amp; Ahmad Signature Atelier
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-serif tracking-tight text-stone-900 dark:text-white uppercase">
+              ROYAL BRIDAL COUTURE
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 font-light max-w-2xl">
+              Master-crafted zardozi, kora dabka, Swarovski crystal &amp; pure banarasi bridal lehengas. 
+              Transparently priced within the <strong class="text-stone-900 dark:text-white font-bold">Rs. 10,000 – Rs. 90,000</strong> couture range.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <router-link 
+              to="/shop/Bridal" 
+              class="hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-stone-900 dark:text-white hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+            >
+              <span>Explore All 13+ Lehengas</span>
+              <span>→</span>
+            </router-link>
+
+            <div class="flex items-center gap-2">
+              <button 
+                @click="scrollBridal('left')" 
+                class="w-10 h-10 rounded-full border border-stone-300 dark:border-white/20 flex items-center justify-center text-stone-700 dark:text-white hover:bg-stone-900 hover:text-white transition-all cursor-pointer shadow-sm"
+                aria-label="Previous Bridal Lehenga"
+              >
+                <font-awesome-icon icon="fa-solid fa-chevron-left" class="text-xs" />
+              </button>
+              <button 
+                @click="scrollBridal('right')" 
+                class="w-10 h-10 rounded-full border border-stone-300 dark:border-white/20 flex items-center justify-center text-stone-700 dark:text-white hover:bg-stone-900 hover:text-white transition-all cursor-pointer shadow-sm"
+                aria-label="Next Bridal Lehenga"
+              >
+                <font-awesome-icon icon="fa-solid fa-chevron-right" class="text-xs" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bridal Cards Slider -->
+        <div 
+          ref="bridalSlider" 
+          class="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-3 scroll-smooth"
+        >
+          <div 
+            v-for="product in bridalProducts" 
+            :key="product.id"
+            @click="goToDetail(product)"
+            class="flex-none w-[270px] sm:w-[320px] snap-start space-y-4 cursor-pointer group bg-white dark:bg-stone-900/60 p-3.5 rounded-2xl border border-stone-200/70 dark:border-white/10 hover:border-amber-500/50 hover:shadow-xl transition-all duration-300"
+          >
+            <!-- Image Container -->
+            <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-stone-100 dark:bg-stone-800">
+              <span class="absolute top-3 left-3 bg-stone-900/90 text-amber-300 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md z-10 shadow-sm">
+                {{ product.brand }}
+              </span>
+              <span v-if="product.discount" class="absolute top-3 right-3 bg-red-600 text-white text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md z-10 shadow-sm">
+                -{{ product.discount }}% OFF
+              </span>
+              <img 
+                :src="product.image" 
+                :alt="product.name" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <span class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-[11px] uppercase tracking-widest rounded-lg text-center shadow-lg transition-colors">
+                  View Bridal Details →
+                </span>
+              </div>
+            </div>
+
+            <!-- Meta & Pricing -->
+            <div class="space-y-1.5 px-1">
+              <p class="text-[10px] uppercase font-bold tracking-wider text-amber-700 dark:text-amber-400">
+                {{ product.fabric || 'Pure Silk & Velvet Couture' }}
+              </p>
+              <h3 class="text-sm font-bold text-stone-900 dark:text-white line-clamp-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                {{ product.name }}
+              </h3>
+              <div class="flex items-baseline gap-2 pt-1">
+                <span class="text-base font-extrabold text-stone-900 dark:text-white">
+                  Rs. {{ Number(product.price).toLocaleString() }}
+                </span>
+                <span v-if="product.originalPrice" class="text-xs text-stone-400 line-through">
+                  Rs. {{ Number(product.originalPrice).toLocaleString() }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile View All CTA -->
+        <div class="text-center sm:hidden pt-2">
+          <router-link 
+            to="/shop/Bridal" 
+            class="inline-block px-6 py-3 bg-stone-900 text-white dark:bg-white dark:text-black font-extrabold text-xs uppercase tracking-widest rounded-xl"
+          >
+            Explore Complete Bridal Edit →
+          </router-link>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
          8. MARIA.B STYLE COUTURE SHOWCASE
     ═══════════════════════════════════════════ -->
     <section class="py-12 sm:py-16 px-4 sm:px-8 lg:px-12 bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5">
@@ -652,7 +771,7 @@
               </div>
               <div>
                 <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Bazif</p>
-                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.250,000</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.8,950</p>
               </div>
             </div>
 
@@ -668,7 +787,7 @@
               </div>
               <div>
                 <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Marjan</p>
-                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.195,000</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.7,850</p>
               </div>
             </div>
 
@@ -684,7 +803,7 @@
               </div>
               <div>
                 <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Velmira</p>
-                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.250,000</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.9,450</p>
               </div>
             </div>
 
@@ -700,7 +819,7 @@
               </div>
               <div>
                 <p class="text-xs font-bold text-stone-900 dark:text-white uppercase">Yarizeh</p>
-                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.150,000</p>
+                <p class="text-xs font-extrabold text-stone-900 dark:text-amber-400">Rs.6,950</p>
               </div>
             </div>
 
@@ -901,6 +1020,7 @@ import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import JewelrySponsored from "../assets/ai_new/bridal_highlight.jpg"
 import { blogs as allBlogs } from '../data/blogs'
+import { bridalCoutureProducts2026 } from '../constants/products'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -986,6 +1106,18 @@ const scrollCouture = (direction) => {
   if (coutureSlider.value) {
     const dist = direction === 'left' ? -300 : 300
     coutureSlider.value.scrollBy({ left: dist, behavior: 'smooth' })
+  }
+}
+
+const bridalSlider = ref(null)
+const bridalProducts = computed(() => {
+  return bridalCoutureProducts2026 || []
+})
+
+const scrollBridal = (direction) => {
+  if (bridalSlider.value) {
+    const dist = direction === 'left' ? -350 : 350
+    bridalSlider.value.scrollBy({ left: dist, behavior: 'smooth' })
   }
 }
 
