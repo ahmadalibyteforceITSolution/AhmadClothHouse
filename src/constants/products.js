@@ -91,6 +91,21 @@ import menFabric4 from "../assets/ai_new/men_fabric_4.jpg";
 import menFabric5 from "../assets/ai_new/men_fabric_5.jpg";
 import menFabric6 from "../assets/ai_new/men_fabric_6.jpg";
 
+// New 2026 Bridal Lehengas & Maria.B Couture
+import bridalCrimson from "../assets/bridal_2026/bridal_lehenga_crimson.jpg";
+import bridalEmerald from "../assets/bridal_2026/bridal_lehenga_emerald.jpg";
+import bridalChampagne from "../assets/bridal_2026/bridal_lehenga_champagne.jpg";
+import bridalRuby from "../assets/bridal_2026/bridal_lehenga_ruby.jpg";
+import bridalBlush from "../assets/bridal_2026/bridal_lehenga_blush.jpg";
+import bridalPlum from "../assets/bridal_2026/bridal_lehenga_plum.jpg";
+import bridalIvory from "../assets/bridal_2026/bridal_lehenga_ivory.jpg";
+import bridalRust from "../assets/bridal_2026/bridal_lehenga_rust.jpg";
+import bridalSapphire from "../assets/bridal_2026/bridal_lehenga_sapphire.jpg";
+import bridalRose from "../assets/bridal_2026/bridal_lehenga_rose.jpg";
+import mbBridalIceBlue from "../assets/bridal_2026/mariab_bridal_iceblue.jpg";
+import mbBridalCrimson from "../assets/bridal_2026/mariab_bridal_crimson.jpg";
+import mbBridalTeaPink from "../assets/bridal_2026/mariab_bridal_teapink.jpg";
+
 import hero1 from "../assets/ai/hero_1.png";
 import hero2 from "../assets/ai/hero_2.png";
 import hero3 from "../assets/ai/hero_3.png";
@@ -3505,6 +3520,360 @@ export const mariaBWinterProducts = [
   }
 ];
 
+export const bridalCoutureProducts2026 = [
+  {
+    id: "bridal-2026-crimson",
+    name: "Ahmad Signature Royal Crimson Velvet Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-001",
+    price: 185000,
+    originalPrice: 220000,
+    discount: 16,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalCrimson,
+    nature: "couture",
+    description: "Exquisite deep crimson red micro-velvet bridal lehenga hand-embellished with antique gold zardozi, kora dabka, nakshi, and seed pearls. Features intricate Mughal jaal and botanical motifs on the flared kalidaar skirt with a scalloped hem border.",
+    details: [
+      "Micro-Velvet Heavily Hand-Embroidered Kalidaar Skirt (4.5m Flare)",
+      "Pure Organza & Tissue Embroidered Dupatta with Scalloped Borders",
+      "Heavily Embellished Velvet Choli Blouse with Handcrafted Tassels",
+      "Pure Raw Silk Inner Lining and Can-Can Flare Layer",
+      "Antique Gold Zardozi, Kora Dabka & Seed Pearl Handwork"
+    ],
+    fabric: "Pure Micro Velvet & Tissue Organza",
+    care: ["Dry Clean Only", "Store in breathable garment bag", "Keep away from moisture"],
+    variants: [
+      { color: "Crimson Red", size: "Custom Bridal Stitching", image: bridalCrimson },
+      { color: "Crimson Red", size: "3-Piece Unstitched Bridal", image: bridalCrimson }
+    ]
+  },
+  {
+    id: "bridal-2026-emerald",
+    name: "Ahmad Couture Emerald Green Raw Silk Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-002",
+    price: 165000,
+    originalPrice: 195000,
+    discount: 15,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalEmerald,
+    nature: "couture",
+    description: "Regal emerald green pure raw silk bridal lehenga adorned with champagne tilla embroidery, gota patti borders, and delicate floral vines. Paired with an artisan handcrafted choli and an embroidered mint green sheer organza dupatta.",
+    details: [
+      "Pure Raw Silk Embroidered Kalidaar Lehenga (4.2m Flare)",
+      "Mint Green Sheer Organza Dupatta with Gold Tassels",
+      "Handcrafted Embellished Choli Blouse",
+      "Champagne Tilla, Gota Patti & Resham Work",
+      "Premium Silk Lining with Structured Can-Can"
+    ],
+    fabric: "Pure Raw Silk & Sheer Organza",
+    care: ["Dry Clean Only", "Handle delicate gota with care"],
+    variants: [
+      { color: "Emerald Green", size: "Custom Bridal Stitching", image: bridalEmerald },
+      { color: "Emerald Green", size: "3-Piece Unstitched Bridal", image: bridalEmerald }
+    ]
+  },
+  {
+    id: "bridal-2026-champagne",
+    name: "Ahmad Atelier Champagne Crystal & Pearl Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-003",
+    price: 195000,
+    originalPrice: 235000,
+    discount: 17,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalChampagne,
+    nature: "couture",
+    description: "Contemporary luxury champagne gold bridal lehenga in tissue silk, encrusted with shimmering Swarovski crystals, fine silver dabka, glass cut-dana, and seed pearls. Features a dramatic trailing sheer tulle cathedral train veil.",
+    details: [
+      "Tissue Silk Crystal-Encrusted Kalidaar Skirt",
+      "Dramatic 2.5-Meter Trailing Sheer Tulle Veil Train",
+      "Jewel-Encrusted Fitted Blouse with Pearl Details",
+      "Swarovski Crystals, Silver Dabka & Pearl Work",
+      "Full Satin Silk Lining with Heavy Can-Can"
+    ],
+    fabric: "Tissue Silk & Fine Tulle",
+    care: ["Specialist Dry Clean Only", "Do not steam directly on crystals"],
+    variants: [
+      { color: "Champagne Gold", size: "Custom Bridal Stitching", image: bridalChampagne },
+      { color: "Champagne Gold", size: "3-Piece Unstitched Bridal", image: bridalChampagne }
+    ]
+  },
+  {
+    id: "bridal-2026-ruby",
+    name: "Ahmad Heritage Ruby Red Banarasi Katan Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-004",
+    price: 178000,
+    originalPrice: 210000,
+    discount: 15,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalRuby,
+    nature: "couture",
+    description: "Grand ruby red banarasi katan silk bridal lehenga with heavy Mughal architectural jharoka and peacock motifs embroidered in antique gold tilla and kora dabka. Paired with double bridal dupattas including a heavy velvet chadar.",
+    details: [
+      "Pure Banarasi Katan Silk Skirt with Velvet Border Trim",
+      "Double Dupatta: Heavy Velvet Chadar & Net Matha Patti Veil",
+      "Richly Embellished Silk Choli Blouse",
+      "Traditional Kora Dabka & Antique Gold Tilla Work",
+      "Authentic Heritage Craftsmanship from Old Lahore"
+    ],
+    fabric: "Pure Banarasi Silk & Micro Velvet",
+    care: ["Dry Clean Only", "Store flat in muslin cloth"],
+    variants: [
+      { color: "Ruby Red", size: "Custom Bridal Stitching", image: bridalRuby },
+      { color: "Ruby Red", size: "3-Piece Unstitched Bridal", image: bridalRuby }
+    ]
+  },
+  {
+    id: "bridal-2026-blush",
+    name: "Ahmad Couture Ethereal Blush Pink Floral Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-005",
+    price: 158000,
+    originalPrice: 188000,
+    discount: 16,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalBlush,
+    nature: "couture",
+    description: "Ethereal pastel blush pink bridal lehenga crafted in delicate silk tulle and organza. Embellished with silver nakshi, iridescent sequins, Swarovski crystals, and soft pastel resham floral embroidery with a scalloped hemline.",
+    details: [
+      "Silk Tulle & Organza Multi-Kalidaar Flared Skirt",
+      "Embroidered Sheer Trailing Veil with Scalloped Edges",
+      "Hand-Embroidered Resham & Crystal Choli Blouse",
+      "Silver Nakshi, Iridescent Sequins & Crystal Beads",
+      "Soft Cotton Silk Lining with Light Weight Can-Can"
+    ],
+    fabric: "Silk Tulle & Organza",
+    care: ["Dry Clean Only", "Gentle handling recommended"],
+    variants: [
+      { color: "Blush Pink", size: "Custom Bridal Stitching", image: bridalBlush },
+      { color: "Blush Pink", size: "3-Piece Unstitched Bridal", image: bridalBlush }
+    ]
+  },
+  {
+    id: "bridal-2026-plum",
+    name: "Ahmad Luxury Imperial Plum Velvet & Peach Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-006",
+    price: 182000,
+    originalPrice: 215000,
+    discount: 15,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalPlum,
+    nature: "couture",
+    description: "Imperial plum purple velvet bridal lehenga with heavy antique gold marori, zardozi, and resham hand embroidery. Accented with an ethereal contrast peach net embroidered dupatta with gold kiran fringe trim.",
+    details: [
+      "Pure Heavy Velvet Kalidaar Skirt with Ornate Arches",
+      "Contrasting Peach Net Dupatta with Heavy Kiran Fringe",
+      "Embellished Plum Velvet Blouse with Long Sleeves",
+      "Antique Marori, Zardozi & Resham Threadwork",
+      "Full Can-Can Flare with Pure Silk Lining"
+    ],
+    fabric: "Pure Micro Velvet & Soft Net",
+    care: ["Dry Clean Only", "Steam press on reverse side only"],
+    variants: [
+      { color: "Plum Purple", size: "Custom Bridal Stitching", image: bridalPlum },
+      { color: "Plum Purple", size: "3-Piece Unstitched Bridal", image: bridalPlum }
+    ]
+  },
+  {
+    id: "bridal-2026-ivory",
+    name: "Ahmad Royal Court Ivory & Gold Tissue Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-007",
+    price: 198000,
+    originalPrice: 240000,
+    discount: 18,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalIvory,
+    nature: "couture",
+    description: "Luminous ivory and warm gold pure tissue organza bridal lehenga. Embellished with fine antique gold zardozi, seed pearls, kora dabka, and French knot floral clusters. Features an expansive sheer veil dupatta with scalloped matha patti border.",
+    details: [
+      "Pure Tissue Organza Skirt with 5-Meter Royal Flare",
+      "Expansive Trailing Veil with Handcrafted Scalloped Border",
+      "Jewel-Encrusted Ivory Choli with Intricate Sleeves",
+      "Antique Zardozi, Seed Pearls & French Knots",
+      "Double Layered Silk Lining and Structured Flare"
+    ],
+    fabric: "Pure Tissue Organza & Silk",
+    care: ["Dry Clean Only", "Keep folded in protective tissue wrap"],
+    variants: [
+      { color: "Ivory Gold", size: "Custom Bridal Stitching", image: bridalIvory },
+      { color: "Ivory Gold", size: "3-Piece Unstitched Bridal", image: bridalIvory }
+    ]
+  },
+  {
+    id: "bridal-2026-rust",
+    name: "Ahmad Heritage Rust Terracotta Banarasi Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-008",
+    price: 168000,
+    originalPrice: 198000,
+    discount: 15,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalRust,
+    nature: "couture",
+    description: "Traditional rust terracotta and burnt orange raw silk bridal lehenga with antique copper tilla work, gota kinari, marori threadwork, and banarasi motifs. Features a heavy multi-layered border and gold kiran edged dupatta.",
+    details: [
+      "Pure Raw Silk & Banarasi Weave Flared Skirt",
+      "Copper Tilla & Gota Kinari Dupatta with Kiran Borders",
+      "Artisan Handcrafted Fitted Rust Choli Blouse",
+      "Copper Dabka, Antique Tilla & Marori Stitching",
+      "Traditional Royal Court Heritage Silhouette"
+    ],
+    fabric: "Raw Silk & Banarasi Katan",
+    care: ["Dry Clean Only", "Avoid direct contact with perfumes"],
+    variants: [
+      { color: "Rust Terracotta", size: "Custom Bridal Stitching", image: bridalRust },
+      { color: "Rust Terracotta", size: "3-Piece Unstitched Bridal", image: bridalRust }
+    ]
+  },
+  {
+    id: "bridal-2026-sapphire",
+    name: "Ahmad Atelier Midnight Sapphire Velvet Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-009",
+    price: 175000,
+    originalPrice: 205000,
+    discount: 15,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalSapphire,
+    nature: "couture",
+    description: "Midnight sapphire blue velvet bridal lehenga with fine silver dabka, starry crystal work, nakshi embroidery, and celestial geometric floral jaal. Finished with an embroidered silver border and gossamer silver-blue organza veil.",
+    details: [
+      "Midnight Blue Micro-Velvet Skirt with Celestial Embroidery",
+      "Gossamer Silver-Blue Organza Veil with Crystal Details",
+      "Matching Velvet Blouse with Silver Nakshi Neckline",
+      "Silver Dabka, Cut-Dana & Starburst Crystal Work",
+      "Can-Can Flared Layer with Heavy Fall"
+    ],
+    fabric: "Micro Velvet & Pure Organza",
+    care: ["Dry Clean Only", "Store in hanging garment bag"],
+    variants: [
+      { color: "Sapphire Blue", size: "Custom Bridal Stitching", image: bridalSapphire },
+      { color: "Sapphire Blue", size: "3-Piece Unstitched Bridal", image: bridalSapphire }
+    ]
+  },
+  {
+    id: "bridal-2026-rose",
+    name: "Ahmad Couture Rosewood Magenta Silk Jacquard Bridal Lehenga",
+    brand: "Ahmadcloths Bridal",
+    sku: "ACH-BR-2026-010",
+    price: 162000,
+    originalPrice: 190000,
+    discount: 15,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: bridalRose,
+    nature: "couture",
+    description: "Rosewood magenta and deep pink silk jacquard bridal lehenga. Mastercrafted with antique gold tilla, badla, resham floral embroidery, and heavy scalloped hem border with matching choli and tassel-accented organza dupatta.",
+    details: [
+      "Silk Jacquard Flared Kalidaar Skirt with Scalloped Hem",
+      "Organza Embroidered Dupatta with Gota Patti & Tassels",
+      "Artisan Embroidered Choli Blouse",
+      "Antique Gold Tilla, Badla & Silk Resham Work",
+      "Cotton Silk Underlayer with Flare Can-Can"
+    ],
+    fabric: "Silk Jacquard & Organza",
+    care: ["Dry Clean Only", "Store in clean dry wardrobe"],
+    variants: [
+      { color: "Rosewood Magenta", size: "Custom Bridal Stitching", image: bridalRose },
+      { color: "Rosewood Magenta", size: "3-Piece Unstitched Bridal", image: bridalRose }
+    ]
+  },
+  {
+    id: "mariab-bridal-iceblue",
+    name: "Maria.B Signature Ice Blue 3D Crystal Bridal Couture",
+    brand: "Maria B",
+    sku: "MB-BR-2026-001",
+    price: 215000,
+    originalPrice: 260000,
+    discount: 17,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: mbBridalIceBlue,
+    nature: "couture",
+    description: "Maria.B signature luxury bridal couture in icy frost blue and silver tissue silk. Voluminous kalidaar lehenga skirt heavily encrusted with Swarovski crystals, silver dabka, 3D floral organza appliqués, and hanging pearl fringe.",
+    details: [
+      "Maria.B Original Couture 3D Floral Embellished Skirt",
+      "Sheer Cathedral Tulle Veil with Crystal-Dusted Edges",
+      "Scalloped Neckline Choli with Pearl Tassel Drop Hem",
+      "Swarovski Elements, Silver Dabka & 3D Organza Petals",
+      "Signature Maria.B Haute Couture Packaging"
+    ],
+    fabric: "Tissue Silk, French Lace & Tulle",
+    care: ["Specialist Dry Clean Only", "Do not iron directly on 3D florals"],
+    variants: [
+      { color: "Ice Blue", size: "Custom Bridal Stitching", image: mbBridalIceBlue },
+      { color: "Ice Blue", size: "3-Piece Unstitched Bridal", image: mbBridalIceBlue }
+    ]
+  },
+  {
+    id: "mariab-bridal-crimson",
+    name: "Maria.B Royal Heritage Crimson Velvet Bridal Lehenga",
+    brand: "Maria B",
+    sku: "MB-BR-2026-002",
+    price: 225000,
+    originalPrice: 275000,
+    discount: 18,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: mbBridalCrimson,
+    nature: "couture",
+    description: "Maria.B royal heritage crimson red velvet and banarasi silk bridal lehenga. Handcrafted with antique dull gold zardozi, kora dabka, nakshi work, resham florals, and architectural arches. Accompanied by a velvet chadar and net veil.",
+    details: [
+      "Maria.B Heritage Velvet Kalidaar with Mughal Arch Borders",
+      "Double Dupatta: Pure Velvet Shawl & Embroidered Net Veil",
+      "Heavily Embellished Velvet Choli and Matching Potli Pouch",
+      "Antique Dull Gold Zardozi, Kora Dabka & Resham",
+      "Pure Silk Finish Lining with Luxury Volume Can-Can"
+    ],
+    fabric: "Pure Velvet & Banarasi Silk",
+    care: ["Dry Clean Only", "Preserve in archival bridal box"],
+    variants: [
+      { color: "Crimson Red", size: "Custom Bridal Stitching", image: mbBridalCrimson },
+      { color: "Crimson Red", size: "3-Piece Unstitched Bridal", image: mbBridalCrimson }
+    ]
+  },
+  {
+    id: "mariab-bridal-teapink",
+    name: "Maria.B Antique Tea Pink Silk Organza Bridal Peshwas",
+    brand: "Maria B",
+    sku: "MB-BR-2026-003",
+    price: 205000,
+    originalPrice: 245000,
+    discount: 16,
+    category: "Bridal",
+    parentCategory: "Bridal Wear",
+    image: mbBridalTeaPink,
+    nature: "couture",
+    description: "Maria.B signature luxury bridal couture in antique tea pink and champagne gold pure silk organza. Flowing double-layered peshwas and flared lehenga embellished with seed pearls, dull gold kora dabka, crystal beads, and floral vine jaal.",
+    details: [
+      "Double-Layered Pure Silk Organza Peshwas & Lehenga Skirt",
+      "Scalloped Organza Dupatta with Gota Patti & Tassel Edges",
+      "Handcrafted Neckline and Sleeve Cuff Embroidery",
+      "Seed Pearls, Dull Gold Kora Dabka & Crystal Work",
+      "Authentic Maria.B Bridal Seal with Garment Certificate"
+    ],
+    fabric: "Pure Silk Organza & Raw Silk",
+    care: ["Dry Clean Only", "Handle seed pearls with delicate care"],
+    variants: [
+      { color: "Antique Tea Pink", size: "Custom Bridal Stitching", image: mbBridalTeaPink },
+      { color: "Antique Tea Pink", size: "3-Piece Unstitched Bridal", image: mbBridalTeaPink }
+    ]
+  }
+];
+
 export const products = [
   ...baseProducts,
   ...aiBrandProducts,
@@ -3517,5 +3886,6 @@ export const products = [
   ...realisticTenProducts,
   ...asimJofaReplicaProducts,
   ...binSaeedWinterProducts,
-  ...mariaBWinterProducts
+  ...mariaBWinterProducts,
+  ...bridalCoutureProducts2026
 ];
