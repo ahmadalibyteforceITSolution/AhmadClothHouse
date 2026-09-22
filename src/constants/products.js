@@ -4043,6 +4043,7 @@ export const sobiaWaseemChilmanProducts = [
 ];
 
 export const products = [
+  ...sobiaWaseemChilmanProducts,
   ...baseProducts,
   ...aiBrandProducts,
   ...heroProducts,
@@ -4055,6 +4056,5 @@ export const products = [
   ...asimJofaReplicaProducts,
   ...binSaeedWinterProducts,
   ...mariaBWinterProducts,
-  ...bridalCoutureProducts2026,
-  ...sobiaWaseemChilmanProducts
+  ...bridalCoutureProducts2026
 ];

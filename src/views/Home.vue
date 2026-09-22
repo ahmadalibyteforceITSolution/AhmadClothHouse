@@ -115,6 +115,21 @@
           ref="azadiSlider"
           class="w-full flex gap-3 sm:gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory px-5 sm:px-10 lg:px-14 py-2 scroll-smooth"
         >
+          <!-- Sobia Waseem Chilman Dhanak Top Collection -->
+          <div 
+            v-for="p in sobiaWaseemChilmanProducts" 
+            :key="p.id"
+            @click="goToDetail(p)"
+            class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10"
+          >
+            <img :src="p.image" :alt="p.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+              <span class="text-[8px] uppercase font-bold tracking-[0.4em] text-[#C9973A] mb-1">New In Store · Chilman Vol-3235</span>
+              <h3 class="text-sm sm:text-base font-normal tracking-[0.15em] text-white uppercase line-clamp-1">{{ p.name.split('-')[1]?.trim() || p.name }}</h3>
+              <p class="text-[10px] text-amber-300 font-bold mt-1 tracking-wider">Rs. {{ p.price.toLocaleString() }} · Pashmina Wool Shawl</p>
+            </div>
+          </div>
+
           <!-- Card 1: Maria B Velvet Couture -->
           <div @click="router.push('/shop/Velvet')"
             class="flex-none w-[240px] sm:w-[300px] md:w-[340px] aspect-[3/4] snap-start group relative overflow-hidden cursor-pointer border border-stone-100 dark:border-white/10">
@@ -866,7 +881,7 @@ import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import JewelrySponsored from "../assets/ai_new/bridal_highlight.jpg"
 import { blogs as allBlogs } from '../data/blogs'
-import { bridalCoutureProducts2026 } from '../constants/products'
+import { bridalCoutureProducts2026, sobiaWaseemChilmanProducts } from '../constants/products'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
