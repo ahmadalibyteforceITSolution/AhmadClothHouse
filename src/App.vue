@@ -260,6 +260,9 @@
       </transition-group>
     </div>
 
+    <!-- Global Social Floating Sidebar Dock (Shown across the website) -->
+    <SocialSidebar v-if="!isAdminRoute" />
+
     <!-- Scroll Progress Bar -->
     <div class="fixed top-0 left-0 h-[2px] bg-[var(--primary-gold)] z-[100001] transition-all duration-300"
       :style="{ width: scrollProgress + '%' }"></div>
@@ -397,6 +400,7 @@ import Header from './components/Home/Header.vue'
 import DailySEOAds from './components/DailySEOAds.vue'
 import Footer from './components/Footer.vue'
 import BottomNav from './components/BottomNav.vue'
+import SocialSidebar from './components/SocialSidebar.vue'
 import { useAuthStore } from './stores/auth'
 import { useProductsStore } from './stores/products'
 import { useLoadingStore } from './stores/loading'
@@ -704,6 +708,10 @@ const toggleListening = () => {
 const showHeaderFooter = computed(() => {
   const hideOn = ['login', 'signup', 'forgot-password', 'reset-password', 'admin-dashboard', 'dashboard', 'user-dashboard', 'checkout']
   return !hideOn.includes(route.name)
+})
+
+const isAdminRoute = computed(() => {
+  return route.name === 'admin-dashboard' || (route.path && route.path.startsWith('/admin'))
 })
 
 const scrollToTop = () => {
