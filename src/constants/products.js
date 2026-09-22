@@ -106,6 +106,14 @@ import mbBridalIceBlue from "../assets/bridal_2026/mariab_bridal_iceblue.jpg";
 import mbBridalCrimson from "../assets/bridal_2026/mariab_bridal_crimson.jpg";
 import mbBridalTeaPink from "../assets/bridal_2026/mariab_bridal_teapink.jpg";
 
+// Sobia Waseem Chilman Dhanak Winter Collection 2026
+import chilman01Teal from "../assets/chilman_dhanak/chilman_01_teal.jpg";
+import chilman02Plum from "../assets/chilman_dhanak/chilman_02_plum.jpg";
+import chilman04Brown from "../assets/chilman_dhanak/chilman_04_brown.jpg";
+import chilman06Mocha from "../assets/chilman_dhanak/chilman_06_mocha.jpg";
+import chilman07Grey from "../assets/chilman_dhanak/chilman_07_grey.jpg";
+import chilman08Maroon from "../assets/chilman_dhanak/chilman_08_maroon.jpg";
+
 import hero1 from "../assets/ai/hero_1.png";
 import hero2 from "../assets/ai/hero_2.png";
 import hero3 from "../assets/ai/hero_3.png";
@@ -3874,6 +3882,166 @@ export const bridalCoutureProducts2026 = [
   }
 ];
 
+// Sobia Waseem by Shani Arts - Chilman Dhanak Winter Collection Vol-3235
+export const sobiaWaseemChilmanProducts = [
+  {
+    id: "sw-chilman-01",
+    name: "Sobia Waseem Chilman Dhanak 3pc - Deep Teal Emerald (Article-01)",
+    brand: "Sobia Waseem",
+    sku: "SA-1202-01",
+    price: 6795,
+    originalPrice: 8495,
+    discount: 20,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: chilman01Teal,
+    nature: "premium",
+    description: "Sobia Waseem by Shani Arts - Chilman Winter Collection Vol-3235. Luxury 3-piece unstitched winter suit crafted in premium Chamki Dhanak fabric in Deep Teal / Bottle Green. Embellished with heavy intricate beige floral thread and resham embroidery on the neckline, sleeves, and cutwork scalloped daman. Accompanied by a printed pashmina wool shawl in dusty teal sage green with vintage floral motifs and matching plain dyed trousers.",
+    details: [
+      "Chamki Dhanak Fabric Heavily Embroidered Shirt Front, Neckline & Sleeves",
+      "Organza Scalloped Cutwork Embroidered Daman Lace Border",
+      "Printed Pashmina Wool Shawl with Vintage Floral Motifs (2.5m)",
+      "Plain Dyed Matching Dhanak Trouser (2.5m)",
+      "Collection: Chilman Vol-3235 | Article-01 | Code: SA-1202"
+    ],
+    fabric: "Chamki Dhanak & Pashmina Wool",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Deep Teal Green", size: "3-Piece Unstitched", image: chilman01Teal }
+    ]
+  },
+  {
+    id: "sw-chilman-02",
+    name: "Sobia Waseem Chilman Dhanak 3pc - Royal Plum Purple (Article-02)",
+    brand: "Sobia Waseem",
+    sku: "SA-1202-02",
+    price: 6795,
+    originalPrice: 8495,
+    discount: 20,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: chilman02Plum,
+    nature: "premium",
+    description: "Sobia Waseem by Shani Arts - Chilman Winter Collection Vol-3235. Opulent 3-piece winter ensemble in rich Royal Plum Purple Chamki Dhanak fabric. Features exquisite lilac and lavender floral resham embroidery on the neckline, sleeves, and daman border. Paired with a contrasting printed pashmina wool shawl in soft lilac lavender with deep violet floral vines and plain dyed trousers.",
+    details: [
+      "Chamki Dhanak Embroidered Front, Ornate Gala & Sleeves",
+      "Fine Scalloped Cutwork Embroidered Border",
+      "Digital Printed Pashmina Wool Shawl in Soft Lilac Lavender",
+      "Plain Dyed Plum Dhanak Trouser",
+      "Collection: Chilman Vol-3235 | Article-02 | Code: SA-1202"
+    ],
+    fabric: "Chamki Dhanak & Pashmina Wool",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Royal Plum Purple", size: "3-Piece Unstitched", image: chilman02Plum }
+    ]
+  },
+  {
+    id: "sw-chilman-04",
+    name: "Sobia Waseem Chilman Dhanak 3pc - Warm Cinnamon Brown (Article-04)",
+    brand: "Sobia Waseem",
+    sku: "SA-1202-04",
+    price: 6795,
+    originalPrice: 8495,
+    discount: 20,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: chilman04Brown,
+    nature: "premium",
+    description: "Sobia Waseem by Shani Arts - Chilman Winter Collection Vol-3235. Sophisticated warm cinnamon chocolate brown 3-piece winter suit in signature Chamki Dhanak fabric. Boasts intricate golden-beige and champagne thread embroidery across the neckline and scalloped hemline. Complete with a luxurious coffee tan printed pashmina wool shawl and plain dyed trousers.",
+    details: [
+      "Premium Chamki Dhanak Embroidered Shirt (Front & Sleeves)",
+      "Detailed Scalloped Embroidered Daman Border",
+      "Warm Digital Printed Pashmina Wool Shawl in Coffee Tan",
+      "Dyed Matching Dhanak Trouser",
+      "Collection: Chilman Vol-3235 | Article-04 | Code: SA-1202"
+    ],
+    fabric: "Chamki Dhanak & Pashmina Wool",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Cinnamon Chocolate Brown", size: "3-Piece Unstitched", image: chilman04Brown }
+    ]
+  },
+  {
+    id: "sw-chilman-06",
+    name: "Sobia Waseem Chilman Dhanak 3pc - Mocha Espresso Brown (Article-06)",
+    brand: "Sobia Waseem",
+    sku: "SA-1202-06",
+    price: 6795,
+    originalPrice: 8495,
+    discount: 20,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: chilman06Mocha,
+    nature: "premium",
+    description: "Sobia Waseem by Shani Arts - Chilman Winter Collection Vol-3235. Regal deep mocha espresso brown 3-piece winter dress in Chamki Dhanak fabric. Features rich golden-beige resham floral embroidery on the bodice, gala, and scalloped hem. Paired with a contrast oatmeal cream beige printed pashmina wool shawl with espresso floral jaal and plain dyed trousers.",
+    details: [
+      "Chamki Dhanak Embroidered Shirt with Ornate Neckline & Sleeve Borders",
+      "Fine Scalloped Cutwork Daman Lace",
+      "Contrast Ivory Oatmeal Printed Pashmina Wool Shawl",
+      "Plain Dyed Mocha Brown Trouser",
+      "Collection: Chilman Vol-3235 | Article-06 | Code: SA-1202"
+    ],
+    fabric: "Chamki Dhanak & Pashmina Wool",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Mocha Espresso Brown", size: "3-Piece Unstitched", image: chilman06Mocha }
+    ]
+  },
+  {
+    id: "sw-chilman-07",
+    name: "Sobia Waseem Chilman Dhanak 3pc - Charcoal Slate Grey (Article-07)",
+    brand: "Sobia Waseem",
+    sku: "SA-1202-07",
+    price: 6795,
+    originalPrice: 8495,
+    discount: 20,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: chilman07Grey,
+    nature: "premium",
+    description: "Sobia Waseem by Shani Arts - Chilman Winter Collection Vol-3235. Modern chic charcoal slate grey and black 3-piece winter suite in fine Chamki Dhanak fabric. Embellished with subtle silver-grey and white floral thread embroidery on the neckline, sleeves, and cutwork daman. Draped with a misty grey botanical printed pashmina wool shawl and plain dyed trousers.",
+    details: [
+      "Heavy Chamki Dhanak Embroidered Front & Neckline",
+      "Cutwork Scalloped Embroidered Daman Hem",
+      "Smoky Slate Grey Printed Pashmina Wool Shawl",
+      "Plain Dyed Charcoal Grey Trouser",
+      "Collection: Chilman Vol-3235 | Article-07 | Code: SA-1202"
+    ],
+    fabric: "Chamki Dhanak & Pashmina Wool",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Charcoal Slate Grey", size: "3-Piece Unstitched", image: chilman07Grey }
+    ]
+  },
+  {
+    id: "sw-chilman-08",
+    name: "Sobia Waseem Chilman Dhanak 3pc - Crimson Burgundy Maroon (Article-08)",
+    brand: "Sobia Waseem",
+    sku: "SA-1202-08",
+    price: 6795,
+    originalPrice: 8495,
+    discount: 20,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: chilman08Maroon,
+    nature: "premium",
+    description: "Sobia Waseem by Shani Arts - Chilman Winter Collection Vol-3235. Magnificent royal crimson burgundy maroon 3-piece winter couture suit in Chamki Dhanak fabric. Features heavy golden-cream resham floral embroidery on the gala, sleeves, and scalloped daman border. Styled with a delicate dusty rose pink printed pashmina wool shawl with wine floral motifs and plain dyed trousers.",
+    details: [
+      "Chamki Dhanak Embroidered Front, Neckline & Cuffs",
+      "Intricate Scalloped Embroidered Cutwork Daman",
+      "Dusty Rose Pink Printed Pashmina Wool Shawl with Burgundy Motifs",
+      "Plain Dyed Maroon Trouser",
+      "Collection: Chilman Vol-3235 | Article-08 | Code: SA-1202"
+    ],
+    fabric: "Chamki Dhanak & Pashmina Wool",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Crimson Burgundy Maroon", size: "3-Piece Unstitched", image: chilman08Maroon }
+    ]
+  }
+];
+
 export const products = [
   ...baseProducts,
   ...aiBrandProducts,
@@ -3887,5 +4055,6 @@ export const products = [
   ...asimJofaReplicaProducts,
   ...binSaeedWinterProducts,
   ...mariaBWinterProducts,
-  ...bridalCoutureProducts2026
+  ...bridalCoutureProducts2026,
+  ...sobiaWaseemChilmanProducts
 ];
