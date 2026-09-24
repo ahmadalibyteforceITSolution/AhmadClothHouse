@@ -114,6 +114,17 @@ import chilman06Mocha from "../assets/chilman_dhanak/chilman_06_mocha.jpg";
 import chilman07Grey from "../assets/chilman_dhanak/chilman_07_grey.jpg";
 import chilman08Maroon from "../assets/chilman_dhanak/chilman_08_maroon.jpg";
 
+// Bin Saeed Summer & Festive Collection 2026
+import bs105Geometric from "../assets/binsaeed_2026/bs_105_geometric.jpg";
+import bsAdp01Navy from "../assets/binsaeed_2026/bs_adp01_navy.jpg";
+import bsAnarkaliBlue from "../assets/binsaeed_2026/bs_anarkali_blue.jpg";
+import bs106Ajrak from "../assets/binsaeed_2026/bs_106_ajrak.jpg";
+import bsStripedGarden from "../assets/binsaeed_2026/bs_striped_garden.jpg";
+import bsAlkarimPlum from "../assets/binsaeed_2026/bs_alkarim_plum.jpg";
+import bsKhaddarOlive from "../assets/binsaeed_2026/bs_khaddar_olive.jpg";
+import bs110Mustard from "../assets/binsaeed_2026/bs_110_mustard.jpg";
+import bsFrockNoir from "../assets/binsaeed_2026/bs_frock_noir.jpg";
+
 import hero1 from "../assets/ai/hero_1.png";
 import hero2 from "../assets/ai/hero_2.png";
 import hero3 from "../assets/ai/hero_3.png";
@@ -4042,7 +4053,248 @@ export const sobiaWaseemChilmanProducts = [
   }
 ];
 
+// Bin Saeed Summer & Festive Collection 2026
+export const binSaeedNewLaunchProducts2026 = [
+  {
+    id: "bs-2026-anarkali",
+    name: "Bin Saeed Luxury Airjet Lawn Anarkali - Mediterranean Cobalt Blue (SS-BS-3PC-9052)",
+    brand: "Bin Saeed",
+    sku: "SS-BS-3PC-9052",
+    price: 3250,
+    originalPrice: 4500,
+    discount: 28,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bsAnarkaliBlue,
+    nature: "trending",
+    description: "Bin Saeed Luxury Airjet Lawn 90/88 Volume Summer 2026. A breathtaking ivory white floor-length flared Anarkali peshwas frock adorned with Mediterranean royal cobalt blue floral embroidery vines and intricate cutwork daman border. Paired with a delicate embroidered sheer dupatta with scalloped borders and plain dyed trousers.",
+    details: [
+      "Luxury Airjet Lawn 90/88 Heavy Embroidered Frock/Shirt (3.5m)",
+      "Mediterranean Royal Blue Floral Vine & Daman Cutwork Embroidery",
+      "Embroidered Sheer Net/Voile Dupatta with Scalloped Border (2.5m)",
+      "Dyed Airjet Lawn Trouser (2.5m)",
+      "Collection: Summer 2026 | Code: SS-BS-3PC-9052"
+    ],
+    fabric: "Airjet Lawn 90/88",
+    care: ["Hand Wash Cold", "Dry in Shade", "Iron at Medium Heat"],
+    variants: [
+      { color: "Ivory & Royal Cobalt Blue", size: "3-Piece Unstitched", image: bsAnarkaliBlue }
+    ]
+  },
+  {
+    id: "bs-2026-105",
+    name: "Bin Saeed BS-105 Digital Printed 3-Piece Lawn Suit - Monochrome Geometric",
+    brand: "Bin Saeed",
+    sku: "BS-105",
+    price: 3300,
+    originalPrice: 4200,
+    discount: 21,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs105Geometric,
+    nature: "premium",
+    description: "Bin Saeed Summer 2026 Collection. Contemporary monochrome black and white geometric tribal block printed 3-piece lawn suit. Accompanied by an embroidered neckline border and an opulent traditional Sindhi Ajrak-inspired geometric printed lawn dupatta in terracotta red, saffron, and black with matching printed trousers.",
+    details: [
+      "100% Premium Pure Cotton Digital Printed Lawn Shirt (3m)",
+      "Embroidered Neckline Placket Motif",
+      "Ajrak-Inspired Geometric Digital Printed Lawn Dupatta (2.5m)",
+      "Matching Geometric Printed Trouser (2.5m)",
+      "Collection: Summer 2026 | Code: BS-105"
+    ],
+    fabric: "Digital Printed Pure Cotton Lawn",
+    care: ["Hand Wash or Gentle Machine Wash", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Black & White Geometric", size: "3-Piece Unstitched", image: bs105Geometric }
+    ]
+  },
+  {
+    id: "bs-2026-adp01",
+    name: "Bin Saeed Luxury Airjet Lawn 90/88 - Navy Slate Leaf Print (SS-BS-ADP01-9022)",
+    brand: "Bin Saeed",
+    sku: "SS-BS-ADP01-9022",
+    price: 3250,
+    originalPrice: 4500,
+    discount: 28,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bsAdp01Navy,
+    nature: "trending",
+    description: "Bin Saeed Luxury Digital Print Airjet Lawn 90/88 Volume Summer 2026. Stylish European aesthetic featuring all-over stylized botanical leaf prints in rich navy blue and slate grey. Includes a coordinating printed lawn dupatta with zigzag chevron border and printed trouser.",
+    details: [
+      "Luxury Airjet Lawn 90/88 Digital Printed Shirt (3m)",
+      "Stylized Navy Blue Leaf Motif All-Over Pattern",
+      "Coordinating Printed Voile Lawn Dupatta with Chevron Borders (2.5m)",
+      "Matching Printed Lawn Trouser (2.5m)",
+      "Collection: Summer 2026 | Code: SS-BS-ADP01-9022"
+    ],
+    fabric: "Airjet Lawn 90/88",
+    care: ["Gentle Machine Wash", "Do Not Wring", "Iron on Reverse"],
+    variants: [
+      { color: "Navy Blue & Slate Grey", size: "3-Piece Unstitched", image: bsAdp01Navy }
+    ]
+  },
+  {
+    id: "bs-2026-106",
+    name: "Bin Saeed BS-106 Digital Printed 3-Piece Lawn Suit - Noir Chunri Ajrak",
+    brand: "Bin Saeed",
+    sku: "BS-106",
+    price: 3300,
+    originalPrice: 4200,
+    discount: 21,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs106Ajrak,
+    nature: "premium",
+    description: "Bin Saeed Summer 2026 Collection. Timeless noir black 3-piece digital printed lawn ensemble adorned with delicate white chunri and block prints across the shirt and trousers. Accented with an embroidered neck panel and a traditional multi-color mosaic printed dupatta.",
+    details: [
+      "Premium Digital Printed Lawn Shirt with Chunri Motifs (3m)",
+      "Embroidered Neckline Panel",
+      "Traditional Multi-Colored Mosaic Ajrak Printed Lawn Dupatta (2.5m)",
+      "Dyed Chunri Pattern Trouser (2.5m)",
+      "Collection: Summer 2026 | Code: BS-106"
+    ],
+    fabric: "Digital Printed Pure Cotton Lawn",
+    care: ["Hand Wash Cold", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Noir Black & White Chunri", size: "3-Piece Unstitched", image: bs106Ajrak }
+    ]
+  },
+  {
+    id: "bs-2026-110",
+    name: "Bin Saeed BS-110 Digital Printed 3-Piece Lawn Suit - Amber Mustard & Charcoal",
+    brand: "Bin Saeed",
+    sku: "BS-110",
+    price: 3300,
+    originalPrice: 4200,
+    discount: 21,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs110Mustard,
+    nature: "trending",
+    description: "Bin Saeed Summer 2026 Collection. Warm and vibrant amber mustard yellow 3-piece unstitched digital printed lawn suit. Showcases charcoal black botanical floral branch prints, an embroidered round neckline, and a contrasting sheer black printed lawn dupatta with gold-yellow striped borders.",
+    details: [
+      "Soft Breathable Digital Printed Lawn Shirt (3m)",
+      "Embroidered Gala & Sleeve Cuff Borders",
+      "Contrast Black & Gold Linear Striped Lawn Dupatta (2.5m)",
+      "Dyed Mustard Lawn Trouser (2.5m)",
+      "Collection: Summer 2026 | Code: BS-110"
+    ],
+    fabric: "Digital Printed Pure Cotton Lawn",
+    care: ["Machine Wash Cold", "Hang Dry in Shade", "Iron at Medium Temperature"],
+    variants: [
+      { color: "Amber Mustard & Charcoal", size: "3-Piece Unstitched", image: bs110Mustard }
+    ]
+  },
+  {
+    id: "bs-2026-frock",
+    name: "Bin Saeed 3-Piece Ready-to-Wear Lawn Frock - Noir Gold Embroidered",
+    brand: "Bin Saeed",
+    sku: "BS-RTW-009",
+    price: 3950,
+    originalPrice: 5500,
+    discount: 28,
+    category: "Pret",
+    parentCategory: "Women's Wear",
+    image: bsFrockNoir,
+    nature: "couture",
+    description: "Bin Saeed Ready-to-Wear Luxury Pret Collection. Stitched 3-piece flared cotton lawn frock in deep jet black. Accented with stylized champagne gold floral block motifs, embroidered scalloped lace trims on sleeves and daman, straight trousers, and an ethereal cream-beige floral printed lawn dupatta.",
+    details: [
+      "Stitched Flared A-Line Cotton Lawn Frock with Lace Detailing",
+      "Straight Fit Stitched Trousers with Scalloped Embroidery",
+      "Full-Length Printed Lawn Dupatta in Cream & Charcoal Floral Design (2.5m)",
+      "Ready to Wear - Available in Standard Sizes",
+      "Collection: Summer Pret 2026 | Code: BS-RTW-009"
+    ],
+    fabric: "Pure Cotton Lawn (Stitched Ready to Wear)",
+    care: ["Dry Clean or Delicate Hand Wash", "Iron on Reverse"],
+    variants: [
+      { color: "Noir Black & Champagne Gold", size: "Stitched Medium", image: bsFrockNoir },
+      { color: "Noir Black & Champagne Gold", size: "Stitched Small", image: bsFrockNoir },
+      { color: "Noir Black & Champagne Gold", size: "Stitched Large", image: bsFrockNoir }
+    ]
+  },
+  {
+    id: "bs-2026-striped",
+    name: "Bin Saeed 3-Piece Digital Printed Lawn 2026 - Rust Maroon & Mustard Stripes",
+    brand: "Bin Saeed",
+    sku: "BS-SUM-2026-05",
+    price: 3300,
+    originalPrice: 4200,
+    discount: 21,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bsStripedGarden,
+    nature: "standard",
+    description: "Bin Saeed Summer 2026 Collection. Earthy beige base adorned with vertical linear ethnic stripes in rust maroon, amber mustard, and black. Features an embroidered gala neckline and a matching printed striped dupatta with dyed trousers.",
+    details: [
+      "Digital Printed Pure Lawn Shirt (3m)",
+      "Embroidered Neckline Patti",
+      "Matching Multi-Striped Digital Printed Lawn Dupatta (2.5m)",
+      "Plain Dyed Lawn Trouser (2.5m)",
+      "Collection: Summer 2026"
+    ],
+    fabric: "Digital Printed Pure Cotton Lawn",
+    care: ["Machine Wash Cold", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Rust Maroon & Mustard Stripes", size: "3-Piece Unstitched", image: bsStripedGarden }
+    ]
+  },
+  {
+    id: "bs-2026-alkarim",
+    name: "Bin Saeed Printed Lawn Unstitched 2026 - Midnight Plum & Magenta Floral",
+    brand: "Bin Saeed",
+    sku: "BS-ALK-2026-01",
+    price: 3250,
+    originalPrice: 4200,
+    discount: 23,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bsAlkarimPlum,
+    nature: "standard",
+    description: "Bin Saeed Printed Lawn Unstitched 2026. Dark midnight navy and plum base enriched with dense magenta and lavender floral jaal. Styled with an embroidered neckline placket and a printed lawn dupatta featuring traditional chevron borders.",
+    details: [
+      "Unstitched Pure Cotton Lawn Shirt (3m)",
+      "Embroidered Neckline Border Motif",
+      "Printed Lawn Dupatta with Chevron Trim (2.5m)",
+      "Solid Dyed Matching Trouser (2.5m)",
+      "Collection: Summer 2026"
+    ],
+    fabric: "100% Pure Cotton Lawn",
+    care: ["Hand Wash Cold", "Dry in Shade", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Midnight Plum & Magenta", size: "3-Piece Unstitched", image: bsAlkarimPlum }
+    ]
+  },
+  {
+    id: "bs-2026-khaddar",
+    name: "Bin Saeed Libas-e-Khas 3-Piece Embroidered Khaddar Suit - Olive Khaki",
+    brand: "Bin Saeed",
+    sku: "BS-KHD-2026-03",
+    price: 3850,
+    originalPrice: 4950,
+    discount: 22,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: bsKhaddarOlive,
+    nature: "premium",
+    description: "Bin Saeed by Libas-e-Khas Winter 2026. Earthy olive khaki taupe tone in pure woven winter khaddar. Enriched with vibrant fuchsia pink and orange floral embroidered cutwork borders on the hemline and trouser, accompanied by a warm khaddar shawl with handmade tassel edges.",
+    details: [
+      "Pure Woven Winter Khaddar Shirt (3m)",
+      "Intricate Fuchsia & Orange Floral Cutwork Daman Embroidery",
+      "Embroidered Winter Khaddar Shawl with Tassels (2.5m)",
+      "Dyed Khaddar Trouser with Embroidered Motif (2.5m)",
+      "Collection: Winter Collection 2026"
+    ],
+    fabric: "Pure Woven Winter Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Tumble Dry", "Iron on Reverse"],
+    variants: [
+      { color: "Olive Khaki Taupe", size: "3-Piece Unstitched", image: bsKhaddarOlive }
+    ]
+  }
+];
+
 export const products = [
+  ...binSaeedNewLaunchProducts2026,
   ...sobiaWaseemChilmanProducts,
   ...baseProducts,
   ...aiBrandProducts,
