@@ -114,6 +114,270 @@ import chilman06Mocha from "../assets/chilman_dhanak/chilman_06_mocha.jpg";
 import chilman07Grey from "../assets/chilman_dhanak/chilman_07_grey.jpg";
 import chilman08Maroon from "../assets/chilman_dhanak/chilman_08_maroon.jpg";
 
+// Sana Safinaz Winter Luxury Velvet Collection 2026
+export const sanaSafinazVelvetProducts2026 = [
+  {
+    id: "ss-velvet-emerald",
+    name: "Sana Safinaz Luxury Velvet 2026 - Emerald Royale (SS-V26-01)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-01",
+    price: 11500,
+    originalPrice: 15500,
+    discount: 26,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetEmerald,
+    nature: "trending",
+    description: "Sana Safinaz Luxury Velvet Winter Festive Collection 2026. A majestic deep emerald green micro-velvet shirt embellished with intricate antique gold tilla, zari, and delicate gota thread embroidery along the neckline and hem. Paired with tonal emerald velvet straight trousers and a heavy embroidered organza dupatta with scalloped gold borders.",
+    details: [
+      "Pure Micro Velvet 9000 Embroidered Front and Sleeves (3m)",
+      "Antique Gold Tilla and Zari Embroidered Neckline and Daman Border",
+      "Heavily Embroidered Organza Dupatta with Scalloped Edges (2.5m)",
+      "Matching Micro Velvet Dyed Trousers (2.5m)",
+      "Collection: Winter Festive Velvet 2026 | Code: SS-V26-01"
+    ],
+    fabric: "Pure Micro Velvet 9000 and Embroidered Organza",
+    care: ["Dry Clean Only", "Do Not Bleach", "Steam Iron on Reverse Only"],
+    variants: [
+      { color: "Deep Emerald Green", size: "3-Piece Unstitched", image: ssVelvetEmerald }
+    ]
+  },
+  {
+    id: "ss-velvet-maroon",
+    name: "Sana Safinaz Winter Velvet 2026 - Crimson Heritage (SS-V26-02)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-02",
+    price: 11950,
+    originalPrice: 16000,
+    discount: 25,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetMaroon,
+    nature: "bestseller",
+    description: "Sana Safinaz Winter Velvet 2026 Collection. A regal deep crimson maroon velvet long kurta adorned with intricate antique gold zardozi, dabka, and resham thread embroidery on the neckline, cuffs, and hemline. Paired with wide-leg velvet culottes and a heavily embroidered contrasting mustard gold tissue-silk shawl draped over the shoulders.",
+    details: [
+      "Embroidered Micro Velvet 9000 Long Kurta (3m)",
+      "Hand-crafted Antique Gold Zardozi and Dabka Neckline",
+      "Contrasting Mustard Gold Tissue-Silk Embroidered Shawl (2.5m)",
+      "Wide-leg Micro Velvet Trousers / Culottes (2.5m)",
+      "Collection: Winter Velvet 2026 | Code: SS-V26-02"
+    ],
+    fabric: "Micro Velvet 9000 and Tissue Silk Shawl",
+    care: ["Dry Clean Only", "Steam Iron Only", "Store in Garment Bag"],
+    variants: [
+      { color: "Crimson Maroon and Mustard Gold", size: "3-Piece Unstitched", image: ssVelvetMaroon }
+    ]
+  },
+  {
+    id: "ss-velvet-sapphire",
+    name: "Sana Safinaz Luxury Velvet 2026 - Sapphire Diadem (SS-V26-03)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-03",
+    price: 10850,
+    originalPrice: 14500,
+    discount: 25,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetSapphire,
+    nature: "premium",
+    description: "Sana Safinaz Winter Campaign 2026. A regal midnight sapphire blue velvet straight shirt decorated with intricate silver zari, resham threadwork, and delicate seed pearls across the bodice and sleeves. Paired with embroidered cigarette velvet pants and an ethereal ice-blue heavily embroidered organza dupatta with scalloped borders.",
+    details: [
+      "Deluxe Micro Velvet 9000 Embroidered Front (3m)",
+      "Fine Silver Tilla, Resham and Seed Pearl Work",
+      "Ice-Blue Embroidered Organza Dupatta with Scalloped Borders (2.5m)",
+      "Dyed Micro Velvet Cigarette Pants (2.5m)",
+      "Collection: Winter Velvet 2026 | Code: SS-V26-03"
+    ],
+    fabric: "Deluxe Micro Velvet 9000 and Organza",
+    care: ["Dry Clean Only", "Handle Delicate Pearls with Care", "Steam Iron on Reverse"],
+    variants: [
+      { color: "Midnight Sapphire Blue and Ice Blue", size: "3-Piece Unstitched", image: ssVelvetSapphire }
+    ]
+  },
+  {
+    id: "ss-velvet-black",
+    name: "Sana Safinaz Signature Velvet 2026 - Noir Opulence (SS-V26-04)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-04",
+    price: 12500,
+    originalPrice: 17000,
+    discount: 26,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetBlack,
+    nature: "trending",
+    description: "Sana Safinaz Signature Winter Velvet 2026. An iconic jet black plush velvet formal kurta completely covered in fine antique gold zardozi, marori work, and sequins on the neckline, sleeves, and hem. Layered with a heavy matching black velvet shawl featuring intricate Kashmiri tilla embroidery borders and gold tassels.",
+    details: [
+      "Premium Plush Micro Velvet 9000 Embroidered Kurta (3m)",
+      "Traditional Kashmiri Marori and Zardozi Threadwork",
+      "Heavy Pure Velvet Embroidered Shawl with Tassels (2.75m)",
+      "Plush Velvet Matching Trousers (2.5m)",
+      "Collection: Signature Velvet 2026 | Code: SS-V26-04"
+    ],
+    fabric: "Plush Micro Velvet 9000",
+    care: ["Dry Clean Only", "Do Not Wring", "Steam Press Only"],
+    variants: [
+      { color: "Jet Black and Antique Gold", size: "3-Piece Unstitched", image: ssVelvetBlack }
+    ]
+  },
+  {
+    id: "ss-velvet-plum",
+    name: "Sana Safinaz Winter Festive Velvet 2026 - Imperial Plum (SS-V26-05)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-05",
+    price: 10950,
+    originalPrice: 14900,
+    discount: 27,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetPlum,
+    nature: "popular",
+    description: "Sana Safinaz Velvet 2026 Festive Edition. A rich royal plum purple velvet long shirt featuring elaborate multi-color resham floral embroidery mixed with antique bronze tilla along the neckline and hem. Matched with straight cut plum velvet trousers and an embroidered dusty rose organza dupatta.",
+    details: [
+      "Micro Velvet 9000 Multi-Color Resham Embroidered Shirt (3m)",
+      "Antique Bronze Tilla and Scallop Cutwork Daman Border",
+      "Embroidered Dusty Rose Organza Dupatta with Floral Sprays (2.5m)",
+      "Dyed Micro Velvet Straight Trousers (2.5m)",
+      "Collection: Festive Velvet 2026 | Code: SS-V26-05"
+    ],
+    fabric: "Micro Velvet 9000 and Organza",
+    care: ["Dry Clean Only", "Steam Press on Reverse", "Store Flat"],
+    variants: [
+      { color: "Royal Plum and Dusty Rose", size: "3-Piece Unstitched", image: ssVelvetPlum }
+    ]
+  },
+  {
+    id: "ss-velvet-teal",
+    name: "Sana Safinaz Festive Velvet 2026 - Peacock Majesty (SS-V26-06)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-06",
+    price: 11200,
+    originalPrice: 15000,
+    discount: 25,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetTeal,
+    nature: "trending",
+    description: "Sana Safinaz Winter Festive Velvet 2026. A deep jewel-toned peacock teal green velvet kurta embellished with ornate copper-gold tilla embroidery, gota patti work, and delicate sequins on the bodice and sleeve cuffs. Complemented by matching teal velvet trousers and a luxurious gold woven banarasi zari shawl.",
+    details: [
+      "Pure Micro Velvet 9000 Embroidered Front and Sleeves (3m)",
+      "Ornate Copper-Gold Gota Patti and Tilla Detailing",
+      "Pure Woven Banarasi Zari Brocade Shawl (2.5m)",
+      "Dyed Micro Velvet Straight Pants (2.5m)",
+      "Collection: Festive Velvet 2026 | Code: SS-V26-06"
+    ],
+    fabric: "Micro Velvet 9000 and Banarasi Zari Brocade",
+    care: ["Dry Clean Only", "Do Not Steam Banarasi Directly", "Iron on Reverse"],
+    variants: [
+      { color: "Peacock Teal and Antique Gold", size: "3-Piece Unstitched", image: ssVelvetTeal }
+    ]
+  },
+  {
+    id: "ss-velvet-burgundy",
+    name: "Sana Safinaz Velvet Kalidar Anarkali 2026 - Burgundy Royale (SS-V26-07)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-07",
+    price: 13500,
+    originalPrice: 18500,
+    discount: 27,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetBurgundy,
+    nature: "exclusive",
+    description: "Sana Safinaz Luxury Velvet 2026 Festive Couture. An opulent deep burgundy wine-colored micro-velvet floor-length Anarkali pishwas gown. Heavily embellished bodice with antique gold tilla, dabka, fine zardozi work, and sequin spray down the flared kalis. Draped with an embroidered matching velvet dupatta with gold fringed borders.",
+    details: [
+      "Heavy Flared Micro Velvet 9000 Anarkali Pishwas (16 Kalis / 4.5m Flare)",
+      "Antique Gold Tilla, Dabka and Sequined Bodice",
+      "Matching Micro Velvet Heavy Embroidered Shawl with Fringes (2.75m)",
+      "Churidar / Trouser Fabric Included (2.5m)",
+      "Collection: Festive Couture 2026 | Code: SS-V26-07"
+    ],
+    fabric: "Heavy Flared Micro Velvet 9000",
+    care: ["Professional Dry Clean Only", "Store on Padded Hangers", "Steam Only"],
+    variants: [
+      { color: "Deep Burgundy Wine", size: "3-Piece Stitched / Unstitched Gown", image: ssVelvetBurgundy }
+    ]
+  },
+  {
+    id: "ss-velvet-rust",
+    name: "Sana Safinaz Luxury Velvet 2026 - Rust Copper Elegance (SS-V26-08)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-08",
+    price: 10500,
+    originalPrice: 14000,
+    discount: 25,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetRust,
+    nature: "bestseller",
+    description: "Sana Safinaz Winter Velvet 2026 Lookbook. An earthy burnt rust copper velvet straight kurta richly embroidered in antique dull gold marori and threadwork around the boat neckline, sleeves, and slits. Paired with tonal straight velvet trousers and a contrasting olive moss green velvet shawl with heavy gold embroidered palu borders.",
+    details: [
+      "Micro Velvet 9000 Embroidered Front, Sleeves and Side Slits (3m)",
+      "Antique Dull Gold Marori and Threadwork",
+      "Contrasting Olive Moss Green Micro Velvet Embroidered Shawl (2.5m)",
+      "Dyed Micro Velvet Straight Trousers (2.5m)",
+      "Collection: Winter Velvet 2026 | Code: SS-V26-08"
+    ],
+    fabric: "Micro Velvet 9000",
+    care: ["Dry Clean Only", "Steam Press on Reverse", "Do Not Bleach"],
+    variants: [
+      { color: "Burnt Rust Copper and Olive Green", size: "3-Piece Unstitched", image: ssVelvetRust }
+    ]
+  },
+  {
+    id: "ss-velvet-rose",
+    name: "Sana Safinaz Winter Velvet 2026 - Dusty Rose Splendor (SS-V26-09)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-09",
+    price: 10750,
+    originalPrice: 14500,
+    discount: 26,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetRose,
+    nature: "new",
+    description: "Sana Safinaz Luxury Velvet 2026 Collection. An enchanting dusty antique rose pink velvet kurta adorned with champagne gold and silver tilla work, crystal cut-dana embellishments, and pearl edging on the neckline and hem. Paired with tonal velvet straight pants and a sheer diaphanous silver embroidered organza dupatta.",
+    details: [
+      "Soft Micro Velvet 9000 Embroidered Kurta with Cut-Dana (3m)",
+      "Champagne Gold and Silver Tilla Work with Pearl Detailing",
+      "Embroidered Silver Zari Organza Dupatta (2.5m)",
+      "Dyed Velvet Straight Cut Pants (2.5m)",
+      "Collection: Winter Velvet 2026 | Code: SS-V26-09"
+    ],
+    fabric: "Micro Velvet 9000 and Shimmer Organza",
+    care: ["Dry Clean Only", "Steam Press Only", "Do Not Machine Wash"],
+    variants: [
+      { color: "Dusty Antique Rose Pink", size: "3-Piece Unstitched", image: ssVelvetRose }
+    ]
+  },
+  {
+    id: "ss-velvet-indigo",
+    name: "Sana Safinaz Luxury Velvet 2026 - Indigo Sultanate (SS-V26-10)",
+    brand: "Sana Safinaz",
+    sku: "SS-V26-10",
+    price: 11800,
+    originalPrice: 16000,
+    discount: 26,
+    category: "Velvet",
+    parentCategory: "Women's Wear",
+    image: ssVelvetIndigo,
+    nature: "trending",
+    description: "Sana Safinaz Winter Luxury Velvet Collection 2026. A regal midnight indigo blue plush velvet straight shirt accented with rich antique gold marori, zardozi work, and subtle jewel-toned resham accents along the neckline and daman. Layered with an extravagant contrasting rich ruby crimson velvet shawl featuring ornate gold tilla embroidery along all four borders.",
+    details: [
+      "Plush Micro Velvet 9000 Embroidered Shirt (3m)",
+      "Antique Gold Marori, Zardozi and Resham Neckline / Border",
+      "Contrasting Ruby Crimson Heavy Embroidered Velvet Shawl (2.75m)",
+      "Micro Velvet Dyed Trousers (2.5m)",
+      "Collection: Luxury Velvet 2026 | Code: SS-V26-10"
+    ],
+    fabric: "Plush Micro Velvet 9000",
+    care: ["Dry Clean Only", "Store in Garment Bag", "Steam Press on Reverse"],
+    variants: [
+      { color: "Midnight Indigo Blue and Ruby Crimson", size: "3-Piece Unstitched", image: ssVelvetIndigo }
+    ]
+  }
+];
+
 // Bin Saeed Summer & Festive Collection 2026
 import bs105Geometric from "../assets/binsaeed_2026/bs_105_geometric.jpg";
 import bsAdp01Navy from "../assets/binsaeed_2026/bs_adp01_navy.jpg";
@@ -124,6 +388,18 @@ import bsAlkarimPlum from "../assets/binsaeed_2026/bs_alkarim_plum.jpg";
 import bsKhaddarOlive from "../assets/binsaeed_2026/bs_khaddar_olive.jpg";
 import bs110Mustard from "../assets/binsaeed_2026/bs_110_mustard.jpg";
 import bsFrockNoir from "../assets/binsaeed_2026/bs_frock_noir.jpg";
+
+// Sana Safinaz Winter Luxury Velvet Collection 2026
+import ssVelvetEmerald from "../assets/sanasafinaz_velvet_2026/ss_velvet_emerald.jpg";
+import ssVelvetMaroon from "../assets/sanasafinaz_velvet_2026/ss_velvet_maroon.jpg";
+import ssVelvetSapphire from "../assets/sanasafinaz_velvet_2026/ss_velvet_sapphire.jpg";
+import ssVelvetBlack from "../assets/sanasafinaz_velvet_2026/ss_velvet_black.jpg";
+import ssVelvetPlum from "../assets/sanasafinaz_velvet_2026/ss_velvet_plum.jpg";
+import ssVelvetTeal from "../assets/sanasafinaz_velvet_2026/ss_velvet_teal.jpg";
+import ssVelvetBurgundy from "../assets/sanasafinaz_velvet_2026/ss_velvet_burgundy.jpg";
+import ssVelvetRust from "../assets/sanasafinaz_velvet_2026/ss_velvet_rust.jpg";
+import ssVelvetRose from "../assets/sanasafinaz_velvet_2026/ss_velvet_rose.jpg";
+import ssVelvetIndigo from "../assets/sanasafinaz_velvet_2026/ss_velvet_indigo.jpg";
 
 import hero1 from "../assets/ai/hero_1.png";
 import hero2 from "../assets/ai/hero_2.png";
@@ -4294,6 +4570,7 @@ export const binSaeedNewLaunchProducts2026 = [
 ];
 
 export const products = [
+  ...sanaSafinazVelvetProducts2026,
   ...binSaeedNewLaunchProducts2026,
   ...sobiaWaseemChilmanProducts,
   ...baseProducts,
