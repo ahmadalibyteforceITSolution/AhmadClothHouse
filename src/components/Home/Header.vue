@@ -2,15 +2,32 @@
   <header class="site-header w-full sticky top-0 z-[9999]" :class="{ 'header-scrolled': isScrolled }">
 
     <!-- ══════════ TIER 1 — Luxury Promo Marquee ══════════ -->
-    <div class="announcement-bar">
-      <div class="marquee-track flex whitespace-nowrap">
+    <div class="announcement-bar flex items-center justify-between">
+      <div class="marquee-track flex whitespace-nowrap overflow-hidden flex-1">
         <span class="marquee-inner">
-          <span class="ann-text mx-16">✦ NEW COLLECTION 2026 — ARTISANAL COUTURE NOW AVAILABLE ✦</span>
-          <span class="ann-text mx-16">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
-          <span class="ann-text mx-16">✦ BESPOKE BRIDAL CONSULTATIONS — BOOK YOUR APPOINTMENT ✦</span>
-          <span class="ann-text mx-16">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
+          <span class="ann-text mx-10">✦ NEW COLLECTION 2026 — ARTISANAL COUTURE NOW AVAILABLE ✦</span>
+          <span class="ann-text mx-10">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
+          <a href="tel:03244902607" class="ann-text ann-phone-link mx-10 inline-flex items-center gap-2 text-amber-400 hover:text-white transition-colors cursor-pointer" title="Call 03244902607">
+            <font-awesome-icon icon="fa-solid fa-phone" class="text-[10px] text-amber-400" />
+            <span>ORDER / INQUIRY: 03244902607</span>
+          </a>
+          <span class="ann-text mx-10">✦ BESPOKE BRIDAL CONSULTATIONS — BOOK YOUR APPOINTMENT ✦</span>
+          <span class="ann-text mx-10">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
+          <a href="tel:03244902607" class="ann-text ann-phone-link mx-10 inline-flex items-center gap-2 text-amber-400 hover:text-white transition-colors cursor-pointer" title="Call 03244902607">
+            <font-awesome-icon icon="fa-solid fa-phone" class="text-[10px] text-amber-400" />
+            <span>ORDER / INQUIRY: 03244902607</span>
+          </a>
         </span>
       </div>
+
+      <!-- Quick Dialer Phone Button on Announcement Bar -->
+      <a href="tel:03244902607" 
+         class="ann-dialer-btn flex items-center gap-1.5 bg-[#d4af37] hover:bg-white text-black px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-black tracking-wider uppercase transition-all duration-300 shrink-0 ml-3 shadow-md z-10 hover:scale-105"
+         title="Call 03244902607"
+         aria-label="Call 03244902607">
+        <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px]" />
+        <span>03244902607</span>
+      </a>
     </div>
 
     <!-- ══════════ TIER 2 — Maria B Black Top Bar ══════════ -->
@@ -20,6 +37,11 @@
         <router-link to="/contact" class="hover:text-white transition-colors">ORDER TRACKING</router-link>
         <span class="text-stone-700">|</span>
         <router-link to="/contact" class="hover:text-white transition-colors">STORE LOCATIONS</router-link>
+        <span class="text-stone-700">|</span>
+        <a href="tel:03244902607" class="hover:text-amber-400 transition-colors inline-flex items-center gap-1.5 text-amber-400" title="Direct Phone Dialer">
+          <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px]" />
+          <span>03244902607</span>
+        </a>
       </div>
 
       <!-- Right: Social Links -->
@@ -777,6 +799,18 @@ const goToHome = () => {
 @keyframes marqueeScroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+.marquee-track:hover .marquee-inner {
+  animation-play-state: paused;
+}
+
+.ann-phone-link {
+  text-decoration: none;
+}
+
+.ann-dialer-btn {
+  text-decoration: none;
 }
 
 /* Logo */

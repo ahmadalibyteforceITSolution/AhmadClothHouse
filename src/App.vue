@@ -166,75 +166,15 @@
 
     <Footer v-if="showHeaderFooter" />
 
-    <!-- Unified Floating Action Panel (Right Side) -->
-    <transition name="fade-scale">
-      <div v-if="scrollY > 500" class="fixed bottom-24 right-5 sm:bottom-10 sm:right-10 flex flex-col gap-3 z-[9999] items-center">
-        <!-- Back to Top Button -->
-        <button class="back-to-top-circle" @click="scrollToTop" aria-label="Back to Top">
-          <font-awesome-icon icon="fa-solid fa-arrow-up" />
-        </button>
-
-        <!-- Chatbot Button -->
-        <button @click="toggleChatbot" class="contact-btn chatbot-btn" aria-label="Chat with AI">
-          <div class="relative">
-            <font-awesome-icon :icon="isChatbotOpen ? 'fa-solid fa-times' : 'fa-solid fa-robot'" />
-            <span v-if="!isChatbotOpen" class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-black animate-pulse"></span>
-          </div>
-        </button>
-      </div>
-    </transition>
-
-    <!-- Chatbot Window -->
-    <transition name="fade-scale">
-      <div v-if="isChatbotOpen" class="chatbot-window">
-        <div class="chatbot-header">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center">
-              <font-awesome-icon icon="fa-solid fa-robot" class="text-amber-500" />
-            </div>
-            <div>
-              <h3 class="text-sm font-bold text-white">AI Assistant</h3>
-              <span class="text-[10px] text-green-500 flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                Online
-              </span>
-            </div>
-          </div>
-          <button @click="toggleChatbot" class="text-white/50 hover:text-white" aria-label="Close Chat">
-            <font-awesome-icon icon="fa-solid fa-times" />
-          </button>
-        </div>
-
-        <div class="chatbot-messages" ref="messageContainer">
-          <div v-for="(msg, idx) in chatMessages" :key="idx"
-            :class="['message', msg.role === 'user' ? 'user-message' : 'bot-message']">
-            <div class="message-content">{{ msg.text }}</div>
-            <div v-if="msg.role === 'bot' && msg.text" class="tts-btn" @click="speakText(msg.text)" aria-label="Listen to message">
-              <font-awesome-icon icon="fa-solid fa-volume-up" />
-            </div>
-          </div>
-          <div v-if="isTyping" class="bot-message typing">
-            <div class="flex gap-1">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="chatbot-input">
-          <div class="input-wrapper">
-            <input v-model="userInput" @keyup.enter="sendMessage" placeholder="Type a message..." class="chat-input" />
-            <button @click="toggleListening" :class="['stt-btn', { 'listening': isListening }]" title="Voice to Text" aria-label="Voice to Text">
-              <font-awesome-icon :icon="isListening ? 'fa-solid fa-microphone' : 'fa-solid fa-microphone-slash'" />
-            </button>
-          </div>
-          <button @click="sendMessage" class="send-btn" aria-label="Send Message">
-            <font-awesome-icon icon="fa-solid fa-paper-plane" />
-          </button>
-        </div>
-      </div>
-    </transition>
+    <!-- Floating Phone Dialer (Right Side) - Direct Call to 03244902607 -->
+    <div class="fixed bottom-24 right-5 sm:bottom-10 sm:right-10 z-[9999] flex flex-col items-center">
+      <a href="tel:03244902607" 
+         class="phone-dial-main-btn shadow-[0_10px_30px_rgba(212,175,55,0.45)] hover:shadow-[0_15px_40px_rgba(212,175,55,0.7)]" 
+         aria-label="Call 03244902607"
+         title="Call 03244902607">
+        <font-awesome-icon icon="fa-solid fa-phone" class="phone-dial-icon" />
+      </a>
+    </div>
 
     <!-- Floating WhatsApp Left Side -->
     <div class="fixed bottom-24 left-5 sm:bottom-10 sm:left-10 z-[9999] flex flex-col-reverse items-start gap-4">
@@ -496,212 +436,6 @@ const handleScroll = () => {
     if (isPanelOpen.value && scrollY.value > 20) {
       closeAhmadMenu()
     }
-  }
-}
-
-// Chatbot State
-const isChatbotOpen = ref(false)
-const userInput = ref('')
-const isTyping = ref(false)
-const isListening = ref(false)
-const messageContainer = ref(null)
-const chatMessages = ref([
-  { role: 'bot', text: 'Welcome to Ahmad Clothes House! I am your luxury fashion assistant. How can I help you explore our collections, find a boutique, or arrange a bespoke consultation today?' }
-])
-
-const toggleChatbot = () => {
-  isChatbotOpen.value = !isChatbotOpen.value
-}
-
-const scrollToBottom = async () => {
-  await nextTick()
-  if (messageContainer.value) {
-    messageContainer.value.scrollTop = messageContainer.value.scrollHeight
-  }
-}
-
-const sendMessage = async () => {
-  if (!userInput.value.trim()) return
-
-  const userMsg = userInput.value
-  chatMessages.value.push({ role: 'user', text: userMsg })
-  userInput.value = ''
-  scrollToBottom()
-
-  isTyping.value = true
-
-  // AI Logic - Local Implementation
-  setTimeout(() => {
-    const botReply = getAIResponse(userMsg)
-    chatMessages.value.push({ role: 'bot', text: botReply })
-    isTyping.value = false
-    scrollToBottom()
-    speakText(botReply)
-  }, 1000)
-}
-
-const getAIResponse = (message) => {
-  const msg = message.toLowerCase()
-  
-  // ═══════════════════════════════════════════
-  // BRAND KNOWLEDGE BASE (COMPREHENSIVE)
-  // ═══════════════════════════════════════════
-  const brand = {
-    name: "Ahmad Clothes House",
-    established: "2026",
-    location: "Bagrian Chowk, Near Afzal Electronics (Front), Lahore, Pakistan",
-    contact: "0341 6887454",
-    whatsapp: "+92 341 6887454",
-    email: "ahmadalihafeez24@gmail.com",
-    specialization: "Artisanal unstitched fabrics, luxury apparel, and bridal couture.",
-    shipping: "Worldwide shipping available (USA, UK, Canada, UAE, Australia, etc.).",
-    stats: "5,000+ exclusive designs and 100,000+ loyal patrons.",
-    boutiques: [
-      { city: "London", address: "24 Savile Row, Mayfair" },
-      { city: "Paris", address: "12 Rue Royale, 8th Arr." }
-    ],
-    services: [
-      "Bespoke Bridal: Tailored couture for high-end weddings.",
-      "Private Consultations: Personalized design sessions.",
-      "Global Delivery: Premium care shipping worldwide."
-    ]
-  }
-
-  const socialLinks = {
-    instagram: "https://www.instagram.com/ahmadclothfabrics_aroma/",
-    facebook: "https://www.facebook.com/profile.php?id=61573629329844",
-    youtube: "https://www.youtube.com/@ahmadClothesfabrics_aroma",
-    tiktok: "https://www.tiktok.com/@theahmadfabrices_aroma"
-  }
-
-  // 1. Greetings & Identity
-  if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('assalam') || msg.includes('who are you')) {
-    return `Hello! I am the AI Assistant for ${brand.name}. Since ${brand.established}, we have been crafting luxury unstitched couture and bridal pieces from our studio in ${brand.location}. How may I guide you through our collections today?`
-  }
-
-  // 2. Product Search & Categories
-  const allProducts = productStore.products || []
-  const categories = ['lawn', 'silk', 'chiffon', 'bridal', 'khaddar', 'velvet', 'unstitched', 'pret', 'm.print', 'seasonal']
-  const foundCategory = categories.find(cat => msg.includes(cat))
-  
-  if (foundCategory || msg.includes('product') || msg.includes('shop') || msg.includes('collection')) {
-    const categoryName = foundCategory || 'luxury'
-    const filtered = allProducts.filter(p => 
-      p.category?.toLowerCase().includes(categoryName) || 
-      p.parentCategory?.toLowerCase().includes(categoryName) ||
-      p.name?.toLowerCase().includes(categoryName)
-    ).slice(0, 3)
-
-    if (filtered.length > 0) {
-      let response = `Our ${categoryName} collection features some of our finest work. Highlights include: `
-      response += filtered.map(p => `${p.name} (Rs. ${p.price})`).join(', ')
-      response += ". You can explore the full range in our Shop. Is there a specific fabric or style you prefer?"
-      return response
-    }
-    return "We offer a diverse range of collections including Unstitched, Ready to Wear (Pret), and Bridal Couture. You can browse them all in our 'Shop' section!"
-  }
-
-  // 3. About, History & Vision
-  if (msg.includes('about') || msg.includes('history') || msg.includes('story') || msg.includes('mission') || msg.includes('vision')) {
-    return `${brand.name} was founded to bridge the gap between mass-produced apparel and the artisanal soul of traditional craftsmanship. We specialize in ${brand.specialization} and are proud to have over ${brand.stats} worldwide.`
-  }
-
-  // 4. Boutique Locations
-  if (msg.includes('location') || msg.includes('where') || msg.includes('address') || msg.includes('shop') || msg.includes('store') || msg.includes('boutique')) {
-    let locResponse = `Our Flagship Studio is located at ${brand.location}. `
-    locResponse += `We also have international sanctuaries in: `
-    locResponse += brand.boutiques.map(b => `${b.city} (${b.address})`).join(', ')
-    locResponse += ". Would you like our contact details for a visit?"
-    return locResponse
-  }
-
-  // 5. Contact & Support
-  if (msg.includes('contact') || msg.includes('number') || msg.includes('phone') || msg.includes('whatsapp') || msg.includes('email') || msg.includes('help') || msg.includes('support')) {
-    return `You can reach our Concierge Team via WhatsApp at ${brand.whatsapp}, call us at ${brand.contact}, or email ${brand.email}. We're here to assist with any inquiries!`
-  }
-
-  // 6. Shipping & Delivery
-  if (msg.includes('delivery') || msg.includes('shipping') || msg.includes('order') || msg.includes('track') || msg.includes('international')) {
-    return `${brand.shipping} Domestic delivery in Pakistan takes 3-5 working days. We also offer FREE worldwide shipping on all bridal couture orders!`
-  }
-
-  // 7. Pricing & Sales
-  if (msg.includes('price') || msg.includes('cost') || msg.includes('discount') || msg.includes('sale') || msg.includes('how much')) {
-    return "Our unstitched pieces start from approximately Rs. 3,000. We frequently offer seasonal promotions with up to 30% off. You can find all current pricing and active offers in our Shop section."
-  }
-
-  // 8. Services & Custom Orders
-  if (msg.includes('service') || msg.includes('custom') || msg.includes('bridal') || msg.includes('bespoke') || msg.includes('consultation')) {
-    let serviceResp = "We offer several exclusive services: "
-    serviceResp += brand.services.join(' ')
-    serviceResp += " Would you like to book a private consultation?"
-    return serviceResp
-  }
-
-  // 9. Social Media
-  if (msg.includes('social') || msg.includes('instagram') || msg.includes('facebook')) {
-    return `Follow us for the latest arrivals and behind-the-scenes: Instagram: ${socialLinks.instagram} | Facebook: ${socialLinks.facebook}`
-  }
-
-  // 10. Quality & Care
-  if (msg.includes('quality') || msg.includes('fabric') || msg.includes('material') || msg.includes('care') || msg.includes('wash')) {
-    return "We use only ultra-premium fabrics, including Swiss Lawn Cotton, Chinese Pure Silk, and Italian Velvet. To maintain the beauty of your couture pieces, we recommend professional dry cleaning and avoiding direct sunlight for extended periods. Detailed care instructions are also available in our 'Care' section."
-  }
-
-  // 11. Fallback
-  return `I'm sorry, I don't have specific details on that. However, our human experts can help you immediately! Please message us on WhatsApp at ${brand.whatsapp} or call ${brand.contact}. How else can I assist you today?`
-}
-
-// Text to Speech (TTS)
-const speakText = (text) => {
-  if ('speechSynthesis' in window) {
-    // Cancel any ongoing speech
-    window.speechSynthesis.cancel()
-    const utterance = new SpeechSynthesisUtterance(text)
-    utterance.rate = 1.0
-    utterance.pitch = 1.0
-    window.speechSynthesis.speak(utterance)
-  }
-}
-
-// Voice to Text (STT)
-let recognition = null
-if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-  recognition = new SpeechRecognition()
-  recognition.continuous = false
-  recognition.interimResults = false
-  recognition.lang = 'en-US'
-
-  recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript
-    userInput.value = transcript
-    isListening.value = false
-    sendMessage() // Automatically send after voice input
-  }
-
-  recognition.onerror = (event) => {
-    console.error('STT Error:', event.error)
-    isListening.value = false
-  }
-
-  recognition.onend = () => {
-    isListening.value = false
-  }
-}
-
-const toggleListening = () => {
-  if (!recognition) {
-    alert("Speech recognition is not supported in this browser.")
-    return
-  }
-
-  if (isListening.value) {
-    recognition.stop()
-    isListening.value = false
-  } else {
-    recognition.start()
-    isListening.value = true
   }
 }
 
@@ -1004,236 +738,49 @@ body {
   background: #d4af37;
 }
 
-.chatbot-btn {
+/* Phone Dialer FAB (Right Side) */
+.phone-dial-main-btn {
+  width: 56px;
+  height: 56px;
   background: linear-gradient(135deg, #d4af37, #b8860b);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  position: relative;
 }
 
-.chatbot-btn::after {
+.phone-dial-main-btn:hover {
+  transform: scale(1.12) rotate(12deg);
+  background: #ffffff;
+  color: #b8860b;
+  border-color: #d4af37;
+}
+
+.phone-dial-main-btn::after {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
   background: #d4af37;
-  opacity: 0.3;
+  opacity: 0.35;
   z-index: -1;
   animation: pulse-gold 2s infinite;
 }
 
 @keyframes pulse-gold {
-  0% { transform: scale(1); opacity: 0.3; }
+  0% { transform: scale(1); opacity: 0.35; }
   100% { transform: scale(1.4); opacity: 0; }
 }
 
-.contact-btn:hover {
-  transform: scale(1.15) rotate(10deg);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-.whatsapp-btn:hover {
-  background: #20BA5A;
-}
-
-.phone-btn:hover,
-.chatbot-btn:hover {
-  background: white;
-  color: #d4af37;
-}
-
-/* Chatbot Window Styles */
-.chatbot-window {
-  position: fixed;
-  bottom: 130px;
-  right: 20px;
-  width: 310px;
-  height: 450px;
-  background: #0a0a0a;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 24px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.1);
-  z-index: 10005;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  backdrop-filter: blur(20px);
-  animation: float-slow 6s ease-in-out infinite;
-}
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@media (min-width: 640px) {
-  .chatbot-window {
-    right: 40px;
-    width: 380px;
-    height: 550px;
-  }
-}
-
-.chatbot-header {
-  padding: 20px 25px;
-  background: linear-gradient(to right, rgba(212, 175, 55, 0.15), rgba(0, 0, 0, 0.4));
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.chatbot-messages {
-  flex: 1;
-  padding: 25px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23B8860B' fill-opacity='0.03'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.message {
-  max-width: 85%;
-  padding: 12px 18px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.user-message {
-  align-self: flex-end;
-  background: linear-gradient(135deg, #d4af37, #b8860b);
-  color: black;
-  font-weight: 600;
-  border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-}
-
-.bot-message {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.08);
-  color: #f1f1f1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.chatbot-input {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.4);
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.input-wrapper {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 30px;
-  padding: 6px 18px;
-  display: flex;
-  align-items: center;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  transition: all 0.3s ease;
-}
-
-.input-wrapper:focus-within {
-  border-color: #d4af37;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-}
-
-.chat-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  color: white;
-  padding: 10px 0;
-  font-size: 0.9rem;
-  outline: none;
-}
-
-.stt-btn {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all 0.3s;
-  padding: 5px;
-}
-
-.stt-btn.listening {
-  color: #ff4444;
-  animation: pulse-red 1.5s infinite;
-}
-
-@keyframes pulse-red {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.2);
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.send-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #d4af37;
-  color: black;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.send-btn:hover {
-  transform: scale(1.1);
-  background: white;
-}
-
-/* Typing Indicator */
-.typing .dot {
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  display: inline-block;
-  animation: typing 1s infinite;
-}
-
-.typing .dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing .dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes typing {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
+.phone-dial-icon {
+  font-size: 1.4rem;
 }
 
 /* Smooth Luxury Animation */
