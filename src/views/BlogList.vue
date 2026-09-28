@@ -1,101 +1,146 @@
 <template>
-  <div class="blog-list-page bg-[#fafaf8] dark:bg-[#050505] min-h-screen pb-32 transition-colors duration-700">
+  <div class="blog-list-page bg-[#FAF9F5] dark:bg-[#0A0908] min-h-screen pb-32 transition-colors duration-500 text-stone-900 dark:text-stone-100">
     
-    <!-- Cinematic Blog Hero -->
-    <section class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-[#fafaf8] dark:bg-[#050505] mb-20">
-      <div class="absolute inset-0 z-0">
-        <img :src="Hero4" alt="Ahmad Clothes House Fashion Journal" 
-             class="w-full h-full object-cover opacity-100 animate-slow-zoom" />
-        <!-- Subtle bottom gradient transition -->
-        <div class="absolute inset-0 bg-gradient-to-t from-[#fafaf8] via-transparent to-transparent dark:from-[#050505]"></div>
+    <!-- ══════════ EDITORIAL MASTHEAD ══════════ -->
+    <header class="pt-10 sm:pt-14 pb-12 px-6 sm:px-10 lg:px-14 border-b border-stone-200/70 dark:border-white/10 text-center max-w-5xl mx-auto">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center justify-center gap-2 text-[11px] text-stone-500 uppercase tracking-widest mb-6">
+        <router-link to="/" class="hover:text-black dark:hover:text-white transition-colors">Home</router-link>
+        <span>&rsaquo;</span>
+        <span class="text-[#D4AF37] font-semibold">The Fashion Journal</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 dark:bg-white/5 border border-[#D4AF37]/30 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+        <span class="text-[9px] uppercase font-bold tracking-[0.35em] text-[#8B6508] dark:text-[#D4AF37]">The House Chronicles</span>
       </div>
 
-      <div class="max-w-4xl mx-auto px-6 w-full relative z-10 flex flex-col items-center">
-        <!-- Glass Card for Title -->
-        <div class="w-full bg-black/40 backdrop-blur-md border border-white/10 p-10 md:p-14 text-center rounded-sm shadow-2xl animate-reveal">
-          <div class="flex items-center justify-center gap-4 mb-6">
-            <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
-            <span class="text-[var(--primary-gold)] font-bold text-[10px] uppercase tracking-[0.6em]">THE HOUSE JOURNAL</span>
-            <div class="h-px w-8 bg-[var(--primary-gold)]"></div>
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-editorial font-normal tracking-tight text-[#161412] dark:text-white mb-4">
+        The Couture Journal
+      </h1>
+
+      <p class="text-xs sm:text-sm md:text-base text-stone-600 dark:text-stone-300 font-light max-w-2xl mx-auto leading-relaxed">
+        Exploring the artistry, intricate embroideries, bridal heritage, and seasonal styling guides from Lahore's master artisans.
+      </p>
+    </header>
+
+    <div class="max-w-[1540px] mx-auto px-6 sm:px-10 lg:px-14 pt-10">
+
+      <!-- ══════════ FEATURED LEAD STORY (HERO SPOTLIGHT) ══════════ -->
+      <section v-if="filteredBlogs.length > 0" class="mb-16">
+        <div 
+          @click="router.push(`/blog/${filteredBlogs[0].slug}`)"
+          class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white dark:bg-[#11100D] p-6 sm:p-8 lg:p-10 rounded-2xl border border-stone-200/80 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group"
+        >
+          <!-- Left Cover Photo -->
+          <div class="lg:col-span-7 relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 dark:bg-stone-900">
+            <img 
+              :src="filteredBlogs[0].image || DEFAULT_FALLBACK_IMAGE" 
+              :alt="filteredBlogs[0].title"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              @error="(e) => e.target.src = DEFAULT_FALLBACK_IMAGE"
+            />
+            <div class="absolute top-4 left-4 bg-[#141414]/90 backdrop-blur-md px-3.5 py-1.5 rounded-md border border-[#D4AF37]/40">
+              <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">Featured Story &bull; {{ filteredBlogs[0].category }}</span>
+            </div>
           </div>
 
-          <h1 class="text-4xl md:text-7xl font-playfair italic text-white leading-none tracking-tight mb-8">
-            Couture <br>
-            <span class="text-[var(--primary-gold)] not-italic font-sans tracking-[0.2em] font-light text-2xl md:text-4xl block mt-2">COLLECTIVE</span>
-          </h1>
+          <!-- Right Content -->
+          <div class="lg:col-span-5 flex flex-col justify-center space-y-4">
+            <div class="flex items-center gap-3 text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
+              <span>{{ filteredBlogs[0].date }}</span>
+              <span>&bull;</span>
+              <span>{{ filteredBlogs[0].author || 'Ahmad Couture Team' }}</span>
+            </div>
 
-          <p class="text-xs md:text-sm text-white/95 font-light tracking-[0.15em] max-w-xl mx-auto leading-relaxed">
-            Exploring the artistry, deep-rooted heritage, and modern evolution of Pakistani high fashion.
-          </p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-normal text-stone-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-tight">
+              {{ filteredBlogs[0].title }}
+            </h2>
+
+            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-light leading-relaxed line-clamp-3">
+              {{ filteredBlogs[0].summary }}
+            </p>
+
+            <div class="pt-2">
+              <span class="inline-flex items-center gap-2 text-xs font-bold text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-[0.2em] group-hover:translate-x-1.5 transition-transform">
+                Read Full Manuscript &rarr;
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="max-w-7xl mx-auto px-6">
-
-      <!-- Categories Filter -->
-      <div class="flex flex-wrap justify-center gap-3 mb-16">
+      <!-- ══════════ CATEGORIES FILTER BAR ══════════ -->
+      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12 pb-6 border-b border-stone-200/60 dark:border-white/10">
         <button 
           v-for="cat in categories" 
           :key="cat"
           @click="selectedCategory = cat"
-          :class="['px-6 py-2.5 text-[10px] font-bold tracking-[0.15em] uppercase border transition-all duration-300 rounded-sm', 
+          :class="['px-5 py-2 text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-full cursor-pointer', 
                    selectedCategory === cat 
-                     ? 'bg-[#1a1a1a] dark:bg-white text-white dark:text-black border-[#1a1a1a] dark:border-white shadow-md' 
-                     : 'bg-white dark:bg-transparent border-stone-200 dark:border-stone-800 text-stone-500 hover:border-[#c9973a] hover:text-[#c9973a]']"
+                     ? 'bg-[#141414] dark:bg-white text-white dark:text-black shadow-md' 
+                     : 'bg-white dark:bg-white/5 border border-stone-200 dark:border-white/10 text-stone-600 dark:text-stone-300 hover:border-[#D4AF37] hover:text-[#D4AF37]']"
         >
           {{ cat }}
         </button>
       </div>
 
-      <!-- Blog Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <!-- ══════════ EDITORIAL GRID (Remaining Stories) ══════════ -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
         <article 
-          v-for="(post, index) in filteredBlogs" 
+          v-for="(post, index) in filteredBlogs.slice(1)" 
           :key="post.id" 
-          class="group cursor-pointer flex flex-col bg-white dark:bg-[#0c0c0c] border border-stone-100 dark:border-white/5 p-4 rounded-sm transition-all duration-500 hover:shadow-xl"
+          class="group cursor-pointer flex flex-col bg-white dark:bg-[#12110E] border border-stone-200/70 dark:border-white/10 p-4 sm:p-5 rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
           @click="router.push(`/blog/${post.slug}`)"
         >
-          <div class="relative aspect-[4/5] overflow-hidden mb-6 bg-stone-100 dark:bg-white/5 rounded-sm">
+          <div class="relative aspect-[4/3] overflow-hidden mb-5 bg-stone-100 dark:bg-white/5 rounded-xl">
             <img 
-              :src="post.image || 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800'" 
+              :src="post.image || DEFAULT_FALLBACK_IMAGE" 
               :alt="post.title"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
+              @error="(e) => e.target.src = DEFAULT_FALLBACK_IMAGE"
             />
-            <div class="absolute top-4 left-4 bg-white/90 dark:bg-[#111]/90 backdrop-blur-sm px-3.5 py-1.5 border border-stone-200/20">
-              <span class="text-[8px] font-black uppercase text-stone-800 dark:text-stone-200 tracking-widest">{{ post.category }}</span>
+            <div class="absolute top-3 left-3 bg-[#141414]/85 backdrop-blur-sm px-2.5 py-1 rounded border border-white/10">
+              <span class="text-[8.5px] font-bold uppercase text-[#D4AF37] tracking-wider">{{ post.category }}</span>
             </div>
           </div>
-          <div class="space-y-3 flex-1 flex flex-col px-2 pb-2">
-            <div class="flex items-center gap-3 text-[9px] text-stone-400 uppercase tracking-widest">
+
+          <div class="space-y-2.5 flex-1 flex flex-col px-1">
+            <div class="flex items-center gap-2 text-[9.5px] text-stone-400 uppercase tracking-widest font-semibold">
               <span>{{ post.date }}</span>
-              <span class="w-3 h-[1px] bg-[#c9973a]/30"></span>
+              <span>&bull;</span>
               <span>{{ post.author }}</span>
             </div>
-            <h2 class="text-lg md:text-xl font-playfair font-normal text-stone-900 dark:text-white group-hover:text-[#c9973a] transition-colors leading-snug">
+
+            <h2 class="text-base sm:text-lg font-editorial font-normal text-stone-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-snug line-clamp-2">
               {{ post.title }}
             </h2>
+
             <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-2 font-light">
               {{ post.summary }}
             </p>
-            <div class="pt-4 mt-auto">
-              <span class="inline-flex items-center gap-2 text-[9px] font-bold text-[#c9973a] uppercase tracking-widest group-hover:underline">
-                Read Journal
-                <span>→</span>
+
+            <div class="pt-3 mt-auto flex items-center justify-between border-t border-stone-100 dark:border-white/5">
+              <span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                Read Article
+                <span>&rarr;</span>
               </span>
+              <span class="text-[9.5px] text-stone-400 font-medium">4 min read</span>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Pagination/More -->
-      <div v-if="displayLimit < totalFiltered" class="mt-20 text-center">
+      <!-- Pagination / Load More -->
+      <div v-if="displayLimit < totalFiltered" class="mt-16 text-center">
         <button 
           @click="displayLimit += 12"
-          class="px-10 py-4 bg-[#1a1a1a] dark:bg-white text-white dark:text-black text-[10px] font-black tracking-[0.25em] uppercase hover:bg-[#c9973a] dark:hover:bg-[#c9973a] dark:hover:text-white transition-all duration-300 rounded-sm"
+          class="px-8 py-3.5 bg-[#141414] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-full shadow-md cursor-pointer"
         >
-          Load More Entries
+          Load More Manuscripts
         </button>
       </div>
 
@@ -234,6 +279,7 @@ const displayLimit = ref(12)
 const showPartnerPortal = ref(false)
 
 const BASE_URL = 'https://ahmad-cloths.vercel.app'
+const DEFAULT_FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1200'
 
 const brandedLinks = [
   { anchor: 'Ahmad Clothes House Online Boutique', url: `${BASE_URL}/` },

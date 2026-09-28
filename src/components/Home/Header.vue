@@ -34,49 +34,62 @@
     </div>
 
     <!-- ══════════ MAIN LUXURY BRAND HEADER ══════════ -->
-    <div class="main-header px-4 sm:px-8 lg:px-14 transition-all duration-300"
+    <div class="main-header px-3 sm:px-6 lg:px-14 transition-all duration-300"
       :class="isScrolled ? 'bg-[#FAF8F5]/98 dark:bg-[#0d0d0d]/98 backdrop-blur-md shadow-md border-b border-stone-200/80 dark:border-white/10' : 'bg-[#FAF8F5] dark:bg-[#0d0d0d] border-b border-stone-200/60 dark:border-white/5'">
 
-      <div class="flex items-center justify-between h-[72px]">
+      <div class="flex items-center justify-between h-[64px] sm:h-[72px] gap-2">
 
-        <!-- LEFT: Hamburger Menu & Quick Search -->
-        <div class="flex items-center gap-3 w-[220px]">
-          <button @click="isMenuOpen = !isMenuOpen" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-800 dark:text-white cursor-pointer transition-colors" aria-label="Open Menu">
-            <font-awesome-icon icon="fa-solid fa-bars" class="text-base" />
+        <!-- LEFT: Hamburger Menu & Responsive Search -->
+        <div class="flex items-center gap-1 sm:gap-2.5 lg:w-[240px] shrink-0">
+          <button @click="isMenuOpen = !isMenuOpen" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-800 dark:text-white cursor-pointer transition-colors" aria-label="Open Menu">
+            <font-awesome-icon icon="fa-solid fa-bars" class="text-sm sm:text-base" />
           </button>
-          <button @click="searchOpen = true" class="flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-stone-300/80 dark:border-white/15 bg-white/70 dark:bg-white/5 hover:border-[#D4AF37] text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs">
+          
+          <!-- Desktop Search Pill -->
+          <button @click="searchOpen = true" class="hidden md:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-stone-300/80 dark:border-white/15 bg-white/70 dark:bg-white/5 hover:border-[#D4AF37] text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text-xs text-[#B8860B]" />
-            <span class="hidden sm:inline text-[11px] font-medium tracking-wide">Search catalog...</span>
+            <span class="text-[11px] font-medium tracking-wide">Search catalog...</span>
+          </button>
+
+          <!-- Mobile Compact Search Icon Button -->
+          <button @click="searchOpen = true" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-800 dark:text-white border border-stone-300/60 dark:border-white/10 cursor-pointer" aria-label="Search">
+            <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text-xs text-[#B8860B]" />
           </button>
         </div>
 
-        <!-- CENTER: Timeless Brand Identity -->
-        <div class="flex-1 flex flex-col justify-center items-center cursor-pointer select-none group py-1" @click="goToHome">
-          <h1 class="text-base sm:text-lg md:text-xl lg:text-[22px] font-editorial tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#181818] dark:text-white font-normal group-hover:text-[#B8860B] transition-colors duration-300 whitespace-nowrap">
+        <!-- CENTER: Timeless Brand Identity (Auto-Scaling & Never Overlapping) -->
+        <div class="flex-1 flex flex-col justify-center items-center cursor-pointer select-none group py-1 px-1 sm:px-3 min-w-0 text-center overflow-hidden" @click="goToHome">
+          <h1 class="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px] font-editorial tracking-[0.12em] xs:tracking-[0.16em] sm:tracking-[0.22em] lg:tracking-[0.28em] uppercase text-[#181818] dark:text-white font-normal group-hover:text-[#B8860B] transition-colors duration-300 truncate max-w-full">
             AHMAD CLOTHES HOUSE
           </h1>
-          <span class="text-[7.5px] sm:text-[8px] font-semibold tracking-[0.42em] uppercase text-stone-500 dark:text-stone-400 mt-0.5">
+          <span class="text-[6.5px] sm:text-[7.5px] lg:text-[8px] font-semibold tracking-[0.25em] sm:tracking-[0.42em] uppercase text-stone-500 dark:text-stone-400 mt-0.5 truncate max-w-full hidden xs:block">
             HAUTE COUTURE &middot; LAHORE
           </span>
         </div>
 
         <!-- RIGHT: Wishlist, User Account, Shopping Bag -->
-        <div class="flex items-center gap-2 sm:gap-3 w-[220px] justify-end">
+        <div class="flex items-center gap-1 sm:gap-2.5 lg:gap-3 lg:w-[240px] justify-end shrink-0">
           <!-- Wishlist -->
-          <router-link to="/dashboard" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors relative" aria-label="Wishlist">
-            <font-awesome-icon icon="fa-regular fa-heart" class="text-base" />
-            <span v-if="favorites.totalFavorites > 0" class="absolute top-1 right-1 bg-[#B8860B] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{{ favorites.totalFavorites }}</span>
+          <router-link to="/dashboard" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors relative" aria-label="Wishlist">
+            <font-awesome-icon icon="fa-regular fa-heart" class="text-sm sm:text-base" />
+            <span v-if="favorites.totalFavorites > 0" class="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 bg-[#B8860B] text-white text-[8px] sm:text-[9px] w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center font-bold">{{ favorites.totalFavorites }}</span>
           </router-link>
 
-          <!-- User Account -->
-          <router-link :to="auth.isAuthenticated ? (auth.isAdmin ? '/admin/dashboard' : '/dashboard') : '/login'" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors" aria-label="Account">
-            <font-awesome-icon icon="fa-regular fa-user" class="text-base" />
+          <!-- User Account (Desktop & Tablet) -->
+          <router-link :to="auth.isAuthenticated ? (auth.isAdmin ? '/admin/dashboard' : '/dashboard') : '/login'" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full hidden xs:flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors" aria-label="Account">
+            <font-awesome-icon icon="fa-regular fa-user" class="text-sm sm:text-base" />
           </router-link>
 
-          <!-- Shopping Bag -->
-          <router-link to="/cart" class="flex items-center gap-2 pl-3 pr-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white transition-all duration-300 shadow-sm ml-1" aria-label="Cart">
+          <!-- Shopping Bag (Desktop Pill) -->
+          <router-link to="/cart" class="hidden sm:flex items-center gap-2 pl-3 pr-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white transition-all duration-300 shadow-sm" aria-label="Cart">
             <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
             <span class="text-xs font-bold">{{ cart.totalItems || 0 }}</span>
+          </router-link>
+
+          <!-- Shopping Bag (Mobile Circular Icon with Badge) -->
+          <router-link to="/cart" class="sm:hidden w-8 h-8 rounded-full flex items-center justify-center bg-[#181818] text-white dark:bg-white dark:text-black relative" aria-label="Cart">
+            <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
+            <span v-if="cart.totalItems > 0" class="absolute -top-1 -right-1 bg-[#B8860B] text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">{{ cart.totalItems }}</span>
           </router-link>
         </div>
       </div>
