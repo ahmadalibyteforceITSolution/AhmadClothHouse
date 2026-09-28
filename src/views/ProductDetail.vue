@@ -596,7 +596,7 @@ const handleAddToCart = () => {
 
 const handleBuyNow = () => {
   handleAddToCart()
-  router.push('/checkout')
+  cart.openCheckout()
 }
 
 const relatedProducts = computed(() => {

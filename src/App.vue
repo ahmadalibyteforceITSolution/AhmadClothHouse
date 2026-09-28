@@ -60,6 +60,7 @@
 
     <DailySEOAds v-if="showHeaderFooter" />
     <Header v-if="showHeaderFooter" />
+    <CartDrawer />
 
     <!-- Global Ahmadcloths Panel & Overlay -->
     <div v-if="route.name === 'home'">
@@ -365,6 +366,7 @@
 import { ref, onMounted, onUnmounted, computed, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Header from './components/Home/Header.vue'
+import CartDrawer from './components/CartDrawer.vue'
 import DailySEOAds from './components/DailySEOAds.vue'
 import Footer from './components/Footer.vue'
 import BottomNav from './components/BottomNav.vue'

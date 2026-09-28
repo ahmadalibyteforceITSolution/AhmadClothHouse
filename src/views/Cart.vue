@@ -225,12 +225,16 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCartStore } from '../stores/cart'
 
 const router = useRouter()
 const cart = useCartStore()
+
+onMounted(() => {
+  cart.openDrawer()
+})
 
 const itemsPerPage = 6
 const currentPage = ref(1)

@@ -81,16 +81,16 @@
           </router-link>
 
           <!-- Shopping Bag (Desktop Pill) -->
-          <router-link to="/cart" class="hidden sm:flex items-center gap-2 pl-3 pr-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white transition-all duration-300 shadow-sm" aria-label="Cart">
+          <button @click="cart.openDrawer()" class="hidden sm:flex items-center gap-2 pl-3 pr-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white transition-all duration-300 shadow-sm cursor-pointer" aria-label="Cart">
             <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
             <span class="text-xs font-bold">{{ cart.totalItems || 0 }}</span>
-          </router-link>
+          </button>
 
           <!-- Shopping Bag (Mobile Circular Icon with Badge) -->
-          <router-link to="/cart" class="sm:hidden w-8 h-8 rounded-full flex items-center justify-center bg-[#181818] text-white dark:bg-white dark:text-black relative" aria-label="Cart">
+          <button @click="cart.openDrawer()" class="sm:hidden w-8 h-8 rounded-full flex items-center justify-center bg-[#181818] text-white dark:bg-white dark:text-black relative cursor-pointer" aria-label="Cart">
             <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
             <span v-if="cart.totalItems > 0" class="absolute -top-1 -right-1 bg-[#B8860B] text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">{{ cart.totalItems }}</span>
-          </router-link>
+          </button>
         </div>
       </div>
 

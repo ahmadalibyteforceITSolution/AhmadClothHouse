@@ -10,11 +10,11 @@
       <span class="nav-label">Shop</span>
     </router-link>
 
-    <router-link to="/cart" class="nav-item relative" :class="{ 'active': route.path === '/cart' }">
+    <button @click="cart.openDrawer()" class="nav-item relative cursor-pointer" :class="{ 'active': cart.isDrawerOpen }">
       <font-awesome-icon icon="fa-solid fa-cart-shopping" class="nav-icon" />
       <span v-if="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
       <span class="nav-label">Cart</span>
-    </router-link>
+    </button>
 
     <router-link to="/favorites" class="nav-item relative" :class="{ 'active': route.path === '/favorites' }">
       <font-awesome-icon icon="fa-solid fa-heart" class="nav-icon" />

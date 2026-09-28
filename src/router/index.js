@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useLoadingStore } from '../stores/loading'
+import { useCartStore } from '../stores/cart'
 
 const routes = [
   {
@@ -355,6 +356,20 @@ router.beforeEach((to, from, next) => {
     if (!token || user?.role === 'admin') {
       return next({ name: 'login' })
     }
+  }
+
+  if (to.path === '/cart') {
+    loading.setLoading(false)
+    const cart = useCartStore()
+    cart.openDrawer('cart')
+    return next({ path: from.path && from.path !== '/cart' ? from.path : '/' })
+  }
+
+  if (to.path === '/checkout') {
+    loading.setLoading(false)
+    const cart = useCartStore()
+    cart.openCheckout()
+    return next({ path: from.path && from.path !== '/checkout' && from.path !== '/cart' ? from.path : '/' })
   }
 
   if (to.name === 'login' && token) {
