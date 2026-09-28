@@ -134,40 +134,49 @@ exports.createOrder = async (req, res) => {
       const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
       const shipping = order.shippingAddress;
       
+      const itemsList = order.items && order.items.length
+        ? order.items.map((i, index) => `${index + 1}. ${i.name || 'Item'} (Qty: ${i.quantity}) - Rs. ${((i.price || 0) * (i.quantity || 1)).toLocaleString()}`).join('\n        ')
+        : 'N/A';
+
       const emailMessage = `
-        🚀 NEW ORDER RECEIVED!
+        🚀 NEW ORDER RECEIVED - AHMAD CLOTHES HOUSE!
         
         Order Details:
-        -------------------------
-        Order ID/Tracking: ${order._id}
-        Subtotal: RS ${order.subtotal || 0}
-        Delivery Charges: RS ${order.deliveryCharge || 0}
-        Total Amount: RS ${order.totalAmount}
-        Payment Method: ${order.paymentMethod.toUpperCase()}
+        ------------------------------------------
+        Order ID: #${order._id}
+        Subtotal: Rs. ${(order.subtotal || 0).toLocaleString()}
+        Delivery Charges: Rs. ${(order.deliveryCharge || 0).toLocaleString()}
+        TOTAL PAYABLE: Rs. ${(order.totalAmount || 0).toLocaleString()}
+        Payment Method: ${(order.paymentMethod || 'COD').toUpperCase()}
+        ${order.transactionId ? `Transaction ID: ${order.transactionId}` : ''}
         
         Customer Information:
-        -------------------------
-        Name: ${shipping.fullName}
-        Email: ${req.body.customerEmail || 'N/A'}
-        Phone: ${shipping.phone}
+        ------------------------------------------
+        Name: ${shipping.fullName || order.customerName || 'N/A'}
+        Phone / WhatsApp: ${shipping.phone || 'N/A'}
+        Email: ${req.body.customerEmail || order.customerEmail || 'N/A'}
         
         Shipping Address:
-        -------------------------
-        Address: ${shipping.address}
-        City: ${shipping.city}
-        Zip Code: ${shipping.zipCode}
-        Country: ${shipping.country}
+        ------------------------------------------
+        Address: ${shipping.address || 'N/A'}
+        City: ${shipping.city || 'N/A'}
+        Country: ${shipping.country || 'Pakistan'}
         
-        Please check your admin dashboard for more details.
+        Ordered Items:
+        ------------------------------------------
+        ${itemsList}
+        
+        ------------------------------------------
+        Please check your Admin Dashboard to prepare and dispatch this order.
       `;
 
       await sendEmail({
         email: adminEmail,
-        subject: `[NEW ORDER] #${order._id} - ${shipping.fullName}`,
+        subject: `[NEW ORDER] #${order._id} - ${shipping.fullName} (Rs. ${(order.totalAmount || 0).toLocaleString()})`,
         message: emailMessage
       });
       
-      console.log('AHMADCLOTHS: Admin notified for order %s', order._id);
+      console.log('AHMADCLOTHS: Admin notified via email for order %s', order._id);
     } catch (mailErr) {
       console.error('AHMADCLOTHS_MAIL_ERROR:', mailErr.message);
       // Don't fail the order creation if email fails, but log it

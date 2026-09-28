@@ -112,10 +112,17 @@ export const useOrdersStore = defineStore('orders', {
           throw new Error(res.data.error || 'Failed to save order')
         }
       } catch (err) {
-        console.error("ORDER_CREATE_ERROR: Could not save order to database.", err)
+        console.error("ORDER_CREATE_ERROR: Could not save order to database. Attempting email notification fallback...", err)
         
+        // Try fallback email notification bypass route
+        try {
+          await api.post('/orders/notify', orderData)
+          console.log("ORDER_NOTIFY: Email notification fallback sent successfully.")
+        } catch (notifyErr) {
+          console.error("ORDER_NOTIFY_ERROR:", notifyErr)
+        }
+
         // Fallback for UI consistency if API fails but we want to show success to user
-        // (though in a real app, we'd probably want to error out)
         const fallbackOrder = {
           ...orderData,
           _id: 'local_' + Math.random().toString(36).substring(2, 11),
