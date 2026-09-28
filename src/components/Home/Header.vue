@@ -127,30 +127,31 @@
 
     <!-- Search Bar Dropdown — Modern Luxury Boutique Experience -->
     <transition name="modal-fade">
-      <div v-if="searchOpen" class="fixed inset-0 z-[20001] flex flex-col bg-[#080808]/98 backdrop-blur-2xl text-white">
+      <div v-if="searchOpen" class="fixed inset-0 z-[200000] flex flex-col bg-[#0D0C0A]/98 backdrop-blur-3xl text-white overflow-hidden">
         <!-- Top Control Bar -->
-        <div class="border-b border-white/10 px-6 sm:px-12 py-5 flex items-center justify-between max-w-7xl mx-auto w-full">
+        <div class="border-b border-white/10 px-6 sm:px-12 py-4 flex items-center justify-between max-w-7xl mx-auto w-full">
           <div class="flex items-center gap-3">
-            <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-[#c9973a]">Boutique Search</span>
+            <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+            <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-[#D4AF37]">Haute Catalog Search</span>
             <span class="text-xs text-white/30 hidden sm:inline">|</span>
-            <span class="text-xs text-white/50 hidden sm:inline">Search across 5,000+ Pakistani Designer Couture pieces</span>
+            <span class="text-xs text-stone-400 hidden sm:inline">Search across 5,000+ Pakistani Designer Couture pieces</span>
           </div>
 
           <!-- Close Button -->
           <button @click="searchOpen = false" aria-label="Close Search"
-            class="text-white/70 hover:text-white transition-all px-3.5 py-1.5 rounded-full border border-white/15 hover:border-white/40 flex items-center gap-2 text-xs font-bold uppercase tracking-wider group cursor-pointer">
-            <span>Close</span>
-            <font-awesome-icon icon="fa-solid fa-xmark" class="text-sm group-hover:rotate-90 transition-transform duration-300" />
+            class="text-stone-300 hover:text-white transition-all px-4 py-1.5 rounded-full border border-white/20 hover:border-[#D4AF37] bg-white/5 hover:bg-[#D4AF37]/20 flex items-center gap-2 text-xs font-bold uppercase tracking-wider group cursor-pointer">
+            <span>Close (ESC)</span>
+            <font-awesome-icon icon="fa-solid fa-xmark" class="text-sm group-hover:rotate-90 transition-transform duration-300 text-[#D4AF37]" />
           </button>
         </div>
         
         <!-- Modal Scroll Area -->
-        <div class="relative w-full flex-1 overflow-y-auto pt-8 pb-32">
-          <div class="max-w-6xl mx-auto px-6">
+        <div class="relative w-full flex-1 overflow-y-auto pt-6 pb-28 px-4 sm:px-8">
+          <div class="max-w-6xl mx-auto">
             
-            <!-- Large Clean Search Bar Input -->
-            <div class="relative flex items-center mb-8 border-b-2 border-white/20 focus-within:border-[#c9973a] pb-4 transition-colors duration-300">
-              <button @click="handleSearch" class="p-2 text-[#c9973a] hover:scale-110 transition-transform" title="Search">
+            <!-- Large Clean Search Input Box -->
+            <div class="relative flex items-center mb-6 p-4 sm:p-5 rounded-2xl bg-white/[0.04] border border-[#D4AF37]/30 focus-within:border-[#D4AF37] focus-within:ring-2 focus-within:ring-[#D4AF37]/20 transition-all duration-300 shadow-2xl">
+              <button @click="handleSearch" class="p-2 text-[#D4AF37] hover:scale-110 transition-transform cursor-pointer" title="Search">
                 <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text-2xl sm:text-3xl" />
               </button>
               
@@ -159,38 +160,150 @@
                 v-model="searchQuery" 
                 @keyup.enter="handleSearch" 
                 type="text"
-                placeholder="Search designer suits, lawn, pret, bridal, SKU..." 
+                placeholder="Search designer suits, lawn, pret, bridal, Maria B, SKU..." 
                 aria-label="Search Catalog"
-                class="search-input flex-grow bg-transparent text-white placeholder-white/25 outline-none text-2xl sm:text-4xl md:text-5xl font-light tracking-tight px-4" 
+                class="search-input flex-grow bg-transparent text-white placeholder-stone-500 outline-none text-xl sm:text-3xl md:text-4xl font-light tracking-tight px-4" 
               />
 
               <!-- Clear Query Button -->
-              <button v-if="searchQuery.length > 0" @click="searchQuery = ''" class="text-white/40 hover:text-white p-2 text-xl" title="Clear">
+              <button v-if="searchQuery.length > 0" @click="searchQuery = ''" class="text-stone-400 hover:text-white p-2 text-xl cursor-pointer" title="Clear">
                 <font-awesome-icon icon="fa-solid fa-xmark" />
               </button>
             </div>
 
             <!-- Quick Suggestions Tags -->
-            <div class="flex flex-wrap items-center gap-2.5 mb-10">
-               <span class="text-[10px] font-extrabold tracking-[0.25em] text-[#c9973a] uppercase mr-2">Quick Tags:</span>
-               <button v-for="tag in ['Unstitched Lawn', 'Luxury Pret', 'Bridal Wear', 'Maria B', 'Sana Safinaz', 'Chiffon', 'Silk', 'Discount Sale', '2026 Collection']" 
+            <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-10">
+               <span class="text-[10px] font-extrabold tracking-[0.25em] text-[#D4AF37] uppercase mr-1">Trending Tags:</span>
+               <button v-for="tag in ['Unstitched Lawn', 'Luxury Pret', 'Bridal Couture', 'Maria B Winter', 'Sana Safinaz', 'Chiffon Formals', 'Pure Velvet', 'Men\'s Wear', 'Discount Sale']" 
                  :key="tag"
-                 @click="searchQuery = tag"
-                 class="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-white/75 font-medium tracking-wide hover:border-[#c9973a] hover:bg-[#c9973a] hover:text-black transition-all cursor-pointer">
+                 @click="searchQuery = tag; handleSearch()"
+                 class="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-black text-xs text-stone-300 font-medium tracking-wide transition-all cursor-pointer">
                  {{ tag }}
                </button>
             </div>
 
-            <!-- LIVE SEARCH RESULTS GRID -->
-            <div v-if="searchQuery.length > 1" class="mb-14 animate-reveal">
+            <!-- ══════════ PRE-SEARCH STATE (When no query is typed) ══════════ -->
+            <div v-if="!searchQuery || searchQuery.trim().length < 2" class="space-y-12 animate-fade-in">
+              
+              <!-- Featured & Trending This Week -->
+              <div class="space-y-5">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                  <div class="flex items-center gap-2.5">
+                    <span class="text-xs font-black uppercase tracking-[0.25em] text-[#D4AF37]">Curated Editor's Picks</span>
+                    <span class="text-[10px] bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Trending Now</span>
+                  </div>
+                  <router-link to="/shop" @click="searchOpen = false" class="text-xs font-bold text-[#D4AF37] hover:underline uppercase tracking-wider">
+                    View Complete Catalog &rarr;
+                  </router-link>
+                </div>
+
+                <!-- 4 Curated Visual Cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
+                  <div 
+                    v-for="p in curatedTrendingProducts" 
+                    :key="p.id" 
+                    @click="goToLiveProduct(p)"
+                    class="group flex flex-col bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 p-3"
+                  >
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-black/40 mb-3">
+                      <img :src="p.image" :alt="p.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <span v-if="p.brand" class="absolute top-2 left-2 text-[8.5px] uppercase tracking-wider font-extrabold bg-black/80 backdrop-blur-md text-[#D4AF37] px-2 py-0.5 rounded">
+                        {{ p.brand }}
+                      </span>
+                    </div>
+                    
+                    <h5 class="text-xs sm:text-sm font-semibold text-stone-200 line-clamp-1 group-hover:text-[#D4AF37] transition-colors mb-1">
+                      {{ p.name }}
+                    </h5>
+                    
+                    <div class="mt-auto flex items-center justify-between pt-2 border-t border-white/5">
+                      <span class="text-xs sm:text-sm font-bold text-[#D4AF37]">
+                        Rs. {{ Number(p.price).toLocaleString() }}
+                      </span>
+                      <span class="text-[10px] uppercase font-bold text-stone-400 group-hover:text-white transition-colors">
+                        View &rarr;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Visual Category Grid & Concierge Help -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                
+                <!-- Explore Collections -->
+                <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 space-y-4">
+                  <h4 class="text-xs font-bold text-[#D4AF37] uppercase tracking-[0.25em]">Explore Collections</h4>
+                  <div class="flex flex-col gap-2.5">
+                    <button 
+                      v-for="cat in ['Unstitched', 'Pret', 'Bridal', 'M.Print', 'Sale Offer']" 
+                      :key="cat"
+                      @click="searchQuery = cat; handleSearch()"
+                      class="text-left text-xs sm:text-sm text-stone-300 hover:text-[#D4AF37] hover:translate-x-1 transition-all font-medium cursor-pointer"
+                    >
+                      &rsaquo; {{ cat }} Couture
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 space-y-4">
+                  <h4 class="text-xs font-bold text-[#D4AF37] uppercase tracking-[0.25em]">Price Range</h4>
+                  <div class="flex flex-col gap-2.5">
+                    <button 
+                      v-for="priceItem in ['Under 10,000', '10,000 - 20,000', '20,000 - 40,000', 'Bridal Couture Edition']" 
+                      :key="priceItem"
+                      @click="router.push('/shop'); searchOpen = false"
+                      class="text-left text-xs sm:text-sm text-stone-300 hover:text-[#D4AF37] hover:translate-x-1 transition-all font-medium cursor-pointer"
+                    >
+                      &rsaquo; {{ priceItem }}
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Boutique Concierge Assistance -->
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-[#1c1a17] to-[#12110f] border border-[#D4AF37]/30 space-y-3.5 flex flex-col justify-between">
+                  <div>
+                    <span class="text-[9px] font-black uppercase tracking-[0.25em] text-[#D4AF37]">Official Concierge</span>
+                    <h4 class="text-base font-editorial text-white mt-1">Need Styling or Sizing Advice?</h4>
+                    <p class="text-xs text-stone-400 leading-relaxed mt-1">
+                      Our fashion specialists assist with bridal appointments, custom stitching, and worldwide deliveries.
+                    </p>
+                  </div>
+                  
+                  <div class="space-y-2 pt-2">
+                    <a 
+                      href="https://wa.me/923416887454" 
+                      target="_blank" 
+                      class="flex items-center justify-center gap-2 text-xs font-bold text-white bg-[#25D366] hover:bg-[#20ba5a] py-2.5 px-4 rounded-xl transition-all shadow-md no-underline"
+                    >
+                      <font-awesome-icon :icon="['fab', 'whatsapp']" />
+                      <span>WhatsApp Concierge: 0341 6887454</span>
+                    </a>
+                    <a 
+                      href="tel:03244902607" 
+                      class="flex items-center justify-center gap-2 text-xs font-bold text-stone-200 hover:text-white bg-white/10 hover:bg-white/15 py-2 px-4 rounded-xl transition-all no-underline"
+                    >
+                      <font-awesome-icon icon="fa-solid fa-phone" class="text-[10px] text-[#D4AF37]" />
+                      <span>Helpline: 0324 4902607</span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- ══════════ LIVE SEARCH RESULTS GRID (When user types) ══════════ -->
+            <div v-else class="mb-14 animate-reveal">
               <div class="flex items-center justify-between mb-6 pb-2 border-b border-white/10">
                 <div class="flex items-center gap-3">
-                  <span class="text-xs font-bold tracking-widest text-[#c9973a] uppercase">Matched Products</span>
-                  <span class="text-xs bg-white/10 text-white/80 px-2.5 py-0.5 rounded-full font-bold">
+                  <span class="text-xs font-bold tracking-widest text-[#D4AF37] uppercase">Matched Designs</span>
+                  <span class="text-xs bg-[#D4AF37]/20 text-[#D4AF37] px-2.5 py-0.5 rounded-full font-bold">
                     {{ liveResults.length }} {{ liveResults.length === 1 ? 'Design' : 'Designs' }}
                   </span>
                 </div>
-                <button v-if="liveResults.length > 0" @click="handleSearch" class="text-xs font-bold text-[#c9973a] hover:underline uppercase tracking-wider">
+                <button v-if="liveResults.length > 0" @click="handleSearch" class="text-xs font-bold text-[#D4AF37] hover:underline uppercase tracking-wider cursor-pointer">
                   View Full Catalog &rarr;
                 </button>
               </div>
@@ -201,27 +314,27 @@
                   v-for="p in liveResults" 
                   :key="p.id" 
                   @click="goToLiveProduct(p)"
-                  class="group flex flex-col bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-[#c9973a] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 p-3"
+                  class="group flex flex-col bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 p-3"
                 >
                   <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-black/40 mb-3">
                     <img :src="p.image" :alt="p.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span v-if="p.category" class="absolute top-2 left-2 text-[9px] uppercase tracking-wider font-extrabold bg-black/70 backdrop-blur-md text-white px-2 py-0.5 rounded">
+                    <span v-if="p.category" class="absolute top-2 left-2 text-[9px] uppercase tracking-wider font-extrabold bg-black/70 backdrop-blur-md text-[#D4AF37] px-2 py-0.5 rounded">
                       {{ p.category }}
                     </span>
                   </div>
                   
-                  <h5 class="text-xs sm:text-sm font-bold text-white line-clamp-1 group-hover:text-[#c9973a] transition-colors mb-1">
+                  <h5 class="text-xs sm:text-sm font-bold text-white line-clamp-1 group-hover:text-[#D4AF37] transition-colors mb-1">
                     {{ p.name }}
                   </h5>
-                  <p class="text-[10px] text-white/50 uppercase tracking-widest line-clamp-1 mb-2 font-mono">
+                  <p class="text-[10px] text-stone-400 uppercase tracking-widest line-clamp-1 mb-2 font-mono">
                     SKU: {{ p.sku || p.id }}
                   </p>
                   
                   <div class="mt-auto flex items-center justify-between pt-2 border-t border-white/5">
-                    <span class="text-xs sm:text-sm font-extrabold text-[#c9973a]">
+                    <span class="text-xs sm:text-sm font-extrabold text-[#D4AF37]">
                       Rs. {{ Number(p.price).toLocaleString() }}
                     </span>
-                    <span class="text-[10px] uppercase font-bold text-white/40 group-hover:text-white transition-colors">
+                    <span class="text-[10px] uppercase font-bold text-stone-400 group-hover:text-white transition-colors">
                       View &rarr;
                     </span>
                   </div>
@@ -230,59 +343,13 @@
 
               <!-- No Results State -->
               <div v-else class="py-16 text-center space-y-3 bg-white/[0.02] border border-white/5 rounded-2xl p-8">
-                <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto text-[#c9973a] text-2xl">
+                <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto text-[#D4AF37] text-2xl">
                   <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                 </div>
                 <h4 class="text-lg font-bold text-white">No exact designs found for "{{ searchQuery }}"</h4>
-                <p class="text-xs text-white/50 max-w-md mx-auto">
-                  Try searching for general terms like "Lawn", "Pret", "Bridal", "Maria B", or browse by collection below.
+                <p class="text-xs text-stone-400 max-w-md mx-auto">
+                  Try searching for general terms like "Lawn", "Pret", "Bridal", "Maria B", "Velvet", or select a category below.
                 </p>
-              </div>
-            </div>
-
-            <!-- Quick Category & Price Range Filter Columns -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/10">
-              <div class="space-y-4">
-                <h4 class="text-xs font-bold text-[#c9973a] uppercase tracking-[0.3em]">Explore Collections</h4>
-                <div class="flex flex-col gap-2.5">
-                  <button 
-                    v-for="cat in ['Unstitched', 'Pret', 'Bridal', 'M.Print', 'Sale Offer']" 
-                    :key="cat"
-                    @click="searchQuery = cat; handleSearch()"
-                    class="text-left text-sm sm:text-base text-white/60 hover:text-white hover:translate-x-1 transition-all font-semibold cursor-pointer"
-                  >
-                    &rsaquo; {{ cat }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="space-y-4">
-                <h4 class="text-xs font-bold text-[#c9973a] uppercase tracking-[0.3em]">Price Range</h4>
-                <div class="flex flex-col gap-2.5">
-                  <button 
-                    v-for="priceItem in ['Under 10k', '10k - 20k', '20k - 40k', 'Couture']" 
-                    :key="priceItem"
-                    @click="router.push('/shop'); searchOpen = false"
-                    class="text-left text-sm sm:text-base text-white/60 hover:text-white hover:translate-x-1 transition-all font-semibold cursor-pointer"
-                  >
-                    &rsaquo; {{ priceItem }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="space-y-4 hidden md:block bg-white/[0.02] p-6 rounded-xl border border-white/5">
-                <h4 class="text-xs font-bold text-[#c9973a] uppercase tracking-[0.3em]">Boutique Concierge</h4>
-                <p class="text-xs text-white/60 leading-relaxed">
-                  Looking for custom sizing, bridal consultations, or bespoke embroidery packages?
-                </p>
-                <a 
-                  href="https://wa.me/923416887454" 
-                  target="_blank" 
-                  class="inline-flex items-center gap-2 text-xs font-bold text-black bg-[#25D366] hover:bg-[#20ba5a] px-4 py-2 rounded-lg transition-colors no-underline"
-                >
-                  <font-awesome-icon :icon="['fab', 'whatsapp']" />
-                  <span>WhatsApp Concierge: 0341 6887454</span>
-                </a>
               </div>
             </div>
 
@@ -631,6 +698,10 @@ const navItems = computed(() => {
 
 const heroCollectionProducts = computed(() => {
   return productStore.products.filter(p => p.id && String(p.id).startsWith('hero-'))
+})
+
+const curatedTrendingProducts = computed(() => {
+  return productStore.products.filter(p => p.image && !String(p.id).startsWith('hero-')).slice(0, 4)
 })
 
 watch(isMenuOpen, (val) => {
