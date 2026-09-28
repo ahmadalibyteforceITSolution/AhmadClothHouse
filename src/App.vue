@@ -1,30 +1,58 @@
 <template>
 
   <div class="min-h-screen relative bg-[#050505] bg-damask">
-    <!-- Global Premium Loader -->
-    <transition name="fade">
+    <!-- ══════════ ULTRA-LUXURY GLOBAL PRELOADER ══════════ -->
+    <transition name="lux-loader-fade">
       <div v-if="loading.isLoading"
-        class="fixed inset-0 z-[100000] flex items-center justify-center bg-[var(--luxury-cream)] selection:bg-none pointer-events-none">
-        <div class="flex flex-col items-center gap-10">
+        class="fixed inset-0 z-[1000000] flex flex-col items-center justify-center bg-[#0C0B0A] text-white selection:bg-none pointer-events-auto overflow-hidden">
+        
+        <!-- Ambient Gold Glows -->
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-[#D4AF37]/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
+        <div class="absolute w-80 h-80 rounded-full bg-[#B8860B]/15 blur-[90px] pointer-events-none"></div>
 
-          <!-- Logo Animation -->
-          <div class="relative w-40 h-40 flex items-center justify-center group">
-            <div class="absolute inset-0 rounded-full border border-[var(--primary-gold)]/10 animate-ping"></div>
-            <div class="absolute -inset-10 rounded-full border border-[var(--primary-gold)]/5 animate-pulse-slow"></div>
+        <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-lg">
 
-            <h1
-              class="text-3xl font-playfair tracking-[0.3em] font-light text-[var(--luxury-black)] animate-float uppercase">
-              AHMAD CLOTHES HOUSE</h1>
-          </div>
-
-          <!-- Text -->
-          <div class="flex flex-col items-center gap-2">
-            <p class="text-[10px] uppercase font-bold tracking-[0.6em] text-[var(--luxury-black)] italic">
-              Luxury Unstitched Couture
-            </p>
-            <div class="w-32 h-[1px] bg-gradient-to-r from-transparent via-[var(--primary-gold)]/30 to-transparent">
+          <!-- Luxury Animated Monogram Crest -->
+          <div class="relative w-32 h-32 sm:w-36 sm:h-36 flex items-center justify-center mb-8">
+            <!-- Outer delicate rotating dashed golden ring -->
+            <div class="absolute inset-0 rounded-full border border-dashed border-[#D4AF37]/40 animate-spin-slow"></div>
+            
+            <!-- Secondary counter-rotating thin ring -->
+            <div class="absolute inset-2.5 rounded-full border border-t-[#D4AF37] border-r-[#D4AF37]/50 border-b-transparent border-l-transparent animate-spin-reverse-slow"></div>
+            
+            <!-- Inner glow circle -->
+            <div class="absolute inset-6 rounded-full bg-gradient-to-br from-[#1C1A16] to-[#0D0C0A] border border-[#D4AF37]/40 flex items-center justify-center shadow-2xl">
+              <!-- Golden Monogram / Star -->
+              <div class="flex flex-col items-center justify-center">
+                <span class="text-xl sm:text-2xl text-[#D4AF37] font-editorial tracking-[0.1em] font-normal">ACH</span>
+                <span class="text-[7px] text-[#D4AF37]/70 uppercase tracking-[0.3em] -mt-1 font-bold">EST. 2004</span>
+              </div>
             </div>
           </div>
+
+          <!-- Brand Title -->
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-editorial tracking-[0.28em] sm:tracking-[0.35em] text-white font-normal uppercase mb-2">
+            AHMAD CLOTHES HOUSE
+          </h1>
+
+          <!-- Tagline -->
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-px bg-gradient-to-r from-transparent to-[#D4AF37]"></span>
+            <p class="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.45em] text-[#D4AF37]">
+              HAUTE COUTURE &middot; LAHORE
+            </p>
+            <span class="w-8 h-px bg-gradient-to-l from-transparent to-[#D4AF37]"></span>
+          </div>
+
+          <!-- Elegant Gold Hairline Loading Indicator -->
+          <div class="relative w-48 sm:w-60 h-[2px] bg-white/10 rounded-full overflow-hidden mb-3">
+            <div class="lux-progress-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
+          </div>
+
+          <!-- Status text -->
+          <p class="text-[8.5px] uppercase tracking-[0.3em] text-stone-400 font-medium">
+            Curating Artisanal Collections...
+          </p>
 
         </div>
       </div>
@@ -532,6 +560,45 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+/* === ULTRA LUXURY PRELOADER ANIMATIONS === */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinReverseSlow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes progressShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 16s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinReverseSlow 10s linear infinite;
+}
+
+.lux-progress-shimmer {
+  animation: progressShimmer 1.8s ease-in-out infinite;
+}
+
+.lux-loader-fade-enter-active,
+.lux-loader-fade-leave-active {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-loader-fade-enter-from,
+.lux-loader-fade-leave-to {
+  opacity: 0;
+  transform: scale(1.02);
 }
 
 /* === PAGE TRANSITIONS === */
