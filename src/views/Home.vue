@@ -8,104 +8,123 @@
 
 
     <!-- ═══════════════════════════════════════════
-         1. AHMAD CLOTH HOUSE — LUXURY EDITORIAL HERO
+         1. EDITORIAL LUXURY HERO
     ═══════════════════════════════════════════ -->
     <section
       ref="heroSection"
-      class="relative w-full min-h-screen flex flex-col justify-center px-5 sm:px-12 lg:px-24 bg-[#F6F5EE] dark:bg-[#0A0A0A] overflow-hidden"
-      aria-label="Luxury Hero"
+      class="relative w-full bg-[#FAF8F5] dark:bg-[#0B0B0B] py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-14 border-b border-stone-200/70 dark:border-white/5 transition-colors duration-500 overflow-hidden"
+      aria-label="Editorial Luxury Hero"
     >
-      <!-- Background subtle pattern overlay -->
-      <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
-           style="background-image: repeating-linear-gradient(45deg, #1f2e1f 0, #1f2e1f 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+      <!-- Background Ambient Glows -->
+      <div class="absolute top-1/4 left-1/12 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 right-1/12 w-96 h-96 bg-[#B8860B]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="relative w-full max-w-[1400px] mx-auto py-20 sm:py-16 z-10">
+      <!-- Main Framed Editorial Showcase -->
+      <div class="relative w-full max-w-[1540px] mx-auto bg-[#F4EFE6]/90 dark:bg-[#12100E] rounded-[28px] sm:rounded-[36px] md:rounded-[44px] shadow-2xl overflow-hidden border border-[#D4AF37]/25 dark:border-white/10 p-6 sm:p-10 lg:p-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Left Editorial Content -->
+          <div class="lg:col-span-7 flex flex-col justify-center z-10 space-y-6 sm:space-y-8">
+            
+            <!-- Luxury Season Badge -->
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-white/5 border border-[#D4AF37]/40 w-fit backdrop-blur-md shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#B8860B] animate-pulse"></span>
+              <span class="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[0.3em] text-[#8B6508] dark:text-[#D4AF37]">
+                Autumn / Winter Couture '26
+              </span>
+            </div>
 
-        <!-- Eyebrow Label -->
-        <div class="flex items-center gap-4 mb-8 sm:mb-10">
-          <div class="w-8 sm:w-12 h-px bg-[#C9973A]"></div>
-          <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">
-            Ahmad Clothes House · Est. 2020
-          </p>
-        </div>
+            <!-- Main Haute Headline -->
+            <h1 class="font-editorial text-[#161412] dark:text-white text-4xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[82px] leading-[1.06] tracking-[-0.02em] font-normal">
+              Elevate Style,<br />
+              <span class="italic font-light text-[#B8860B] dark:text-[#D4AF37] block mt-1">Embrace Story</span>
+            </h1>
 
-        <!-- Main Editorial Headline -->
-        <h1 class="font-extralight text-[#1f2e1f] dark:text-stone-100 uppercase leading-none mb-6 sm:mb-8"
-            style="font-size: clamp(44px, 9.5vw, 155px); letter-spacing: 0.04em; line-height: 0.88;">
-          THE ART<br/><span style="padding-left: clamp(20px, 4vw, 70px);">OF COUTURE</span>
-        </h1>
+            <!-- Editorial Description -->
+            <p class="text-stone-700 dark:text-stone-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-normal">
+              Curating Pakistan's most revered designer unstitched fabrics, opulent velvet shawls, and bespoke bridal masterpieces. Handcrafted in Lahore with generations of artisanal excellence.
+            </p>
 
-        <!-- Thin Gold Divider -->
-        <div class="flex items-center gap-4 mb-8 sm:mb-10">
-          <div class="w-20 sm:w-32 h-px bg-[#C9973A]"></div>
-          <span class="text-[#C9973A] text-xs">✦</span>
-        </div>
+            <!-- Dual Luxury CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button
+                @click="router.push('/shop')"
+                class="group inline-flex items-center gap-3.5 px-8 sm:px-10 py-4 bg-[#141414] hover:bg-[#B8860B] text-white text-xs sm:text-sm font-bold uppercase tracking-[0.2em] rounded-full shadow-xl hover:shadow-[#B8860B]/30 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+              >
+                <span>Explore Catalog</span>
+                <span class="text-sm transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              </button>
 
-        <!-- Subtitle -->
-        <p class="text-[10px] sm:text-xs text-[#1f2e1f]/50 dark:text-stone-500 font-light uppercase tracking-[0.4em] mb-10 sm:mb-14 max-w-[280px] sm:max-w-sm leading-loose">
-          Artisanal Unstitched &nbsp;·&nbsp; Luxury Pret &nbsp;·&nbsp; Bridal Couture
-        </p>
+              <button
+                @click="router.push('/shop/Bridal')"
+                class="inline-flex items-center gap-2.5 px-7 sm:px-8 py-4 rounded-full border border-stone-800/60 dark:border-white/30 hover:border-[#B8860B] dark:hover:border-[#D4AF37] text-stone-900 dark:text-white hover:text-[#B8860B] dark:hover:text-[#D4AF37] text-xs sm:text-sm font-bold uppercase tracking-[0.2em] transition-all duration-300 bg-white/40 dark:bg-white/5 backdrop-blur-sm cursor-pointer"
+              >
+                <span>Bridal Lounge</span>
+              </button>
+            </div>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
-          <button
-            @click="router.push('/shop')"
-            class="group px-8 sm:px-10 py-4 bg-[#1f2e1f] hover:bg-[#C9973A] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em] cursor-pointer transition-all duration-500 w-full sm:w-auto flex items-center justify-center gap-3"
-          >
-            <span>EXPLORE COLLECTIONS</span>
-            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
-          </button>
-          <button
-            @click="router.push('/shop/Bridal')"
-            class="group px-8 sm:px-10 py-4 border border-[#1f2e1f]/40 dark:border-stone-600 text-[#1f2e1f] dark:text-stone-300 hover:border-[#C9973A] hover:text-[#C9973A] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em] cursor-pointer transition-all duration-300 w-full sm:w-auto"
-          >
-            BRIDAL COUTURE
-          </button>
-        </div>
+            <!-- Heritage Credentials Row -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-stone-300/60 dark:border-white/10 max-w-lg">
+              <div>
+                <p class="text-xl sm:text-2xl font-editorial font-bold text-stone-900 dark:text-white">20+ Yrs</p>
+                <p class="text-[9px] uppercase tracking-widest text-stone-500 dark:text-stone-400 font-semibold mt-0.5">Heritage</p>
+              </div>
+              <div>
+                <p class="text-xl sm:text-2xl font-editorial font-bold text-stone-900 dark:text-white">100%</p>
+                <p class="text-[9px] uppercase tracking-widest text-stone-500 dark:text-stone-400 font-semibold mt-0.5">Original Fabrics</p>
+              </div>
+              <div>
+                <p class="text-xl sm:text-2xl font-editorial font-bold text-stone-900 dark:text-white">Global</p>
+                <p class="text-[9px] uppercase tracking-widest text-stone-500 dark:text-stone-400 font-semibold mt-0.5">Express Delivery</p>
+              </div>
+            </div>
 
-        <!-- Stats Row -->
-        <div class="flex items-center gap-8 sm:gap-12 mt-14 sm:mt-16 pt-10 sm:pt-12 border-t border-[#1f2e1f]/10 dark:border-white/10">
-          <div>
-            <p class="text-xl sm:text-2xl font-extralight text-[#1f2e1f] dark:text-white">5K+</p>
-            <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-[#1f2e1f]/40 dark:text-stone-600 mt-1">Designs</p>
           </div>
-          <div class="w-px h-8 bg-[#1f2e1f]/10 dark:bg-white/10"></div>
-          <div>
-            <p class="text-xl sm:text-2xl font-extralight text-[#1f2e1f] dark:text-white">100K+</p>
-            <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-[#1f2e1f]/40 dark:text-stone-600 mt-1">Patrons</p>
+
+          <!-- Right Visual Composition -->
+          <div class="lg:col-span-5 relative flex justify-center items-center lg:justify-end">
+            <div class="relative w-full max-w-[460px] sm:max-w-[500px] lg:max-w-[540px]">
+              
+              <!-- Subtle Luxury Floating Badge -->
+              <div class="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 bg-[#141414]/90 backdrop-blur-md text-white border border-[#D4AF37]/50 rounded-2xl p-3.5 sm:p-4 shadow-2xl z-20 hidden sm:flex items-center gap-3 animate-float">
+                <div class="w-8 h-8 rounded-full bg-[#B8860B]/20 flex items-center justify-center text-[#D4AF37]">
+                  <font-awesome-icon icon="fa-solid fa-gem" class="text-sm" />
+                </div>
+                <div>
+                  <p class="text-[8px] font-black uppercase tracking-[0.25em] text-[#D4AF37]">Bespoke Craft</p>
+                  <p class="text-xs font-bold text-white tracking-wide">Pure Silk &amp; Velvet</p>
+                </div>
+              </div>
+
+              <img
+                :src="heroModelComposite"
+                alt="Elevate Style, Embrace Story - Ahmad Clothes House"
+                class="w-full h-auto object-contain block mx-auto drop-shadow-2xl select-none relative z-10 transform hover:scale-[1.02] transition-transform duration-700"
+                loading="eager"
+              />
+            </div>
           </div>
-          <div class="w-px h-8 bg-[#1f2e1f]/10 dark:bg-white/10"></div>
-          <div>
-            <p class="text-xl sm:text-2xl font-extralight text-[#1f2e1f] dark:text-white">Global</p>
-            <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-[#1f2e1f]/40 dark:text-stone-600 mt-1">Shipping</p>
-          </div>
+
         </div>
-
-      </div>
-
-      <!-- Decorative vertical text (desktop) -->
-      <div class="hidden lg:flex absolute right-10 xl:right-16 top-1/2 -translate-y-1/2 items-center gap-3 z-10">
-        <span class="text-[8px] font-light tracking-[0.6em] text-[#1f2e1f]/20 dark:text-white/20 uppercase"
-              style="writing-mode: vertical-rl; transform: rotate(180deg);">Luxury · Heritage · Craftsmanship</span>
-        <div class="w-px h-28 bg-gradient-to-b from-transparent via-[#C9973A]/50 to-transparent"></div>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
-         2. FEATURED COLLECTIONS — LUXURY CAROUSEL
+         2. TRENDING COLLECTIONS — LUXURY CAROUSEL
     ═══════════════════════════════════════════ -->
-    <section class="py-14 sm:py-20 w-full bg-white dark:bg-[#080808] border-b border-stone-100 dark:border-white/5 overflow-hidden">
-      <div class="w-full space-y-10">
+    <section class="py-12 sm:py-16 w-full bg-[#F0EADC]/30 dark:bg-[#080808] border-b border-stone-200/50 dark:border-white/5 overflow-hidden">
+      <div class="w-full space-y-8">
 
-        <!-- Section Header -->
-        <div class="px-5 sm:px-10 lg:px-14 flex items-end justify-between">
-          <div class="space-y-2">
-            <p class="text-[9px] font-bold uppercase tracking-[0.6em] text-[#C9973A]">Coming Soon · Winter Collection 2026</p>
-            <h2 class="text-xl sm:text-2xl font-light tracking-[0.25em] text-stone-900 dark:text-white uppercase">
-              Featured Winter Collections
+        <!-- Section Header with exact "Trending Collections" styling -->
+        <div class="px-5 sm:px-10 lg:px-14 flex items-baseline justify-between">
+          <div class="flex items-baseline gap-3">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-editorial text-[#22160F] dark:text-white font-normal relative inline-block">
+              <span class="border-b-2 border-[#744D20] pb-1">Trending</span>
             </h2>
+            <span class="text-2xl sm:text-3xl md:text-4xl font-editorial italic text-[#645345] dark:text-stone-300 font-light">Collections</span>
           </div>
-          <router-link to="/shop" class="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 hover:text-[#C9973A] transition-colors pb-0.5 border-b border-stone-200 hover:border-[#C9973A]">
+          <router-link to="/shop" class="text-xs font-bold uppercase tracking-[0.3em] text-[#744D20] hover:text-[#5C3C17] dark:text-amber-400 transition-colors pb-0.5 border-b border-[#744D20]/30 hover:border-[#744D20]">
             View All →
           </router-link>
         </div>
@@ -829,6 +848,9 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useCartStore } from '../stores/cart'
+import { useFavoritesStore } from '../stores/favorites'
+import heroModelComposite from "../assets/hero/hero_model_composite.png"
 
 
 import NewSuitOffWhite from "../assets/dw_ef26_201_offwhite.jpg"
@@ -1211,6 +1233,11 @@ const heroLiveStats = [
 
 const router = useRouter()
 const productStore = useProductsStore()
+const cart = useCartStore()
+const favorites = useFavoritesStore()
+const goToHome = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 const limit = ref(12)
 const selectedCategory = ref('all')
 const selectedNature = ref('all')

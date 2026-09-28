@@ -1,143 +1,122 @@
 <template>
   <header class="site-header w-full sticky top-0 z-[9999]" :class="{ 'header-scrolled': isScrolled }">
 
-    <!-- ══════════ TIER 1 — Luxury Promo Marquee ══════════ -->
-    <div class="announcement-bar flex items-center justify-between">
-      <div class="marquee-track flex whitespace-nowrap overflow-hidden flex-1">
-        <span class="marquee-inner">
-          <span class="ann-text mx-10">✦ NEW COLLECTION 2026 — ARTISANAL COUTURE NOW AVAILABLE ✦</span>
-          <span class="ann-text mx-10">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
-          <a href="tel:03244902607" class="ann-text ann-phone-link mx-10 inline-flex items-center gap-2 text-amber-400 hover:text-white transition-colors cursor-pointer" title="Call 03244902607">
-            <font-awesome-icon icon="fa-solid fa-phone" class="text-[10px] text-amber-400" />
-            <span>ORDER / INQUIRY: 03244902607</span>
-          </a>
-          <span class="ann-text mx-10">✦ BESPOKE BRIDAL CONSULTATIONS — BOOK YOUR APPOINTMENT ✦</span>
-          <span class="ann-text mx-10">🌍 WORLDWIDE SHIPPING ON ALL ORDERS ABOVE RS. 15,000 🌍</span>
-          <a href="tel:03244902607" class="ann-text ann-phone-link mx-10 inline-flex items-center gap-2 text-amber-400 hover:text-white transition-colors cursor-pointer" title="Call 03244902607">
-            <font-awesome-icon icon="fa-solid fa-phone" class="text-[10px] text-amber-400" />
-            <span>ORDER / INQUIRY: 03244902607</span>
-          </a>
-        </span>
+    <!-- ══════════ ELEGANT TOP BAR ══════════ -->
+    <div class="bg-[#111111] text-stone-300 border-b border-white/10 text-[9px] sm:text-[10px] tracking-[0.16em] uppercase py-2 px-4 sm:px-8 lg:px-14 flex items-center justify-between">
+      <!-- Left/Center luxury ticker -->
+      <div class="flex items-center gap-4 overflow-hidden flex-1">
+        <div class="marquee-track flex whitespace-nowrap overflow-hidden">
+          <span class="marquee-inner flex items-center gap-8">
+            <span class="inline-flex items-center gap-2 text-stone-200">
+              <span class="text-[#D4AF37]">✦</span> COMPLIMENTARY DELIVERY NATIONWIDE ON ORDERS ABOVE RS. 15,000
+            </span>
+            <span class="inline-flex items-center gap-2 text-stone-200">
+              <span class="text-[#D4AF37]">✦</span> 100% ORIGINAL DESIGNER FABRICS &amp; BESPOKE BRIDAL COUTURE
+            </span>
+            <span class="inline-flex items-center gap-2 text-stone-200">
+              <span class="text-[#D4AF37]">✦</span> WORLDWIDE EXPRESS SHIPPING (UK, USA, UAE, CANADA)
+            </span>
+          </span>
+        </div>
       </div>
 
-      <!-- Quick Dialer Phone Button on Announcement Bar -->
-      <a href="tel:03244902607" 
-         class="ann-dialer-btn flex items-center gap-1.5 bg-[#d4af37] hover:bg-white text-black px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-black tracking-wider uppercase transition-all duration-300 shrink-0 ml-3 shadow-md z-10 hover:scale-105"
-         title="Call 03244902607"
-         aria-label="Call 03244902607">
-        <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px]" />
-        <span>03244902607</span>
-      </a>
-    </div>
-
-    <!-- ══════════ TIER 2 — Maria B Black Top Bar ══════════ -->
-    <div class="bg-black text-stone-300 px-6 lg:px-14 py-1.5 text-[9px] font-bold tracking-[0.2em] uppercase flex items-center justify-between border-b border-stone-800">
-      <!-- Left: Order Tracking & Store Locations -->
-      <div class="flex items-center gap-4">
-        <router-link to="/contact" class="hover:text-white transition-colors">ORDER TRACKING</router-link>
+      <!-- Right: Quick actions -->
+      <div class="hidden md:flex items-center gap-5 text-stone-400 shrink-0 ml-6 text-[9px] font-bold">
+        <router-link to="/contact" class="hover:text-white transition-colors">TRACK ORDER</router-link>
         <span class="text-stone-700">|</span>
-        <router-link to="/contact" class="hover:text-white transition-colors">STORE LOCATIONS</router-link>
+        <router-link to="/contact" class="hover:text-white transition-colors">STORE LOCATOR</router-link>
         <span class="text-stone-700">|</span>
-        <a href="tel:03244902607" class="hover:text-amber-400 transition-colors inline-flex items-center gap-1.5 text-amber-400" title="Direct Phone Dialer">
+        <a href="tel:03244902607" class="inline-flex items-center gap-1.5 text-[#D4AF37] hover:text-white transition-colors font-extrabold tracking-wider" title="Call Concierge">
           <font-awesome-icon icon="fa-solid fa-phone" class="text-[9px]" />
-          <span>03244902607</span>
+          <span>0324 4902607</span>
         </a>
       </div>
-
-      <!-- Right: Social Links -->
-      <div class="hidden sm:flex items-center gap-4">
-        <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" rel="noopener" class="hover:text-white transition-colors">INSTAGRAM</a>
-        <span class="text-stone-700">|</span>
-        <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" class="hover:text-white transition-colors">FACEBOOK</a>
-        <span class="text-stone-700">|</span>
-        <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" rel="noopener" class="hover:text-white transition-colors">YOUTUBE</a>
-      </div>
     </div>
 
-    <!-- ══════════ TIER 3 — Maria B Cream Main Header ══════════ -->
-    <div class="main-header px-6 lg:px-14 py-0 transition-all duration-500"
-      :class="isScrolled ? 'bg-[#F6F5EE]/98 dark:bg-[#0d0d0d]/98 backdrop-blur-md shadow-md border-b border-stone-200/80 dark:border-white/5' : 'bg-[#F6F5EE] dark:bg-[#0d0d0d] border-b border-stone-200/40 dark:border-white/5'">
+    <!-- ══════════ MAIN LUXURY BRAND HEADER ══════════ -->
+    <div class="main-header px-4 sm:px-8 lg:px-14 transition-all duration-300"
+      :class="isScrolled ? 'bg-[#FAF8F5]/98 dark:bg-[#0d0d0d]/98 backdrop-blur-md shadow-md border-b border-stone-200/80 dark:border-white/10' : 'bg-[#FAF8F5] dark:bg-[#0d0d0d] border-b border-stone-200/60 dark:border-white/5'">
 
-      <div class="flex items-center justify-between h-[68px]">
+      <div class="flex items-center justify-between h-[72px]">
 
-        <!-- LEFT: Hamburger Menu & Search Icon -->
-        <div class="flex items-center gap-4 w-[200px]">
-          <button @click="isMenuOpen = !isMenuOpen" class="text-stone-800 dark:text-white text-lg hover:text-stone-600 cursor-pointer transition-colors duration-300" aria-label="Menu">
-            <font-awesome-icon icon="fa-solid fa-bars" />
+        <!-- LEFT: Hamburger Menu & Quick Search -->
+        <div class="flex items-center gap-3 w-[220px]">
+          <button @click="isMenuOpen = !isMenuOpen" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-800 dark:text-white cursor-pointer transition-colors" aria-label="Open Menu">
+            <font-awesome-icon icon="fa-solid fa-bars" class="text-base" />
           </button>
-          <button @click="searchOpen ? handleSearch() : (searchOpen = true)" class="text-stone-800 dark:text-white text-lg hover:text-stone-600 cursor-pointer" aria-label="Search">
-            <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+          <button @click="searchOpen = true" class="flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-stone-300/80 dark:border-white/15 bg-white/70 dark:bg-white/5 hover:border-[#D4AF37] text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs">
+            <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text-xs text-[#B8860B]" />
+            <span class="hidden sm:inline text-[11px] font-medium tracking-wide">Search catalog...</span>
           </button>
         </div>
 
-        <!-- CENTER: Maria B Tracked Logo -->
-        <div class="flex-1 flex justify-center items-center cursor-pointer" @click="goToHome">
-          <div class="text-center">
-            <h1 class="text-[11px] sm:text-sm lg:text-base font-extrabold tracking-[0.15em] sm:tracking-[0.25em] lg:tracking-[0.35em] uppercase whitespace-nowrap transition-colors duration-300 text-[#203220] dark:text-white">
-              AHMAD CLOTHES HOUSE
-            </h1>
-          </div>
+        <!-- CENTER: Timeless Brand Identity -->
+        <div class="flex-1 flex flex-col justify-center items-center cursor-pointer select-none group py-1" @click="goToHome">
+          <h1 class="text-base sm:text-lg md:text-xl lg:text-[22px] font-editorial tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#181818] dark:text-white font-normal group-hover:text-[#B8860B] transition-colors duration-300 whitespace-nowrap">
+            AHMAD CLOTHES HOUSE
+          </h1>
+          <span class="text-[7.5px] sm:text-[8px] font-semibold tracking-[0.42em] uppercase text-stone-500 dark:text-stone-400 mt-0.5">
+            HAUTE COUTURE &middot; LAHORE
+          </span>
         </div>
 
         <!-- RIGHT: Wishlist, User Account, Shopping Bag -->
-        <div class="flex items-center gap-5 w-[200px] justify-end transition-colors duration-300" :class="isScrolled ? 'text-stone-800 dark:text-white' : 'text-stone-800 dark:text-white'">
-          
+        <div class="flex items-center gap-2 sm:gap-3 w-[220px] justify-end">
           <!-- Wishlist -->
-          <router-link to="/dashboard" class="relative hover:text-stone-600 cursor-pointer" aria-label="Wishlist">
-            <font-awesome-icon icon="fa-regular fa-heart" class="text-lg" />
-            <span v-if="favorites.totalFavorites > 0" class="absolute -top-1.5 -right-2 bg-[#203220] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{{ favorites.totalFavorites }}</span>
+          <router-link to="/dashboard" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors relative" aria-label="Wishlist">
+            <font-awesome-icon icon="fa-regular fa-heart" class="text-base" />
+            <span v-if="favorites.totalFavorites > 0" class="absolute top-1 right-1 bg-[#B8860B] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{{ favorites.totalFavorites }}</span>
           </router-link>
 
           <!-- User Account -->
-          <router-link :to="auth.isAuthenticated ? (auth.isAdmin ? '/admin/dashboard' : '/dashboard') : '/login'" class="hover:text-stone-600 cursor-pointer" aria-label="Account">
-            <font-awesome-icon icon="fa-regular fa-user" class="text-lg" />
+          <router-link :to="auth.isAuthenticated ? (auth.isAdmin ? '/admin/dashboard' : '/dashboard') : '/login'" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors" aria-label="Account">
+            <font-awesome-icon icon="fa-regular fa-user" class="text-base" />
           </router-link>
 
           <!-- Shopping Bag -->
-          <router-link to="/cart" class="relative hover:text-stone-600 cursor-pointer" aria-label="Cart">
-            <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-lg" />
-            <span v-if="cart.totalItems > 0" class="absolute -top-1.5 -right-2 bg-[#203220] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">{{ cart.totalItems }}</span>
+          <router-link to="/cart" class="flex items-center gap-2 pl-3 pr-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white transition-all duration-300 shadow-sm ml-1" aria-label="Cart">
+            <font-awesome-icon icon="fa-solid fa-bag-shopping" class="text-xs" />
+            <span class="text-xs font-bold">{{ cart.totalItems || 0 }}</span>
           </router-link>
-
         </div>
       </div>
 
       <!-- ══════════ NAVIGATION BAR (Desktop) ══════════ -->
-      <nav class="hidden lg:flex items-center justify-center gap-10 h-11">
+      <nav class="hidden lg:flex items-center justify-center gap-7 xl:gap-9 border-t border-stone-200/60 dark:border-white/5 h-11">
         <div v-for="item in navItems" :key="item.name" class="relative group/nav h-full flex items-center">
           <router-link :to="item.path"
-            class="nav-link-premium text-[11px] font-bold uppercase tracking-[0.18em] text-stone-600 dark:text-stone-300 hover:text-[#1a1a1a] dark:hover:text-white transition-colors duration-200 h-full flex items-center relative"
-            :class="route.path === item.path || route.path.startsWith(item.path + '/') ? 'text-[#1a1a1a] dark:text-white' : ''">
+            class="nav-link-premium text-[11px] font-bold uppercase tracking-[0.16em] text-stone-600 dark:text-stone-300 hover:text-[#111] dark:hover:text-white transition-colors duration-200 h-full flex items-center relative"
+            :class="route.path === item.path || (item.path !== '/' && route.path.startsWith(item.path)) ? 'text-[#111] dark:text-white font-extrabold' : ''">
             {{ item.name }}
             <!-- Active / hover underline -->
-            <span class="absolute bottom-0 left-0 h-[2px] bg-[#c9973a] transition-all duration-300"
-              :class="route.path === item.path ? 'w-full' : 'w-0 group-hover/nav:w-full'"></span>
+            <span class="absolute bottom-0 left-0 h-[2px] bg-[#B8860B] transition-all duration-300"
+              :class="route.path === item.path || (item.path !== '/' && route.path.startsWith(item.path)) ? 'w-full' : 'w-0 group-hover/nav:w-full'"></span>
           </router-link>
 
           <!-- Mega Dropdown -->
           <div v-if="item.products && item.products.length > 0"
-            class="absolute top-full left-1/2 -translate-x-1/2 w-[560px] bg-white dark:bg-[#111] border border-stone-100 dark:border-white/5 shadow-2xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-400 z-[110] p-7 grid grid-cols-2 gap-7">
+            class="absolute top-full left-1/2 -translate-x-1/2 w-[580px] bg-white dark:bg-[#111] border border-stone-200/80 dark:border-white/10 shadow-2xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 z-[110] p-6 grid grid-cols-2 gap-6 rounded-b-xl">
             <div class="space-y-3">
-              <h3 class="text-[9px] font-black text-[#c9973a] uppercase tracking-[0.4em] mb-4">Signature Pieces</h3>
-              <div v-for="p in item.products.slice(0, 4)" :key="p.id"
+              <h3 class="text-[9px] font-black text-[#B8860B] uppercase tracking-[0.35em] mb-3">Signature Pieces</h3>
+              <div v-for="p in item.products.slice(0, 3)" :key="p.id"
                 @click="goToLiveProduct(p)"
-                class="flex items-center gap-3 p-2.5 hover:bg-stone-50 dark:hover:bg-white/5 cursor-pointer transition-all group/item">
-                <div class="w-11 h-13 bg-stone-100 dark:bg-stone-900 shrink-0 overflow-hidden">
+                class="flex items-center gap-3 p-2 hover:bg-stone-50 dark:hover:bg-white/5 rounded-lg cursor-pointer transition-all group/item">
+                <div class="w-12 h-14 bg-stone-100 dark:bg-stone-900 shrink-0 rounded overflow-hidden">
                   <img :src="p.image" class="w-full h-full object-cover transition-all duration-500 group-hover/item:scale-110" />
                 </div>
                 <div>
                   <p class="text-[10px] font-bold uppercase tracking-widest text-stone-800 dark:text-white line-clamp-1">{{ p.name }}</p>
-                  <p class="text-[9px] font-medium text-[#c9973a]">Rs. {{ p.price?.toLocaleString() }}</p>
+                  <p class="text-[9px] font-semibold text-[#B8860B] mt-0.5">Rs. {{ p.price?.toLocaleString() }}</p>
                 </div>
               </div>
             </div>
-            <div class="bg-stone-50 dark:bg-stone-900/40 p-5 flex flex-col justify-center text-center space-y-3">
-              <p class="text-[8px] font-black text-stone-400 uppercase tracking-[0.4em]">The {{ item.name }} Collection</p>
-              <h4 class="text-xl font-playfair italic text-stone-800 dark:text-white">Curated Luxury</h4>
+            <div class="bg-[#FAF8F5] dark:bg-stone-900/50 p-5 rounded-lg flex flex-col justify-center text-center space-y-2.5 border border-stone-200/50 dark:border-white/5">
+              <p class="text-[8px] font-black text-stone-400 uppercase tracking-[0.35em]">The {{ item.name }} Edit</p>
+              <h4 class="text-lg font-editorial italic text-stone-800 dark:text-white">Curated Luxury</h4>
               <p class="text-[11px] text-stone-500 italic leading-relaxed">Discover our most sought-after pieces from the {{ item.name }} archives.</p>
               <button @click="router.push(item.path)"
-                class="mx-auto mt-3 px-7 py-2.5 bg-[#1a1a1a] dark:bg-white text-white dark:text-black text-[9px] font-bold uppercase tracking-widest hover:bg-[#c9973a] dark:hover:bg-[#c9973a] dark:hover:text-white transition-colors">
-                View All
+                class="mx-auto mt-2 px-6 py-2 bg-[#181818] dark:bg-white text-white dark:text-black text-[9px] font-bold uppercase tracking-widest hover:bg-[#B8860B] dark:hover:bg-[#B8860B] dark:hover:text-white rounded-full transition-colors">
+                Explore All
               </button>
             </div>
           </div>
@@ -616,45 +595,37 @@ onUnmounted(() => {
 
 const navItems = computed(() => {
   const items = [{ name: 'Home', path: '/', products: [] }]
-  const categories = productStore.products.reduce((acc, p) => {
-    if (p.parentCategory) acc.add(p.parentCategory)
-    else if (p.category) acc.add(p.category)
-    return acc
-  }, new Set())
-
+  
   // Create products by category map for dropdowns
   const productsByCategory = productStore.products.reduce((acc, p) => {
     const cat = p.parentCategory || p.category
-    if (!acc[cat]) acc[cat] = []
-    acc[cat].push(p)
+    if (cat) {
+      if (!acc[cat]) acc[cat] = []
+      acc[cat].push(p)
+    }
     return acc
   }, {})
 
-  // Luxury Fashion Categories
-  const order = ['Unstitched', 'Pret', 'Bridal', 'M.Print']
-  order.forEach(catName => {
-    if (categories.has(catName)) {
-      items.push({ 
-        name: catName, 
-        path: `/shop/${catName}`,
-        products: productsByCategory[catName] || []
-      })
-      categories.delete(catName)
-    }
+  const primaryNav = [
+    { name: 'Unstitched', path: '/shop/Unstitched', key: 'Unstitched' },
+    { name: 'Ready to Wear', path: '/shop/Pret', key: 'Pret' },
+    { name: 'Luxury Formals', path: '/shop/Luxury Formals', key: 'Luxury Formals' },
+    { name: 'Bridal Couture', path: '/shop/Bridal', key: 'Bridal' },
+    { name: 'Men\'s Wear', path: '/shop/Men\'s Wear', key: 'Men\'s Wear' },
+    { name: 'Hero Collection', path: '/shop/hero', products: heroCollectionProducts.value },
+    { name: 'Sale', path: '/shop/Sale Offer', key: 'Sale Offer' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' }
+  ]
+
+  primaryNav.forEach(nav => {
+    items.push({
+      name: nav.name,
+      path: nav.path,
+      products: nav.products || (nav.key ? (productsByCategory[nav.key] || []) : [])
+    })
   })
-  categories.forEach(catName => {
-    if (!['Standard', 'Premium', 'Limited Edition'].includes(catName)) {
-      items.push({ 
-        name: catName, 
-        path: `/shop/${catName}`,
-        products: productsByCategory[catName] || []
-      })
-    }
-  })
-  items.push({ name: 'Hero Collection', path: '/shop/hero', products: heroCollectionProducts })
-  items.push({ name: 'Sale Offer', path: '/shop/Sale Offer', products: [] })
-  items.push({ name: 'About Us', path: '/about', products: [] })
-  items.push({ name: 'Contact Us', path: '/contact', products: [] })
+
   return items
 })
 
