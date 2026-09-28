@@ -1,138 +1,154 @@
 <template>
-  <footer class="bg-white dark:bg-[#0A0A0A] text-stone-800 dark:text-stone-200 pt-16 pb-8 border-t border-stone-200 dark:border-white/10 font-sans transition-colors duration-500">
-    <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+  <footer class="bg-[#0D0C0A] text-stone-300 pt-16 pb-10 border-t border-[#D4AF37]/20 font-sans transition-colors duration-500 overflow-hidden">
+    <div class="max-w-[1540px] mx-auto px-6 sm:px-10 lg:px-14">
 
-      <!-- Main Footer Row -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-14 border-b border-stone-200/80 dark:border-white/10">
-
-        <!-- Left Brand & Contact Info Column -->
-        <div class="lg:col-span-6 space-y-6">
-          <!-- Brand Logo Header -->
-          <div @click="$router.push('/')" class="cursor-pointer">
-            <h2 class="text-2xl sm:text-3xl font-editorial tracking-[0.24em] text-stone-900 dark:text-white uppercase">
-              AHMAD CLOTHES HOUSE
-            </h2>
-            <p class="text-[8px] font-semibold tracking-[0.4em] uppercase text-[#B8860B] mt-1">HAUTE COUTURE &middot; LAHORE</p>
-          </div>
-
-          <!-- Address & Contact Details -->
-          <div class="space-y-1.5 text-xs text-stone-500 dark:text-stone-400 font-medium leading-relaxed">
-            <p>Bagrian Chowk, Near Afzal Electronics (Front),</p>
-            <p>Lahore, Pakistan.</p>
-            <p class="pt-2">Call / WhatsApp: <a href="https://wa.me/923416887454" target="_blank" class="hover:text-stone-900 dark:hover:text-white transition-colors">0341 6887454</a> / <a href="https://wa.me/923244902607" target="_blank" class="hover:text-stone-900 dark:hover:text-white transition-colors">0324 4902607</a></p>
-            <p>Email: <a href="mailto:ahmadalihafeez24@gmail.com" class="hover:text-stone-900 dark:hover:text-white transition-colors">ahmadalihafeez24@gmail.com</a></p>
-          </div>
+      <!-- ══════════ TOP: NEWSLETTER PRIVÉ ROW ══════════ -->
+      <div class="pb-14 border-b border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-2">
+          <span class="text-[9px] font-black uppercase tracking-[0.4em] text-[#D4AF37]">The Couture Society</span>
+          <h3 class="text-2xl sm:text-3xl font-editorial tracking-wide text-white font-normal">
+            Join The Ahmad Privé Club
+          </h3>
+          <p class="text-xs text-stone-400 max-w-md font-light leading-relaxed">
+            Receive exclusive invitations to collection previews, bridal couture lookbooks, and private seasonal sales.
+          </p>
         </div>
 
-        <!-- Right Links Grid (Information & Customer Care) -->
-        <div class="lg:col-span-6 grid grid-cols-2 gap-8 lg:pl-12">
-          
-          <!-- Information Column -->
-          <div class="space-y-4">
-            <h3 class="text-sm font-extrabold tracking-wider text-stone-900 dark:text-white uppercase">
-              Information
-            </h3>
-            <ul class="space-y-2.5 text-xs font-medium text-stone-500 dark:text-stone-400">
-              <li>
-                <router-link to="/terms" class="hover:text-stone-900 dark:hover:text-white transition-colors">Returns and Exchange</router-link>
-              </li>
-              <li>
-                <router-link to="/privacy" class="hover:text-stone-900 dark:hover:text-white transition-colors">Privacy Policy</router-link>
-              </li>
-              <li>
-                <router-link to="/contact" class="hover:text-stone-900 dark:hover:text-white transition-colors">FAQs</router-link>
-              </li>
-              <li>
-                <router-link to="/contact" class="hover:text-stone-900 dark:hover:text-white transition-colors">Store Locator</router-link>
-              </li>
-              <li>
-                <router-link to="/dashboard" class="hover:text-stone-900 dark:hover:text-white transition-colors">Track Your Order</router-link>
-              </li>
-              <li>
-                <router-link to="/blog" class="hover:text-stone-900 dark:hover:text-white transition-colors">Blogs</router-link>
-              </li>
-            </ul>
+        <div class="lg:col-span-6 flex flex-col sm:flex-row items-center gap-3">
+          <div class="relative flex-1 w-full">
+            <input 
+              v-model="newsletterEmail"
+              type="email" 
+              placeholder="Enter your email address..."
+              class="w-full bg-white/[0.05] border border-white/15 focus:border-[#D4AF37] text-white placeholder-stone-500 text-xs px-5 py-3.5 rounded-full outline-none transition-colors"
+            />
           </div>
-
-          <!-- Customer Care Column -->
-          <div class="space-y-4">
-            <h3 class="text-sm font-extrabold tracking-wider text-stone-900 dark:text-white uppercase">
-              Customer Care
-            </h3>
-            <ul class="space-y-2.5 text-xs font-medium text-stone-500 dark:text-stone-400">
-              <li>
-                <router-link to="/about" class="hover:text-stone-900 dark:hover:text-white transition-colors">About Ahmad Clothes House</router-link>
-              </li>
-              <li>
-                <router-link to="/contact" class="hover:text-stone-900 dark:hover:text-white transition-colors">Contact Us</router-link>
-              </li>
-              <li>
-                <router-link to="/contact" class="hover:text-stone-900 dark:hover:text-white transition-colors">Careers</router-link>
-              </li>
-              <li>
-                <router-link to="/terms" class="hover:text-stone-900 dark:hover:text-white transition-colors">Terms and Conditions</router-link>
-              </li>
-              <li>
-                <a href="/backlinks.html" class="hover:text-stone-900 dark:hover:text-white transition-colors">SEO &amp; Backlinks Directory</a>
-              </li>
-            </ul>
-          </div>
-
+          <button 
+            @click="handleSubscribe"
+            class="w-full sm:w-auto px-8 py-3.5 bg-[#D4AF37] hover:bg-white text-black text-xs font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300 shrink-0 cursor-pointer shadow-md hover:scale-105"
+          >
+            <span>Subscribe</span>
+          </button>
         </div>
-
       </div>
 
-      <!-- Sponsored Partner Ad Section -->
-      <div class="my-10 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-stone-50 via-stone-100 to-amber-50/40 dark:from-[#111] dark:via-[#161616] dark:to-stone-900 border border-stone-200 dark:border-white/10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-300">
-        <div class="flex items-center gap-4 text-left">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
+      <!-- ══════════ MAIN 4-COLUMN FOOTER ══════════ -->
+      <div class="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 border-b border-white/10">
+        
+        <!-- Col 1: Brand & Heritage (5 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div @click="$router.push('/')" class="cursor-pointer group">
+            <h2 class="text-xl sm:text-2xl font-editorial tracking-[0.24em] text-white uppercase group-hover:text-[#D4AF37] transition-colors">
+              AHMAD CLOTHES HOUSE
+            </h2>
+            <p class="text-[8px] font-semibold tracking-[0.4em] uppercase text-[#D4AF37] mt-1">HAUTE COUTURE &middot; LAHORE</p>
           </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span class="text-[9px] font-black uppercase tracking-[0.25em] text-[#c9973a] bg-[#c9973a]/15 px-2 py-0.5 rounded">Sponsored Partner</span>
-              <span class="text-[10px] text-stone-400 dark:text-stone-500 font-semibold">· Architecture &amp; 3D Design</span>
-            </div>
-            <h4 class="text-base sm:text-lg font-extrabold text-stone-900 dark:text-white tracking-tight">
-              H&amp;Q Design Services
-            </h4>
-            <p class="text-xs text-stone-600 dark:text-stone-400 max-w-xl leading-relaxed mt-0.5 font-normal">
-              Bespoke Architectural Plans, Photorealistic 3D Interior &amp; Exterior Renderings, and Structural Visualizations.
+          
+          <p class="text-xs text-stone-400 font-light leading-relaxed max-w-sm">
+            Preserving Pakistan's rich textile heritage through artisanal unstitched fabrics, master embroideries, and bespoke bridal couture since 2004.
+          </p>
+
+          <div class="flex items-center gap-4 text-sm text-stone-400 pt-2">
+            <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
+              <font-awesome-icon :icon="['fab', 'instagram']" />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
+              <font-awesome-icon :icon="['fab', 'facebook-f']" />
+            </a>
+            <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
+              <font-awesome-icon :icon="['fab', 'youtube']" />
+            </a>
+            <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" aria-label="TikTok" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
+              <font-awesome-icon :icon="['fab', 'tiktok']" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Collections (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h3 class="text-xs font-black uppercase tracking-[0.25em] text-[#D4AF37]">
+            Collections
+          </h3>
+          <ul class="space-y-2.5 text-xs text-stone-400 font-normal">
+            <li>
+              <router-link to="/shop/Unstitched" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Unstitched Luxury Fabrics</router-link>
+            </li>
+            <li>
+              <router-link to="/shop/Pret" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Ready to Wear (Pret)</router-link>
+            </li>
+            <li>
+              <router-link to="/shop/Bridal" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Royal Bridal Couture</router-link>
+            </li>
+            <li>
+              <router-link to="/shop/Luxury Formals" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Luxury Formals &amp; Chiffon</router-link>
+            </li>
+            <li>
+              <router-link to="/shop/Men's Wear" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Men's Wash &amp; Wear Edit</router-link>
+            </li>
+            <li>
+              <router-link to="/shop/Sale Offer" class="hover:text-[#D4AF37] transition-colors hover:translate-x-1 inline-block font-semibold">Seasonal Sale Offers</router-link>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Client Concierge (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h3 class="text-xs font-black uppercase tracking-[0.25em] text-[#D4AF37]">
+            Client Care
+          </h3>
+          <ul class="space-y-2.5 text-xs text-stone-400 font-normal">
+            <li>
+              <router-link to="/about" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Our Story</router-link>
+            </li>
+            <li>
+              <router-link to="/contact" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Store Locator (Lahore)</router-link>
+            </li>
+            <li>
+              <router-link to="/dashboard" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Track Your Order</router-link>
+            </li>
+            <li>
+              <router-link to="/terms" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Exchange &amp; Returns</router-link>
+            </li>
+            <li>
+              <router-link to="/privacy" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Privacy &amp; Security</router-link>
+            </li>
+            <li>
+              <router-link to="/blog" class="hover:text-white transition-colors hover:translate-x-1 inline-block">Fashion Journals</router-link>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Boutique Contact & Inquiries (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h3 class="text-xs font-black uppercase tracking-[0.25em] text-[#D4AF37]">
+            Concierge &amp; Boutique
+          </h3>
+          <div class="space-y-2 text-xs text-stone-400 leading-relaxed">
+            <p class="text-white font-medium">Bagrian Chowk, Near Afzal Electronics, Lahore, Pakistan</p>
+            <p class="pt-1">
+              <span class="text-stone-500">Helpline:</span> 
+              <a href="tel:03244902607" class="text-white hover:text-[#D4AF37] font-semibold ml-1.5">0324 4902607</a>
+            </p>
+            <p>
+              <span class="text-stone-500">WhatsApp:</span> 
+              <a href="https://wa.me/923416887454" target="_blank" class="text-[#25D366] hover:underline font-semibold ml-1.5">0341 6887454</a>
+            </p>
+            <p>
+              <span class="text-stone-500">Email:</span> 
+              <a href="mailto:ahmadalihafeez24@gmail.com" class="text-stone-300 hover:text-white ml-1.5">ahmadalihafeez24@gmail.com</a>
             </p>
           </div>
         </div>
 
-        <a 
-          href="https://h-q-design-services.vercel.app/" 
-          target="_blank" 
-          rel="noopener sponsored"
-          class="shrink-0 inline-flex items-center gap-3 px-6 py-3 bg-stone-900 hover:bg-[#c9973a] text-white dark:bg-white dark:text-black dark:hover:bg-[#c9973a] dark:hover:text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md group no-underline"
-        >
-          <span>Visit H&amp;Q Design</span>
-          <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-        </a>
       </div>
 
-      <!-- Bottom Sub-Footer Bar -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 dark:text-stone-500 font-medium">
-        <p>© 2026, Ahmad Clothes House Designs (PK) Powered by ByteForce</p>
-        
-        <!-- Social Icons Row -->
-        <div class="flex items-center gap-5 text-base text-stone-600 dark:text-stone-300">
-          <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" aria-label="YouTube" class="hover:text-red-600 transition-colors">
-            <font-awesome-icon :icon="['fab', 'youtube']" />
-          </a>
-          <a href="https://www.instagram.com/ahmadclothfabrics_aroma/" target="_blank" aria-label="Instagram" class="hover:text-pink-600 transition-colors">
-            <font-awesome-icon :icon="['fab', 'instagram']" />
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" aria-label="Facebook" class="hover:text-blue-600 transition-colors">
-            <font-awesome-icon :icon="['fab', 'facebook-f']" />
-          </a>
-          <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" aria-label="TikTok" class="hover:text-black dark:hover:text-white transition-colors">
-            <font-awesome-icon :icon="['fab', 'tiktok']" />
-          </a>
+      <!-- ══════════ BOTTOM BAR ══════════ -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500 font-light">
+        <p>&copy; 2026 Ahmad Clothes House. All Rights Reserved. Master Crafted in Lahore.</p>
+        <div class="flex items-center gap-6 text-[11px] text-stone-400">
+          <span>Worldwide Express Shipping</span>
+          <span class="text-stone-700">&bull;</span>
+          <span>100% Authentic Designer Fabrics</span>
         </div>
       </div>
 
@@ -141,5 +157,28 @@
 </template>
 
 <script setup>
-// Clean Maria B style Footer for AHMAD CLOTH HOUSE
+import { ref } from 'vue'
+import Swal from 'sweetalert2'
+
+const newsletterEmail = ref('')
+
+const handleSubscribe = () => {
+  if (!newsletterEmail.value || !newsletterEmail.value.includes('@')) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Invalid Email',
+      text: 'Please enter a valid email address.',
+      confirmButtonColor: '#D4AF37'
+    })
+    return
+  }
+
+  Swal.fire({
+    icon: 'success',
+    title: 'Welcome to Privé Club',
+    text: 'You have been subscribed to exclusive couture lookbooks and previews.',
+    confirmButtonColor: '#D4AF37'
+  })
+  newsletterEmail.value = ''
+}
 </script>
