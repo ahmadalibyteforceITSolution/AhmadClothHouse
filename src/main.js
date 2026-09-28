@@ -72,6 +72,15 @@ app.use(vue3GoogleLogin, {
 
 
 // ═══════════════════════════════════════════════════════════════════════════
+//  DYNAMIC CHUNK RELOAD HANDLER FOR NEW DEPLOYMENTS
+// ═══════════════════════════════════════════════════════════════════════════
+window.addEventListener('vite:preloadError', (event) => {
+  // Prevent default error throwing and reload page to fetch latest deployment bundle
+  event.preventDefault()
+  window.location.reload()
+})
+
+// ═══════════════════════════════════════════════════════════════════════════
 //  REGISTER SERVICE WORKER FOR MOBILE APP INSTALLATION (PWA)
 // ═══════════════════════════════════════════════════════════════════════════
 if ('serviceWorker' in navigator) {
