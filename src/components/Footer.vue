@@ -9,9 +9,10 @@
         <div class="lg:col-span-6 space-y-6">
           <!-- Brand Logo Header -->
           <div @click="$router.push('/')" class="cursor-pointer">
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-[0.2em] text-stone-900 dark:text-white uppercase font-sans">
+            <h2 class="text-2xl sm:text-3xl font-editorial tracking-[0.24em] text-stone-900 dark:text-white uppercase">
               AHMAD CLOTHES HOUSE
             </h2>
+            <p class="text-[8px] font-semibold tracking-[0.4em] uppercase text-[#B8860B] mt-1">HAUTE COUTURE &middot; LAHORE</p>
           </div>
 
           <!-- Address & Contact Details -->

@@ -29,7 +29,7 @@
       </nav>
 
       <!-- Large Page Title -->
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white capitalize mb-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-editorial font-normal tracking-tight text-neutral-900 dark:text-white capitalize mb-8">
         {{ displayTitle }}
       </h1>
 
