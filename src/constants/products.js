@@ -379,6 +379,17 @@ export const sanaSafinazVelvetProducts2026 = [
 ];
 
 // Bin Saeed Summer & Festive Collection 2026
+import bs003RustSage from "../assets/binsaeed_2026/bs_003_rust_sage.png";
+import bs004MaroonPolka from "../assets/binsaeed_2026/bs_004_maroon_polka.png";
+import bs005NavyBotanical from "../assets/binsaeed_2026/bs_005_navy_botanical.png";
+import bs006PeachFlora from "../assets/binsaeed_2026/bs_006_peach_flora.png";
+import bs007NoirPolka from "../assets/binsaeed_2026/bs_007_noir_polka.png";
+import bs008DenimSwirl from "../assets/binsaeed_2026/bs_008_denim_swirl.png";
+import bs009MaroonAjrak from "../assets/binsaeed_2026/bs_009_maroon_ajrak.png";
+import bs010OlivePhulkari from "../assets/binsaeed_2026/bs_010_olive_phulkari.png";
+import bs011MintRose from "../assets/binsaeed_2026/bs_011_mint_rose.jpg";
+import bs012CrimsonRose from "../assets/binsaeed_2026/bs_012_crimson_rose.png";
+import bs013TribalBloom from "../assets/binsaeed_2026/bs_013_tribal_bloom.png";
 import bs105Geometric from "../assets/binsaeed_2026/bs_105_geometric.jpg";
 import bsAdp01Navy from "../assets/binsaeed_2026/bs_adp01_navy.jpg";
 import bsAnarkaliBlue from "../assets/binsaeed_2026/bs_anarkali_blue.jpg";
@@ -4331,6 +4342,281 @@ export const sobiaWaseemChilmanProducts = [
 
 // Bin Saeed Summer & Festive Collection 2026
 export const binSaeedNewLaunchProducts2026 = [
+  {
+    id: "bs-2026-003",
+    name: "Bin Saeed Unstitched Printed Lawn 3 Piece Suit BS26UPLII BS-003 - Casual Collection",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-003",
+    price: 2950,
+    originalPrice: 3950,
+    discount: 25,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs003RustSage,
+    nature: "bestseller",
+    description: "Bin Saeed Unstitched Printed Lawn 3 Piece Suit BS26UPLII BS-003 Casual Collection. Contemporary swirling marble and abstract scroll print in warm terracotta rust, sage green, and cream. Paired with a geometric circular-lattice printed lawn dupatta with rust border finishing and matching printed lawn trousers.",
+    details: [
+      "Digital Printed Pure Cotton Lawn Shirt (3m)",
+      "Matching Geometric Printed Lawn Dupatta (2.5m)",
+      "Coordinated All-Over Printed Lawn Trouser (2.5m)",
+      "Collection: Casual Collection 2026 | Code: BS26UPLII BS-003"
+    ],
+    fabric: "100% Pure Premium Airjet Lawn",
+    care: ["Hand Wash or Gentle Machine Wash Cold", "Dry in Shade", "Iron at Moderate Temperature"],
+    variants: [
+      { color: "Terracotta Rust & Sage Green", size: "3-Piece Unstitched", image: bs003RustSage }
+    ]
+  },
+  {
+    id: "bs-2026-004",
+    name: "Bin Saeed 3-Piece Printed Lawn Suit - Deep Maroon Polka & Sunburst Shawl (BS26UPLII-BS-004)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-004",
+    price: 3450,
+    originalPrice: 4500,
+    discount: 23,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs004MaroonPolka,
+    nature: "trending",
+    description: "Bin Saeed Festive Lawn 2026. A captivating deep maroon shirt decorated with micro polka dots and an intricate embroidered neckline placket. Comes with an oversized artistic floral batik sunburst shawl and matching printed trousers.",
+    details: [
+      "Fine Lawn Embroidered Neckline & Micro Polka Shirt (3m)",
+      "Artistic Floral Sunburst Printed Lawn Dupatta/Shawl (2.5m)",
+      "Matching Polka Printed Lawn Trouser (2.5m)",
+      "Collection: Casual Festive 2026 | Code: BS26UPLII-BS-004"
+    ],
+    fabric: "100% Pure Premium Airjet Lawn",
+    care: ["Hand Wash Cold", "Dry in Shade", "Iron on Reverse"],
+    variants: [
+      { color: "Deep Maroon & Polka", size: "3-Piece Unstitched", image: bs004MaroonPolka }
+    ]
+  },
+  {
+    id: "bs-2026-005",
+    name: "Bin Saeed 3-Piece Printed Lawn Suit - Royal Navy & Sand Botanical (BS26UPLII-BS-005)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-005",
+    price: 3250,
+    originalPrice: 4200,
+    discount: 23,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs005NavyBotanical,
+    nature: "new",
+    description: "Bin Saeed Casual Collection 2026. Rich royal navy blue base filled with sand-beige botanical floral vines and leaves. Paired with a diagonal chevron striped lawn dupatta with border trim and matching all-over printed trousers.",
+    details: [
+      "Premium Digital Printed Lawn Shirt (3m)",
+      "Diagonal Striped Coordinating Lawn Dupatta (2.5m)",
+      "Matching Printed Lawn Trouser (2.5m)",
+      "Collection: Casual Collection 2026 | Code: BS26UPLII-BS-005"
+    ],
+    fabric: "100% Pure Airjet Lawn",
+    care: ["Machine Wash Cold", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Royal Navy & Sand Botanical", size: "3-Piece Unstitched", image: bs005NavyBotanical }
+    ]
+  },
+  {
+    id: "bs-2026-006",
+    name: "Bin Saeed 3-Piece Embroidered Lawn Suit - Coral Peach Flora & Scallop Daman (BS26UPLII-BS-006)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-006",
+    price: 3650,
+    originalPrice: 4800,
+    discount: 24,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs006PeachFlora,
+    nature: "bestseller",
+    description: "Bin Saeed Luxury Lawn 2026. Feminine and graceful coral peach base with multi-hued English garden floral bouquets. Features intricate laser scalloped embroidered cutwork along the hemline and sleeves, finished with a matching floral printed voile dupatta.",
+    details: [
+      "Digital Printed Lawn Shirt with Scalloped Embroidered Daman (3m)",
+      "Floral Printed Fine Voile Lawn Dupatta (2.5m)",
+      "Matching Floral Printed Lawn Trouser (2.5m)",
+      "Collection: Luxury Embroidered 2026 | Code: BS26UPLII-BS-006"
+    ],
+    fabric: "Luxury Pure Cotton Lawn with Embroidery",
+    care: ["Delicate Hand Wash", "Dry in Shade", "Iron on Reverse"],
+    variants: [
+      { color: "Coral Peach Flora", size: "3-Piece Unstitched", image: bs006PeachFlora }
+    ]
+  },
+  {
+    id: "bs-2026-007",
+    name: "Bin Saeed 3-Piece Lawn Suit - Noir Polka Dots & Rose Motif Shawl (BS26UPLII-BS-007)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-007",
+    price: 3500,
+    originalPrice: 4500,
+    discount: 22,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs007NoirPolka,
+    nature: "trending",
+    description: "Bin Saeed Designer Lawn Series. Classic noir black and ivory polka dots with embroidered sleeve borders, matched with polka-dot trousers and an elegant taupe-grey dupatta showcasing oversized charcoal rose blooms and fringe tassels.",
+    details: [
+      "Monochrome Polka Dot Lawn Shirt with Embroidered Sleeve Trim (3m)",
+      "Textured Lawn Shawl with Charcoal Rose Art & Tassels (2.5m)",
+      "Matching Noir Polka Dot Trouser (2.5m)",
+      "Collection: Designer Series 2026 | Code: BS26UPLII-BS-007"
+    ],
+    fabric: "Premium Cotton Lawn",
+    care: ["Hand Wash Cold", "Do Not Wring", "Medium Iron"],
+    variants: [
+      { color: "Noir Polka Dots", size: "3-Piece Unstitched", image: bs007NoirPolka }
+    ]
+  },
+  {
+    id: "bs-2026-008",
+    name: "Bin Saeed 3-Piece Digital Lawn Suit - Denim Navy Swirl & Chevron Voile (BS26UPLII-BS-008)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-008",
+    price: 3350,
+    originalPrice: 4350,
+    discount: 23,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs008DenimSwirl,
+    nature: "trending",
+    description: "Bin Saeed Summer Contemporary 2026. Striking denim indigo and navy stylized swirl leaf pattern across the shirt and culotte trousers, complemented by a lightweight printed dupatta with contrasting chevron borders.",
+    details: [
+      "100% Breathable Digital Printed Lawn Shirt (3m)",
+      "Coordinated Printed Lawn Dupatta with Chevron Borders (2.5m)",
+      "Matching Printed Lawn Trouser (2.5m)",
+      "Collection: Summer Casual 2026 | Code: BS26UPLII-BS-008"
+    ],
+    fabric: "100% Pure Breathable Lawn",
+    care: ["Machine Wash Cold", "Hang Dry in Shade", "Iron at Moderate Heat"],
+    variants: [
+      { color: "Denim Navy Swirl", size: "3-Piece Unstitched", image: bs008DenimSwirl }
+    ]
+  },
+  {
+    id: "bs-2026-009",
+    name: "Bin Saeed 3-Piece Casual Lawn Suit - Maroon Ajrak & Cream Palazzo (BS26UPLII-BS-009)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-009",
+    price: 3200,
+    originalPrice: 4200,
+    discount: 24,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs009MaroonAjrak,
+    nature: "new",
+    description: "Bin Saeed Folk Heritage 2026. Traditional deep maroon bandhani ajrak geometric printed short kurta paired with a rich cream and charcoal block-printed wide-leg palazzo and a diagonal striped leheriya-style printed dupatta.",
+    details: [
+      "Traditional Ajrak Bandhani Printed Lawn Kurta (3m)",
+      "Diagonal Striped Leheriya Lawn Dupatta (2.5m)",
+      "Cream & Charcoal Printed Wide Palazzo Trouser (2.5m)",
+      "Collection: Folk Heritage 2026 | Code: BS26UPLII-BS-009"
+    ],
+    fabric: "Pure Cotton Lawn",
+    care: ["Hand Wash or Gentle Machine Wash Cold", "Dry in Shade", "Warm Iron"],
+    variants: [
+      { color: "Maroon Ajrak & Cream", size: "3-Piece Unstitched", image: bs009MaroonAjrak }
+    ]
+  },
+  {
+    id: "bs-2026-010",
+    name: "Bin Saeed 3-Piece Embroidered Lawn Suit - Olive Khaki & Festive Phulkari Shawl (BS26UPLII-BS-010)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-010",
+    price: 3850,
+    originalPrice: 4950,
+    discount: 22,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs010OlivePhulkari,
+    nature: "premium",
+    description: "Bin Saeed Luxury Pret & Unstitched 2026. Earthy olive khaki base enhanced with vibrant fuchsia, magenta, and saffron multi-border resham threadwork. Accented with a matching embroidered trouser hem and a sweeping drape shawl.",
+    details: [
+      "Luxury Textured Lawn Embroidered Shirt (3m)",
+      "Vibrant Festive Phulkari-Style Embroidered Shawl (2.5m)",
+      "Dyed Olive Trouser with Embroidered Floral Border (2.5m)",
+      "Collection: Festive Luxury 2026 | Code: BS26UPLII-BS-010"
+    ],
+    fabric: "Textured Lawn with Resham Threadwork",
+    care: ["Dry Clean Recommended", "Iron on Reverse"],
+    variants: [
+      { color: "Olive Khaki & Festive Phulkari", size: "3-Piece Unstitched", image: bs010OlivePhulkari }
+    ]
+  },
+  {
+    id: "bs-2026-011",
+    name: "Bin Saeed 3-Piece Printed Lawn Suit - Pastel Mint & Rose Jaal (BS26UPLII-BS-011)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-011",
+    price: 3300,
+    originalPrice: 4300,
+    discount: 23,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs011MintRose,
+    nature: "bestseller",
+    description: "Bin Saeed Pastel Melody 2026. Refreshing soft mint green background covered in delicate dusty pink and mauve floral botanical vines. Styled with geometric border prints along the sleeve cuffs, neckline, and matching printed lawn dupatta.",
+    details: [
+      "Digital Printed Pastel Lawn Shirt (3m)",
+      "Botanical Printed Lawn Dupatta with Geometric Borders (2.5m)",
+      "Dyed Soft Mint Lawn Trouser (2.5m)",
+      "Collection: Summer Pastel 2026 | Code: BS26UPLII-BS-011"
+    ],
+    fabric: "100% Pure Fine Airjet Lawn",
+    care: ["Machine Wash Cold", "Hang in Shade", "Moderate Iron"],
+    variants: [
+      { color: "Pastel Mint & Rose", size: "3-Piece Unstitched", image: bs011MintRose }
+    ]
+  },
+  {
+    id: "bs-2026-012",
+    name: "Bin Saeed 3-Piece Printed Lawn Suit - Crimson Vintage Rose & Beige Trouser (BS26UPLII-BS-012)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-012",
+    price: 3400,
+    originalPrice: 4400,
+    discount: 23,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs012CrimsonRose,
+    nature: "trending",
+    description: "Bin Saeed Vintage Blossom Series. Rich crimson red shirt decorated with tea-rose vintage floral bouquets and split neckline with tassel cord. Comes with contrasting beige floral printed trousers and a multi-striped lawn dupatta.",
+    details: [
+      "Digital Printed Crimson Lawn Shirt (3m)",
+      "Multi-Striped Border Lawn Dupatta (2.5m)",
+      "Contrast Beige Vintage Floral Printed Trouser (2.5m)",
+      "Collection: Vintage Blossom 2026 | Code: BS26UPLII-BS-012"
+    ],
+    fabric: "100% Pure Cotton Lawn",
+    care: ["Hand Wash Cold", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Crimson Vintage Rose", size: "3-Piece Unstitched", image: bs012CrimsonRose }
+    ]
+  },
+  {
+    id: "bs-2026-013",
+    name: "Bin Saeed 3-Piece Digital Lawn Suit - Sand Multicolored Bloom & Tribal Geometric Shawl (BS26UPLII-BS-013)",
+    brand: "Bin Saeed",
+    sku: "BS26UPLII-BS-013",
+    price: 3550,
+    originalPrice: 4500,
+    discount: 21,
+    category: "Lawn",
+    parentCategory: "Women's Wear",
+    image: bs013TribalBloom,
+    nature: "bestseller",
+    description: "Bin Saeed Bohemian Luxe 2026. An eclectic fusion of watercolor poppy blooms on warm sand base with a statement tribal geometric kilim-inspired printed shawl in terracotta, mustard, and teal.",
+    details: [
+      "Digital Printed Pure Lawn Shirt (3m)",
+      "Statement Tribal Kilim Geometric Printed Shawl (2.5m)",
+      "Matching Printed Lawn Trouser (2.5m)",
+      "Collection: Bohemian Luxe 2026 | Code: BS26UPLII-BS-013"
+    ],
+    fabric: "Digital Printed Airjet Lawn",
+    care: ["Gentle Machine Wash Cold", "Dry in Shade", "Iron on Reverse"],
+    variants: [
+      { color: "Sand Multicolored Bloom", size: "3-Piece Unstitched", image: bs013TribalBloom }
+    ]
+  },
   {
     id: "bs-2026-anarkali",
     name: "Bin Saeed Luxury Airjet Lawn Anarkali - Mediterranean Cobalt Blue (SS-BS-3PC-9052)",
