@@ -1,3 +1,29 @@
+
+// Hafiz Arts Winter 2026 Launches (Peach Dhanak & Luxury Khaddar)
+import haDhanak01IznikMustard from "../assets/hafiz_arts_2026/ha_dhanak_01_iznik_mustard.jpg";
+import haDhanak02MariabCharcoal from "../assets/hafiz_arts_2026/ha_dhanak_02_mariab_charcoal.jpg";
+import haDhanak03LakhanyOlive from "../assets/hafiz_arts_2026/ha_dhanak_03_lakhany_olive.jpg";
+import haDhanak04AfsanehPeach from "../assets/hafiz_arts_2026/ha_dhanak_04_afsaneh_peach.jpg";
+import haDhanak05LakhanyTaupe from "../assets/hafiz_arts_2026/ha_dhanak_05_lakhany_taupe.jpg";
+import haDhanak06CrimsonIceblue from "../assets/hafiz_arts_2026/ha_dhanak_06_crimson_iceblue.jpg";
+import haDhanak07CrimsonIvory from "../assets/hafiz_arts_2026/ha_dhanak_07_crimson_ivory.jpg";
+import haKhaddar08AdanslibasLemon from "../assets/hafiz_arts_2026/ha_khaddar_08_adanslibas_lemon.jpg";
+import haKhaddar09ElafNavy from "../assets/hafiz_arts_2026/ha_khaddar_09_elaf_navy.jpg";
+import haKhaddar10BeechtreeTeapink from "../assets/hafiz_arts_2026/ha_khaddar_10_beechtree_teapink.jpg";
+import haKhaddar11BeechtreeMint from "../assets/hafiz_arts_2026/ha_khaddar_11_beechtree_mint.jpg";
+import haKhaddar12AneelasBlue from "../assets/hafiz_arts_2026/ha_khaddar_12_aneelas_blue.jpg";
+import haKhaddar13MohagniBlack from "../assets/hafiz_arts_2026/ha_khaddar_13_mohagni_black.jpg";
+import haKhaddar14BtwTeal from "../assets/hafiz_arts_2026/ha_khaddar_14_btw_teal.jpg";
+import haKhaddar15IznikBlackfuchsia from "../assets/hafiz_arts_2026/ha_khaddar_15_iznik_blackfuchsia.jpg";
+import haKhaddar16IznikInkblue from "../assets/hafiz_arts_2026/ha_khaddar_16_iznik_inkblue.jpg";
+import haKhaddar17MohagniPlum from "../assets/hafiz_arts_2026/ha_khaddar_17_mohagni_plum.jpg";
+import haKhaddar18MariabCoral from "../assets/hafiz_arts_2026/ha_khaddar_18_mariab_coral.jpg";
+import haKhaddar19AneelasRed from "../assets/hafiz_arts_2026/ha_khaddar_19_aneelas_red.jpg";
+import haKhaddar20BinsaeedOatmeal from "../assets/hafiz_arts_2026/ha_khaddar_20_binsaeed_oatmeal.jpg";
+import haKhaddar21SayaSkyblue from "../assets/hafiz_arts_2026/ha_khaddar_21_saya_skyblue.jpg";
+import haKhaddar22BaroqueBlack from "../assets/hafiz_arts_2026/ha_khaddar_22_baroque_black.jpg";
+import haKhaddar23BtwViolet from "../assets/hafiz_arts_2026/ha_khaddar_23_btw_violet.jpg";
+import haKhaddar24MariabPlumbutterfly from "../assets/hafiz_arts_2026/ha_khaddar_24_mariab_plumbutterfly.jpg";
 import dwEf22Green from "../assets/dw_ef22_09r1_green.jpg";
 import dwEf26Black from "../assets/dw_ef26_14_black.webp";
 import dwEf26OffWhite from "../assets/dw_ef26_201_offwhite.jpg";
@@ -4855,7 +4881,636 @@ export const binSaeedNewLaunchProducts2026 = [
   }
 ];
 
+
+export const hafizArtsProducts2026 = [
+  {
+    id: "ha-dhanak-01-iznik",
+    name: "Iznik Peach Dhanak Borring Daman 3pc - Mustard Amber Flora",
+    brand: "Iznik",
+    sku: "HA-IZN-DH01",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak01IznikMustard,
+    nature: "trending",
+    description: "Iznik by Hafiz Arts Peach Dhanak Winter Collection 2026. Warm mustard gold base adorned with delicate autumnal floral motifs, featuring intricate Chiken Kari Borring Daman scalloped cutwork embroidery. Paired with a matching printed Dhanak dupatta and dyed plain trouser.",
+    details: [
+      "Digital Printed Peach Dhanak Shirt (3.0m)",
+      "Intricate Chiken Kari Cutwork Borring Daman Embroidered Border",
+      "Digital Printed Peach Dhanak Dupatta (2.5m)",
+      "Dyed Matching Dhanak Trouser (2.5m)",
+      "Collection: Hafiz Arts Peach Dhanak Borring Daman 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Mustard Gold & Amber", size: "3-Piece Unstitched", image: haDhanak01IznikMustard }
+    ]
+  },
+  {
+    id: "ha-dhanak-02-mariab",
+    name: "Maria.B Dhanak Borring Daman 3pc - Noir Charcoal & Bronze",
+    brand: "Maria.B.",
+    sku: "HA-MB-DH02",
+    price: 4650,
+    originalPrice: 6200,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak02MariabCharcoal,
+    nature: "premium",
+    description: "Maria.B by Hafiz Arts Winter Dhanak 2026. Moody charcoal black canvas enriched with stylized botanical foliage and butterfly leaf art in bronze hues. Accented with Chiken Kari Cutwork Borring Daman embroidery, paired with a printed Dhanak shawl/dupatta and tailored straight trouser.",
+    details: [
+      "Digital Printed Dhanak Shirt (3.0m)",
+      "Heavy Chiken Kari Cutwork Borring Daman Lace Border",
+      "Coordinating Printed Dhanak Dupatta (2.5m)",
+      "Dyed Charcoal Dhanak Trouser (2.5m)",
+      "Collection: Hafiz Arts Borring Daman Volume 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Noir Charcoal & Bronze", size: "3-Piece Unstitched", image: haDhanak02MariabCharcoal }
+    ]
+  },
+  {
+    id: "ha-dhanak-03-lakhany",
+    name: "Lakhany Peach Dhanak Borring Daman 3pc - Olive Sage & Plum",
+    brand: "Lakhany",
+    sku: "HA-LKH-DH03",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak03LakhanyOlive,
+    nature: "trending",
+    description: "Lakhany by Hafiz Arts Peach Dhanak 2026. Subdued olive sage green base accented with rich forest green and plum floral bouquets. Featuring exquisite circular scalloped Chiken Kari Cutwork Borring embroidery on the daman, paired with dyed olive wide trousers and printed Dhanak dupatta.",
+    details: [
+      "Digital Printed Peach Dhanak Shirt (3.0m)",
+      "Exquisite Circular Chiken Kari Borring Daman Cutwork Border",
+      "Printed Peach Dhanak Dupatta with Printed Border (2.5m)",
+      "Dyed Olive Green Dhanak Trouser (2.5m)",
+      "Collection: Hafiz Arts Borring Daman 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Olive Sage & Plum", size: "3-Piece Unstitched", image: haDhanak03LakhanyOlive }
+    ]
+  },
+  {
+    id: "ha-dhanak-04-afsaneh",
+    name: "Afsaneh Peach Dhanak Borring Daman 3pc - Coral Rose & Peach",
+    brand: "Afsaneh",
+    sku: "HA-AFS-DH04",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak04AfsanehPeach,
+    nature: "premium",
+    description: "Afsaneh by Hafiz Arts Peach Dhanak 2026. Warm coral peach silhouette boasting romantic watercolor floral garden illustrations and delicate Chiken Kari Borring Daman embroidery. Styled with a sweeping printed Dhanak cape/dupatta and matching dyed trousers.",
+    details: [
+      "Digital Printed Peach Dhanak Shirt (3.0m)",
+      "Ornate Scalloped Chiken Kari Borring Cutwork Daman Border",
+      "Printed Peach Dhanak Shawl/Dupatta (2.5m)",
+      "Dyed Matching Peach Dhanak Trouser (2.5m)",
+      "Collection: Hafiz Arts Borring Daman 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Coral Rose & Peach", size: "3-Piece Unstitched", image: haDhanak04AfsanehPeach }
+    ]
+  },
+  {
+    id: "ha-dhanak-05-lakhany",
+    name: "Lakhany Peach Dhanak Borring Daman 3pc - Taupe Beige & Royal Orchid",
+    brand: "Lakhany",
+    sku: "HA-LKH-DH05",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak05LakhanyTaupe,
+    nature: "trending",
+    description: "Lakhany by Hafiz Arts Peach Dhanak 2026. Subtle taupe beige backdrop enriched with vivid deep purple, amethyst and royal blue floral blooms, finished with an intricate cutwork boring daman border and printed dupatta.",
+    details: [
+      "Digital Printed Peach Dhanak Shirt (3.0m)",
+      "Intricate Chiken Kari Borring Cutwork Hemline Embroidery",
+      "Printed Dhanak Dupatta with Royal Purple Borders (2.5m)",
+      "Dyed Taupe Dhanak Trouser (2.5m)",
+      "Collection: Hafiz Arts Borring Daman 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Taupe Beige & Royal Orchid", size: "3-Piece Unstitched", image: haDhanak05LakhanyTaupe }
+    ]
+  },
+  {
+    id: "ha-dhanak-06-crimson",
+    name: "Crimson Peach Dhanak Borring Daman 3pc - Ice Blue & Coral Splash",
+    brand: "Crimson",
+    sku: "HA-CRM-DH06",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak06CrimsonIceblue,
+    nature: "trending",
+    description: "Crimson by Hafiz Arts Peach Dhanak 2026. Refreshing ice blue canvas adorned with vibrant magenta and tangerine blossom print, scalloped eyelet Chiken Kari Borring Daman, matching all-over printed trousers, and printed Dhanak dupatta.",
+    details: [
+      "Digital Printed Peach Dhanak Shirt (3.0m)",
+      "Chiken Kari Cutwork Borring Scalloped Daman Border",
+      "Digital Printed Matching Dhanak Trouser (2.5m)",
+      "Printed Peach Dhanak Dupatta with Magenta Trim (2.5m)",
+      "Collection: Hafiz Arts Borring Daman 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Ice Blue & Coral Pink", size: "3-Piece Unstitched", image: haDhanak06CrimsonIceblue }
+    ]
+  },
+  {
+    id: "ha-dhanak-07-crimson",
+    name: "Crimson Peach Dhanak Borring Daman 3pc - Ivory Cream & Fuchsia Blossom",
+    brand: "Crimson",
+    sku: "HA-CRM-DH07",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Dhanak",
+    parentCategory: "Women's Wear",
+    image: haDhanak07CrimsonIvory,
+    nature: "premium",
+    description: "Crimson by Hafiz Arts Peach Dhanak 2026. Pristine ivory and cream canvas with romantic blush pink and magenta blossom scatters. Complete with Chiken Kari Cutwork Borring hemline embroidery, all-over printed trouser, and draped printed Dhanak dupatta.",
+    details: [
+      "Digital Printed Peach Dhanak Shirt (3.0m)",
+      "Chiken Kari Cutwork Eyelet Borring Daman Border",
+      "All-Over Floral Printed Dhanak Trouser (2.5m)",
+      "Printed Peach Dhanak Dupatta (2.5m)",
+      "Collection: Hafiz Arts Borring Daman 2026"
+    ],
+    fabric: "Peach Dhanak",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Warm Iron"],
+    variants: [
+      { color: "Ivory Cream & Fuchsia Blossom", size: "3-Piece Unstitched", image: haDhanak07CrimsonIvory }
+    ]
+  },
+  {
+    id: "ha-khaddar-08-adanslibas",
+    name: "Adan's Libas Luxury Khaddar 3pc - Lemon Pastel & Soft Meadow",
+    brand: "Adan's Libas",
+    sku: "HA-AL-KH08",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar08AdanslibasLemon,
+    nature: "trending",
+    description: "Adan's Libas by Hafiz Arts Luxury Khaddar 2026. Cream and sunshine lemon yellow backdrop blooming with dusty blue and baby pink floral bouquets. Detailed with an embroidered neckline placket and daman lace, paired with pastel pink trousers and printed Khaddar dupatta.",
+    details: [
+      "Pure Luxury Woven Khaddar Printed Shirt (3.0m)",
+      "Embroidered Neckline & Daman Floral Border",
+      "Coordinating Printed Luxury Khaddar Dupatta (2.5m)",
+      "Dyed Pastel Pink Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Lemon Yellow & Pastel Pink", size: "3-Piece Unstitched", image: haKhaddar08AdanslibasLemon }
+    ]
+  },
+  {
+    id: "ha-khaddar-09-elaf",
+    name: "Elaf Luxury Khaddar 3pc - Midnight Navy & Geometric Resham",
+    brand: "Elaf",
+    sku: "HA-ELF-KH09",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar09ElafNavy,
+    nature: "premium",
+    description: "Elaf by Hafiz Arts Luxury Khaddar 2026. Imperial midnight navy woven khaddar featuring traditional gold and rust geometric borders, embroidered neckline panel, matching printed booti trousers, and printed Khaddar dupatta.",
+    details: [
+      "Woven Khaddar Digital Printed Shirt (3.0m)",
+      "Ethnic Embroidered Gala Neckline Panel & Borders",
+      "Printed Luxury Khaddar Dupatta with Shawl Borders (2.5m)",
+      "Matching Geometric Printed Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Midnight Navy & Antique Gold", size: "3-Piece Unstitched", image: haKhaddar09ElafNavy }
+    ]
+  },
+  {
+    id: "ha-khaddar-10-beechtree",
+    name: "Beechtree Luxury Khaddar 3pc - Blush Tea Pink & Kashmiri Flora",
+    brand: "Beechtree",
+    sku: "HA-BT-KH10",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar10BeechtreeTeapink,
+    nature: "trending",
+    description: "Beechtree by Hafiz Arts Luxury Khaddar 2026. Elegant blush tea pink base featuring hot pink and teal Kashmiri embroidery-inspired motifs on the placket and daman, with coordinating printed Khaddar trousers and dupatta.",
+    details: [
+      "Luxury Woven Khaddar Shirt (3.0m)",
+      "Embroidered Neckline & Daman Kashmiri Motif Borders",
+      "Printed Khaddar Dupatta with Bold Floral Borders (2.5m)",
+      "Matching Motif-Printed Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Blush Tea Pink & Fuchsia", size: "3-Piece Unstitched", image: haKhaddar10BeechtreeTeapink }
+    ]
+  },
+  {
+    id: "ha-khaddar-11-beechtree",
+    name: "Beechtree Luxury Khaddar 3pc - Pistachio Mint & Magenta Booti",
+    brand: "Beechtree",
+    sku: "HA-BT-KH11",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar11BeechtreeMint,
+    nature: "trending",
+    description: "Beechtree by Hafiz Arts Luxury Khaddar 2026. Fresh pastel pistachio mint canvas adorned with intricate magenta and plum floral booti motifs along the front and borders, matching wide-leg printed trousers, and printed Khaddar dupatta.",
+    details: [
+      "Luxury Woven Khaddar Shirt (3.0m)",
+      "Embroidered Neckline Placket & Sleeve Borders",
+      "Digital Printed Khaddar Dupatta (2.5m)",
+      "Printed Wide-Leg Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Pistachio Mint & Magenta", size: "3-Piece Unstitched", image: haKhaddar11BeechtreeMint }
+    ]
+  },
+  {
+    id: "ha-khaddar-12-aneelas",
+    name: "Aneela's Collection Luxury Khaddar 3pc - Sapphire Blue & Silver Rose",
+    brand: "Aneela's Collection",
+    sku: "HA-AN-KH12",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar12AneelasBlue,
+    nature: "premium",
+    description: "Aneela's Collection by Hafiz Arts Luxury Khaddar 2026. Majestic sapphire blue canvas highlighted with silvery white rose motifs and intricate embroidered neckline and daman panel, solid royal blue trousers, and printed Khaddar dupatta.",
+    details: [
+      "Woven Luxury Khaddar Shirt (3.0m)",
+      "Embroidered Neckline & Daman Floral Motif Panel",
+      "Digital Printed Khaddar Shawl Dupatta (2.5m)",
+      "Solid Dyed Sapphire Blue Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Sapphire Peacock Blue", size: "3-Piece Unstitched", image: haKhaddar12AneelasBlue }
+    ]
+  },
+  {
+    id: "ha-khaddar-13-mohagni",
+    name: "Mohagni Luxury Khaddar 3pc - Noir Black & Antique Gold Ethnic",
+    brand: "Mohagni",
+    sku: "HA-MH-KH13",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar13MohagniBlack,
+    nature: "premium",
+    description: "Mohagni by Hafiz Arts Luxury Khaddar 2026. Sophisticated jet black canvas adorned with copper-gold ethnic block print motifs, intricate embroidered neckline and border, plain dyed black trousers, and heavy printed Khaddar dupatta.",
+    details: [
+      "Luxury Woven Khaddar Shirt (3.0m)",
+      "Intricate Gold Resham Embroidered Neckline & Daman Border",
+      "Digital Printed Ethnic Shawl Dupatta (2.5m)",
+      "Solid Dyed Black Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Noir Black & Antique Gold", size: "3-Piece Unstitched", image: haKhaddar13MohagniBlack }
+    ]
+  },
+  {
+    id: "ha-khaddar-14-btw",
+    name: "BTW By The Way Luxury Khaddar 3pc - Forest Teal & Silver Spray",
+    brand: "BTW",
+    sku: "HA-BTW-KH14",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar14BtwTeal,
+    nature: "trending",
+    description: "BTW By The Way by Hafiz Arts Luxury Khaddar 2026. Deep forest teal green canvas featuring silver-grey botanical flora and embroidered vertical neckline and geometric daman border, solid teal trousers, and printed Khaddar dupatta.",
+    details: [
+      "Luxury Khaddar Printed Shirt (3.0m)",
+      "Embroidered Neckline & Daman Geometric Frame",
+      "Printed Khaddar Dupatta with Diagonal Stripe & Motif Print (2.5m)",
+      "Solid Dyed Deep Teal Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar 2026"
+    ],
+    fabric: "Luxury Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Forest Teal & Silver Spray", size: "3-Piece Unstitched", image: haKhaddar14BtwTeal }
+    ]
+  },
+  {
+    id: "ha-khaddar-15-iznik",
+    name: "Iznik Premium Khaddar Sequin 3pc - Midnight Black & Wild Fuchsia",
+    brand: "Iznik",
+    sku: "HA-IZN-KH15",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar15IznikBlackfuchsia,
+    nature: "premium",
+    description: "Iznik by Hafiz Arts Premium Khaddar Sequence 2026. Dramatic jet black base filled with opulent blooming fuchsia and magenta flora. Accented with subtle sequin embroidery on the neckline, dyed black trousers, and a printed sequin Khaddar dupatta.",
+    details: [
+      "Premium Woven Khaddar Digital Printed Shirt (3.0m)",
+      "Sequin Embroidered Neckline Placket & Motif Accent",
+      "Digital Printed Khaddar Dupatta with Shimmer Sequin Spray (2.5m)",
+      "Solid Dyed Black Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Khaddar Sequence 2026"
+    ],
+    fabric: "Premium Khaddar Sequence",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Midnight Black & Fuchsia", size: "3-Piece Unstitched", image: haKhaddar15IznikBlackfuchsia }
+    ]
+  },
+  {
+    id: "ha-khaddar-16-iznik",
+    name: "Iznik Premium Khaddar Sequin 3pc - Ink Blue & Sunset Amber",
+    brand: "Iznik",
+    sku: "HA-IZN-KH16",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar16IznikInkblue,
+    nature: "trending",
+    description: "Iznik by Hafiz Arts Premium Khaddar Sequence 2026. Royal ink blue canvas paired with glowing amber orange floral blossoms, sequin embroidered neckline, dyed ink blue trousers, and a coordinating printed sequin Khaddar dupatta.",
+    details: [
+      "Premium Khaddar Printed Shirt (3.0m)",
+      "Sequin Embroidered Gala Placket",
+      "Printed Khaddar Dupatta with Multi-Color Sunset Striped Border (2.5m)",
+      "Solid Dyed Ink Blue Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Khaddar Sequence 2026"
+    ],
+    fabric: "Premium Khaddar Sequence",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Ink Blue & Sunset Amber", size: "3-Piece Unstitched", image: haKhaddar16IznikInkblue }
+    ]
+  },
+  {
+    id: "ha-khaddar-17-mohagni",
+    name: "Mohagni Luxury Khaddar Sequin 3pc - Imperial Plum & Resham Jaal",
+    brand: "Mohagni",
+    sku: "HA-MH-KH17",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar17MohagniPlum,
+    nature: "premium",
+    description: "Mohagni by Hafiz Arts Luxury Khaddar Sequence 2026. Rich royal plum purple base embellished with delicate beige and gold ethnic motifs, fine embroidered placket and daman borders, matching dyed trousers, and ethnic printed Khaddar dupatta.",
+    details: [
+      "Luxury Woven Khaddar Printed Shirt (3.0m)",
+      "Sequin & Resham Embroidered Neckline & Daman Border",
+      "Digital Printed Khaddar Dupatta with Ikat Border Pattern (2.5m)",
+      "Dyed Matching Plum Purple Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Luxury Khaddar Sequence 2026"
+    ],
+    fabric: "Luxury Khaddar Sequence",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Imperial Plum & Gold", size: "3-Piece Unstitched", image: haKhaddar17MohagniPlum }
+    ]
+  },
+  {
+    id: "ha-khaddar-18-mariab",
+    name: "Maria.B Premium Khaddar 3pc - Coral Salmon & Scarlet Lily",
+    brand: "Maria.B.",
+    sku: "HA-MB-KH18",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar18MariabCoral,
+    nature: "trending",
+    description: "Maria.B by Hafiz Arts Premium Khaddar 2026. Warm coral salmon base featuring botanical scarlet lily illustrations, cutwork scalloped lace daman border, dyed coral trousers, and printed Khaddar dupatta.",
+    details: [
+      "Premium Khaddar Digital Printed Shirt (3.0m)",
+      "Embroidered Neckline & Cutwork Scalloped Hemline Lace",
+      "Printed Khaddar Dupatta with Scarlet Border (2.5m)",
+      "Solid Dyed Coral Salmon Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar 2026"
+    ],
+    fabric: "Premium Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Coral Salmon & Scarlet Lily", size: "3-Piece Unstitched", image: haKhaddar18MariabCoral }
+    ]
+  },
+  {
+    id: "ha-khaddar-19-aneelas",
+    name: "Aneela's Collection Premium Khaddar 3pc - Crimson Wine & White Sprig",
+    brand: "Aneela's Collection",
+    sku: "HA-AN-KH19",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar19AneelasRed,
+    nature: "trending",
+    description: "Aneela's Collection by Hafiz Arts Premium Khaddar 2026. Festive crimson wine red canvas decorated with fine white floral booti sprigs, embroidered center placket, matching dyed crimson cigarette trousers, and printed Khaddar dupatta.",
+    details: [
+      "Premium Woven Khaddar Shirt (3.0m)",
+      "Embroidered Center Gala Placket & Daman Border",
+      "Digital Printed Khaddar Dupatta with Sprig Pattern (2.5m)",
+      "Dyed Crimson Red Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar 2026"
+    ],
+    fabric: "Premium Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Crimson Wine Red", size: "3-Piece Unstitched", image: haKhaddar19AneelasRed }
+    ]
+  },
+  {
+    id: "ha-khaddar-20-binsaeed",
+    name: "Bin Saeed Premium Khaddar Sequin 3pc - Oatmeal Beige & Chevron Paisley",
+    brand: "Bin Saeed",
+    sku: "HA-BS-KH20",
+    price: 4450,
+    originalPrice: 5950,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar20BinsaeedOatmeal,
+    nature: "trending",
+    description: "Bin Saeed by Hafiz Arts Premium Khaddar Sequence 2026. Classic oatmeal beige base blooming with lively fuchsia and orange floral bunches, sequin embroidered neckline panel, cream trousers, and chevron zigzag printed Khaddar dupatta.",
+    details: [
+      "Premium Woven Khaddar Printed Shirt (3.0m)",
+      "Sequin Embroidered Neckline Panel & Daman Spray",
+      "Traditional Chevron Zigzag Printed Khaddar Dupatta (2.5m)",
+      "Solid Dyed Cream Oatmeal Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar Sequence 2026"
+    ],
+    fabric: "Premium Khaddar Sequence",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Oatmeal Beige & Fuchsia", size: "3-Piece Unstitched", image: haKhaddar20BinsaeedOatmeal }
+    ]
+  },
+  {
+    id: "ha-khaddar-21-saya",
+    name: "Saya Premium Khaddar 3pc - Sky Turquoise & Slate Paisley",
+    brand: "Saya",
+    sku: "HA-SY-KH21",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar21SayaSkyblue,
+    nature: "trending",
+    description: "Saya by Hafiz Arts Premium Khaddar 2026. Serene sky turquoise base with intricate slate blue and teal paisley motifs, fine embroidered neckline, wide-leg matching turquoise trousers, and printed Khaddar dupatta.",
+    details: [
+      "Premium Khaddar Printed Shirt (3.0m)",
+      "Fine Embroidered Neckline Placket",
+      "Digital Printed Khaddar Dupatta with Paisley Border (2.5m)",
+      "Matching Turquoise Wide Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar 2026"
+    ],
+    fabric: "Premium Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Sky Turquoise & Slate Blue", size: "3-Piece Unstitched", image: haKhaddar21SayaSkyblue }
+    ]
+  },
+  {
+    id: "ha-khaddar-22-baroque",
+    name: "Baroque Premium Khaddar 3pc - Charcoal Noir & Bronze Tassel Jaal",
+    brand: "Baroque",
+    sku: "HA-BQ-KH22",
+    price: 4350,
+    originalPrice: 5800,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar22BaroqueBlack,
+    nature: "premium",
+    description: "Baroque by Hafiz Arts Premium Khaddar 2026. Timeless charcoal noir black canvas enriched with antique bronze floral jaal, tassel-accented embroidered placket, solid black trousers, and heavy printed Khaddar shawl/dupatta.",
+    details: [
+      "Premium Khaddar Digital Printed Shirt (3.0m)",
+      "Embroidered Neckline Placket with Tassel Accent & Daman Border",
+      "Coordinating Printed Khaddar Shawl Dupatta (2.5m)",
+      "Solid Dyed Charcoal Black Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar 2026"
+    ],
+    fabric: "Premium Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Charcoal Noir & Bronze", size: "3-Piece Unstitched", image: haKhaddar22BaroqueBlack }
+    ]
+  },
+  {
+    id: "ha-khaddar-23-btw",
+    name: "BTW By The Way Premium Khaddar 3pc - Regal Violet & Bold Daisy",
+    brand: "BTW",
+    sku: "HA-BTW-KH23",
+    price: 4250,
+    originalPrice: 5650,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar23BtwViolet,
+    nature: "trending",
+    description: "BTW By The Way by Hafiz Arts Premium Khaddar 2026. Bold regal violet and purple canvas adorned with oversized white daisy floral art, silver sequin-embroidered neckline placket, dyed violet trousers, and printed Khaddar dupatta.",
+    details: [
+      "Premium Woven Khaddar Printed Shirt (3.0m)",
+      "Silver Sequin Embroidered Neckline Placket",
+      "Bold Floral Printed Khaddar Dupatta (2.5m)",
+      "Solid Dyed Violet Purple Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar 2026"
+    ],
+    fabric: "Premium Khaddar",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Regal Violet & Bold Daisy", size: "3-Piece Unstitched", image: haKhaddar23BtwViolet }
+    ]
+  },
+  {
+    id: "ha-khaddar-24-mariab",
+    name: "Maria.B Premium Khaddar Sequin 3pc - Deep Plum Wine & Butterflies",
+    brand: "Maria.B.",
+    sku: "HA-MB-KH24",
+    price: 4550,
+    originalPrice: 6100,
+    discount: 25,
+    category: "Khaddar",
+    parentCategory: "Women's Wear",
+    image: haKhaddar24MariabPlumbutterfly,
+    nature: "premium",
+    description: "Maria.B by Hafiz Arts Premium Khaddar Sequence 2026. Signature deep plum wine unstitched suit covered in vintage pink English roses, delicate silver sequin-embroidered butterfly motifs along the front, matching plum trousers, and printed Khaddar dupatta.",
+    details: [
+      "Premium Woven Khaddar Digital Printed Shirt (3.0m)",
+      "Silver Sequin Embroidered Butterfly Motifs & Neckline Placket",
+      "Digital Printed Rose Floral Khaddar Dupatta (2.5m)",
+      "Solid Dyed Plum Wine Khaddar Trouser (2.5m)",
+      "Collection: Hafiz Arts Premium Khaddar Sequence 2026"
+    ],
+    fabric: "Premium Khaddar Sequence",
+    care: ["Dry Clean Recommended", "Do Not Bleach", "Moderate Iron"],
+    variants: [
+      { color: "Deep Plum Wine & Roses", size: "3-Piece Unstitched", image: haKhaddar24MariabPlumbutterfly }
+    ]
+  }
+];
+
 export const products = [
+  ...hafizArtsProducts2026,
   ...sanaSafinazVelvetProducts2026,
   ...binSaeedNewLaunchProducts2026,
   ...sobiaWaseemChilmanProducts,
