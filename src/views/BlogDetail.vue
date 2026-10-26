@@ -41,19 +41,31 @@
     </div>
 
     <!-- Featured Hero Image -->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
-      <div class="relative aspect-[16/10] sm:aspect-[21/10] overflow-hidden rounded-2xl bg-stone-100 dark:bg-stone-900 border border-stone-200/80 dark:border-white/10 shadow-2xl">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+      <div class="relative overflow-hidden rounded-2xl bg-stone-100 dark:bg-stone-900 border border-stone-200/80 dark:border-white/10 shadow-2xl flex items-center justify-center min-h-[350px] sm:min-h-[500px]">
+        <!-- Ambient blurred backdrop for luxury framing without letterbox cropping -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none select-none">
+          <img 
+            :src="post.image || DEFAULT_FALLBACK_IMAGE" 
+            alt="" 
+            class="w-full h-full object-cover blur-3xl opacity-30 dark:opacity-20 scale-125"
+            aria-hidden="true"
+          />
+          <div class="absolute inset-0 bg-stone-900/10 dark:bg-black/40"></div>
+        </div>
+
+        <!-- Complete Uncropped Main Image -->
         <img 
           :src="post.image || DEFAULT_FALLBACK_IMAGE" 
           :alt="post.title"
-          class="w-full h-full object-cover"
+          class="relative z-10 w-auto h-auto max-h-[580px] sm:max-h-[720px] max-w-full object-contain mx-auto rounded-xl shadow-md my-4 sm:my-6 transition-all duration-300"
           loading="eager"
           @error="(e) => e.target.src = DEFAULT_FALLBACK_IMAGE"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        <div class="absolute bottom-4 left-6 right-6 flex items-center justify-between text-white/80 text-[10px] uppercase tracking-widest">
-          <span class="bg-black/40 backdrop-blur-md px-3 py-1 rounded border border-white/10">Haute Couture Collection</span>
-          <span class="hidden sm:inline font-editorial italic text-stone-200">Ahmad Clothes House • Lahore Atelier</span>
+
+        <div class="absolute bottom-4 left-6 right-6 z-20 flex items-center justify-between text-white/90 text-[10px] uppercase tracking-widest pointer-events-none">
+          <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded border border-white/15 shadow-sm">Haute Couture Collection</span>
+          <span class="hidden sm:inline font-editorial italic text-stone-200 drop-shadow">Ahmad Clothes House • Lahore Atelier</span>
         </div>
       </div>
     </div>
