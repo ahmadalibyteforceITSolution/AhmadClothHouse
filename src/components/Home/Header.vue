@@ -219,7 +219,7 @@
                     class="group flex flex-col bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 p-3"
                   >
                     <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-black/40 mb-3">
-                      <img :src="p.image" :alt="p.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img :src="p.image" :alt="p.name" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                       <span v-if="p.brand" class="absolute top-2 left-2 text-[8.5px] uppercase tracking-wider font-extrabold bg-black/80 backdrop-blur-md text-[#D4AF37] px-2 py-0.5 rounded">
                         {{ p.brand }}
                       </span>
@@ -330,7 +330,7 @@
                   class="group flex flex-col bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 p-3"
                 >
                   <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-black/40 mb-3">
-                    <img :src="p.image" :alt="p.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img :src="p.image" :alt="p.name" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                     <span v-if="p.category" class="absolute top-2 left-2 text-[9px] uppercase tracking-wider font-extrabold bg-black/70 backdrop-blur-md text-[#D4AF37] px-2 py-0.5 rounded">
                       {{ p.category }}
                     </span>

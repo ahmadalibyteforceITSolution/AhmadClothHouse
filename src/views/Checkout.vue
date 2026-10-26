@@ -42,7 +42,18 @@
             <p class="text-stone-600 dark:text-stone-300 font-bold"><span class="text-stone-400">Total Payable:</span> Rs. {{ (cart.totalPrice + deliveryCharge).toLocaleString() }}</p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-3 pt-4">
+          <div class="pt-2">
+            <a 
+              :href="`https://wa.me/923244902607?text=${encodeURIComponent('Assalam-o-Alaikum Ahmad Clothes House! I have placed an order.\n\nOrder ID: #' + orderId + '\nCustomer: ' + customer.name + '\nPhone: ' + customer.phone + '\nAddress: ' + customer.address + ', ' + customer.city + '\nPayment Method: ' + paymentMethod.toUpperCase() + (transactionId ? ' (TID: ' + transactionId + ')' : '') + '\nTotal: Rs. ' + (cart.totalPrice + deliveryCharge).toLocaleString() + '\n\nPlease confirm my dispatch.')}`"
+              target="_blank"
+              class="w-full flex items-center justify-center gap-2.5 py-3.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold uppercase tracking-widest rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-[1.01]"
+            >
+              <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-base" />
+              <span>Confirm Order Instantly on WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
             <router-link to="/dashboard" class="w-full sm:w-auto flex-1 py-3.5 bg-black hover:bg-[#B8860B] dark:bg-white dark:text-black text-white text-xs font-bold uppercase tracking-widest rounded-full transition-all text-center">
               View In Client Dashboard
             </router-link>
@@ -379,9 +390,9 @@ const deliveryCharge = computed(() => {
   return 300
 })
 
-const easypaisaNumber = import.meta.env.VITE_EASYPAISA_NUMBER || '03416887454'
+const easypaisaNumber = import.meta.env.VITE_EASYPAISA_NUMBER || '03244902607'
 const easypaisaName = import.meta.env.VITE_EASYPAISA_NAME || 'Ahmad Ali'
-const jazzcashNumber = import.meta.env.VITE_JAZZCASH_NUMBER || '03416887454'
+const jazzcashNumber = import.meta.env.VITE_JAZZCASH_NUMBER || '03244902607'
 const jazzcashName = import.meta.env.VITE_JAZZCASH_NAME || 'Ahmad Ali'
 
 const customer = reactive({

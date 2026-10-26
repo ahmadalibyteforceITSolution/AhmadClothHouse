@@ -1,51 +1,102 @@
+const nodemailer = require('nodemailer');
 const { Resend } = require('resend');
 
 /**
- * Send an email notification using Resend API (HTTP-based, more reliable on Vercel)
- * @param {Object} options - email options {email, subject, message}
+ * Send an email notification with dual support:
+ * 1. Gmail SMTP (Nodemailer) - direct to and from Gmail (ahmadalihafeez24@gmail.com)
+ * 2. Resend API (HTTP) - fallback when RESEND_API_KEY is configured
+ * @param {Object} options - { email, subject, message }
  */
 const sendEmail = async (options) => {
-  const apiKey = process.env.RESEND_API_KEY || 're_8rJ2Q13i_Nf3fUE44N8Bs1wTB7MLpAuJh';
-  
-  if (!apiKey) {
-    console.error('AHMADCLOTHS MAIL ERROR: RESEND_API_KEY is not set');
-    throw new Error('Email service not configured. Please set RESEND_API_KEY.');
-  }
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL || 'ahmadalihafeez24@gmail.com';
+  const smtpPass = process.env.SMTP_PASSWORD || process.env.GMAIL_APP_PASSWORD;
+  const resendKey = process.env.RESEND_API_KEY;
 
-  const resend = new Resend(apiKey);
+  const htmlContent = `
+    <div style="font-family: 'Playfair Display', Georgia, serif; max-width: 600px; margin: 0 auto; padding: 35px 25px; background: #fafaf8; border: 1px solid #d4af3744; border-radius: 8px;">
+      <div style="text-align: center; margin-bottom: 25px;">
+        <h1 style="color: #111; font-size: 26px; font-style: italic; margin: 0; letter-spacing: 2px;">Ahmad Clothes House</h1>
+        <p style="color: #b8860b; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; margin: 5px 0 0 0;">Haute Couture & Atelier • Lahore</p>
+        <div style="height: 1px; background: #d4af3788; width: 80px; margin: 15px auto;"></div>
+      </div>
+      <div style="color: #333; line-height: 1.8; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; white-space: pre-wrap;">${options.message.replace(/\n/g, '<br>')}</div>
+      <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 11px; color: #888; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        <p style="margin: 0;">WhatsApp Concierge: <a href="https://wa.me/923416887454" style="color: #b8860b; text-decoration: none; font-weight: bold;">+92 341 6887454</a> | Helpline: <a href="tel:03244902607" style="color: #b8860b; text-decoration: none; font-weight: bold;">0324 4902607</a></p>
+        <p style="margin: 8px 0 0 0; letter-spacing: 1px; font-size: 9px; text-transform: uppercase;">© 2026 Ahmad Clothes House. All Rights Reserved.</p>
+      </div>
+    </div>
+  `;
 
-  try {
-    console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
+  let lastError = null;
 
-    const { data, error } = await resend.emails.send({
-      from: 'AhmadClothesHouse <onboarding@resend.dev>',
-      to: [options.email],
-      subject: options.subject,
-      html: `
-        <div style="font-family: 'Playfair Display', serif; padding: 40px; background: #fafaf8; border: 1px solid #d4af3722;">
-          <h1 style="color: #000; text-align: center; font-style: italic;">AhmadClothesHouse</h1>
-          <div style="height: 1px; background: #d4af3744; width: 100px; margin: 20px auto;"></div>
-          <div style="color: #444; line-height: 1.8; font-size: 14px;">
-            ${options.message.replace(/\n/g, '<br>')}
-          </div>
-          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 10px; color: #999; letter-spacing: 2px;">
-            © 2026 AHMADCLOTHESHOUSE LUXURY COUTURE
-          </div>
-        </div>
-      `,
-      text: options.message,
-    });
+  // 1. Try Gmail SMTP if SMTP password is provided
+  if (smtpPass) {
+    try {
+      console.log('AHMADCLOTHS MAIL: Sending via Gmail SMTP to %s', options.email);
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: adminEmail,
+          pass: smtpPass
+        },
+        tls: { rejectUnauthorized: false }
+      });
 
-    if (error) {
-      console.error('RESEND_ERROR:', error);
-      throw new Error(error.message);
+      const info = await transporter.sendMail({
+        from: `"Ahmad Clothes House" <${adminEmail}>`,
+        to: options.email,
+        subject: options.subject,
+        text: options.message,
+        html: htmlContent
+      });
+
+      console.log('AHMADCLOTHS MAIL SUCCESS (Gmail SMTP): %s', info.messageId);
+      return info;
+    } catch (smtpErr) {
+      console.error('AHMADCLOTHS GMAIL SMTP ERROR:', smtpErr.message);
+      lastError = smtpErr;
     }
-
-    return data;
-  } catch (error) {
-    console.error('AHMADCLOTHS MAIL ERROR:', error.message);
-    throw error;
   }
+
+  // 2. Try Resend API if API key is provided
+  if (resendKey) {
+    try {
+      console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
+      const resend = new Resend(resendKey);
+      const { data, error } = await resend.emails.send({
+        from: 'AhmadClothesHouse <onboarding@resend.dev>',
+        to: [options.email],
+        subject: options.subject,
+        html: htmlContent,
+        text: options.message,
+      });
+
+      if (error) {
+        console.error('AHMADCLOTHS RESEND API ERROR:', error.message);
+        lastError = new Error(error.message);
+      } else {
+        console.log('AHMADCLOTHS MAIL SUCCESS (Resend): %s', data?.id);
+        return data;
+      }
+    } catch (resendErr) {
+      console.error('AHMADCLOTHS RESEND ERROR:', resendErr.message);
+      lastError = resendErr;
+    }
+  }
+
+  // If no credentials or both failed, log diagnostic message
+  if (!smtpPass && !resendKey) {
+    console.warn('AHMADCLOTHS MAIL WARNING: Neither SMTP_PASSWORD nor RESEND_API_KEY is configured in environment.');
+  }
+
+  if (lastError) {
+    throw lastError;
+  }
+
+  return { simulated: true, to: options.email };
 };
 
 module.exports = sendEmail;

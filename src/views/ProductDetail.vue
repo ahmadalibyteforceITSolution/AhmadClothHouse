@@ -105,7 +105,7 @@
             <img 
               :src="currentDisplayImage" 
               :alt="product.name" 
-              class="w-full h-auto max-h-[700px] object-cover mx-auto transition-transform duration-700 group-hover:scale-105"
+              class="w-full h-auto max-h-[780px] object-cover object-top mx-auto transition-transform duration-700 group-hover:scale-105"
             />
             
             <!-- Floating Zoom or Watermark indicator -->
@@ -123,7 +123,7 @@
               class="w-16 h-20 sm:w-20 sm:h-24 rounded-sm overflow-hidden shrink-0 border-2 transition-all duration-200"
               :class="currentDisplayImage === img ? 'border-black dark:border-white shadow-md scale-95' : 'border-transparent opacity-60 hover:opacity-100 hover:border-neutral-300'"
             >
-              <img :src="img" :alt="product.name" class="w-full h-full object-cover" />
+              <img :src="img" :alt="product.name" class="w-full h-full object-cover object-top" />
             </button>
           </div>
         </div>

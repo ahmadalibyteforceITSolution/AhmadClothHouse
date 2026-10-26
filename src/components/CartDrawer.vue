@@ -325,7 +325,7 @@
             <!-- Transfer Box if Easypaisa or Jazzcash -->
             <div v-if="paymentMethod === 'easypaisa' || paymentMethod === 'jazzcash'" class="p-3 bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/5 rounded-lg space-y-2 text-xs">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] text-stone-500">Send To: <strong class="text-stone-900 dark:text-white font-mono">0341-6887454</strong> (Ahmad Ali)</span>
+                <span class="text-[10px] text-stone-500">Send To: <strong class="text-stone-900 dark:text-white font-mono">0324-4902607</strong> / 0341-6887454 (Ahmad Ali)</span>
               </div>
               <input 
                 v-model="transactionId" 

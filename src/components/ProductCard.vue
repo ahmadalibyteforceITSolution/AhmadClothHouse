@@ -189,10 +189,6 @@ function handleDelete() {
 
 // ── Add to Cart (auth-guarded with instant feedback) ──────
 function handleAddToCart() {
-  if (!auth.isAuthenticated) {
-    window.dispatchEvent(new CustomEvent('acl:show-login-modal'))
-    return
-  }
   cart.addToCart(props.product)
 
   Swal.fire({
