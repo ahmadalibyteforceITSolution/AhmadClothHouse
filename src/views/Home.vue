@@ -850,7 +850,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCartStore } from '../stores/cart'
 import { useFavoritesStore } from '../stores/favorites'
-import heroModelComposite from "../assets/hero/hero_model_composite.png"
+import heroModelComposite from "../assets/ai_new/women_pishwas_peach.jpg"
 
 
 import NewSuitOffWhite from "../assets/dw_ef26_201_offwhite.jpg"
