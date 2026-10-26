@@ -1,265 +1,275 @@
 <template>
-  <div class="blog-list-page bg-[#FAF9F5] dark:bg-[#0A0908] min-h-screen pb-32 transition-colors duration-500 text-stone-900 dark:text-stone-100">
-    
-    <!-- ══════════ EDITORIAL MASTHEAD ══════════ -->
-    <header class="pt-10 sm:pt-14 pb-12 px-6 sm:px-10 lg:px-14 border-b border-stone-200/70 dark:border-white/10 text-center max-w-5xl mx-auto">
-      <!-- Breadcrumb -->
-      <nav class="flex items-center justify-center gap-2 text-[11px] text-stone-500 uppercase tracking-widest mb-6">
-        <router-link to="/" class="hover:text-black dark:hover:text-white transition-colors">Home</router-link>
-        <span>&rsaquo;</span>
-        <span class="text-[#D4AF37] font-semibold">The Fashion Journal</span>
-      </nav>
+  <div class="blog-list-page min-h-screen bg-[#F8F5F0] dark:bg-[#080706] transition-colors duration-500">
 
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 dark:bg-white/5 border border-[#D4AF37]/30 mb-4">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
-        <span class="text-[9px] uppercase font-bold tracking-[0.35em] text-[#8B6508] dark:text-[#D4AF37]">The House Chronicles</span>
+    <!-- ══════════ MASTHEAD BANNER ══════════ -->
+    <div class="relative overflow-hidden bg-[#111] text-white">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1a1208] via-[#111] to-[#0d0d0d]"></div>
+      <div class="absolute inset-0 opacity-10"
+        style="background-image: repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(212,175,55,0.15) 40px,rgba(212,175,55,0.15) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(212,175,55,0.15) 40px,rgba(212,175,55,0.15) 41px)">
       </div>
 
-      <!-- Main Headline -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-editorial font-normal tracking-tight text-[#161412] dark:text-white mb-4">
-        The Couture Journal
-      </h1>
+      <div class="relative max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 py-16 sm:py-24 text-center">
+        <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+          <span class="text-[9px] font-black uppercase tracking-[0.45em] text-[#D4AF37]">The Couture Chronicle</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-editorial font-normal tracking-tight text-white mb-5 leading-[1.1]">
+          Fashion <em class="text-[#D4AF37] not-italic">Journal</em>
+        </h1>
+        <p class="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
+          Curated insights on Pakistani couture, seasonal trends, fabric mastery, bridal heritage, and the artisans behind South Asia's most beloved fashion house.
+        </p>
 
-      <p class="text-xs sm:text-sm md:text-base text-stone-600 dark:text-stone-300 font-light max-w-2xl mx-auto leading-relaxed">
-        Exploring the artistry, intricate embroideries, bridal heritage, and seasonal styling guides from Lahore's master artisans.
-      </p>
-    </header>
+        <!-- Category Filter Pills -->
+        <div class="flex items-center justify-center flex-wrap gap-2 mt-10">
+          <button
+            v-for="cat in categories"
+            :key="cat"
+            @click="selectedCategory = cat"
+            :class="selectedCategory === cat
+              ? 'bg-[#D4AF37] text-black border-[#D4AF37] font-black shadow-lg shadow-[#D4AF37]/20'
+              : 'bg-white/5 text-stone-400 border-white/10 hover:border-[#D4AF37]/50 hover:text-white'"
+            class="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all duration-300 cursor-pointer"
+          >
+            {{ cat }}
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <div class="max-w-[1540px] mx-auto px-6 sm:px-10 lg:px-14 pt-10">
+    <div class="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 py-14">
 
-      <!-- ══════════ FEATURED LEAD STORY (HERO SPOTLIGHT) ══════════ -->
+      <!-- ══════════ HERO FEATURED POST ══════════ -->
       <section v-if="filteredBlogs.length > 0" class="mb-16">
-        <div 
+        <div
           @click="router.push(`/blog/${filteredBlogs[0].slug}`)"
-          class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white dark:bg-[#11100D] p-6 sm:p-8 lg:p-10 rounded-2xl border border-stone-200/80 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group"
+          class="group relative grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden cursor-pointer shadow-2xl hover:shadow-[#D4AF37]/10 transition-all duration-700 border border-stone-200/50 dark:border-white/5"
         >
-          <!-- Left Cover Photo -->
-          <div class="lg:col-span-7 relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 dark:bg-stone-900">
-            <img 
-              :src="filteredBlogs[0].image || DEFAULT_FALLBACK_IMAGE" 
+          <!-- Image Side -->
+          <div class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] overflow-hidden bg-stone-900">
+            <img
+              :src="filteredBlogs[0].image || DEFAULT_FALLBACK_IMAGE"
               :alt="filteredBlogs[0].title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               @error="(e) => e.target.src = DEFAULT_FALLBACK_IMAGE"
             />
-            <div class="absolute top-4 left-4 bg-[#141414]/90 backdrop-blur-md px-3.5 py-1.5 rounded-md border border-[#D4AF37]/40">
-              <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">Featured Story &bull; {{ filteredBlogs[0].category }}</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 lg:to-black/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden"></div>
+            <!-- Category Badge -->
+            <div class="absolute top-5 left-5">
+              <span class="bg-[#D4AF37] text-black text-[9px] font-black uppercase tracking-[0.25em] px-3 py-1.5 rounded-full">
+                {{ filteredBlogs[0].category }}
+              </span>
             </div>
           </div>
 
-          <!-- Right Content -->
-          <div class="lg:col-span-5 flex flex-col justify-center space-y-4">
-            <div class="flex items-center gap-3 text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
+          <!-- Content Side -->
+          <div class="flex flex-col justify-center p-8 sm:p-12 bg-white dark:bg-[#0F0E0B] lg:border-l border-stone-100 dark:border-white/5">
+            <div class="flex items-center gap-3 mb-5 text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
               <span>{{ filteredBlogs[0].date }}</span>
-              <span>&bull;</span>
-              <span>{{ filteredBlogs[0].author || 'Ahmad Couture Team' }}</span>
+              <span class="w-4 h-px bg-[#D4AF37]"></span>
+              <span class="text-[#D4AF37]">{{ filteredBlogs[0].author || 'Ahmad Couture Team' }}</span>
             </div>
 
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-normal text-stone-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-tight">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-normal text-stone-900 dark:text-white leading-[1.25] mb-5 group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors duration-300">
               {{ filteredBlogs[0].title }}
             </h2>
 
-            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-light leading-relaxed line-clamp-3">
+            <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-8 line-clamp-3 font-light">
               {{ filteredBlogs[0].summary }}
             </p>
 
-            <div class="pt-2">
-              <span class="inline-flex items-center gap-2 text-xs font-bold text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-[0.2em] group-hover:translate-x-1.5 transition-transform">
-                Read Full Manuscript &rarr;
+            <!-- Tags row -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span
+                v-for="tag in ['Pakistani Fashion', 'Style Guide', '2026 Collection']"
+                :key="tag"
+                class="text-[9px] px-3 py-1 rounded-full bg-stone-100 dark:bg-white/5 text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wider"
+              >{{ tag }}</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-6 border-t border-stone-100 dark:border-white/5">
+              <span class="inline-flex items-center gap-2 text-xs font-black text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform duration-300">
+                Read Full Story
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </span>
+              <span class="text-[10px] text-stone-400 font-medium">6 min read</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ══════════ CATEGORIES FILTER BAR ══════════ -->
-      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12 pb-6 border-b border-stone-200/60 dark:border-white/10">
-        <button 
-          v-for="cat in categories" 
-          :key="cat"
-          @click="selectedCategory = cat"
-          :class="['px-5 py-2 text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-full cursor-pointer', 
-                   selectedCategory === cat 
-                     ? 'bg-[#141414] dark:bg-white text-white dark:text-black shadow-md' 
-                     : 'bg-white dark:bg-white/5 border border-stone-200 dark:border-white/10 text-stone-600 dark:text-stone-300 hover:border-[#D4AF37] hover:text-[#D4AF37]']"
-        >
-          {{ cat }}
-        </button>
+      <!-- ══════════ SECTION LABEL ══════════ -->
+      <div class="flex items-center gap-5 mb-10">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] text-stone-500 dark:text-stone-400">Latest Articles</span>
+        </div>
+        <div class="flex-1 h-px bg-stone-200 dark:bg-white/5"></div>
+        <span class="text-[10px] text-stone-400 font-medium">{{ filteredBlogs.length - 1 }} Stories</span>
       </div>
 
-      <!-- ══════════ EDITORIAL GRID (Remaining Stories) ══════════ -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-        <article 
-          v-for="(post, index) in filteredBlogs.slice(1)" 
-          :key="post.id" 
-          class="group cursor-pointer flex flex-col bg-white dark:bg-[#12110E] border border-stone-200/70 dark:border-white/10 p-4 sm:p-5 rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+      <!-- ══════════ MAIN GRID ══════════ -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+        <article
+          v-for="(post, index) in filteredBlogs.slice(1)"
+          :key="post.id"
+          class="group cursor-pointer flex flex-col bg-white dark:bg-[#0F0E0B] rounded-2xl overflow-hidden border border-stone-200/70 dark:border-white/5 hover:border-[#D4AF37]/40 dark:hover:border-[#D4AF37]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
           @click="router.push(`/blog/${post.slug}`)"
+          :class="index === 0 ? 'sm:col-span-2' : ''"
         >
-          <div class="relative aspect-[4/3] overflow-hidden mb-5 bg-stone-100 dark:bg-white/5 rounded-xl">
-            <img 
-              :src="post.image || DEFAULT_FALLBACK_IMAGE" 
+          <!-- Image -->
+          <div
+            class="relative overflow-hidden bg-stone-100 dark:bg-stone-900"
+            :class="index === 0 ? 'aspect-[16/7]' : 'aspect-[4/3]'"
+          >
+            <img
+              :src="post.image || DEFAULT_FALLBACK_IMAGE"
               :alt="post.title"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
               @error="(e) => e.target.src = DEFAULT_FALLBACK_IMAGE"
             />
-            <div class="absolute top-3 left-3 bg-[#141414]/85 backdrop-blur-sm px-2.5 py-1 rounded border border-white/10">
-              <span class="text-[8.5px] font-bold uppercase text-[#D4AF37] tracking-wider">{{ post.category }}</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <!-- Category -->
+            <div class="absolute top-3 left-3">
+              <span class="bg-[#111]/85 backdrop-blur-sm text-[#D4AF37] text-[8.5px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg border border-[#D4AF37]/20">
+                {{ post.category }}
+              </span>
+            </div>
+            <!-- Read time badge -->
+            <div class="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+              <span class="bg-white/90 dark:bg-black/80 backdrop-blur-md text-[9px] text-stone-700 dark:text-stone-300 font-bold px-2.5 py-1 rounded-full">
+                5 min read
+              </span>
             </div>
           </div>
 
-          <div class="space-y-2.5 flex-1 flex flex-col px-1">
-            <div class="flex items-center gap-2 text-[9.5px] text-stone-400 uppercase tracking-widest font-semibold">
+          <!-- Content -->
+          <div class="flex-1 flex flex-col p-5">
+            <!-- Meta -->
+            <div class="flex items-center gap-2 text-[9px] text-stone-400 uppercase tracking-widest font-semibold mb-3">
               <span>{{ post.date }}</span>
-              <span>&bull;</span>
-              <span>{{ post.author }}</span>
+              <span class="w-3 h-px bg-stone-300 dark:bg-stone-700"></span>
+              <span class="text-[#B8860B] dark:text-[#D4AF37] truncate">{{ post.author }}</span>
             </div>
 
-            <h2 class="text-base sm:text-lg font-editorial font-normal text-stone-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-snug line-clamp-2">
+            <!-- Title -->
+            <h2
+              class="font-editorial font-normal text-stone-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-snug mb-3"
+              :class="index === 0 ? 'text-xl sm:text-2xl line-clamp-2' : 'text-base line-clamp-2'"
+            >
               {{ post.title }}
             </h2>
 
-            <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-2 font-light">
+            <!-- Summary -->
+            <p class="text-stone-500 dark:text-stone-400 text-xs leading-relaxed line-clamp-2 font-light mb-4 flex-1">
               {{ post.summary }}
             </p>
 
-            <div class="pt-3 mt-auto flex items-center justify-between border-t border-stone-100 dark:border-white/5">
-              <span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+            <!-- Footer -->
+            <div class="flex items-center justify-between pt-3.5 border-t border-stone-100 dark:border-white/5 mt-auto">
+              <span class="inline-flex items-center gap-1.5 text-[10px] font-black text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300">
                 Read Article
-                <span>&rarr;</span>
+                <span>→</span>
               </span>
-              <span class="text-[9.5px] text-stone-400 font-medium">4 min read</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-1 h-1 rounded-full bg-[#D4AF37]"></span>
+                <span class="text-[9px] text-stone-400">{{ post.category }}</span>
+              </div>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Pagination / Load More -->
-      <div v-if="displayLimit < totalFiltered" class="mt-16 text-center">
-        <button 
+      <!-- Load More -->
+      <div v-if="displayLimit < totalFiltered" class="mt-16 flex flex-col items-center gap-4">
+        <button
           @click="displayLimit += 12"
-          class="px-8 py-3.5 bg-[#141414] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 rounded-full shadow-md cursor-pointer"
+          class="group flex items-center gap-3 px-10 py-4 bg-[#111] dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-full hover:bg-[#D4AF37] dark:hover:bg-[#D4AF37] dark:hover:text-black transition-all duration-300 shadow-lg cursor-pointer"
         >
-          Load More Manuscripts
+          <span>Load More Stories</span>
+          <svg class="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
         </button>
+        <span class="text-[10px] text-stone-400 uppercase tracking-widest">{{ totalFiltered - displayLimit }} more stories</span>
       </div>
 
-      <!-- Collapsible Partner Portal Section at the bottom of Blog List -->
-      <section class="mt-24 pt-12 border-t border-stone-200 dark:border-white/10">
-        <div class="text-center mb-8">
-          <button 
+      <!-- End of feed -->
+      <div v-else-if="filteredBlogs.length > 1" class="mt-16 flex items-center gap-6 justify-center">
+        <div class="h-px flex-1 max-w-24 bg-stone-200 dark:bg-white/10"></div>
+        <span class="text-[9px] uppercase tracking-[0.5em] text-stone-400 font-bold">All {{ filteredBlogs.length }} Stories</span>
+        <div class="h-px flex-1 max-w-24 bg-stone-200 dark:bg-white/10"></div>
+      </div>
+
+      <!-- ══════════ NEWSLETTER CTA ══════════ -->
+      <section class="mt-20 rounded-3xl overflow-hidden bg-[#111] text-white p-8 sm:p-14 relative">
+        <div class="absolute inset-0 opacity-5" style="background: radial-gradient(ellipse at 20% 50%, #D4AF37 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, #B8860B 0%, transparent 60%)"></div>
+        <div class="relative text-center max-w-2xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+            <span class="text-[9px] font-black uppercase tracking-[0.4em] text-[#D4AF37]">Ahmad Clothes House</span>
+          </div>
+          <h3 class="text-3xl sm:text-4xl font-editorial font-normal text-white mb-4 leading-tight">
+            Ready to <em class="text-[#D4AF37] not-italic">Shop</em> the Collection?
+          </h3>
+          <p class="text-stone-400 text-sm leading-relaxed mb-8">
+            Explore Pakistan's finest Dhanak, Lawn, Pret, and Bridal collections. Nationwide delivery + express shipping to UK, USA, UAE & Canada.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <router-link
+              to="/shop"
+              class="px-8 py-3.5 bg-[#D4AF37] hover:bg-[#B8860B] text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-full transition-all duration-300 shadow-lg hover:shadow-[#D4AF37]/30 hover:scale-105"
+            >
+              Browse Collection →
+            </router-link>
+            <router-link
+              to="/contact"
+              class="px-8 py-3.5 border border-white/20 hover:border-[#D4AF37] text-white text-[10px] font-bold uppercase tracking-[0.3em] rounded-full transition-all duration-300"
+            >
+              Contact Concierge
+            </router-link>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ COLLAPSIBLE PARTNER PORTAL ══════════ -->
+      <section class="mt-16 pt-10 border-t border-stone-200 dark:border-white/10">
+        <div class="text-center mb-6">
+          <button
             @click="showPartnerPortal = !showPartnerPortal"
-            class="group inline-flex items-center gap-3 px-8 py-3 border border-amber-500/30 hover:border-amber-500 text-[10px] font-black tracking-[0.2em] text-stone-600 dark:text-stone-300 uppercase hover:text-amber-500 transition-all duration-300 rounded cursor-pointer"
+            class="inline-flex items-center gap-3 px-6 py-2.5 border border-stone-300 dark:border-white/10 hover:border-[#D4AF37] text-[10px] font-bold tracking-[0.2em] text-stone-500 dark:text-stone-400 uppercase hover:text-[#D4AF37] transition-all duration-300 rounded-full cursor-pointer"
           >
-            <span>{{ showPartnerPortal ? 'Hide' : 'Show' }} Publisher & Backlink Guidelines</span>
-            <span class="text-amber-500 transition-transform duration-300" :class="{ 'rotate-180': showPartnerPortal }">▼</span>
+            <span>{{ showPartnerPortal ? 'Hide' : 'Publisher & Backlink Guidelines' }}</span>
+            <span class="text-[#D4AF37] transition-transform duration-300" :class="{ 'rotate-180': showPartnerPortal }">▼</span>
           </button>
         </div>
 
         <transition name="fade-slide">
-          <div v-if="showPartnerPortal" class="bg-white dark:bg-[#0c0c0c] border border-stone-200/60 dark:border-white/5 p-8 md:p-12 rounded-xl shadow-sm space-y-12">
-            
-            <!-- Strategic Header -->
+          <div v-if="showPartnerPortal" class="bg-white dark:bg-[#0c0c0c] border border-stone-200/60 dark:border-white/5 p-8 md:p-12 rounded-2xl shadow-sm space-y-10">
             <div class="text-center max-w-2xl mx-auto space-y-3">
-              <h3 class="text-xl font-playfair text-[var(--luxury-black)] dark:text-white uppercase tracking-wider">
-                SEO Linking &amp; Anchor Text Distribution Guide
+              <h3 class="text-xl font-playfair text-stone-900 dark:text-white uppercase tracking-wider">
+                SEO Linking & Anchor Text Distribution Guide
               </h3>
               <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
-                If you are a fashion blogger, directory moderator, or guest writer reviewing the **Ahmad Clothes House Unstitched Collection** or **Ahmad Clothes House**, use our optimized anchor text mix. This ensures search engines index link citations naturally.
+                If you are a fashion blogger, directory moderator, or guest writer reviewing the Ahmad Clothes House collection, use our optimized anchor text mix for natural search engine indexing.
               </p>
             </div>
 
-            <!-- Visual Progress Bar -->
-            <div class="space-y-4 max-w-3xl mx-auto">
-              <div class="flex h-5 rounded-full overflow-hidden text-[8px] font-black text-white text-center tracking-widest uppercase">
-                <div class="bg-amber-600 flex items-center justify-center" style="width: 40%">40% BRAND</div>
-                <div class="bg-amber-500 flex items-center justify-center" style="width: 30%">30% PARTIAL</div>
-                <div class="bg-[#4A0E0E] flex items-center justify-center" style="width: 20%">20% EXACT</div>
-                <div class="bg-stone-500 flex items-center justify-center" style="width: 10%">10% GENERIC</div>
-              </div>
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-[9px] tracking-wider uppercase font-semibold text-stone-500 text-center font-montserrat">
-                <div class="flex items-center justify-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span> Branded (40%)</div>
-                <div class="flex items-center justify-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Partial Match (30%)</div>
-                <div class="flex items-center justify-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#4A0E0E]"></span> Exact Match (20%)</div>
-                <div class="flex items-center justify-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-stone-500"></span> Generic (10%)</div>
-              </div>
-            </div>
-
-            <!-- Quick Copy Link Blocks -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
-              <!-- Branded (40%) -->
-              <div class="space-y-3 p-6 bg-stone-50 dark:bg-white/5 rounded-lg border border-stone-200/50 dark:border-white/5">
-                <div class="flex justify-between items-center"><span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Branded Anchors (40%)</span></div>
-                <div class="space-y-2.5">
-                  <div v-for="(link, i) in brandedLinks" :key="i" class="flex justify-between items-center text-[10px] p-2 bg-white dark:bg-black/20 rounded border border-stone-100 dark:border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div v-for="(section, key) in linkSections" :key="key" class="space-y-3 p-6 bg-stone-50 dark:bg-white/5 rounded-xl border border-stone-200/50 dark:border-white/5">
+                <span class="text-xs font-bold uppercase tracking-wider" :class="section.color">{{ section.label }}</span>
+                <div class="space-y-2">
+                  <div v-for="(link, i) in section.links" :key="i" class="flex justify-between items-center text-[10px] p-2 bg-white dark:bg-black/20 rounded border border-stone-100 dark:border-white/5">
                     <span class="truncate text-stone-500 dark:text-stone-400">"{{ link.anchor }}"</span>
-                    <button @click="copyLinkHtml(link)" class="text-amber-500 hover:text-amber-600 font-bold uppercase tracking-wider pl-4 flex-shrink-0 cursor-pointer">Copy HTML</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Partial Match (30%) -->
-              <div class="space-y-3 p-6 bg-stone-50 dark:bg-white/5 rounded-lg border border-stone-200/50 dark:border-white/5">
-                <div class="flex justify-between items-center"><span class="text-xs font-bold text-amber-500 uppercase tracking-wider">Partial Match (30%)</span></div>
-                <div class="space-y-2.5">
-                  <div v-for="(link, i) in partialLinks" :key="i" class="flex justify-between items-center text-[10px] p-2 bg-white dark:bg-black/20 rounded border border-stone-100 dark:border-white/5">
-                    <span class="truncate text-stone-500 dark:text-stone-400">"{{ link.anchor }}"</span>
-                    <button @click="copyLinkHtml(link)" class="text-amber-500 hover:text-amber-600 font-bold uppercase tracking-wider pl-4 flex-shrink-0 cursor-pointer">Copy HTML</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Exact Match (20%) -->
-              <div class="space-y-3 p-6 bg-stone-50 dark:bg-white/5 rounded-lg border border-stone-200/50 dark:border-white/5">
-                <div class="flex justify-between items-center"><span class="text-xs font-bold text-[#4A0E0E] dark:text-rose-400 uppercase tracking-wider">Exact Match (20%)</span></div>
-                <div class="space-y-2.5">
-                  <div v-for="(link, i) in exactLinks" :key="i" class="flex justify-between items-center text-[10px] p-2 bg-white dark:bg-black/20 rounded border border-stone-100 dark:border-white/5">
-                    <span class="truncate text-stone-500 dark:text-stone-400">"{{ link.anchor }}"</span>
-                    <button @click="copyLinkHtml(link)" class="text-amber-500 hover:text-amber-600 font-bold uppercase tracking-wider pl-4 flex-shrink-0 cursor-pointer">Copy HTML</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Generic (10%) -->
-              <div class="space-y-3 p-6 bg-stone-50 dark:bg-white/5 rounded-lg border border-stone-200/50 dark:border-white/5">
-                <div class="flex justify-between items-center"><span class="text-xs font-bold text-stone-500 uppercase tracking-wider">Generic (10%)</span></div>
-                <div class="space-y-2.5">
-                  <div v-for="(link, i) in genericLinks" :key="i" class="flex justify-between items-center text-[10px] p-2 bg-white dark:bg-black/20 rounded border border-stone-100 dark:border-white/5">
-                    <span class="truncate text-stone-500 dark:text-stone-400">"{{ link.anchor }}"</span>
-                    <button @click="copyLinkHtml(link)" class="text-amber-500 hover:text-amber-600 font-bold uppercase tracking-wider pl-4 flex-shrink-0 cursor-pointer">Copy HTML</button>
+                    <button @click="copyLinkHtml(link)" class="text-[#D4AF37] hover:text-[#B8860B] font-bold uppercase tracking-wider pl-4 flex-shrink-0 cursor-pointer">Copy</button>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- SEO Semantic Map Tables -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-              <!-- High CPC Keywords -->
-              <div class="border border-stone-200/60 dark:border-white/5 p-6 rounded-lg bg-stone-50/50 dark:bg-white/5">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--luxury-black)] dark:text-white mb-4">High CPC Publisher Targets</h4>
-                <div class="max-h-40 overflow-y-auto scrollbar-none text-[10px] space-y-2 text-stone-500">
-                  <div v-for="kw in cpcKeywords" :key="kw" class="flex justify-between border-b border-stone-200/30 dark:border-white/5 pb-1">
-                    <span>{{ kw }}</span>
-                    <span class="text-green-600 font-semibold uppercase">High Value</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Category Keywords -->
-              <div class="border border-stone-200/60 dark:border-white/5 p-6 rounded-lg bg-stone-50/50 dark:bg-white/5">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--luxury-black)] dark:text-white mb-4">Boutique Category Semantics</h4>
-                <div class="max-h-40 overflow-y-auto scrollbar-none text-[10px] space-y-2 text-stone-500">
-                  <div v-for="cat in categoryMappings" :key="cat.name" class="flex flex-col border-b border-stone-200/30 dark:border-white/5 pb-1">
-                    <span class="font-bold text-stone-700 dark:text-stone-300 mb-0.5">{{ cat.name }}</span>
-                    <span class="text-stone-400">{{ cat.terms }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </transition>
       </section>
+
     </div>
   </div>
 </template>
@@ -270,65 +280,61 @@ import { useRouter } from 'vue-router'
 import { blogs as staticBlogs } from '../data/blogs'
 import { useProductsStore } from '../stores/products'
 import Swal from 'sweetalert2'
-import Hero4 from "../assets/ai/hero_1.png" // Using hero_1 for a fresh look
 
 const router = useRouter()
 const productStore = useProductsStore()
 const selectedCategory = ref('All')
-const displayLimit = ref(12)
+const displayLimit = ref(16)
 const showPartnerPortal = ref(false)
 
 const BASE_URL = 'https://ahmad-cloths.vercel.app'
 const DEFAULT_FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1200'
 
-const brandedLinks = [
-  { anchor: 'Ahmad Clothes House Online Boutique', url: `${BASE_URL}/` },
-  { anchor: 'Ahmad Clothes House Unstitched Collection', url: `${BASE_URL}/shop/Unstitched` },
-  { anchor: 'Ahmad Clothes House Luxury Lawn 2026', url: `${BASE_URL}/shop/Lawn` },
-  { anchor: 'Ahmad Clothes House Bridal Couture', url: `${BASE_URL}/shop/Bridal` }
-]
-
-const partialLinks = [
-  { anchor: 'buy unstitched lawn suits', url: `${BASE_URL}/shop/Lawn` },
-  { anchor: 'premium cotton suits', url: `${BASE_URL}/shop` },
-  { anchor: 'latest lawn collection', url: `${BASE_URL}/shop/Lawn` },
-  { anchor: 'embroidered lawn suits', url: `${BASE_URL}/shop/Lawn` }
-]
-
-const exactLinks = [
-  { anchor: 'buy unstitched lawn suits online', url: `${BASE_URL}/shop` },
-  { anchor: 'shop unstitched clothes', url: `${BASE_URL}/shop/Unstitched` },
-  { anchor: 'best lawn brands Pakistan', url: `${BASE_URL}/shop` },
-  { anchor: 'luxury unstitched dresses Pakistan', url: `${BASE_URL}/shop` }
-]
-
-const genericLinks = [
-  { anchor: 'visit website', url: `${BASE_URL}/` },
-  { anchor: 'learn more', url: `${BASE_URL}/about` },
-  { anchor: 'shop now', url: `${BASE_URL}/shop` }
-]
-
-const cpcKeywords = [
-  'Buy Lawn Suits Online',
-  'Pakistani Clothing Brand',
-  'Women\'s Fashion Online',
-  'Designer Lawn Collection',
-  'Luxury Lawn Suits',
-  'Branded Lawn Collection',
-  'Online Boutique Pakistan',
-  'Premium Clothing Store'
-]
-
-const categoryMappings = [
-  { name: 'Unstitched Fabric', terms: 'Unstitched Suits, Lawn, Dresses, Clothes' },
-  { name: 'Lawn Collection', terms: 'Luxury Lawn, Premium Lawn, Summer Lawn, Embroidered' },
-  { name: 'Chiffon & Festive', terms: 'Chiffon Collection, Festive, Wedding Collection, Formal' }
-]
+const linkSections = {
+  branded: {
+    label: 'Branded Anchors (40%)',
+    color: 'text-amber-600',
+    links: [
+      { anchor: 'Ahmad Clothes House Online Boutique', url: `${BASE_URL}/` },
+      { anchor: 'Ahmad Clothes House Unstitched Collection', url: `${BASE_URL}/shop/Unstitched` },
+      { anchor: 'Ahmad Clothes House Luxury Lawn 2026', url: `${BASE_URL}/shop/Lawn` },
+      { anchor: 'Ahmad Clothes House Bridal Couture', url: `${BASE_URL}/shop/Bridal` }
+    ]
+  },
+  partial: {
+    label: 'Partial Match (30%)',
+    color: 'text-amber-500',
+    links: [
+      { anchor: 'buy unstitched lawn suits', url: `${BASE_URL}/shop/Lawn` },
+      { anchor: 'premium cotton suits', url: `${BASE_URL}/shop` },
+      { anchor: 'latest lawn collection', url: `${BASE_URL}/shop/Lawn` },
+      { anchor: 'embroidered lawn suits', url: `${BASE_URL}/shop/Lawn` }
+    ]
+  },
+  exact: {
+    label: 'Exact Match (20%)',
+    color: 'text-rose-700 dark:text-rose-400',
+    links: [
+      { anchor: 'buy unstitched lawn suits online', url: `${BASE_URL}/shop` },
+      { anchor: 'shop unstitched clothes', url: `${BASE_URL}/shop/Unstitched` },
+      { anchor: 'best lawn brands Pakistan', url: `${BASE_URL}/shop` },
+      { anchor: 'luxury unstitched dresses Pakistan', url: `${BASE_URL}/shop` }
+    ]
+  },
+  generic: {
+    label: 'Generic (10%)',
+    color: 'text-stone-500',
+    links: [
+      { anchor: 'visit website', url: `${BASE_URL}/` },
+      { anchor: 'learn more', url: `${BASE_URL}/about` },
+      { anchor: 'shop now', url: `${BASE_URL}/shop` }
+    ]
+  }
+}
 
 const copyLinkHtml = (link) => {
   const code = `<a href="${link.url}" target="_blank" rel="noopener">${link.anchor}</a>`
   navigator.clipboard.writeText(code)
-  
   Swal.fire({
     title: 'Copied!',
     text: 'HTML backlink code copied to clipboard.',
@@ -353,17 +359,12 @@ const categories = computed(() => {
 })
 
 const blogs = computed(() => {
-  // Map static blogs to use product images from the database
   return staticBlogs.map((blog, index) => {
-    // Try to find a product in the same category
-    const relatedProduct = productStore.products.find(p => 
-      p.category?.toLowerCase() === blog.category.toLowerCase() || 
+    const relatedProduct = productStore.products.find(p =>
+      p.category?.toLowerCase() === blog.category.toLowerCase() ||
       p.parentCategory?.toLowerCase() === blog.category.toLowerCase()
     )
-    
-    // Fallback to a random product if no category match
     const fallbackProduct = productStore.products[index % productStore.products.length]
-    
     return {
       ...blog,
       image: relatedProduct?.image || fallbackProduct?.image || blog.image
@@ -386,32 +387,13 @@ const totalFiltered = computed(() => {
 </script>
 
 <style scoped>
-.animate-slow-zoom {
-  animation: slow-zoom 40s infinite linear alternate;
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-@keyframes slow-zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.15); }
-}
-
-.animate-reveal {
-  animation: reveal-bottom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-.animate-reveal-delay {
-  animation: reveal-bottom 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.2s forwards;
+.fade-slide-enter-from,
+.fade-slide-leave-to {
   opacity: 0;
-}
-
-@keyframes reveal-bottom {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transform: translateY(-10px);
 }
 </style>
