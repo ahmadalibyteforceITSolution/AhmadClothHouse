@@ -13,7 +13,7 @@
         :key="'img' + idx"
         :src="img"
         :alt="product.name + ' | AHMADCLOTHESFABRICS'"
-        class="card-img absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out"
+        class="card-img absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-in-out"
         :class="idx === hoverIndex ? 'opacity-100 scale-[1.04] z-0' : 'opacity-0 scale-100 -z-10'"
         :loading="loading"
         width="400"
@@ -218,7 +218,7 @@ function handleAddToCart() {
 
 /* ── Image Wrapper ──────────────────────────────────── */
 .card-image-wrap {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   background: #F4F4F4;
 }
 .dark .card-image-wrap {

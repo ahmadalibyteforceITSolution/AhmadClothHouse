@@ -174,13 +174,13 @@
 
 
     <!-- Product Collection Grid -->
-    <div class="max-w-7xl mx-auto px-6 min-h-[60vh]">
+    <div class="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[60vh]">
       <div v-if="filteredProducts.length > 0">
-        <div class="max-w-[1700px] mx-auto grid gap-x-8 gap-y-16"
+        <div class="grid gap-x-4 gap-y-8 sm:gap-x-5 sm:gap-y-10"
           :class="viewMode === 'list' ? 'flex flex-col gap-16 max-w-3xl mx-auto' : {
-            'grid-cols-1 sm:grid-cols-2': gridCols === 2,
-            'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3': gridCols === 3,
-            'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4': gridCols === 4
+            'grid-cols-2': gridCols === 2,
+            'grid-cols-2 md:grid-cols-3': gridCols === 3,
+            'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4': gridCols === 4
           }">
           <div v-for="(product, i) in displayedProducts" :key="product.id" 
             class="animate-reveal group/grid-item" :style="{ animationDelay: `${(i % 4) * 0.12}s` }">
