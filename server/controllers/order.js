@@ -1,111 +1,288 @@
+let productCatalog = {};
+try {
+  productCatalog = require('../data/productCatalog.json');
+} catch (e) {
+  try {
+    productCatalog = require('./server/data/productCatalog.json');
+  } catch (err) {
+    productCatalog = {};
+  }
+}
 
-// Helper to build luxury HTML email with product images and details
+// Guaranteed product image resolver with catalog lookup
+function resolveProductImage(item) {
+  if (!item) return 'https://ahmad-cloths.vercel.app/assets/women_pishwas_peach-DDMSNZCq.jpg';
+  const BASE_URL = 'https://ahmad-cloths.vercel.app';
+  
+  // 1. Direct image property
+  let img = item.image || item.cartImage || item.variant?.image || '';
+  if (img && typeof img === 'string' && img.trim() !== '' && img !== 'No Photo') {
+    if (img.startsWith('http://') || img.startsWith('https://')) return img;
+    return BASE_URL + (img.startsWith('/') ? '' : '/') + img;
+  }
+  
+  // 2. Lookup by product ID (e.g. aj-rep-005)
+  const pid = String(item.product || item.id || item._id || '').trim();
+  if (pid && productCatalog[pid]) {
+    return BASE_URL + productCatalog[pid];
+  }
+  
+  // 3. Lookup by lowercase product name
+  const name = String(item.name || '').toLowerCase().trim();
+  if (name && productCatalog[name]) {
+    return BASE_URL + productCatalog[name];
+  }
+  
+  // 4. Fuzzy match
+  if (name) {
+    const matchedKey = Object.keys(productCatalog).find(k => k.length > 5 && (name.includes(k) || k.includes(name)));
+    if (matchedKey) {
+      return BASE_URL + productCatalog[matchedKey];
+    }
+  }
+  
+  return BASE_URL + '/assets/women_pishwas_peach-DDMSNZCq.jpg';
+}
+
+// Build official printable Tax Invoice HTML for Gmail & email clients
 function buildOrderEmailHtml(order, shipping, customerEmail) {
   const BASE_URL = 'https://ahmad-cloths.vercel.app';
   const cleanPhone = (shipping.phone || '').replace(/[^0-9]/g, '');
+  const invoiceId = order._id ? String(order._id) : ('ACH-' + Math.floor(100000 + Math.random() * 900000));
+  const invoiceDate = new Date().toLocaleDateString('en-PK', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 
-  const itemsRows = (order.items && order.items.length)
-    ? order.items.map((item, idx) => {
-        let imgUrl = item.image || item.variant?.image || '';
-        if (imgUrl && !imgUrl.startsWith('http')) {
-          imgUrl = BASE_URL + (imgUrl.startsWith('/') ? '' : '/') + imgUrl;
-        }
+  const rawItems = (order.items && order.items.length) ? order.items : [];
+  const itemsRows = rawItems.length
+    ? rawItems.map((item, idx) => {
+        const imgUrl = resolveProductImage(item);
         const itemTotal = ((item.price || 0) * (item.quantity || 1)).toLocaleString();
+        const sku = item.product || item.id || ('ACH-' + (idx + 101));
         return `
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 12px 10px; width: 75px; vertical-align: top;">
-              ${imgUrl ? `<img src="${imgUrl}" alt="${item.name || 'Product'}" width="70" height="90" style="width: 70px; height: 90px; object-fit: cover; border-radius: 6px; border: 1px solid #d4af37; display: block;" />` : `<div style="width: 70px; height: 90px; background: #f0f0f0; border-radius: 6px; text-align: center; line-height: 90px; font-size: 10px; color: #888;">No Photo</div>`}
+          <tr style="border-bottom: 1px solid #e5e5e5;">
+            <td style="padding: 12px 8px; width: 65px; vertical-align: top;">
+              <img 
+                src="${imgUrl}" 
+                alt="${item.name || 'Product'}" 
+                width="65" 
+                height="85" 
+                style="width: 65px; height: 85px; object-fit: cover; border-radius: 6px; border: 1px solid #d4af37; display: block;" 
+              />
             </td>
             <td style="padding: 12px 10px; vertical-align: top;">
-              <div style="font-size: 14px; font-weight: bold; color: #111; margin-bottom: 3px;">${item.name || 'Pakistani Designer Suit'}</div>
-              ${item.variant?.size || item.variant?.color ? `<div style="font-size: 11px; color: #777; margin-bottom: 3px;">Size: ${item.variant?.size || 'Standard'} | Color: ${item.variant?.color || 'Original'}</div>` : ''}
-              <div style="font-size: 12px; color: #555;">Quantity: <strong style="color: #111;">${item.quantity || 1}</strong></div>
-              <div style="font-size: 13px; font-weight: bold; color: #b8860b; margin-top: 4px;">Rs. ${Number(item.price || 0).toLocaleString()} <span style="font-size: 11px; color: #888; font-weight: normal;">each</span></div>
+              <div style="font-size: 14px; font-weight: bold; color: #111111; margin-bottom: 3px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                ${item.name || 'Pakistani Designer Suit'}
+              </div>
+              ${item.variant?.size || item.variant?.color ? `
+                <div style="font-size: 11px; color: #666; margin-bottom: 3px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                  ${item.variant?.size ? `Size: <strong>${item.variant.size}</strong>` : ''} 
+                  ${item.variant?.size && item.variant?.color ? '&bull;' : ''} 
+                  ${item.variant?.color ? `Color: <strong>${item.variant.color}</strong>` : ''}
+                </div>
+              ` : ''}
+              <div style="font-size: 11px; color: #b8860b; font-family: monospace;">SKU: ${sku}</div>
             </td>
-            <td style="padding: 12px 10px; vertical-align: top; text-align: right; font-weight: bold; font-size: 14px; color: #111;">
+            <td style="padding: 12px 8px; vertical-align: top; text-align: center; font-size: 13px; font-weight: bold; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+              ${item.quantity || 1}
+            </td>
+            <td style="padding: 12px 8px; vertical-align: top; text-align: right; font-size: 13px; color: #555; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+              Rs. ${Number(item.price || 0).toLocaleString()}
+            </td>
+            <td style="padding: 12px 8px; vertical-align: top; text-align: right; font-weight: bold; font-size: 14px; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
               Rs. ${itemTotal}
             </td>
           </tr>
         `;
       }).join('')
-    : '<tr><td colspan="3" style="padding: 12px; text-align: center; color: #888;">No items specified</td></tr>';
+    : '<tr><td colspan="5" style="padding: 16px; text-align: center; color: #888;">No items specified</td></tr>';
 
   return `
-    <div style="font-family: 'Playfair Display', Georgia, serif; max-width: 650px; margin: 0 auto; padding: 35px 25px; background: #fafaf8; border: 1px solid #d4af3744; border-radius: 8px;">
-      <div style="text-align: center; margin-bottom: 25px;">
-        <h1 style="color: #111; font-size: 26px; font-style: italic; margin: 0; letter-spacing: 2px;">Ahmad Clothes House</h1>
-        <p style="color: #b8860b; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; margin: 5px 0 0 0;">Haute Couture & Atelier • Lahore</p>
-        <div style="height: 1px; background: #d4af3788; width: 80px; margin: 15px auto;"></div>
-        <div style="display: inline-block; background: #111; color: #d4af37; font-size: 11px; font-weight: bold; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px;">
-          🚀 New Order Received
-        </div>
-      </div>
+    <div style="background-color: #f5f5f3; padding: 25px 10px; font-family: 'Playfair Display', Georgia, serif;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 680px; background-color: #ffffff; border: 1px solid #e0d7c7; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+        <!-- Top Luxury Banner -->
+        <tr>
+          <td style="background: #111111; padding: 25px 25px 20px 25px; text-align: center; border-bottom: 3px solid #d4af37;">
+            <h1 style="color: #ffffff; font-size: 26px; font-style: italic; margin: 0; letter-spacing: 2px;">Ahmad Clothes House</h1>
+            <p style="color: #d4af37; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; margin: 6px 0 0 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+              Haute Couture & Atelier • Wholesale & Retail • Lahore
+            </p>
+          </td>
+        </tr>
 
-      <div style="background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-        <table style="width: 100%; font-size: 13px;">
-          <tr>
-            <td style="color: #666; padding: 4px 0;">Order Tracking ID:</td>
-            <td style="font-weight: bold; font-family: monospace; text-align: right; color: #111;">#${order._id}</td>
-          </tr>
-          <tr>
-            <td style="color: #666; padding: 4px 0;">Subtotal:</td>
-            <td style="text-align: right; color: #111;">Rs. ${(order.subtotal || 0).toLocaleString()}</td>
-          </tr>
-          <tr>
-            <td style="color: #666; padding: 4px 0;">Delivery Charges:</td>
-            <td style="text-align: right; color: #111;">Rs. ${(order.deliveryCharge || 0).toLocaleString()}</td>
-          </tr>
-          <tr style="border-top: 1px solid #eee;">
-            <td style="color: #111; font-weight: bold; padding: 10px 0 4px 0; font-size: 15px;">TOTAL PAYABLE:</td>
-            <td style="font-weight: bold; font-size: 17px; color: #b8860b; text-align: right; padding: 10px 0 4px 0;">Rs. ${(order.totalAmount || 0).toLocaleString()}</td>
-          </tr>
-          <tr>
-            <td style="color: #666; padding: 4px 0;">Payment Method:</td>
-            <td style="text-align: right; font-weight: bold; text-transform: uppercase; color: #059669;">${(order.paymentMethod || 'COD').toUpperCase()} ${order.transactionId ? `(TID: ${order.transactionId})` : ''}</td>
-          </tr>
-        </table>
-      </div>
+        <!-- Invoice Title & Order Identification -->
+        <tr>
+          <td style="padding: 20px 25px 15px 25px; background-color: #fafaf8; border-bottom: 1px solid #eee;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+              <tr>
+                <td style="vertical-align: middle;">
+                  <span style="background: #d4af37; color: #111; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1.5px; display: inline-block;">
+                    Official Tax Invoice
+                  </span>
+                  <div style="font-size: 18px; font-weight: bold; color: #111; margin-top: 6px; font-family: monospace;">
+                    #${invoiceId}
+                  </div>
+                </td>
+                <td style="vertical-align: middle; text-align: right; font-size: 12px; color: #666; line-height: 1.5;">
+                  <div>Date: <strong style="color: #111;">${invoiceDate}</strong></div>
+                  <div>Payment: <strong style="color: #059669; text-transform: uppercase;">${order.paymentMethod || 'COD'}</strong></div>
+                  <div>Status: <strong style="color: #b8860b;">CONFIRMED</strong></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-      <div style="background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-        <h3 style="margin: 0 0 12px 0; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #b8860b;">Customer & Delivery Details</h3>
-        <table style="width: 100%; font-size: 13px;">
-          <tr>
-            <td style="color: #666; width: 100px; padding: 4px 0;">Name:</td>
-            <td style="font-weight: bold; color: #111;">${shipping.fullName || order.customerName || 'N/A'}</td>
-          </tr>
-          <tr>
-            <td style="color: #666; padding: 4px 0;">Phone:</td>
-            <td><a href="tel:${shipping.phone}" style="color: #111; text-decoration: none; font-weight: bold;">${shipping.phone || 'N/A'}</a> &nbsp; ${cleanPhone ? `<a href="https://wa.me/${cleanPhone}" style="color: #25D366; text-decoration: none; font-weight: bold;">[WhatsApp]</a>` : ''}</td>
-          </tr>
-          <tr>
-            <td style="color: #666; padding: 4px 0;">Email:</td>
-            <td><a href="mailto:${customerEmail || ''}" style="color: #111; text-decoration: none;">${customerEmail || 'N/A'}</a></td>
-          </tr>
-          <tr>
-            <td style="color: #666; padding: 4px 0; vertical-align: top;">Address:</td>
-            <td style="color: #111; line-height: 1.4;">${shipping.address || 'N/A'}, ${shipping.city || 'N/A'}, ${shipping.country || 'Pakistan'}</td>
-          </tr>
-        </table>
-      </div>
+        <!-- Customer & Dispatch Address Box -->
+        <tr>
+          <td style="padding: 20px 25px; border-bottom: 1px solid #eee;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px;">
+              <tr>
+                <td width="50%" style="vertical-align: top; padding-right: 15px;">
+                  <div style="font-size: 11px; font-weight: bold; color: #b8860b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+                    Billed & Shipped To:
+                  </div>
+                  <div style="font-size: 14px; font-weight: bold; color: #111; margin-bottom: 4px;">
+                    ${shipping.fullName || order.customerName || 'Valued Client'}
+                  </div>
+                  <div style="color: #444; line-height: 1.4; margin-bottom: 3px;">
+                    📞 Phone: <strong>${shipping.phone || 'N/A'}</strong> 
+                    ${cleanPhone ? `&nbsp; <a href="https://wa.me/${cleanPhone}" style="color: #25D366; text-decoration: none; font-weight: bold;">[WhatsApp]</a>` : ''}
+                  </div>
+                  ${customerEmail ? `<div style="color: #444; margin-bottom: 3px;">✉️ Email: <a href="mailto:${customerEmail}" style="color: #111; text-decoration: none;">${customerEmail}</a></div>` : ''}
+                  <div style="color: #444; line-height: 1.4; margin-top: 4px;">
+                    📍 Address: ${shipping.address || 'N/A'}, ${shipping.city || 'N/A'}, ${shipping.country || 'Pakistan'}
+                  </div>
+                </td>
+                <td width="50%" style="vertical-align: top; padding-left: 15px; border-left: 1px solid #f0f0f0;">
+                  <div style="font-size: 11px; font-weight: bold; color: #b8860b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+                    Store & Dispatch Details:
+                  </div>
+                  <div style="font-size: 13px; font-weight: bold; color: #111; margin-bottom: 3px;">
+                    Ahmad Clothes House Atelier
+                  </div>
+                  <div style="color: #444; line-height: 1.4; font-size: 12px;">
+                    Helpline: <strong>0324 4902607</strong><br />
+                    WhatsApp: <strong>+92 341 6887454</strong><br />
+                    Carrier: BlueEx Luxury Express (2-4 Days)<br />
+                    Authenticity: <strong style="color: #059669;">100% Original Brand Fabric</strong>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-      <div style="background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-        <h3 style="margin: 0 0 12px 0; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #b8860b;">Ordered Products (${(order.items || []).length})</h3>
-        <table style="width: 100%; border-collapse: collapse;">
-          ${itemsRows}
-        </table>
-      </div>
+        <!-- Itemized Products Table -->
+        <tr>
+          <td style="padding: 20px 25px;">
+            <div style="font-size: 12px; font-weight: bold; color: #b8860b; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+              Itemized Invoice Summary (${rawItems.length} Products)
+            </div>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+              <thead>
+                <tr style="border-bottom: 2px solid #111111; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">
+                  <th style="padding: 8px 8px; text-align: left;" colspan="2">Product Details</th>
+                  <th style="padding: 8px 8px; text-align: center;">Qty</th>
+                  <th style="padding: 8px 8px; text-align: right;">Unit Price</th>
+                  <th style="padding: 8px 8px; text-align: right;">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${itemsRows}
+              </tbody>
+            </table>
+          </td>
+        </tr>
 
-      ${cleanPhone ? `
-      <div style="text-align: center; margin: 25px 0 15px 0;">
-        <a href="https://wa.me/${cleanPhone}?text=${encodeURIComponent('Assalam-o-Alaikum ' + (shipping.fullName || '') + ', thank you for your order with Ahmad Clothes House! We have received your order #' + order._id + ' for Rs. ' + (order.totalAmount || 0).toLocaleString() + ' and will dispatch it shortly.')}" style="display: inline-block; background: #25D366; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; box-shadow: 0 4px 12px rgba(37,211,102,0.3);">
-          💬 Chat with Customer on WhatsApp
-        </a>
-      </div>` : ''}
+        <!-- Financial Totals Section -->
+        <tr>
+          <td style="padding: 0 25px 25px 25px;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px;">
+              <tr>
+                <td width="55%" style="vertical-align: top; padding-right: 20px; font-size: 11px; color: #777; line-height: 1.5;">
+                  <div style="font-weight: bold; color: #111; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Order Verification & Policy:
+                  </div>
+                  • 7-Day Hassle-Free Exchange on intact & unstitched suits.<br />
+                  • Open parcel inspection available upon courier delivery.<br />
+                  • Please retain this digital invoice for all warranty & inquiries.
+                </td>
+                <td width="45%" style="vertical-align: top;">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background: #fafaf8; border: 1px solid #eee; border-radius: 6px; padding: 12px;">
+                    <tr>
+                      <td style="padding: 4px 8px; color: #666; font-size: 12px;">Subtotal:</td>
+                      <td style="padding: 4px 8px; text-align: right; font-weight: bold; color: #111; font-size: 13px;">
+                        Rs. ${(order.subtotal || 0).toLocaleString()}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 4px 8px; color: #666; font-size: 12px;">Delivery Charges:</td>
+                      <td style="padding: 4px 8px; text-align: right; font-weight: bold; color: #111; font-size: 13px;">
+                        ${(order.deliveryCharge || 0) === 0 ? '<span style="color: #059669;">FREE</span>' : 'Rs. ' + (order.deliveryCharge || 0).toLocaleString()}
+                      </td>
+                    </tr>
+                    <tr style="border-top: 1px solid #ddd;">
+                      <td style="padding: 8px 8px 4px 8px; font-weight: bold; color: #111; font-size: 14px;">TOTAL PAYABLE:</td>
+                      <td style="padding: 8px 8px 4px 8px; text-align: right; font-weight: bold; font-size: 18px; color: #b8860b;">
+                        Rs. ${(order.totalAmount || 0).toLocaleString()}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 11px; color: #888; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-        <p style="margin: 0;">WhatsApp Concierge: +92 341 6887454 | Helpline: 0324 4902607</p>
-        <p style="margin: 6px 0 0 0; letter-spacing: 1px; font-size: 9px; text-transform: uppercase;">© 2026 Ahmad Clothes House. All Rights Reserved.</p>
-      </div>
+        <!-- Action Buttons Bar: Print Invoice & WhatsApp -->
+        <tr>
+          <td style="padding: 20px 25px; background: #fafaf8; border-top: 1px solid #eee; text-align: center;">
+            <table align="center" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="padding: 0 8px;">
+                  <a 
+                    href="${BASE_URL}/invoice/${invoiceId}" 
+                    target="_blank"
+                    style="display: inline-block; background: #111111; color: #d4af37; padding: 12px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px;"
+                  >
+                    🖨️ View & Print Official Invoice / PDF
+                  </a>
+                </td>
+                ${cleanPhone ? `
+                <td style="padding: 0 8px;">
+                  <a 
+                    href="https://wa.me/${cleanPhone}?text=${encodeURIComponent('Assalam-o-Alaikum ' + (shipping.fullName || '') + ', your Ahmad Clothes House order #' + invoiceId + ' for Rs. ' + (order.totalAmount || 0).toLocaleString() + ' has been confirmed.')}" 
+                    target="_blank"
+                    style="display: inline-block; background: #25D366; color: #ffffff; padding: 12px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px;"
+                  >
+                    💬 WhatsApp Customer
+                  </a>
+                </td>` : ''}
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Official Seal & Footer -->
+        <tr>
+          <td style="padding: 20px 25px; text-align: center; font-size: 11px; color: #888; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; border-top: 1px solid #f0f0f0;">
+            <p style="margin: 0; font-weight: bold; color: #444;">
+              AHMAD CLOTHES HOUSE ATELIER • AUTHORIZED COMPUTER-GENERATED TAX INVOICE
+            </p>
+            <p style="margin: 4px 0 0 0;">
+              Lahore, Punjab, Pakistan &nbsp;|&nbsp; Helpline: 0324 4902607 &nbsp;|&nbsp; WhatsApp: +92 341 6887454
+            </p>
+            <p style="margin: 6px 0 0 0; font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: #aaa;">
+              © 2026 Ahmad Clothes House. All Rights Reserved.
+            </p>
+          </td>
+        </tr>
+      </table>
     </div>
   `;
 }
@@ -204,12 +381,13 @@ exports.notifyOrder = async (req, res) => {
       html: orderHtml
     });
 
-    // 2. Send confirmation to CUSTOMER
+    // 2. Send confirmation to CUSTOMER with full Tax Invoice
     if (order.customerEmail) {
       await sendEmail({
         email: order.customerEmail,
-        subject: 'Order Received - AhmadClothesHouse',
-        message: `Hello ${shipping.fullName},\n\nWe have received your order request for Rs. ${Number(order.totalAmount).toLocaleString()}.\n\nOur team is reviewing the details and will contact you shortly via WhatsApp or Phone to confirm shipment.\n\nThank you for choosing AhmadClothesHouse.`
+        subject: `[OFFICIAL TAX INVOICE] #${order._id || 'N/A'} - Ahmad Clothes House Order Confirmation`,
+        message: `Assalam-o-Alaikum ${shipping.fullName},\n\nThank you for your order at Ahmad Clothes House. Your official tax invoice for Rs. ${Number(order.totalAmount).toLocaleString()} is attached.\n\nHelpline: 0324 4902607 | WhatsApp: +92 341 6887454`,
+        html: orderHtml
       });
     }
 
@@ -230,18 +408,7 @@ exports.createOrder = async (req, res) => {
   try {
     const order = await Order.create(req.body);
 
-    // Send notification email to customer
-    if (order.customerEmail) {
-      try {
-        await sendEmail({
-          email: order.customerEmail,
-          subject: 'Order Confirmation - AhmadClothesHouse',
-          message: `Hello ${order.customerName || 'Valued Customer'},\n\nThank you for your order at AhmadClothesHouse.\n\nOrder ID: ${order._id}\nTotal: Rs. ${order.totalAmount}\n\nWe are processing your order and will notify you when it ships.\n\nBest regards,\nAhmadClothesHouse Team`
-        });
-      } catch (custMailErr) {
-        console.error('AHMADCLOTHS_CUSTOMER_CONFIRMATION_MAIL_ERROR:', custMailErr.message);
-      }
-    }
+    // Customer notification will be sent below with complete Tax Invoice
 
     // Send notification email to admin
     try {
@@ -284,13 +451,30 @@ exports.createOrder = async (req, res) => {
         Please check your Admin Dashboard to prepare and dispatch this order.
       `;
 
-      const orderHtml = buildOrderEmailHtml(order, shipping, req.body.customerEmail || order.customerEmail);
+      const finalCustomerEmail = req.body.customerEmail || order.customerEmail;
+      const orderHtml = buildOrderEmailHtml(order, shipping, finalCustomerEmail);
+      
+      // Admin Tax Invoice notification
       await sendEmail({
         email: adminEmail,
-        subject: `[NEW ORDER] #${order._id} - ${shipping.fullName} (Rs. ${(order.totalAmount || 0).toLocaleString()})`,
+        subject: `[OFFICIAL TAX INVOICE] #${order._id} - ${shipping.fullName} (Rs. ${(order.totalAmount || 0).toLocaleString()})`,
         message: emailMessage,
         html: orderHtml
       });
+
+      // Customer Tax Invoice notification
+      if (finalCustomerEmail) {
+        try {
+          await sendEmail({
+            email: finalCustomerEmail,
+            subject: `[OFFICIAL TAX INVOICE] #${order._id} - Ahmad Clothes House Order Confirmation`,
+            message: `Assalam-o-Alaikum ${shipping.fullName || order.customerName},\n\nThank you for placing your order at Ahmad Clothes House. Your official tax invoice for Rs. ${(order.totalAmount || 0).toLocaleString()} is enclosed.\n\nHelpline: 0324 4902607 | WhatsApp: +92 341 6887454`,
+            html: orderHtml
+          });
+        } catch (cMailErr) {
+          console.error('AHMADCLOTHS_CUST_INVOICE_ERROR:', cMailErr.message);
+        }
+      }
       
       console.log('AHMADCLOTHS: Admin notified via email for order %s', order._id);
     } catch (mailErr) {

@@ -187,6 +187,16 @@ const routes = [
     }
   },
   {
+    path: '/invoice/:id?',
+    name: 'invoice',
+    component: () => import('../views/Invoice.vue'),
+    meta: {
+      title: 'Order Invoice - Ahmad Clothes House',
+      description: 'Official Tax Invoice and Order Receipt from Ahmad Clothes House Atelier.',
+      robots: 'noindex, nofollow'
+    }
+  },
+  {
     path: '/track-order',
     name: 'track-order',
     component: () => import('../views/TrackOrder.vue'),
