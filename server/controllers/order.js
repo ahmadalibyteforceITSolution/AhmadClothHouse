@@ -1,3 +1,115 @@
+
+// Helper to build luxury HTML email with product images and details
+function buildOrderEmailHtml(order, shipping, customerEmail) {
+  const BASE_URL = 'https://ahmad-cloths.vercel.app';
+  const cleanPhone = (shipping.phone || '').replace(/[^0-9]/g, '');
+
+  const itemsRows = (order.items && order.items.length)
+    ? order.items.map((item, idx) => {
+        let imgUrl = item.image || item.variant?.image || '';
+        if (imgUrl && !imgUrl.startsWith('http')) {
+          imgUrl = BASE_URL + (imgUrl.startsWith('/') ? '' : '/') + imgUrl;
+        }
+        const itemTotal = ((item.price || 0) * (item.quantity || 1)).toLocaleString();
+        return `
+          <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 12px 10px; width: 75px; vertical-align: top;">
+              ${imgUrl ? `<img src="${imgUrl}" alt="${item.name || 'Product'}" width="70" height="90" style="width: 70px; height: 90px; object-fit: cover; border-radius: 6px; border: 1px solid #d4af37; display: block;" />` : `<div style="width: 70px; height: 90px; background: #f0f0f0; border-radius: 6px; text-align: center; line-height: 90px; font-size: 10px; color: #888;">No Photo</div>`}
+            </td>
+            <td style="padding: 12px 10px; vertical-align: top;">
+              <div style="font-size: 14px; font-weight: bold; color: #111; margin-bottom: 3px;">${item.name || 'Pakistani Designer Suit'}</div>
+              ${item.variant?.size || item.variant?.color ? `<div style="font-size: 11px; color: #777; margin-bottom: 3px;">Size: ${item.variant?.size || 'Standard'} | Color: ${item.variant?.color || 'Original'}</div>` : ''}
+              <div style="font-size: 12px; color: #555;">Quantity: <strong style="color: #111;">${item.quantity || 1}</strong></div>
+              <div style="font-size: 13px; font-weight: bold; color: #b8860b; margin-top: 4px;">Rs. ${Number(item.price || 0).toLocaleString()} <span style="font-size: 11px; color: #888; font-weight: normal;">each</span></div>
+            </td>
+            <td style="padding: 12px 10px; vertical-align: top; text-align: right; font-weight: bold; font-size: 14px; color: #111;">
+              Rs. ${itemTotal}
+            </td>
+          </tr>
+        `;
+      }).join('')
+    : '<tr><td colspan="3" style="padding: 12px; text-align: center; color: #888;">No items specified</td></tr>';
+
+  return `
+    <div style="font-family: 'Playfair Display', Georgia, serif; max-width: 650px; margin: 0 auto; padding: 35px 25px; background: #fafaf8; border: 1px solid #d4af3744; border-radius: 8px;">
+      <div style="text-align: center; margin-bottom: 25px;">
+        <h1 style="color: #111; font-size: 26px; font-style: italic; margin: 0; letter-spacing: 2px;">Ahmad Clothes House</h1>
+        <p style="color: #b8860b; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; margin: 5px 0 0 0;">Haute Couture & Atelier • Lahore</p>
+        <div style="height: 1px; background: #d4af3788; width: 80px; margin: 15px auto;"></div>
+        <div style="display: inline-block; background: #111; color: #d4af37; font-size: 11px; font-weight: bold; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px;">
+          🚀 New Order Received
+        </div>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <table style="width: 100%; font-size: 13px;">
+          <tr>
+            <td style="color: #666; padding: 4px 0;">Order Tracking ID:</td>
+            <td style="font-weight: bold; font-family: monospace; text-align: right; color: #111;">#${order._id}</td>
+          </tr>
+          <tr>
+            <td style="color: #666; padding: 4px 0;">Subtotal:</td>
+            <td style="text-align: right; color: #111;">Rs. ${(order.subtotal || 0).toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td style="color: #666; padding: 4px 0;">Delivery Charges:</td>
+            <td style="text-align: right; color: #111;">Rs. ${(order.deliveryCharge || 0).toLocaleString()}</td>
+          </tr>
+          <tr style="border-top: 1px solid #eee;">
+            <td style="color: #111; font-weight: bold; padding: 10px 0 4px 0; font-size: 15px;">TOTAL PAYABLE:</td>
+            <td style="font-weight: bold; font-size: 17px; color: #b8860b; text-align: right; padding: 10px 0 4px 0;">Rs. ${(order.totalAmount || 0).toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td style="color: #666; padding: 4px 0;">Payment Method:</td>
+            <td style="text-align: right; font-weight: bold; text-transform: uppercase; color: #059669;">${(order.paymentMethod || 'COD').toUpperCase()} ${order.transactionId ? `(TID: ${order.transactionId})` : ''}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <h3 style="margin: 0 0 12px 0; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #b8860b;">Customer & Delivery Details</h3>
+        <table style="width: 100%; font-size: 13px;">
+          <tr>
+            <td style="color: #666; width: 100px; padding: 4px 0;">Name:</td>
+            <td style="font-weight: bold; color: #111;">${shipping.fullName || order.customerName || 'N/A'}</td>
+          </tr>
+          <tr>
+            <td style="color: #666; padding: 4px 0;">Phone:</td>
+            <td><a href="tel:${shipping.phone}" style="color: #111; text-decoration: none; font-weight: bold;">${shipping.phone || 'N/A'}</a> &nbsp; ${cleanPhone ? `<a href="https://wa.me/${cleanPhone}" style="color: #25D366; text-decoration: none; font-weight: bold;">[WhatsApp]</a>` : ''}</td>
+          </tr>
+          <tr>
+            <td style="color: #666; padding: 4px 0;">Email:</td>
+            <td><a href="mailto:${customerEmail || ''}" style="color: #111; text-decoration: none;">${customerEmail || 'N/A'}</a></td>
+          </tr>
+          <tr>
+            <td style="color: #666; padding: 4px 0; vertical-align: top;">Address:</td>
+            <td style="color: #111; line-height: 1.4;">${shipping.address || 'N/A'}, ${shipping.city || 'N/A'}, ${shipping.country || 'Pakistan'}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <h3 style="margin: 0 0 12px 0; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #b8860b;">Ordered Products (${(order.items || []).length})</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+          ${itemsRows}
+        </table>
+      </div>
+
+      ${cleanPhone ? `
+      <div style="text-align: center; margin: 25px 0 15px 0;">
+        <a href="https://wa.me/${cleanPhone}?text=${encodeURIComponent('Assalam-o-Alaikum ' + (shipping.fullName || '') + ', thank you for your order with Ahmad Clothes House! We have received your order #' + order._id + ' for Rs. ' + (order.totalAmount || 0).toLocaleString() + ' and will dispatch it shortly.')}" style="display: inline-block; background: #25D366; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; box-shadow: 0 4px 12px rgba(37,211,102,0.3);">
+          💬 Chat with Customer on WhatsApp
+        </a>
+      </div>` : ''}
+
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 11px; color: #888; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <p style="margin: 0;">WhatsApp Concierge: +92 341 6887454 | Helpline: 0324 4902607</p>
+        <p style="margin: 6px 0 0 0; letter-spacing: 1px; font-size: 9px; text-transform: uppercase;">© 2026 Ahmad Clothes House. All Rights Reserved.</p>
+      </div>
+    </div>
+  `;
+}
+
 const Order = require('../models/Order');
 const sendEmail = require('../utils/sendEmail');
 
@@ -84,10 +196,12 @@ exports.notifyOrder = async (req, res) => {
       ${order.items.map(i => `- ${i.name} (x${i.quantity})`).join('\n      ')}
     `;
 
+    const orderHtml = buildOrderEmailHtml(order, shipping, order.customerEmail);
     await sendEmail({
       email: adminEmail,
-      subject: `[NEW ORDER] ${shipping.fullName} - Rs. ${Number(order.totalAmount).toLocaleString()}`,
-      message: adminMessage
+      subject: `[NEW ORDER] #${order._id || 'N/A'} - ${shipping.fullName} (Rs. ${Number(order.totalAmount || 0).toLocaleString()})`,
+      message: adminMessage,
+      html: orderHtml
     });
 
     // 2. Send confirmation to CUSTOMER
@@ -170,10 +284,12 @@ exports.createOrder = async (req, res) => {
         Please check your Admin Dashboard to prepare and dispatch this order.
       `;
 
+      const orderHtml = buildOrderEmailHtml(order, shipping, req.body.customerEmail || order.customerEmail);
       await sendEmail({
         email: adminEmail,
         subject: `[NEW ORDER] #${order._id} - ${shipping.fullName} (Rs. ${(order.totalAmount || 0).toLocaleString()})`,
-        message: emailMessage
+        message: emailMessage,
+        html: orderHtml
       });
       
       console.log('AHMADCLOTHS: Admin notified via email for order %s', order._id);

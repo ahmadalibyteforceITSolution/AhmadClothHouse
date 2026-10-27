@@ -433,9 +433,10 @@ const processPayment = async () => {
       items: cart.items.map(item => ({
         product: item.id || item._id,
         name: item.name,
+        image: item.cartImage || item.image || item.selectedVariant?.image || item.variant?.image || '',
         price: item.price,
         quantity: item.quantity,
-        variant: item.variant || {}
+        variant: item.variant || item.selectedVariant || {}
       })),
       subtotal: cart.totalPrice,
       deliveryCharge: deliveryCharge.value,
