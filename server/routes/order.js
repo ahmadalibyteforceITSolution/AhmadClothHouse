@@ -1,6 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { getOrders, getOrderById, getUserOrders, createOrder, updateOrderStatus, deleteOrder, testEmail, notifyOrder } = require('../controllers/order');
+const { 
+  getOrders, 
+  getOrderById, 
+  getUserOrders, 
+  createOrder, 
+  updateOrderStatus, 
+  deleteOrder, 
+  testEmail, 
+  notifyOrder,
+  downloadInvoicePdf 
+} = require('../controllers/order');
 const { protect, authorize } = require('../middleware/auth');
 
 // Admin routes
@@ -13,6 +23,9 @@ router.delete('/:id', protect, authorize('admin'), deleteOrder);
 router.get('/user/:userId', getUserOrders);
 router.post('/notify', notifyOrder);
 router.post('/', createOrder);
+
+// Direct PDF Invoice Download (No website redirect, directly saves PDF to user system)
+router.get('/:id/download-invoice', downloadInvoicePdf);
 
 // Public Tracking
 router.get('/:id', getOrderById);

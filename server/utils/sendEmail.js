@@ -5,7 +5,7 @@ const { Resend } = require('resend');
  * Send an email notification with dual support:
  * 1. Gmail SMTP (Nodemailer) - direct to and from Gmail (ahmadalihafeez26@gmail.com)
  * 2. Resend API (HTTP) - fallback when RESEND_API_KEY is configured
- * @param {Object} options - { email, subject, message, html }
+ * @param {Object} options - { email, subject, message, html, attachments }
  */
 const sendEmail = async (options) => {
   const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL || 'ahmadalihafeez26@gmail.com';
@@ -45,13 +45,20 @@ const sendEmail = async (options) => {
         tls: { rejectUnauthorized: false }
       });
 
-      const info = await transporter.sendMail({
+      const mailOptions = {
         from: `"Ahmad Clothes House" <${adminEmail}>`,
         to: options.email,
         subject: options.subject,
         text: options.message,
         html: htmlContent
-      });
+      };
+
+      // Direct file attachment support (e.g. PDF Invoice)
+      if (options.attachments && options.attachments.length) {
+        mailOptions.attachments = options.attachments;
+      }
+
+      const info = await transporter.sendMail(mailOptions);
 
       console.log('AHMADCLOTHS MAIL SUCCESS (Gmail SMTP): %s', info.messageId);
       return info;
@@ -66,13 +73,22 @@ const sendEmail = async (options) => {
     try {
       console.log('AHMADCLOTHS MAIL: Sending via Resend API to %s', options.email);
       const resend = new Resend(resendKey);
-      const { data, error } = await resend.emails.send({
+      const emailPayload = {
         from: 'AhmadClothesHouse <onboarding@resend.dev>',
         to: [options.email],
         subject: options.subject,
         html: htmlContent,
         text: options.message,
-      });
+      };
+
+      if (options.attachments && options.attachments.length) {
+        emailPayload.attachments = options.attachments.map(att => ({
+          filename: att.filename,
+          content: Buffer.isBuffer(att.content) ? att.content : Buffer.from(att.content)
+        }));
+      }
+
+      const { data, error } = await resend.emails.send(emailPayload);
 
       if (error) {
         console.error('AHMADCLOTHS RESEND API ERROR:', error.message);

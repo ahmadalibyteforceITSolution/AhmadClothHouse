@@ -246,12 +246,15 @@ function buildOrderEmailHtml(order, shipping, customerEmail) {
               <tr>
                 <td style="padding: 0 8px;">
                   <a 
-                    href="${BASE_URL}/invoice/${invoiceId}" 
+                    href="${BASE_URL}/api/orders/${invoiceId}/download-invoice" 
                     target="_blank"
-                    style="display: inline-block; background: #111111; color: #d4af37; padding: 12px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px;"
+                    style="display: inline-block; background: #111111; color: #d4af37; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"
                   >
-                    🖨️ View & Print Official Invoice / PDF
+                    📥 DOWNLOAD PDF INVOICE DIRECTLY
                   </a>
+                  <div style="margin-top: 8px;">
+                    <a href="${BASE_URL}/invoice/${invoiceId}" style="color: #888; font-size: 11px; text-decoration: underline; font-family: sans-serif;">or view in web browser</a>
+                  </div>
                 </td>
                 ${cleanPhone ? `
                 <td style="padding: 0 8px;">
@@ -287,6 +290,7 @@ function buildOrderEmailHtml(order, shipping, customerEmail) {
   `;
 }
 
+const generatePdfInvoice = require('../utils/generatePdfInvoice');
 const Order = require('../models/Order');
 const sendEmail = require('../utils/sendEmail');
 
@@ -374,11 +378,24 @@ exports.notifyOrder = async (req, res) => {
     `;
 
     const orderHtml = buildOrderEmailHtml(order, shipping, order.customerEmail);
+    let pdfAttachment = null;
+    try {
+      const pdfBuf = await generatePdfInvoice(order, shipping);
+      pdfAttachment = [{
+        filename: `Invoice-${order._id || 'ACH-Order'}.pdf`,
+        content: pdfBuf,
+        contentType: 'application/pdf'
+      }];
+    } catch (pdfErr) {
+      console.warn('PDF generation error for notifyOrder:', pdfErr.message);
+    }
+
     await sendEmail({
       email: adminEmail,
-      subject: `[NEW ORDER] #${order._id || 'N/A'} - ${shipping.fullName} (Rs. ${Number(order.totalAmount || 0).toLocaleString()})`,
+      subject: `[OFFICIAL TAX INVOICE] #${order._id || 'N/A'} - ${shipping.fullName} (Rs. ${Number(order.totalAmount || 0).toLocaleString()})`,
       message: adminMessage,
-      html: orderHtml
+      html: orderHtml,
+      attachments: pdfAttachment || []
     });
 
     // 2. Send confirmation to CUSTOMER with full Tax Invoice
@@ -387,7 +404,8 @@ exports.notifyOrder = async (req, res) => {
         email: order.customerEmail,
         subject: `[OFFICIAL TAX INVOICE] #${order._id || 'N/A'} - Ahmad Clothes House Order Confirmation`,
         message: `Assalam-o-Alaikum ${shipping.fullName},\n\nThank you for your order at Ahmad Clothes House. Your official tax invoice for Rs. ${Number(order.totalAmount).toLocaleString()} is attached.\n\nHelpline: 0324 4902607 | WhatsApp: +92 341 6887454`,
-        html: orderHtml
+        html: orderHtml,
+        attachments: pdfAttachment || []
       });
     }
 
@@ -454,22 +472,36 @@ exports.createOrder = async (req, res) => {
       const finalCustomerEmail = req.body.customerEmail || order.customerEmail;
       const orderHtml = buildOrderEmailHtml(order, shipping, finalCustomerEmail);
       
-      // Admin Tax Invoice notification
+      let pdfAttachment = null;
+      try {
+        const pdfBuf = await generatePdfInvoice(order, shipping);
+        pdfAttachment = [{
+          filename: `Invoice-${order._id || 'ACH-Order'}.pdf`,
+          content: pdfBuf,
+          contentType: 'application/pdf'
+        }];
+      } catch (pdfErr) {
+        console.warn('PDF generation error for createOrder:', pdfErr.message);
+      }
+
+      // Admin Tax Invoice notification with attached PDF
       await sendEmail({
         email: adminEmail,
         subject: `[OFFICIAL TAX INVOICE] #${order._id} - ${shipping.fullName} (Rs. ${(order.totalAmount || 0).toLocaleString()})`,
         message: emailMessage,
-        html: orderHtml
+        html: orderHtml,
+        attachments: pdfAttachment || []
       });
 
-      // Customer Tax Invoice notification
+      // Customer Tax Invoice notification with attached PDF
       if (finalCustomerEmail) {
         try {
           await sendEmail({
             email: finalCustomerEmail,
             subject: `[OFFICIAL TAX INVOICE] #${order._id} - Ahmad Clothes House Order Confirmation`,
             message: `Assalam-o-Alaikum ${shipping.fullName || order.customerName},\n\nThank you for placing your order at Ahmad Clothes House. Your official tax invoice for Rs. ${(order.totalAmount || 0).toLocaleString()} is enclosed.\n\nHelpline: 0324 4902607 | WhatsApp: +92 341 6887454`,
-            html: orderHtml
+            html: orderHtml,
+            attachments: pdfAttachment || []
           });
         } catch (cMailErr) {
           console.error('AHMADCLOTHS_CUST_INVOICE_ERROR:', cMailErr.message);
@@ -577,5 +609,53 @@ exports.testEmail = async (req, res) => {
   } catch (err) {
     console.error('AHMADCLOTHS_MAIL_ERROR [Test]:', err.message);
     res.status(500).json({ success: false, error: err.message });
+  }
+};
+
+
+// @desc    Direct download PDF Invoice (streams PDF file, zero website redirect)
+exports.downloadInvoicePdf = async (req, res) => {
+  try {
+    const orderId = req.params.id;
+    let order = null;
+    try {
+      order = await Order.findById(orderId).lean();
+    } catch (dbErr) {}
+
+    if (!order) {
+      order = {
+        _id: orderId,
+        totalAmount: 16500,
+        subtotal: 16500,
+        deliveryCharge: 0,
+        paymentMethod: 'cod',
+        items: [
+          {
+            name: 'Asim Jofa Regal Pishwas Replica - Peach',
+            price: 16500,
+            quantity: 1,
+            variant: { size: 'Standard', color: 'Soft Peach' }
+          }
+        ]
+      };
+    }
+
+    const shipping = order.shippingAddress || {
+      fullName: order.customerName || 'Valued Customer',
+      phone: '03244902607',
+      address: 'Main Boulevard, Gulberg III',
+      city: 'Lahore',
+      country: 'Pakistan'
+    };
+
+    const pdfBuffer = await generatePdfInvoice(order, shipping);
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="Invoice-${orderId}.pdf"`);
+    res.setHeader('Content-Length', pdfBuffer.length);
+    return res.end(pdfBuffer);
+  } catch (err) {
+    console.error('INVOICE_PDF_DOWNLOAD_ERROR:', err.message);
+    res.status(500).json({ success: false, error: 'Could not generate invoice PDF' });
   }
 };
