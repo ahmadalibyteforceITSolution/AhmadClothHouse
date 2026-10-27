@@ -359,13 +359,13 @@ router.beforeEach((to, from, next) => {
 
   if (to.meta.requiresAdmin) {
     if (!token || user?.role !== 'admin') {
-      return next({ name: 'login' })
+      return next({ name: 'login', query: { redirect: to.fullPath } })
     }
   }
 
   if (to.meta.requiresAuth) {
-    if (!token || user?.role === 'admin') {
-      return next({ name: 'login' })
+    if (!token) {
+      return next({ name: 'login', query: { redirect: to.fullPath } })
     }
   }
 
@@ -383,8 +383,9 @@ router.beforeEach((to, from, next) => {
     return next({ path: from.path && from.path !== '/checkout' && from.path !== '/cart' ? from.path : '/' })
   }
 
-  if (to.name === 'login' && token) {
-    return next({ name: 'home' })
+  // If already logged in as admin visiting login, route straight to admin dashboard
+  if (to.name === 'login' && token && user?.role === 'admin') {
+    return next({ name: 'admin-dashboard' })
   }
 
   next()

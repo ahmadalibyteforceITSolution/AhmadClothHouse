@@ -183,8 +183,11 @@ const handleLogin = async () => {
   }
   const success = await auth.login(form)
   if (success) {
-    const redirectPath = route.query.redirect || '/'
-    router.push(redirectPath)
+    if (auth.isAdmin || auth.user?.role === 'admin') {
+      router.push(route.query.redirect || '/admin/dashboard')
+    } else {
+      router.push(route.query.redirect || '/dashboard')
+    }
   }
 }
 
