@@ -124,7 +124,16 @@
                      <span class="text-[8px] font-bold text-stone-400 uppercase tracking-widest">TRACKING NO:</span>
                      <input type="text" :value="t.trackingNumber" @blur="$emit('update-tracking', t.id, $event.target.value)" placeholder="Enter Tracking Code..." class="bg-transparent border-b border-[var(--primary-gold)]/20 text-[10px] font-bold text-[var(--primary-gold)] outline-none w-full placeholder:opacity-30">
                   </div>
-                  <button @click="$emit('select-order', t)" class="ml-auto text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.3em] hover:underline flex items-center gap-2">
+                  <router-link 
+                    :to="`/invoice/${t.id}`" 
+                    target="_blank"
+                    class="ml-auto px-4 py-2 bg-gradient-to-r from-amber-600 to-amber-700 hover:brightness-110 text-white rounded-lg text-[9px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow"
+                  >
+                    <i class="fa-solid fa-file-invoice text-[10px]"></i>
+                    <span>Generate Invoice</span>
+                  </router-link>
+
+                  <button @click="$emit('select-order', t)" class="text-[9px] font-bold text-[var(--primary-gold)] uppercase tracking-[0.3em] hover:underline flex items-center gap-2">
                     <font-awesome-icon icon="fa-solid fa-eye" class="text-[8px]" />
                     View Full Details
                   </button>

@@ -386,14 +386,7 @@
 
         <!-- WhatsApp Confirmation Action -->
         <div class="w-full space-y-2.5 pt-2">
-          <router-link
-            :to="`/invoice/${confirmedOrderId}?download=1`"
-            @click="cart.closeDrawer"
-            class="w-full py-3 rounded-full bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-110 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow hover:shadow-lg transition-all"
-          >
-            <i class="fa-solid fa-file-arrow-down text-sm"></i>
-            <span>Download & Print PDF Invoice</span>
-          </router-link>
+
 
           <a 
             :href="whatsappConfirmationUrl"

@@ -2,13 +2,22 @@
   <div class="min-h-screen bg-[#f7f7f5] dark:bg-[#0c0a09] py-8 sm:py-12 px-4 sm:px-6 font-sans text-stone-900 dark:text-stone-100 print:bg-white print:p-0 print:text-black">
     <!-- Non-print Actions Bar -->
     <div class="max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 print:hidden">
-      <router-link 
-        to="/" 
-        class="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-400 transition"
-      >
-        <i class="fa-solid fa-arrow-left"></i>
-        Back to Store
-      </router-link>
+      <div class="flex items-center gap-3">
+        <router-link 
+          to="/admin/dashboard" 
+          class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 bg-stone-200 dark:bg-stone-800 rounded-lg text-stone-700 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-400 transition"
+        >
+          <i class="fa-solid fa-gauge"></i>
+          Admin Dashboard
+        </router-link>
+        <router-link 
+          to="/" 
+          class="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-400 transition"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          Store
+        </router-link>
+      </div>
 
       <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
         <!-- Direct PDF Download Button -->

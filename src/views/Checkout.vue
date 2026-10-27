@@ -53,15 +53,7 @@
             </a>
           </div>
 
-          <div class="pt-2">
-            <router-link 
-              :to="`/invoice/${orderId}?download=1`" 
-              class="w-full flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-110 text-white text-xs font-bold uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg"
-            >
-              <i class="fa-solid fa-file-arrow-down text-sm"></i>
-              <span>Download & Print PDF Invoice</span>
-            </router-link>
-          </div>
+
 
           <div class="flex flex-col sm:flex-row gap-3 pt-2">
             <router-link to="/dashboard" class="w-full sm:w-auto flex-1 py-3.5 bg-black hover:bg-[#B8860B] dark:bg-white dark:text-black text-white text-xs font-bold uppercase tracking-widest rounded-full transition-all text-center">

@@ -193,7 +193,8 @@ const routes = [
     meta: {
       title: 'Order Invoice - Ahmad Clothes House',
       description: 'Official Tax Invoice and Order Receipt from Ahmad Clothes House Atelier.',
-      robots: 'noindex, nofollow'
+      robots: 'noindex, nofollow',
+      requiresAdmin: true
     }
   },
   {

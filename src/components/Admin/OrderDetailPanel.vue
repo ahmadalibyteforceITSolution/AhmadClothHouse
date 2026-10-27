@@ -18,9 +18,19 @@
           </h3>
           <p class="text-[8px] font-bold text-stone-400 uppercase tracking-[0.3em] mt-2">{{ formattedDate }}</p>
         </div>
-        <div class="flex items-center gap-4">
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Owner / Admin Invoice Generator Button -->
+          <router-link
+            :to="`/invoice/${order.id || order._id}`"
+            target="_blank"
+            class="px-5 py-2.5 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-110 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg flex items-center gap-2 shadow-md hover:shadow-lg transition cursor-pointer"
+          >
+            <i class="fa-solid fa-file-invoice text-xs"></i>
+            <span>Generate Official Invoice</span>
+          </router-link>
+
           <span :class="statusClass"
-            class="px-6 py-3 text-[9px] font-bold uppercase tracking-[0.4em] border rounded-none">
+            class="px-6 py-2.5 text-[9px] font-bold uppercase tracking-[0.4em] border rounded-lg">
             {{ order.status }}
           </span>
           <button @click="$emit('close')"
