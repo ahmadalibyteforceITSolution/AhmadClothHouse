@@ -93,10 +93,10 @@
               </p>
             </div>
             <a 
-              href="mailto:ahmadalihafeez24@gmail.com" 
+              href="mailto:ahmadalihafeez26@gmail.com" 
               class="inline-block text-xs font-semibold text-[#B8860B] dark:text-[#D4AF37] hover:underline"
             >
-              ahmadalihafeez24@gmail.com
+              ahmadalihafeez26@gmail.com
             </a>
           </div>
 

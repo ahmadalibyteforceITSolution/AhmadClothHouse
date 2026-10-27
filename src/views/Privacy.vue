@@ -173,7 +173,7 @@ const privacySections = [
   },
   {
     title: "Contact Our Data Officer",
-    content: "For any inquiries regarding your privacy rights or our data practices, please reach out to our dedicated support team at ahmadalihafeez24@gmail.com. We respond to all data-related requests within 30 days."
+    content: "For any inquiries regarding your privacy rights or our data practices, please reach out to our dedicated support team at ahmadalihafeez26@gmail.com. We respond to all data-related requests within 30 days."
   }
 ]
 

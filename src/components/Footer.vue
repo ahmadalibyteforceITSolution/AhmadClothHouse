@@ -135,7 +135,7 @@
             </p>
             <p>
               <span class="text-stone-500">Email:</span> 
-              <a href="mailto:ahmadalihafeez24@gmail.com" class="text-stone-300 hover:text-white ml-1.5">ahmadalihafeez24@gmail.com</a>
+              <a href="mailto:ahmadalihafeez26@gmail.com" class="text-stone-300 hover:text-white ml-1.5">ahmadalihafeez26@gmail.com</a>
             </p>
           </div>
         </div>

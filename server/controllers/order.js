@@ -52,7 +52,7 @@ exports.notifyOrder = async (req, res) => {
   console.log('AHMADCLOTHS: 📧 ORDER NOTIFICATION INITIATED for %s', req.body?.shippingAddress?.fullName);
   try {
     const order = req.body;
-    const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez26@gmail.com';
     const shipping = order.shippingAddress;
     
     // 1. Send notification to ADMIN
@@ -131,7 +131,7 @@ exports.createOrder = async (req, res) => {
 
     // Send notification email to admin
     try {
-      const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
+      const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez26@gmail.com';
       const shipping = order.shippingAddress;
       
       const itemsList = order.items && order.items.length
@@ -267,7 +267,7 @@ exports.deleteOrder = async (req, res) => {
 // @desc    Test email configuration
 exports.testEmail = async (req, res) => {
   try {
-    const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez24@gmail.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'ahmadalihafeez26@gmail.com';
     await sendEmail({
       email: adminEmail,
       subject: 'AhmadClothesHouse - SMTP Test Connection',

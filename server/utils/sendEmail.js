@@ -3,13 +3,13 @@ const { Resend } = require('resend');
 
 /**
  * Send an email notification with dual support:
- * 1. Gmail SMTP (Nodemailer) - direct to and from Gmail (ahmadalihafeez24@gmail.com)
+ * 1. Gmail SMTP (Nodemailer) - direct to and from Gmail (ahmadalihafeez26@gmail.com)
  * 2. Resend API (HTTP) - fallback when RESEND_API_KEY is configured
  * @param {Object} options - { email, subject, message }
  */
 const sendEmail = async (options) => {
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL || 'ahmadalihafeez24@gmail.com';
-  const smtpPass = process.env.SMTP_PASSWORD || process.env.GMAIL_APP_PASSWORD;
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL || 'ahmadalihafeez26@gmail.com';
+  const smtpPass = process.env.SMTP_PASSWORD || process.env.GMAIL_APP_PASSWORD || 'vybjjzyhjkohwwso';
   const resendKey = process.env.RESEND_API_KEY;
 
   const htmlContent = `
