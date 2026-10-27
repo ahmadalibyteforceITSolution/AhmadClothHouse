@@ -239,37 +239,19 @@ function buildOrderEmailHtml(order, shipping, customerEmail) {
           </td>
         </tr>
 
-        <!-- Action Buttons Bar: Print Invoice & WhatsApp -->
+        ${cleanPhone ? `
+        <!-- WhatsApp Quick Contact (No website redirect) -->
         <tr>
-          <td style="padding: 20px 25px; background: #fafaf8; border-top: 1px solid #eee; text-align: center;">
-            <table align="center" border="0" cellpadding="0" cellspacing="0">
-              <tr>
-                <td style="padding: 0 8px;">
-                  <a 
-                    href="${BASE_URL}/api/orders/${invoiceId}/download-invoice" 
-                    target="_blank"
-                    style="display: inline-block; background: #111111; color: #d4af37; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"
-                  >
-                    📥 DOWNLOAD PDF INVOICE DIRECTLY
-                  </a>
-                  <div style="margin-top: 8px;">
-                    <a href="${BASE_URL}/invoice/${invoiceId}" style="color: #888; font-size: 11px; text-decoration: underline; font-family: sans-serif;">or view in web browser</a>
-                  </div>
-                </td>
-                ${cleanPhone ? `
-                <td style="padding: 0 8px;">
-                  <a 
-                    href="https://wa.me/${cleanPhone}?text=${encodeURIComponent('Assalam-o-Alaikum ' + (shipping.fullName || '') + ', your Ahmad Clothes House order #' + invoiceId + ' for Rs. ' + (order.totalAmount || 0).toLocaleString() + ' has been confirmed.')}" 
-                    target="_blank"
-                    style="display: inline-block; background: #25D366; color: #ffffff; padding: 12px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px;"
-                  >
-                    💬 WhatsApp Customer
-                  </a>
-                </td>` : ''}
-              </tr>
-            </table>
+          <td style="padding: 18px 25px; background: #fafaf8; border-top: 1px solid #eee; text-align: center;">
+            <a 
+              href="https://wa.me/${cleanPhone}?text=${encodeURIComponent('Assalam-o-Alaikum ' + (shipping.fullName || '') + ', thank you for your order with Ahmad Clothes House! We have received your order #' + invoiceId + ' for Rs. ' + (order.totalAmount || 0).toLocaleString() + ' and will dispatch it shortly.')}" 
+              target="_blank"
+              style="display: inline-block; background: #25D366; color: #ffffff; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(37,211,102,0.3);"
+            >
+              💬 Chat with Customer on WhatsApp (${shipping.phone || ''})
+            </a>
           </td>
-        </tr>
+        </tr>` : ''}
 
         <!-- Official Seal & Footer -->
         <tr>

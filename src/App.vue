@@ -335,7 +335,7 @@ const handleScroll = () => {
 }
 
 const showHeaderFooter = computed(() => {
-  const hideOn = ['login', 'signup', 'forgot-password', 'reset-password', 'admin-dashboard', 'dashboard', 'user-dashboard', 'checkout']
+  const hideOn = ['login', 'signup', 'forgot-password', 'reset-password', 'admin-dashboard', 'dashboard', 'user-dashboard', 'checkout', 'invoice']
   return !hideOn.includes(route.name)
 })
 
