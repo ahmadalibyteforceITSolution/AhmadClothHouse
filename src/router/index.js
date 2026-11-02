@@ -8,8 +8,8 @@ const routes = [
     name: 'home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: 'AhmadClothesHouse | Pakistani Designer Suits 2026 | Luxury Lawn & Bridal Couture',
-      description: 'Shop latest 2026 Pakistani luxury lawn, unstitched suits, and premium bridal couture at Ahmad Clothes House. Authentic Maria B & Sana Safinaz designs with global shipping.',
+      title: 'Ahmad Clothes House | Luxury Pakistani Designer Suits & Lawn 2026',
+      description: 'Shop original Pakistani designer suits, unstitched lawn, premium pret, and luxury bridal couture online at Ahmad Clothes House with worldwide delivery.',
       robots: 'index, follow',
       schema: {
         "@context": "https://schema.org",
@@ -408,8 +408,8 @@ router.afterEach((to) => {
   const robotsSetting = to.meta.robots || (isPrivate ? 'noindex, nofollow' : 'index, follow')
 
   // === Title & Description Fallbacks ===
-  const title = to.meta.title || 'AhmadClothesHouse | Premium Pakistani Designer Suits & Couture 2026'
-  const description = to.meta.description || to.meta.desc || 'Discover luxury Pakistani fashion at Ahmad Clothes House. Unstitched suits, luxury pret, and bridal wear shipping to USA, UK, Canada & UAE.'
+  const title = to.meta.title || 'Ahmad Clothes House | Luxury Pakistani Designer Suits & Lawn 2026'
+  const description = to.meta.description || to.meta.desc || 'Shop original Pakistani designer suits, unstitched lawn, premium pret, and luxury bridal couture online at Ahmad Clothes House with worldwide delivery.'
 
   document.title = title
 

@@ -37,8 +37,8 @@
 
             <!-- Main Haute Headline -->
             <h1 class="font-editorial text-[#161412] dark:text-white text-4xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[82px] leading-[1.06] tracking-[-0.02em] font-normal">
-              Elevate Style,<br />
-              <span class="italic font-light text-[#B8860B] dark:text-[#D4AF37] block mt-1">Embrace Story</span>
+              Luxury Pakistani Designer Suits<br />
+              <span class="italic font-light text-[#B8860B] dark:text-[#D4AF37] block mt-1">&amp; Unstitched Lawn</span>
             </h1>
 
             <!-- Editorial Description -->

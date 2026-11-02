@@ -219,6 +219,23 @@
          <p class="text-[9px] text-stone-400 font-black mt-4 uppercase tracking-[0.4em] max-w-xs leading-loose transition-all">Our collection for this specific category is currently being curated or is temporarily unavailable.</p>
          <button @click="resetFilters" class="mt-12 text-[10px] font-black uppercase text-amber-600 tracking-[0.4em] border-b border-amber-500/20 pb-1 hover:border-amber-500 transition-all">Clear All Filters</button>
       </div>
+
+      <!-- Editorial Collection & SEO Description -->
+      <section class="mt-16 sm:mt-24 pt-10 sm:pt-14 border-t border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+        <div class="max-w-4xl">
+          <h2 class="text-xl sm:text-2xl font-editorial font-normal text-neutral-900 dark:text-white tracking-tight mb-4">
+            Luxury Pakistani Designer Suits &amp; Unstitched Collections 2026
+          </h2>
+          <div class="space-y-4 text-xs sm:text-sm leading-relaxed font-light">
+            <p>
+              Welcome to <strong>Ahmad Clothes House</strong>, your premier destination for authentic Pakistani designer wear online. From breathable luxury lawn suits and festive embroidered chiffon to regal bridal couture and ready-to-wear pret, our curated seasonal collections embody timeless Eastern artistry.
+            </p>
+            <p>
+              Every garment in our boutique highlights genuine <strong>hand-embroidered textiles</strong>, opulent embellishments, and artisanal weaves sourced directly from Lahore and Pakistan's premier fashion ateliers. Whether you are searching for premium <strong>unstitched suits</strong> for custom tailoring or regal <strong>Pakistani couture</strong> for special celebrations, we provide express worldwide delivery across the USA, UK, Canada, UAE, and beyond.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>

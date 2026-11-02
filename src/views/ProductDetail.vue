@@ -104,7 +104,7 @@
           <div class="w-full relative bg-neutral-100 dark:bg-neutral-900 rounded-sm overflow-hidden shadow-sm group">
             <img 
               :src="currentDisplayImage" 
-              :alt="product.name" 
+              :alt="'Ahmad Clothes House ' + product.name + ' - Luxury Pakistani Designer Suits & Lawn'" 
               class="w-full h-auto max-h-[780px] object-cover object-top mx-auto transition-transform duration-700 group-hover:scale-105"
             />
             
@@ -123,7 +123,7 @@
               class="w-16 h-20 sm:w-20 sm:h-24 rounded-sm overflow-hidden shrink-0 border-2 transition-all duration-200"
               :class="currentDisplayImage === img ? 'border-black dark:border-white shadow-md scale-95' : 'border-transparent opacity-60 hover:opacity-100 hover:border-neutral-300'"
             >
-              <img :src="img" :alt="product.name" class="w-full h-full object-cover object-top" />
+              <img :src="img" :alt="'Ahmad Clothes House ' + product.name + ' - Luxury Pakistani Lawn detail ' + (idx + 1)" class="w-full h-full object-cover object-top" />
             </button>
           </div>
         </div>
@@ -627,7 +627,8 @@ watch(product, (p) => {
     if (typeof document !== 'undefined') {
       const BASE = 'https://ahmad-cloths.vercel.app'
       const pageUrl = `${BASE}${route.path}`
-      const pageTitle = `${p.name} | Pakistani Designer 2026 | AhmadClothesHouse`
+      const categoryLabel = p.category || 'Luxury Lawn 2026'
+      const pageTitle = `Buy ${p.name} - ${categoryLabel} | Ahmad Clothes House`
       const pageDesc = p.description ? p.description.slice(0, 160) : `Shop ${p.name} from Ahmad Clothes House 2026 Collection.`
       const pageImage = p.image || `${BASE}/og-image.png`
 
