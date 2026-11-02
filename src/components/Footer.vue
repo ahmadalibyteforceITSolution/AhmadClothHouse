@@ -55,7 +55,7 @@
             <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
               <font-awesome-icon :icon="['fab', 'facebook-f']" />
             </a>
-            <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
+            <a href="https://www.youtube.com/@AhmadPremiumClothesFabrics" target="_blank" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">
               <font-awesome-icon :icon="['fab', 'youtube']" />
             </a>
             <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" aria-label="TikTok" class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] text-stone-300 hover:text-black flex items-center justify-center transition-all duration-300 border border-white/10">

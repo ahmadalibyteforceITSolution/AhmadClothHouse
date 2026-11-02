@@ -3,14 +3,14 @@
        GLOBAL LUXURY SOCIAL & CONCIERGE DOCK
   ═══════════════════════════════════════════ -->
   <aside 
-    class="fixed left-0 top-1/2 -translate-y-1/2 z-[999] flex flex-col items-start transition-transform duration-300 select-none drop-shadow-xl"
-    :class="isSocialDockOpen ? 'translate-x-0' : '-translate-x-[calc(100%-12px)]'"
+    class="fixed left-0 top-1/2 -translate-y-1/2 z-[999] transition-transform duration-300 select-none drop-shadow-xl"
+    :class="isSocialDockOpen ? 'translate-x-0' : '-translate-x-full'"
     aria-label="Luxury Concierge &amp; Social Dock"
   >
-    <!-- Toggle tab -->
+    <!-- Toggle tab handle attached to outer edge -->
     <button 
       @click="isSocialDockOpen = !isSocialDockOpen"
-      class="w-10 h-7 bg-[#141414] hover:bg-[#B8860B] text-stone-300 hover:text-white rounded-tr-md flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md border-t border-r border-white/10"
+      class="absolute left-full top-1/2 -translate-y-1/2 w-6 h-12 bg-[#141414] hover:bg-[#B8860B] text-[#D4AF37] hover:text-white rounded-r-lg flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md border-t border-r border-b border-white/10"
       :title="isSocialDockOpen ? 'Collapse Dock' : 'Expand Dock'"
       aria-label="Toggle Social Sidebar"
     >
@@ -102,7 +102,7 @@
       <!-- YouTube Tab -->
       <div class="relative group/yt w-10">
         <a 
-          href="https://www.youtube.com/@ahmadClothesfabrics_aroma" 
+          href="https://www.youtube.com/@AhmadPremiumClothesFabrics" 
           target="_blank" 
           rel="noopener"
           class="w-10 h-10 hover:bg-[#FF0000]/20 text-stone-300 hover:text-[#FF0000] flex items-center justify-center transition-all duration-300 border-t border-white/5"
@@ -160,5 +160,5 @@
 <script setup>
 import { ref } from 'vue'
 
-const isSocialDockOpen = ref(true)
+const isSocialDockOpen = ref(false)
 </script>

@@ -67,7 +67,7 @@
       <!-- ── Add to Cart — Shopify full-width slide-up ── -->
       <div class="card-atc-wrap">
         <button
-          v-if="!auth.isAdmin"
+
           @click.stop="handleAddToCart"
           class="card-atc-btn"
           aria-label="Add to cart"
@@ -76,15 +76,7 @@
           <span>Add to Cart</span>
         </button>
 
-        <button
-          v-if="auth.isAdmin"
-          @click.stop="handleDelete"
-          class="card-atc-btn card-atc-btn--danger"
-          aria-label="Delete product"
-        >
-          <font-awesome-icon icon="fa-solid fa-trash-can" class="text-[11px]" />
-          <span>Delete</span>
-        </button>
+        
       </div>
     </div>
 

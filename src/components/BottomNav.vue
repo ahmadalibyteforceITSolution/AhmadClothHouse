@@ -22,22 +22,17 @@
       <span class="nav-label">Wishlist</span>
     </router-link>
 
-    <router-link :to="auth.isAuthenticated ? '/dashboard' : '/login'" class="nav-item" :class="{ 'active': route.path.includes('dashboard') || route.path === '/login' }">
-      <font-awesome-icon icon="fa-solid fa-user" class="nav-icon" />
-      <span class="nav-label">Account</span>
-    </router-link>
+    
   </nav>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useAuthStore } from '../stores/auth'
 import { useCartStore } from '../stores/cart'
 import { useFavoritesStore } from '../stores/favorites'
 
 const route = useRoute()
-const auth = useAuthStore()
 const cart = useCartStore()
 const favorites = useFavoritesStore()
 

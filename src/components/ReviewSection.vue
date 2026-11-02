@@ -9,7 +9,7 @@
         <h2 class="text-4xl font-light uppercase tracking-tighter text-gray-900 font-playfair italic">Boutique Reviews</h2>
       </div>
       
-      <div v-if="auth.isAuthenticated" @click="showForm = !showForm" 
+      <div @click="showForm = !showForm" 
         class="group flex items-center gap-4 cursor-pointer">
         <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 group-hover:text-[var(--primary-gold)] transition-colors">
           {{ showForm ? 'CLOSE DRAWER' : 'SHARE YOUR EXPERIENCE' }}
@@ -18,17 +18,23 @@
           <font-awesome-icon :icon="showForm ? 'fa-solid fa-xmark' : 'fa-solid fa-pen'" class="text-xs" />
         </div>
       </div>
-      <div v-else class="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400">
-        PLEASE <router-link to="/login" class="text-[var(--primary-gold)] hover:underline">LOGIN</router-link> TO SHARE YOUR EXPERIENCE
-      </div>
     </div>
 
     <!-- Review Submission Form -->
     <transition name="drawer">
-      <div v-if="showForm && auth.isAuthenticated" class="mb-20 bg-[#fafaf8] p-10 md:p-16 border border-[#d4af3722] relative overflow-hidden">
+      <div v-if="showForm" class="mb-20 bg-[#fafaf8] p-10 md:p-16 border border-[#d4af3722] relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-1 bg-[var(--primary-gold)]"></div>
         
         <div class="max-w-2xl">
+          <div class="mb-8">
+            <p class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em] mb-3">YOUR NAME</p>
+            <input 
+              v-model="form.name"
+              type="text"
+              placeholder="e.g. Ayesha Khan"
+              class="w-full bg-transparent border-b border-black/10 py-2.5 focus:outline-none focus:border-[var(--primary-gold)] text-sm font-light leading-relaxed transition-all"
+            />
+          </div>
           <div class="mb-10">
             <p class="text-[9px] font-bold text-stone-400 uppercase tracking-[0.4em] mb-4">RATING (REQUIRED)</p>
             <div class="flex gap-4">
@@ -117,6 +123,7 @@ const showForm = ref(false)
 const isSubmitting = ref(false)
 
 const form = ref({
+  name: '',
   rating: 0,
   comment: ''
 })
@@ -131,13 +138,14 @@ const handleSubmit = async () => {
   isSubmitting.value = true
   const result = await store.submitReview({
     productId: props.productId,
+    userName: form.value.name || 'Verified Customer',
     rating: form.value.rating,
     comment: form.value.comment
   })
 
   if (result.success) {
     showForm.value = false
-    form.value = { rating: 0, comment: '' }
+    form.value = { name: '', rating: 0, comment: '' }
     Swal.fire({
       icon: 'success',
       title: 'SENTIMENT RECORDED',

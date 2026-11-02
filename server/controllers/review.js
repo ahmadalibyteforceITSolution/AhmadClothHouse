@@ -45,8 +45,8 @@ exports.addReview = async (req, res) => {
 
     const review = await Review.create({
       product: productId,
-      user: req.user.id, // Authenticated user
-      userName: req.user.name,
+      user: req.user ? req.user.id : new mongoose.Types.ObjectId(),
+      userName: req.body.userName || (req.user ? req.user.name : 'Verified Customer'),
       rating,
       comment
     });

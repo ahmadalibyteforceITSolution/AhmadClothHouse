@@ -70,15 +70,12 @@
         <!-- RIGHT: Wishlist, User Account, Shopping Bag -->
         <div class="flex items-center gap-1 sm:gap-2.5 lg:gap-3 lg:w-[240px] justify-end shrink-0">
           <!-- Wishlist -->
-          <router-link to="/dashboard" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors relative" aria-label="Wishlist">
+          <router-link to="/favorites" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors relative" aria-label="Wishlist">
             <font-awesome-icon icon="fa-regular fa-heart" class="text-sm sm:text-base" />
             <span v-if="favorites.totalFavorites > 0" class="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 bg-[#B8860B] text-white text-[8px] sm:text-[9px] w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center font-bold">{{ favorites.totalFavorites }}</span>
           </router-link>
 
-          <!-- User Account (Desktop & Tablet) -->
-          <router-link :to="auth.isAuthenticated ? (auth.isAdmin ? '/admin/dashboard' : '/dashboard') : '/login'" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full hidden xs:flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-stone-700 dark:text-stone-200 transition-colors" aria-label="Account">
-            <font-awesome-icon icon="fa-regular fa-user" class="text-sm sm:text-base" />
-          </router-link>
+          
 
           <!-- Shopping Bag (Desktop Pill) -->
           <button @click="cart.openDrawer()" class="hidden sm:flex items-center gap-2 pl-3 pr-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#B8860B] dark:bg-white dark:hover:bg-[#B8860B] text-white dark:text-black dark:hover:text-white transition-all duration-300 shadow-sm cursor-pointer" aria-label="Cart">
@@ -440,7 +437,7 @@
               <a href="https://www.facebook.com/profile.php?id=61573629329844" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-[#1877F2] transition-all duration-300 shadow-sm">
                 <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-sm" />
               </a>
-              <a href="https://www.youtube.com/@ahmadClothesfabrics_aroma" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-red-600 transition-all duration-300 shadow-sm">
+              <a href="https://www.youtube.com/@AhmadPremiumClothesFabrics" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-red-600 transition-all duration-300 shadow-sm">
                 <font-awesome-icon :icon="['fab', 'youtube']" class="text-sm" />
               </a>
               <a href="https://www.tiktok.com/@theahmadfabrices_aroma" target="_blank" rel="noopener" aria-label="TikTok" class="w-9 h-9 rounded-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-white hover:bg-black transition-all duration-300 shadow-sm">
@@ -448,30 +445,7 @@
               </a>
             </div>
 
-            <div v-if="auth.isAuthenticated" class="space-y-3">
-              <div class="flex items-center gap-3 p-3 rounded-xl bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
-                <div class="avatar bg-amber-500 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-xs">{{ auth.user?.name?.substring(0, 2).toUpperCase() || 'AH' }}</div>
-                <div>
-                  <p class="text-[9px] text-stone-500 uppercase tracking-widest font-bold">Authenticated</p>
-                  <p class="text-xs font-semibold text-stone-900 dark:text-white">{{ auth.user?.name }}</p>
-                </div>
-              </div>
-              <div class="grid grid-cols-2 gap-2">
-                <router-link :to="auth.isAdmin ? '/admin/dashboard' : '/dashboard'" @click="isMenuOpen = false"
-                  class="mobile-action-btn bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-center py-2.5 rounded font-bold text-xs">
-                  {{ auth.isAdmin ? 'Admin' : 'Dashboard' }}
-                </router-link>
-                <button @click="handleLogout" class="mobile-action-btn border border-rose-500/30 text-rose-600 dark:text-rose-400 py-2.5 rounded font-bold text-xs">
-                  Sign Out
-                </button>
-              </div>
-            </div>
-            <div v-else>
-              <router-link to="/login" @click="isMenuOpen = false"
-                class="block text-center py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all">
-                Enter the House
-              </router-link>
-            </div>
+            
           </div>
         </div>
       </div>
